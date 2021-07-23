@@ -41,7 +41,7 @@ title: Your awesome title
 lang: en
 description: Write an awesome description for your new site here
 
-theme: jekyll-rtd-theme
+# theme: jekyll-rtd-theme
 remote_theme: "rundocs/jekyll-rtd-theme"
 # plugins:
 #   - jekyll-default-layout
