@@ -39,6 +39,7 @@
 source "https://rubygems.org" # gems.ruby-china.com
 
 gem "jekyll-rtd-theme"
+gem 'jekyll-readme-index', '~> 0.3.0'
 
 gem "github-pages", group: :jekyll_plugins
 

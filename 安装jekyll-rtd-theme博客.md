@@ -67,3 +67,40 @@ sort: 1 # follow a certain sequence of letters or numbers
 ---
 ```
 
+## 三.语法
+**思维导图**
+```mermaid
+graph TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+```
+ **笔记**
+```note
+这是笔记
+
+支持 Markdown, 文本可以是**粗体**, _斜体, or ~~删除线~~. [链接](https://github.com) 是蓝色的,且没有下划线
+
+`inline code`
+
+[`inline code inside link`](#)
+```
+**提示**
+```tip
+它比面包盒还大..
+```
+**警告**
+```warning
+强烈的散文可能会引起极度的脑力消耗。强烈建议读者酌情决定.
+```
+**危险**
+```danger
+疯狂的科学家在工作！
+```

@@ -37,7 +37,7 @@
 #   - jekyll-include-cache
 
 
-title: Your awesome title
+title: Hmily的笔记
 lang: en
 description: Write an awesome description for your new site here
 
@@ -46,14 +46,18 @@ remote_theme: "rundocs/jekyll-rtd-theme"
 
 readme_index:
   with_frontmatter: true
-# plugins:
+plugins:
+  - jekyll-readme-index
 #   - jekyll-default-layout
-#   - jekyll-readme-index
 #   - jekyll-github-metadata
 #   - jekyll-titles-from-headings
 #   - jemoji
 #   - jekyll-avatar
 #   - jekyll-mentions
+# readme_index:
+#   enabled:          true
+#   remove_originals: false
+#   with_frontmatter: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
