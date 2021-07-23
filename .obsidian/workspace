@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "test_long/README.md",
+            "file": "index.md",
             "mode": "source"
           }
         },
@@ -21,8 +21,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "test_long/README.md",
-            "mode": "source"
+            "file": "index.md",
+            "mode": "preview"
           }
         },
         "group": "1ed19db1f2f92bb0"
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test_long/README.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,15 +101,15 @@
   },
   "active": "45f14f708af3c807",
   "lastOpenFiles": [
-    "test_long/README.md",
-    "64位Call的参数.md",
+    "index.md",
+    "README.md",
+    "test_long/sublimetext常见问题.md",
     "test_long/folder1/folder2/README.md",
     "test_long/folder1/README.md",
-    "test_long/folder1/folder2/folder3/README.md",
-    "test_long/sublimetext常见问题.md",
-    "安装jekyll-rtd-theme博客.md",
-    "test_long/folder1/未命名.md",
-    "Path2/README.md",
-    "Path2/sublimetext常见问题的副本2.md"
+    "test_long/README.md",
+    "Path2/sublimetext常见问题的副本2.md",
+    "Path2/sublimetext常见问题的副本.md",
+    "Path2/sublimetext常见问题.md",
+    "GitHub/安装jekyll-rtd-theme博客.md"
   ]
 }

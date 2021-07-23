@@ -1,2 +1,2 @@
-README这个是必须的吗?
-第一层
+这个我的学习博客.
+{% include list.liquid %}
