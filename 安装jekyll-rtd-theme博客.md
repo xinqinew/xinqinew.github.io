@@ -49,3 +49,21 @@ remote_theme: rundocs/jekyll-rtd-theme
 ```
 
 2.  删除任何其他`theme`或`remote_theme`条目
+
+## 二.设置侧边栏(子目录)
+1. 在根目录新建子目录
+2. 子目录中必须有一个`README.md`
+
+**排序**
+1. _config.yml中添加以下内容
+```bash
+readme_index:
+  with_frontmatter: true
+```
+2. 在需要排序的文件中添加 格式头
+```
+---
+sort: 1 # follow a certain sequence of letters or numbers
+---
+```
+

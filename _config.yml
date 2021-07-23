@@ -43,6 +43,9 @@ description: Write an awesome description for your new site here
 
 # theme: jekyll-rtd-theme
 remote_theme: "rundocs/jekyll-rtd-theme"
+
+readme_index:
+  with_frontmatter: true
 # plugins:
 #   - jekyll-default-layout
 #   - jekyll-readme-index
@@ -51,7 +54,7 @@ remote_theme: "rundocs/jekyll-rtd-theme"
 #   - jemoji
 #   - jekyll-avatar
 #   - jekyll-mentions
-  
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

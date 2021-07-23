@@ -1,7 +1,7 @@
 ---
-sort: 2 # follow a certain sequence of letters or numbers
+sort: 3 # follow a certain sequence of letters or numbers
 ---
-# sublimetext常见问题2
+# sublimetext常见问题3
 
 [下载安装](https://www.sublimetext.com/)  
 [汉化](https://github.com/zam1024t/LocalizedMenu#submit-a-language)  

@@ -7,8 +7,11 @@
         "id": "45f14f708af3c807",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "安装jekyll-rtd-theme博客.md",
+            "mode": "source"
+          }
         },
         "group": "1ed19db1f2f92bb0"
       },
@@ -16,8 +19,11 @@
         "id": "ab68aa21df7c7298",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "安装jekyll-rtd-theme博客.md",
+            "mode": "preview"
+          }
         },
         "group": "1ed19db1f2f92bb0"
       }
@@ -75,6 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "安装jekyll-rtd-theme博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,15 +101,15 @@
   },
   "active": "45f14f708af3c807",
   "lastOpenFiles": [
+    "安装jekyll-rtd-theme博客.md",
+    "Markdown语法.md",
+    "Path2/sublimetext常见问题.md",
+    "Path2/sublimetext常见问题的副本.md",
+    "Path2/sublimetext常见问题的副本2.md",
+    "Path2/README.md",
+    "win10常见问题.md",
     "category1/README.md",
     "未命名.md",
-    "安装jekyll-rtd-theme博客.md",
-    "模块及进程相关代码.md",
-    "64位Call的参数.md",
-    "博客搭建记录.md",
-    "不错的博客.md",
-    "常用API函数.md",
-    "多字节字符串 转UTF-8字符串.md",
-    "WOW部分功能代码.md"
+    "模块及进程相关代码.md"
   ]
 }
