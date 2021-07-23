@@ -7,6 +7,7 @@ LRESULT SendMessage(HWND hWnd，UINT Msg，WPARAM wParam，LPARAM IParam);
 其中Msg为WM_LBUTTONDOWN，WM_LBUTTONUP，表示对鼠标的软件模拟操作(虽然兼容性和安全性不如硬件模拟的mouse_event，但不改变移动鼠标指针)
 
 故一般写作SendMessage(hwnd, WM_LBUTTONUP/WM_LBUTTONDOWN, 0, Y坐标<<16+X);
+
 ***
 ## DLL注入
 ```c
@@ -28,6 +29,7 @@ FARPROC GetProcAddress(HMODULE hModule, LPCSTR);
 HANDLE CreateRemoteThread(HANDLE, LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD);
 ```
 创建一个在其它进程地址空间中运行的线程 
+
 ***
 ## DLL劫持
 
@@ -71,3 +73,4 @@ int CombineRgn(CRgn pRgn1,CRgn pRgn2,int nCombineMode );
 BOOL FillRgn(CRgn pRgn,CBrush pBrush );
 ```
 填充形状
+
