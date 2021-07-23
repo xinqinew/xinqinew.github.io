@@ -67,7 +67,15 @@ sort: 1 # follow a certain sequence of letters or numbers
 ---
 ```
 
-## 三.语法
+## 三.在README文件中列出文件
+在README文件中添加
+{% include list.liquid %}
+
+
+如果要列出子目录的所有文件则添加
+{% include list.liquid all=true %}
+
+## 四.语法
 **思维导图**
 ```mermaid
 graph TB
