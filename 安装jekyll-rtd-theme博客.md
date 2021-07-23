@@ -1,7 +1,51 @@
+# 安装jekyll-rtd-theme博客
 <img src="http://themes.jekyllrc.org/thumbnails/jekyll-rtd-theme.png" width="300">  
 
 [jekyll-rtd-theme](http://themes.jekyllrc.org/jekyll-rtd-theme/)
 
-在 _config.yml 文件中,添加以下内容  
-`remote_theme: "rundocs/jekyll-rtd-theme"`  
-并将`theme: minima`删除或注释掉
+[安装配置及写作](https://rundocs.io/)
+
+[测试文档](https://jekyll-rtd-theme.rundocs.io/)
+
+***
+## 安装时终端出现问题的解决办法
+1. 清空Gemfile文件内容
+2. 终端运行 ` bundle update`
+3. Gemfile文件添加以下内容
+```bash
+source "https://rubygems.org" # gems.ruby-china.com
+gem "jekyll-rtd-theme"
+gem "github-pages", group: :jekyll_plugins
+```
+4. 终端再次运行 ` bundle update`
+
+***
+## 一.安装
+### a.基于本地主题
+1.清空Gemfile文件内容,并添加以下内容
+
+```bash
+source "https://rubygems.org" # gems.ruby-china.com
+
+gem "jekyll-rtd-theme"
+
+gem "github-pages", group: :jekyll_plugins
+```
+
+2.将以下内容添加到您的网站 `_config.yml`
+
+```yml
+title: Your awesome title
+lang: en
+description: Write an awesome description for your new site here
+
+theme: jekyll-rtd-theme
+```
+### b.基于远程主题
+1.  将以下内容添加到您的 github 存储库 `_config.yml`
+
+```
+remote_theme: rundocs/jekyll-rtd-theme
+```
+
+2.  删除任何其他`theme`或`remote_theme`条目

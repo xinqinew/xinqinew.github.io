@@ -30,7 +30,28 @@
 # # Performance-booster for watching directories on Windows
 # gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-source "https://rubygems.org"
+# source "https://rubygems.org"
+
+# gem "github-pages", group: :jekyll_plugins
+# gem "jekyll-include-cache", group: :jekyll_plugins
+
+
+source "https://rubygems.org" # gems.ruby-china.com
+
+gem "jekyll-rtd-theme"
 
 gem "github-pages", group: :jekyll_plugins
-gem "jekyll-include-cache", group: :jekyll_plugins
+
+# source "https://rubygems.org"
+
+# gem "jekyll-rtd-theme"
+
+# group :jekyll_plugins do
+#   gem "jekyll-default-layout"
+#   gem "jekyll-readme-index"
+#   gem "jekyll-github-metadata"
+#   gem "jekyll-titles-from-headings"
+#   gem "jemoji"
+#   gem "jekyll-avatar"
+#   gem "jekyll-mentions"
+# end
