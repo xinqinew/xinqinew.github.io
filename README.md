@@ -1,2 +1,2 @@
 这个我的学习博客.
-{% include list.liquid %}
+{% include list.liquid all=true %}

@@ -5,3 +5,4 @@
 
 之所以建博客,是因为它支持MARKDOWN,适合做笔记,而且方便搜索.
 
+{% include list.liquid all=true %}
