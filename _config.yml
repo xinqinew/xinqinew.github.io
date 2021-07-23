@@ -38,18 +38,19 @@
 
 
 title: Hmily的笔记
+# lang: zh-Hans
 lang: en
 description: Write an awesome description for your new site here
 
-# theme: jekyll-rtd-theme
-remote_theme: "rundocs/jekyll-rtd-theme"
+theme: jekyll-rtd-theme
+# remote_theme: "rundocs/jekyll-rtd-theme"
 
 readme_index:
   with_frontmatter: true
 plugins:
   - jekyll-readme-index
+  - jekyll-github-metadata
 #   - jekyll-default-layout
-#   - jekyll-github-metadata
 #   - jekyll-titles-from-headings
 #   - jemoji
 #   - jekyll-avatar
@@ -58,6 +59,7 @@ plugins:
 #   enabled:          true
 #   remove_originals: false
 #   with_frontmatter: false
+# url: https://xinqinew.github.io
 
 # Exclude from processing.
 # The following items will not be processed, by default.

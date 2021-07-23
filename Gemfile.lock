@@ -274,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-github-metadata
   jekyll-readme-index (~> 0.3.0)
   jekyll-rtd-theme
 
