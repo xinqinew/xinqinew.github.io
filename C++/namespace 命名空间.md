@@ -1,4 +1,4 @@
-
+# namespace 命名空间
 namespace 是C++中的关键字，用来定义一个命名空间，语法格式为：
 ```cpp
 namespace name{

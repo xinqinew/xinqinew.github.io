@@ -1,5 +1,4 @@
-# C++常识
-## printf
+# printf输出
 函式原型：  int printf ( const char * format, ... ); 
 
 引數說明： %[flags][width][.precision][length]specifier
@@ -7,9 +6,9 @@
 
  
 
-1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位 
+## 1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位 
 
-(1.1) 字元/字串
+### (1.1) 字元/字串
 
    %c, %C : 字元,  char c;
        %s : 字元陣列, char buffer[MAX_PATH];
@@ -17,7 +16,7 @@
 
 [註] %C / %S 並未被收在標準函式庫裡，屬 MSVC 特殊支援。
 
-(1.2) 整數
+### (1.2) 整數
 
 
     %d, %i : 10進制整數  , int x; [lemma] 
@@ -33,7 +32,7 @@
 
  
 
-(1.3) 浮點數
+### (1.3) 浮點數
 
    %e, %E : 浮點數使用科學符號表示之,指數將帶正負號, float x,doubley;
        %f : 單精度浮點數(預設輸出精度6位), float x;
@@ -42,7 +41,7 @@
 %llf, %LF : 雙倍精度浮點數(預設輸出精度6位), long double x;
    %g, %G : 由系統決定是否採科學符號表示。
 
-(1.4) 特殊 原創：edisonx.pixnet.net
+### (1.4) 特殊 原創：edisonx.pixnet.net
 
        %p : 變數位置。 ex:
             int a=0, printf("%p", &a);  即 printf("%08x", &a);
@@ -50,7 +49,7 @@
             char str[]="test", int len, printf("%s%n", a, &len);
             輸出4bytes,len = 4
 
-(1.5) C99新增 < 建議 k spec. 最清楚 >
+### (1.5) C99新增 < 建議 k spec. 最清楚 >
 
 (註 : C99 新增了一些資料型態在 inttypes.h / stdint.h 裡面，有興趣搜尋 n1256.pdf 下載下來 K 標準， in section 7.8 。當然 MSVC 不支援 C99 是眾所皆知的事。)
 
@@ -104,7 +103,7 @@
 
  
 
-2. 寬度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位net
+## 2. 寬度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位net
 
       %m : 指定輸出之寬度。ex:
            int a=2, b=10;
@@ -115,7 +114,7 @@
            printf("%*d",width, a);
            輸出為   "         2"  (10個文字寬度)。
 
-3. 長度修飾 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位
+## 3. 長度修飾 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位
 
  
 
@@ -130,7 +129,7 @@
       %L : 此修飾只對浮點數型態之 long double 有效, 可用於修飾
            %Le, %LE, %Lf, %Lg, %LG。
 
-4. 精度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位 
+## 4. 精度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位 
 
      %.n : 欲輸出小數點後幾位數,即顯示之精度,此修飾只對浮點數資料型態有效(f,F,e,E,g),
            若使用其它整數型態 (i, d, o, u, x, X) 則將 n 視為 0, 即不輸出小數位數。ex:
@@ -148,7 +147,7 @@
            printf("%*.*lf", m, n, c);
            結果會輸出  "  -102.346" ，前面將會保留二個空白，使得整體寬度為 10 。
 
-5. 旗標 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位 
+## 5. 旗標 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位 
 
        %- : 原本輸出預設為向右對齊，使用後輸出向左對齊, 需與[寬度]配合使用。ex:
             char buf[] = "Test";
@@ -175,112 +174,4 @@
             printf("% -5d"); // 寬度5, 向左對齊, 保留正號位置
             輸出結果為 " 10  "
 			
-## [ifndef详解](https://blog.csdn.net/weixin_42692164/article/details/113368331?utm_source=app&app_version=4.11.0)
-### ifndef是"if not defined"的简写
-#ifndef起到的效果是防止一个源文件多次包含同一个头文件,
-而不是防止两个源文件包含同一个头文件。
 
-**一、防止头文件的重复包含和编译**
-```cpp
-#ifndef <标识>
-#define <标识>
-
-......
-
-......
-
-#endif
-
-
-```
-标识的明明规则一般是头文件名全大写，前面加下划线，并把文件名中的"."也变成下划线，如：stdio.h
-```cpp
-#ifndef _STDIO_H
-#define _STDIO_H
-
-......
-
-......
-
-#endif
-```
-**二、便于程序的调试和移植**
-```c
-#ifndef 标识符
-
-程序段 1
-
-#else
-
-程序段 2
-
-#endif
-
-```
-它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
-```c
-#ifndef 标识符
-
-#define 标识符
-
-程序段 1
-
-#else
-
-程序段 2
-
-#endif
-
-
-```
-它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
-
-
-```c
-#if 表达式
-
-程序段 1
-
-#else
-
-程序段 2
-
-#endif
-
-
-```
-它的作用是当“表达式”值为真时，编译“程序段1”，否则编译“程序段2”。
-
-注：以上三种形式中#else不是强制的，可省略；当然，当#else后需要嵌套#if时，可以使用预处理命令#elif，它相当于#else#if。
-
- 
-
-## [queue(STL queue)用法详解](http://c.biancheng.net/view/479.html)
-
-queue 的生成方式和 stack 相同，下面展示如何创建一个保存字符串对象的 queue:
-```cpp
-std::queue<std::string> words;
-```
-也可以使用拷贝构造函数：
-```cpp
-std::queue<std::string> copy_words {words}; // A duplicate of words
-```
-stack<T>、queue<T> 这类适配器类都默认封装了一个 deque<T> 容器，也可以通过指定第二个模板类型参数来使用其他类型的容器：
-```cpp
-std::queue<std::string,
-std::list<std::string>>words;
-```
-底层容器必须提供这些操作：front()、back()、push_back()、pop_front()、empty() 和 size()。
-
-queue 操作
-
-queue 和 stack 有一些成员函数相似，但在一些情况下，工作方式有些不同：
-- front()：返回 queue 中第一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。
-- back()：返回 queue 中最后一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。
-- push(const T& obj)：在 queue 的尾部添加一个元素的副本。这是通过调用底层容器的成员函数 push_back() 来完成的。
-- push(T&& obj)：以移动的方式在 queue 的尾部添加元素。这是通过调用底层容器的具有右值引用参数的成员函数 push_back() 来完成的。
-- pop()：删除 queue 中的第一个元素。
-- size()：返回 queue 中元素的个数。
-- empty()：如果 queue 中没有元素的话，返回 true。
-- emplace()：用传给 emplace() 的参数调用 T 的构造函数，在 queue 的尾部生成对象。
-- swap(queue<T> &other_q)：将当前 queue 中的元素和参数 queue 中的元素交换。它们需要包含相同类型的元素。也可以调用全局函数模板 swap() 来完成同样的操作。

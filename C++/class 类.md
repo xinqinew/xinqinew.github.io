@@ -1,3 +1,4 @@
+# class 类
 ```cpp
 #include <stdio.h>
 //通过class关键字类定义类
