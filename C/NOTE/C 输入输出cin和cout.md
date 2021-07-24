@@ -1,5 +1,5 @@
 # C 输入输出cin和cout
-* 简单的输入输出代码示例：
+**简单的输入输出代码示例：**
 ```cpp
 
 #include<iostream>
@@ -24,8 +24,11 @@ int main(){
 > Please input a float number:  
 > 7.4↙  
 > The float number is y= 7.4  
+
 ***
-* cin 连续输入示例：
+
+**cin 连续输入示例**
+
 ```cpp
 
 #include<iostream>

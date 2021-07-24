@@ -1,3 +1,4 @@
+# queue 和 deque的区别
 从使用的角度来讲主要差别就是：
 
 deque支持push_front、pop_front、push_back、pop_back。

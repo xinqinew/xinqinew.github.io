@@ -4,28 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "45f14f708af3c807",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "C/NOTE/C++ queue 和 deque的区别.md",
-            "mode": "source"
-          }
-        },
-        "group": "1ed19db1f2f92bb0"
-      },
-      {
         "id": "ab68aa21df7c7298",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "C/NOTE/C++ queue 和 deque的区别.md",
+            "file": "C/NOTE/queue/README.md",
+            "mode": "source"
+          }
+        },
+        "group": "ae1111aa2cf6697b"
+      },
+      {
+        "id": "d548150e08643f5b",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "C/NOTE/queue/README.md",
             "mode": "preview"
           }
         },
-        "group": "1ed19db1f2f92bb0"
+        "group": "ae1111aa2cf6697b"
       }
     ],
     "direction": "vertical"
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "insert",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/NOTE/C++ queue 和 deque的区别.md",
+                "file": "C/NOTE/queue/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,17 +99,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "45f14f708af3c807",
+  "active": "ab68aa21df7c7298",
   "lastOpenFiles": [
-    "C/NOTE/C++ queue 和 deque的区别.md",
-    "C/NOTE/class 类.md",
-    "GitHub/不错的博客.md",
-    "GitHub/博客搭建记录.md",
-    "GitHub/安装jekyll-rtd-theme博客.md",
-    "C++ queue 和 deque的区别.md",
-    "index.md",
-    "README.md",
-    "Pasted image 20210724010942.png",
-    "未命名.md"
+    "C/NOTE/queue/README.md",
+    "C/NOTE/README.md",
+    "C/README.md",
+    "C/WOW/README.md",
+    "C/WOW/64位Call的参数.md",
+    "C/NOTE/queue/queue 和 deque的区别.md",
+    "C/NOTE/queue/C++ queue用法详解.md",
+    "C/NOTE/queue/C++ queue 和 deque的区别.md",
+    "C/NOTE/queue/C++ deque和queue容器.md",
+    "C/NOTE/queue/queue与deque示例.md"
   ]
 }

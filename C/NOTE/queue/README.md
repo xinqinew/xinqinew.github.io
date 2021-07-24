@@ -1,3 +1,3 @@
-# Other
-未分类的常见问题.
+# queue
+## deque和queue容器
 {% include list.liquid all=true %}
