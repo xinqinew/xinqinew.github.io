@@ -1,4 +1,4 @@
-# C 头文件和std命名空间
+# std命名空间
 * 使用命名空间 std：
 ```cpp
 #include <cstdio>
