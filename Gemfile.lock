@@ -227,8 +227,6 @@ GEM
     multipart-post (2.1.1)
     nokogiri (1.11.7-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-darwin)
-      racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -274,9 +272,8 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-github-metadata
-  jekyll-readme-index (~> 0.3.0)
   jekyll-rtd-theme
+  jemoji
 
 BUNDLED WITH
    2.2.24

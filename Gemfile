@@ -36,12 +36,32 @@
 # gem "jekyll-include-cache", group: :jekyll_plugins
 
 
+# source "https://rubygems.org" # gems.ruby-china.com
+# gemspec
+# gem "github-pages", group: :jekyll_plugins
+
 source "https://rubygems.org" # gems.ruby-china.com
 
 gem "jekyll-rtd-theme"
-gem 'jekyll-readme-index', '~> 0.3.0'
-gem "jekyll-github-metadata"
-gem "github-pages", group: :jekyll_plugins
+
+# gem "github-pages", group: :jekyll_plugins
+# gem "jemoji", group: :jekyll_plugins
+
+group :jekyll_plugins do
+  gem "github-pages"
+  # gem "jemoji"
+  # gem "jekyll-avatar"
+  # gem "jekyll-mentions"
+end
+
+
+# gem "jekyll-rtd-theme"
+
+# gem 'jekyll-readme-index', '~> 0.3.0'
+# gem "jekyll-github-metadata"
+# gem "github-pages", group: :jekyll_plugins
+
+
 
 # source "https://rubygems.org"
 
@@ -51,8 +71,8 @@ gem "github-pages", group: :jekyll_plugins
 #   gem "jekyll-default-layout"
 #   gem "jekyll-readme-index"
 #   gem "jekyll-github-metadata"
-#   gem "jekyll-titles-from-headings"
-#   gem "jemoji"
-#   gem "jekyll-avatar"
-#   gem "jekyll-mentions"
+  # gem "jekyll-titles-from-headings"
+  # gem "jemoji"
+  # gem "jekyll-avatar"
+  # gem "jekyll-mentions"
 # end

@@ -39,8 +39,8 @@
 
 title: Hmily的笔记
 # lang: zh-Hans
-lang: cn
-description: Write an awesome description for your new site here
+lang: en
+description: 记录学习的过程
 
 # theme: jekyll-rtd-theme
 remote_theme: "rundocs/jekyll-rtd-theme"
@@ -48,18 +48,28 @@ remote_theme: "rundocs/jekyll-rtd-theme"
 readme_index:
   with_frontmatter: true
 plugins:
+  - jekyll-default-layout
   - jekyll-readme-index
   - jekyll-github-metadata
+  - jekyll-titles-from-headings
+  # - jemoji
+  - jekyll-avatar
+  # - jekyll-mentions
+
+  # - jekyll-readme-index
+  # - jekyll-github-metadata
 #   - jekyll-default-layout
 #   - jekyll-titles-from-headings
 #   - jemoji
 #   - jekyll-avatar
 #   - jekyll-mentions
+
+
 # readme_index:
 #   enabled:          true
 #   remove_originals: false
 #   with_frontmatter: false
-# url: https://xinqinew.github.io
+url: https://xinqinew.github.io
 
 # Exclude from processing.
 # The following items will not be processed, by default.

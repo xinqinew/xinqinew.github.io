@@ -112,3 +112,8 @@ graph TB
 ```danger
 疯狂的科学家在工作！
 ```
+
+更新
+sudo bundle install
+sudo bundle update 
+sudo bundle update jekyll
