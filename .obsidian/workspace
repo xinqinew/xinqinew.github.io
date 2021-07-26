@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "C++/std命名空间.md",
+            "file": "C++/知识点.md",
             "mode": "source"
           }
         },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "C++/std命名空间.md",
+            "file": "C++/知识点.md",
             "mode": "preview"
           }
         },
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/std命名空间.md",
+                "file": "C++/知识点.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +101,8 @@
   },
   "active": "ab68aa21df7c7298",
   "lastOpenFiles": [
+    "C++/知识点.md",
+    "C++/std命名空间.md",
     "C++/C 头文件和std命名空间.md",
     "C++/C 输入输出cin和cout.md",
     "C++/class 类.md",
@@ -108,8 +110,6 @@
     "C++/printf详解.md",
     "C++/typedef详解.md",
     "C++/struct 结构体.md",
-    "C++/README.md",
-    "C++/namespace 命名空间.md",
-    "C++/知识点.md"
+    "C++/README.md"
   ]
 }
