@@ -4,28 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "ab68aa21df7c7298",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "C++/小小知识点.md",
-            "mode": "source"
+        "id": "1a80c1df82b4287c",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab68aa21df7c7298",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/字符的输入与输出.md",
+                "mode": "source"
+              }
+            },
+            "group": "ae1111aa2cf6697b"
+          },
+          {
+            "id": "d548150e08643f5b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/字符的输入与输出.md",
+                "mode": "preview"
+              }
+            },
+            "group": "ae1111aa2cf6697b"
           }
-        },
-        "group": "ae1111aa2cf6697b"
-      },
-      {
-        "id": "d548150e08643f5b",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "C++/小小知识点.md",
-            "mode": "preview"
-          }
-        },
-        "group": "ae1111aa2cf6697b"
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -52,10 +59,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "insert",
+                "query": "%p",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -65,7 +72,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 174,
+    "collapsed": true
   },
   "right": {
     "id": "a76c535320921ba6",
@@ -81,35 +89,57 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/小小知识点.md",
+                "file": "C++/字符的输入与输出.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": true,
-                "unlinkedCollapsed": true
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "610179c0d72f71d4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "fad69b10c3e38c0b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "C++/字符的输入与输出.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 222,
     "collapsed": true
   },
   "active": "ab68aa21df7c7298",
   "lastOpenFiles": [
-    "C++/小小知识点.md",
+    "C++/字符的输入与输出.md",
+    "C++/printf输出.md",
+    "_site/C++/指针读写内存.md",
+    "WOW/模块及进程相关代码.md",
+    "_site/WOW/模块及进程相关代码.md",
+    "Objective-C/笔记1.md",
+    "_site/Objective-C/笔记1.md",
+    "_site/C++/字符的输入与输出.md",
     "C++/常用头文件.md",
-    "未命名.md",
-    "C++/c++ 参数值的尖括号.md",
-    "C++/未命名.md",
-    "C++/C++常识.md",
-    "_site/WOW/README.md",
-    "GitHub/博客搭建记录.md",
-    "C++/C 输入输出cin和cout.md",
-    "C++/C 头文件和std命名空间.md"
+    "C++/cin和cout输入输出.md"
   ]
 }

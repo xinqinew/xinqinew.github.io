@@ -1,4 +1,10 @@
 {
   "promptDelete": false,
-  "strictLineBreaks": true
+  "strictLineBreaks": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumber": true,
+  "newFileLocation": "current",
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "assets/images"
 }
