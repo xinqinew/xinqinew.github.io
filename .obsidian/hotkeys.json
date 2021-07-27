@@ -7,5 +7,12 @@
       "key": "L"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ]
 }
