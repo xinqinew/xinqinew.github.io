@@ -1,0 +1,27 @@
+.post-container img[alt~="@10"] {
+    zoom: 10%;
+}
+.post-container img[alt~="@20"] {
+    zoom: 20%;
+}
+.post-container img[alt~="@30"] {
+    zoom: 30%;
+}
+.post-container img[alt~="@40"] {
+    zoom: 40%;
+}
+.post-container img[alt~="@50"] {
+    zoom: 50%;
+}
+.post-container img[alt~="@60"] {
+    zoom: 60%;
+}
+.post-container img[alt~="@70"] {
+    zoom: 70%;
+}
+.post-container img[alt~="@80"] {
+    zoom: 80%;
+}
+.post-container img[alt~="@90"] {
+    zoom: 90%;
+}
