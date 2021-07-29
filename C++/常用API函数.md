@@ -171,7 +171,7 @@ Int GetWindowText(HWND hWnd,LPTSTR lpString,Int nMaxCount);
 ### GetClassName
 
 ```cpp
-int GetClassName(HWND hWnd, LPTSTR IpClassName, int nMaxCount)；
+int GetClassName(HWND hWnd, LPTSTR IpClassName, int nMaxCount);
 ```
 
 获取窗口注册的类名,由RegisterClass注册时的名字
@@ -179,7 +179,7 @@ int GetClassName(HWND hWnd, LPTSTR IpClassName, int nMaxCount)；
 ### BringWindowToTop
 
 ```cpp
-B00L BringWindowToTop(HWND hWnd)；
+B00L BringWindowToTop(HWND hWnd);
 ```
 
 窗口激活并切换到Z序顶层
@@ -187,7 +187,7 @@ B00L BringWindowToTop(HWND hWnd)；
 ### EnableWindow
 
 ```cpp
-BOOL EnableWindow(HWND hWnd，BOOL bEnable)；
+BOOL EnableWindow(HWND hWnd，BOOL bEnable);
 ```
 
 是否接收键盘鼠标消息
@@ -207,6 +207,14 @@ WINUSERAPI BOOL WINAPI SetWindowPos(HWND hWnd,HWND hWndInsertAfter,int X,int Y,i
 ```
 
 窗口位置设置
+
+### SetWindowText
+
+```cpp
+BOOL SetWindowText(HWNDhwnd,LPCTSTRlpString);
+```
+
+设置窗口标题,SetWindowText也分A和W两种
 
 
 
