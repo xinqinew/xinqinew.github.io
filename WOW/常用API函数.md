@@ -1,12 +1,14 @@
 # 常用API函数
 ***
 ## 模拟鼠标
-```c
+```cpp
 LRESULT SendMessage(HWND hWnd，UINT Msg，WPARAM wParam，LPARAM IParam);
 ```
-其中Msg为WM_LBUTTONDOWN，WM_LBUTTONUP，表示对鼠标的软件模拟操作(虽然兼容性和安全性不如硬件模拟的mouse_event，但不改变移动鼠标指针)
+其中Msg可以为WM_LBUTTONDOWN或WM_LBUTTONUP,表示对鼠标的软件模拟操作(虽然兼容性和安全性不如硬件模拟的mouse_event，但不改变移动鼠标指针)
 
 故一般写作SendMessage(hwnd, WM_LBUTTONUP/WM_LBUTTONDOWN, 0, Y坐标<<16+X);
+
+Msg也可以为WM_CLOSE,表示关闭窗口,其后的两个参数传0即可.
 
 ***
 ## DLL注入
