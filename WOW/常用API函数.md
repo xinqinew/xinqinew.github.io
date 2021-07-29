@@ -50,24 +50,24 @@ HDC GetDC(HWND hWnd);
 CDC
 CDC类定义的是设备上下文对象的类
 
-```c
+```cpp
 CPoint CDC::MoveTo(int x,int y);
 CPoint CDC::LineTo(int x,int y);
 ```
 绘制直线
-```c
+```cpp
 BOOL CDC::Ellipse(int x1,int y1，int x2,int y2);
 ```
 绘制圆形
-```c
+```cpp
 BOOL CRgn::CreateRectRgn(int x1,int y1,int x2,int y2);
 ```
 建立方形区域
-```c
+```cpp
 BOOL CRgn::CreateEllipticRgn(int x1,int y1,int x2,int y2)
 ```
 建立圆形区域
-```c
+```cpp
 int CombineRgn(CRgn pRgn1,CRgn pRgn2,int nCombineMode );
 ```
 合并区域(圆点准心为使得中间透明采取大圆-小圆的区域)
@@ -75,4 +75,62 @@ int CombineRgn(CRgn pRgn1,CRgn pRgn2,int nCombineMode );
 BOOL FillRgn(CRgn pRgn,CBrush pBrush );
 ```
 填充形状
+
+
+
+## 其它API函数
+
+### MoveWindow
+
+```cpp
+BOOL MoveWindow( HWND hWnd, int X, int Y, int nWidth, int nHeight, BOOL bRepaint );
+```
+
+改变指定窗口的位置和大小
+
+### IsWindow
+
+```cpp
+BOOL IsWindow（HWND hWnd）；
+```
+
+判断是否是有效窗口句柄
+
+### ShowWindow
+
+```cpp
+BOOL ShowWindow(HWND hWnd, int nCmdShow);
+```
+
+显示隐藏窗口
+
+### ShowWindowAsync
+
+```cpp
+BOOL ShowWindowAsync(HWND hWnd，int nCmdshow)；
+```
+
+异步显示窗口
+
+### IsWindowVisible
+
+```cpp
+BOOL IsWindowVisible(HWND hWnd);
+```
+
+获取窗口可视状态,即显示或隐藏
+
+### IsZoomed
+
+```cpp
+BOOL IsZoomed(HWND hWnd)；
+```
+
+窗口是否是最大化
+
+
+
+
+
+
 
