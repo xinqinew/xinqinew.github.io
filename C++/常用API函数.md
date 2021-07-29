@@ -91,7 +91,7 @@ BOOL MoveWindow( HWND hWnd, int X, int Y, int nWidth, int nHeight, BOOL bRepaint
 ### IsWindow
 
 ```cpp
-BOOL IsWindow（HWND hWnd）；
+BOOL IsWindow(HWND hWnd)；
 ```
 
 判断是否是有效窗口句柄
@@ -128,7 +128,61 @@ BOOL IsZoomed(HWND hWnd)；
 
 窗口是否是最大化
 
+### IsWindowUnicode
 
+```cpp
+BOOL IswindowUnicode(HWND hwnd)；
+```
+
+判断窗口字符集 由RegisterClassA 还是RegisterClassW注册
+
+### CloseWindow
+
+```cpp
+BOOL CloseWindow(HWND hWnd);
+```
+
+关闭窗口
+
+### WindowFromPoint
+
+```cpp
+HWND WindowFromPoint(POINT Point)；
+```
+
+获取指定坐标处的窗口句柄
+
+### ChildWindowFromPoint
+
+```cpp
+HWND ChildWindowFromPoint (HWND hWndParent, POINT Point);
+```
+
+获取指定窗口 坐标处子窗口句柄
+
+### GetWindowText
+
+```cpp
+Int GetWindowText(HWND hWnd,LPTSTR lpString,Int nMaxCount);
+```
+
+获取窗口标题字符串
+
+### GetClassName
+
+```cpp
+int GetClassName(HWND hWnd, LPTSTR IpClassName, int nMaxCount)；
+```
+
+获取窗口注册的类名,由RegisterClass注册时的名字
+
+### BringWindowToTop
+
+```cpp
+B00L BringWindowToTop(HWND hWnd)；
+```
+
+窗口激活并切换到Z序顶层
 
 
 
