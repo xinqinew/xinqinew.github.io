@@ -184,6 +184,32 @@ B00L BringWindowToTop(HWND hWnd)；
 
 窗口激活并切换到Z序顶层
 
+### EnableWindow
+
+```cpp
+BOOL EnableWindow(HWND hWnd，BOOL bEnable)；
+```
+
+是否接收键盘鼠标消息
+
+### EnumChildWindows
+
+```cpp
+BOOL EnumChildWindows(HWND hWndParent,WNDENUMPROC lpEnumFunc, LPARAM lParam);
+```
+
+遍历子窗口
+
+### SetWindowPos
+
+```cpp
+WINUSERAPI BOOL WINAPI SetWindowPos(HWND hWnd,HWND hWndInsertAfter,int X,int Y,int cx, int cy, UINT uFlags);
+```
+
+窗口位置设置
+
+
+
 
 
 
