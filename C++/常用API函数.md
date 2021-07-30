@@ -1,4 +1,5 @@
 # 常用API函数
+
 ***
 ## 模拟鼠标
 ```cpp
@@ -15,22 +16,34 @@ Msg也可以为WM_CLOSE,表示关闭窗口,其后的两个参数传0即可.
 ```c
 HANDLE CreateThread(LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD ,LPDWORD);
 ```
-CreateThread将在主线程的基础上创建一个新线程 
+**CreateThread** 将在主线程的基础上创建一个新线程 
+
+***
 
 ```c
-LPVOID VirtualAllocEx(HANDLE, LPVOID, SIZE_T, DWORD, DWORD);
+LPVOID VirtualAllocEx(
+	HANDLE hProcess,	//申请内存所在的进程句柄。
+	LPVOID lpAddress,	//保留页面的内存地址；一般用NULL自动分配 。
+	SIZE_T dwSize,	//欲分配的内存大小，字节单位；注意实际分 配的内存大小是页内存大小的整数倍
+	DWORD flAllocationType,	//一般用MEM_COMMIT
+	DWORD flProtect	//一般用PAGE_READWRITE(读写)
+);
 ```
-向指定进程申请内存，其中flAllocationType取值MEM_COMMIT表示写入物理存储而非磁盘交换内存 
+**VirtualAllocEx** 向指定进程申请内存
+
+****
 
 ```c
 FARPROC GetProcAddress(HMODULE hModule, LPCSTR);
 ```
-检索指定的动态链接库(DLL)中的输出库函数地址
+**GetProcAddress** 检索指定的动态链接库(DLL)中的输出库函数地址
+
+****
 
 ```c
 HANDLE CreateRemoteThread(HANDLE, LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD);
 ```
-创建一个在其它进程地址空间中运行的线程 
+**CreateRemoteThread** 创建一个在其它进程地址空间中运行的线程 
 
 ***
 ## DLL劫持
