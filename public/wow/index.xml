@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WOW on 辛琪的笔记</title>
+    <link>http://example.org/wow/</link>
+    <description>Recent content in WOW on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 19:06:38 +0800</lastBuildDate><atom:link href="http://example.org/wow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <description>64位Call的参数 call上层 参数1 rcx ecx cx
+参数2 rdx edx dx
+参数3 r8 r8d
+参数4 r9 r9d
+参数5 rsp+20+8_0
+参数5 rsp+20+8_1
+ call内 参数1 rcx ecx cx
+参数2 rdx edx dx
+参数3 r8 r8d
+参数4 r9 r9d
+参数5 rsp+28+8_0
+参数5 rsp+28+8_1</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/readme/</guid>
+      <description>WOW 这里收录了我的WOW相关笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</guid>
+      <description>WOW部分功能代码 获取角色名字 // pcall5(对象地址,0,1,0,0);//返回名字地址 void CPAGE1::OnBnClickedButton() { // TODO: 在此添加控件通知处理程序代码 	UINT64 pBase64 = (UINT_PTR) LoadLibraryA(&amp;#34;Wow.exe&amp;#34;); UINT64 pRoleObj = R8(R8(pBase64+0x2387c88)+0x200);//角色对象 	TPCALL5 pcall5 =(TPCALL5)(pBase64+0xA7640); // TPCALL5 pcall5 = (TPCALL5)((UINT_PTR) LoadLibraryA(&amp;#34;Wow.exe&amp;#34;)+0xA7640); 	char szpAscii[256]={0}; // char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii);  char *putf8Name =(char*) pcall5(pRoleObj,0,1,0,0); utf8ToAscii(putf8Name,szpAscii); m_edt_strA=szpAscii; UpdateData(FALSE);//把变量的数据更新到窗口 } 遍历怪物列表 void 遍历怪物列表() { UINT64 exeBase = (UINT64)LoadLibraryA(&amp;#34;Wow.exe&amp;#34;); for (UINT i=0;i&amp;lt;=0x7F;i++)//7F可能不是 对象数量 对象的分类编号 	{ // UINT64 vrax=0; 	UINT64 vrax = R8(R8(R8(exeBase+0x2387C88)+0x30)+0x10+i*3*8); if (vrax == 0 ) { break; } // else//vrdx !</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>多字节字符串 转UTF-8字符串 让喊话内容支持中文
+//AnsiToUtf8.h #pragma once //字节集 转16进制 DWORD BytesToHexStr(IN BYTE*nbData, DWORD nbDataSize,OUT char*szpHexBuf); //ANSI 转 UTF8 DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf); //unicode 转 ascii char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr); //Uft-8 转 ascii char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii); //AnsiToUtf8.cpp #include &amp;#34;stdafx.h&amp;#34;#include &amp;#34;AsciiToUTF8.h&amp;#34;#include &amp;lt;Windows.h&amp;gt; /* //字节集 转16进制 DWORD BytesToHexStr(IN BYTE*nbData, DWORD nbDataSize,OUT char*szpHexBuf); //ANSI 转 UTF8 DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf); //unicode 转 ascii char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr); //Uft-8 转 ascii char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii); */ DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf) { int WLength = MultiByteToWideChar(CP_ACP, 0, Ansi, -1, NULL, 0); LPWSTR pszW = (LPWSTR) _alloca((WLength+1) * sizeof(WCHAR)); //Ansi字符串转Unicode字符串 	MultiByteToWideChar(CP_ACP, 0, Ansi, -1, pszW, WLength); //计算UTF8转换所需要空间大小 	int ALength = WideCharToMultiByte(CP_UTF8, 0, pszW, -1, NULL, 0, NULL, NULL); //LPSTR pszA = (LPSTR)_alloca( ALength + 1); 	WideCharToMultiByte(CP_UTF8, 0, pszW, -1, szpUtf8Buf, ALength, NULL, NULL); szpUtf8Buf[ALength]=0; szpUtf8Buf[ALength+1]=0; //pszA[ALength] = 0;  return ALength;//返回UTF8字符串长度 } char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr) { //预算-缓冲区中多字节的长度 	//CP_OEMCP 	int ansiiLen =WideCharToMultiByte(CP_ACP,0,szpUnicodeStr,-1,nullptr,0,nullptr,nullptr); //给指向缓冲区的指针变量分配内存 	//把szpUnicodeStr里存放的Unicode编码字串 转成ASCII存放到 szpAsciiStr缓冲区 	//CP_OEMCP 	WideCharToMultiByte(CP_ACP,0,szpUnicodeStr,-1,szpAsciiStr,ansiiLen,nullptr,nullptr); return szpAsciiStr; } WCHAR* utf8ToUnicode(IN char*szpUtf8,OUT WCHAR*szpUniCode) { //预算_缓冲区中宽字节的长度 	//CP_UTF8 963页码 	int unicodeLen = MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,nullptr,0); //给指向缓冲区的指针变量分配内存 	WCHAR *pUnicode = (wchar_t*)malloc(sizeof(wchar_t)*unicodeLen); //开始向缓冲区转换字节 	//CP_UTF8 963页码 也可能 	MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,pUnicode,unicodeLen); wcscpy_s(szpUniCode,unicodeLen,pUnicode); free(pUnicode); return szpUniCode; } //注意此函数没检测缓冲区大小 char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii) { int iSizeUtf8 = MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,nullptr,0); WCHAR*putf8Buf =(WCHAR*)malloc(sizeof(WCHAR)*iSizeUtf8); utf8ToUnicode(szpUtf8,putf8Buf); UniCodeToAscii(putf8Buf,szpAscii); return szpAscii; } BOOL CharToHex(OUT char*szpBufHex,BYTE c) { BYTE bLow =0; BYTE bHigh = 0; bLow = c%16;//取低位0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
+      <description>常用API函数  模拟鼠标 LRESULT SendMessage(HWND hWnd，UINT Msg，WPARAM wParam，LPARAM IParam); 其中Msg为WM_LBUTTONDOWN，WM_LBUTTONUP，表示对鼠标的软件模拟操作(虽然兼容性和安全性不如硬件模拟的mouse_event，但不改变移动鼠标指针)
+故一般写作SendMessage(hwnd, WM_LBUTTONUP/WM_LBUTTONDOWN, 0, Y坐标&amp;laquo;16+X);
+ DLL注入 HANDLE CreateThread(LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD ,LPDWORD); CreateThread将在主线程的基础上创建一个新线程
+LPVOID VirtualAllocEx(HANDLE, LPVOID, SIZE_T, DWORD, DWORD); 向指定进程申请内存，其中flAllocationType取值MEM_COMMIT表示写入物理存储而非磁盘交换内存
+FARPROC GetProcAddress(HMODULE hModule, LPCSTR); 检索指定的动态链接库(DLL)中的输出库函数地址
+HANDLE CreateRemoteThread(HANDLE, LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD); 创建一个在其它进程地址空间中运行的线程
+ DLL劫持 __asm{ }
+执行括号内的汇编代码
+JMP EAX
+将EIP跳转到EAX执行，劫持DLL后要获取真正的原函数地址，使用时要进行跳转
+ GDI绘图 HDC GetDC(HWND hWnd); 检索显示设备上下文环境的句柄
+CDC CDC类定义的是设备上下文对象的类
+CPoint CDC::MoveTo(int x,int y); CPoint CDC::LineTo(int x,int y); 绘制直线</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</guid>
+      <description>模块及进程相关代码 句柄 进程 内存 窗口句柄 HWND FindWindow(LPCTSTR IpClassName，LPCTSTR IpWindowName);  通过类名或窗口名查找，返回窗口句柄
+ 进程ID和线程ID DWORD GetWindowThreadProcessId(HWND hWnd,LPDWORD lpdwProcessId);  得到窗口句柄后通过GetWindowThreadProcessId这个函数来获得窗口所属进程ID和线程ID
+ 进程句柄 HANDLE OpenProcess(DWORD dwDesiredAccess,BOOL bInheritHandle,DWORD dwProcessId);  打开一个已存在的进程对象，并返回进程的句柄
+ 写入内存 bool WriteProcessMemory(HANDLE hProcess,LPVOID lpBaseAddress,LPVOID lpBuffer,DWORD nSize,LPDWORD lpNumberOfBytesWritten );  能写入某一进程的内存区域。入口区必须可以访问，否则操作将失败
+ 读取内存 HWND ReadProcessMemory(HANDLE hProcess, LPCVOID lpBaseAddress, LPVOID lpBuffer, DWORD nSize, LPDWORD lpNumberOfBytesRead);  根据进程句柄读入该进程的某个内存空间lpBaseAddress的nSize字节，并写入缓冲区lpBuffer，多次计算基址和偏移即可
+ 遍历模块 int 遍历进程模块(DWORD 进程PID) { HMODULE hMods[1024];	//20*sizeof(HMODULE) 	HANDLE 进程句柄; DWORD cbNeeded; unsigned int i; //Print the proess identifier.</description>
+    </item>
+    
+  </channel>
+</rss>

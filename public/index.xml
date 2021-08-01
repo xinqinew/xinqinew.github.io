@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>辛琪的笔记</title>
+    <link>http://example.org/</link>
+    <description>Recent content on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 17:44:08 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Content</title>
+      <link>http://example.org/basics/first-content/</link>
+      <pubDate>Mon, 26 Jul 2021 11:20:25 +0800</pubDate>
+      
+      <guid>http://example.org/basics/first-content/</guid>
+      <description>       </description>
+    </item>
+    
+    <item>
+      <title>Third Content</title>
+      <link>http://example.org/basics/second-content/third-content/</link>
+      <pubDate>Mon, 26 Jul 2021 11:20:25 +0800</pubDate>
+      
+      <guid>http://example.org/basics/second-content/third-content/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cin和cout输入输出</title>
+      <link>http://example.org/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>cin和cout输入输出 简单的输入输出代码示例：
+#include&amp;lt;iostream&amp;gt;using namespace std; int main(){ int x; float y; cout&amp;lt;&amp;lt;&amp;#34;Please input an int number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;x; cout&amp;lt;&amp;lt;&amp;#34;The int number is x= &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;Please input a float number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;y; cout&amp;lt;&amp;lt;&amp;#34;The float number is y= &amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; return 0; } 运行结果如下（↙表示按下回车键）：
+ Please input an int number:
+8↙
+The int number is x= 8
+Please input a float number:
+7.4↙
+The float number is y= 7.4
+  cin 连续输入示例
+#include&amp;lt;iostream&amp;gt;using namespace std; int main(){ int x; float y; cout&amp;lt;&amp;lt;&amp;#34;Please input an int number and a float number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;x&amp;gt;&amp;gt;y; cout&amp;lt;&amp;lt;&amp;#34;The int number is x= &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;The float number is y= &amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; return 0; } 运行结果：</description>
+    </item>
+    
+    <item>
+      <title>class 类</title>
+      <link>http://example.org/c&#43;&#43;/class-%E7%B1%BB/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/class-%E7%B1%BB/</guid>
+      <description>class 类 #include &amp;lt;stdio.h&amp;gt;//通过class关键字类定义类 class Student{ public: //类包含的变量  char *name; int age; float score; //类包含的函数  void say(){ printf(&amp;#34;%s的年龄是 %d，成绩是 %f\n&amp;#34;, name, age, score); } }; int main(){ //通过类来定义变量，即创建对象  class Student stu1; //也可以省略关键字class  //为类的成员变量赋值  stu1.name = &amp;#34;小明&amp;#34;; stu1.age = 15; stu1.score = 92.5f; //调用类的成员函数  stu1.say(); return 0; } 类也是一种构造类型，但是进行了一些扩展，类的成员不但可以是变量，还可以是函数；通过类定义出来的变量也有特定的称呼，叫做“对象”</description>
+    </item>
+    
+    <item>
+      <title>Forth</title>
+      <link>http://example.org/basics/forth/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/basics/forth/</guid>
+      <description>是什么意思</description>
+    </item>
+    
+    <item>
+      <title>ifndef详解</title>
+      <link>http://example.org/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</guid>
+      <description>ifndef详解 ifndef是&amp;quot;if not defined&amp;quot;的简写 #ifndef起到的效果是防止一个源文件多次包含同一个头文件, 而不是防止两个源文件包含同一个头文件。
+一、防止头文件的重复包含和编译 #ifndef &amp;lt;标识&amp;gt; #define &amp;lt;标识&amp;gt;  ...... ...... #endif  标识的明明规则一般是头文件名全大写，前面加下划线，并把文件名中的&amp;quot;.&amp;ldquo;也变成下划线，如：stdio.h
+#ifndef _STDIO_H #define _STDIO_H  ...... ...... #endif 二、便于程序的调试和移植 #ifndef 标识符  程序段 1 #else  程序段 2 #endif  它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
+#ifndef 标识符  #define 标识符  程序段 1 #else  程序段 2 #endif  它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
+#if 表达式  程序段 1 #else  程序段 2 #endif  它的作用是当“表达式”值为真时，编译“程序段1”，否则编译“程序段2”。
+注：以上三种形式中#else不是强制的，可省略；当然，当#else后需要嵌套#if时，可以使用预处理命令#elif，它相当于#else#if。</description>
+    </item>
+    
+    <item>
+      <title>namespace 命名空间</title>
+      <link>http://example.org/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>namespace 命名空间 namespace 是C++中的关键字，用来定义一个命名空间，语法格式为：
+namespace name{ //variables, functions, classes } name是命名空间的名字，它里面可以包含变量、函数、类、typedef、#define 等，最后由{ }包围。
+ namespace Li{ //小李的变量定义  FILE fp = NULL; } namespace Han{ //小韩的变量定义  FILE fp = NULL } Li::fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han::fp = fopen(&amp;#34;two.txt&amp;#34;, &amp;#34;rb+&amp;#34;); //使用小韩定义的变量 fp using Li::fp; fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han :: fp = fopen(&amp;#34;two.txt&amp;#34;, &amp;#34;rb+&amp;#34;); //使用小韩定义的变量 fp using namespace Li; fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han::fp = fopen(&amp;#34;two.</description>
+    </item>
+    
+    <item>
+      <title>printf输出</title>
+      <link>http://example.org/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</guid>
+      <description>printf输出 函式原型： int printf ( const char * format, &amp;hellip; );
+引數說明： %[flags][width][.precision][length]specifier %[旗標][寬度][.精度][長度修飾]資料型態
+1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位 (1.1) 字元/字串 %c, %C : 字元, char c; %s : 字元陣列, char buffer[MAX_PATH]; %S : 字元陣列(Unicode), wchar buffer[MAX_PATH];
+[註] %C / %S 並未被收在標準函式庫裡，屬 MSVC 特殊支援。
+(1.2) 整數 %d, %i : 10進制整數 , int x; [lemma] %u : 10進制無號數, unsigned int x; %o : 8進制無號數, unsigned int x; %x, %X : 16進制無號數, 小寫x輸出為&amp;quot;abcdef&amp;quot;, 大寫 X 輸出為 &amp;quot;ABCDEF&amp;quot;, unsigned x;  %lld, %I64d : long long int, __int64 輸出型態 (註：vc6.</description>
+    </item>
+    
+    <item>
+      <title>README</title>
+      <link>http://example.org/c&#43;&#43;/readme/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/readme/</guid>
+      <description>NOTE 这里收录了我的C++笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title>std命名空间</title>
+      <link>http://example.org/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>std命名空间  使用命名空间 std：  #include &amp;lt;cstdio&amp;gt;int main(){ std::printf(&amp;#34;http://c.biancheng.net\n&amp;#34;); return 0; }   不使用命名空间 std：  #include &amp;lt;cstdio&amp;gt;int main(){ printf(&amp;#34;http://c.biancheng.net\n&amp;#34;); return 0; }   演示了如何使用 C++ 库进行输入输出：  #include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt; int main(){ //声明命名空间std  using namespace std; //定义字符串变量  string str; //定义 int 变量  int age; //从控制台获取用户输入  cin&amp;gt;&amp;gt;str&amp;gt;&amp;gt;age; //将数据输出到控制台  cout&amp;lt;&amp;lt;str&amp;lt;&amp;lt;&amp;#34;已经成立&amp;#34;&amp;lt;&amp;lt;age&amp;lt;&amp;lt;&amp;#34;年了！&amp;#34;&amp;lt;&amp;lt;endl; return 0; } 运行结果：
+C语言中文网↙
+6↙
+C语言中文网已经成立6年了！
+ 在 main() 函数中声明命名空间 std，它的作用范围就位于 main() 函数内部，如果在其他函数中又用到了 std，就需要重新声明.</description>
+    </item>
+    
+    <item>
+      <title>struct 结构体</title>
+      <link>http://example.org/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>struct 结构体 #include &amp;lt;stdio.h&amp;gt; //定义结构体 Student struct Student{ //结构体包含的成员变量  char *name; int age; float score; }; //显示结构体的成员变量 void display(struct Student stu){ printf(&amp;#34;%s的年龄是 %d，成绩是 %f\n&amp;#34;, stu.name, stu.age, stu.score); } int main(){ struct Student stu1; //为结构体的成员变量赋值  stu1.name = &amp;#34;小明&amp;#34;; stu1.age = 15; stu1.score = 92.5; //调用函数  display(stu1); return 0; } 结构体是一种构造类型，可以包含若干成员变量，每个成员变量的类型可以不同；可以通过结构体来定义结构体变量，每个变量拥有相同的性质。###</description>
+    </item>
+    
+    <item>
+      <title>typedef起小名</title>
+      <link>http://example.org/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</guid>
+      <description>typedef起小名 C 语言提供了 typedef 关键字，您可以使用它来为类型取一个新的名字。下面的实例为单字节数字定义了一个术语 BYTE：
+typedef unsigned char BYTE; 在这个类型定义之后，标识符 BYTE 可作为类型 unsigned char 的缩写，例如：
+BYTE b1, b2; 按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写，但您也可以使用小写字母，如下：
+typedef unsigned char byte; 您也可以使用 typedef 来为用户自定义的数据类型取一个新的名字。例如，您可以对结构体使用 typedef 来定义一个新的数据类型名字，然后使用这个新的数据类型来直接定义结构变量，如下：
+实例
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt; typedef struct Books { char title[50]; char author[50]; char subject[100]; int book_id; } Book; int main( ) { Book book; strcpy( book.title, &amp;#34;C 教程&amp;#34;); strcpy( book.author, &amp;#34;Runoob&amp;#34;); strcpy( book.subject, &amp;#34;编程语言&amp;#34;); book.book_id = 12345; printf( &amp;#34;书标题 : %s\n&amp;#34;, book.</description>
+    </item>
+    
+    <item>
+      <title>尖括号</title>
+      <link>http://example.org/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
+      <description>&amp;lt; &amp;gt;尖括号 我习惯将尖括号用于指定类型，作为参数:
+vector&amp;lt;int&amp;gt; vecOfInts ; 但是在rapidjson中，有这样的代码:
+document.Parse&amp;lt;0&amp;gt;(json) ; document.Parse方法的签名是:
+template &amp;lt;unsigned parseFlags&amp;gt; GenericDocument&amp;amp; Parse(const Ch* str) { RAPIDJSON_ASSERT(!(parseFlags &amp;amp; kParseInsituFlag)); GenericStringStream&amp;lt;Encoding&amp;gt; s(str); return ParseStream&amp;lt;parseFlags&amp;gt;(s); } 我不知道您可以在尖括号内传递值-认为尖括号仅用于类型名称。
+这里的代码在做什么，为什么他在尖括号中传递一个值？
+这是一个好主意吗？什么时候？
+最佳答案
+这里有两个不同的因素。
+首先，可以定义除类型以外的参数化模板。例如，这是一个简单的数组类型:
+template &amp;lt;typename T, size_t N&amp;gt; struct Array { T arr[N]; }; 我们可以这样使用
+Array&amp;lt;int, 137&amp;gt; myArray; 我们知道vector&amp;lt;int&amp;gt;和vector&amp;lt;double&amp;gt;是不同的类型。但是现在我们还必须指出，Array&amp;lt;int,137&amp;gt;和Array&amp;lt;int,136&amp;gt;是不同的类型。
+其次，使用模板时，编译器必须能够为所有模板参数找出一个值。使用模板类时，这就是为什么通常指定所有模板参数的原因。例如，您不说vector x，而是说类似vector&amp;lt;double&amp;gt; x。使用模板函数时，大多数时候编译器可以找出参数。例如，要使用std::sort，您只需说出类似
+std::sort(v.begin(), v.end()); 但是，您也可以写
+std::sort&amp;lt;vector&amp;lt;int&amp;gt;::iterator&amp;gt;(v.begin(), v.end()); 更明确地说。但是有时候，您有一个模板函数，对于该函数，并非所有参数都可以被找出来。在您的示例中，我们有:
+template &amp;lt;unsigned parseFlags&amp;gt; GenericDocument&amp;amp; Parse(const Ch* str) { RAPIDJSON_ASSERT(!(parseFlags &amp;amp; kParseInsituFlag)); GenericStringStream&amp;lt;Encoding&amp;gt; s(str); return ParseStream&amp;lt;parseFlags&amp;gt;(s); } 注意，不能仅从函数的参数推导parseFlags模板参数。因此，要调用该函数，必须指定template参数，否则编译器将无法确定该参数。这就是为什么你会写类似</description>
+    </item>
+    
+    <item>
+      <title>常用头文件</title>
+      <link>http://example.org/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
+      <description>常用头文件 #include &amp;lt;stdafx.h&amp;gt;	//MFC预编译#include &amp;lt;stdio.h&amp;gt;	//输入输出#include &amp;lt;process.h&amp;gt;	//进程#include &amp;lt;string.h&amp;gt;	//字符串#include &amp;lt;stdlib.h&amp;gt;	//声明了数值与字符串转换函数, 伪随机数生成函数, 动态内存分配函数, 进程控制函数等公共函数#include &amp;lt;Windows.h&amp;gt;	//windows系统函数(如:Sleep)#include #include#include #include#include #include#include  </description>
+    </item>
+    
+    <item>
+      <title>知识点</title>
+      <link>http://example.org/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>知识点 阻断函数 getchar()	//等待键盘输入回车 sysem(&amp;#34;pause&amp;#34;)//任意键继续  常用函数 printf(&amp;#34;Hello World!&amp;#34;)	//输出函数 atoi(arg)	//字符串转整数 Sleep(arg)	//等待 MessageBeep(1);	//播放系统音乐,方便OD定位  循环 break;	//退出循环 continue;	//跳到循环首部,循环继续 其它 &amp;amp;arg 引用 1.必须传变量
+2.会影响被引用的变量原本的值
+*arg 指针 1.会影响被引用的变量原本的值
+冒号: 冒号代表标签,常用于goto跳转
+typedef 关键字，作用是为一种数据类型定义一个新名字
+按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写
+三元运算子 条件式 ? 条件式为true时执行的陈述句 : 条件式为false时执行的陈述句
+int ret, a = 10, b = 11; bool flag = true; if (flag) ret = a; else ret = b; 等价于
+ret = flag ? a : b; </description>
+    </item>
+    
+    <item>
+      <title>Third2</title>
+      <link>http://example.org/third/third2/</link>
+      <pubDate>Mon, 26 Jul 2021 16:02:18 +0800</pubDate>
+      
+      <guid>http://example.org/third/third2/</guid>
+      <description>Third2</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque clear()与erase()用法及示例 雙端隊列或雙頭隊列是序列容器，兩端都有擴展和收縮功能。它們類似於向量，但是在元素的結尾和開始處插入和刪除時效率更高。與向量不同，可能無法保證連續的存儲分配。
+deque::clear()
+clear()函數用於刪除雙端隊列容器的所有元素，從而使其大小為0。
+用法:
+dequename.clear() Parameters : No parameters are passed. Result : All the elements of the deque are removed ( or destroyed ) 例子：
+Input :mydeque = {1, 2, 3, 4, 5} mydeque.clear(); Output:mydeque = {} Input :mydeque = {} mydeque.clear(); Output:mydeque = {} 錯誤和異常
+1.它沒有異常拋出保證。
+2.傳遞參數時顯示錯誤。
+// CPP program to illustrate // Implementation of clear() function #include &amp;lt;deque&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; int main() { deque&amp;lt;int&amp;gt; mydeque{ 1, 2, 3, 4, 5 }; mydeque.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque insert()用法及示例 deque::insert(函数是C++中的内置函数，用于在双端队列中插入元素。
+insert()函数可以通过三种方式使用：
+通过在一个位置插入新元素val来扩展双端队列。 通过在双端队列中插入n个新值val来扩展双端队列。 通过在(first，last)范围内插入新元素来扩展双端队列。
+用法:
+deque_name.insert (iterator position, const value_type&amp;amp; val); deque_name.insert (iterator position, size_type n, const value_type&amp;amp; val); deque_name.insert (iterator position, InputIterator first, InputIterator last); 参数
+position–指定要插入元素的位置。
+val–指定要分配给新插入元素的值。
+n–指定要插入的元素数。每个元素都初始化为val的副本。
+first, last–指定迭代器，该迭代器指定要插入的元素范围。范围包括first和last之间的所有元素，包括first指向的元素，但last指向的元素。
+返回值
+该函数返回一个迭代器，该迭代器指向新插入的元素中的第一个。
+示例1:
+// CPP program to illustrate the // deque::insert() function // insert elements by iterator #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; int main() { deque&amp;lt;int&amp;gt; dq = { 1, 2, 3, 4, 5 }; deque&amp;lt;int&amp;gt;::iterator it = dq.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque 用法与示例 本篇將介紹如何使用 C++ std deque 以及用法與範例，C++ std::deque 是一個雙向佇列(double-ended queue)，在頭尾兩端插入及刪除十分快速，在中間插入刪除元素比較費時。
+std::deque 是 double-ended queue 而不是 double linked list，底層實做是用間接索引的方式實現的，類似一個 map 索引到若干個固定大小的資料區塊(連續記憶體空間)，利用兩次索引達成跟 vector 一樣的隨機訪問功能。
+以下將依序介紹幾個 std::deque 容器常用的用法範例，分別為
+ deque 常用功能 範例1. 基本的 push_back, pop_front, push_front, pop_back 的用法範例 範例2. push_back 自定義類別 範例3. 用 for 迴圈遍歷 deque 容器 範例4. 用 while 迴圈在 deque 容器裡搜尋/尋找 deque 的優點與缺點  要使用 deque 容器的話，需要引入的標頭檔: &amp;lt;deque&amp;gt;
+deque 常用功能 以下為 std::deque 內常用的成員函式
+修改器
+push_back: 把一個元素添加到尾端
+push_front: 把一個元素插入到頭端
+pop_back: 移除最後一個元素(尾端)
+pop_front: 移除第一個元素(頭端)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/</guid>
+      <description>deque和queue容器 标准模板库 STL 提供了两种容器：deque 和 queue，以实现和队列类似的数据 结构。deque 是一个双端队列。它类似于矢量，但允许在前端和后端高效地访问值。队列抽象数据类型就像栈抽象数据类型：它实际上是一个容器适配器。
+deque容器 可以将 deque 容器想象成一个矢量，但它可以快速访问前端以及后端的元素（和矢量一样，deque 也可以使用 [] 运算符访问元素）。
+图 1 deque 成员函数 使用双端队列 ADT 的程序必须包含 deque 头文件。由于本节更关心它与队列类似的特性，所以就来集中讨论一下 push_back、pop_front 和 front 成员函数，如图 1 所示。它们的示例和相应描述如表 2 所示。
+   成员函数 示例和描述     push_back iDeque.push back(7); 接受一个值作为参数插入到 deque 中。参数被插入在最后一个元素之后（被推到 deque 后面）   pop_front iDeque.pop front(); 删除 deque 的第一个元素并丢弃它   pop_front cout &amp;laquo; iDeque.front() &amp;laquo; endl; front 返回对 deque 第一个元素的引用    下面的程序演示了双端队列容器的使用：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>queue 和 deque的区别 从使用的角度来讲主要差别就是：
+deque支持push_front、pop_front、push_back、pop_back。
+queue支持push_back、pop_front。
+ deque是双端队列
+#include&amp;lt;deque&amp;gt; template&amp;lt;typename T,typename Allocator=std::allocator&amp;lt;T&amp;gt;&amp;gt;class deque; 支持push_front、pop_front、push_back、pop_back等几种操作的。queue是容器适配器，他的声明是
+#include&amp;lt;queue&amp;gt; template&amp;lt;typename T,typename Container=std::deque&amp;lt;T&amp;gt;&amp;gt;class queue; 类型Container是用来存储元素的，相当于是这个queue的实现。这个queue模板看起来像是包装了这个Container类型，只提供一些特殊的接口，使他看起来想一个queue。
+模板参数Container需要满足顺序容器的条件，而且必须支持front、back、push_back、pop_front操作，标准容器中有deque和list满足。也就是说标准容器中deque和list可以封装成queue。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/</guid>
+      <description>queue与deque示例 queue 示例1：queue #include &amp;#34;stdafx.h&amp;#34;#include &amp;lt;iostream&amp;gt;#include &amp;lt;queue&amp;gt;using namespace std; int _tmain(int argc, _TCHAR* argv[]) { queue&amp;lt;int&amp;gt; myQueue; cout &amp;lt;&amp;lt; myQueue.empty() &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; myQueue.size()&amp;lt;&amp;lt; endl; myQueue.push(1); myQueue.push(2); myQueue.push(3); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; myQueue.pop(); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl;	return 0; } 运行结果：
+  1
+0
+1
+3
+2
+3
+queue没找到迭代器deque:
+deque是双向队列Double ended queue；can be accessed with random access iterator
+deque是双端队列，是可以在两端扩展和收缩的连续容器。一般deque的实现是基于某种形式的动态数组，允许单个元素用随机获取
+迭代器随机读取，数组容量自动管理。
+因此它有和vector相似的函数，但在序列的开始也有高效的插入和删除。但不像vector，deque的元素并不是严格连续存储的。
+vector和deque有相似的接口和相似的目的，但内部实现截然不同。
+示例二：deque #include &amp;#34;stdafx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</guid>
+      <description>queue用法详解 只能访问 queue容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。
+许多程序都使用了 queue 容器。queue 容器可以用来表示超市的结账队列或服务器上等待执行的数据库事务队列。对于任何需要用 FIFO 准则处理的序列来说，使用 queue 容器适配器都是好的选择。
+图 1 展示了一个 queue 容器及其一些基本操作：
+图 1 queue容器
+queue 的生成方式和 stack 相同，下面展示如何创建一个保存字符串对象的 queue:
+std::queue&amp;lt;std::string&amp;gt; words; 也可以使用拷贝构造函数：
+std::queue&amp;lt;std::string&amp;gt; copy_words {words}; // A duplicate of words stack、queue这类适配器类都默认封装了一个 deque容器，也可以通过指定第二个模板类型参数来使用其他类型的容器：
+std::queue&amp;lt;std::string, std::list&amp;lt;std::string&amp;gt;&amp;gt;words; 底层容器必须提供这些操作：front()、back()、push_back()、pop_front()、empty() 和 size()。
+queue 操作 queue 和 stack 有一些成员函数相似，但在一些情况下，工作方式有些不同：
+ front()：返回 queue 中第一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。 back()：返回 queue 中最后一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。 push(const T&amp;amp; obj)：在 queue 的尾部添加一个元素的副本。这是通过调用底层容器的成员函数 push_back() 来完成的。 push(T&amp;amp;&amp;amp; obj)：以移动的方式在 queue 的尾部添加元素。这是通过调用底层容器的具有右值引用参数的成员函数 push_back() 来完成的。 pop()：删除 queue 中的第一个元素。 size()：返回 queue 中元素的个数。 empty()：如果 queue 中没有元素的话，返回 true。 emplace()：用传给 emplace() 的参数调用 T 的构造函数，在 queue 的尾部生成对象。 swap(queue&amp;amp;other_q)：将当前 queue 中的元素和参数 queue 中的元素交换。它们需要包含相同类型的元素。也可以调用全局函数模板 swap() 来完成同样的操作。  queue模板定义了拷贝和移动版的 operator=()，对于所保存元素类型相同的 queue 对象，它们有一整套的比较运算符，这些运算符的工作方式和 stack 容器相同。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/readme/</guid>
+      <description>queue deque和queue容器 {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/</guid>
+      <description>笔记queue与deque queue操作：
+queue&amp;lt;int&amp;gt;q;	//创建一个int型空队列q q.empty();	//判断队列是否为空，为空返回true q.push(s);	//将变量s从队尾入队 q.pop();	//将队头元素弹出 q.front();	//只返回队头元素 q.back();	//只返回队尾元素 q.size();	//返回队列中元素个数 queue两端访问,队尾插入,队首删除。 deque操作：
+deque&amp;lt;int&amp;gt; dq;	//创建一个数双端队列dq dq.empty();	//判断队列是否为空，为空返回true dq.push_front(s);//将s从队头入队 dq.push_back(s);//将s从队尾入队，和普通队列方式一样 dq.front();	//只返回队头元素 dq.back();	//只返回队尾元素 dq.pop_front();	//将队头元素弹出 dq.pop_back();	//将队尾元素弹出 dq.size();	//返回队列中元素个数 dq.clear();	//将队列清空 dq.insert();//插入新元素,最多有四个参数 //迭代器 dq.begin();	//回傳指向第一個元素(頭端)的迭代器 dq.cbegin();	//回傳指向第一個元素(頭端)的迭代器(const) dq.end();	//回傳指向最後一個元素(尾端)的迭代器 dq.cend();	//回傳指向最後一個元素(尾端)的迭代器(const) dq.rbegin();	//回傳指向最後一個元素(尾端)的反向迭代器 dq.crbegin();	//回傳指向最後一個元素(尾端)的反向迭代器(const) dq.rend();	//回傳指向第一個元素(頭端)的反向迭代器 dq.crend();	//回傳指向第一個元素(頭端)的反向迭代器(const) deque两端访问,两端插入,两端删除。 auto it = d.begin();其全名為std::deque&amp;lt;int&amp;gt;::iterator it = d.begin(); </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <description>Github汉化及常用插件 插件 Sourcegraph Sourcegraph 可以让你在线学习代码，可以查看变量、函数等的定义和引用情况。把指针放到想查看的变量名上，它会自动显示寻找定义和引用的提示框，点击即可。
+Octotree 查看整个项目的结构
+油猴
+Refined GitHub
+ 汉化 桌面版一键汉化
+下载版
+chrome版汉化
+ GitHub那些事儿
+Hexo + GitHub Pages 搭建博客</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>Hugo_learn常用命令 新建章节 hugo new &amp;ndash;kind chapter /_index.md
+新建文件 hugo new //_index.md
+hugo new /.md</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>GitBook默认使用Markdown语法。
+下面这些可以作为一个快速参考和展示。更多完整的信息，请参考 John Gruber&amp;rsquo;s original spec 和 Github-flavored Markdown info page。
+标题
+H1 H2 H3 H4 H5 H6 对于H1和H2，有下划线样式可供选择：
+Alt-H1 Alt-H2 强调
+强调，又叫做斜体，使用 星号 或 下划线。
+重点强调，又叫做粗体，使用 星号 或 下划线。
+使用 **星号和_下划线_** 组合使用强调。
+删除线使用两个波浪线。划掉这个 列表
+在这个例子中，前导空格和尾部空格显示为圆点 : ⋅)
+ 有序列表的第一项 另外一个项 ..* 无序子列表 事实上序号不起作用，那只是一个数字而已 ..1. 有序子列表 最后一个项  &amp;hellip;你可以适当的缩紧列表项中的段落。注意上面的空行和前导空格（至少一个，但是这里我们使用三个来对齐原始的Markdown内容）。
+&amp;hellip;换行而不形成段落，你需要使用两个尾部空格。.. &amp;hellip;注意这行是分开的，但还在同一个段落中。.. &amp;hellip;（这个违背了不需要尾部空格的典型的GFM换行行为）。
+ 无序列表可以使用星号   或者减号   或者加号 链接  有两种创建链接的方式。
+内嵌式链接
+带标题的内嵌式链接
+引用式链接
+相对引用一个库文件
+你可以在引用式链接定义中使用数字
+或者空着什么都不写 link text itself</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/readme/</guid>
+      <description>GitHub 这里收录了GitHub相关资料. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>http://themes.jekyllrc.org/
+https://jekyllthemes.io/
+jekyll-rtd-theme
+minimal-mistakes/
+flexible-jekyll</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>GitHub Pages 搭建教程
+如何使用 GitHub pages 首先你需要注册一个 GitHub 账号，并在个人主界面里选择创建一个新的 Repository 。
+进入页面后，在 Repository name 的位置填写域名，格式是 username.GitHub.io。
+创建成功之后，点击右上角的 Settings
+找到 GitHub Pages 选项，选择一个 GitHub 官方提供的主题
+这里我们就随意选择一个主题 Cayman，来看看他的效果是什么样的
+选择完毕之后 GitHub Pages 就会自动帮你生成好网站，在他跳转的界面点击 Commit changes 按钮，网站就可以访问了。
+在浏览器里输入你的项目名称，比如 brick713.GitHub.io，就可以看到，你刚刚选择的主题的个人网站的页面了。
+到这里如果你只是想做一个例如可以随时在互联网上访问的简历，那么你只需要 GitHub Pages 项目的主页修改你 index.md 文件就可以了，比如我给出的这个模板。
+修改完后，点击上图中左下角的 Commit Changes，然后访问你的自定义域名你就可以看到如下的样式了。
+如果你想做一个功能更丰富的博客，那我们继续往下走。
+配置自定义域名并免费使用 HTTPS 在 2018 年 5 月 1 日之后，GitHub Pages 已经开始提供免费为自定义域名开启 HTTPS 的功能，并且大大简化了操作的流程，现在用户已经不再需要自己提供证书，只需要将自己的域名使用 CNAME 的方式指向自己的 GitHub Pages 域名即可。
+首先在你的 DNS 解析里添加一条解析记录，例如我选择添加子域名 blog.moyu.life 通过 CNAME 的方式指向我刚刚自定义的 GitHub Pages 域名 brick713.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/%E5%AE%89%E8%A3%85hugo_-learn%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/%E5%AE%89%E8%A3%85hugo_-learn%E4%B8%BB%E9%A2%98/</guid>
+      <description>安装hugo_ learn主题 learn主题
+安装 创建您的项目 cd /Volumes/video/GitHub hugo new site learn 安装主题 cd /Volumes/video/GitHub/learn/themes git clone https://github.com/matcornic/hugo-theme-learn.git 基本配置 在建站时，可以通过使用--theme选项。但是，我们建议您修改配置文件（config.toml）并将主题设置为默认。您还可以添加[outputs]启用搜索功能的部分。
+# Change the default theme to be use when building the site with Hugo theme = &amp;#34;hugo-theme-learn&amp;#34; # For search functionality [outputs] home = [ &amp;#34;HTML&amp;#34;, &amp;#34;RSS&amp;#34;, &amp;#34;JSON&amp;#34;] 创建第一章页面 cd /Volumes/video/GitHub/learn/ hugo new --kind chapter basics/_index.md 通过打开给定的文件，您应该看到属性chapter=true在上面，这意味着这一页是一个_章节_。
+默认情况下，所有章节和页面都创建为草稿。如果您想渲染这些页面，请删除属性draft: true来自元数据。
+创建您的第一个内容页面 然后，在之前创建的章节中创建内容页面。以下为以下两种创建章节内容的方法：
+hugo new basics/first-content.md hugo new basics/second-content/_index.md 通过添加一些示例内容并替换文件开头的标题值，可以随意编辑这些文件。
+在本地启动网站 使用以下命令启动：
+hugo serve 去http://localhost:1313</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装hugo博客 在 macOS 上可使用 Homebrew 套件管理安裝
+brew install hugo Generate new site 要產生一個新的 web site 內容，可直接執行
+hugo new site ssg-site 執行後會建立一個名為 ssg-site 的資料夾，包含以下內容
+. ├── archetypes │ └── default.md ├── config.toml ├── content ├── data ├── layouts ├── static └── themes 其中
+ archetypes: 放置生成文件的基礎樣板資料夾（可先暫時不管）。 config.toml: 控制 hugo 產生網頁內容的設定檔，預設使用 toml 格式。(也支援 yaml 與 json 格式) content: 放置 Markdown 文章與網頁內容的資料夾。 data: 儲存一些 configuration 檔案的地ㄌㄌ方，協助建構靜態網頁(也先不管)。 layouts: 儲存產生的網頁 layout 樣板(之後範例使用其他的 theme，先不管)。 static: 放置靜態內容，如圖片，CSS 以及 *.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装jekyll-rtd-theme博客 jekyll-rtd-theme
+安装配置及写作
+测试文档
+ 安装时终端出现问题的解决办法  清空Gemfile文件内容 终端运行  bundle update Gemfile文件添加以下内容  source &amp;#34;https://rubygems.org&amp;#34; # gems.ruby-china.com gem &amp;#34;jekyll-rtd-theme&amp;#34; gem &amp;#34;github-pages&amp;#34;, group: :jekyll_plugins 终端再次运行  bundle update   一.安装 a.基于本地主题 1.清空Gemfile文件内容,并添加以下内容
+source &amp;#34;https://rubygems.org&amp;#34; # gems.ruby-china.com gem &amp;#34;jekyll-rtd-theme&amp;#34; gem &amp;#34;github-pages&amp;#34;, group: :jekyll_plugins 2.将以下内容添加到您的网站 _config.yml
+title: Your awesome title lang: en description: Write an awesome description for your new site here theme: jekyll-rtd-theme b.基于远程主题  将以下内容添加到您的 github 存储库 _config.yml  remote_theme: rundocs/jekyll-rtd-theme 删除任何其他theme或remote_theme条目  二.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/readme/</guid>
+      <description>Other 未分类的常见问题. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>sublimetext常见问题 下载安装
+汉化
+1.点击tools&amp;mdash;install package control
+2.preferences&amp;mdash;package control
+3.选择 “Package Control: Install Package”
+4.搜索LocalizedMenu并安装
+乱码
+推荐使用 Package Control 查找 ConvertToUTF8 进行自动下载安装与更新。
+Mac使用Sublime撸C++代码
+这两款软件让你在Mac上也能写C++</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>VS常见问题 解决VS生成sdf和ipch文件太大占用空间问题 [工具]—&amp;gt;[选项]—&amp;gt;[文本编辑器]—&amp;gt;C/C++]—&amp;gt;[高级]—&amp;gt;[回退位置]里面的三项属性值按下图进行修改，其中回退路径随便设置。 设置个回退路径这样可比较好管理这些庞大的臃肿的文件，可以定期清理它们，释放磁盘空间 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>win10常见问题 禁止win10五笔输入法的shift切换功能
+方法一：win10系统添加开机启动项 使用组合键win+R打开运行窗口，输入“shell:startup”打开启动项文件夹。 可以把软件快捷方式复制到“启动项文件夹|”中。
+方法二：注册表添加启动项 1、打开运行，输入“regedit”，打开注册表。 2、在注册表中找到如下位置HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run，右键“Run”新建一个字符串类型的键值。 3、右键新建的键值，选择“修改”，将数值名称改为 你要启动的程序名称如：ctfmon.exe，数值数据改为 程序所在位置的路径 如：C:\windows\system32\ctfmon.exe (直接不能修改名字的，可以先点击重命名，改好名字，再点击修改，修改数值数据)
+如何彻底关闭win10系统windows defender实时保护功能？</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <description>64位Call的参数 call上层 参数1 rcx ecx cx
+参数2 rdx edx dx
+参数3 r8 r8d
+参数4 r9 r9d
+参数5 rsp+20+8_0
+参数5 rsp+20+8_1
+ call内 参数1 rcx ecx cx
+参数2 rdx edx dx
+参数3 r8 r8d
+参数4 r9 r9d
+参数5 rsp+28+8_0
+参数5 rsp+28+8_1</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/readme/</guid>
+      <description>WOW 这里收录了我的WOW相关笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</guid>
+      <description>WOW部分功能代码 获取角色名字 // pcall5(对象地址,0,1,0,0);//返回名字地址 void CPAGE1::OnBnClickedButton() { // TODO: 在此添加控件通知处理程序代码 	UINT64 pBase64 = (UINT_PTR) LoadLibraryA(&amp;#34;Wow.exe&amp;#34;); UINT64 pRoleObj = R8(R8(pBase64+0x2387c88)+0x200);//角色对象 	TPCALL5 pcall5 =(TPCALL5)(pBase64+0xA7640); // TPCALL5 pcall5 = (TPCALL5)((UINT_PTR) LoadLibraryA(&amp;#34;Wow.exe&amp;#34;)+0xA7640); 	char szpAscii[256]={0}; // char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii);  char *putf8Name =(char*) pcall5(pRoleObj,0,1,0,0); utf8ToAscii(putf8Name,szpAscii); m_edt_strA=szpAscii; UpdateData(FALSE);//把变量的数据更新到窗口 } 遍历怪物列表 void 遍历怪物列表() { UINT64 exeBase = (UINT64)LoadLibraryA(&amp;#34;Wow.exe&amp;#34;); for (UINT i=0;i&amp;lt;=0x7F;i++)//7F可能不是 对象数量 对象的分类编号 	{ // UINT64 vrax=0; 	UINT64 vrax = R8(R8(R8(exeBase+0x2387C88)+0x30)+0x10+i*3*8); if (vrax == 0 ) { break; } // else//vrdx !</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>多字节字符串 转UTF-8字符串 让喊话内容支持中文
+//AnsiToUtf8.h #pragma once //字节集 转16进制 DWORD BytesToHexStr(IN BYTE*nbData, DWORD nbDataSize,OUT char*szpHexBuf); //ANSI 转 UTF8 DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf); //unicode 转 ascii char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr); //Uft-8 转 ascii char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii); //AnsiToUtf8.cpp #include &amp;#34;stdafx.h&amp;#34;#include &amp;#34;AsciiToUTF8.h&amp;#34;#include &amp;lt;Windows.h&amp;gt; /* //字节集 转16进制 DWORD BytesToHexStr(IN BYTE*nbData, DWORD nbDataSize,OUT char*szpHexBuf); //ANSI 转 UTF8 DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf); //unicode 转 ascii char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr); //Uft-8 转 ascii char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii); */ DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf) { int WLength = MultiByteToWideChar(CP_ACP, 0, Ansi, -1, NULL, 0); LPWSTR pszW = (LPWSTR) _alloca((WLength+1) * sizeof(WCHAR)); //Ansi字符串转Unicode字符串 	MultiByteToWideChar(CP_ACP, 0, Ansi, -1, pszW, WLength); //计算UTF8转换所需要空间大小 	int ALength = WideCharToMultiByte(CP_UTF8, 0, pszW, -1, NULL, 0, NULL, NULL); //LPSTR pszA = (LPSTR)_alloca( ALength + 1); 	WideCharToMultiByte(CP_UTF8, 0, pszW, -1, szpUtf8Buf, ALength, NULL, NULL); szpUtf8Buf[ALength]=0; szpUtf8Buf[ALength+1]=0; //pszA[ALength] = 0;  return ALength;//返回UTF8字符串长度 } char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr) { //预算-缓冲区中多字节的长度 	//CP_OEMCP 	int ansiiLen =WideCharToMultiByte(CP_ACP,0,szpUnicodeStr,-1,nullptr,0,nullptr,nullptr); //给指向缓冲区的指针变量分配内存 	//把szpUnicodeStr里存放的Unicode编码字串 转成ASCII存放到 szpAsciiStr缓冲区 	//CP_OEMCP 	WideCharToMultiByte(CP_ACP,0,szpUnicodeStr,-1,szpAsciiStr,ansiiLen,nullptr,nullptr); return szpAsciiStr; } WCHAR* utf8ToUnicode(IN char*szpUtf8,OUT WCHAR*szpUniCode) { //预算_缓冲区中宽字节的长度 	//CP_UTF8 963页码 	int unicodeLen = MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,nullptr,0); //给指向缓冲区的指针变量分配内存 	WCHAR *pUnicode = (wchar_t*)malloc(sizeof(wchar_t)*unicodeLen); //开始向缓冲区转换字节 	//CP_UTF8 963页码 也可能 	MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,pUnicode,unicodeLen); wcscpy_s(szpUniCode,unicodeLen,pUnicode); free(pUnicode); return szpUniCode; } //注意此函数没检测缓冲区大小 char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii) { int iSizeUtf8 = MultiByteToWideChar(CP_UTF8,0,szpUtf8,-1,nullptr,0); WCHAR*putf8Buf =(WCHAR*)malloc(sizeof(WCHAR)*iSizeUtf8); utf8ToUnicode(szpUtf8,putf8Buf); UniCodeToAscii(putf8Buf,szpAscii); return szpAscii; } BOOL CharToHex(OUT char*szpBufHex,BYTE c) { BYTE bLow =0; BYTE bHigh = 0; bLow = c%16;//取低位0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
+      <description>常用API函数  模拟鼠标 LRESULT SendMessage(HWND hWnd，UINT Msg，WPARAM wParam，LPARAM IParam); 其中Msg为WM_LBUTTONDOWN，WM_LBUTTONUP，表示对鼠标的软件模拟操作(虽然兼容性和安全性不如硬件模拟的mouse_event，但不改变移动鼠标指针)
+故一般写作SendMessage(hwnd, WM_LBUTTONUP/WM_LBUTTONDOWN, 0, Y坐标&amp;laquo;16+X);
+ DLL注入 HANDLE CreateThread(LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD ,LPDWORD); CreateThread将在主线程的基础上创建一个新线程
+LPVOID VirtualAllocEx(HANDLE, LPVOID, SIZE_T, DWORD, DWORD); 向指定进程申请内存，其中flAllocationType取值MEM_COMMIT表示写入物理存储而非磁盘交换内存
+FARPROC GetProcAddress(HMODULE hModule, LPCSTR); 检索指定的动态链接库(DLL)中的输出库函数地址
+HANDLE CreateRemoteThread(HANDLE, LPSECURITY_ATTRIBUTES, SIZE_T, LPTHREAD_START_ROUTINE, LPVOID, DWORD, LPDWORD); 创建一个在其它进程地址空间中运行的线程
+ DLL劫持 __asm{ }
+执行括号内的汇编代码
+JMP EAX
+将EIP跳转到EAX执行，劫持DLL后要获取真正的原函数地址，使用时要进行跳转
+ GDI绘图 HDC GetDC(HWND hWnd); 检索显示设备上下文环境的句柄
+CDC CDC类定义的是设备上下文对象的类
+CPoint CDC::MoveTo(int x,int y); CPoint CDC::LineTo(int x,int y); 绘制直线</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</guid>
+      <description>模块及进程相关代码 句柄 进程 内存 窗口句柄 HWND FindWindow(LPCTSTR IpClassName，LPCTSTR IpWindowName);  通过类名或窗口名查找，返回窗口句柄
+ 进程ID和线程ID DWORD GetWindowThreadProcessId(HWND hWnd,LPDWORD lpdwProcessId);  得到窗口句柄后通过GetWindowThreadProcessId这个函数来获得窗口所属进程ID和线程ID
+ 进程句柄 HANDLE OpenProcess(DWORD dwDesiredAccess,BOOL bInheritHandle,DWORD dwProcessId);  打开一个已存在的进程对象，并返回进程的句柄
+ 写入内存 bool WriteProcessMemory(HANDLE hProcess,LPVOID lpBaseAddress,LPVOID lpBuffer,DWORD nSize,LPDWORD lpNumberOfBytesWritten );  能写入某一进程的内存区域。入口区必须可以访问，否则操作将失败
+ 读取内存 HWND ReadProcessMemory(HANDLE hProcess, LPCVOID lpBaseAddress, LPVOID lpBuffer, DWORD nSize, LPDWORD lpNumberOfBytesRead);  根据进程句柄读入该进程的某个内存空间lpBaseAddress的nSize字节，并写入缓冲区lpBuffer，多次计算基址和偏移即可
+ 遍历模块 int 遍历进程模块(DWORD 进程PID) { HMODULE hMods[1024];	//20*sizeof(HMODULE) 	HANDLE 进程句柄; DWORD cbNeeded; unsigned int i; //Print the proess identifier.</description>
+    </item>
+    
+  </channel>
+</rss>

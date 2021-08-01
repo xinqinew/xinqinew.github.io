@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Queue on 辛琪的笔记</title>
+    <link>http://example.org/c&#43;&#43;/queue/</link>
+    <description>Recent content in Queue on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 19:07:27 +0800</lastBuildDate><atom:link href="http://example.org/c++/queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque clear()与erase()用法及示例 雙端隊列或雙頭隊列是序列容器，兩端都有擴展和收縮功能。它們類似於向量，但是在元素的結尾和開始處插入和刪除時效率更高。與向量不同，可能無法保證連續的存儲分配。
+deque::clear()
+clear()函數用於刪除雙端隊列容器的所有元素，從而使其大小為0。
+用法:
+dequename.clear() Parameters : No parameters are passed. Result : All the elements of the deque are removed ( or destroyed ) 例子：
+Input :mydeque = {1, 2, 3, 4, 5} mydeque.clear(); Output:mydeque = {} Input :mydeque = {} mydeque.clear(); Output:mydeque = {} 錯誤和異常
+1.它沒有異常拋出保證。
+2.傳遞參數時顯示錯誤。
+// CPP program to illustrate // Implementation of clear() function #include &amp;lt;deque&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; int main() { deque&amp;lt;int&amp;gt; mydeque{ 1, 2, 3, 4, 5 }; mydeque.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque insert()用法及示例 deque::insert(函数是C++中的内置函数，用于在双端队列中插入元素。
+insert()函数可以通过三种方式使用：
+通过在一个位置插入新元素val来扩展双端队列。 通过在双端队列中插入n个新值val来扩展双端队列。 通过在(first，last)范围内插入新元素来扩展双端队列。
+用法:
+deque_name.insert (iterator position, const value_type&amp;amp; val); deque_name.insert (iterator position, size_type n, const value_type&amp;amp; val); deque_name.insert (iterator position, InputIterator first, InputIterator last); 参数
+position–指定要插入元素的位置。
+val–指定要分配给新插入元素的值。
+n–指定要插入的元素数。每个元素都初始化为val的副本。
+first, last–指定迭代器，该迭代器指定要插入的元素范围。范围包括first和last之间的所有元素，包括first指向的元素，但last指向的元素。
+返回值
+该函数返回一个迭代器，该迭代器指向新插入的元素中的第一个。
+示例1:
+// CPP program to illustrate the // deque::insert() function // insert elements by iterator #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; int main() { deque&amp;lt;int&amp;gt; dq = { 1, 2, 3, 4, 5 }; deque&amp;lt;int&amp;gt;::iterator it = dq.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/</guid>
+      <description>deque 用法与示例 本篇將介紹如何使用 C++ std deque 以及用法與範例，C++ std::deque 是一個雙向佇列(double-ended queue)，在頭尾兩端插入及刪除十分快速，在中間插入刪除元素比較費時。
+std::deque 是 double-ended queue 而不是 double linked list，底層實做是用間接索引的方式實現的，類似一個 map 索引到若干個固定大小的資料區塊(連續記憶體空間)，利用兩次索引達成跟 vector 一樣的隨機訪問功能。
+以下將依序介紹幾個 std::deque 容器常用的用法範例，分別為
+ deque 常用功能 範例1. 基本的 push_back, pop_front, push_front, pop_back 的用法範例 範例2. push_back 自定義類別 範例3. 用 for 迴圈遍歷 deque 容器 範例4. 用 while 迴圈在 deque 容器裡搜尋/尋找 deque 的優點與缺點  要使用 deque 容器的話，需要引入的標頭檔: &amp;lt;deque&amp;gt;
+deque 常用功能 以下為 std::deque 內常用的成員函式
+修改器
+push_back: 把一個元素添加到尾端
+push_front: 把一個元素插入到頭端
+pop_back: 移除最後一個元素(尾端)
+pop_front: 移除第一個元素(頭端)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/</guid>
+      <description>deque和queue容器 标准模板库 STL 提供了两种容器：deque 和 queue，以实现和队列类似的数据 结构。deque 是一个双端队列。它类似于矢量，但允许在前端和后端高效地访问值。队列抽象数据类型就像栈抽象数据类型：它实际上是一个容器适配器。
+deque容器 可以将 deque 容器想象成一个矢量，但它可以快速访问前端以及后端的元素（和矢量一样，deque 也可以使用 [] 运算符访问元素）。
+图 1 deque 成员函数 使用双端队列 ADT 的程序必须包含 deque 头文件。由于本节更关心它与队列类似的特性，所以就来集中讨论一下 push_back、pop_front 和 front 成员函数，如图 1 所示。它们的示例和相应描述如表 2 所示。
+   成员函数 示例和描述     push_back iDeque.push back(7); 接受一个值作为参数插入到 deque 中。参数被插入在最后一个元素之后（被推到 deque 后面）   pop_front iDeque.pop front(); 删除 deque 的第一个元素并丢弃它   pop_front cout &amp;laquo; iDeque.front() &amp;laquo; endl; front 返回对 deque 第一个元素的引用    下面的程序演示了双端队列容器的使用：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>queue 和 deque的区别 从使用的角度来讲主要差别就是：
+deque支持push_front、pop_front、push_back、pop_back。
+queue支持push_back、pop_front。
+ deque是双端队列
+#include&amp;lt;deque&amp;gt; template&amp;lt;typename T,typename Allocator=std::allocator&amp;lt;T&amp;gt;&amp;gt;class deque; 支持push_front、pop_front、push_back、pop_back等几种操作的。queue是容器适配器，他的声明是
+#include&amp;lt;queue&amp;gt; template&amp;lt;typename T,typename Container=std::deque&amp;lt;T&amp;gt;&amp;gt;class queue; 类型Container是用来存储元素的，相当于是这个queue的实现。这个queue模板看起来像是包装了这个Container类型，只提供一些特殊的接口，使他看起来想一个queue。
+模板参数Container需要满足顺序容器的条件，而且必须支持front、back、push_back、pop_front操作，标准容器中有deque和list满足。也就是说标准容器中deque和list可以封装成queue。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/</guid>
+      <description>queue与deque示例 queue 示例1：queue #include &amp;#34;stdafx.h&amp;#34;#include &amp;lt;iostream&amp;gt;#include &amp;lt;queue&amp;gt;using namespace std; int _tmain(int argc, _TCHAR* argv[]) { queue&amp;lt;int&amp;gt; myQueue; cout &amp;lt;&amp;lt; myQueue.empty() &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; myQueue.size()&amp;lt;&amp;lt; endl; myQueue.push(1); myQueue.push(2); myQueue.push(3); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; myQueue.pop(); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl;	return 0; } 运行结果：
+  1
+0
+1
+3
+2
+3
+queue没找到迭代器deque:
+deque是双向队列Double ended queue；can be accessed with random access iterator
+deque是双端队列，是可以在两端扩展和收缩的连续容器。一般deque的实现是基于某种形式的动态数组，允许单个元素用随机获取
+迭代器随机读取，数组容量自动管理。
+因此它有和vector相似的函数，但在序列的开始也有高效的插入和删除。但不像vector，deque的元素并不是严格连续存储的。
+vector和deque有相似的接口和相似的目的，但内部实现截然不同。
+示例二：deque #include &amp;#34;stdafx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</guid>
+      <description>queue用法详解 只能访问 queue容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。
+许多程序都使用了 queue 容器。queue 容器可以用来表示超市的结账队列或服务器上等待执行的数据库事务队列。对于任何需要用 FIFO 准则处理的序列来说，使用 queue 容器适配器都是好的选择。
+图 1 展示了一个 queue 容器及其一些基本操作：
+图 1 queue容器
+queue 的生成方式和 stack 相同，下面展示如何创建一个保存字符串对象的 queue:
+std::queue&amp;lt;std::string&amp;gt; words; 也可以使用拷贝构造函数：
+std::queue&amp;lt;std::string&amp;gt; copy_words {words}; // A duplicate of words stack、queue这类适配器类都默认封装了一个 deque容器，也可以通过指定第二个模板类型参数来使用其他类型的容器：
+std::queue&amp;lt;std::string, std::list&amp;lt;std::string&amp;gt;&amp;gt;words; 底层容器必须提供这些操作：front()、back()、push_back()、pop_front()、empty() 和 size()。
+queue 操作 queue 和 stack 有一些成员函数相似，但在一些情况下，工作方式有些不同：
+ front()：返回 queue 中第一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。 back()：返回 queue 中最后一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。 push(const T&amp;amp; obj)：在 queue 的尾部添加一个元素的副本。这是通过调用底层容器的成员函数 push_back() 来完成的。 push(T&amp;amp;&amp;amp; obj)：以移动的方式在 queue 的尾部添加元素。这是通过调用底层容器的具有右值引用参数的成员函数 push_back() 来完成的。 pop()：删除 queue 中的第一个元素。 size()：返回 queue 中元素的个数。 empty()：如果 queue 中没有元素的话，返回 true。 emplace()：用传给 emplace() 的参数调用 T 的构造函数，在 queue 的尾部生成对象。 swap(queue&amp;amp;other_q)：将当前 queue 中的元素和参数 queue 中的元素交换。它们需要包含相同类型的元素。也可以调用全局函数模板 swap() 来完成同样的操作。  queue模板定义了拷贝和移动版的 operator=()，对于所保存元素类型相同的 queue 对象，它们有一整套的比较运算符，这些运算符的工作方式和 stack 容器相同。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/readme/</guid>
+      <description>queue deque和queue容器 {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/</guid>
+      <description>笔记queue与deque queue操作：
+queue&amp;lt;int&amp;gt;q;	//创建一个int型空队列q q.empty();	//判断队列是否为空，为空返回true q.push(s);	//将变量s从队尾入队 q.pop();	//将队头元素弹出 q.front();	//只返回队头元素 q.back();	//只返回队尾元素 q.size();	//返回队列中元素个数 queue两端访问,队尾插入,队首删除。 deque操作：
+deque&amp;lt;int&amp;gt; dq;	//创建一个数双端队列dq dq.empty();	//判断队列是否为空，为空返回true dq.push_front(s);//将s从队头入队 dq.push_back(s);//将s从队尾入队，和普通队列方式一样 dq.front();	//只返回队头元素 dq.back();	//只返回队尾元素 dq.pop_front();	//将队头元素弹出 dq.pop_back();	//将队尾元素弹出 dq.size();	//返回队列中元素个数 dq.clear();	//将队列清空 dq.insert();//插入新元素,最多有四个参数 //迭代器 dq.begin();	//回傳指向第一個元素(頭端)的迭代器 dq.cbegin();	//回傳指向第一個元素(頭端)的迭代器(const) dq.end();	//回傳指向最後一個元素(尾端)的迭代器 dq.cend();	//回傳指向最後一個元素(尾端)的迭代器(const) dq.rbegin();	//回傳指向最後一個元素(尾端)的反向迭代器 dq.crbegin();	//回傳指向最後一個元素(尾端)的反向迭代器(const) dq.rend();	//回傳指向第一個元素(頭端)的反向迭代器 dq.crend();	//回傳指向第一個元素(頭端)的反向迭代器(const) deque两端访问,两端插入,两端删除。 auto it = d.begin();其全名為std::deque&amp;lt;int&amp;gt;::iterator it = d.begin(); </description>
+    </item>
+    
+  </channel>
+</rss>

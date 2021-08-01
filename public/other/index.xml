@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other on 辛琪的笔记</title>
+    <link>http://example.org/other/</link>
+    <description>Recent content in Other on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 19:06:29 +0800</lastBuildDate><atom:link href="http://example.org/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/other/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/readme/</guid>
+      <description>Other 未分类的常见问题. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>sublimetext常见问题 下载安装
+汉化
+1.点击tools&amp;mdash;install package control
+2.preferences&amp;mdash;package control
+3.选择 “Package Control: Install Package”
+4.搜索LocalizedMenu并安装
+乱码
+推荐使用 Package Control 查找 ConvertToUTF8 进行自动下载安装与更新。
+Mac使用Sublime撸C++代码
+这两款软件让你在Mac上也能写C++</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>VS常见问题 解决VS生成sdf和ipch文件太大占用空间问题 [工具]—&amp;gt;[选项]—&amp;gt;[文本编辑器]—&amp;gt;C/C++]—&amp;gt;[高级]—&amp;gt;[回退位置]里面的三项属性值按下图进行修改，其中回退路径随便设置。 设置个回退路径这样可比较好管理这些庞大的臃肿的文件，可以定期清理它们，释放磁盘空间 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>win10常见问题 禁止win10五笔输入法的shift切换功能
+方法一：win10系统添加开机启动项 使用组合键win+R打开运行窗口，输入“shell:startup”打开启动项文件夹。 可以把软件快捷方式复制到“启动项文件夹|”中。
+方法二：注册表添加启动项 1、打开运行，输入“regedit”，打开注册表。 2、在注册表中找到如下位置HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run，右键“Run”新建一个字符串类型的键值。 3、右键新建的键值，选择“修改”，将数值名称改为 你要启动的程序名称如：ctfmon.exe，数值数据改为 程序所在位置的路径 如：C:\windows\system32\ctfmon.exe (直接不能修改名字的，可以先点击重命名，改好名字，再点击修改，修改数值数据)
+如何彻底关闭win10系统windows defender实时保护功能？</description>
+    </item>
+    
+  </channel>
+</rss>

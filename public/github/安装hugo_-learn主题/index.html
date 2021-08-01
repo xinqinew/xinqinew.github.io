@@ -1,0 +1,2934 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.86.0" />
+    <meta name="description" content="这是我的笔记博客">
+<meta name="author" content="辛琪">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title> :: 辛琪的笔记</title>
+
+    
+    <link href="/css/nucleus.css?1627808693" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1627808693" rel="stylesheet">
+    <link href="/css/hybrid.css?1627808693" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1627808693" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1627808693" rel="stylesheet">
+    <link href="/css/auto-complete.css?1627808693" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1627808693" rel="stylesheet">
+    <link href="/css/theme.css?1627808693" rel="stylesheet">
+    <link href="/css/tabs.css?1627808693" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1627808693" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1627808693" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1627808693"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/github/%E5%AE%89%E8%A3%85hugo_-learn%E4%B8%BB%E9%A2%98/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/'>
+  <svg id="grav-logo" style="width:100%; height:100%;" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1627808693"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1627808693"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/example.org\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1627808693"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/wow/" title="WOW" class="dd-item
+        
+        
+        
+        ">
+      <a href="/wow/">
+          <b>X. </b>WOW
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/" title="" class="dd-item ">
+        <a href="/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/readme/" title="" class="dd-item ">
+        <a href="/wow/readme/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/" title="" class="dd-item ">
+        <a href="/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="" class="dd-item ">
+        <a href="/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" title="" class="dd-item ">
+        <a href="/wow/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/" title="" class="dd-item ">
+        <a href="/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/other/" title="Other" class="dd-item
+        
+        
+        
+        ">
+      <a href="/other/">
+          <b>X. </b>Other
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/other/readme/" title="" class="dd-item ">
+        <a href="/other/readme/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="" class="dd-item ">
+        <a href="/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="" class="dd-item ">
+        <a href="/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="" class="dd-item ">
+        <a href="/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/github/" title="GitHub" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/github/">
+          <b>X. </b>GitHub
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" title="" class="dd-item ">
+        <a href="/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="" class="dd-item ">
+        <a href="/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/markdown%E8%AF%AD%E6%B3%95/" title="" class="dd-item ">
+        <a href="/github/markdown%E8%AF%AD%E6%B3%95/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/readme/" title="" class="dd-item ">
+        <a href="/github/readme/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="" class="dd-item ">
+        <a href="/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="" class="dd-item ">
+        <a href="/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/%E5%AE%89%E8%A3%85hugo_-learn%E4%B8%BB%E9%A2%98/" title="" class="dd-item active">
+        <a href="/github/%E5%AE%89%E8%A3%85hugo_-learn%E4%B8%BB%E9%A2%98/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/" title="" class="dd-item ">
+        <a href="/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/" title="" class="dd-item ">
+        <a href="/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c&#43;&#43;/" title="C&#43;&#43;" class="dd-item
+        
+        
+        
+        ">
+      <a href="/c&#43;&#43;/">
+          <b>X. </b>C&#43;&#43;
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c&#43;&#43;/queue/" title="Queue" class="dd-item
+        
+        
+        
+        ">
+      <a href="/c&#43;&#43;/queue/">
+          <b>X. </b>Queue
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/deque-clear%E4%B8%8Eerase%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/deque-insert%E7%94%A8%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/deque-%E7%94%A8%E6%B3%95%E4%B8%8E%E7%A4%BA%E4%BE%8B/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/deque%E5%92%8Cqueue%E5%AE%B9%E5%99%A8/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/queue-%E5%92%8C-deque%E7%9A%84%E5%8C%BA%E5%88%AB/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/queue%E4%B8%8Edeque%E7%A4%BA%E4%BE%8B/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/queue%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/readme/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/readme/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/" title="" class="dd-item ">
+        <a href="/c&#43;&#43;/queue/%E7%AC%94%E8%AE%B0queue%E4%B8%8Edeque/">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" title="cin和cout输入输出" class="dd-item ">
+        <a href="/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+        cin和cout输入输出
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/class-%E7%B1%BB/" title="class 类" class="dd-item ">
+        <a href="/c&#43;&#43;/class-%E7%B1%BB/">
+        class 类
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/" title="ifndef详解" class="dd-item ">
+        <a href="/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/">
+        ifndef详解
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" title="namespace 命名空间" class="dd-item ">
+        <a href="/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+        namespace 命名空间
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/" title="printf输出" class="dd-item ">
+        <a href="/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/">
+        printf输出
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/readme/" title="README" class="dd-item ">
+        <a href="/c&#43;&#43;/readme/">
+        README
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" title="std命名空间" class="dd-item ">
+        <a href="/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+        std命名空间
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/" title="struct 结构体" class="dd-item ">
+        <a href="/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/">
+        struct 结构体
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/" title="typedef起小名" class="dd-item ">
+        <a href="/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/">
+        typedef起小名
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/" title="尖括号" class="dd-item ">
+        <a href="/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/">
+        尖括号
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/" title="常用头文件" class="dd-item ">
+        <a href="/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/">
+        常用头文件
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/" title="知识点" class="dd-item ">
+        <a href="/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/">
+        知识点
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/third/" title="Third" class="dd-item
+        
+        
+        
+        ">
+      <a href="/third/">
+          <b>X. </b>Third
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/third/third1/" title="Third1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/third/third1/">
+          Third1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/third/third2/" title="Third2" class="dd-item ">
+        <a href="/third/third2/">
+        Third2
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basics/" title="Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basics/">
+          <b>X. </b>Basics
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/basics/first-content/" title="First Content" class="dd-item ">
+        <a href="/basics/first-content/">
+        <i class='fab fa-github'></i> Real First Content
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basics/second-content/" title="Second Content" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basics/second-content/">
+          <i class='fab fa-github'></i> Second Content
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/basics/second-content/third-content/" title="Third Content" class="dd-item ">
+        <a href="/basics/second-content/third-content/">
+        <i class='fab fa-github'></i> Third Content
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/basics/forth/" title="Forth" class="dd-item ">
+        <a href="/basics/forth/">
+        Forth
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="http://example.org/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/GitHub/%e5%ae%89%e8%a3%85hugo_%20learn%e4%b8%bb%e9%a2%98.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/github/'>GitHub</a> > 
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装">安装</a>
+      <ul>
+        <li><a href="#创建您的项目">创建您的项目</a></li>
+        <li><a href="#安装主题">安装主题</a></li>
+        <li><a href="#基本配置">基本配置</a></li>
+        <li><a href="#创建第一章页面">创建第一章页面</a></li>
+        <li><a href="#创建您的第一个内容页面">创建您的第一个内容页面</a></li>
+        <li><a href="#在本地启动网站">在本地启动网站</a></li>
+        <li><a href="#建立网站">建立网站</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置">配置</a>
+      <ul>
+        <li><a href="#全球站点参数">全球站点参数</a></li>
+        <li><a href="#激活搜索">激活搜索</a></li>
+        <li><a href="#美人鱼">美人鱼</a></li>
+        <li><a href="#主屏幕按钮配置">主屏幕按钮配置</a></li>
+        <li><a href="#前置物质配置">前置物质配置</a></li>
+        <li><a href="#向菜单条目添加图标">向菜单条目添加图标</a></li>
+        <li><a href="#订购兄弟姐妹菜单页面条目">订购兄弟姐妹菜单/页面条目</a></li>
+        <li><a href="#对菜单条目使用自定义标题">对菜单条目使用自定义标题</a></li>
+        <li><a href="#主页">主页</a></li>
+        <li><a href="#章节">章节</a></li>
+        <li><a href="#默认">默认</a></li>
+        <li><a href="#笔记图片">笔记图片</a></li>
+        <li><a href="#调整图像大小">调整图像大小</a></li>
+        <li><a href="#添加css类">添加CSS类</a></li>
+        <li><a href="#灯箱">灯箱</a></li>
+        <li><a href="#禁用语言切换">禁用语言切换</a></li>
+      </ul>
+    </li>
+    <li><a href="#标签">标签</a>
+      <ul>
+        <li><a href="#配置-1">配置</a></li>
+        <li><a href="#行为">行为</a></li>
+        <li><a href="#列出所有标签">列出所有标签</a></li>
+      </ul>
+    </li>
+    <li><a href="#子目录">子目录</a>
+      <ul>
+        <li><a href="#扩展">扩展</a></li>
+        <li><a href="#显示configtoml变量的值">显示<code>config.toml</code>变量的值</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="安装hugo_-learn主题">安装hugo_ learn主题</h1>
+<p><a href="https://themes.gohugo.io/themes/hugo-theme-learn/">learn主题</a></p>
+<h2 id="安装">安装</h2>
+<h3 id="创建您的项目">创建您的项目</h3>
+<pre><code>cd /Volumes/video/GitHub
+hugo new site learn
+</code></pre><h3 id="安装主题">安装主题</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH">cd /Volumes/video/GitHub/learn/themes
+git clone https://github.com/matcornic/hugo-theme-learn.git
+
+</code></pre></div><h3 id="基本配置">基本配置</h3>
+<p>在建站时，可以通过使用<code>--theme</code>选项。但是，我们建议您修改配置文件（<code>config.toml</code>）并将主题设置为默认。您还可以添加<code>[outputs]</code>启用搜索功能的部分。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e"># Change the default theme to be use when building the site with Hugo</span>
+<span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hugo-theme-learn&#34;</span>
+
+<span style="color:#75715e"># For search functionality</span>
+[<span style="color:#a6e22e">outputs</span>]
+<span style="color:#a6e22e">home</span> = [ <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
+</code></pre></div><h3 id="创建第一章页面">创建第一章页面</h3>
+<pre><code>cd /Volumes/video/GitHub/learn/
+hugo new --kind chapter basics/_index.md
+</code></pre><p>通过打开给定的文件，您应该看到属性<code>chapter=true</code>在上面，这意味着这一页是一个_章节_。</p>
+<p>默认情况下，所有章节和页面都创建为草稿。如果您想渲染这些页面，请删除属性<code>draft: true</code>来自元数据。</p>
+<h3 id="创建您的第一个内容页面">创建您的第一个内容页面</h3>
+<p>然后，在之前创建的章节中创建内容页面。以下为以下两种创建章节内容的方法：</p>
+<pre><code>hugo new basics/first-content.md
+hugo new basics/second-content/_index.md
+</code></pre><p>通过添加一些示例内容并替换文件开头的标题值，可以随意编辑这些文件。</p>
+<h3 id="在本地启动网站">在本地启动网站</h3>
+<p>使用以下命令启动：</p>
+<pre><code>hugo serve
+</code></pre><p>去<code>http://localhost:1313</code></p>
+<p>你应该注意三件事：</p>
+<ol>
+<li>您有一个左侧的 <strong>Basics</strong> 菜单，其中包含两个子菜单，其名称与之前创建的文件中的 <code>title</code> 属性相同。</li>
+<li>主页解释了如何通过按照说明进行定制。</li>
+<li>当你跑步时<code>hugo serve</code>，当文件内容发生变化时，页面会自动随着更改刷新。整洁！</li>
+</ol>
+<h3 id="建立网站">建立网站</h3>
+<p>当您的网站准备部署时，运行以下命令：</p>
+<pre><code>hugo
+</code></pre><p><code>public</code>将生成文件夹，其中包含您网站的所有静态内容和资产。它现在可以部署在任何Web服务器上。</p>
+<h2 id="配置">配置</h2>
+<h3 id="全球站点参数">全球站点参数</h3>
+<p>在<a href="https://gohugo.io/overview/configuration/">雨果全球配置</a>，<strong>Hugo-theme-learn</strong>允许您在您的<code>config.toml</code>（此处，值为默认值）。</p>
+<p>请注意，其中一些参数在本文档的其他部分中进行了详细解释。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">params</span>]
+  <span style="color:#a6e22e">themeVariant</span> = <span style="color:#e6db74">&#34;blue&#34;</span> <span style="color:#75715e">#red green blue //主题颜色 默认为紫色</span>
+   	<span style="color:#75715e"># 前缀 URL 以编辑当前页面。 将在每个页面的右上角显示“编辑此页面”按钮。</span>
+   	<span style="color:#75715e"># 有助于让人们有机会为您的文档创建合并请求。</span>
+   	<span style="color:#75715e"># 请参阅此文档站点中的 config.toml 文件以获取示例。</span>
+  <span style="color:#a6e22e">editURL</span> = <span style="color:#e6db74">&#34;&#34;</span>
+	<span style="color:#75715e"># 站点的作者，将用于元信息</span>
+  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;&#34;</span>
+	<span style="color:#75715e"># 站点描述，将用于元信息</span>
+  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;&#34;</span>
+  	<span style="color:#75715e"># 在菜单上显示已访问页面的复选标记</span>
+  <span style="color:#a6e22e">showVisitedLinks</span> = <span style="color:#66d9ef">false</span>
+  	<span style="color:#75715e"># 禁用搜索功能。 它将隐藏搜索栏</span>
+  <span style="color:#a6e22e">disableSearch</span> = <span style="color:#66d9ef">false</span>
+   	<span style="color:#75715e"># 新版本站点生成时，Javascript 和 CSS 缓存会自动破坏。</span>
+  	<span style="color:#75715e"># 将此设置为 true 以禁用此行为（某些代理不能很好地处理此优化）</span>
+  <span style="color:#a6e22e">disableAssetsBusting</span> = <span style="color:#66d9ef">false</span>
+	<span style="color:#75715e"># 将此设置为 true 以禁用内联代码的复制到剪贴板按钮。</span>
+  <span style="color:#a6e22e">disableInlineCopyToClipBoard</span> = <span style="color:#66d9ef">false</span>
+   	<span style="color:#75715e"># 默认设置菜单中快捷方式的标题。 将此设置为 true 以禁用它。</span>
+  <span style="color:#a6e22e">disableShortcutsTitle</span> = <span style="color:#66d9ef">false</span>
+	<span style="color:#75715e"># 如果设置为false，则菜单上的搜索栏下方将出现一个主页按钮。</span>
+   	<span style="color:#75715e"># 如果指定，则重定向到当前语言的登录页面。 （默认为“/”）</span>
+  <span style="color:#a6e22e">disableLandingPageButton</span> = <span style="color:#66d9ef">true</span>
+	<span style="color:#75715e"># 使用多语言网站时，禁用切换语言按钮。</span>
+  <span style="color:#a6e22e">disableLanguageSwitchingButton</span> = <span style="color:#66d9ef">false</span>
+ 	<span style="color:#75715e"># 隐藏页眉中的面包屑，只显示当前页面标题</span>
+  <span style="color:#a6e22e">disableBreadcrumb</span> = <span style="color:#66d9ef">true</span>
+	<span style="color:#75715e"># 如果设置为 true，则在不需要时阻止 Hugo 包含美人鱼模块（将减少加载时间和流量）</span>
+  <span style="color:#a6e22e">disableMermaid</span> = <span style="color:#66d9ef">false</span>
+  	<span style="color:#75715e"># 指定美人鱼js的远程位置</span>
+  <span style="color:#a6e22e">customMermaidURL</span> = <span style="color:#e6db74">&#34;https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js&#34;</span>
+  	<span style="color:#75715e"># 隐藏下一页和上一页按钮通常在内容旁边全高显示</span>
+  <span style="color:#a6e22e">disableNextPrev</span> = <span style="color:#66d9ef">true</span>
+  	<span style="color:#75715e"># 按“重量”或“标题”对菜单中的部分进行排序。 默认为“重量”</span>
+  <span style="color:#a6e22e">ordersectionsby</span> = <span style="color:#e6db74">&#34;weight&#34;</span>
+  	<span style="color:#75715e"># 使用变体更改默认配色方案。 可以是“红”、“蓝”、“绿”。</span>
+  <span style="color:#a6e22e">themeVariant</span> = <span style="color:#e6db74">&#34;&#34;</span>
+	<span style="color:#75715e"># 提供自定义 css 文件列表以从站点根目录的 `static/` 文件夹中加载相关文件。</span>
+  <span style="color:#a6e22e">custom_css</span> = [<span style="color:#e6db74">&#34;css/foo.css&#34;</span>, <span style="color:#e6db74">&#34;css/bar.css&#34;</span>]
+  	<span style="color:#75715e"># 更改标题分隔符。 默认为“::”。</span>
+  <span style="color:#a6e22e">titleSeparator</span> = <span style="color:#e6db74">&#34;-&#34;</span>
+</code></pre></div><h3 id="激活搜索">激活搜索</h3>
+<p>如果尚未出现，请在同一行中添加以下行<code>config.toml</code>文件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">outputs</span>]
+<span style="color:#a6e22e">home</span> = [ <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
+</code></pre></div><p>Learn主题使用hugo 20+版本中可用的最后一个改进来生成一个json索引文件，准备被lunr.js javascript搜索引擎使用。</p>
+<blockquote>
+<p>雨果在公用文件夹的根部生成lunrjs index.json。当您使用<code>hugo server</code>，Hugo在内部生成它，当然它不会显示在文件系统中</p>
+</blockquote>
+<h3 id="美人鱼">美人鱼</h3>
+<p>美人鱼配置参数也可以在特定页面上设置。在这种情况下，全局参数将被本地参数覆盖。</p>
+<blockquote>
+<p>示例：</p>
+<p>美人鱼是全球残疾人。默认情况下，它不会被任何页面加载。<br>
+在“架构”页面上，您需要一个类图。您可以将美人鱼参数设置在本地，仅在此页面上加载美人鱼（而不是在其他页面上）。</p>
+</blockquote>
+<p>您还可以在全局启用时禁用特定页面的美人鱼。</p>
+<h3 id="主屏幕按钮配置">主屏幕按钮配置</h3>
+<p>如果<code>disableLandingPage</code>选项设置为<code>false</code>，左侧菜单上将显示一个主屏幕按钮。是点击标志的替代方案。要编辑外观，您必须为定义的语言配置两个参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">Lanugages</span>]
+[<span style="color:#a6e22e">Lanugages</span>.<span style="color:#a6e22e">en</span>]
+...
+<span style="color:#a6e22e">landingPageURL</span> = <span style="color:#e6db74">&#34;/en&#34;</span>
+<span style="color:#a6e22e">landingPageName</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-home&#39;&gt;&lt;/i&gt; Redirect to Home&#34;</span>
+...
+[<span style="color:#a6e22e">Lanugages</span>.<span style="color:#a6e22e">fr</span>]
+...
+<span style="color:#a6e22e">landingPageURL</span> = <span style="color:#e6db74">&#34;/fr&#34;</span>
+<span style="color:#a6e22e">landingPageName</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-home&#39;&gt;&lt;/i&gt; Accueil&#34;</span>
+...
+</code></pre></div><p>如果这些参数没有为特定语言配置，它们将获得默认值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">landingPageURL</span> = <span style="color:#e6db74">&#34;/&#34;</span>
+<span style="color:#a6e22e">landingPageName</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-home&#39;&gt;&lt;/i&gt; Home&#34;</span>
+</code></pre></div><p>主屏幕按钮会是这样的：</p>
+<p><a href="https://learn.netlify.app/en/basics/configuration/images/home_button_defaults.jpg?width=100%25"><img src="https://learn.netlify.app/en/basics/configuration/images/home_button_defaults.jpg?width=100%25" alt="默认主屏幕按钮"></a></p>
+<p><a href="https://learn.netlify.app/en/basics/installation/" title="安装"></a></p>
+<h3 id="前置物质配置">前置物质配置</h3>
+<p>每个雨果页面必须定义一个<a href="https://gohugo.io/content/front-matter/">前物质</a> in <em>yaml</em>, <em>toml</em> or <em>json</em>.</p>
+<p><strong>Hugo-theme-learn</strong>在Hugo参数的基础上使用以下参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">+++</span>
+
+<span style="color:#a6e22e">disableToc</span> = <span style="color:#e6db74">&#34;false&#34;</span>
+<span style="color:#75715e"># 默认情况下启用目录 (toc)。 将此参数设置为 true 以禁用它。</span>
+<span style="color:#75715e"># 注意：章节页面的 Toc 始终处于禁用状态</span>
+
+<span style="color:#a6e22e">menuTitle</span> = <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#75715e"># 如果设置，这将用于页面的菜单项（而不是`title` 属性）</span>
+
+<span style="color:#a6e22e">pre</span> = <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#75715e"># 菜单中页面的标题将以此 HTML 内容为前缀</span>
+
+<span style="color:#a6e22e">post</span> = <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#75715e"># 菜单中页面的标题将被此 HTML 内容后缀</span>
+
+<span style="color:#a6e22e">chapter</span> = <span style="color:#66d9ef">false</span>
+<span style="color:#75715e"># 将页面设置为章节，改变其显示方式</span>
+
+<span style="color:#a6e22e">hidden</span> = <span style="color:#66d9ef">false</span>
+<span style="color:#75715e"># 通过将其设置为 true 来隐藏菜单项</span>
+
+<span style="color:#a6e22e">LastModifierDisplayName</span> = <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#75715e"># 该页面修饰符的显示名称。 如果设置，它将显示在页脚中。</span>
+
+<span style="color:#a6e22e">LastModifierEmail</span> = <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#75715e"># 此页面修改器的电子邮件。 如果使用 LastModifierDisplayName 设置，它将显示在页脚中</span>
+<span style="color:#960050;background-color:#1e0010">+++</span>
+</code></pre></div><h3 id="向菜单条目添加图标">向菜单条目添加图标</h3>
+<p>在页面 frontmatter 中，添加一个 <code>pre</code> 参数以在菜单标签之前插入任何 HTML 代码。 下面的示例使用 Github 图标。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">+++</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Github repo&#34;</span>
+<span style="color:#a6e22e">pre</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fab fa-github&#39;&gt;&lt;/i&gt; &#34;</span>
+<span style="color:#960050;background-color:#1e0010">+++</span>
+</code></pre></div><p><a href="http://localhost:57318/en/cont/pages/images/frontmatter-icon.png"><img src="http://localhost:57318/en/cont/pages/images/frontmatter-icon.png" alt="带图标的标题"></a></p>
+<h3 id="订购兄弟姐妹菜单页面条目">订购兄弟姐妹菜单/页面条目</h3>
+<p>雨果提供了一个<a href="https://gohugo.io/content/ordering/">灵活的方式</a>处理页面的订单。</p>
+<p>最简单的方法是设置<code>weight</code>参数到一个数字。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">+++</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;My page&#34;</span>
+<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">5</span>
+<span style="color:#960050;background-color:#1e0010">+++</span>
+</code></pre></div><h3 id="对菜单条目使用自定义标题">对菜单条目使用自定义标题</h3>
+<p>默认情况下，Hugo-theme-learn 将使用页面的标题属性作为菜单项（或链接标题如果定义）。</p>
+<p>但页面的标题必须本身具有描述性，而菜单是层次结构。我们添加了<code>menuTitle</code>为此目的的参数：</p>
+<p>例如（对于名为<code>content/install/linux.md</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">+++</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Install on Linux&#34;</span>
+<span style="color:#a6e22e">menuTitle</span> = <span style="color:#e6db74">&#34;Linux&#34;</span>
+<span style="color:#960050;background-color:#1e0010">+++</span>
+</code></pre></div><h3 id="主页">主页</h3>
+<p>要配置您的主页，您基本上有三个选择：</p>
+<ol>
+<li>创建一个<code>_index.md</code>文档在<code>content</code>文件夹并用_Markdown内容_填充文件</li>
+<li>创建一个<code>index.html</code>文件在<code>static</code>文件夹并用_HTML内容_填充文件</li>
+<li>配置服务器以自动将主页重定向到文档页面</li>
+</ol>
+<h3 id="章节">章节</h3>
+<p>要创建章节页面，请运行以下命令</p>
+<pre><code>hugo new --kind chapter &lt;name&gt;/_index.md
+</code></pre><p>它将创建一个包含预定义前事项的页面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">+++
+title = &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+date = {{ .Date }}
+weight = 5
+chapter = true
+pre = &#34;&lt;<span style="color:#f92672">b</span>&gt;X. &lt;/<span style="color:#f92672">b</span>&gt;&#34;
++++
+
+<span style="color:#75715e">### Chapter X
+</span><span style="color:#75715e"></span>
+# Some Chapter title
+
+Lorem Ipsum.
+</code></pre></div><h3 id="默认">默认</h3>
+<p>要创建默认页面，请运行以下命令之一</p>
+<pre><code># Either
+hugo new &lt;chapter&gt;/&lt;name&gt;/_index.md
+# Or
+hugo new &lt;chapter&gt;/&lt;name&gt;.md
+</code></pre><p>它将创建一个包含预定义前事项的页面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">+++
+title = &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+date =  {{ .Date }}
+weight = 5
++++
+
+Lorem Ipsum.
+</code></pre></div><h3 id="笔记图片">笔记图片</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![Alt text][id]
+</code></pre></div><p><a href="https://octodex.github.com/images/dojocat.jpg"><img src="https://octodex.github.com/images/dojocat.jpg" alt="原文" title="Dojocat"></a></p>
+<p>在文档后面引用定义URL位置：</p>
+<pre><code>[id]: https://octodex.github.com/images/dojocat.jpg  &quot;The Dojocat&quot;
+</code></pre><h3 id="调整图像大小">调整图像大小</h3>
+<p>将 HTTP 参数 <code>width</code> 和/或 <code>height</code> 添加到链接图像以调整图像大小。 值为 CSS 值（默认为 <code>auto</code>）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">Minion</span>](<span style="color:#a6e22e">https://octodex.github.com/images/minion.png?width=20px</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/minion.png?width=20px"><img src="https://octodex.github.com/images/minion.png?width=20px" alt="人"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">Minion</span>](<span style="color:#a6e22e">https://octodex.github.com/images/minion.png?height=50px</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/minion.png?height=50px"><img src="https://octodex.github.com/images/minion.png?height=50px" alt="人"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">Minion</span>](<span style="color:#a6e22e">https://octodex.github.com/images/minion.png?height=50px&amp;width=300px</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/minion.png?height=50px&amp;width=300px"><img src="https://octodex.github.com/images/minion.png?height=50px&amp;width=300px" alt="人"></a></p>
+<h3 id="添加css类">添加CSS类</h3>
+<p>添加HTTP<code>classes</code>参数到链接映像中添加CSS类。<code>shadow</code>和<code>border</code>可用，但您可以定义其他。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">stormtroopocat</span>](<span style="color:#a6e22e">https://octodex.github.com/images/stormtroopocat.jpg?classes=shadow</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=shadow"><img src="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=shadow" alt="风暴 ??"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">stormtroopocat</span>](<span style="color:#a6e22e">https://octodex.github.com/images/stormtroopocat.jpg?classes=border</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=border"><img src="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=border" alt="风暴 ??"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">stormtroopocat</span>](<span style="color:#a6e22e">https://octodex.github.com/images/stormtroopocat.jpg?classes=border,shadow</span>)
+</code></pre></div><p><a href="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=border,shadow"><img src="https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&amp;classes=border,shadow" alt="风暴 ??"></a></p>
+<h3 id="灯箱">灯箱</h3>
+<p>添加HTTP<code>featherlight</code>参数到链接图像以禁用灯箱。默认情况下，使用 featherlight.js 插件启用灯箱。您可以通过定义来禁用它<code>featherlight</code> to <code>false</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">Minion</span>](<span style="color:#a6e22e">https://octodex.github.com/images/minion.png?featherlight=false</span>)
+</code></pre></div><h3 id="禁用语言切换">禁用语言切换</h3>
+<p>在浏览器中切换语言是一项很棒的功能，但出于某些原因，您可能希望禁用它。</p>
+<p>刚刚设置<code>disableLanguageSwitchingButton=true</code>在你的<code>config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">params</span>]
+  <span style="color:#75715e"># When using mulitlingual website, disable the switch language button.</span>
+  <span style="color:#a6e22e">disableLanguageSwitchingButton</span> = <span style="color:#66d9ef">true</span>
+</code></pre></div><p><a href="http://localhost:57318/en/cont/i18n/images/i18n-menu.gif"><img src="http://localhost:57318/en/cont/i18n/images/i18n-menu.gif" alt="I18n菜单"></a></p>
+<h2 id="标签">标签</h2>
+<p>_学习主题_支持gohugo的一个默认分类：_标签_功能。</p>
+<h3 id="配置-1">配置</h3>
+<p>只需在任何页面添加标签：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+date: 2018-11-29T08:41:44+01:00
+title: Theme tutorial
+weight: 15
+tags: [&#34;tutorial&#34;, &#34;theme&#34;] 
+---
+</code></pre></div><h3 id="行为">行为</h3>
+<p>标签按插入顺序显示在页面顶部。</p>
+<p>每个标签都是指向_分类_页面的链接，该页面显示所有带有给定标签的文章。</p>
+<h3 id="列出所有标签">列出所有标签</h3>
+<p>在<code>config.toml</code>文件，您可以添加一个快捷方式来显示所有标签</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">shortcuts</span>]]
+<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-tags&#39;&gt;&lt;/i&gt; Tags&#34;</span>
+<span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/tags&#34;</span>
+<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">30</span>
+</code></pre></div><h2 id="子目录">子目录</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td><em>current</em></td>
+<td>指定页面名称（部分名称）以显示其子项</td>
+</tr>
+<tr>
+<td>style</td>
+<td>“li”</td>
+<td>选择用于显示后代的样式。 它可以是任何 HTML 标签名称</td>
+</tr>
+<tr>
+<td>showhidden</td>
+<td>“false”</td>
+<td>当为 true 时，将显示从菜单中隐藏的子页面</td>
+</tr>
+<tr>
+<td>description</td>
+<td>“false”</td>
+<td>允许您在列表中的每个页面下包含一个简短的文本。 当页面不存在描述时，儿童简码会占用您内容的前 70 个单词。 在 gohugo.io 上阅读有关摘要的更多信息.<a href="https://gohugo.io/content/summaries/">Read more info about summaries on gohugo.io</a></td>
+</tr>
+<tr>
+<td>depth</td>
+<td>1</td>
+<td>输入一个数字以指定要显示的后代的深度。 例如，如果值为 2，则简码将显示 2 级子页面。 Tips：设置999获取所有后代</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>none</td>
+<td>按权重排序子项 - 按菜单顺序排序，名称 - 按菜单标签的字母顺序排序，标识符 - 按设置在 frontmatter 中的标识符的字母顺序排序，以及 URL - 按 URL 排序</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+
+
+<ul class="children children-h2">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+
+
+<ul class="children children-div">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+
+	
+</ul>
+
+
+<p>手动添加描述</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;!--more--&gt;
+</code></pre></div><h3 id="扩展">扩展</h3>
+<p>此短代码恰好需要一个可选参数来定义显示在展开/折叠图标旁边的文本。（默认值为“展开我&hellip;&hellip;”）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	外层
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        内层
+    </div>
+</div>
+</code></pre></div>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	外层
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        内层
+    </div>
+</div>
+<h3 id="显示configtoml变量的值">显示<code>config.toml</code>变量的值</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/
+这是我的笔记博客
+</code></pre></div>
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title=""> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1627808693"></script>
+    <script src="/js/perfect-scrollbar.min.js?1627808693"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1627808693"></script>
+    <script src="/js/jquery.sticky.js?1627808693"></script>
+    <script src="/js/featherlight.min.js?1627808693"></script>
+    <script src="/js/highlight.pack.js?1627808693"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1627808693"></script>
+    <script src="/js/learn.js?1627808693"></script>
+    <script src="/js/hugo-learn.js?1627808693"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1627808693"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

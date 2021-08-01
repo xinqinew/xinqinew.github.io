@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on 辛琪的笔记</title>
+    <link>http://example.org/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 19:05:21 +0800</lastBuildDate><atom:link href="http://example.org/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cin和cout输入输出</title>
+      <link>http://example.org/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>cin和cout输入输出 简单的输入输出代码示例：
+#include&amp;lt;iostream&amp;gt;using namespace std; int main(){ int x; float y; cout&amp;lt;&amp;lt;&amp;#34;Please input an int number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;x; cout&amp;lt;&amp;lt;&amp;#34;The int number is x= &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;Please input a float number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;y; cout&amp;lt;&amp;lt;&amp;#34;The float number is y= &amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; return 0; } 运行结果如下（↙表示按下回车键）：
+ Please input an int number:
+8↙
+The int number is x= 8
+Please input a float number:
+7.4↙
+The float number is y= 7.4
+  cin 连续输入示例
+#include&amp;lt;iostream&amp;gt;using namespace std; int main(){ int x; float y; cout&amp;lt;&amp;lt;&amp;#34;Please input an int number and a float number:&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;x&amp;gt;&amp;gt;y; cout&amp;lt;&amp;lt;&amp;#34;The int number is x= &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;The float number is y= &amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; return 0; } 运行结果：</description>
+    </item>
+    
+    <item>
+      <title>class 类</title>
+      <link>http://example.org/c&#43;&#43;/class-%E7%B1%BB/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/class-%E7%B1%BB/</guid>
+      <description>class 类 #include &amp;lt;stdio.h&amp;gt;//通过class关键字类定义类 class Student{ public: //类包含的变量  char *name; int age; float score; //类包含的函数  void say(){ printf(&amp;#34;%s的年龄是 %d，成绩是 %f\n&amp;#34;, name, age, score); } }; int main(){ //通过类来定义变量，即创建对象  class Student stu1; //也可以省略关键字class  //为类的成员变量赋值  stu1.name = &amp;#34;小明&amp;#34;; stu1.age = 15; stu1.score = 92.5f; //调用类的成员函数  stu1.say(); return 0; } 类也是一种构造类型，但是进行了一些扩展，类的成员不但可以是变量，还可以是函数；通过类定义出来的变量也有特定的称呼，叫做“对象”</description>
+    </item>
+    
+    <item>
+      <title>ifndef详解</title>
+      <link>http://example.org/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</guid>
+      <description>ifndef详解 ifndef是&amp;quot;if not defined&amp;quot;的简写 #ifndef起到的效果是防止一个源文件多次包含同一个头文件, 而不是防止两个源文件包含同一个头文件。
+一、防止头文件的重复包含和编译 #ifndef &amp;lt;标识&amp;gt; #define &amp;lt;标识&amp;gt;  ...... ...... #endif  标识的明明规则一般是头文件名全大写，前面加下划线，并把文件名中的&amp;quot;.&amp;ldquo;也变成下划线，如：stdio.h
+#ifndef _STDIO_H #define _STDIO_H  ...... ...... #endif 二、便于程序的调试和移植 #ifndef 标识符  程序段 1 #else  程序段 2 #endif  它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
+#ifndef 标识符  #define 标识符  程序段 1 #else  程序段 2 #endif  它的作用是当“标识符”没有由#define定义过，则编译“程序段1”，否则编译“程序段2”。
+#if 表达式  程序段 1 #else  程序段 2 #endif  它的作用是当“表达式”值为真时，编译“程序段1”，否则编译“程序段2”。
+注：以上三种形式中#else不是强制的，可省略；当然，当#else后需要嵌套#if时，可以使用预处理命令#elif，它相当于#else#if。</description>
+    </item>
+    
+    <item>
+      <title>namespace 命名空间</title>
+      <link>http://example.org/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>namespace 命名空间 namespace 是C++中的关键字，用来定义一个命名空间，语法格式为：
+namespace name{ //variables, functions, classes } name是命名空间的名字，它里面可以包含变量、函数、类、typedef、#define 等，最后由{ }包围。
+ namespace Li{ //小李的变量定义  FILE fp = NULL; } namespace Han{ //小韩的变量定义  FILE fp = NULL } Li::fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han::fp = fopen(&amp;#34;two.txt&amp;#34;, &amp;#34;rb+&amp;#34;); //使用小韩定义的变量 fp using Li::fp; fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han :: fp = fopen(&amp;#34;two.txt&amp;#34;, &amp;#34;rb+&amp;#34;); //使用小韩定义的变量 fp using namespace Li; fp = fopen(&amp;#34;one.txt&amp;#34;, &amp;#34;r&amp;#34;); //使用小李定义的变量 fp Han::fp = fopen(&amp;#34;two.</description>
+    </item>
+    
+    <item>
+      <title>printf输出</title>
+      <link>http://example.org/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</guid>
+      <description>printf输出 函式原型： int printf ( const char * format, &amp;hellip; );
+引數說明： %[flags][width][.precision][length]specifier %[旗標][寬度][.精度][長度修飾]資料型態
+1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位 (1.1) 字元/字串 %c, %C : 字元, char c; %s : 字元陣列, char buffer[MAX_PATH]; %S : 字元陣列(Unicode), wchar buffer[MAX_PATH];
+[註] %C / %S 並未被收在標準函式庫裡，屬 MSVC 特殊支援。
+(1.2) 整數 %d, %i : 10進制整數 , int x; [lemma] %u : 10進制無號數, unsigned int x; %o : 8進制無號數, unsigned int x; %x, %X : 16進制無號數, 小寫x輸出為&amp;quot;abcdef&amp;quot;, 大寫 X 輸出為 &amp;quot;ABCDEF&amp;quot;, unsigned x;  %lld, %I64d : long long int, __int64 輸出型態 (註：vc6.</description>
+    </item>
+    
+    <item>
+      <title>README</title>
+      <link>http://example.org/c&#43;&#43;/readme/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/readme/</guid>
+      <description>NOTE 这里收录了我的C++笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title>std命名空间</title>
+      <link>http://example.org/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>std命名空间  使用命名空间 std：  #include &amp;lt;cstdio&amp;gt;int main(){ std::printf(&amp;#34;http://c.biancheng.net\n&amp;#34;); return 0; }   不使用命名空间 std：  #include &amp;lt;cstdio&amp;gt;int main(){ printf(&amp;#34;http://c.biancheng.net\n&amp;#34;); return 0; }   演示了如何使用 C++ 库进行输入输出：  #include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt; int main(){ //声明命名空间std  using namespace std; //定义字符串变量  string str; //定义 int 变量  int age; //从控制台获取用户输入  cin&amp;gt;&amp;gt;str&amp;gt;&amp;gt;age; //将数据输出到控制台  cout&amp;lt;&amp;lt;str&amp;lt;&amp;lt;&amp;#34;已经成立&amp;#34;&amp;lt;&amp;lt;age&amp;lt;&amp;lt;&amp;#34;年了！&amp;#34;&amp;lt;&amp;lt;endl; return 0; } 运行结果：
+C语言中文网↙
+6↙
+C语言中文网已经成立6年了！
+ 在 main() 函数中声明命名空间 std，它的作用范围就位于 main() 函数内部，如果在其他函数中又用到了 std，就需要重新声明.</description>
+    </item>
+    
+    <item>
+      <title>struct 结构体</title>
+      <link>http://example.org/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/struct-%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>struct 结构体 #include &amp;lt;stdio.h&amp;gt; //定义结构体 Student struct Student{ //结构体包含的成员变量  char *name; int age; float score; }; //显示结构体的成员变量 void display(struct Student stu){ printf(&amp;#34;%s的年龄是 %d，成绩是 %f\n&amp;#34;, stu.name, stu.age, stu.score); } int main(){ struct Student stu1; //为结构体的成员变量赋值  stu1.name = &amp;#34;小明&amp;#34;; stu1.age = 15; stu1.score = 92.5; //调用函数  display(stu1); return 0; } 结构体是一种构造类型，可以包含若干成员变量，每个成员变量的类型可以不同；可以通过结构体来定义结构体变量，每个变量拥有相同的性质。###</description>
+    </item>
+    
+    <item>
+      <title>typedef起小名</title>
+      <link>http://example.org/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</guid>
+      <description>typedef起小名 C 语言提供了 typedef 关键字，您可以使用它来为类型取一个新的名字。下面的实例为单字节数字定义了一个术语 BYTE：
+typedef unsigned char BYTE; 在这个类型定义之后，标识符 BYTE 可作为类型 unsigned char 的缩写，例如：
+BYTE b1, b2; 按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写，但您也可以使用小写字母，如下：
+typedef unsigned char byte; 您也可以使用 typedef 来为用户自定义的数据类型取一个新的名字。例如，您可以对结构体使用 typedef 来定义一个新的数据类型名字，然后使用这个新的数据类型来直接定义结构变量，如下：
+实例
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt; typedef struct Books { char title[50]; char author[50]; char subject[100]; int book_id; } Book; int main( ) { Book book; strcpy( book.title, &amp;#34;C 教程&amp;#34;); strcpy( book.author, &amp;#34;Runoob&amp;#34;); strcpy( book.subject, &amp;#34;编程语言&amp;#34;); book.book_id = 12345; printf( &amp;#34;书标题 : %s\n&amp;#34;, book.</description>
+    </item>
+    
+    <item>
+      <title>尖括号</title>
+      <link>http://example.org/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
+      <description>&amp;lt; &amp;gt;尖括号 我习惯将尖括号用于指定类型，作为参数:
+vector&amp;lt;int&amp;gt; vecOfInts ; 但是在rapidjson中，有这样的代码:
+document.Parse&amp;lt;0&amp;gt;(json) ; document.Parse方法的签名是:
+template &amp;lt;unsigned parseFlags&amp;gt; GenericDocument&amp;amp; Parse(const Ch* str) { RAPIDJSON_ASSERT(!(parseFlags &amp;amp; kParseInsituFlag)); GenericStringStream&amp;lt;Encoding&amp;gt; s(str); return ParseStream&amp;lt;parseFlags&amp;gt;(s); } 我不知道您可以在尖括号内传递值-认为尖括号仅用于类型名称。
+这里的代码在做什么，为什么他在尖括号中传递一个值？
+这是一个好主意吗？什么时候？
+最佳答案
+这里有两个不同的因素。
+首先，可以定义除类型以外的参数化模板。例如，这是一个简单的数组类型:
+template &amp;lt;typename T, size_t N&amp;gt; struct Array { T arr[N]; }; 我们可以这样使用
+Array&amp;lt;int, 137&amp;gt; myArray; 我们知道vector&amp;lt;int&amp;gt;和vector&amp;lt;double&amp;gt;是不同的类型。但是现在我们还必须指出，Array&amp;lt;int,137&amp;gt;和Array&amp;lt;int,136&amp;gt;是不同的类型。
+其次，使用模板时，编译器必须能够为所有模板参数找出一个值。使用模板类时，这就是为什么通常指定所有模板参数的原因。例如，您不说vector x，而是说类似vector&amp;lt;double&amp;gt; x。使用模板函数时，大多数时候编译器可以找出参数。例如，要使用std::sort，您只需说出类似
+std::sort(v.begin(), v.end()); 但是，您也可以写
+std::sort&amp;lt;vector&amp;lt;int&amp;gt;::iterator&amp;gt;(v.begin(), v.end()); 更明确地说。但是有时候，您有一个模板函数，对于该函数，并非所有参数都可以被找出来。在您的示例中，我们有:
+template &amp;lt;unsigned parseFlags&amp;gt; GenericDocument&amp;amp; Parse(const Ch* str) { RAPIDJSON_ASSERT(!(parseFlags &amp;amp; kParseInsituFlag)); GenericStringStream&amp;lt;Encoding&amp;gt; s(str); return ParseStream&amp;lt;parseFlags&amp;gt;(s); } 注意，不能仅从函数的参数推导parseFlags模板参数。因此，要调用该函数，必须指定template参数，否则编译器将无法确定该参数。这就是为什么你会写类似</description>
+    </item>
+    
+    <item>
+      <title>常用头文件</title>
+      <link>http://example.org/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
+      <description>常用头文件 #include &amp;lt;stdafx.h&amp;gt;	//MFC预编译#include &amp;lt;stdio.h&amp;gt;	//输入输出#include &amp;lt;process.h&amp;gt;	//进程#include &amp;lt;string.h&amp;gt;	//字符串#include &amp;lt;stdlib.h&amp;gt;	//声明了数值与字符串转换函数, 伪随机数生成函数, 动态内存分配函数, 进程控制函数等公共函数#include &amp;lt;Windows.h&amp;gt;	//windows系统函数(如:Sleep)#include #include#include #include#include #include#include  </description>
+    </item>
+    
+    <item>
+      <title>知识点</title>
+      <link>http://example.org/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>知识点 阻断函数 getchar()	//等待键盘输入回车 sysem(&amp;#34;pause&amp;#34;)//任意键继续  常用函数 printf(&amp;#34;Hello World!&amp;#34;)	//输出函数 atoi(arg)	//字符串转整数 Sleep(arg)	//等待 MessageBeep(1);	//播放系统音乐,方便OD定位  循环 break;	//退出循环 continue;	//跳到循环首部,循环继续 其它 &amp;amp;arg 引用 1.必须传变量
+2.会影响被引用的变量原本的值
+*arg 指针 1.会影响被引用的变量原本的值
+冒号: 冒号代表标签,常用于goto跳转
+typedef 关键字，作用是为一种数据类型定义一个新名字
+按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写
+三元运算子 条件式 ? 条件式为true时执行的陈述句 : 条件式为false时执行的陈述句
+int ret, a = 10, b = 11; bool flag = true; if (flag) ret = a; else ret = b; 等价于
+ret = flag ? a : b; </description>
+    </item>
+    
+  </channel>
+</rss>

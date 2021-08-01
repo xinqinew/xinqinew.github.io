@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on 辛琪的笔记</title>
+    <link>http://example.org/basics/</link>
+    <description>Recent content in Basics on 辛琪的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 11:20:25 +0800</lastBuildDate><atom:link href="http://example.org/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Content</title>
+      <link>http://example.org/basics/first-content/</link>
+      <pubDate>Mon, 26 Jul 2021 11:20:25 +0800</pubDate>
+      
+      <guid>http://example.org/basics/first-content/</guid>
+      <description>       </description>
+    </item>
+    
+    <item>
+      <title>Forth</title>
+      <link>http://example.org/basics/forth/</link>
+      <pubDate>Mon, 26 Jul 2021 17:17:22 +0800</pubDate>
+      
+      <guid>http://example.org/basics/forth/</guid>
+      <description>是什么意思</description>
+    </item>
+    
+  </channel>
+</rss>
