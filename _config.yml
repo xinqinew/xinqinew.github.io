@@ -90,3 +90,11 @@ url: https://xinqinew.github.io
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# script: |
+#   alert("it");
+#   alert("works!");
+
+# scss: |
+#   .wy-nav-content-wrap{background:#555555}
+#   .wy-nav-content-wrap .wy-nav-content{max-width:100}
