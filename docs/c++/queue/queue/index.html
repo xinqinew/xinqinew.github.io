@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>queue用法详解 | C&#43;&#43; | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="queue用法详解">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"C++",
+      "item":"/docs/c++/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"deque和queue容器",
+      "item":"/docs/c++/queue/"},{
+      "@type": "ListItem",
+      "position": 4 ,
+      "name":"queue用法详解",
+      "item":"/docs/c++/queue/queue/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/c++/queue/queue/"
+    },
+    "headline": "queue用法详解 | C\u002b\u002b | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  3461 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "queue用法详解"
+}
+</script><meta property="og:title" content="queue用法详解 | C&#43;&#43; | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/c&#43;&#43;/queue/queue/" />
+
+
+
+<meta property="og:description" content="queue用法详解" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/c&#43;&#43;/">C&#43;&#43;</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/">&lt;&gt;尖括号</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%85%B3%E9%94%AE%E5%AD%97/">C&#43;&#43;关键字</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">cin和cout输入输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/class%E7%B1%BB/">class 类</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/">deque和queue容器</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_clear_and_erase/">deque clear()与erase()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_insert/">deque insert()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque/">deque 用法与示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_and_queue/">deque和queue容器</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_and_deque_dif/">queue 和 deque的区别</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_deque_exm/">queue与deque示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue/">queue用法详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/note_queue_and_deque/">笔记queue与deque</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/">ifndef详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">namespace 命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/">printf输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">std命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/struct%E7%BB%93%E6%9E%84%E4%BD%93/">struct 结构体</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/">typedef起小名</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/">字符的输入与输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/">常用API函数</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/">常用头文件</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/">指针读写内存</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">queue用法详解</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="queue用法详解">queue用法详解</h1>
+<p>只能访问 queue<T> 容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。</p>
+<p>许多程序都使用了 queue 容器。queue 容器可以用来表示超市的结账队列或服务器上等待执行的数据库事务队列。对于任何需要用 FIFO 准则处理的序列来说，使用 queue 容器适配器都是好的选择。</p>
+<p>图 1 展示了一个 queue 容器及其一些基本操作：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/180913/2-1P913113140553.jpg" alt=""></p>
+<p>图 1 queue容器</p>
+<p>queue 的生成方式和 stack 相同，下面展示如何创建一个保存字符串对象的 queue:</p>
+<pre><code class="language-cpp">std::queue&lt;std::string&gt; words;
+</code></pre>
+<p>也可以使用拷贝构造函数：</p>
+<pre><code class="language-cpp">std::queue&lt;std::string&gt; copy_words {words}; // A duplicate of words
+</code></pre>
+<p>stack<T>、queue<T> 这类适配器类都默认封装了一个 deque<T> 容器，也可以通过指定第二个模板类型参数来使用其他类型的容器：</p>
+<pre><code class="language-c">std::queue&lt;std::string, std::list&lt;std::string&gt;&gt;words;
+</code></pre>
+<p>底层容器必须提供这些操作：front()、back()、push_back()、pop_front()、empty() 和 size()。</p>
+<h2 id="queue-操作">queue 操作</h2>
+<p>queue 和 stack 有一些成员函数相似，但在一些情况下，工作方式有些不同：</p>
+<ul>
+<li>front()：返回 queue 中第一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。</li>
+<li>back()：返回 queue 中最后一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。</li>
+<li>push(const T&amp; obj)：在 queue 的尾部添加一个元素的副本。这是通过调用底层容器的成员函数 push_back() 来完成的。</li>
+<li>push(T&amp;&amp; obj)：以移动的方式在 queue 的尾部添加元素。这是通过调用底层容器的具有右值引用参数的成员函数 push_back() 来完成的。</li>
+<li>pop()：删除 queue 中的第一个元素。</li>
+<li>size()：返回 queue 中元素的个数。</li>
+<li>empty()：如果 queue 中没有元素的话，返回 true。</li>
+<li>emplace()：用传给 emplace() 的参数调用 T 的构造函数，在 queue 的尾部生成对象。</li>
+<li>swap(queue<T> &amp;other_q)：将当前 queue 中的元素和参数 queue 中的元素交换。它们需要包含相同类型的元素。也可以调用全局函数模板 swap() 来完成同样的操作。</li>
+</ul>
+<p>queue<T> 模板定义了拷贝和移动版的 operator=()，对于所保存元素类型相同的 queue 对象，它们有一整套的比较运算符，这些运算符的工作方式和 stack 容器相同。</p>
+<p>和 stack 一样，queue 也没有迭代器。访问元素的唯一方式是遍历容器内容，并移除访问过的每一个元素。例如：</p>
+<pre><code class="language-cpp">1.  std::deque&lt;double&gt; values {1.5, 2.5, 3.5, 4.5}; std::queue&lt;double&gt; numbers(values);
+2.
+3.  while (!numbers, empty())
+4.  {
+5.      std ::cout &lt;&lt; numbers. front() &lt;&lt; &quot; &quot;; // Output the 1st element 
+6.      numbers. pop();  // Delete the 1st element
+7.  }
+8.  std::cout &lt;&lt; std::endl;
+</code></pre>
+<p>用循环列出 numbers 的内容，循环由 empty() 返回的值控制。调用 empty() 可以保证我们能够调用一个空队列的 ftont() 函数。如代码所示，为了访问 queue 中的全部元素，必须删除它们。如果不想删除容器中的元素，必须将它们复制到另一个容器中。如果一定要这么操作，我们可能需要换一个容器。</p>
+<h2 id="queue-容器的实际使用">queue 容器的实际使用</h2>
+<p>这里汇集了一些使用 queue 容器的示例。这是一个用 queue 模拟超市运转的程序。结账队列的长度是超市运转的关键因素。它会影响超市可容纳的顾客数——因为太长的队伍会使顾客感到气馁，从而放弃排队。在很多情形中——医院可用病床数会严重影响应急处理设施的运转，也会产生同样的队列问题。我们的超市模拟是一个简单模型，灵活性有限。</p>
+<p>可以在头文件 Customer.h 中定义一个类来模拟顾客：</p>
+<pre><code class="language-cpp">1.  // Defines a customer by their time to checkout
+2.  #ifndef CUSTOMER_H
+3.  #define CUSTOMER_H
+4.
+5.  class Customer
+6.  {
+7.  protected:
+8.      size_t service_t {}; // Time to checkout
+9.  public:
+10.      explicit Customer(size_t st = 10) :service_t {st}{}
+11.
+12.      // Decrement time remaining to checkout
+13.      Customer&amp; time_decrement()
+14.      {
+15.          if (service_t &gt; 0)
+16.              --service_t;
+17.          return *this;
+18.      }
+19.      bool done() const { return service_t == 0; }
+20.  };
+21.  #endif
+</code></pre>
+<p>这里只有一个成员变量 service_t，用来记录顾客结账需要的时间。每个顾客的结账时间都不同。每过一分钟，会调用一次 time_decrement() 函数，这个函数会减少 service_t 的值，它可以反映顾客结账所花费的时间。当 service_t 的值为 0 时，成员函数 done() 返回 true。</p>
+<p>超市的每个结账柜台都有一队排队等待的顾客。Checkout.h 中定义的 Checkout 类如下：</p>
+<pre><code class="language-cpp">1.  // Supermarket checkout - maintains and processes customers in a queue
+2.  #ifndef CHECKOUT_H
+3.  #define CHECKOUT_H
+4.  #include &lt;queue&gt; // For queue container
+5.  #include &quot;Customer.h&quot;
+6.
+7.  class Checkout
+8.  {
+9.  private:
+10.      std::queue&lt;Customer&gt; customers; // The queue waiting to checkout
+11.  public:
+12.      void add(const Customer&amp; customer) { customers.push(customer); }
+13.      size_t qlength() const { return customers.size(); }
+14.
+15.      // Increment the time by one minute
+16.      void time_increment()
+17.      {
+18.          if (!customers.empty())
+19.          { // There are customers waiting...
+20.              if (customers.front().time_decrement().done())  // If the customer is done...
+21.                  customers.pop(); // ...remove from the queue
+22.          }
+23.      };
+24.
+25.      bool operator&lt;(const Checkout&amp; other) const { return qlength() &lt; other.qlength(); }
+26.      bool operator&gt;(const Checkout&amp; other) const { return qlength() &gt; other.qlength(); }
+27.  };
+28.  #endif
+</code></pre>
+<p>这相当于自我解释。queue 容器是 Checkout 唯一的成员变量，用来保存等待结账的 Customer 对象。成员函数 add() 可以向队列中添加新顾客。只能处理队列中的第一个元素。 每过一分钟，调用一次 Checkout 对象的成员函数 time_increment(}，它会调用第一个 Customer 对象的成员函数 time_decrement() 来减少剩余的服务时间，然后再调用成员函数 done()。如果 done() 返回 true，表明顾客结账完成，因此把他从队列中移除。Checkout 对象的比较运算符可以比较队列的长度。</p>
+<p>为了模拟超市结账，我们需要有随机数生成的功能。因此打算使用 random 头文件中的一个非常简单的工具，但不打算深入解释它。我们会在教程后面的章节深入探讨 random 头文件中的内容。程序使用了一个 uniform_int_distribution() 类型的实例。顾名思义，它定义的整数值在最大值和最小值之间均匀分布。在均匀分布中，所有这个范围内的值都可能相等。可以在 10 和 100 之间定义如下分布：</p>
+<ol>
+<li>std::uniform_int_distribution&lt;&gt; d {10, 100};</li>
+</ol>
+<p>这里只定义了分布对象 d，它指定了整数值分布的范围。为了获取这个范围内的随机数，我们需要使用一个随机数生成器，然后把它作为参数传给 d 的调用运算符，从而返回一个随机整数。 random 头文件中定义了几种随机数生成器。这里我们使用最简单的一个，可以按如下方式定义：</p>
+<ol>
+<li>std::random_device random_number_engine;</li>
+</ol>
+<p>为了在 d 分布范围内生成随机数，我们可以这样写：</p>
+<ol>
+<li>auto value = d(random_number_engine); // Calls operator()() for d</li>
+</ol>
+<p>value 的值在 d 分布范围内。</p>
+<p>完整模拟器的源文件如下：</p>
+<pre><code class="language-cpp">1.  // Simulating a supermarket with multiple checkouts
+2.  #include &lt;iostream&gt;                              // For s[tan](http://c.biancheng.net/ref/tan.html)dard streams
+3.  #include &lt;iomanip&gt;                               // For stream manipulators
+4.  #include &lt;vector&gt;                                // For vector container
+5.  #include &lt;string&gt;                                // For string class
+6.  #include &lt;numeric&gt;                               // For accumulate()
+7.  #include &lt;algorithm&gt;                             // For min_element &amp; max_element
+8.  #include &lt;random&gt;                                // For random number generation
+9.  #include &quot;Customer.h&quot;
+10.  #include &quot;Checkout.h&quot;
+
+12.  u[sin](http://c.biancheng.net/ref/sin.html)g std::string;
+13.  using distribution = std::uniform_int_distribution&lt;&gt;;
+
+15.  // Output histogram of service times
+16.  void histogram(const std::vector&lt;int&gt;&amp; v, int min)
+17.  {
+18.      string bar (60, '*');                          // Row of asterisks for bar
+19.      for (size_t i {}; i &lt; v.size(); ++i)
+20.      {
+21.          std::cout &lt;&lt; std::setw(3) &lt;&lt; i+min &lt;&lt; &quot; &quot;    // Service time is index + min
+22.          &lt;&lt; std::setw(4) &lt;&lt; v[i] &lt;&lt; &quot; &quot;             // Output no. of occurrences
+23.          &lt;&lt; bar.substr(0, v[i])                     // ...and that no. of asterisks
+24.          &lt;&lt; (v[i] &gt; static_cast&lt;int&gt;(bar.size()) ? &quot;...&quot;: &quot;&quot;)
+25.          &lt;&lt; std::endl;
+26.      }
+27.  }
+
+29.  int main()
+30.  {
+31.      std::random_device random_n;
+
+33.      // Setup minimum &amp; maximum checkout periods - times in minutes
+34.      int service_t_min {2}, service_t_max {15};
+35.      distribution service_t_d {service_t_min, service_t_max};
+
+37.      // Setup minimum &amp; maximum number of customers at store opening
+38.      int min_customers {15}, max_customers {20};
+39.      distribution n_1st_customers_d {min_customers, max_customers};
+
+41.      // Setup minimum &amp; maximum intervals between customer arrivals
+42.      int min_arr_interval {1}, max_arr_interval {5};
+43.      distribution arrival_interval_d {min_arr_interval, max_arr_interval};
+
+45.      size_t n_checkouts {};
+46.      std::cout &lt;&lt; &quot;Enter the number of checkouts in the supermarket: &quot;;
+47.      std::cin &gt;&gt; n_checkouts;
+48.      if (!n_checkouts)
+49.      {
+50.          std::cout &lt;&lt; &quot;Number of checkouts must be greater than 0. Setting to 1.&quot; &lt;&lt; std::endl;
+51.          n_checkouts = 1;
+52.      }
+
+54.      std::vector&lt;Checkout&gt; checkouts {n_checkouts};
+55.      std::vector&lt;int&gt; service_times(service_t_max-service_t_min+1);
+
+57.      // Add customers waiting when store opens
+58.      int count {n_1st_customers_d(random_n)};
+59.      std::cout &lt;&lt; &quot;Customers waiting at store opening: &quot; &lt;&lt; count &lt;&lt; std::endl;
+60.      int added {};
+61.      int service_t {};
+62.      while (added++ &lt; count)
+63.      {
+64.          service_t = service_t_d(random_n);
+65.          std::min_element(std::begin(checkouts), std::end(checkouts))-&gt;add(Customer(service_t));
+66.          ++service_times[service_t - service_t_min];
+67.      }
+
+69.      size_t time {};                                // Stores time elapsed
+70.      const size_t total_time {600};                 // Duration of simulation - minutes
+71.      size_t longest_q {};                           // Stores longest checkout queue length
+
+73.      // Period until next customer arrives
+74.      int new_cust_interval {arrival_interval_d(random_n)};
+
+76.      // Run store simulation for period of total_time minutes
+77.      while (time &lt; total_time)                      // Simulation loops over time
+78.      {
+79.          ++time;                                      // Increment by 1 minute
+
+81.          // New customer arrives when arrival interval is zero
+82.          if (--new_cust_interval == 0)
+83.          {
+84.              service_t = service_t_d(random_n);         // Random customer service time
+85.              std::min_element(std::begin(checkouts), std::end(checkouts))-&gt;add(Customer(service_t));
+86.              ++service_times[service_t - service_t_min];  // Record service time
+
+88.              // Update record of the longest queue occurring
+89.              for (auto &amp; checkout : checkouts)
+90.                  longest_q = std::max(longest_q, checkout.qlength());
+
+92.              new_cust_interval = arrival_interval_d(random_n);
+93.          }
+
+95.          // Update the time in the checkouts - serving the 1st customer in each queue
+96.          for (auto &amp; checkout : checkouts)
+97.              checkout.time_increment();
+98.      }
+
+100.      std::cout &lt;&lt; &quot;Maximum queue length = &quot; &lt;&lt; longest_q &lt;&lt; std::endl;
+101.      std::cout &lt;&lt; &quot;\nHistogram of service times:\n&quot;;
+102.      histogram(service_times, service_t_min);
+
+104.      std::cout &lt;&lt; &quot;\nTotal number of customers today: &quot;
+105.              &lt;&lt; std::accumulate(std::begin(service_times), std::end(service_times), 0)
+106.              &lt;&lt; std::endl;
+107.  }
+</code></pre>
+<p>直接使用 using 指令可以减少代码输入，简化代码。顾客服务次数记录在 vector 中。服务时间减去 service_times 的最小值可以用来索引需要自增的 vector 元素，这导致 vector 的第一个元素会记录下最少服务时间的发生次数。histogram() 函数会以水平条形图的形式生成每个服务时间出现次数的柱状图。</p>
+<p>输入的唯一数字是 checkouts。此处选择将模拟持续时间设置为 600 分钟，也可以用参数输入这个时间。main() 函数生成了顾客服务时间，超市开门时等在门外的顾客数，以及顾客到达时间间隔的分布对象。它表明顾客在同一时间到达。我们可以轻松地将这个程序扩展为每次到达的顾客数是一个处于一定范围内的随机数。</p>
+<p>顾客总是可以被分配到最短的结账队列。通过调用 min_elemeiit() 算法可以找到最短的 Checkout 对象队列。这会使用&lt;运算符比较元素，但是这个算法的另一个版本有第三个参数可以指定比较函数。在这次模拟开始前，当超市开门营业时，在门外等待的顾客的初始 序列被添加到 Checkout 对象中，然后服务时间记录被更新。</p>
+<p>模拟在 <a href="http://c.biancheng.net/view/180.html">while 循环</a>中进行。在每次循环中，time 都会增加 1 分钟。在下一个顾客到达期间，new_cust_interval 会在每次循环中减小，直到等于 0。用新的随机服务时间生成新的顾客，然后把它加到最短的 Checkout 对象队列中。这个时候也会更新变量 longest_q，因为在添加新顾客后，可能出现新的最长队列。然后调用每个 Checkout 对象的 time_increment() 函数来处理队列中的第一个顾客。</p>
+<p>下面是一些示例输出：</p>
+<pre><code class="language-c">Enter the number of checkouts in the supermarket: 3  
+Customers waiting at store opening: 19  
+Maximum queue length = 10  
+  
+Histogram of service times:  
+  2   16 ****************  
+  3   15 ***************  
+  4   12 ************  
+  5   11 ***********  
+  6   17 *****************  
+  7   20 ********************  
+  8   18 ******************  
+  9   16 ****************  
+10   10 **********  
+11   12 ************  
+12   16 ****************  
+13   21 *********************  
+14   17 *****************  
+15   21 *********************  
+  
+Total number of customers today: 222
+</code></pre>
+<p>这里有 3 个结账柜台。将它们设为 2 个时，最长队列的长度达到 42——已经长到会让顾客放弃付款。还可以做更多改进，让模拟更加真实。均匀分配并不符合实际，例如，顾客通常成群结队到来。可以增加一些其他的因素，比如收银员休息时间、某个收银员生病工作状态不佳，这些都会导致顾客不选择这个柜台结账。</p>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/C&#43;&#43;/queue/queue.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="/docs/c&#43;&#43;/queue/queue_deque_exm/" class="block">queue与deque示例</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/c&#43;&#43;/queue/note_queue_and_deque/" class="block">笔记queue与deque</a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#queue-操作">queue 操作</a></li>
+    <li><a href="#queue-容器的实际使用">queue 容器的实际使用</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

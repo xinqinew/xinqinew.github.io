@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>汇编 on 我的Eureka主题博客</title>
+    <link>/docs/asm/</link>
+    <description>Recent content in 汇编 on 我的Eureka主题博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/docs/asm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>知识点</title>
+      <link>/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>知识点 通用寄存器 32 位 16 位 8 位（高） 8 位（低） EAX AX AH AL EBX BX BH BL ECX CX CH CL EDX DX DH DL 32 位 16 位 32 位 16 位 ESI SI EBP BP EDI DI ESP SP 特殊用法 乘除指令默认使用EAX。它常常被称</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/asm/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/asm/readme/</guid>
+      <description>汇编 这里收录了我的汇编笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+  </channel>
+</rss>

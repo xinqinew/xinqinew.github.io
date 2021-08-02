@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>printf输出 | C&#43;&#43; | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="printf输出">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"C++",
+      "item":"/docs/c++/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"printf输出",
+      "item":"/docs/c++/printf%E8%BE%93%E5%87%BA/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/c++/printf%E8%BE%93%E5%87%BA/"
+    },
+    "headline": "printf输出 | C\u002b\u002b | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  2292 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "printf输出"
+}
+</script><meta property="og:title" content="printf输出 | C&#43;&#43; | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/" />
+
+
+
+<meta property="og:description" content="printf输出" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/c&#43;&#43;/">C&#43;&#43;</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/">&lt;&gt;尖括号</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%85%B3%E9%94%AE%E5%AD%97/">C&#43;&#43;关键字</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">cin和cout输入输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/class%E7%B1%BB/">class 类</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/">deque和queue容器</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_clear_and_erase/">deque clear()与erase()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_insert/">deque insert()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque/">deque 用法与示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_and_queue/">deque和queue容器</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_and_deque_dif/">queue 和 deque的区别</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_deque_exm/">queue与deque示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue/">queue用法详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/note_queue_and_deque/">笔记queue与deque</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/">ifndef详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">namespace 命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/">printf输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">std命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/struct%E7%BB%93%E6%9E%84%E4%BD%93/">struct 结构体</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/">typedef起小名</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/">字符的输入与输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/">常用API函数</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/">常用头文件</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/">指针读写内存</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">printf输出</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="printf输出">printf输出</h1>
+<p>函式原型：  int printf ( const char * format, &hellip; );</p>
+<p>引數說明： %[flags][width][.precision][length]specifier
+%[旗標][寬度][.精度][長度修飾]資料型態</p>
+<h2 id="1-資料型態--旗標寬度精度長度修飾資料型態--必填欄位">1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位</h2>
+<h3 id="11-字元字串">(1.1) 字元/字串</h3>
+<p>%c, %C : 字元,  char c;
+%s : 字元陣列, char buffer[MAX_PATH];
+%S : 字元陣列(Unicode), wchar buffer[MAX_PATH];</p>
+<p>[註] %C / %S 並未被收在標準函式庫裡，屬 MSVC 特殊支援。</p>
+<h3 id="12-整數">(1.2) 整數</h3>
+<pre><code>%d, %i : 10進制整數  , int x; [lemma] 
+    %u : 10進制無號數, unsigned int x;
+    %o : 8進制無號數,  unsigned int x;
+ %x, %X : 16進制無號數, 小寫x輸出為&quot;abcdef&quot;, 大寫 X 輸出為 &quot;ABCDEF&quot;, 
+          unsigned x;
+</code></pre>
+<p>%lld, %I64d : long long int, __int64 輸出型態
+(註：vc6.0 下只有 __int64，沒有long long int)
+%llu, %I64u : unsigned long long int  輸出型態</p>
+<p>[lemma] %d : dec; %i : integer，於 scanf 時有部份差異 (%d 只接受10進位, %i 可接受指定進位，如 0x23, 045)，但於 printf 時 %d, %i 並無顯著差異 (感謝 Jacob Lee 補充指導)</p>
+<h3 id="13-浮點數">(1.3) 浮點數</h3>
+<p>%e, %E : 浮點數使用科學符號表示之,指數將帶正負號, float x,doubley;
+%f : 單精度浮點數(預設輸出精度6位), float x;
+(註 : 對 printf 而言, %f/%lf 可適用於 double / float)
+%lf : 倍精度浮點數(預設輸出精度6位), double x;
+%llf, %LF : 雙倍精度浮點數(預設輸出精度6位), long double x;
+%g, %G : 由系統決定是否採科學符號表示。</p>
+<h3 id="14-特殊-原創edisonxpixnetnet">(1.4) 特殊 原創：edisonx.pixnet.net</h3>
+<pre><code>   %p : 變數位置。 ex:
+        int a=0, printf(&quot;%p&quot;, &amp;a);  即 printf(&quot;%08x&quot;, &amp;a);
+   %n : 輸出至緩衝區之長度, ex:
+        char str[]=&quot;test&quot;, int len, printf(&quot;%s%n&quot;, a, &amp;len);
+        輸出4bytes,len = 4
+</code></pre>
+<h3 id="15-c99新增--建議-k-spec-最清楚-">(1.5) C99新增 &lt; 建議 k spec. 最清楚 &gt;</h3>
+<p>(註 : C99 新增了一些資料型態在 inttypes.h / stdint.h 裡面，有興趣搜尋 n1256.pdf 下載下來 K 標準， in section 7.8 。當然 MSVC 不支援 C99 是眾所皆知的事。)</p>
+<p>部份原則還是掌握了 %i, %u, %d, %x，另由於這部份在 printf 會顯得很亂，故直接做範例對應。掌握一原則：新的資料型態在 printf 前三個字母一定是 PRI。</p>
+<p>&ldquo;%&rdquo; PRIdN , &ldquo;%&rdquo; PRIiN: 以十進位有號數顯示 intN_t 系列之數值。ex :</p>
+<pre><code>     int8_t i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRId8  &quot; \n&quot;, i8);
+     int8_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIi16 &quot; \n&quot;, i16);
+     int8_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRId32 &quot; \n&quot;, i32); 
+     int8_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIi64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdN / PRIiN ，換成 PRIoN / PRIuN / PRIxN / PRIXN ，便可轉對 uintN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<p>&ldquo;%&rdquo; PRIdLEASTN , &ldquo;%&rdquo; PRIiLEASTN: 以十進位有號數顯示 int_leastN_t 系列之數值。ex :</p>
+<pre><code>     int_least8_t  i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRIdLEAST8  &quot; \n&quot;, i8);
+     int_least16_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIiLEAST16 &quot; \n&quot;, i16);
+     int_least32_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRIdLEAST32 &quot; \n&quot;, i32); 
+     int_least64_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIiLEAST64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdLEASTN / PRIiLEASTN ， 換成 PRIoLEASTN/ PRIuLEASTN/ PRIxLEASTN/ PRIXLEASTN， 便可轉對 uint_leastN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<pre><code>&quot;%&quot; PRIdFASTN , &quot;%&quot; PRIiFASTN: 以十進位有號數顯示 int_fastN_t 系列之數值。ex : 
+
+     int_fast8_t  i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRIdFAST8  &quot; \n&quot;, i8);
+     int_fast16_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIiFAST16 &quot; \n&quot;, i16);
+     int_fast32_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRIdFAST32 &quot; \n&quot;, i32); 
+     int_fast64_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIiFAST64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdFASTN / PRIiFASTN ，換成 PRIoFASTN/ PRIuFASTN/ PRIxFASTN/ PRIXFASTN，便可轉對 uint_leastN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<p>&ldquo;%&rdquo; PRIdMAX , &ldquo;%&rdquo; PRIdPTR : 分別顯示整數最大值與指標型態。</p>
+<p>[註 : 特別注意 inttypes.h 裡面之型態，printf 引數和 scanf 引數差很多，一樣掌握一原則，新的資料型態在 scanf 前三個字母一定是 SCN， 如 intN_t  系列，scanf 用的是 &ldquo;%&rdquo; SCNdN / &ldquo;%&rdquo; SCNiN ； uintN_t 系列，scanf 用的是 &ldquo;%&rdquo; SCNoN / &ldquo;%&rdquo; SCNuN / &ldquo;%&rdquo; SCNxN / &ldquo;%&rdquo; SCNXN ； int_fastN_t / int_leastN_t 等系列資料型態便不贅述。 )</p>
+<h2 id="2-寬度--旗標寬度精度長度修飾資料型態--選填欄位net">2. 寬度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位net</h2>
+<pre><code>  %m : 指定輸出之寬度。ex:
+       int a=2, b=10;
+       printf(&quot;%d%5d&quot;, a, b);
+       輸出為   &quot;2   10&quot;  (2與10之間有3個空白，因10為5個文字寬度)。
+  %* : 以引數方式代入指定輸出之寬度。ex:
+       int a=2, width=10;
+       printf(&quot;%*d&quot;,width, a);
+       輸出為   &quot;         2&quot;  (10個文字寬度)。
+</code></pre>
+<h2 id="3-長度修飾--旗標寬度精度長度修飾資料型態--選填欄位">3. 長度修飾 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code>  %h : 將數字視為 short int (%hd) 或 unsigned int (%hu),
+       此修飾只對整數型態之 %hi, %hd, %ho, %hu, %hx, %hX 有效。
+       且針對 char 可用 %hhd，unsigned char 可用 %hhu。
+
+ (註 : MSVC 認得 %hd / %hu / %hhd / %hhu , 但在 gcc 下會發出認不得的警告 )
+
+  %l : 將數字視為 long  int (%ld) 或 unsigned long int (%lu), 
+       此修飾只對整數型態之 %li, %ld, %lo, %lu, %lx, %lX 有效。
+  %L : 此修飾只對浮點數型態之 long double 有效, 可用於修飾
+       %Le, %LE, %Lf, %Lg, %LG。
+</code></pre>
+<h2 id="4-精度--旗標寬度精度長度修飾資料型態--選填欄位">4. 精度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code> %.n : 欲輸出小數點後幾位數,即顯示之精度,此修飾只對浮點數資料型態有效(f,F,e,E,g),
+       若使用其它整數型態 (i, d, o, u, x, X) 則將 n 視為 0, 即不輸出小數位數。ex:
+       double a=2.1234, printf(&quot;%.2lf&quot;, a);
+       輸出則為  &quot;2.12&quot; 。
+ %.* : 和 %.n 相似，但其 n 值可用變數引入。ex:
+       double a=1.3456, int preci=2, printf(&quot;%.*lf&quot;,preci, a);
+       輸出則為  &quot;1.35&quot; 。
+ %m.n: 這是寬度和精度合用之方法, 代表輸出會有小數點後 n 位，
+       且整個輸出文字寬 m 個字(包含小數點、正負號及數字)。ex:
+       double c = -102.34567, printf(&quot;%10.3lf&quot;, c);
+       結果會輸出  &quot;  -102.346&quot; ，前面將會保留二個空白，使得整體寬度為 10 。
+ %*.*: 和上一說明一樣, 但寬度與精度可用引數決定。ex:
+       double c = -102.34567, int m=10, int n=3;
+       printf(&quot;%*.*lf&quot;, m, n, c);
+       結果會輸出  &quot;  -102.346&quot; ，前面將會保留二個空白，使得整體寬度為 10 。
+</code></pre>
+<h2 id="5-旗標--旗標寬度精度長度修飾資料型態--選填欄位">5. 旗標 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code>   %- : 原本輸出預設為向右對齊，使用後輸出向左對齊, 需與[寬度]配合使用。ex:
+        char buf[] = &quot;Test&quot;;
+        printf(&quot;%-10s&quot;);
+        輸出結果為 &quot;Test      &quot;， Test 後面將保留6個空白。             
+   %+ : 需為數值型之資料型態，強制輸出正負號，可與 '-' 旗標合用。 ex:
+        double a = 3.4567:
+        printf(&quot;%-+8.2lf&quot;, a);
+        // '-'使輸出靠左對齊, '+'強調輸出正負號, 整體寬度為8, 小數點顯示2位。
+        輸出結果為 &quot;+3.46   &quot;
+   %0 : 若輸出之左半部為空白處, 則進行補0, (所以這不能和 '-' 合用) ex:
+        unsigned int x = 122;
+        printf(&quot;%05u&quot;, x); 
+        // 寬度為5, 前半空白補零
+        輸出結果為 &quot;00122&quot;
+   %# : 對進制加上前綴符號, 只對 %o, %x 有用, 
+        %#o為8進制,前綴符號為 0,
+        %#x為16進制,前綴符號為 0x, %#X前綴符號則為 0X。ex:
+        unsigned int a = 15;
+        printf(&quot;%u %#o %#X&quot;, a, a, a);
+        輸出結果為 &quot;15 017 0XF&quot; 
+</code></pre>
+<p>%(空白): 若數字為正號, 則會在該數字前面加上一空白，(故不可與 &lsquo;+&rsquo; 合用)。 ex:
+int a=10;
+printf(&quot;% -5d&quot;); // 寬度5, 向左對齊, 保留正號位置
+輸出結果為 &quot; 10  &quot;</p>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/C&#43;&#43;/printf%e8%be%93%e5%87%ba.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="block">namespace 命名空间</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="block">std命名空间</a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-資料型態--旗標寬度精度長度修飾資料型態--必填欄位">1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位</a>
+      <ul>
+        <li><a href="#11-字元字串">(1.1) 字元/字串</a></li>
+        <li><a href="#12-整數">(1.2) 整數</a></li>
+        <li><a href="#13-浮點數">(1.3) 浮點數</a></li>
+        <li><a href="#14-特殊-原創edisonxpixnetnet">(1.4) 特殊 原創：edisonx.pixnet.net</a></li>
+        <li><a href="#15-c99新增--建議-k-spec-最清楚-">(1.5) C99新增 &lt; 建議 k spec. 最清楚 &gt;</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-寬度--旗標寬度精度長度修飾資料型態--選填欄位net">2. 寬度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位net</a></li>
+    <li><a href="#3-長度修飾--旗標寬度精度長度修飾資料型態--選填欄位">3. 長度修飾 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</a></li>
+    <li><a href="#4-精度--旗標寬度精度長度修飾資料型態--選填欄位">4. 精度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</a></li>
+    <li><a href="#5-旗標--旗標寬度精度長度修飾資料型態--選填欄位">5. 旗標 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

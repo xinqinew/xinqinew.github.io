@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>植物大战僵尸 | 易语言 | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="植物大战僵尸">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"易语言",
+      "item":"/docs/e/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"植物大战僵尸",
+      "item":"/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/"
+    },
+    "headline": "植物大战僵尸 | 易语言 | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  13090 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "植物大战僵尸"
+}
+</script><meta property="og:title" content="植物大战僵尸 | 易语言 | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/" />
+
+
+
+<meta property="og:description" content="植物大战僵尸" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/e/">易语言</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/">植物大战僵尸</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/e/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">植物大战僵尸</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>27 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="植物大战僵尸">植物大战僵尸</h1>
+<p><img src="https://raw.githubusercontent.com/xinqinew/pic/main/img/3.png" alt=""></p>
+<pre><code class="language-vb">.版本 2
+
+.程序集 窗口程序集_启动窗口
+.程序集变量 process, 整数型
+.程序集变量 BaseAddress, 整数型
+.程序集变量 setoff1, 整数型
+.程序集变量 setoff2, 整数型
+.程序集变量 PlantAddress, 整数型
+.程序集变量 ZombiesAddress, 整数型
+.程序集变量 图像x, 整数型
+.程序集变量 图像y, 整数型
+.程序集变量 真实x, 整数型
+.程序集变量 真实y, 整数型
+
+.子程序 _选择框_不消耗阳光_被单击
+
+.如果 (选择框_不消耗阳光.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“41BA74”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“41BA74”), 还原字节集2 (“2b f3”))
+.如果结束
+
+
+.子程序 __启动窗口_创建完毕
+
+process ＝ 进程_取进程句柄 (“PlantsVsZombies.exe”)
+BaseAddress ＝ 内存_读整数型 (process, 十六到十 (“6aa00c”))  ' 基址
+setoff1 ＝ 内存_读整数型 (process, BaseAddress ＋ 十六到十 (“768”))  ' 一级偏移
+PlantAddress ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“ac”))  ' 植物
+ZombiesAddress ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“90”))  ' 僵尸
+时钟_监视进程.时钟周期 ＝ 3000
+
+按钮割草机CALL.禁止 ＝ 真
+
+.子程序 _按钮_阳光9999_被单击
+
+setoff1 ＝ 内存_读整数型 (process, BaseAddress ＋ 十六到十 (“768”))
+内存_写整数型 (process, setoff1 ＋ 十六到十 (“5560”), 9999)
+
+
+.子程序 _选择框_无冷却_被单击
+
+.如果 (选择框_无冷却.选中 ＝ 真)
+    时钟1.时钟周期 ＝ 1000
+.否则
+    时钟1.时钟周期 ＝ 0
+
+.如果结束
+
+
+
+.子程序 _时钟1_周期事件
+.局部变量 onePlant, 整数型
+.局部变量 Index, 整数型
+.局部变量 setoffPlant, 整数型
+
+
+setoffPlant ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“144”))
+.计次循环首 (10, Index)
+    ' onePlant ＝ 内存_读整数型 (process, setoffPlant+十六到十(&quot;4c&quot;) ＋ (Index － 1) × 80)
+    内存_写整数型 (process, setoffPlant ＋ 十六到十 (“4c”) ＋ (Index － 1) × 80, 5000)  ' 无冷却
+.计次循环尾 ()
+
+
+.子程序 _选择框_无冷却1_被单击
+
+.如果 (选择框_无冷却1.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“48728c”), 还原字节集2 (“E9 CB 6B 2A 00 90 90”))
+    内存_写字节集 (process, 十六到十 (“72de5c”), 还原字节集2 (“C7 47 24 88 13 00 00 83 47 24 01 8B 47 24 E9 24 94 D5 FF”))
+.否则
+    内存_写字节集 (process, 十六到十 (“48728c”), 还原字节集2 (“83 47 24 01 8B 47 24”))
+    内存_写字节集 (process, 十六到十 (“72de5c”), 还原字节集2 (“00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00”))
+.如果结束
+
+
+.子程序 _选择框_自动收集_被单击
+
+.如果 (选择框_自动收集.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“43158b”), 还原字节集2 (“80 7B 50 01”))
+.否则
+    内存_写字节集 (process, 十六到十 (“43158b”), 还原字节集2 (“80 7B 50 00”))
+.如果结束
+
+
+.子程序 _选择框_子弹叠加_被单击
+
+.如果 (选择框_子弹叠加.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“464a96”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“464a96”), 还原字节集2 (“0F 85 98 FE FF FF”))
+.如果结束
+
+
+
+.子程序 _按钮_更改卡槽_被单击
+.局部变量 setoffxxx, 整数型
+
+setoffxxx ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“144”))
+.如果真 (卡槽组合框.现行选中项 ＝ 0)
+    .如果真 (植物组合框.现行选中项 ＝ 0)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“5c”), 0)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 1)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“5c”), 2)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 2)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“5c”), 18)
+    .如果真结束
+
+.如果真结束
+.如果真 (卡槽组合框.现行选中项 ＝ 1)
+    .如果真 (植物组合框.现行选中项 ＝ 0)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“ac”), 0)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 1)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“ac”), 2)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 2)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“ac”), 18)
+    .如果真结束
+
+
+.如果真结束
+.如果真 (卡槽组合框.现行选中项 ＝ 2)
+    .如果真 (植物组合框.现行选中项 ＝ 0)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“fc”), 0)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 1)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“fc”), 2)
+    .如果真结束
+    .如果真 (植物组合框.现行选中项 ＝ 2)
+        内存_写整数型 (process, setoffxxx ＋ 十六到十 (“fc”), 18)
+    .如果真结束
+
+
+.如果真结束
+
+
+.子程序 _按钮_种植CALL_被单击
+
+asm_置代码 ()
+asm_pushad ()
+asm_push (-1)  ' 固定-1
+asm_push (到整数 (编辑框_植物ID.内容))  ' 植物ID
+asm_mov_eax_常数 (到整数 (编辑框_y.内容))  ' Y
+asm_push (到整数 (编辑框_x.内容))  ' X
+asm_mov_ebp_ptr (十六到十 (“6a9ec0”))
+asm_mov_ebp_ptr_ebp_add (十六到十 (“768”))
+asm_push_ebp ()  ' ebp
+asm_mov_ebx_常数 (十六到十 (“40d120”))
+asm_call_ebx ()  ' call
+asm_popad ()
+asm_ret ()
+asm_调用函数2 (process, asm_取代码 ())
+
+
+.子程序 _按钮_乱种CALL1_被单击
+.局部变量 坐标x, 整数型
+.局部变量 坐标y, 整数型
+.局部变量 index1, 整数型
+.局部变量 index2, 整数型
+.局部变量 index3, 整数型
+
+坐标x ＝ 0
+坐标y ＝ 0
+.计次循环首 (3, index3)
+    .如果 (index3 ＝ 1)
+        编辑框_植物ID.内容 ＝ “38”
+    .否则
+        .如果 (index3 ＝ 2)
+            编辑框_植物ID.内容 ＝ “40”
+        .否则
+            编辑框_植物ID.内容 ＝ “43”
+        .如果结束
+
+​    .如果结束
+
+​    .计次循环首 (6, index1)
+​        .计次循环首 (6, index2)
+​            asm_置代码 ()
+​            asm_pushad ()
+​            asm_push (-1)  ' 固定-1
+​            asm_push (到整数 (编辑框_植物ID.内容))  ' 植物ID
+​            asm_mov_eax_常数 (坐标y ＋ index1 － 1)  ' Y
+​            asm_push (到整数 (坐标x ＋ index2 － 1))  ' X
+​            asm_mov_ebp_ptr (十六到十 (“6a9ec0”))
+​            asm_mov_ebp_ptr_ebp_add (十六到十 (“768”))
+​            asm_push_ebp ()  ' ebp
+​            asm_mov_ebx_常数 (十六到十 (“40d120”))
+​            asm_call_ebx ()  ' call
+​            asm_popad ()
+​            asm_ret ()
+​            asm_调用函数2 (process, asm_取代码 ())
+
+​        .计次循环尾 ()
+
+
+​    .计次循环尾 ()
+
+.计次循环尾 ()
+
+
+
+
+.子程序 _选择框_重叠种植_被单击
+
+.如果 (选择框_子弹叠加.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“40fe2f”), 还原字节集2 (“e9 20 09 00 00 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“40fe2f”), 还原字节集2 (“0f 84 1f 09 00 00”))
+.如果结束
+
+
+
+.子程序 _按钮_种植僵尸CALL1_被单击
+
+asm_置代码 ()
+asm_pushad ()
+asm_push (到整数 (编辑框_x.内容))  ' X
+asm_push (到整数 (编辑框_植物ID.内容))  ' 植物ID
+asm_mov_eax_常数 (到整数 (编辑框_y.内容))  ' Y
+
+asm_mov_ebp_ptr (十六到十 (“6a9ec0”))
+asm_mov_ebp_ptr_ebp_add (十六到十 (“768”))
+asm_mov_ebp_ptr_ebp_add (十六到十 (“160”))
+asm_mov_ecx_ebp ()  ' ebp
+asm_mov_ebx_常数 (十六到十 (“42a0f0”))
+asm_call_ebx ()  ' call
+asm_popad ()
+asm_ret ()
+asm_调用函数2 (process, asm_取代码 ())
+
+
+.子程序 _按钮_种植僵尸CALL2_被单击
+.局部变量 坐标x, 整数型
+.局部变量 坐标y, 整数型
+.局部变量 index1, 整数型
+.局部变量 index2, 整数型
+.局部变量 index3, 整数型
+.局部变量 jsID, 整数型
+
+坐标x ＝ 0
+坐标y ＝ 0
+.计次循环首 (2, index3)
+    .如果 (index3 ＝ 1)
+        jsID ＝ 2
+    .否则
+        jsID ＝ 3
+
+​    .如果结束
+​    .计次循环首 (5, index1)
+​        .计次循环首 (5, index2)
+​            asm_置代码 ()
+​            asm_pushad ()
+​            asm_push (到整数 (坐标x ＋ index2 － 1))  ' X
+​            asm_push (到整数 (jsID))  ' 植物ID
+​            asm_mov_eax_常数 (到整数 (坐标y ＋ index1 － 1))  ' Y
+​            asm_mov_ebp_ptr (十六到十 (“6a9ec0”))
+​            asm_mov_ebp_ptr_ebp_add (十六到十 (“768”))
+​            asm_mov_ebp_ptr_ebp_add (十六到十 (“160”))
+​            asm_mov_ecx_ebp ()  ' ebp
+​            asm_mov_ebx_常数 (十六到十 (“42a0f0”))
+​            asm_call_ebx ()  ' call
+​            asm_popad ()
+​            asm_ret ()
+​            asm_调用函数2 (process, asm_取代码 ())
+​        .计次循环尾 ()
+​    .计次循环尾 ()
+.计次循环尾 ()
+
+
+.子程序 _选择框_紫卡无限制_被单击
+
+.如果 (选择框_紫卡无限制.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“40e477”), 还原字节集2 (“eb 46”))
+    内存_写字节集 (process, 十六到十 (“41d7d0”), 还原字节集2 (“c3”))
+.否则
+    内存_写字节集 (process, 十六到十 (“40e477”), 还原字节集2 (“74 46”))
+    内存_写字节集 (process, 十六到十 (“41d7d0”), 还原字节集2 (“51”))
+
+.如果结束
+
+
+
+.子程序 _按钮_全屏秒杀_被单击
+.局部变量 index, 整数型
+.局部变量 jiangshiAddress, 整数型
+
+jiangshiAddress ＝ 内存_读整数型 (process, 十六到十 (“a280800”))
+' 原地址
+内存_写字节集 (process, 十六到十 (“52d9e1”), 还原字节集2 (“E9 86 3F 1B 00 66 90”))
+' hook+jmp
+内存_写字节集 (process, 十六到十 (“6e196c”), 还原字节集2 (“60 8D 01 A3 00 08 28 0A 61 D9 41 2C”))
+内存_写字节集 (process, 十六到十 (“6e1978”), 还原字节集2 (“57 DA 61 08 E9 67 C0 E4 FF”))
+.计次循环首 (100, index)
+    内存_写整数型 (process, jiangshiAddress ＋ (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+    内存_写整数型 (process, jiangshiAddress － (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+.计次循环尾 ()
+
+.子程序 _选择框_全屏秒杀_被单击
+.局部变量 index, 整数型
+.局部变量 jiangshi1, 整数型
+
+' jiangshi1 ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“90”))
+.' 计次循环首 (50, index)
+    ' 内存_写整数型 (process, jiangshi1 ＋ (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+    ' 内存_写整数型 (process, jiangshi1 － (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+.' 计次循环尾 ()
+.如果 (选择框_全屏秒杀.选中 ＝ 真)
+    时钟2.时钟周期 ＝ 1000
+
+.否则
+    时钟2.时钟周期 ＝ 0
+.如果结束
+
+
+.子程序 _时钟2_周期事件
+.局部变量 index, 整数型
+.局部变量 jiangshi1, 整数型
+
+
+.' 如果 (选择框_全屏秒杀.选中 ＝ 真)
+    ' _选择框_全屏秒杀_被单击 ()
+.否则
+
+.如果结束
+
+jiangshi1 ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“90”))
+.计次循环首 (100, index)
+    内存_写整数型 (process, jiangshi1 ＋ (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+    内存_写整数型 (process, jiangshi1 － (index － 1) × 十六到十 (“15c”) ＋ 十六到十 (“28”), 3)
+.计次循环尾 ()
+
+
+.子程序 _选择框_台后运行_被单击
+
+.如果 (选择框_台后运行.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“546310”), 还原字节集2 (“c3 c3 c3 c3 c3 c3”))
+.否则
+    内存_写字节集 (process, 十六到十 (“546310”), 还原字节集2 (“8B 81 2C 03 00 00”))
+.如果结束
+
+
+.子程序 _选择框_随机子弹_被单击
+
+.如果 (选择框_随机子弹.选中 ＝ 真)
+    时钟_随机子弹.时钟周期 ＝ 100
+    内存_写字节集 (process, 十六到十 (“46c769”), 还原字节集2 (“E9 FE 51 27 00”))
+    内存_写字节集 (process, 十六到十 (“6E1973”), 还原字节集2 (“8B C6 E9 F4 AD D8 FF”))
+.否则
+    时钟_随机子弹.时钟周期 ＝ 0
+    内存_写字节集 (process, 十六到十 (“46c769”), 还原字节集2 (“89 45 5C 8B C6”))
+.如果结束
+
+
+.子程序 _时钟_随机子弹_周期事件
+
+.如果 (选择框_随机子弹.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“6E196C”), 还原字节集2 (“C7 45 5C”) ＋ 到字节集 (取随机数 (0, 13)))
+.否则
+
+.如果结束
+
+
+
+.子程序 _选择框_透视罐子_被单击
+
+.如果 (选择框_透视罐子.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“0044E5CE”), 还原字节集2 (“90 90”))
+    内存_写字节集 (process, 十六到十 (“0044E5D0”), 还原字节集2 (“83 E8 FF”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“0044E5CE”), 还原字节集2 (“7E 06”))
+    内存_写字节集 (process, 十六到十 (“0044E5D0”), 还原字节集2 (“83 C0 FF”))
+
+.如果结束
+
+
+.子程序 _选择框_透视罐子_数据_被单击
+
+.如果 (选择框_透视罐子_数据.选中 ＝ 真)
+    时钟_透视罐子_数据.时钟周期 ＝ 100
+.否则
+    时钟_透视罐子_数据.时钟周期 ＝ 0
+.如果结束
+
+
+.子程序 _时钟_透视罐子_数据_周期事件
+.局部变量 index, 整数型
+.局部变量 ad1, 整数型
+.局部变量 ad0, 整数型
+
+.如果 (选择框_透视罐子_数据.选中 ＝ 真)
+    ad0 ＝ 内存_读整数型 (process, 十六到十 (“4447A0”))
+    ad1 ＝ 内存_读整数型 (process, ad0 ＋ 十六到十 (“1e8”))
+    ad1 ＝ 内存_读整数型 (process, ad1 ＋ 十六到十 (“300”))
+    ad1 ＝ 内存_读整数型 (process, ad1 ＋ 十六到十 (“1c”))
+    ad1 ＝ 内存_读整数型 (process, ad1 ＋ 十六到十 (“118”))
+    .计次循环首 (30, index)
+        内存_写整数型 (process, ad1 ＋ 十六到十 (“4c”) ＋ 十六到十 (“ec”) × (index － 1), 50)
+    .计次循环尾 ()
+
+.否则
+
+.如果结束
+
+
+.子程序 _选择框_HOOK割草机_被单击
+
+.如果 (选择框_HOOK割草机.选中 ＝ 真)
+    按钮割草机CALL.禁止 ＝ 假
+    ' 时钟_割草机.时钟周期 ＝ 1
+    内存_写字节集 (process, 十六到十 (“52d9e1”), 还原字节集2 (“e9 86 3f 1b 00 90 90”))
+    内存_写字节集 (process, 十六到十 (“6e196c”), 还原字节集2 (“60 8d 01 a3 00 20 72 00”))
+    内存_写字节集 (process, 十六到十 (“6e1974”), 还原字节集2 (“61 d9 41 2c 57 da 61 08 e9 67 c0 e4 ff”))
+.否则
+    按钮割草机CALL.禁止 ＝ 真
+    ' 时钟_割草机.时钟周期 ＝ 0
+    内存_写字节集 (process, 十六到十 (“52d9e1”), 还原字节集2 (“d9 41 2c 57 da 61 08”))
+    内存_写字节集 (process, 十六到十 (“6e196c”), 还原字节集2 (“00 00 00 00 00 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“6e1974”), 还原字节集2 (“00 00 00 00 00 00 00 00 00 00 00 00 00”))
+
+.如果结束
+
+
+.子程序 _按钮割草机CALL_被单击
+.局部变量 Alloc, 整数型
+.局部变量 割草机EBP, 整数型
+.局部变量 僵尸EBP, 整数型
+.局部变量 setoff0, 整数型
+
+Alloc ＝ 内存_读整数型 (process, 十六到十 (“722000”))
+僵尸EBP ＝ Alloc ＋ 十六到十 (“0”)
+' ------------------------------------------------
+setoff0 ＝ 内存_读整数型 (process, 十六到十 (“6a9ec0”))
+setoff0 ＝ 内存_读整数型 (process, setoff0 ＋ 十六到十 (“768”))
+割草机EBP ＝ 内存_读整数型 (process, setoff0 ＋ 十六到十 (“100”))
+' ------------------------------------------------
+
+asm_置代码 ()
+asm_pushad ()
+asm_push (僵尸EBP)
+asm_mov_eax_常数 (割草机EBP)
+asm_mov_edx_常数 (十六到十 (“458540”))
+asm_call_edx ()
+asm_popad ()
+asm_ret ()
+asm_调用函数2 (process, asm_取代码 ())
+
+
+
+
+
+.子程序 _时钟_割草机_周期事件
+
+_按钮割草机CALL_被单击 ()
+
+.子程序 _选择框_随机植物_被单击
+
+.如果 (选择框_随机植物.选中 ＝ 真)
+    时钟_随机植物.时钟周期 ＝ 100
+.否则
+    时钟_随机植物.时钟周期 ＝ 0
+.如果结束
+
+
+.子程序 _时钟_随机植物_周期事件
+.局部变量 AddressX, 整数型
+
+' AddressX ＝ 内存_读整数型 (process, 十六到十 (“722000”))
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“4”))
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“1c”))
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“134”))
+' 内存_写整数型 (process, AddressX ＋ 十六到十 (“28”), 取随机数 (0, 52))
+' AddressX ＝ 内存_读代码 (process, “722000+4+1c+134”)
+内存_写代码 (process, “722000+4+1c+134+28”, 取随机数 (0, 52))
+
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“4”))
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“1c”))
+' AddressX ＝ 内存_读整数型 (process, AddressX ＋ 十六到十 (“134”))
+' 内存_写整数型 (process, AddressX ＋ 十六到十 (“28”), 取随机数 (0, 52))
+
+
+.子程序 _选择框_僵尸集体出动_被单击
+
+.如果 (选择框_僵尸集体出动.选中 ＝ 真)
+    时钟_僵尸集体出动.时钟周期 ＝ 1
+.否则
+    时钟_僵尸集体出动.时钟周期 ＝ 0
+.如果结束
+
+
+
+.子程序 _时钟_僵尸集体出动_周期事件
+
+内存_写代码 (process, “6a9ec0+768+559c”, 1)
+
+.子程序 _选择框_清除墓碑_被单击
+
+.如果 (选择框_清除墓碑.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“41be28”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“41be28”), 还原字节集2 (“74 96”))
+.如果结束
+
+
+.子程序 _选择框_清除植物_被单击
+
+.如果 (选择框_清除植物.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“41bb2e”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“41bb2e”), 还原字节集2 (“74 B0”))
+.如果结束
+
+
+.子程序 _按钮_植物移动_被单击
+
+窗口_监视热键 (&amp;向上移动, #W键)
+窗口_监视热键 (&amp;向下移动, #S键)
+
+窗口_监视热键 (&amp;向左移动, #A键)
+
+窗口_监视热键 (&amp;向右移动, #D键)
+时钟_监视植物.时钟周期 ＝ 100
+
+
+.子程序 向上移动
+
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“c”), 图像y － 100)
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“1c”), 真实y － 1)
+
+
+.子程序 向下移动
+
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“c”), 图像y ＋ 100)
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“1c”), 真实y ＋ 1)
+
+
+.子程序 向左移动
+
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“8”), 图像x － 80)
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“28”), 真实x － 1)
+
+
+.子程序 向右移动
+
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“8”), 图像x ＋ 80)
+内存_写整数型 (process, PlantAddress ＋ 十六到十 (“28”), 真实x ＋ 1)
+
+
+.子程序 _时钟_监视进程_周期事件
+
+
+process ＝ 进程_取进程句柄 (“PlantsVsZombies.exe”)
+BaseAddress ＝ 内存_读整数型 (process, 十六到十 (“6aa00c”))  ' 基址
+setoff1 ＝ 内存_读整数型 (process, BaseAddress ＋ 十六到十 (“768”))  ' 一级偏移
+PlantAddress ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“ac”))  ' 植物
+ZombiesAddress ＝ 内存_读整数型 (process, setoff1 ＋ 十六到十 (“90”))  ' 僵尸
+
+
+.子程序 _时钟_监视植物_周期事件
+
+图像x ＝ 内存_读整数型 (process, PlantAddress ＋ 十六到十 (“8”))
+图像y ＝ 内存_读整数型 (process, PlantAddress ＋ 十六到十 (“c”))
+
+真实x ＝ 内存_读整数型 (process, PlantAddress ＋ 十六到十 (“28”))
+真实y ＝ 内存_读整数型 (process, PlantAddress ＋ 十六到十 (“1c”))
+
+
+
+.子程序 _选择框_大嘴花无冷却_被单击
+
+.如果 (选择框_大嘴花无冷却.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“461565”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“461565”), 还原字节集2 (“75 5f”))
+.如果结束
+
+
+.子程序 _选择框_土豆无冷却_被单击
+
+.如果 (选择框_土豆无冷却.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“45fe53”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“45fe53”), 还原字节集2 (“0F 85 FA 01 00 00”))
+.如果结束
+
+
+.子程序 _选择框_加农炮无冷却_被单击
+
+.如果 (选择框_加农炮无冷却.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“46103a”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“46103a”), 还原字节集2 (“0f 85 9c 01 00 00”))
+
+.如果结束
+
+
+.子程序 _选择框_磁力菇无冷却_被单击
+
+.如果 (选择框_磁力菇无冷却.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“461e36”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“461e36”), 还原字节集2 (“0f 85 47 05 00 00”))
+.如果结束
+
+
+.子程序 _选择框_脆皮僵尸_被单击
+
+.如果 (选择框_脆皮僵尸.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“53178a”), 还原字节集2 (“90 90”))
+    内存_写字节集 (process, 十六到十 (“531066”), 还原字节集2 (“90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“53178a”), 还原字节集2 (“7f 1d”))
+    内存_写字节集 (process, 十六到十 (“531066”), 还原字节集2 (“75 11”))
+
+.如果结束
+
+
+.子程序 _选择框_屏蔽冰道_被单击
+
+.如果 (选择框_屏蔽冰道.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“52a8af”), 还原字节集2 (“c7 84 90 24 06 00 00 00 00 00 00”))
+.否则
+    内存_写字节集 (process, 十六到十 (“52a8af”), 还原字节集2 (“c7 84 90 24 06 00 00 b8 0b 00 00”))
+.如果结束
+
+
+.子程序 _选择框_无限施肥_被单击
+
+内存_写代码 (process, “6aa00c+82c+1f8”, 1999)
+.如果 (选择框_无限施肥.选中 ＝ 真)
+
+​    内存_写字节集 (process, 十六到十 (“51f011”), 还原字节集2 (“90 90 90 90 90 90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“51f011”), 还原字节集2 (“83 80 f8 01 00 00 ff”))
+
+.如果结束
+
+
+.子程序 _选择框_无限杀虫剂_被单击
+
+内存_写代码 (process, “6aa00c+82c+1fc”, 1999)
+.如果 (选择框_无限杀虫剂.选中 ＝ 真)
+
+​    内存_写字节集 (process, 十六到十 (“51f10a”), 还原字节集2 (“90 90 90 90 90 90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“51f10a”), 还原字节集2 (“83 80 fc 01 00 00 ff”))
+.如果结束
+
+
+.子程序 _选择框_无限巧克力_被单击
+
+内存_写代码 (process, “6aa00c+82c+228”, 1999)
+.如果 (选择框_无限巧克力.选中 ＝ 真)
+
+​    内存_写字节集 (process, 十六到十 (“51ecb2”), 还原字节集2 (“90 90 90 90 90 90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“51ecb2”), 还原字节集2 (“83 80 28 02 00 00 ff”))
+.如果结束
+
+
+.子程序 _选择框_无限树肥料_被单击
+
+内存_写代码 (process, “6aa00c+82c+230”, 1999)
+.如果 (选择框_无限树肥料.选中 ＝ 真)
+
+​    内存_写字节集 (process, 十六到十 (“42d45d”), 还原字节集2 (“90 90 90 90 90 90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“42d45d”), 还原字节集2 (“83 80 30 02 00 00 ff”))
+.如果结束
+
+
+.子程序 _选择框_去除浓雾_被单击
+
+.如果 (选择框_去除浓雾.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“41a679”), 还原字节集2 (“ba 00 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“41a680”), 还原字节集2 (“ba 00 00 00 00”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“41a679”), 还原字节集2 (“ba ff 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“41a680”), 还原字节集2 (“ba c8 00 00 00”))
+
+.如果结束
+
+
+.子程序 _选择框_无限刷怪_被单击
+
+.如果 (选择框_无限刷怪.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“4130be”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“4130be”), 还原字节集2 (“89 b7 7c 55 00 00”))
+.如果结束
+
+
+.子程序 _选择框_暂停刷怪_被单击
+
+.如果 (选择框_暂停刷怪.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“413e45”), 还原字节集2 (“90 90 90 90 90 90 90”))
+
+
+.否则
+    内存_写字节集 (process, 十六到十 (“413e45”), 还原字节集2 (“83 87 9c 55 00 00 ff”))
+
+.如果结束
+
+
+.子程序 _选择框_蘑菇免唤醒_被单击
+
+.如果 (选择框_蘑菇免唤醒.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“45de8e”), 还原字节集2 (“eb 1d”))
+
+
+.否则
+    内存_写字节集 (process, 十六到十 (“45de8e”), 还原字节集2 (“74 1d”))
+
+.如果结束
+
+
+.子程序 HOOK僵尸坐标
+
+内存_写字节集 (process, 十六到十 (“52d9e1”), 还原字节集2 (“e9 32 3f 1b 00 90 90”))
+内存_写字节集 (process, 十六到十 (“6e1918”), 还原字节集2 (“60 8d 01 a3 00 90 6a 00 61”))
+内存_写字节集 (process, 十六到十 (“6e1921”), 还原字节集2 (“d9 41 2c 57 da 61 08 e9 bb c0 e4 ff”))
+
+.子程序 还原僵尸坐标
+
+内存_写字节集 (process, 十六到十 (“52d9e1”), 还原字节集2 (“d9 41 2c 57 da 61 08”))
+内存_写字节集 (process, 十六到十 (“6e1918”), 还原字节集2 (“00 00 00 00 00 00 00 00 00”))
+内存_写字节集 (process, 十六到十 (“6e1921”), 还原字节集2 (“00 00 00 00 00 00 00 00 00 00 00 00”))
+
+.子程序 _按钮_自动锤僵尸_被单击
+
+
+窗口_监视热键 (&amp;开始执行锤僵尸, #C键)
+
+窗口_监视热键 (&amp;关闭执行锤僵尸, #V键)
+
+
+
+.子程序 开始执行锤僵尸
+
+HOOK僵尸坐标 ()
+时钟_监视鼠标.时钟周期 ＝ 200
+
+.子程序 关闭执行锤僵尸
+
+还原僵尸坐标 ()
+时钟_监视鼠标.时钟周期 ＝ 0
+
+.子程序 _时钟_监视鼠标_周期事件
+.局部变量 人造基址, 整数型
+.局部变量 僵尸坐标X, 整数型
+.局部变量 僵尸坐标Y, 整数型
+.局部变量 窗口句柄, 整数型
+.局部变量 zbx, 类型_坐标型
+
+人造基址 ＝ 内存_读整数型 (process, 十六到十 (“6a9000”))
+僵尸坐标X ＝ 内存_读小数型 (process, 人造基址 ＋ 十六到十 (“2c”))
+僵尸坐标Y ＝ 内存_读小数型 (process, 人造基址 ＋ 十六到十 (“30”))
+' 窗口句柄 ＝ 窗口_取窗口句柄 (“PlantsVsZombies.exe”)
+' 窗口句柄 ＝ 进程_取进程句柄 (“PlantsVsZombies.exe”)
+' 窗口句柄 ＝ 窗口_取活动窗口句柄 ()
+窗口句柄 ＝ 窗口_标题取句柄 (“植物大战僵尸中文版”)
+鼠标_移动鼠标 (窗口句柄, 僵尸坐标X ＋ 35, 僵尸坐标Y ＋ 50)
+鼠标_模拟按键 (1, 1)
+
+
+
+
+.子程序 _选择框_大嘴花全屏_被单击
+
+.如果 (选择框_大嘴花全屏.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“4676c2”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“4677da”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“4676c2”), 还原字节集2 (“0f 85 bc 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“4677da”), 还原字节集2 (“0f 8c a1 00 00 00”))
+.如果结束
+
+
+.子程序 _选择框_全屏爆炸_被单击
+
+.如果 (选择框_全屏爆炸.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“41d8ff”), 还原字节集2 (“eb 20”))
+    内存_写字节集 (process, 十六到十 (“4664f2”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“41d8ff”), 还原字节集2 (“7f 3e”))
+    内存_写字节集 (process, 十六到十 (“4664f2”), 还原字节集2 (“75 39”))
+.如果结束
+
+
+.子程序 _选择框_窝瓜全屏_被单击
+
+.如果 (选择框_窝瓜全屏.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“460837”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“460929”), 还原字节集2 (“eb 45”))
+    内存_写字节集 (process, 十六到十 (“460747”), 还原字节集2 (“eb 5f”))
+
+
+.否则
+    内存_写字节集 (process, 十六到十 (“460837”), 还原字节集2 (“0f 85 62 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“460929”), 还原字节集2 (“7f 70”))
+    内存_写字节集 (process, 十六到十 (“460747”), 还原字节集2 (“75 72”))
+
+.如果结束
+
+
+.子程序 _选择框_磁力菇全_被单击
+
+.如果 (选择框_磁力菇全.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“4620a2”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“462124”), 还原字节集2 (“90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“4620a2”), 还原字节集2 (“74 69”))
+    内存_写字节集 (process, 十六到十 (“462124”), 还原字节集2 (“0f 87 e7 00 00 00”))
+
+.如果结束
+
+
+.子程序 _选择框_喷菇全屏_被单击
+
+.如果 (选择框_喷菇全屏.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“4676c2”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“4677da”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“46768d”), 还原字节集2 (“eb 39 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“45ed5c”), 还原字节集2 (“eb 16 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“45ed6e”), 还原字节集2 (“90 90 90 90 90 90”))
+    内存_写字节集 (process, 十六到十 (“45ede2”), 还原字节集2 (“90 90 90 90 90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“4676c2”), 还原字节集2 (“0f 85 bc 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“4677da”), 还原字节集2 (“0f 8c a1 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“46768d”), 还原字节集2 (“0f 8c f1 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“45ed5c”), 还原字节集2 (“0f 8c 14 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“45ed6e”), 还原字节集2 (“0f 85 02 01 00 00”))
+    内存_写字节集 (process, 十六到十 (“45ede2”), 还原字节集2 (“0f 8e 8e 00 00 00”))
+.如果结束
+
+
+.子程序 _选择框_锁定铲子_被单击
+
+.如果 (选择框_锁定铲子.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“4123a3”), 还原字节集2 (“90 90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“4123a3”), 还原字节集2 (“89 5a 30”))
+.如果结束
+
+
+.子程序 _选择框_随机子弹树桩_被单击
+
+.如果 (选择框_随机子弹树桩.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“46ecc8”), 还原字节集2 (“e9 4c 35 2b 00 66 90”))
+    内存_写字节集 (process, 十六到十 (“722220”), 还原字节集2 (“e9 aa ca d4 ff”))
+    时钟_随机子弹树桩.时钟周期 ＝ 1000
+.否则
+    内存_写字节集 (process, 十六到十 (“46ecc8”), 还原字节集2 (“c7 47 5c 03 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“722220”), 还原字节集2 (“00 00 00 00 00”))
+    内存_写字节集 (process, 十六到十 (“722219”), 还原字节集2 (“00 00 00 00 00 00 00”))
+    时钟_随机子弹树桩.时钟周期 ＝ 0
+.如果结束
+
+
+.子程序 _时钟_随机子弹树桩_周期事件
+
+内存_写字节集 (process, 十六到十 (“722219”), 还原字节集2 (“c7 47 5c”) ＋ 到字节集 (到整数 (取随机数 (0, 12))))
+
+
+.子程序 _按钮_梯子CALL_被单击
+.局部变量 基址, 整数型
+.局部变量 EBX, 整数型
+
+基址 ＝ 内存_读整数型 (process, 十六到十 (“6a9ec0”))
+EBX ＝ 内存_读整数型 (process, 基址 ＋ 十六到十 (“768”))
+asm_置代码 ()
+asm_pushad ()
+asm_mov_edi_常数 (到整数 (编辑框_y.内容))
+asm_push (到整数 (编辑框_x.内容))
+asm_mov_eax_常数 (EBX)
+asm_mov_ecx_常数 (十六到十 (“00408f40”))
+asm_call_ecx ()
+asm_popad ()
+asm_ret ()
+asm_调用函数2 (process, asm_取代码 ())
+
+' asm_push (-1)  ' 固定-1
+' asm_push (到整数 (编辑框_植物ID.内容))  ' 植物ID
+' asm_mov_eax_常数 (到整数 (编辑框_y.内容))  ' Y
+' asm_push (到整数 (编辑框_x.内容))  ' X
+' asm_mov_ebp_ptr (十六到十 (“6a9ec0”))
+' asm_mov_ebp_ptr_ebp_add (十六到十 (“768”))
+' asm_push_ebp ()  ' ebp
+' asm_mov_ebx_常数 (十六到十 (“40d120”))
+' asm_call_ebx ()  ' call
+' asm_popad ()
+' asm_ret ()
+' asm_调用函数2 (process, asm_取代码 ())
+
+
+.子程序 _选择框_20倍速_被单击
+
+.如果 (选择框_20倍速.选中 ＝ 真)
+    内存_写代码 (process, “6a9eab”, 1)
+.否则
+    内存_写代码 (process, “6a9eab”, 0)
+.如果结束
+
+
+.子程序 _选择框_低速_被单击
+
+.如果 (选择框_低速.选中 ＝ 真)
+    内存_写代码 (process, “6a9eaa”, 1)
+.否则
+    内存_写代码 (process, “6a9eaa”, 0)
+.如果结束
+
+
+.子程序 _按钮_钱999990_被单击
+
+内存_写代码 (process, “6a9ec0+82c+28”, 99999)
+
+.子程序 _选择框_锁定黄油_被单击
+
+.如果 (选择框_锁定黄油.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“45f1ec”), 还原字节集2 (“90 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“45f1ec”), 还原字节集2 (“75 3f”))
+.如果结束
+
+
+.子程序 _选择框_家无敌_被单击
+
+.如果 (选择框_家无敌.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“413431”), 还原字节集2 (“e9 7f 04 00 00 90”))
+.否则
+    内存_写字节集 (process, 十六到十 (“413431”), 还原字节集2 (“0f 84 7e 04 00 00”))
+.如果结束
+
+
+.子程序 _选择框_小丑爆炸_被单击
+
+.如果 (选择框_小丑爆炸.选中 ＝ 真)
+    选择框_小丑不爆.选中 ＝ 假
+    内存_写字节集 (process, 十六到十 (“526afb”), 还原字节集2 (“90 90 90 90 90 90”))
+.否则
+    ' 选择框_小丑不爆.选中 ＝ 真
+    内存_写字节集 (process, 十六到十 (“526afb”), 还原字节集2 (“0f 8f 01 02 00 00”))
+.如果结束
+
+
+.子程序 _选择框_小丑不爆_被单击
+
+.如果 (选择框_小丑爆炸.选中 ＝ 真)
+    选择框_小丑爆炸.选中 ＝ 假
+    内存_写字节集 (process, 十六到十 (“526afb”), 还原字节集2 (“e9 02 02 00 00 90”))
+.否则
+    ' 选择框_小丑爆炸.选中 ＝ 真
+    内存_写字节集 (process, 十六到十 (“526afb”), 还原字节集2 (“0f 8f 01 02 00 00”))
+.如果结束
+
+
+.子程序 _选择框_巨人可吃_被单击
+
+.如果 (选择框_巨人可吃.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“461457”), 还原字节集2 (“00”))
+.否则
+    内存_写字节集 (process, 十六到十 (“461457”), 还原字节集2 (“01”))
+.如果结束
+
+
+.子程序 _选择框_气球自爆_被单击
+
+.如果 (选择框_气球自爆.选中 ＝ 真)
+    内存_写字节集 (process, 十六到十 (“525cab”), 还原字节集2 (“90 90”))
+    内存_写字节集 (process, 十六到十 (“525cc6”), 还原字节集2 (“90 90”))
+
+.否则
+    内存_写字节集 (process, 十六到十 (“525cab”), 还原字节集2 (“75 24”))
+    内存_写字节集 (process, 十六到十 (“525cc6”), 还原字节集2 (“74 09”))
+.如果结束
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/E/%e6%a4%8d%e7%89%a9%e5%a4%a7%e6%88%98%e5%83%b5%e5%b0%b8.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/e/readme/" class="block"></a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

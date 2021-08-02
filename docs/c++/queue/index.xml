@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deque和queue容器 on 我的Eureka主题博客</title>
+    <link>/docs/c&#43;&#43;/queue/</link>
+    <description>Recent content in deque和queue容器 on 我的Eureka主题博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/docs/c++/queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>deque clear()与erase()用法及示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque_clear_and_erase/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_clear_and_erase/</guid>
+      <description>deque clear()与erase()用法及示例 雙端隊列或雙頭隊列是序列容器，兩端都有擴展和收縮功能。它們類似於向量，但是在元素的結尾和開始處插入和刪除時效</description>
+    </item>
+    
+    <item>
+      <title>deque insert()用法及示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque_insert/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_insert/</guid>
+      <description>deque insert()用法及示例 deque::insert(函数是C++中的内置函数，用于在双端队列中插入元素。 insert()函数可以通过三种方式使用：</description>
+    </item>
+    
+    <item>
+      <title>deque 用法与示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque/</guid>
+      <description>deque 用法与示例 本篇將介紹如何使用 C++ std deque 以及用法與範例，C++ std::deque 是一個雙向佇列(double-ended queue)，在頭尾兩端插入及刪除十分快速，在中間</description>
+    </item>
+    
+    <item>
+      <title>deque和queue容器</title>
+      <link>/docs/c&#43;&#43;/queue/deque_and_queue/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_and_queue/</guid>
+      <description>deque和queue容器 标准模板库 STL 提供了两种容器：deque 和 queue，以实现和队列类似的数据 结构。deque 是一个双端队列。它类似于矢量，但允</description>
+    </item>
+    
+    <item>
+      <title>queue 和 deque的区别</title>
+      <link>/docs/c&#43;&#43;/queue/queue_and_deque_dif/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue_and_deque_dif/</guid>
+      <description>queue 和 deque的区别 从使用的角度来讲主要差别就是： deque支持push_front、pop_front、push_back、pop_back。 que</description>
+    </item>
+    
+    <item>
+      <title>queue与deque示例</title>
+      <link>/docs/c&#43;&#43;/queue/queue_deque_exm/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue_deque_exm/</guid>
+      <description>queue与deque示例 queue 示例1：queue #include &amp;quot;stdafx.h&amp;quot; #include &amp;lt;iostream&amp;gt; #include &amp;lt;queue&amp;gt; using namespace std; int _tmain(int argc, _TCHAR* argv[]) { queue&amp;lt;int&amp;gt; myQueue; cout &amp;lt;&amp;lt; myQueue.empty() &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; myQueue.size()&amp;lt;&amp;lt; endl; myQueue.push(1); myQueue.push(2); myQueue.push(3); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; myQueue.pop(); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; return 0; } 运行结果： 1 0</description>
+    </item>
+    
+    <item>
+      <title>queue用法详解</title>
+      <link>/docs/c&#43;&#43;/queue/queue/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue/</guid>
+      <description>queue用法详解 只能访问 queue 容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。 许多程序都使用了 queue 容器。queue 容器可</description>
+    </item>
+    
+    <item>
+      <title>笔记queue与deque</title>
+      <link>/docs/c&#43;&#43;/queue/note_queue_and_deque/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/note_queue_and_deque/</guid>
+      <description>笔记queue与deque queue操作： queue&amp;lt;int&amp;gt;q; //创建一个int型空队列q q.empty(); //判断队列是否为空，为空返回true q.push(s); //将变量s从队尾入队 q.pop(); //将队头元</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/c&#43;&#43;/queue/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/readme/</guid>
+      <description>queue deque和queue容器 {% include list.liquid all=true %}</description>
+    </item>
+    
+  </channel>
+</rss>

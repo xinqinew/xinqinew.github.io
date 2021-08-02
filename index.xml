@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 01 Aug 2021 22:12:35 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 23:18:25 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test1</title>
+      <link>/posts/test1/</link>
+      <pubDate>Sun, 01 Aug 2021 23:18:25 +0800</pubDate>
+      
+      <guid>/posts/test1/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Hello World</title>
       <link>/posts/hello-world/</link>
@@ -34,6 +43,42 @@
       
       <guid>/posts/math-support/</guid>
       <description>&lt;p&gt;Eureka supports the rendering of mathematical formulas by using KaTeX.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>64位Call的参数</title>
+      <link>/docs/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <description>64位Call的参数 call上层 参数1 rcx ecx cx 参数2 rdx edx dx 参数3 r8 r8d 参数4 r9 r9d 参数5 rsp+20+8_0 参数5 rsp+20+8_1 call内 参数1 rcx ecx cx 参数2 rdx edx dx 参数3 r8 r8d 参数4 r9 r9d 参数</description>
+    </item>
+    
+    <item>
+      <title>&lt;&gt;尖括号</title>
+      <link>/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
+      <description>&amp;lt; &amp;gt;尖括号 我习惯将尖括号用于指定类型，作为参数: vector&amp;lt;int&amp;gt; vecOfInts ; 但是在rapidjson中，有这样的代码: document.Parse&amp;lt;0&amp;gt;(json) ; document.Parse方法的签名是: template</description>
+    </item>
+    
+    <item>
+      <title>alloc创建一个对象</title>
+      <link>/docs/objective-c/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</guid>
+      <description>​ alloc创建一个对象 dealloc销毁对象 retain增加对象的保留计数器值 release减少对象的保留计数器值 retainCount获得保留计数</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;关键字</title>
+      <link>/docs/c&#43;&#43;/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>C++关键字 1. asm asm (指令字符串)：允许在 C++ 程序中嵌入汇编代码。 2. auto auto（自动，automatic）是存储类型标识符，表明变量&amp;quot;自动&amp;qu</description>
     </item>
     
     <item>
@@ -73,6 +118,653 @@
     </item>
     
     <item>
+      <title>cin和cout输入输出</title>
+      <link>/docs/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>cin和cout输入输出 简单的输入输出代码示例： #include&amp;lt;iostream&amp;gt; using namespace std; int main(){ int x; float y; cout&amp;lt;&amp;lt;&amp;quot;Please input an int number:&amp;quot;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;x; cout&amp;lt;&amp;lt;&amp;quot;The int number is x= &amp;quot;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;quot;Please input a float number:&amp;quot;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;y; cout&amp;lt;&amp;lt;&amp;quot;The float number is y= &amp;quot;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; return 0; } 运行结果如下（↙表示按下回车</description>
+    </item>
+    
+    <item>
+      <title>class 类</title>
+      <link>/docs/c&#43;&#43;/class%E7%B1%BB/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/class%E7%B1%BB/</guid>
+      <description>class 类 #include &amp;lt;stdio.h&amp;gt; //通过class关键字类定义类 class Student{ public: //类包含的变量 char *name; int age; float score; //类包含的函数 void say(){ printf(&amp;quot;%s的年龄是 %d，成绩是 %f\n&amp;quot;, name, age,</description>
+    </item>
+    
+    <item>
+      <title>deque clear()与erase()用法及示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque_clear_and_erase/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_clear_and_erase/</guid>
+      <description>deque clear()与erase()用法及示例 雙端隊列或雙頭隊列是序列容器，兩端都有擴展和收縮功能。它們類似於向量，但是在元素的結尾和開始處插入和刪除時效</description>
+    </item>
+    
+    <item>
+      <title>deque insert()用法及示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque_insert/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_insert/</guid>
+      <description>deque insert()用法及示例 deque::insert(函数是C++中的内置函数，用于在双端队列中插入元素。 insert()函数可以通过三种方式使用：</description>
+    </item>
+    
+    <item>
+      <title>deque 用法与示例</title>
+      <link>/docs/c&#43;&#43;/queue/deque/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque/</guid>
+      <description>deque 用法与示例 本篇將介紹如何使用 C++ std deque 以及用法與範例，C++ std::deque 是一個雙向佇列(double-ended queue)，在頭尾兩端插入及刪除十分快速，在中間</description>
+    </item>
+    
+    <item>
+      <title>deque和queue容器</title>
+      <link>/docs/c&#43;&#43;/queue/deque_and_queue/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/deque_and_queue/</guid>
+      <description>deque和queue容器 标准模板库 STL 提供了两种容器：deque 和 queue，以实现和队列类似的数据 结构。deque 是一个双端队列。它类似于矢量，但允</description>
+    </item>
+    
+    <item>
+      <title>GitHub Pages 搭建教程</title>
+      <link>/docs/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>GitHub Pages 搭建教程 如何使用 GitHub pages 首先你需要注册一个 GitHub 账号，并在个人主界面里选择创建一个新的 Repository 。 进入页面后，在 Repository name 的位置填写域名，格式是 username.Git</description>
+    </item>
+    
+    <item>
+      <title>GitHub回退历史版本</title>
+      <link>/docs/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</guid>
+      <description>GitHub回退历史版本 前提是本地已经有了git的origin master库或者克隆需要回退的代码到本地。 1. 查询历史对应不同版本的ID ，用于回退使用 git</description>
+    </item>
+    
+    <item>
+      <title>Github汉化及常用插件</title>
+      <link>/docs/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <description>Github汉化及常用插件 插件 Sourcegraph Sourcegraph 可以让你在线学习代码，可以查看变量、函数等的定义和引用情况。把指针放到想查看的变量名上，它会自动显示寻找定义和引用的</description>
+    </item>
+    
+    <item>
+      <title>Git与GitHub绑定</title>
+      <link>/docs/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</guid>
+      <description>Git与GitHub绑定 终端输入ssh-keygen -t rsa命令，表示我们指定 RSA 算法生成密钥，然后敲三次回车键，期间不需要输入密码，之后就就会生成两个</description>
+    </item>
+    
+    <item>
+      <title>Hugo_learn常用命令</title>
+      <link>/docs/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>Hugo_learn常用命令 新建章节 hugo new &amp;ndash;kind chapter /_index.md 新建文件 hugo new //_index.md hugo new /.md</description>
+    </item>
+    
+    <item>
+      <title>ifndef详解</title>
+      <link>/docs/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/</guid>
+      <description>ifndef详解 ifndef是&amp;quot;if not defined&amp;quot;的简写 #ifndef起到的效果是防止一个源文件多次包含同一个头文件, 而不是防</description>
+    </item>
+    
+    <item>
+      <title>Jekyll 插入图片</title>
+      <link>/docs/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
+      <description>Jekyll 插入图片 用 Markdown 插入图片是一件很简单的事，只需要这样写： ![AltText](/path/to/img.jpg) 然而，如果你需要进行更多的控制，情况立刻变得复杂了起来。由于 Markdown 秉持结构和样式分离的原则，你无法</description>
+    </item>
+    
+    <item>
+      <title>Markdown语法</title>
+      <link>/docs/github/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>GitBook默认使用Markdown语法。 下面这些可以作为一个快速参考和展示。更多完整的信息，请参考 John Gruber&amp;rsquo;s original spec 和 Github-flavored Markdown info page。 标题 H1 H2 H3 H4 H5 H6 对于H</description>
+    </item>
+    
+    <item>
+      <title>Mermaid教程收录</title>
+      <link>/docs/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</guid>
+      <description>Mermaid教程收录 时间管理、头脑风暴、阅读、会议记录神器-Mermaid Mermaid英文教程 Mermaid在线编辑器 Mermaid，就像用 Markdown 码字</description>
+    </item>
+    
+    <item>
+      <title>namespace 命名空间</title>
+      <link>/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>namespace 命名空间 namespace 是C++中的关键字，用来定义一个命名空间，语法格式为： namespace name{ //variables, functions, classes } name是命名空间的名字，它里面可以包含变量、函数、类、typedef、</description>
+    </item>
+    
+    <item>
+      <title>NSArray</title>
+      <link>/docs/objective-c/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</guid>
+      <description>NSArray 是一个Cocoa类，用来存储对象的有序列表 arrayWithObjects用来创建新的NSArray initWithObjects 初始化数组并赋值 objectAtIndex获取</description>
+    </item>
+    
+    <item>
+      <title>NSEnumerator</title>
+      <link>/docs/objective-c/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+      <description>NSEnumerator 用来描述集合运算的方式 objectEnumerator向数组请求枚举器 reverseObjectEnumerator从后向前浏览集合 nextObje</description>
+    </item>
+    
+    <item>
+      <title>NSNumber</title>
+      <link>/docs/objective-c/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>NSNumber 用来包装基本数据类型 numberWithInt创建NSNumber intValue提取NSNumber NSValue可以包装任意值 valueWithBytes: objCType</description>
+    </item>
+    
+    <item>
+      <title>NSPredicate类</title>
+      <link>/docs/objective-c/nspredicate%E7%B1%BB/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/nspredicate%E7%B1%BB/</guid>
+      <description>NSPredicate类 用于制定过滤器的条件 +predicateWithFormat创建谓词 -evaluateWithObject通知谓词根据指定的对</description>
+    </item>
+    
+    <item>
+      <title>printf输出</title>
+      <link>/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/</guid>
+      <description>printf输出 函式原型： int printf ( const char * format, &amp;hellip; ); 引數說明： %[flags][width][.precision][length]specifier %[旗標][寬度][.精度][長度修飾]資料型態 1. 資料型態 ( %[旗標][寬度][.精度][長度</description>
+    </item>
+    
+    <item>
+      <title>queue 和 deque的区别</title>
+      <link>/docs/c&#43;&#43;/queue/queue_and_deque_dif/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue_and_deque_dif/</guid>
+      <description>queue 和 deque的区别 从使用的角度来讲主要差别就是： deque支持push_front、pop_front、push_back、pop_back。 que</description>
+    </item>
+    
+    <item>
+      <title>queue与deque示例</title>
+      <link>/docs/c&#43;&#43;/queue/queue_deque_exm/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue_deque_exm/</guid>
+      <description>queue与deque示例 queue 示例1：queue #include &amp;quot;stdafx.h&amp;quot; #include &amp;lt;iostream&amp;gt; #include &amp;lt;queue&amp;gt; using namespace std; int _tmain(int argc, _TCHAR* argv[]) { queue&amp;lt;int&amp;gt; myQueue; cout &amp;lt;&amp;lt; myQueue.empty() &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; myQueue.size()&amp;lt;&amp;lt; endl; myQueue.push(1); myQueue.push(2); myQueue.push(3); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; myQueue.pop(); cout &amp;lt;&amp;lt; myQueue.front()&amp;lt;&amp;lt;endl; cout &amp;lt;&amp;lt; myQueue.back()&amp;lt;&amp;lt;endl; return 0; } 运行结果： 1 0</description>
+    </item>
+    
+    <item>
+      <title>queue用法详解</title>
+      <link>/docs/c&#43;&#43;/queue/queue/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/queue/</guid>
+      <description>queue用法详解 只能访问 queue 容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。 许多程序都使用了 queue 容器。queue 容器可</description>
+    </item>
+    
+    <item>
+      <title>std命名空间</title>
+      <link>/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>std命名空间 使用命名空间 std： #include &amp;lt;cstdio&amp;gt; int main(){ std::printf(&amp;quot;http://c.biancheng.net\n&amp;quot;); return 0; } 不使用命名空间 std： #include &amp;lt;cstdio&amp;gt; int main(){ printf(&amp;quot;http://c.biancheng.net\n&amp;quot;); return 0; } 演示了如何使用 C++ 库进行输入输出： #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; int main(){ //声明命名空间s</description>
+    </item>
+    
+    <item>
+      <title>struct 结构体</title>
+      <link>/docs/c&#43;&#43;/struct%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/struct%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>struct 结构体 #include &amp;lt;stdio.h&amp;gt; //定义结构体 Student struct Student{ //结构体包含的成员变量 char *name; int age; float score; }; //显示结构体的成员变量 void display(struct Student stu){ printf(&amp;quot;%s的年龄是 %d，成绩</description>
+    </item>
+    
+    <item>
+      <title>sublimetext常见问题</title>
+      <link>/docs/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>sublimetext常见问题 下载安装 汉化 1.点击tools&amp;mdash;install package control 2.preferences&amp;mdash;package control 3.选择 “Package Control: Install Package” 4.搜索L</description>
+    </item>
+    
+    <item>
+      <title>typedef起小名</title>
+      <link>/docs/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</guid>
+      <description>typedef起小名 C 语言提供了 typedef 关键字，您可以使用它来为类型取一个新的名字。下面的实例为单字节数字定义了一个术语 BYTE： typedef unsigned char BYTE; 在这个类型定义之后</description>
+    </item>
+    
+    <item>
+      <title>VS常见问题</title>
+      <link>/docs/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>VS常见问题 解决VS生成sdf和ipch文件太大占用空间问题 [工具]—&amp;gt;[选项]—&amp;gt;[文本编辑器]—&amp;gt;C/C++]—&amp;gt;[高级]</description>
+    </item>
+    
+    <item>
+      <title>win10常见问题</title>
+      <link>/docs/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>win10常见问题 禁止win10五笔输入法的shift切换功能 方法一：win10系统添加开机启动项 使用组合键win+R打开运行窗口，输入“shell:</description>
+    </item>
+    
+    <item>
+      <title>WOW部分功能代码</title>
+      <link>/docs/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/</guid>
+      <description>WOW部分功能代码 获取角色名字 // pcall5(对象地址,0,1,0,0);//返回名字地址 void CPAGE1::OnBnClickedButton() { // TODO: 在此添加控件通知处理程序代码 UINT64 pBase64 = (UINT_PTR) LoadLibraryA(&amp;quot;Wow.exe&amp;quot;); UINT64 pRoleObj = R8(</description>
+    </item>
+    
+    <item>
+      <title>不错的博客</title>
+      <link>/docs/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>不错的博客 http://themes.jekyllrc.org/ https://jekyllthemes.io/ jekyll-rtd-theme minimal-mistakes/ flexible-jekyll</description>
+    </item>
+    
+    <item>
+      <title>从Jekyll迁移到Hugo</title>
+      <link>/docs/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>从Jekyll迁移到Hugo 最终还是投入Hugo的怀抱，原因是： 熟悉和欣赏Go 发现一个超级喜欢的Hugo主题 - LoveIt 本文记录下博客从Jekyll迁移到Hu</description>
+    </item>
+    
+    <item>
+      <title>从模版安装Docsy博客</title>
+      <link>/docs/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</guid>
+      <description>从模版安装Docsy博客 安装先决条件 在 Mac 和 Windows 上，下载并安装Docker Desktop。在 Linux 上，安装Docker 引擎和Docker compose。 安装可</description>
+    </item>
+    
+    <item>
+      <title>协议</title>
+      <link>/docs/objective-c/%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E5%8D%8F%E8%AE%AE/</guid>
+      <description>​ 协议 @protocol创建协议 encodeWithCoder用于接受对象的实例变量并将其转换为NSCoder类的对象 initWithCoder从NS</description>
+    </item>
+    
+    <item>
+      <title>多字节字符串 转UTF-8字符串</title>
+      <link>/docs/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>多字节字符串 转UTF-8字符串 让喊话内容支持中文 //AnsiToUtf8.h #pragma once //字节集 转16进制 DWORD BytesToHexStr(IN BYTE*nbData, DWORD nbDataSize,OUT char*szpHexBuf); //ANSI 转 UTF8 DWORD AnsiToUtf8(LPCSTR Ansi,OUT LPSTR szpUtf8Buf); //unicode 转 ascii char* UniCodeToAscii(IN WCHAR*szpUnicodeStr,OUT char*szpAsciiStr); //Uft-8 转 ascii char* utf8ToAscii(IN char*szpUtf8,OUT char*szpAscii); //AnsiToUtf8.cpp #include &amp;quot;stdafx.h&amp;quot; #include &amp;quot;AsciiToUTF8.h&amp;quot; #include &amp;lt;Windows.h&amp;gt; /* //</description>
+    </item>
+    
+    <item>
+      <title>多视图应用程序</title>
+      <link>/docs/objective-c/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <description>多视图应用程序 UITabBarController标签栏界面 UINavigationController导航栏界面 addSubview添加视图，是将v</description>
+    </item>
+    
+    <item>
+      <title>字符的输入与输出</title>
+      <link>/docs/c&#43;&#43;/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/</guid>
+      <description>字符的输入与输出 \b 退格 \f 走纸换页 \r 回车 \t 横向跳格(ctrl-i) 格式化字符 %c 字符 %d 十进制整数 %s 字符串 %S or %ws 宽字符串 %x 十六进制整数 %p 指针或地址 %o 八进制整</description>
+    </item>
+    
+    <item>
+      <title>安装docsy主题</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</guid>
+      <description>安装docsy主题 下载并安装npm 苹果系统 在 macOS 上可使用 Homebrew 套件管理安裝 brew install hugo 作为npm模块 您可以npm使用hugo-bin. 这会添加hugo-bin到您</description>
+    </item>
+    
+    <item>
+      <title>安装Eureka博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Eureka博客 官方文档 cd /Volumes/video/GitHub/Eureka git init git submodule add https://github.com/wangchucheng/hugo-eureka.git themes/eureka 切换版本方法如下: cd themes/eureka git checkout v0.8.2 #git checkout &amp;lt;eureka_version&amp;gt; #eureka_version 替换成版本号 接下来，将exampleSite中的config文件夹复</description>
+    </item>
+    
+    <item>
+      <title>安装hugo博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;h1 id=&#34;安装hugo博客&#34;&gt;安装hugo博客&lt;/h1&gt;
+&lt;p&gt;在 macOS 上可使用 Homebrew 套件管理安裝&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;generate-new-site&#34;&gt;Generate new site&lt;/h3&gt;
+&lt;p&gt;要產生一個新的 web site 內容，可直接執行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new site ssg-site
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;執行後會建立一個名為 &lt;code&gt;ssg-site&lt;/code&gt; 的資料夾，包含以下內容&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;.
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;archetypes: 放置生成文件的基礎樣板資料夾（可先暫時不管）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;config.toml&lt;/strong&gt;: 控制 hugo 產生網頁內容的設定檔，預設使用 toml 格式。(也支援 yaml 與 json 格式)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt;: 放置 Markdown 文章與網頁內容的資料夾。&lt;/li&gt;
+&lt;li&gt;data: 儲存一些 configuration 檔案的地ㄌㄌ方，協助建構靜態網頁(也先不管)。&lt;/li&gt;
+&lt;li&gt;layouts: 儲存產生的網頁 layout 樣板(之後範例使用其他的 theme，先不管)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;static&lt;/strong&gt;: 放置靜態內容，如圖片，CSS 以及 *.js 等內容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;themes&lt;/strong&gt;: 從外部引入的 theme 檔案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目前只要知道 &lt;strong&gt;config.toml&lt;/strong&gt;, &lt;strong&gt;content&lt;/strong&gt;, &lt;strong&gt;static&lt;/strong&gt; 與 &lt;strong&gt;themes&lt;/strong&gt; 這幾個部分即可。&lt;/p&gt;
+&lt;h3 id=&#34;import-hugo-themes&#34;&gt;Import Hugo themes&lt;/h3&gt;
+&lt;p&gt;Hugo 並沒有預設的 theme，所以在建立好內容資料夾後，需自行建立 theme 或使用其他 theme，在這我們已 &lt;a href=&#34;https://github.com/Vimux/mainroad&#34;&gt;Mainroad&lt;/a&gt; theme 做範例。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;# 將 mainroid theme 加入 themes/ 中
+cd /Users/xinqinew/ssg-site
+git clone https://github.com/Vimux/Mainroad.git themes/mainroad
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;除了使用 git 指令外，直接從 Github 上下載最新原始檔案壓縮檔，解壓縮後放到 themes 資料夾中。此外對 git 熟悉的是使用者也可用 &lt;code&gt;git submodule&lt;/code&gt; 或 &lt;code&gt;git subtree&lt;/code&gt; 等方式管理外部引入的 theme repo。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;Hugo 在生成 SSG 時會使用到 config.toml 檔案的設定內容。我們可以將之前 Mainroad theme 中的 config.toml 修改後加以使用&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 將 mainroid 的 config.toml 覆蓋原先的預設值
+cp themes/mainroad/exampleSite/config.toml .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後編輯 config.toml 內容，將其修改為自己想要的內容。更詳細的 configuration 設定可參考 &lt;a href=&#34;https://gohugo.io/getting-started/configuration/&#34;&gt;Hugo 官方文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-blog-文章&#34;&gt;新增 Blog 文章&lt;/h3&gt;
+&lt;p&gt;我們可以手動新增 Markdown 文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new post/hello-world.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後會在 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 的位置新增一個 Markdown 文件，其中預設內容會根據 &lt;code&gt;archetype/default.md&lt;/code&gt; 這個樣板檔案內容加以建立。&lt;/p&gt;
+&lt;h3 id=&#34;預覽內容&#34;&gt;預覽內容&lt;/h3&gt;
+&lt;p&gt;先將 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 內容修改為&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;---
+title: &amp;quot;Hello World&amp;quot;
+date: 2018-07-06T16:00:21+08:00
+categories:
+  - &amp;quot;Blog&amp;quot;
+tags:
+  - &amp;quot;Hugo&amp;quot;
+draft: true
+---
+
+# Hello World.
+
+Post example
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後執行以下指令&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若在 Markdown 的 Front Matter，加入 &lt;code&gt;draft: true&lt;/code&gt;，代表該篇文章為草稿不會被 Hugo 轉換為網頁。因此可在指令後加入 &lt;code&gt;--buildDrafts&lt;/code&gt; 來轉換草稿文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;執行成功後會在 &lt;code&gt;localhost:1313&lt;/code&gt; 建立一個暫時的網頁，可接載在瀏覽器網址列輸入預覽結果。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png&#34; alt=&#34;hugo-preview&#34;&gt;&lt;em&gt;Hugo Mainroad theme 結果預覽&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1313 為 Hugo 的預設 Port，可以使用 &lt;code&gt;--port xxx&lt;/code&gt; 來指定使用其他 Port&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;生成靜態內容&#34;&gt;生成靜態內容&lt;/h3&gt;
+&lt;p&gt;Hugo 要生成靜態網頁內容只執行 &lt;code&gt;hugo&lt;/code&gt; 指令即可&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;執行後生成的網頁內容會自動加入 &lt;code&gt;public&lt;/code&gt; 資料夾中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;public&lt;/code&gt; 為預設資料夾，若要修改可在 config 檔案中設定 &lt;code&gt;publishDir&lt;/code&gt; 參數指定輸出位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;從-jekyll-轉移到-hugo&#34;&gt;從 Jekyll 轉移到 Hugo&lt;/h2&gt;
+&lt;p&gt;如果要從其他的 SSG 轉換到 Hugo，官方也提供了一些&lt;a href=&#34;https://gohugo.io/tools/migrations/&#34;&gt;轉換方式&lt;/a&gt;。以從 Jekyll 轉換到 Hugo 為例，只要執行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo import jekyll [jekyll_root_path] [target_path]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就會將 Jekyll 轉換為 Hugo 格式資料夾。但這方式也不是沒問題，原先在的 Jekyll 的 theme 無法直接在 Hugo 使用，且有部分 Front Matter 無法正確轉換，因此建議還是手動轉移較好。而因爲個人轉移時選用的 theme 為 Mainroad，在過程中也遇到了一些問題，在此提出來以供參考。&lt;/p&gt;
+&lt;h3 id=&#34;markdown-front-matter&#34;&gt;Markdown Front Matter&lt;/h3&gt;
+&lt;p&gt;由於 Hugo 與 Jekyll 所使用的 Front Matter 設定不同，有些部分需要每個檔案逐一修改內容，如 &lt;code&gt;categories&lt;/code&gt; 或 &lt;code&gt;tags&lt;/code&gt; 的內容，之前使用的 &lt;a href=&#34;https://github.com/redVi/voyager&#34;&gt;voyager&lt;/a&gt; theme 在執行時會成格式不對，需修改將其改為 List 結構，如在 Jekyll 中，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;categories: posts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;是可行的，但換到 Hugo 的 Mainroad theme 時，需使用 List 結構才行，如&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;categories: [&amp;quot;posts&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;才可正常產生靜態網頁，否則會出現錯誤。&lt;/p&gt;
+&lt;h3 id=&#34;math-equation-support&#34;&gt;Math equation support&lt;/h3&gt;
+&lt;p&gt;在加入數學式的支援花了一些時間去解決，主要分為兩個問題 - &lt;strong&gt;Markdown 轉換成 HTML&lt;/strong&gt; 以及 Mainroad theme 的 &lt;strong&gt;CSS conflict&lt;/strong&gt; 問題。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-parser-support&#34;&gt;Markdown parser support&lt;/h4&gt;
+&lt;p&gt;在加入數學式時，我們習慣直接使用 Latex 語法在 Markdown 中，這樣可以更容易寫出方便的數學式。而 Hugo 預設的 Markdown parser &lt;a href=&#34;https://github.com/russross/blackfriday&#34;&gt;Blackfriday&lt;/a&gt;(使用 Go 語言實作的 Markdown parser) 會進行某些預先處理，造成 MathJax 無法正確顯示內容以及斷行的問題。因此需要將原先的 Blackfriday parser 更換成 &lt;a href=&#34;https://github.com/miekg/mmark&#34;&gt;Mmark&lt;/a&gt;，即在 Markdown 文件中使用 Latex 數學式語法。方法為將檔案副檔名命名為 &lt;code&gt;*.mmark&lt;/code&gt;，或是在 Markdown Front Matter 中加入 &lt;code&gt;markup: &amp;quot;mmark&amp;quot;&lt;/code&gt; 來指定使用 Mmark 處理 Markdown 文件。更詳細的內容可參考&lt;a href=&#34;https://gohugo.io/content-management/formats/&#34;&gt;官網&lt;/a&gt;說明。&lt;/p&gt;
+&lt;h4 id=&#34;katex-support&#34;&gt;Katex support&lt;/h4&gt;
+&lt;p&gt;雖然 Mainroad theme 雖然有支援 &lt;a href=&#34;https://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;，但該 theme 的 CSS style 中有部分和 &lt;a href=&#34;https://khan.github.io/KaTeX/&#34;&gt;Katex&lt;/a&gt; 的 CSS 設定衝突，造成當把 Mainroad 中的 MathJax 部分的樣板原始碼換成支援 Katex 後，在顯示 Matrix 時會造成跑版。詳情狀況可參考個人發在 GitHub 上的 &lt;a href=&#34;https://github.com/Khan/KaTeX/issues/1445&#34;&gt;Issue #1445&lt;/a&gt;。在 Katex 小組了解問題並經過 Mainroad 作者修改樣板後即解決了該問題。&lt;/p&gt;
+&lt;h3 id=&#34;syntax-highlighting&#34;&gt;Syntax highlighting&lt;/h3&gt;
+&lt;p&gt;要在 Hugo 中讓程式碼有高亮效果，可在 config 檔案中加入以下設定&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# use Chroma for syntax highlight
+pygmentsCodeFences = true # 啟動 Code Fence 區域的高亮效果
+pygmentsCodefencesGuessSyntax = true # 對沒有指定程式類型的 Code Fence 自行推導語言類型
+pygmentsStyle = &amp;quot;fruity&amp;quot; # 指定使用的高亮風格，如 vim 或 fruity 等(預設為 &amp;quot;monokai&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;若想換成其他風格可參考&lt;a href=&#34;https://help.farbox.com/pygments.html&#34;&gt;這裡&lt;/a&gt;的格式，將 &lt;code&gt;pgmentsStyle&lt;/code&gt; 的設定修改為該風格 Hugo 就會用該風格顯示 Markdown 中 Code Fence 區段的內容。其他設定可參考 Hugo 官網關於 &lt;a href=&#34;https://gohugo.io/content-management/syntax-highlighting/&#34;&gt;Syntax Hightlighting&lt;/a&gt; 的章節。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pygment 為原先 Hugo 所使用的 Syntax Hightlighting 工具， 在 Hugo 0.28 版後改為 Chroma 為預設內容，但設定檔仍維持原先的格式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;首頁大綱內容&#34;&gt;首頁大綱內容&lt;/h3&gt;
+&lt;p&gt;Mainroad 的 Markdown 文件顯示在列表中的大綱內容，會是最前面段落開始一直延續到預設長度為止，這在排版上會很難看，因此可以手動在 Markdown 文件中加入 `&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装jekyll-rtd-theme博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装jekyll-rtd-theme博客 jekyll-rtd-theme 安装配置及写作 测试文档 安装时终端出现问题的解决办法 清空Gemfile文件内容 终端运行 bundle update Gemfile文件添</description>
+    </item>
+    
+    <item>
+      <title>安装Lovelt博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Lovelt博客 下载地址</description>
+    </item>
+    
+    <item>
+      <title>导航控制器和表视图(一)</title>
+      <link>/docs/objective-c/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</guid>
+      <description>​ 导航控制器和表视图(一) UINavigationController 导航控制器 accessoryType 附件类型 navigationController 导航控制器属性 pushViewController: 入栈方法 viewWillAppear: 视图出现时加载 NSIndexPath 属性,索引路径 UITableViewCellAccessoryCheckmark 属性,检查标记(对勾) UITableViewCellAccessoryNone 属性,无标记 deselectRowAtIndexPath 取消</description>
+    </item>
+    
+    <item>
+      <title>常用API函数</title>
+      <link>/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
+      <description>常用API函数 模拟鼠标 LRESULT SendMessage(HWND hWnd，UINT Msg，WPARAM wParam，LPARAM IParam); 其中Msg可以为WM_LBUTTONDOWN或WM_LBU</description>
+    </item>
+    
+    <item>
+      <title>常用头文件</title>
+      <link>/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
+      <description>常用头文件 stdafx.h MFC预编译 stdio.h 输入输出 process.h 进程 stdlib.h 声明了数值与字符串转换函数, 伪随机数 生成函数, 动态内存分配函数, 进程控制函数等公共函数 Windows.h windows系统函</description>
+    </item>
+    
+    <item>
+      <title>指针读写内存</title>
+      <link>/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/</guid>
+      <description>指针读写内存 #include &amp;lt;cstdio&amp;gt; #define BASE 0x00417000 int g_a = 111; //0x00417000 int g_b = 222; //0x00417004 int g_c = 333; //0x00417008 typedef struct T3 { int a1; //偏移0 int a2; //偏移4 int a3; //偏移8 }TYPE3; int main(int argc, char const *argv[]) { //指针读内存 int* p1=(int*)0x00417000; printf(&amp;quot;A:%d,%d,%d \n&amp;quot;,g_a,g_b,g_c ); //A:111,222,333 printf(&amp;quot;B:%d,%d,%d \n&amp;quot;,*(p1+0),*(p1+1),*(p1+2)); //B:111,222,333</description>
+    </item>
+    
+    <item>
+      <title>文件加载和保存</title>
+      <link>/docs/objective-c/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</guid>
+      <description>​ 文件加载和保存 date获取当前的时间和日期 dateWithTimeIntervalSinceNow获取与当前时间相隔一定时差的日期 const它限定一</description>
+    </item>
+    
+    <item>
+      <title>更丰富的用户界面(一)</title>
+      <link>/docs/objective-c/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</guid>
+      <description>更丰富的用户界面(一) resignFirstResponder取消第一响应者状态 UISlider滑块控件 UISegmentedControl分段开关控</description>
+    </item>
+    
+    <item>
+      <title>更丰富的用户界面(二)</title>
+      <link>/docs/objective-c/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%BA%8C/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%BA%8C/</guid>
+      <description>更丰富的用户界面(二) showInView:在视图中显示 view视图 { UIAlertViewDelegate警报委托控件 UIActionSheetDe</description>
+    </item>
+    
+    <item>
+      <title>植物大战僵尸</title>
+      <link>/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/e/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/</guid>
+      <description>植物大战僵尸 .版本 2 .程序集 窗口程序集_启动窗口 .程序集变量 process, 整数型 .程序集变量 BaseAddress, 整数型 .程序集变量 setoff1, 整数型 .程序集变量 setoff2, 整数型 .程序集变量 PlantAddress, 整数型 .</description>
+    </item>
+    
+    <item>
+      <title>模块及进程相关代码</title>
+      <link>/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/</guid>
+      <description>模块及进程相关代码 句柄 进程 内存 窗口句柄 HWND FindWindow(LPCTSTR IpClassName，LPCTSTR IpWindowName); HWND FindWindowW(LPCTSTR IpClassName，LPCTSTR IpWindowName); //使用Unicode字</description>
+    </item>
+    
+    <item>
+      <title>特性</title>
+      <link>/docs/objective-c/%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E7%89%B9%E6%80%A7/</guid>
+      <description>​ 特性 @property表示声明了一个新对象的属性，自动声明属性的setter和getter方法 @synthesize 表示创建该属性的访问器 readwrite读写属性 re</description>
+    </item>
+    
+    <item>
+      <title>知识点</title>
+      <link>/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>知识点 通用寄存器 32 位 16 位 8 位（高） 8 位（低） EAX AX AH AL EBX BX BH BL ECX CX CH CL EDX DX DH DL 32 位 16 位 32 位 16 位 ESI SI EBP BP EDI DI ESP SP 特殊用法 乘除指令默认使用EAX。它常常被称</description>
+    </item>
+    
+    <item>
+      <title>知识点</title>
+      <link>/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>知识点 阻断函数 getchar() //等待键盘输入回车 sysem(&amp;quot;pause&amp;quot;)//任意键继续 常用函数 printf(&amp;quot;Hello World!&amp;quot;) //输出函数 atoi(arg) //字符串转整数 Sleep(arg) //等待</description>
+    </item>
+    
+    <item>
+      <title>笔记1</title>
+      <link>/docs/objective-c/%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E7%AC%94%E8%AE%B01/</guid>
+      <description>​ 笔记1 \n换行符 new 是alloc和init的结合 double精度是float的两倍 char单个字符 %o 八进制整数 %x十六进制整数 %f浮点计数法 %e科学计</description>
+    </item>
+    
+    <item>
+      <title>笔记queue与deque</title>
+      <link>/docs/c&#43;&#43;/queue/note_queue_and_deque/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/note_queue_and_deque/</guid>
+      <description>笔记queue与deque queue操作： queue&amp;lt;int&amp;gt;q; //创建一个int型空队列q q.empty(); //判断队列是否为空，为空返回true q.push(s); //将变量s从队尾入队 q.pop(); //将队头元</description>
+    </item>
+    
+    <item>
+      <title>自动旋转和自动调整大小</title>
+      <link>/docs/objective-c/%E8%87%AA%E5%8A%A8%E6%97%8B%E8%BD%AC%E5%92%8C%E8%87%AA%E5%8A%A8%E8%B0%83%E6%95%B4%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E8%87%AA%E5%8A%A8%E6%97%8B%E8%BD%AC%E5%92%8C%E8%87%AA%E5%8A%A8%E8%B0%83%E6%95%B4%E5%A4%A7%E5%B0%8F/</guid>
+      <description>​ 自动旋转和自动调整大小 shouldAutorotateToInterfaceOrientation:旋转支持 willAnimateRotationToInterfaceOrientation: duration: 此方法将在旋转开始之后，最后的旋转动</description>
+    </item>
+    
+    <item>
+      <title>键/值编码</title>
+      <link>/docs/objective-c/%E9%94%AE-%E5%80%BC%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/%E9%94%AE-%E5%80%BC%E7%BC%96%E7%A0%81/</guid>
+      <description>​ 键/值编码 count计数 -valueForKey: 读取方法,以字符串的形式向对象发送消息 -setValue: forKey: 设置方法,以字符串的形式向对象发送消息(设置标量值需要封装数据) -valueForKeyPath: 路径读取方法 -setValue:</description>
+    </item>
+    
+    <item>
       <title>Featured Image</title>
       <link>/posts/featured-image/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
@@ -106,6 +798,78 @@
       
       <guid>/posts/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/asm/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/asm/readme/</guid>
+      <description>汇编 这里收录了我的汇编笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/c&#43;&#43;/queue/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/queue/readme/</guid>
+      <description>queue deque和queue容器 {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/c&#43;&#43;/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/readme/</guid>
+      <description>NOTE 这里收录了我的C++笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/e/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/e/readme/</guid>
+      <description>易语言 这里收录我的易语言相关代码及教程 {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/github/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/readme/</guid>
+      <description>GitHub 这里收录了GitHub相关资料. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/objective-c/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/objective-c/readme/</guid>
+      <description>Objective-C 这里收录了我的Objective-C笔记. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/other/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/readme/</guid>
+      <description>Other 未分类的常见问题. {% include list.liquid all=true %}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/wow/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/wow/readme/</guid>
+      <description>WOW 这里收录了我的WOW相关笔记. {% include list.liquid all=true %}</description>
     </item>
     
   </channel>

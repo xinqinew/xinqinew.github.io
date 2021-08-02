@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>知识点 | C&#43;&#43; | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="知识点">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"C++",
+      "item":"/docs/c++/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"知识点",
+      "item":"/docs/c++/%E7%9F%A5%E8%AF%86%E7%82%B9/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/c++/%E7%9F%A5%E8%AF%86%E7%82%B9/"
+    },
+    "headline": "知识点 | C\u002b\u002b | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  3062 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "知识点"
+}
+</script><meta property="og:title" content="知识点 | C&#43;&#43; | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+
+
+<meta property="og:description" content="知识点" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/c&#43;&#43;/">C&#43;&#43;</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/">&lt;&gt;尖括号</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%85%B3%E9%94%AE%E5%AD%97/">C&#43;&#43;关键字</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">cin和cout输入输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/class%E7%B1%BB/">class 类</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/">deque和queue容器</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_clear_and_erase/">deque clear()与erase()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_insert/">deque insert()用法及示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque/">deque 用法与示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/deque_and_queue/">deque和queue容器</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_and_deque_dif/">queue 和 deque的区别</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue_deque_exm/">queue与deque示例</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/queue/">queue用法详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/note_queue_and_deque/">笔记queue与deque</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/queue/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/ifndef%E8%AF%A6%E8%A7%A3/">ifndef详解</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">namespace 命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/">printf输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">std命名空间</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/struct%E7%BB%93%E6%9E%84%E4%BD%93/">struct 结构体</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/">typedef起小名</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/">字符的输入与输出</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/">常用API函数</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/">常用头文件</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/">指针读写内存</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/c&#43;&#43;/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/c&#43;&#43;/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">知识点</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="知识点">知识点</h1>
+<h2 id="阻断函数">阻断函数</h2>
+<pre><code class="language-cpp">getchar()	//等待键盘输入回车
+sysem(&quot;pause&quot;)//任意键继续
+
+</code></pre>
+<h2 id="常用函数">常用函数</h2>
+<pre><code class="language-cpp">printf(&quot;Hello World!&quot;)	//输出函数
+atoi(arg)	//字符串转整数
+Sleep(arg)	//等待
+MessageBeep(1);	//播放系统音乐,方便OD定位
+
+void *memcpy(void *str1, const void *str2, size_t n)
+//内存copy(读取与写入)
+//str1 -- 指向用于存储复制内容的目标数组，类型强制转换为 void* 指针。
+//str2 -- 指向要复制的数据源，类型强制转换为 void* 指针。
+//n -- 要被复制的字节数。
+//返回值 -- 该函数返回一个指向目标存储区 str1 的指针。
+
+void *memset(void *s, int ch, size_t n);
+//内存设置
+//将s中当前位置后面的n个字节,用 ch 替换并返回 s 。
+
+size_t strlen(const char *string);
+//计算给定字符串的长度 (ANSI)
+
+size_t wcslen(const wchar_t * str);
+//strlen函式的宽字节版 (Unicode)
+
+BOOL CloseHandle(
+  HANDLE hObject	//对象句柄
+);//关闭对象句柄。
+</code></pre>
+<h2 id="用汇编来调用call">用汇编来调用CALL</h2>
+<pre><code class="language-cpp">int pcall =(int)MessageBoxC;
+__asm
+{
+  push 0	//4
+  push 0	//3
+  push 0	//2
+  push 0	//1
+  
+  call dword ptr ds:[MessageBoxA]	//第一种
+  
+  mov eax,MessageBoxB
+  call eax	//第二种
+    
+  call pcall	//第三种
+  
+  ;分号 注释语句
+}
+</code></pre>
+<h2 id="循环">循环</h2>
+<pre><code class="language-cpp">break;	//退出循环
+continue;	//跳到循环首部,循环继续
+</code></pre>
+<h2 id="其它">其它</h2>
+<h3 id="_in_--表示是一个输入参数">_In_  表示是一个输入参数</h3>
+<h3 id="_out_-表示是一个输出参数">_Out_ 表示是一个输出参数</h3>
+<h3 id="arg-引用">&amp;arg 引用</h3>
+<p>1.必须传变量<br>
+2.会影响被引用的变量原本的值</p>
+<h3 id="变量-取变量地址运算符">&amp;变量 取变量地址运算符</h3>
+<h3 id="arg-指针">*arg 指针</h3>
+<p>1.会影响被引用的变量原本的值</p>
+<h3 id="冒号">冒号:</h3>
+<p>冒号代表标签,常用于<code>goto</code>跳转</p>
+<h3 id="typedef">typedef</h3>
+<p>关键字，作用是为一种数据类型定义一个新名字<br>
+按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写</p>
+<h3 id="三元运算子">三元运算子</h3>
+<p>条件式 ? 条件式为true时执行的陈述句 : 条件式为false时执行的陈述句</p>
+<pre><code class="language-cpp">int ret, a = 10, b = 11;
+bool flag = true;
+if (flag)
+    ret = a;
+else
+    ret = b;
+</code></pre>
+<p>等价于</p>
+<pre><code class="language-cpp">ret = flag ? a : b;
+</code></pre>
+<h3 id="const">const</h3>
+<p>声明变量是不变的</p>
+<h3 id="define">define</h3>
+<p>定义宏,可用于起别名,也可带参数,如</p>
+<pre><code class="language-cpp">#define hanshu(a,b) (a+b)
+</code></pre>
+<h3 id="指针">指针</h3>
+<table>
+<thead>
+<tr>
+<th>LPSTR</th>
+<th>char*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LPCSTR</td>
+<td>const char*</td>
+</tr>
+<tr>
+<td>LPCTSTR</td>
+<td>const TCHAR*</td>
+</tr>
+<tr>
+<td>LPTSTR</td>
+<td>TCHAR*</td>
+</tr>
+</tbody>
+</table>
+<p>LP = 指针</p>
+<p>C = const 只读</p>
+<p>TSTR = TCHAR</p>
+<h3 id="hinstance">HINSTANCE</h3>
+<p>“句柄型”数据类型。</p>
+<h3 id="static">static</h3>
+<p>关键字 定义静态变量或静态函数,生存周期和全局变量一样,作用域和局部变量一样,初始化仅执行一次.</p>
+<h2 id="多字节字符串char及常用函数">多字节字符串(char)及常用函数</h2>
+<h3 id="char定义字符串">char*	定义字符串</h3>
+<pre><code class="language-cpp">char p[256]=&quot;hijk&quot;;	//可读写
+char src2[]=&quot;opq&quot;;	//可读写
+
+char *p=&quot;abcd&quot;;	//只读 
+</code></pre>
+<h3 id="strcpy字符串复制wcscpy宽字节版">strcpy	字符串复制(wcscpy宽字节版)</h3>
+<pre><code class="language-cpp">char *strcpy(char* dest, const char *src);
+</code></pre>
+<p>把从src地址开始且含有NULL结束符的字符串复制到以dest开始的地址空间</p>
+<p>strcpy_s 带有检测缓冲区的功能,更实用</p>
+<h3 id="strcat字符串连接wcscat宽字节版">strcat	字符串连接(wcscat宽字节版)</h3>
+<pre><code class="language-cpp">extern char *strcat(char *dest, const char *src);
+</code></pre>
+<p>strcat_s 带有检测缓冲区的功能,更实用</p>
+<h3 id="strstr查找字符串wcsstr宽字节版">strstr	查找字符串(wcsstr宽字节版)</h3>
+<pre><code class="language-cpp">string strstr( string1，string2)
+</code></pre>
+<p>​	strstr返回一个指针，指向string2在string1中首次出现的位置。</p>
+<h3 id="strchr查找字符wcschr宽字节版">strchr	查找字符(wcschr宽字节版)</h3>
+<pre><code class="language-cpp">char *strchr(const char *str, int c)
+</code></pre>
+<p>在参数<strong>str</strong>所指向的字符串中搜索第一次出现字符<strong>c</strong>（一个无符号字符）的位置。</p>
+<h3 id="strcmp字符串比较wcscmp宽字节版">strcmp	字符串比较(wcscmp宽字节版)</h3>
+<pre><code class="language-cpp">extern int strcmp(const char *s1,const char *s2);
+</code></pre>
+<p>当s1&lt;s2时，返回为负数；</p>
+<p>当s1=s2时，返回值= 0；</p>
+<p>当s1&gt;s2时，返回正数.</p>
+<h3 id="以下仅了解">以下仅了解</h3>
+<h4 id="strrev">strrev</h4>
+<h4 id="strncmp">strncmp</h4>
+<h4 id="strncmpi">strncmpi</h4>
+<h4 id="strerror">strerror</h4>
+<h4 id="strncpy">strncpy</h4>
+<h4 id="strnicmp">strnicmp</h4>
+<h2 id="unicode字符串wchar及常用函数">Unicode字符串(wchar)及常用函数</h2>
+<h3 id="wchar_t-宽字符">wchar_t 宽字符</h3>
+<pre><code class="language-cpp">wchar_t c1='A';	//单个字符不用加&quot;L&quot;
+wchar_t wStr[]=L&quot;这是一段中文&quot;;	//字符串前要加&quot;L&quot;
+
+wchar_t appName[5]=TEXT(&quot;test&quot;);
+//可以用TEXT()方法将char转换成wchar_t
+</code></pre>
+<p>char是8位<a href="https://baike.baidu.com/item/%E5%AD%97%E7%AC%A6">字符</a>类型,wchar_t数据类型一般为16位或32位,wchar_t所能表示的字符数远超char型。</p>
+<ol>
+<li>如果你想使用ANSI字符串，那么请使用这一套写法：</li>
+</ol>
+<pre><code class="language-cpp"> char szString[100];
+ strcpy(szString,&quot;test&quot;);
+</code></pre>
+<ol start="2">
+<li>如果你想使用Unicode字符串，那么请使用这一套：</li>
+</ol>
+<pre><code class="language-cpp"> wchar_t szString[100];
+ wcscpyszString,L&quot;test&quot;);
+</code></pre>
+<ol start="3">
+<li>如果你想通过定义_UNICODE宏，而编译ANSI或者Unicode字符串代码：</li>
+</ol>
+<pre><code class="language-cpp"> TCHAR szString[100];
+ _tcscpy(szString,_TEXT(&quot;test&quot;));
+</code></pre>
+<h3 id="相关函数见-多字节字符串char及常用函数多字节字符串char及常用函数">相关函数见 <a href="#%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2(char)%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">多字节字符串(char)及常用函数</a></h3>
+<h2 id="tchar兼容型字符串及常用函数">TCHAR兼容型字符串及常用函数</h2>
+<table>
+<thead>
+<tr>
+<th>TCHAR</th>
+<th>ANSI</th>
+<th>Unicode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCHAR</td>
+<td>char</td>
+<td>wchar_t</td>
+</tr>
+<tr>
+<td>_tcscpy()</td>
+<td>strcpy()</td>
+<td>wcscpy()</td>
+</tr>
+<tr>
+<td>_tmain()</td>
+<td>main()</td>
+<td>wmain()</td>
+</tr>
+<tr>
+<td>_tWinMain()</td>
+<td>WinMain()</td>
+<td>wWinMain()</td>
+</tr>
+<tr>
+<td>_T&quot;str&quot;</td>
+<td>&ldquo;str&rdquo;</td>
+<td>L&quot;str&quot;</td>
+</tr>
+<tr>
+<td>_tprintf()</td>
+<td>printf()</td>
+<td>wprintf()</td>
+</tr>
+<tr>
+<td>_tcslen()</td>
+<td>strlen()</td>
+<td>wcslen()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dll动态链接库及入口函数">DLL动态链接库及入口函数</h2>
+<ul>
+<li>
+<p>LoadLibrary	加载动态链接库</p>
+<pre><code class="language-cpp">HMODULE LoadLibrary(_In_ LPCTSTR lpFileName);
+</code></pre>
+</li>
+<li>
+<p>__stdcall 参数从右向左压入堆栈</p>
+</li>
+<li>
+<p>APIENTRY 则表明此函数是应用程序的入口点,其实都是__stdcall</p>
+</li>
+<li>
+<p>winapi 表示此函数是普通的winapi函数调用方式,其实都是__stdcall</p>
+</li>
+<li>
+<p>FreeLibrary  释放动态链接库</p>
+<pre><code class="language-cpp">BOOL WINAPI FreeLibrary(_In_ HMODULE hModule);
+</code></pre>
+</li>
+<li>
+<p>DLL_PROCESS_ATTACH  宏 进程载入  // 1</p>
+</li>
+<li>
+<p>DLL_PROCESS_DETACH  宏 进程卸载  // 0</p>
+</li>
+</ul>
+<h2 id="跨进程分配内存">跨进程分配内存</h2>
+<h3 id="virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</h3>
+<pre><code class="language-cpp">LPVOID VirtualAllocEx(
+	HANDLE hProcess,	//申请内存所在的进程句柄。
+	LPVOID lpAddress,	//保留页面的内存地址；一般用NULL自动分配 。
+	SIZE_T dwSize,	//欲分配的内存大小，字节单位；注意实际分 配的内存大小是页内存大小的整数倍
+	DWORD flAllocationType,	//一般用MEM_COMMIT
+	DWORD flProtect	//一般用PAGE_READWRITE(读写)
+);
+</code></pre>
+<p>​	<strong>flAllocationType</strong> 可取下列值：</p>
+<ul>
+<li>MEM_COMMIT：为特定的页面区域分配内存中或磁盘的页面文件中的物理存储</li>
+<li>MEM_PHYSICAL ：分配物理内存（仅用于地址窗口扩展内存）</li>
+<li>MEM_RESERVE：保留进程的虚拟地址空间，而不分配任何物理存储。保留页面可通过继续调用VirtualAlloc（）而被占用</li>
+<li>MEM_RESET ：指明在内存中由参数lpAddress和dwSize指定的数据无效</li>
+<li>MEM_TOP_DOWN：在尽可能高的地址上分配内存（Windows 98忽略此标志）</li>
+<li>MEM_WRITE_WATCH：必须与MEM_RESERVE一起指定，使系统跟踪那些被写入分配区域的页面（仅针对Windows 98）</li>
+</ul>
+<p><strong>flProtect</strong> 可取下列值</p>
+<ul>
+<li>
+<p>PAGE_READONLY： 该区域为只读。如果应用程序试图访问区域中的页的时候，将会被拒绝访</p>
+</li>
+<li>
+<p>PAGE_READWRITE 区域可被应用程序读写</p>
+</li>
+<li>
+<p>PAGE_EXECUTE： 区域包含可被系统执行的代码。试图读写该区域的操作将被拒绝。</p>
+</li>
+<li>
+<p>PAGE_EXECUTE_READ ：区域包含可执行代码，应用程序可以读该区域。</p>
+</li>
+<li>
+<p>PAGE_EXECUTE_READWRITE： 区域包含可执行代码，应用程序可以读写该区域。</p>
+</li>
+<li>
+<p>PAGE_GUARD： 区域第一次被访问时进入一个STATUS_GUARD_PAGE异常，这个标志要和其他保护标志合并使用，表明区域被第一次访问的权限</p>
+</li>
+<li>
+<p>PAGE_NOACCESS： 任何访问该区域的操作将被拒绝</p>
+</li>
+<li>
+<p>PAGE_NOCACHE： RAM中的页映射到该区域时将不会被微处理器缓存（cached)</p>
+<p>注:PAGE_GUARD和PAGE_NOCHACHE标志可以和其他标志合并使用以进一步指定页的特征。PAGE_GUARD标志指定了一个防护页（guard page），即当一个页被提交时会因第一次被访问而产生一个one-shot异常，接着取得指定的访问权限。PAGE_NOCACHE防止当它映射到虚拟页的时候被微处理器缓存。这个标志方便<a href="https://baike.baidu.com/item/%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8">设备驱动</a>使用<a href="https://baike.baidu.com/item/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE/6024586">直接内存访问</a>方式（DMA）来共享内存块。</p>
+<hr>
+</li>
+</ul>
+<h3 id="virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</h3>
+<pre><code class="language-cpp">BOOL WINAPI VirtualFreeEx(
+HANDLE hProcess,	//目标进程的句柄。
+LPVOID lpAddress,	//指向要释放的虚拟内存空间首地址的指针
+SIZE_T dwSize,		//虚拟内存空间的字节数
+DWORD dwFreeType );//释放类型
+</code></pre>
+<p>​	<strong>lpAddress</strong></p>
+<p>​		指向要释放的<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a>空间首地址的<a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88">指针</a>。</p>
+<blockquote>
+<p>​		如果 <em>dwFreeType</em> 为 MEM_RELEASE, 则该参数必须为<strong>VirtualAllocEx</strong>的返回值.</p>
+</blockquote>
+<p>​	<strong>dwSize</strong></p>
+<p>​		虚拟内存空间的字节数</p>
+<blockquote>
+<p>​		如果 <em>dwFreeType</em> 为 MEM_RELEASE，则 <em>dwSize</em> 必须为0 . 按 VirtualAllocEx申请时的大小全部释放。</p>
+<p>​		如果<em>dwFreeType</em> 为 MEM_DECOMMIT, 则释放从<em>lpAddress</em> 开始的一个或多个字节 ，即 lpAddress +dwSize。</p>
+</blockquote>
+<p>​	<strong>dwFreeType</strong></p>
+<p>​	释放类型，取值见下表：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEM_DECOMMIT0x400016384D</td>
+<td>这种试 仅标示 内存空间不可用，内存页还将存在。</td>
+</tr>
+<tr>
+<td>MEM_RELEASE0x800032768D</td>
+<td>这种方式 很彻底，完全回收。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="跨进程调用call">跨进程调用CALL</h2>
+<h3 id="createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</h3>
+<pre><code class="language-cpp">HANDLE WINAPI CreateRemoteThread(
+_In_ HANDLE hProcess,	//进程句柄.
+_In_ LPSECURITY_ATTRIBUTES lpThreadAttributes,	//指针,一般设置为NULL
+_In_ SIZE_T dwStackSize,	//纯种堆栈大小,一船设置为0,表示默认为1M
+_In_ LPTHREAD_START_ROUTINE lpStartAddress,	//线程函数的地址
+_In_ LPVOID lpParameter,	//线程参数
+_In_ DWORD dwCreationFlags,	//线程的创建标志
+_Out_ LPDWORD lpThreadId	//输出参数,记录创建的远程线程的ID,不输出可传NULL
+);
+</code></pre>
+<p>​	<strong>线程的创建标志.</strong></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>线程创建后立即运行</td>
+</tr>
+<tr>
+<td>CREATE_SUSPENDED<br>0x00000004</td>
+<td>线程创建后先将线程挂起,直到 <strong><a href="https://baike.baidu.com/item/ResumeThread">ResumeThread</a></strong> 被调用.</td>
+</tr>
+<tr>
+<td>STACK_SIZE_PARAM_IS_A_RE<br/>SERVATION<br/>0x00010000</td>
+<td><em>dwStackSize</em> 参数指定为线程栈预订大小,如果STACK_SIZE_PARAM_IS_A_RESERVATION没有被指定,<em>dwStackSize</em> 参数指定为线程栈分配大小.</td>
+</tr>
+</tbody>
+</table>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/C&#43;&#43;/%e7%9f%a5%e8%af%86%e7%82%b9.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="/docs/c&#43;&#43;/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/" class="block">指针读写内存</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/c&#43;&#43;/readme/" class="block"></a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#阻断函数">阻断函数</a></li>
+    <li><a href="#常用函数">常用函数</a></li>
+    <li><a href="#用汇编来调用call">用汇编来调用CALL</a></li>
+    <li><a href="#循环">循环</a></li>
+    <li><a href="#其它">其它</a>
+      <ul>
+        <li><a href="#_in_--表示是一个输入参数">_In_  表示是一个输入参数</a></li>
+        <li><a href="#_out_-表示是一个输出参数">_Out_ 表示是一个输出参数</a></li>
+        <li><a href="#arg-引用">&amp;arg 引用</a></li>
+        <li><a href="#变量-取变量地址运算符">&amp;变量 取变量地址运算符</a></li>
+        <li><a href="#arg-指针">*arg 指针</a></li>
+        <li><a href="#冒号">冒号:</a></li>
+        <li><a href="#typedef">typedef</a></li>
+        <li><a href="#三元运算子">三元运算子</a></li>
+        <li><a href="#const">const</a></li>
+        <li><a href="#define">define</a></li>
+        <li><a href="#指针">指针</a></li>
+        <li><a href="#hinstance">HINSTANCE</a></li>
+        <li><a href="#static">static</a></li>
+      </ul>
+    </li>
+    <li><a href="#多字节字符串char及常用函数">多字节字符串(char)及常用函数</a>
+      <ul>
+        <li><a href="#char定义字符串">char*	定义字符串</a></li>
+        <li><a href="#strcpy字符串复制wcscpy宽字节版">strcpy	字符串复制(wcscpy宽字节版)</a></li>
+        <li><a href="#strcat字符串连接wcscat宽字节版">strcat	字符串连接(wcscat宽字节版)</a></li>
+        <li><a href="#strstr查找字符串wcsstr宽字节版">strstr	查找字符串(wcsstr宽字节版)</a></li>
+        <li><a href="#strchr查找字符wcschr宽字节版">strchr	查找字符(wcschr宽字节版)</a></li>
+        <li><a href="#strcmp字符串比较wcscmp宽字节版">strcmp	字符串比较(wcscmp宽字节版)</a></li>
+        <li><a href="#以下仅了解">以下仅了解</a>
+          <ul>
+            <li><a href="#strrev">strrev</a></li>
+            <li><a href="#strncmp">strncmp</a></li>
+            <li><a href="#strncmpi">strncmpi</a></li>
+            <li><a href="#strerror">strerror</a></li>
+            <li><a href="#strncpy">strncpy</a></li>
+            <li><a href="#strnicmp">strnicmp</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#unicode字符串wchar及常用函数">Unicode字符串(wchar)及常用函数</a>
+      <ul>
+        <li><a href="#wchar_t-宽字符">wchar_t 宽字符</a></li>
+        <li><a href="#相关函数见-多字节字符串char及常用函数多字节字符串char及常用函数">相关函数见 <a href="#%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2(char)%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">多字节字符串(char)及常用函数</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#tchar兼容型字符串及常用函数">TCHAR兼容型字符串及常用函数</a></li>
+    <li><a href="#dll动态链接库及入口函数">DLL动态链接库及入口函数</a></li>
+    <li><a href="#跨进程分配内存">跨进程分配内存</a>
+      <ul>
+        <li><a href="#virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</a></li>
+        <li><a href="#virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</a></li>
+      </ul>
+    </li>
+    <li><a href="#跨进程调用call">跨进程调用CALL</a>
+      <ul>
+        <li><a href="#createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

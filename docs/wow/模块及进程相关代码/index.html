@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>模块及进程相关代码 | WOW相关笔记 | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="模块及进程相关代码">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"WOW相关笔记",
+      "item":"/docs/wow/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"模块及进程相关代码",
+      "item":"/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/"
+    },
+    "headline": "模块及进程相关代码 | WOW相关笔记 | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  1885 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "模块及进程相关代码"
+}
+</script><meta property="og:title" content="模块及进程相关代码 | WOW相关笔记 | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/" />
+
+
+
+<meta property="og:description" content="模块及进程相关代码" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/wow/">WOW相关笔记</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/wow/64%E4%BD%8Dcall%E7%9A%84%E5%8F%82%E6%95%B0/">64位Call的参数</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/wow/wow%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81/">WOW部分功能代码</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/">多字节字符串 转UTF-8字符串</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/wow/%E6%A8%A1%E5%9D%97%E5%8F%8A%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81/">模块及进程相关代码</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/wow/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">模块及进程相关代码</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="模块及进程相关代码">模块及进程相关代码</h1>
+<h2 id="句柄-进程-内存">句柄 进程 内存</h2>
+<h3 id="窗口句柄">窗口句柄</h3>
+<pre><code class="language-cpp">HWND FindWindow(LPCTSTR IpClassName，LPCTSTR IpWindowName); 
+HWND FindWindowW(LPCTSTR IpClassName，LPCTSTR IpWindowName); //使用Unicode字符集,IpWindowName前要加L,如L”魔兽世界“
+HWND FindWindowA(LPCTSTR IpClassName，LPCTSTR IpWindowName); //使用多字节字符集
+</code></pre>
+<blockquote>
+<p>通过类名或窗口名查找，返回窗口句</p>
+</blockquote>
+<h3 id="进程id和线程id">进程ID和线程ID</h3>
+<pre><code class="language-cpp">DWORD GetWindowThreadProcessId(HWND hWnd,LPDWORD lpdwProcessId); 
+</code></pre>
+<blockquote>
+<p>得到窗口句柄后通过GetWindowThreadProcessId这个函数来获得窗口所属进程ID和线程ID</p>
+</blockquote>
+<h3 id="进程句柄">进程句柄</h3>
+<pre><code class="language-c">HANDLE OpenProcess(DWORD dwDesiredAccess,BOOL bInheritHandle,DWORD dwProcessId);
+</code></pre>
+<blockquote>
+<p>打开一个已存在的进程对象，并返回进程的句柄</p>
+</blockquote>
+<h3 id="写入内存">写入内存</h3>
+<pre><code class="language-c">bool WriteProcessMemory(HANDLE hProcess,LPVOID lpBaseAddress,LPVOID lpBuffer,DWORD nSize,LPDWORD lpNumberOfBytesWritten ); 
+</code></pre>
+<blockquote>
+<p>能写入某一进程的内存区域。入口区必须可以访问，否则操作将失败</p>
+</blockquote>
+<h3 id="读取内存">读取内存</h3>
+<pre><code class="language-c">HWND ReadProcessMemory(HANDLE hProcess, LPCVOID lpBaseAddress, LPVOID lpBuffer, DWORD nSize, LPDWORD lpNumberOfBytesRead); 
+</code></pre>
+<blockquote>
+<p>根据进程句柄读入该进程的某个内存空间lpBaseAddress的nSize字节，并写入缓冲区lpBuffer，多次计算基址和偏移即可</p>
+</blockquote>
+<h2 id="遍历模块">遍历模块</h2>
+<pre><code class="language-cpp">
+int 遍历进程模块(DWORD 进程PID)
+{
+	HMODULE hMods[1024];	//20*sizeof(HMODULE)
+	HANDLE 进程句柄;
+	DWORD cbNeeded;
+	unsigned int i;
+	//Print the proess identifier.
+	printf(&quot;\nprocess ID: %u\n&quot;,进程PID);
+	//Get a handle to the process.
+	进程句柄=OpenProcess(PROCESS_ALL_ACCESS,FALSE,进程PID);
+
+	if (NULL == 进程句柄)
+		return 1;
+
+	//Get a list of all the modules in this process.
+	BOOL br = EnumProcessModules(进程句柄,hMods,sizeof(hMods),&amp;cbNeeded);
+	if (br)
+	{
+		UINT32 模块数量=cbNeeded/sizeof(HMODULE);
+		for ( i = 0; i &lt; 模块数量; i++)
+		{
+			TCHAR szModName[MAX_PATH];
+
+			//Get the full path to the module file.
+			if(GetModuleFileNameEx(进程句柄,hMods[i],szModName,
+									sizeof(szModName)/sizeof(TCHAR)))
+			{
+				//Print the module name and handle value.
+				
+				//_tprintf(TEXT(&quot;模块名[%d]=%s 地址=%08X\n&quot;),i,szModName,hModes[i]);
+				printf(&quot;模块名[%d]=%s 地址=%p\n&quot;,i,szModName,hMods[i]);
+			}
+		}
+	}
+	//Release the handle to the process.
+	//
+	CloseHandle(进程句柄);
+	return 0;
+}
+
+
+</code></pre>
+<h2 id="获取窗口句柄">获取窗口句柄</h2>
+<pre><code class="language-cpp">
+HWND CFINDCODE::GetGameHwnd(void)
+{
+	HWND hNext = FindWindowExA(HWND_DESKTOP,0,0,0);
+	HWND h2 = FindWindowExA(HWND_DESKTOP,hNext,0,0);
+	int i =0;
+	while(h2)
+	{
+		char buf[256]={0};
+		GetWindowTextA(h2,buf,256);
+		if (strstr(buf,szGameSubCaption))
+		{
+			break;
+		}
+		h2 = FindWindowExA(HWND_DESKTOP,h2,0,0);
+	}
+	return h2;
+}
+</code></pre>
+<h2 id="获取进程id">获取进程ID</h2>
+<pre><code class="language-cpp">
+DWORD CFINDCODE::GetPID()
+{
+	HWND h=GetGameHwnd();
+	DWORD dwpid=0;
+	GetWindowThreadProcessId(h,&amp;dwpid);
+	return dwpid;
+}
+
+
+</code></pre>
+<h2 id="获取进程句柄">获取进程句柄</h2>
+<pre><code class="language-cpp">HANDLE CFINDCODE::GetGameHp()
+{
+	DWORD dwPid = GetPID();
+	HANDLE hp = OpenProcess(PROCESS_ALL_ACCESS,0,dwPid);
+	// printf(&quot;hp=%hp, pid=%d\r\n&quot;,hp,dwPid);
+	return hp;
+}
+</code></pre>
+<h2 id="获取exe模块起始地址">获取EXE模块起始地址</h2>
+<pre><code class="language-cpp">UINT_PTR CFINDCODE::GetExeBase()
+{
+	UINT_PTR exeBase64=NULL;
+	HMODULE hMods[1024];	//20*sizeof(HMODULE)
+	
+	DWORD cbNeeded;
+	unsigned int i;
+	HANDLE 进程句柄=GetGameHp();
+
+	//Get a list of all the modules in this process.
+	BOOL br = EnumProcessModules(进程句柄,hMods,sizeof(hMods),&amp;cbNeeded);
+	if (br)
+	{
+		UINT32 模块数量=cbNeeded/sizeof(HMODULE);
+		for ( i = 0; i &lt; 模块数量; i++)
+		{
+			TCHAR szModName[MAX_PATH];
+
+			//Get the full path to the module file.
+			if(GetModuleFileNameEx(进程句柄,hMods[i],szModName,
+									sizeof(szModName)/sizeof(TCHAR)))
+			{
+				//如果是“*.exe”的模块,直接返回基址
+				if (strstr(szModName,&quot;.exe&quot;))
+				{
+					exeBase64 = (UINT_PTR)hMods[i];
+				}
+				//Print the module name and handle value.
+				
+				//_tprintf(TEXT(&quot;模块名[%d]=%s 地址=%08X\n&quot;),i,szModName,hModes[i]);
+				// printf(&quot;模块名[%d]=%s 地址=%p\n&quot;,i,szModName,hMods[i]);
+			}
+		}
+	}
+	//Release the handle to the process.
+	//
+	CloseHandle(进程句柄);
+	return exeBase64;
+}
+</code></pre>
+<h2 id="获取exe结束地址">获取EXE结束地址</h2>
+<pre><code class="language-cpp">UINT_PTR CFINDCODE::GetExeEnd()
+{
+	// HANDLE 进程句柄=GetGameHp();
+	// UINT_PTR 模块基址 = GetExeBegin();
+	// MEMORY_BASIC_INFORMATION meminfo;
+
+	// //nSize函数写入lpBuffer的字节数,如果不等于sizeof(MEMORY_BASIC_INFORMATION)表示失败
+	// SIZE_T nSize /*返回buf大小 */ = VirtualQueryEx(进程句柄,(LPCVOID)模块基址,&amp;meminfo,sizeof(meminfo));
+	// UINT_PTR 结束地址=(UINT_PTR)meminfo.AllocationBase+meminfo.RegionSize;
+	// printf(&quot;GetExeEnd: AllocationBase=%llx,RegionSize=%X 结束地址=%llx \r\n&quot;,meminfo.AllocationBase,meminfo.RegionSize,结束地址);
+	// return 结束地址;
+	return GetExeBase()+GetExeSize();
+
+}
+</code></pre>
+<h2 id="获取exe模块大小">获取EXE模块大小</h2>
+<pre><code class="language-cpp">
+SIZE_T CFINDCODE::GetExeSize();		
+{
+	static SIZE_T nSize=0;
+	if (nSize)
+	{
+		/* code */
+		return nSize;
+	}
+	HANDLE 进程句柄=GetGameHp();
+	UINT_PTR 模块基址 = GetExeBase();
+	MEMORY_BASIC_INFORMATION meminfo;
+
+	//nSize函数写入lpBuffer的字节数,如果不等于sizeof(MEMORY_BASIC_INFORMATION)表示失败
+	SIZE_T nSize /*返回buf大小 */ = VirtualQueryEx(进程句柄,(LPCVOID)模块基址,&amp;meminfo,sizeof(meminfo));
+	nSize = meminfo.RegionSize;
+	CloseHandle(进程句柄);
+	return nSize;
+}
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/WOW/%e6%a8%a1%e5%9d%97%e5%8f%8a%e8%bf%9b%e7%a8%8b%e7%9b%b8%e5%85%b3%e4%bb%a3%e7%a0%81.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="/docs/wow/%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%ACutf-8%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="block">多字节字符串 转UTF-8字符串</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/wow/readme/" class="block"></a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#句柄-进程-内存">句柄 进程 内存</a>
+      <ul>
+        <li><a href="#窗口句柄">窗口句柄</a></li>
+        <li><a href="#进程id和线程id">进程ID和线程ID</a></li>
+        <li><a href="#进程句柄">进程句柄</a></li>
+        <li><a href="#写入内存">写入内存</a></li>
+        <li><a href="#读取内存">读取内存</a></li>
+      </ul>
+    </li>
+    <li><a href="#遍历模块">遍历模块</a></li>
+    <li><a href="#获取窗口句柄">获取窗口句柄</a></li>
+    <li><a href="#获取进程id">获取进程ID</a></li>
+    <li><a href="#获取进程句柄">获取进程句柄</a></li>
+    <li><a href="#获取exe模块起始地址">获取EXE模块起始地址</a></li>
+    <li><a href="#获取exe结束地址">获取EXE结束地址</a></li>
+    <li><a href="#获取exe模块大小">获取EXE模块大小</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

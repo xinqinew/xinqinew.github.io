@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未分类的常见问题 on 我的Eureka主题博客</title>
+    <link>/docs/other/</link>
+    <description>Recent content in 未分类的常见问题 on 我的Eureka主题博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/docs/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sublimetext常见问题</title>
+      <link>/docs/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>sublimetext常见问题 下载安装 汉化 1.点击tools&amp;mdash;install package control 2.preferences&amp;mdash;package control 3.选择 “Package Control: Install Package” 4.搜索L</description>
+    </item>
+    
+    <item>
+      <title>VS常见问题</title>
+      <link>/docs/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>VS常见问题 解决VS生成sdf和ipch文件太大占用空间问题 [工具]—&amp;gt;[选项]—&amp;gt;[文本编辑器]—&amp;gt;C/C++]—&amp;gt;[高级]</description>
+    </item>
+    
+    <item>
+      <title>win10常见问题</title>
+      <link>/docs/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>win10常见问题 禁止win10五笔输入法的shift切换功能 方法一：win10系统添加开机启动项 使用组合键win+R打开运行窗口，输入“shell:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/docs/other/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/other/readme/</guid>
+      <description>Other 未分类的常见问题. {% include list.liquid all=true %}</description>
+    </item>
+    
+  </channel>
+</rss>

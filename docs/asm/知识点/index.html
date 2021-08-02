@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>知识点 | 汇编 | 我的Eureka主题博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.2" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="知识点描述">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"汇编",
+      "item":"/docs/asm/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"知识点",
+      "item":"/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/"
+    },
+    "headline": "知识点 | 汇编 | 我的Eureka主题博客","datePublished": "2020-10-16T00:00:00+00:00",
+    "dateModified": "2020-10-16T00:00:00+00:00",
+    "wordCount":  2267 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "知识点描述"
+}
+</script><meta property="og:title" content="知识点 | 汇编 | 我的Eureka主题博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+
+
+<meta property="og:description" content="知识点描述" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="我的Eureka主题博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-10-16T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">我的Eureka主题博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="/docs/asm/">汇编</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="/docs/asm/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="/docs/asm/readme/"></a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">知识点</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-10-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h1 id="知识点">知识点</h1>
+<ul>
+<li>通用寄存器</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>32 位</th>
+<th>16 位</th>
+<th>8 位（高）</th>
+<th>8 位（低）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAX</td>
+<td>AX</td>
+<td>AH</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>BX</td>
+<td>BH</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>ECX</td>
+<td>CX</td>
+<td>CH</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>DX</td>
+<td>DH</td>
+<td>DL</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>32 位</th>
+<th>16 位</th>
+<th>32 位</th>
+<th>16 位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESI</td>
+<td>SI</td>
+<td>EBP</td>
+<td>BP</td>
+</tr>
+<tr>
+<td>EDI</td>
+<td>DI</td>
+<td>ESP</td>
+<td>SP</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>特殊用法</li>
+</ul>
+<ol>
+<li>乘除指令默认使用EAX。它常常被称为扩展累加器（extended accumulator）寄存器。</li>
+<li>CPU 默认使用 ECX 为循环计数器。</li>
+<li>ESP 用于寻址堆栈（一种系统内存结构）数据。它极少用于一般算术运算和数据传输，通常被称为扩展堆栈指针（extended stack pointer）寄存器。</li>
+<li>ESI 和 EDI 用于高速存储器传输指令，有时也被称为扩展源变址（extended source index）寄存器和扩展目的变址（extended destination index）寄存器。</li>
+<li>高级语言通过 EBP 来引用堆栈中的函数参数和局部变量。除了高级编程，它不用于一般算术运算和数据传输。它常常被称为扩展帧指针（extended frame pointer）寄存器。</li>
+</ol>
+<ul>
+<li>状态标志位</li>
+</ul>
+<ol>
+<li>进位标志位（CF），与目标位置相比，无符号算术运算结果太大时，设置该标志位。</li>
+<li>溢出标志位（OF），与目标位置相比，有符号算术运算结果太大或太小时，设置该标志位。</li>
+<li>符号标志位（SF），算术或逻辑操作产生负结果时，设置该标志位。</li>
+<li>零标志位（ZF），算术或逻辑操作产生的结果为零时，设置该标志位。</li>
+<li>辅助进位标志位（AC），算术操作在 8 位操作数中产生了位 3 向位 4 的进位时，设置该标志位。</li>
+<li>奇偶校验标志位（PF），结果的最低有效字节包含偶数个 1 时，设置该标志位，否则，清除该标志位。一般情况下，如果数据有可能被修改或损坏时，该标志位用于进行 错误检测。</li>
+</ol>
+<ul>
+<li>64位通用寄存器</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作数大小</th>
+<th>可用寄存器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 位</td>
+<td>AL、BL、CL、DL、DIL、SIL、BPL、SPL、R8L、R9L、R10L、R11L、R12L、R13L、R14L、R15L</td>
+</tr>
+<tr>
+<td>16 位</td>
+<td>AX、BX、CX、DX、DI、SI、BP、SP、R8W、R9W、R10W、R11W、R12W、R13W、R14W、R15W</td>
+</tr>
+<tr>
+<td>32 位</td>
+<td>EAX、EBX、ECX、EDX、EDI、ESI、EBP、ESP、R8D、R9D、R10D、R11D、R12D、R13D、R14D、R15D</td>
+</tr>
+<tr>
+<td>64 位</td>
+<td>RAX、RBX、RCX、RDX、RDI、RSI、RBP、RSP、R8、R9、R10、R11、R12、R13、R14、R15</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>整数常量</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>h</th>
+<th>十六进制</th>
+<th>r</th>
+<th>编码实数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>q/o</td>
+<td>八进制</td>
+<td>t</td>
+<td>十进制（备用）</td>
+</tr>
+<tr>
+<td>d</td>
+<td>十进制</td>
+<td>y</td>
+<td>二进制（备用）</td>
+</tr>
+<tr>
+<td>b</td>
+<td>二进制</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-asm6502">26         ;十进制
+26d        ;十进制
+11010011b  ;二进制
+42q        ;八进制
+42o        ;八进制
+1Ah        ;十六进制
+0A3h       ;十六进制
+</code></pre>
+<ul>
+<li>整型常量表达式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>()</td>
+<td>圆括号</td>
+<td>1</td>
+</tr>
+<tr>
+<td>+,-</td>
+<td>一元加、减</td>
+<td>2</td>
+</tr>
+<tr>
+<td>*, /</td>
+<td>乘、除</td>
+<td>3</td>
+</tr>
+<tr>
+<td>MOD</td>
+<td>取模</td>
+<td>3</td>
+</tr>
+<tr>
+<td>+, -</td>
+<td>加、减</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>保留字列表。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>$</th>
+<th>PARITY?</th>
+<th>DWORD</th>
+<th>STDCALL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>PASCAL</td>
+<td>FAR</td>
+<td>SWORD</td>
+</tr>
+<tr>
+<td>@B</td>
+<td>QWORD</td>
+<td>FAR16</td>
+<td>SYSCALL</td>
+</tr>
+<tr>
+<td>@F</td>
+<td>REAL4</td>
+<td>FORTRAN</td>
+<td>TBYTE</td>
+</tr>
+<tr>
+<td>ADDR</td>
+<td>REAL8</td>
+<td>FWORD</td>
+<td>VARARG</td>
+</tr>
+<tr>
+<td>BASIC</td>
+<td>REAL10</td>
+<td>NEAR</td>
+<td>WORD</td>
+</tr>
+<tr>
+<td>BYTE</td>
+<td>SBYTE</td>
+<td>NEAR16</td>
+<td>ZERO?</td>
+</tr>
+<tr>
+<td>C</td>
+<td>SDORD</td>
+<td>OVERFLOW?</td>
+<td></td>
+</tr>
+<tr>
+<td>CARRY?</td>
+<td>SIGN?</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>定义段</li>
+</ul>
+<p>.DATA 伪指令进行标识：<br>
+<code>.data</code></p>
+<p>.CODE 伪指令标识的程序区段包含了可执行的指令：<br>
+<code>.code</code></p>
+<p>.STACK 伪指令标识的程序区段定义了运行时堆栈，并设置了其大小：<br>
+<code>.stack 100h</code></p>
+<h2 id="指令">指令</h2>
+<p>一条指令有四个组成部分：</p>
+<ol>
+<li>标号（可选）</li>
+<li>指令助记符（必需）</li>
+<li>操作数（通常是必需的）</li>
+<li>注释（可选）</li>
+</ol>
+<p>不同部分的位置安排如下所示：<br>
+<code>[label: ] mnemonic [operands] [;comment]</code></p>
+<h3 id="标号">标号</h3>
+<p>数据标号</p>
+<pre><code class="language-asm6502">count DWORD 100
+</code></pre>
+<p>代码标号</p>
+<pre><code class="language-asm6502">target:
+        mov ax,bx
+        ...
+        jmp target
+</code></pre>
+<h3 id="指令助记符">指令助记符</h3>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>说明</th>
+<th>助记符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOV</td>
+<td>传送（分配）数值</td>
+<td>MUL</td>
+<td>两个数值相乘</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>两个数值相加</td>
+<td>JMP</td>
+<td>跳转到一个新位置</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>从一个数值中减去另一个数值</td>
+<td>CALL</td>
+<td>调用一个子程序</td>
+</tr>
+</tbody>
+</table>
+<h3 id="操作数">操作数</h3>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>操作数类型</th>
+<th>示例</th>
+<th>操作数类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>96</td>
+<td>整数常量</td>
+<td>eax</td>
+<td>寄存器</td>
+</tr>
+<tr>
+<td>2+4</td>
+<td>整数表达式</td>
+<td>count</td>
+<td>内存</td>
+</tr>
+</tbody>
+</table>
+<p>STC 指令没有操作数：<br>
+<code>stc                    ;进位标志位置 1</code></p>
+<p>INC 指令有一个操作数：<br>
+<code>inc eax                ;EAX 加 1</code></p>
+<p>MOV 指令有两个操作数：<br>
+<code>mov count, ebx         ;将 EBX 传送给变量 count</code></p>
+<p>IMUL 指令有三个操作数，第一个是目的操作数，第二个和第三个是进行乘法的源操作数：<br>
+<code>imul eax,ebx,5</code></p>
+<h3 id="注释">注释</h3>
+<ol>
+<li>单行注释，用分号（;）开始。汇编器将忽略在同一行上分号之后的所有字符。</li>
+<li>块注释，用 COMMENT 伪指令和一个用户定义的符号开始。汇编器将忽略其后所有的文本行，直到相同的用户定义符号出现为止。</li>
+</ol>
+<pre><code class="language-asm6502">COMMENT !
+        This line is a comment.
+        This line is also a comment.
+!
+</code></pre>
+<h3 id="nop空操作指令">NOP（空操作）指令</h3>
+<pre><code class="language-asm6502">.data                          ;此为数据区
+sum DWORD 0                    ;定义名为sum的变量
+.code                          ;此为代码区
+main PROC
+    mov eax,5                  ;将数字5送入而eax寄存器
+    add eax,6                  ;eax寄存器加6
+    mox sum,eax
+    INVOKE ExitProcess,0       ;结束程序
+main ENDP
+</code></pre>
+<pre><code class="language-asm6502">; AddTwo.asm -两个 32 位整数相加
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+
+.code
+main PROC
+mov  eax,5  ;将数字5送入eax寄存器
+add      eax,6  ;eax寄存器加6
+
+INVOKE ExitProcess,0
+main ENDP
+END main
+</code></pre>
+<ol>
+<li>第 3 行是 .386 伪指令，它表示这是一个 32 位程序，能访问 32 位寄存器和地址。</li>
+<li>第 4 行选择了程序的内存模式（flat），并确定了子程序的调用规范（称为 stdcall）。其原因是 32 位 Windows 服务要求使用 stdcall 规范。</li>
+<li>第 5 行为运行时堆栈保留了 4096 字节的存储空间，每个程序都必须有。</li>
+<li>第 6 行声明了 ExitProcess 函数的原型，它是一个标准的 Windows 服务。原型包含了函数名、PROTO 关键字、一个逗号，以及一个输入参数列表。ExitProcess 的输入参数名称为 dwExitCode。</li>
+</ol>
+<h3 id="汇编伪指令回顾">汇编伪指令回顾</h3>
+<p>CODE 的下一行声明程序的入口</p>
+<pre><code>.code
+main PROC
+</code></pre>
+<p>ENDP 伪指令标记一个过程的结束。<br>
+<code>main ENDP</code><br>
+END 伪指令标记一个程序的结束，并要引用程序入口：<br>
+<code>END main</code></p>
+<pre><code class="language-asm6502">; AddTwo.asm - adds two 32-bit integers.
+; Chapter 3 example
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO,dwExitCode:DWORD
+
+    00000000                            .code
+    00000000                            main PROC
+    00000000 B8 00000005                    mov eax, 5
+    00000005 83 C0 06                       add eax,6
+
+                                            invoke ExitProcess,0
+    00000008 6A 00                          push        +000000000h
+    0000000A E8 00000000 E                  call        ExitProcess
+    0000000F                            main ENDP
+                                        END main
+
+</code></pre>
+<h3 id="内部数据类型">内部数据类型</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BYTE</td>
+<td>8 位无符号整数，B 代表字节</td>
+</tr>
+<tr>
+<td>SBYTE</td>
+<td>8 位有符号整数，S 代表有符号</td>
+</tr>
+<tr>
+<td>WORD</td>
+<td>16 位无符号整数</td>
+</tr>
+<tr>
+<td>SWORD</td>
+<td>16 位有符号整数</td>
+</tr>
+<tr>
+<td>DWORD</td>
+<td>32 位无符号整数，D 代表双（字）</td>
+</tr>
+<tr>
+<td>SDWORD</td>
+<td>32 位有符号整数，SD 代表有符号双（字）</td>
+</tr>
+<tr>
+<td>FWORD</td>
+<td>48 位整数（保护模式中的远指针）</td>
+</tr>
+<tr>
+<td>QWORD</td>
+<td>64 位整数，Q 代表四（字）</td>
+</tr>
+<tr>
+<td>TBYTE</td>
+<td>80 位（10 字节）整数，T 代表 10 字节</td>
+</tr>
+<tr>
+<td>REAL4</td>
+<td>32 位（4 字节）IEEE 短实数</td>
+</tr>
+<tr>
+<td>REAL8</td>
+<td>64 位（8 字节）IEEE 长实数</td>
+</tr>
+<tr>
+<td>REAL10</td>
+<td>80 位（10 字节）IEEE 扩展实数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据定义语句">数据定义语句</h3>
+<p>数据定义语法如下所示：
+[name] directive initializer [,initializer]&hellip;
+下面是数据定义语句的一个例子：</p>
+<pre><code class="language-asm6502">count DWORD 12345
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>伪指令</th>
+<th>用法</th>
+<th>伪指令</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB</td>
+<td>8位整数</td>
+<td>DQ</td>
+<td>64 位整数或实数</td>
+</tr>
+<tr>
+<td>DW</td>
+<td>16 位整数</td>
+<td>DT</td>
+<td>定义 80 位（10 字节）整数</td>
+</tr>
+<tr>
+<td>DD</td>
+<td>32 位整数或实数</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-asm">;AddTowSum.asm
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+.data
+sum DWORD 0
+.code
+main PROC
+    mov eax,5
+    add eax,6
+    mov sum,eax
+    INVOKE ExitProcess,0
+main ENDP
+END main
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+  <div class="flex md:justify-end my-4">
+
+    <a href="https://github.com/xinqinew/xinqinew.github.io/blob/Eureka/content/docs/ASM/%e7%9f%a5%e8%af%86%e7%82%b9.md" title="Edit this page">
+      <i class="fas fa-edit mr-1"></i>
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/docs/asm/readme/" class="block"></a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#指令">指令</a>
+      <ul>
+        <li><a href="#标号">标号</a></li>
+        <li><a href="#指令助记符">指令助记符</a></li>
+        <li><a href="#操作数">操作数</a></li>
+        <li><a href="#注释">注释</a></li>
+        <li><a href="#nop空操作指令">NOP（空操作）指令</a></li>
+        <li><a href="#汇编伪指令回顾">汇编伪指令回顾</a></li>
+        <li><a href="#内部数据类型">内部数据类型</a></li>
+        <li><a href="#数据定义语句">数据定义语句</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>
