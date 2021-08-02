@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on 我的Eureka主题博客</title>
+    <link>/tags/github/</link>
+    <description>Recent content in GitHub on 我的Eureka主题博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Pages 搭建教程</title>
+      <link>/docs/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>GitHub Pages 搭建教程 如何使用 GitHub pages 首先你需要注册一个 GitHub 账号，并在个人主界面里选择创建一个新的 Repository 。 进入页面后，在 Repository name 的位置填写域名，格式是 username.Git</description>
+    </item>
+    
+    <item>
+      <title>GitHub回退历史版本</title>
+      <link>/docs/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</guid>
+      <description>GitHub回退历史版本 前提是本地已经有了git的origin master库或者克隆需要回退的代码到本地。 1. 查询历史对应不同版本的ID ，用于回退使用 git</description>
+    </item>
+    
+    <item>
+      <title>Github汉化及常用插件</title>
+      <link>/docs/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <description>Github汉化及常用插件 插件 Sourcegraph Sourcegraph 可以让你在线学习代码，可以查看变量、函数等的定义和引用情况。把指针放到想查看的变量名上，它会自动显示寻找定义和引用的</description>
+    </item>
+    
+    <item>
+      <title>Git与GitHub绑定</title>
+      <link>/docs/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</guid>
+      <description>Git与GitHub绑定 终端输入ssh-keygen -t rsa命令，表示我们指定 RSA 算法生成密钥，然后敲三次回车键，期间不需要输入密码，之后就就会生成两个</description>
+    </item>
+    
+    <item>
+      <title>Hugo_learn常用命令</title>
+      <link>/docs/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/hugo_learn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>Hugo_learn常用命令 新建章节 hugo new &amp;ndash;kind chapter /_index.md 新建文件 hugo new //_index.md hugo new /.md</description>
+    </item>
+    
+    <item>
+      <title>Jekyll 插入图片</title>
+      <link>/docs/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
+      <description>Jekyll 插入图片 用 Markdown 插入图片是一件很简单的事，只需要这样写： ![AltText](/path/to/img.jpg) 然而，如果你需要进行更多的控制，情况立刻变得复杂了起来。由于 Markdown 秉持结构和样式分离的原则，你无法</description>
+    </item>
+    
+    <item>
+      <title>Mermaid教程收录</title>
+      <link>/docs/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</guid>
+      <description>Mermaid教程收录 时间管理、头脑风暴、阅读、会议记录神器-Mermaid Mermaid英文教程 Mermaid在线编辑器 Mermaid，就像用 Markdown 码字</description>
+    </item>
+    
+    <item>
+      <title>不错的博客</title>
+      <link>/docs/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>不错的博客 http://themes.jekyllrc.org/ https://jekyllthemes.io/ jekyll-rtd-theme minimal-mistakes/ flexible-jekyll</description>
+    </item>
+    
+    <item>
+      <title>从Jekyll迁移到Hugo</title>
+      <link>/docs/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>从Jekyll迁移到Hugo 最终还是投入Hugo的怀抱，原因是： 熟悉和欣赏Go 发现一个超级喜欢的Hugo主题 - LoveIt 本文记录下博客从Jekyll迁移到Hu</description>
+    </item>
+    
+    <item>
+      <title>从模版安装Docsy博客</title>
+      <link>/docs/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</guid>
+      <description>从模版安装Docsy博客 安装先决条件 在 Mac 和 Windows 上，下载并安装Docker Desktop。在 Linux 上，安装Docker 引擎和Docker compose。 安装可</description>
+    </item>
+    
+    <item>
+      <title>安装docsy主题</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</guid>
+      <description>安装docsy主题 下载并安装npm 苹果系统 在 macOS 上可使用 Homebrew 套件管理安裝 brew install hugo 作为npm模块 您可以npm使用hugo-bin. 这会添加hugo-bin到您</description>
+    </item>
+    
+    <item>
+      <title>安装Eureka博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Eureka博客 官方文档 cd /Volumes/video/GitHub/Eureka git init git submodule add https://github.com/wangchucheng/hugo-eureka.git themes/eureka 切换版本方法如下: cd themes/eureka git checkout v0.8.2 #git checkout &amp;lt;eureka_version&amp;gt; #eureka_version 替换成版本号 接下来，将exampleSite中的config文件夹复</description>
+    </item>
+    
+    <item>
+      <title>安装hugo博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;h1 id=&#34;安装hugo博客&#34;&gt;安装hugo博客&lt;/h1&gt;
+&lt;p&gt;在 macOS 上可使用 Homebrew 套件管理安裝&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;generate-new-site&#34;&gt;Generate new site&lt;/h3&gt;
+&lt;p&gt;要產生一個新的 web site 內容，可直接執行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new site ssg-site
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;執行後會建立一個名為 &lt;code&gt;ssg-site&lt;/code&gt; 的資料夾，包含以下內容&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;.
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;archetypes: 放置生成文件的基礎樣板資料夾（可先暫時不管）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;config.toml&lt;/strong&gt;: 控制 hugo 產生網頁內容的設定檔，預設使用 toml 格式。(也支援 yaml 與 json 格式)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt;: 放置 Markdown 文章與網頁內容的資料夾。&lt;/li&gt;
+&lt;li&gt;data: 儲存一些 configuration 檔案的地ㄌㄌ方，協助建構靜態網頁(也先不管)。&lt;/li&gt;
+&lt;li&gt;layouts: 儲存產生的網頁 layout 樣板(之後範例使用其他的 theme，先不管)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;static&lt;/strong&gt;: 放置靜態內容，如圖片，CSS 以及 *.js 等內容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;themes&lt;/strong&gt;: 從外部引入的 theme 檔案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目前只要知道 &lt;strong&gt;config.toml&lt;/strong&gt;, &lt;strong&gt;content&lt;/strong&gt;, &lt;strong&gt;static&lt;/strong&gt; 與 &lt;strong&gt;themes&lt;/strong&gt; 這幾個部分即可。&lt;/p&gt;
+&lt;h3 id=&#34;import-hugo-themes&#34;&gt;Import Hugo themes&lt;/h3&gt;
+&lt;p&gt;Hugo 並沒有預設的 theme，所以在建立好內容資料夾後，需自行建立 theme 或使用其他 theme，在這我們已 &lt;a href=&#34;https://github.com/Vimux/mainroad&#34;&gt;Mainroad&lt;/a&gt; theme 做範例。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;# 將 mainroid theme 加入 themes/ 中
+cd /Users/xinqinew/ssg-site
+git clone https://github.com/Vimux/Mainroad.git themes/mainroad
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;除了使用 git 指令外，直接從 Github 上下載最新原始檔案壓縮檔，解壓縮後放到 themes 資料夾中。此外對 git 熟悉的是使用者也可用 &lt;code&gt;git submodule&lt;/code&gt; 或 &lt;code&gt;git subtree&lt;/code&gt; 等方式管理外部引入的 theme repo。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;Hugo 在生成 SSG 時會使用到 config.toml 檔案的設定內容。我們可以將之前 Mainroad theme 中的 config.toml 修改後加以使用&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 將 mainroid 的 config.toml 覆蓋原先的預設值
+cp themes/mainroad/exampleSite/config.toml .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後編輯 config.toml 內容，將其修改為自己想要的內容。更詳細的 configuration 設定可參考 &lt;a href=&#34;https://gohugo.io/getting-started/configuration/&#34;&gt;Hugo 官方文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-blog-文章&#34;&gt;新增 Blog 文章&lt;/h3&gt;
+&lt;p&gt;我們可以手動新增 Markdown 文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new post/hello-world.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後會在 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 的位置新增一個 Markdown 文件，其中預設內容會根據 &lt;code&gt;archetype/default.md&lt;/code&gt; 這個樣板檔案內容加以建立。&lt;/p&gt;
+&lt;h3 id=&#34;預覽內容&#34;&gt;預覽內容&lt;/h3&gt;
+&lt;p&gt;先將 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 內容修改為&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;---
+title: &amp;quot;Hello World&amp;quot;
+date: 2018-07-06T16:00:21+08:00
+categories:
+  - &amp;quot;Blog&amp;quot;
+tags:
+  - &amp;quot;Hugo&amp;quot;
+draft: true
+---
+
+# Hello World.
+
+Post example
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之後執行以下指令&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若在 Markdown 的 Front Matter，加入 &lt;code&gt;draft: true&lt;/code&gt;，代表該篇文章為草稿不會被 Hugo 轉換為網頁。因此可在指令後加入 &lt;code&gt;--buildDrafts&lt;/code&gt; 來轉換草稿文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;執行成功後會在 &lt;code&gt;localhost:1313&lt;/code&gt; 建立一個暫時的網頁，可接載在瀏覽器網址列輸入預覽結果。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png&#34; alt=&#34;hugo-preview&#34;&gt;&lt;em&gt;Hugo Mainroad theme 結果預覽&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1313 為 Hugo 的預設 Port，可以使用 &lt;code&gt;--port xxx&lt;/code&gt; 來指定使用其他 Port&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;生成靜態內容&#34;&gt;生成靜態內容&lt;/h3&gt;
+&lt;p&gt;Hugo 要生成靜態網頁內容只執行 &lt;code&gt;hugo&lt;/code&gt; 指令即可&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;執行後生成的網頁內容會自動加入 &lt;code&gt;public&lt;/code&gt; 資料夾中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;public&lt;/code&gt; 為預設資料夾，若要修改可在 config 檔案中設定 &lt;code&gt;publishDir&lt;/code&gt; 參數指定輸出位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;從-jekyll-轉移到-hugo&#34;&gt;從 Jekyll 轉移到 Hugo&lt;/h2&gt;
+&lt;p&gt;如果要從其他的 SSG 轉換到 Hugo，官方也提供了一些&lt;a href=&#34;https://gohugo.io/tools/migrations/&#34;&gt;轉換方式&lt;/a&gt;。以從 Jekyll 轉換到 Hugo 為例，只要執行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo import jekyll [jekyll_root_path] [target_path]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就會將 Jekyll 轉換為 Hugo 格式資料夾。但這方式也不是沒問題，原先在的 Jekyll 的 theme 無法直接在 Hugo 使用，且有部分 Front Matter 無法正確轉換，因此建議還是手動轉移較好。而因爲個人轉移時選用的 theme 為 Mainroad，在過程中也遇到了一些問題，在此提出來以供參考。&lt;/p&gt;
+&lt;h3 id=&#34;markdown-front-matter&#34;&gt;Markdown Front Matter&lt;/h3&gt;
+&lt;p&gt;由於 Hugo 與 Jekyll 所使用的 Front Matter 設定不同，有些部分需要每個檔案逐一修改內容，如 &lt;code&gt;categories&lt;/code&gt; 或 &lt;code&gt;tags&lt;/code&gt; 的內容，之前使用的 &lt;a href=&#34;https://github.com/redVi/voyager&#34;&gt;voyager&lt;/a&gt; theme 在執行時會成格式不對，需修改將其改為 List 結構，如在 Jekyll 中，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;categories: posts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;是可行的，但換到 Hugo 的 Mainroad theme 時，需使用 List 結構才行，如&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;categories: [&amp;quot;posts&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;才可正常產生靜態網頁，否則會出現錯誤。&lt;/p&gt;
+&lt;h3 id=&#34;math-equation-support&#34;&gt;Math equation support&lt;/h3&gt;
+&lt;p&gt;在加入數學式的支援花了一些時間去解決，主要分為兩個問題 - &lt;strong&gt;Markdown 轉換成 HTML&lt;/strong&gt; 以及 Mainroad theme 的 &lt;strong&gt;CSS conflict&lt;/strong&gt; 問題。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-parser-support&#34;&gt;Markdown parser support&lt;/h4&gt;
+&lt;p&gt;在加入數學式時，我們習慣直接使用 Latex 語法在 Markdown 中，這樣可以更容易寫出方便的數學式。而 Hugo 預設的 Markdown parser &lt;a href=&#34;https://github.com/russross/blackfriday&#34;&gt;Blackfriday&lt;/a&gt;(使用 Go 語言實作的 Markdown parser) 會進行某些預先處理，造成 MathJax 無法正確顯示內容以及斷行的問題。因此需要將原先的 Blackfriday parser 更換成 &lt;a href=&#34;https://github.com/miekg/mmark&#34;&gt;Mmark&lt;/a&gt;，即在 Markdown 文件中使用 Latex 數學式語法。方法為將檔案副檔名命名為 &lt;code&gt;*.mmark&lt;/code&gt;，或是在 Markdown Front Matter 中加入 &lt;code&gt;markup: &amp;quot;mmark&amp;quot;&lt;/code&gt; 來指定使用 Mmark 處理 Markdown 文件。更詳細的內容可參考&lt;a href=&#34;https://gohugo.io/content-management/formats/&#34;&gt;官網&lt;/a&gt;說明。&lt;/p&gt;
+&lt;h4 id=&#34;katex-support&#34;&gt;Katex support&lt;/h4&gt;
+&lt;p&gt;雖然 Mainroad theme 雖然有支援 &lt;a href=&#34;https://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;，但該 theme 的 CSS style 中有部分和 &lt;a href=&#34;https://khan.github.io/KaTeX/&#34;&gt;Katex&lt;/a&gt; 的 CSS 設定衝突，造成當把 Mainroad 中的 MathJax 部分的樣板原始碼換成支援 Katex 後，在顯示 Matrix 時會造成跑版。詳情狀況可參考個人發在 GitHub 上的 &lt;a href=&#34;https://github.com/Khan/KaTeX/issues/1445&#34;&gt;Issue #1445&lt;/a&gt;。在 Katex 小組了解問題並經過 Mainroad 作者修改樣板後即解決了該問題。&lt;/p&gt;
+&lt;h3 id=&#34;syntax-highlighting&#34;&gt;Syntax highlighting&lt;/h3&gt;
+&lt;p&gt;要在 Hugo 中讓程式碼有高亮效果，可在 config 檔案中加入以下設定&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# use Chroma for syntax highlight
+pygmentsCodeFences = true # 啟動 Code Fence 區域的高亮效果
+pygmentsCodefencesGuessSyntax = true # 對沒有指定程式類型的 Code Fence 自行推導語言類型
+pygmentsStyle = &amp;quot;fruity&amp;quot; # 指定使用的高亮風格，如 vim 或 fruity 等(預設為 &amp;quot;monokai&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;若想換成其他風格可參考&lt;a href=&#34;https://help.farbox.com/pygments.html&#34;&gt;這裡&lt;/a&gt;的格式，將 &lt;code&gt;pgmentsStyle&lt;/code&gt; 的設定修改為該風格 Hugo 就會用該風格顯示 Markdown 中 Code Fence 區段的內容。其他設定可參考 Hugo 官網關於 &lt;a href=&#34;https://gohugo.io/content-management/syntax-highlighting/&#34;&gt;Syntax Hightlighting&lt;/a&gt; 的章節。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pygment 為原先 Hugo 所使用的 Syntax Hightlighting 工具， 在 Hugo 0.28 版後改為 Chroma 為預設內容，但設定檔仍維持原先的格式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;首頁大綱內容&#34;&gt;首頁大綱內容&lt;/h3&gt;
+&lt;p&gt;Mainroad 的 Markdown 文件顯示在列表中的大綱內容，會是最前面段落開始一直延續到預設長度為止，這在排版上會很難看，因此可以手動在 Markdown 文件中加入 `&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装jekyll-rtd-theme博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装jekyll-rtd-theme博客 jekyll-rtd-theme 安装配置及写作 测试文档 安装时终端出现问题的解决办法 清空Gemfile文件内容 终端运行 bundle update Gemfile文件添</description>
+    </item>
+    
+    <item>
+      <title>安装Lovelt博客</title>
+      <link>/docs/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Lovelt博客 下载地址 安装文档 1 准备 推荐使用 Hugo extended 版本 由于这个主题的一些特性需要将 SCSS 转换为 CSS, 推荐使用 Hugo extended 版本来获得更好的使用体验. 2 安装 2.1 创建你的</description>
+    </item>
+    
+  </channel>
+</rss>

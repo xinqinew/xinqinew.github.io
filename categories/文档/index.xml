@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文档 on 我的Eureka主题博客</title>
+    <link>/categories/%E6%96%87%E6%A1%A3/</link>
+    <description>Recent content in 文档 on 我的Eureka主题博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E6%96%87%E6%A1%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>&lt;&gt;尖括号</title>
+      <link>/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/c&#43;&#43;/-%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
+      <description>&amp;lt; &amp;gt;尖括号 我习惯将尖括号用于指定类型，作为参数: vector&amp;lt;int&amp;gt; vecOfInts ; 但是在rapidjson中，有这样的代码: document.Parse&amp;lt;0&amp;gt;(json) ; document.Parse方法的签名是: template</description>
+    </item>
+    
+  </channel>
+</rss>

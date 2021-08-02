@@ -28,15 +28,6 @@
     </item>
     
     <item>
-      <title>Diagram Support</title>
-      <link>/posts/diagram-support/</link>
-      <pubDate>Wed, 31 Mar 2021 13:11:22 +0800</pubDate>
-      
-      <guid>/posts/diagram-support/</guid>
-      <description>&lt;p&gt;Eureka supports the rendering of diagrams by using Mermaid.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Math Support</title>
       <link>/posts/math-support/</link>
       <pubDate>Fri, 20 Nov 2020 22:52:56 +0800</pubDate>
@@ -617,7 +608,7 @@ pygmentsStyle = &amp;quot;fruity&amp;quot; # 指定使用的高亮風格，如 v
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/docs/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
-      <description>安装Lovelt博客 下载地址</description>
+      <description>安装Lovelt博客 下载地址 安装文档 1 准备 推荐使用 Hugo extended 版本 由于这个主题的一些特性需要将 SCSS 转换为 CSS, 推荐使用 Hugo extended 版本来获得更好的使用体验. 2 安装 2.1 创建你的</description>
     </item>
     
     <item>

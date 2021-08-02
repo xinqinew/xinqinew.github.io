@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>markdown on 我的Eureka主题博客</title>
+    <title>Markdown on 我的Eureka主题博客</title>
     <link>/tags/markdown/</link>
-    <description>Recent content in markdown on 我的Eureka主题博客</description>
+    <description>Recent content in Markdown on 我的Eureka主题博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown语法</title>
+      <link>/docs/github/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/github/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>GitBook默认使用Markdown语法。 下面这些可以作为一个快速参考和展示。更多完整的信息，请参考 John Gruber&amp;rsquo;s original spec 和 Github-flavored Markdown info page。 标题 H1 H2 H3 H4 H5 H6 对于H</description>
+    </item>
+    
     <item>
       <title>Markdown Syntax Guide</title>
       <link>/posts/markdown-syntax/</link>
