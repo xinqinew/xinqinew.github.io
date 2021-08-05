@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有C&#43;&#43; - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/c&#43;&#43;/</link>
+        <description>所有C&#43;&#43; | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;关键字</title>
+    <link>https://xinqinew.github.io/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+    <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+    <description><![CDATA[C++关键字 1. asm asm (指令字符串)：允许在 C++ 程序中嵌入汇编代码。 2. auto auto（自动，automatic）是存储类型标识符，表明变量&quot;]]></description>
+</item><item>
+    <title>字符的输入与输出</title>
+    <link>https://xinqinew.github.io/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/</link>
+    <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/</guid>
+    <description><![CDATA[字符的输入与输出 \b 退格 \f 走纸换页 \r 回车 \t 横向跳格(ctrl-i) 格式化字符 %c 字符 %d 十进制整数 %s 字符串 %S or %ws 宽字符串 %x 十六进制整数 %p 指针或地址]]></description>
+</item><item>
+    <title>指针读写内存</title>
+    <link>https://xinqinew.github.io/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/</link>
+    <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/</guid>
+    <description><![CDATA[指针读写内存 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 #include &lt;cstdio&gt;#define BASE 0x00417000 int g_a]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点</title>
+    <link>https://xinqinew.github.io/c-%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+    <pubDate>Mon, 26 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/c-%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+    <description><![CDATA[C++知识点 阻断函数 1 2 3 getchar() //等待键盘输入回车 sysem(&#34;pause&#34;)//任意键继续 常用函数 1 2 3 4 5 6 7 8 9 10 11 12 13]]></description>
+</item><item>
+    <title>&lt;&gt;尖括号</title>
+    <link>https://xinqinew.github.io/%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
+    <description><![CDATA[&lt; &gt;尖括号 我习惯将尖括号用于指定类型，作为参数: 1 vector&lt;int&gt; vecOfInts ; 但是在rapidjson中，有这样的代码: 1 document.Parse&lt;0&gt;(json) ; document.Parse方]]></description>
+</item><item>
+    <title>deque和queue容器</title>
+    <link>https://xinqinew.github.io/posts/c&#43;&#43;/queue/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/posts/c&#43;&#43;/queue/</guid>
+    <description><![CDATA[deque和queue容器]]></description>
+</item><item>
+    <title>ifndef详解</title>
+    <link>https://xinqinew.github.io/ifndef%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/ifndef%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[ifndef详解 ifndef是&quot;if not defined&quot;的简写 #ifndef起到的效果是防止一个源文件多次包含同一个头文件]]></description>
+</item><item>
+    <title>typedef起小名</title>
+    <link>https://xinqinew.github.io/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</guid>
+    <description><![CDATA[typedef起小名 C 语言提供了 typedef 关键字，您可以使用它来为类型取一个新的名字。下面的实例为单字节数字定义了一个术语 BYTE： 1 typedef unsigned char BYTE; 在这个]]></description>
+</item><item>
+    <title>常用头文件</title>
+    <link>https://xinqinew.github.io/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[常用头文件 stdafx.h MFC预编译 stdio.h 输入输出 process.h 进程 stdlib.h 声明了数值与字符串转换函数, 伪随机数 生成函数, 动态内存分配函数, 进程控制函数等公共函数 Windows.h windo]]></description>
+</item><item>
+    <title>cin和cout输入输出</title>
+    <link>https://xinqinew.github.io/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+    <description><![CDATA[cin和cout输入输出 简单的输入输出代码示例： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #include&lt;iostream&gt;using namespace std; int main(){ int x; float y; cout&lt;&lt;&#34;Please input an int number:&#34;&lt;&lt;endl; cin&gt;&gt;x; cout&lt;&lt;&#34;The int number is x= &#34;&lt;&lt;x&lt;&lt;endl; cout&lt;&lt;&#34;Please input a float number:&#34;&lt;&lt;endl; cin&gt;&gt;y; cout&lt;&lt;&#34;The float number is y=]]></description>
+</item></channel>
+</rss>

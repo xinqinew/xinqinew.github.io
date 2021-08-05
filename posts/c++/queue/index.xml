@@ -1,0 +1,64 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有deque和queue容器 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/c&#43;&#43;/queue/</link>
+        <description>所有deque和queue容器 | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/queue/" rel="self" type="application/rss+xml" /><item>
+    <title>deque clear()与erase()用法及示例</title>
+    <link>https://xinqinew.github.io/deque_clear_and_erase/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/deque_clear_and_erase/</guid>
+    <description><![CDATA[deque clear()与erase()用法及示例 雙端隊列或雙頭隊列是序列容器，兩端都有擴展和收縮功能。它們類似於向量，但是在元素的結尾和開始處插入]]></description>
+</item><item>
+    <title>deque insert()用法及示例</title>
+    <link>https://xinqinew.github.io/deque_insert/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/deque_insert/</guid>
+    <description><![CDATA[deque insert()用法及示例 deque::insert(函数是C++中的内置函数，用于在双端队列中插入元素。 insert()函数可以通过三种]]></description>
+</item><item>
+    <title>deque 用法与示例</title>
+    <link>https://xinqinew.github.io/deque/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/deque/</guid>
+    <description><![CDATA[deque 用法与示例 本篇將介紹如何使用 C++ std deque 以及用法與範例，C++ std::deque 是一個雙向佇列(double-ended queue)，在頭尾兩端插入及刪除十分快]]></description>
+</item><item>
+    <title>deque和queue容器</title>
+    <link>https://xinqinew.github.io/deque_and_queue/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/deque_and_queue/</guid>
+    <description><![CDATA[deque和queue容器 标准模板库 STL 提供了两种容器：deque 和 queue，以实现和队列类似的数据 结构。deque 是一个双端队列。它类似于]]></description>
+</item><item>
+    <title>queue 和 deque的区别</title>
+    <link>https://xinqinew.github.io/queue_and_deque_dif/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/queue_and_deque_dif/</guid>
+    <description><![CDATA[queue 和 deque的区别 从使用的角度来讲主要差别就是： deque支持push_front、pop_front、push_back、pop_bac]]></description>
+</item><item>
+    <title>queue与deque示例</title>
+    <link>https://xinqinew.github.io/queue_deque_exm/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/queue_deque_exm/</guid>
+    <description><![CDATA[queue与deque示例 queue 示例1：queue 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 #include &#34;stdafx.h&#34;#include &lt;iostream&gt;#include &lt;queue&gt;using namespace std; int _tmain(int argc, _TCHAR* argv[]) { queue&lt;int&gt; myQueue; cout &lt;&lt; myQueue.empty() &lt;&lt; endl; cout &lt;&lt; myQueue.size()&lt;&lt; endl; myQueue.push(1);]]></description>
+</item><item>
+    <title>笔记queue与deque</title>
+    <link>https://xinqinew.github.io/note_queue_and_deque/</link>
+    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/note_queue_and_deque/</guid>
+    <description><![CDATA[笔记queue与deque queue操作： 1 2 3 4 5 6 7 queue&lt;int&gt;q; //创建一个int型空队列q q.empty(); //判断队列是否为空，为空返回true q.push(s); //将变量s]]></description>
+</item><item>
+    <title>queue用法详解</title>
+    <link>https://xinqinew.github.io/queue/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/queue/</guid>
+    <description><![CDATA[queue用法详解 只能访问 queue 容器适配器的第一个和最后一个元素。只能在容器的末尾添加新元素，只能从头部移除元素。 许多程序都使用了 queue 容器。que]]></description>
+</item></channel>
+</rss>

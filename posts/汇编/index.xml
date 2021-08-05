@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有汇编 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/%E6%B1%87%E7%BC%96/</link>
+        <description>所有汇编 | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E6%B1%87%E7%BC%96/" rel="self" type="application/rss+xml" /><item>
+    <title>知识点</title>
+    <link>https://xinqinew.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+    <pubDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+    <description><![CDATA[知识点 通用寄存器 32 位 16 位 8 位（高） 8 位（低） EAX AX AH AL EBX BX BH BL ECX CX CH CL EDX DX DH DL 32 位 16 位 32 位 16 位 ESI SI EBP BP EDI DI ESP SP 特殊用法 乘除指令默认使用EAX。]]></description>
+</item></channel>
+</rss>
