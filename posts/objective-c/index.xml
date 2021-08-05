@@ -6,73 +6,73 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/objective-c/" rel="self" type="application/rss+xml" /><item>
     <title>alloc创建一个对象</title>
-    <link>https://xinqinew.github.io/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</link>
+    <link>https://xinqinew.github.io/2020/10/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</guid>
+    <guid>https://xinqinew.github.io/2020/10/alloc%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/</guid>
     <description><![CDATA[​ alloc创建一个对象 dealloc销毁对象 retain增加对象的保留计数器值 release减少对象的保留计数器值 retainCount获]]></description>
 </item><item>
     <title>NSArray</title>
-    <link>https://xinqinew.github.io/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</link>
+    <link>https://xinqinew.github.io/2020/10/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</guid>
+    <guid>https://xinqinew.github.io/2020/10/nsarray%E6%98%AF%E4%B8%80%E4%B8%AAcocoa%E7%B1%BB/</guid>
     <description><![CDATA[NSArray 是一个Cocoa类，用来存储对象的有序列表 arrayWithObjects用来创建新的NSArray initWithObjects 初始化数组并赋值 objectAtIn]]></description>
 </item><item>
     <title>NSEnumerator</title>
-    <link>https://xinqinew.github.io/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+    <link>https://xinqinew.github.io/2020/10/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+    <guid>https://xinqinew.github.io/2020/10/nsenumerator%E7%94%A8%E6%9D%A5%E6%8F%8F%E8%BF%B0%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
     <description><![CDATA[NSEnumerator 用来描述集合运算的方式 objectEnumerator向数组请求枚举器 reverseObjectEnumerator从后向前浏览集合 nex]]></description>
 </item><item>
     <title>NSNumber</title>
-    <link>https://xinqinew.github.io/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+    <link>https://xinqinew.github.io/2020/10/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+    <guid>https://xinqinew.github.io/2020/10/nsnumber%E7%94%A8%E6%9D%A5%E5%8C%85%E8%A3%85%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
     <description><![CDATA[NSNumber 用来包装基本数据类型 numberWithInt创建NSNumber intValue提取NSNumber NSValue可以包装任意值 valueWithBytes: obj]]></description>
 </item><item>
     <title>NSPredicate类</title>
-    <link>https://xinqinew.github.io/nspredicate%E7%B1%BB/</link>
+    <link>https://xinqinew.github.io/2020/10/nspredicate%E7%B1%BB/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/nspredicate%E7%B1%BB/</guid>
+    <guid>https://xinqinew.github.io/2020/10/nspredicate%E7%B1%BB/</guid>
     <description><![CDATA[NSPredicate类 用于制定过滤器的条件 +predicateWithFormat创建谓词 -evaluateWithObject通知谓词根]]></description>
 </item><item>
     <title>协议</title>
-    <link>https://xinqinew.github.io/%E5%8D%8F%E8%AE%AE/</link>
+    <link>https://xinqinew.github.io/2020/10/%E5%8D%8F%E8%AE%AE/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/%E5%8D%8F%E8%AE%AE/</guid>
+    <guid>https://xinqinew.github.io/2020/10/%E5%8D%8F%E8%AE%AE/</guid>
     <description><![CDATA[​ 协议 @protocol创建协议 encodeWithCoder用于接受对象的实例变量并将其转换为NSCoder类的对象 initWithCod]]></description>
 </item><item>
     <title>多视图应用程序</title>
-    <link>https://xinqinew.github.io/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+    <link>https://xinqinew.github.io/2020/10/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+    <guid>https://xinqinew.github.io/2020/10/%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
     <description><![CDATA[多视图应用程序 UITabBarController标签栏界面 UINavigationController导航栏界面 addSubview添加视]]></description>
 </item><item>
     <title>导航控制器和表视图(一)</title>
-    <link>https://xinqinew.github.io/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</link>
+    <link>https://xinqinew.github.io/2020/10/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</guid>
+    <guid>https://xinqinew.github.io/2020/10/%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A1%A8%E8%A7%86%E5%9B%BE%E4%B8%80/</guid>
     <description><![CDATA[​ 导航控制器和表视图(一) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 UINavigationController 导航控制器 accessoryType 附件类型 navigationController 导航控制器属性 pushViewController: 入栈方法 viewWillAppear: 视]]></description>
 </item><item>
     <title>文件加载和保存</title>
-    <link>https://xinqinew.github.io/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</link>
+    <link>https://xinqinew.github.io/2020/10/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</guid>
+    <guid>https://xinqinew.github.io/2020/10/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%92%8C%E4%BF%9D%E5%AD%98/</guid>
     <description><![CDATA[​ 文件加载和保存 date获取当前的时间和日期 dateWithTimeIntervalSinceNow获取与当前时间相隔一定时差的日期 cons]]></description>
 </item><item>
     <title>更丰富的用户界面(一)</title>
-    <link>https://xinqinew.github.io/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</link>
+    <link>https://xinqinew.github.io/2020/10/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</link>
     <pubDate>Fri, 16 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</guid>
+    <guid>https://xinqinew.github.io/2020/10/%E6%9B%B4%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%80/</guid>
     <description><![CDATA[更丰富的用户界面(一) resignFirstResponder取消第一响应者状态 UISlider滑块控件 UISegmentedControl]]></description>
 </item></channel>
 </rss>
