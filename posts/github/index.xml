@@ -12,6 +12,13 @@
     <guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
     <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
 </item><item>
+    <title>为博客添加免费的 CDN (Cloudflare)</title>
+    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</link>
+    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</guid>
+    <description><![CDATA[GitHub Pages 不仅不花钱，而且还有免费的证书拿，可以说是相当划算的。但有个问题就是 GitHub 的服务器都部署在海外，也就是说在国内访问本博客的速度的速度会比较慢]]></description>
+</item><item>
     <title>使用Hugo&#43;LoveIt主题搭建博客</title>
     <link>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
     <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[安装Lovelt博客 下载地址 安装文档 参考-晓的记忆 LoveIt参考站2 LoveIt参考站3 LoveIt参考站4 参考1 参考2 图标fontawe]]></description>
-</item><item>
-    <title>不错的博客</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Sun, 01 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[不错的博客 http://themes.jekyllrc.org/ https://jekyllthemes.io/ jekyll-rtd-theme minimal-mistakes/ flexible-jekyll]]></description>
 </item></channel>
 </rss>
