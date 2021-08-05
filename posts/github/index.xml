@@ -5,7 +5,14 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
-    <title>github绑定freenom域名</title>
+    <title>Github绑定Cloudflare及freenom</title>
+    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
+    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
+    <description><![CDATA[首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即]]></description>
+</item><item>
+    <title>Github绑定freenom域名</title>
     <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</link>
     <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
     <description><![CDATA[从Jekyll迁移到Hugo 最终还是投入Hugo的怀抱，原因是： 熟悉和欣赏Go 发现一个超级喜欢的Hugo主题 - LoveIt 本文记录下博客从Jekyll]]></description>
-</item><item>
-    <title>安装Lovelt博客</title>
-    <link>https://xinqinew.github.io/2021/08/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Mon, 02 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[安装Lovelt博客 下载地址 安装文档 参考-晓的记忆 LoveIt参考站2 LoveIt参考站3 LoveIt参考站4 参考1 参考2 图标fontawe]]></description>
 </item></channel>
 </rss>
