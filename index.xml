@@ -20,7 +20,7 @@
     <pubDate>Fri, 06 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add readme.txt 添加文件 参考网站-廖雪峰]]></description>
+    <description><![CDATA[Git pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add &lt;file&gt; 添加文件 git commit -m &lt;message&gt; 提交说明 git status 仓库状态 git diff &lt;file&gt; 查看差别 git log 日志 git reflog 查看命令历史 git reset --hard commit_id]]></description>
 </item><item>
     <title>Github绑定Cloudflare及freenom</title>
     <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
