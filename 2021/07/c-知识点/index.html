@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3155 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  2885 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9\/","datePublished": "2021-07-26T00:00:00+00:00","dateModified": "2021-07-26T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -138,8 +138,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3155 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2885 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -202,11 +202,6 @@
       <ul>
         <li><a href="#virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</a></li>
         <li><a href="#virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</a></li>
-      </ul>
-    </li>
-    <li><a href="#跨进程调用call">跨进程调用CALL</a>
-      <ul>
-        <li><a href="#createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</a></li>
       </ul>
     </li>
   </ul>
@@ -746,55 +741,6 @@
 <tr>
 <td>MEM_RELEASE0x800032768D</td>
 <td>这种方式 很彻底，完全回收。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="跨进程调用call">跨进程调用CALL</h2>
-<h3 id="createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateRemoteThread</span><span class="p">(</span>
-<span class="n">_In_</span> <span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//进程句柄.
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpThreadAttributes</span><span class="p">,</span>	<span class="c1">//指针,一般设置为NULL
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">SIZE_T</span> <span class="n">dwStackSize</span><span class="p">,</span>	<span class="c1">//纯种堆栈大小,一船设置为0,表示默认为1M
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPTHREAD_START_ROUTINE</span> <span class="n">lpStartAddress</span><span class="p">,</span>	<span class="c1">//线程函数的地址
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">,</span>	<span class="c1">//线程参数
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwCreationFlags</span><span class="p">,</span>	<span class="c1">//线程的创建标志
-</span><span class="c1"></span><span class="n">_Out_</span> <span class="n">LPDWORD</span> <span class="n">lpThreadId</span>	<span class="c1">//输出参数,记录创建的远程线程的ID,不输出可传NULL
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>​	<strong>线程的创建标志.</strong></p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>线程创建后立即运行</td>
-</tr>
-<tr>
-<td>CREATE_SUSPENDED<br>0x00000004</td>
-<td>线程创建后先将线程挂起,直到 <strong><a href="https://baike.baidu.com/item/ResumeThread" target="_blank" rel="noopener noreffer">ResumeThread</a></strong> 被调用.</td>
-</tr>
-<tr>
-<td>STACK_SIZE_PARAM_IS_A_RE<br/>SERVATION<br/>0x00010000</td>
-<td><em>dwStackSize</em> 参数指定为线程栈预订大小,如果STACK_SIZE_PARAM_IS_A_RESERVATION没有被指定,<em>dwStackSize</em> 参数指定为线程栈分配大小.</td>
 </tr>
 </tbody>
 </table>

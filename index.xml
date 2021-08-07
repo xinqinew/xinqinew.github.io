@@ -4,7 +4,7 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>LoveIt 主题</title>
@@ -14,6 +14,13 @@
     <guid>https://xinqinew.github.io/2021/08/hello-world/</guid>
     <description><![CDATA[<p>LoveIt主题介绍：https://hugoloveit.com/zh-cn/</p>
 <p>LoveIt主题仓库：https://github.com/dillonzq/LoveIt</p>]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点2</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</link>
+    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</guid>
+    <description><![CDATA[跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
 </item><item>
     <title>Git使用总结</title>
     <link>https://xinqinew.github.io/2021/08/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link>
@@ -70,12 +77,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
     <description><![CDATA[Hugo使用travis自动发布 背景 从hexo迁移到hugo后，发布博客开始变的繁琐，没有hexo -d这样的快捷部署，但是好在有travis]]></description>
-</item><item>
-    <title>Hugo使用travis自动发布 出处</title>
-    <link>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</link>
-    <pubDate>Wed, 04 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</guid>
-    <description><![CDATA[通过 Travis CI 来部署 Hugo 或者 Hexo 博客可能在配置的时候会麻烦一点，但配置好后确实是方便了不少。特别是对于 Hugo 这种没有部署插件的静态网站生成器，只能手动部署]]></description>
 </item></channel>
 </rss>

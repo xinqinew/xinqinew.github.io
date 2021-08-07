@@ -5,6 +5,13 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;知识点2</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</link>
+    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</guid>
+    <description><![CDATA[跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
+</item><item>
     <title>C&#43;&#43;关键字</title>
     <link>https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
     <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/07/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
     <description><![CDATA[常用头文件 stdafx.h MFC预编译 stdio.h 输入输出 process.h 进程 stdlib.h 声明了数值与字符串转换函数, 伪随机数 生成函数, 动态内存分配函数, 进程控制函数等公共函数 Windows.h windo]]></description>
-</item><item>
-    <title>cin和cout输入输出</title>
-    <link>https://xinqinew.github.io/2021/07/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
-    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/07/cin%E5%92%8Ccout%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
-    <description><![CDATA[cin和cout输入输出 简单的输入输出代码示例： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #include&lt;iostream&gt;using namespace std; int main(){ int x; float y; cout&lt;&lt;&#34;Please input an int number:&#34;&lt;&lt;endl; cin&gt;&gt;x; cout&lt;&lt;&#34;The int number is x= &#34;&lt;&lt;x&lt;&lt;endl; cout&lt;&lt;&#34;Please input a float number:&#34;&lt;&lt;endl; cin&gt;&gt;y; cout&lt;&lt;&#34;The float number is y=]]></description>
 </item></channel>
 </rss>
