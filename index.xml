@@ -15,12 +15,19 @@
     <description><![CDATA[<p>LoveIt主题介绍：https://hugoloveit.com/zh-cn/</p>
 <p>LoveIt主题仓库：https://github.com/dillonzq/LoveIt</p>]]></description>
 </item><item>
-    <title>C&#43;&#43;知识点2</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</link>
+    <title>C&#43;&#43;知识点(二)</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
     <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B92/</guid>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</guid>
     <description><![CDATA[跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
+</item><item>
+    <title>GitHub网址整理</title>
+    <link>https://xinqinew.github.io/2021/08/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</link>
+    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</guid>
+    <description><![CDATA[图标fontawesome 图标dashgame 留言板disqus 留言板valine 搜索algolia 自动发布travis google分析 si]]></description>
 </item><item>
     <title>Git使用总结</title>
     <link>https://xinqinew.github.io/2021/08/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link>
@@ -70,12 +77,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8algolia%E6%90%9C%E7%B4%A2/</guid>
     <description><![CDATA[Hugo使用algolia搜索 背景 在将hexo迁移到hugo后我就开始折腾博客搜索了，下面的配置正对loveit主题配置 开启algolia搜]]></description>
-</item><item>
-    <title>Hugo使用travis自动发布</title>
-    <link>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</link>
-    <pubDate>Wed, 04 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
-    <description><![CDATA[Hugo使用travis自动发布 背景 从hexo迁移到hugo后，发布博客开始变的繁琐，没有hexo -d这样的快捷部署，但是好在有travis]]></description>
 </item></channel>
 </rss>

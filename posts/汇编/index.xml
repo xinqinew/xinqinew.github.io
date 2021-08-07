@@ -10,6 +10,6 @@
     <pubDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/07/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
-    <description><![CDATA[知识点 通用寄存器 32 位 16 位 8 位（高） 8 位（低） EAX AX AH AL EBX BX BH BL ECX CX CH CL EDX DX DH DL 32 位 16 位 32 位 16 位 ESI SI EBP BP EDI DI ESP SP 特殊用法 乘除指令默认使用EAX。]]></description>
+    <description><![CDATA[知识点 小知识 ptr 强制类型转换 lea 指令可以用来将一个内存地址直接赋给目的操作数，例如： lea eax,[ebx+8] 就是将ebx+8这个值直接赋给eax mov eax,[ebx+]]></description>
 </item></channel>
 </rss>
