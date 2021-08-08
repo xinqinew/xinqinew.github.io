@@ -5,6 +5,13 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>L和_T()的区别</title>
+    <link>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+    <description><![CDATA[一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(二)</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
     <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/07/typedef%E8%B5%B7%E5%B0%8F%E5%90%8D/</guid>
     <description><![CDATA[typedef起小名 C 语言提供了 typedef 关键字，您可以使用它来为类型取一个新的名字。下面的实例为单字节数字定义了一个术语 BYTE： 1 typedef unsigned char BYTE; 在这个]]></description>
-</item><item>
-    <title>常用头文件</title>
-    <link>https://xinqinew.github.io/2021/07/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
-    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/07/%E5%B8%B8%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
-    <description><![CDATA[常用头文件 stdafx.h MFC预编译 stdio.h 输入输出 process.h 进程 stdlib.h 声明了数值与字符串转换函数, 伪随机数 生成函数, 动态内存分配函数, 进程控制函数等公共函数 Windows.h windo]]></description>
 </item></channel>
 </rss>

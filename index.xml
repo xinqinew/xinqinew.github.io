@@ -4,7 +4,7 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>LoveIt 主题</title>
@@ -14,6 +14,13 @@
     <guid>https://xinqinew.github.io/2021/08/hello-world/</guid>
     <description><![CDATA[<p>LoveIt主题介绍：https://hugoloveit.com/zh-cn/</p>
 <p>LoveIt主题仓库：https://github.com/dillonzq/LoveIt</p>]]></description>
+</item><item>
+    <title>L和_T()的区别</title>
+    <link>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+    <description><![CDATA[一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
 </item><item>
     <title>C&#43;&#43;知识点(二)</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
@@ -70,12 +77,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[使用Hugo+LoveIt主题搭建博客 安装 Hugo 可参考Hugo 官方的 Quick Start 安装二进制（Mac） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 使用brew安装hug]]></description>
-</item><item>
-    <title>Hugo使用algolia搜索</title>
-    <link>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8algolia%E6%90%9C%E7%B4%A2/</link>
-    <pubDate>Wed, 04 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8algolia%E6%90%9C%E7%B4%A2/</guid>
-    <description><![CDATA[Hugo使用algolia搜索 背景 在将hexo迁移到hugo后我就开始折腾博客搜索了，下面的配置正对loveit主题配置 开启algolia搜]]></description>
 </item></channel>
 </rss>
