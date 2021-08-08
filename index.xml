@@ -15,19 +15,41 @@
     <description><![CDATA[<p>LoveIt主题介绍：https://hugoloveit.com/zh-cn/</p>
 <p>LoveIt主题仓库：https://github.com/dillonzq/LoveIt</p>]]></description>
 </item><item>
+    <title>C&#43;&#43;非官方教程</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E9%9D%9E%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E9%9D%9E%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>runoob C++教程 语言中文网C++教程]]></description>
+</item><item>
     <title>L和_T()的区别</title>
     <link>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
     <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-    <description><![CDATA[一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
+</item><item>
+    <title>待研究</title>
+    <link>https://xinqinew.github.io/2021/08/%E5%BE%85%E7%A0%94%E7%A9%B6/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/%E5%BE%85%E7%A0%94%E7%A9%B6/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 类 &amp; 对象 C++ 类构造函数 &amp; 析构函数]]></description>
 </item><item>
     <title>C&#43;&#43;知识点(二)</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
     <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</guid>
-    <description><![CDATA[跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
 </item><item>
     <title>GitHub网址整理</title>
     <link>https://xinqinew.github.io/2021/08/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</link>
@@ -63,19 +85,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
     <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
-</item><item>
-    <title>为博客添加免费的 CDN (Cloudflare)</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</guid>
-    <description><![CDATA[GitHub Pages 不仅不花钱，而且还有免费的证书拿，可以说是相当划算的。但有个问题就是 GitHub 的服务器都部署在海外，也就是说在国内访问本博客的速度的速度会比较慢]]></description>
-</item><item>
-    <title>使用Hugo&#43;LoveIt主题搭建博客</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[使用Hugo+LoveIt主题搭建博客 安装 Hugo 可参考Hugo 官方的 Quick Start 安装二进制（Mac） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 使用brew安装hug]]></description>
 </item></channel>
 </rss>
