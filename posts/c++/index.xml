@@ -23,6 +23,15 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
 </item><item>
+    <title>pragma once与ifndef 解析</title>
+    <link>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>#pragma once 与 #ifndef 解析 为了避免同一个文件被include多次，C/C++中有两种方式，一种是#ifndef方式，一种是#pragma once方式。在能]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(二)</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
     <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -83,14 +92,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/posts/c&#43;&#43;/queue/</guid>
     <description><![CDATA[deque和queue容器]]></description>
-</item><item>
-    <title>ifndef详解</title>
-    <link>https://xinqinew.github.io/2021/07/ifndef%E8%AF%A6%E8%A7%A3/</link>
-    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/07/ifndef%E8%AF%A6%E8%A7%A3/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>ifndef详解 ifndef是&quot;if not defined&quot;的简写 #ifndef起到的效果是防止一个源文件多次包含同一个头文件]]></description>
 </item></channel>
 </rss>

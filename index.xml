@@ -7,6 +7,24 @@
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43;教程</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 教程 C++ 是一种中级语言，它是由 Bjarne Stroustrup 于 1979 年在贝尔实验室开始设计开发的。C++ 进一步扩充和完善了 C 语言，是一种面向对象的程序设计语言。C++ 可运]]></description>
+</item><item>
+    <title>C&#43;&#43;简介</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 简介 C++ 是一种静态类型的、编译式的、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。 C++ 被认为是一种中级语言，]]></description>
+</item><item>
     <title>LoveIt 主题</title>
     <link>https://xinqinew.github.io/2021/08/hello-world/</link>
     <pubDate>Sun, 01 Aug 2021 21:57:40 &#43;0800</pubDate>
@@ -32,6 +50,15 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
+</item><item>
+    <title>pragma once与ifndef 解析</title>
+    <link>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>#pragma once 与 #ifndef 解析 为了避免同一个文件被include多次，C/C++中有两种方式，一种是#ifndef方式，一种是#pragma once方式。在能]]></description>
 </item><item>
     <title>待研究</title>
     <link>https://xinqinew.github.io/2021/08/%E5%BE%85%E7%A0%94%E7%A9%B6/</link>
@@ -64,26 +91,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
     <description><![CDATA[git使用总结 Git 分布式版本管理系统 Git 命令清单 workspace: 工作区 Index/Stage: 暂存区 Repository: 仓库区(或本地仓库) Remote: 远程仓库 新建代码库 1 2 3 4 5 6 7 8 # 在当前目录新建一个G]]></description>
-</item><item>
-    <title>Git笔记</title>
-    <link>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Fri, 06 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[Git pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add &lt;file&gt; 添加文件 git commit -m &lt;message&gt; 提交说明 git status 仓库状态 git diff &lt;file&gt; 查看差别 git log 日志 git reflog 查看命令历史 git reset --hard commit_id]]></description>
-</item><item>
-    <title>Github绑定Cloudflare及freenom</title>
-    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
-    <description><![CDATA[首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即]]></description>
-</item><item>
-    <title>Github绑定freenom域名</title>
-    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
-    <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
 </item></channel>
 </rss>
