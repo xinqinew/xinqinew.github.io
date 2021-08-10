@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  514 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  675 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/","datePublished": "2021-08-07T00:00:00+00:00","dateModified": "2021-08-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -138,7 +138,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(二)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 514 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 675 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(二)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -169,6 +169,8 @@
       </ul>
     </li>
     <li><a href="#c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</a></li>
+    <li><a href="#枚举类型">枚举类型</a></li>
+    <li><a href="#extern变量声明">extern变量声明</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="跨进程调用call">跨进程调用CALL</h2>
@@ -237,7 +239,87 @@
 <p>CDialogEx类</p>
 <p>CButton类</p>
 <h2 id="c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</h2>
-<hr><center>- 完 -</center>
+<h2 id="枚举类型">枚举类型</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">enum</span> <span class="err">枚举名</span><span class="p">{</span> 
+     <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">],</span> 
+     <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">],</span> 
+<span class="p">...</span> 
+    <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">]</span>
+<span class="p">}</span> <span class="err">枚举变量</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="extern变量声明">extern变量声明</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="c1">// 变量声明
+</span><span class="c1"></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+  
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 变量定义
+</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+ 
+  <span class="c1">// 实际初始化
+</span><span class="c1"></span>  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+ 
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+ 
+  <span class="n">f</span> <span class="o">=</span> <span class="mf">70.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">;</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+ 
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr><center>- 完 -</center>
             
                 <div id="related-article">
                     <p>相关文章</p>
