@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>任鸟飞笔记 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞笔记" />
-<meta property="og:description" content="某" />
+<meta property="og:description" content="汇编 dd 查看dword db 查看字节集 EAX call的返回值 ECX call的参数 三大发包函数 send WSASend sendto 确定堆栈平衡 方法： 在call的栈上双击 F8步过call 此" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-10T00:00:00+00:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
 <meta name="twitter:title" content="任鸟飞笔记"/>
-<meta name="twitter:description" content="某"/>
+<meta name="twitter:description" content="汇编 dd 查看dword db 查看字节集 EAX call的返回值 ECX call的参数 三大发包函数 send WSASend sendto 确定堆栈平衡 方法： 在call的栈上双击 F8步过call 此"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  497 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -138,39 +138,145 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">任鸟飞笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 497 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/images/C&#43;&#43;.jpg"
-        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-src="/images/renniaofei.jpg"
+        data-srcset="/images/renniaofei.jpg, /images/renniaofei.jpg 1.5x, /images/renniaofei.jpg 2x"
         data-sizes="auto"
-        alt="/images/C&#43;&#43;.jpg"
-        title="/images/C&#43;&#43;.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        alt="/images/renniaofei.jpg"
+        title="/images/renniaofei.jpg" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>某</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#汇编">汇编</a>
+      <ul>
+        <li><a href="#三大发包函数">三大发包函数</a></li>
+        <li><a href="#确定堆栈平衡">确定堆栈平衡</a></li>
+        <li><a href="#应该熟悉的汇编指令">应该熟悉的汇编指令</a></li>
+        <li><a href="#堆栈详解">堆栈详解</a>
+          <ul>
+            <li><a href="#什么是堆栈">什么是堆栈</a></li>
+            <li><a href="#堆栈指针寄存器">堆栈指针寄存器</a></li>
+            <li><a href="#改变堆栈的操作">改变堆栈的操作</a></li>
+            <li><a href="#堆栈中储存的都是-参数局部变量操作中间数">堆栈中储存的都是 参数、局部变量、操作中间数</a>
+              <ul>
+                <li><a href="#通过ebp来传递参数和局部变量">通过ebp来传递参数和局部变量</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="汇编">汇编</h2>
+<p>dd	查看dword</p>
+<p>db	查看字节集</p>
+<p>EAX call的返回值</p>
+<p>ECX call的参数</p>
+<h3 id="三大发包函数">三大发包函数</h3>
+<p>send WSASend sendto</p>
+<h3 id="确定堆栈平衡">确定堆栈平衡</h3>
+<p>方法：</p>
+<ol>
+<li>在call的栈上双击</li>
+<li>F8步过call</li>
+<li>此时看栈上差值</li>
+</ol>
+<h3 id="应该熟悉的汇编指令">应该熟悉的汇编指令</h3>
+<p>mov 传值 和 lea 传址</p>
+<p>push 入栈 和 pop 出栈</p>
+<p>pushad 和 popad 调用call之前pushad，调用call之后popad，保证寄存器不受影响</p>
+<p>add 加法 和 sub 减法</p>
+<p>inc 自加1 和 dec 自减1</p>
+<p>mul 乘法</p>
+<p>div 除法</p>
+<p>call 和 retn</p>
+<p>xor 异或 相同为0，不同为1</p>
+<p>and 都是1为1</p>
+<p>or 有一个是1为1</p>
+<p>xor 是可逆运算，即 A xor B == C 那么 A xor C == B</p>
+<h3 id="堆栈详解">堆栈详解</h3>
+<ol>
+<li>
+<h4 id="什么是堆栈">什么是堆栈</h4>
+<p>堆栈就是一种数据项按序排列的数据结构，只能在栈顶对数据项进行插入和删除，其它位置只能改变数值。</p>
+<p>特点是先进后出，像个杯子。</p>
+</li>
+<li>
+<h4 id="堆栈指针寄存器">堆栈指针寄存器</h4>
+<p>ESP 栈顶指针</p>
+<p>EBP 栈底指针（本层CALL的栈底）</p>
+</li>
+<li>
+<h4 id="改变堆栈的操作">改变堆栈的操作</h4>
+<p>push eax == sub esp,4	+	mov [esp],eax</p>
+<p>pop eax == mov eax,[esp]	+	add esp,4</p>
+<p>call 1234 == push eip	+	jmp 1234</p>
+<p>retn 8 == pop eip 	+	add esp,8</p>
+<p>add esp,xxx</p>
+<p>sub esp,xxx</p>
+</li>
+<li>
+<h4 id="堆栈中储存的都是-参数局部变量操作中间数">堆栈中储存的都是 参数、局部变量、操作中间数</h4>
+<p>那么我们怎么去找他的来源</p>
+<p>例如[ebp-4]	[ebp+8]	[esp+20]</p>
+<p>实例来说明</p>
+<ol>
+<li>
+<h5 id="通过ebp来传递参数和局部变量">通过ebp来传递参数和局部变量</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">push</span>	<span class="no">ebp</span>
+<span class="nf">mov</span> 	<span class="no">ebp</span><span class="p">,</span><span class="no">esp</span>
+<span class="err">…</span>
+<span class="err">…</span>
+<span class="nf">mov</span> 	<span class="no">esp</span><span class="p">,</span><span class="no">ebp</span>
+<span class="nf">pop</span> 	<span class="no">ebp</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>[ebp-8]	第二个局部变量</p>
+<p>[ebp-4]	第一个局部变量</p>
+<p>[ebp]		保存着上一层的ebp值</p>
+<p>[ebp+4]	指向call返回到</p>
+<p>[ebp+8]	第一个参数</p>
+<p>[ebp+c]	第二个参数</p>
+<p>同时知道了 ebp为什么是栈底指针</p>
+</li>
+</ol>
+</li>
+</ol>
 <hr><center>- 完 -</center>
             
                 <div id="related-article">
                     <p>相关文章</p>
                     <ul>
                         
+                        <li><a href="/2021/08/c-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B06/">C&#43;&#43; 数据类型06</a></li>
+                        
                         <li><a href="/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/">输出您电脑上各种数据类型的大小</a></li>
                         
-                        <li><a href="/2021/08/c-%E6%95%99%E7%A8%8B/">C&#43;&#43;教程</a></li>
+                        <li><a href="/2021/08/c-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%9504/">C&#43;&#43; 基本语法04</a></li>
                         
-                        <li><a href="/2021/08/c-%E7%AE%80%E4%BB%8B/">C&#43;&#43;简介</a></li>
+                        <li><a href="/2021/08/c-%E6%B3%A8%E9%87%8A05/">C&#43;&#43; 注释05</a></li>
                         
-                        <li><a href="/2021/08/c-%E9%9D%9E%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B/">C&#43;&#43;非官方教程</a></li>
-                        
-                        <li><a href="/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/">L和_T()的区别</a></li>
+                        <li><a href="/2021/08/c-%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE03/">C&#43;&#43; 环境设置03</a></li>
                         
                     </ul>
                 </div>
@@ -203,7 +309,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记" data-hashtags="C&#43;&#43;,任鸟飞"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记" data-hashtags="C&#43;&#43;,任鸟飞"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" data-title="任鸟飞笔记" data-image="/images/renniaofei.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>

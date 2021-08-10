@@ -7,23 +7,59 @@
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>C&#43;&#43;教程</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B/</link>
+    <title>C&#43;&#43; 数据类型06</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B06/</link>
+    <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B06/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 数据类型 使用编程语言进行编程时，需要用到各种变量来存储各种信息。变量保留的是它所存储的值的内存位置。这意味着，当您创建一个变量时，就会在内]]></description>
+</item><item>
+    <title>C&#43;&#43;教程01</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B01/</link>
     <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B/</guid>
+    <guid>https://xinqinew.github.io/2021/08/c-%E6%95%99%E7%A8%8B01/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 教程 C++ 是一种中级语言，它是由 Bjarne Stroustrup 于 1979 年在贝尔实验室开始设计开发的。C++ 进一步扩充和完善了 C 语言，是一种面向对象的程序设计语言。C++ 可运]]></description>
 </item><item>
-    <title>C&#43;&#43;简介</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B/</link>
+    <title>C&#43;&#43;简介02</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B02/</link>
     <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B/</guid>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%AE%80%E4%BB%8B02/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 简介 C++ 是一种静态类型的、编译式的、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。 C++ 被认为是一种中级语言，]]></description>
+</item><item>
+    <title>C&#43;&#43; 环境设置03</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE03/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE03/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 环境设置 本地环境设置 如果您想要设置 C++ 语言环境，您需要确保电脑上有以下两款可用的软件，文本编辑器和 C++ 编译器。 文本编辑器 这将用于输入您的程序。]]></description>
+</item><item>
+    <title>C&#43;&#43; 基本语法04</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%9504/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%9504/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 基本语法 C++ 程序可以定义为对象的集合，这些对象通过调用彼此的方法进行交互。现在让我们简要地看一下什么是类、对象，方法、即时变量。 对象 - 对象具]]></description>
+</item><item>
+    <title>C&#43;&#43; 注释05</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E6%B3%A8%E9%87%8A05/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E6%B3%A8%E9%87%8A05/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 注释 程序的注释是解释性语句，您可以在 C++ 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。 C++ 支持单行注释和多行注释]]></description>
 </item><item>
     <title>LoveIt 主题</title>
     <link>https://xinqinew.github.io/2021/08/hello-world/</link>
@@ -39,8 +75,8 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>某]]></description>
+                <img src="/images/renniaofei.jpg" referrerpolicy="no-referrer">
+            </div>汇编 dd 查看dword db 查看字节集 EAX call的返回值 ECX call的参数 三大发包函数 send WSASend sendto 确定堆栈平衡 方法： 在call的栈上双击 F8步过call 此]]></description>
 </item><item>
     <title>输出您电脑上各种数据类型的大小</title>
     <link>https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/</link>
@@ -59,41 +95,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>runoob C++教程 语言中文网C++教程]]></description>
-</item><item>
-    <title>L和_T()的区别</title>
-    <link>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
-</item><item>
-    <title>pragma once与ifndef 解析</title>
-    <link>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>#pragma once 与 #ifndef 解析 为了避免同一个文件被include多次，C/C++中有两种方式，一种是#ifndef方式，一种是#pragma once方式。在能]]></description>
-</item><item>
-    <title>待研究</title>
-    <link>https://xinqinew.github.io/2021/08/%E5%BE%85%E7%A0%94%E7%A9%B6/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E5%BE%85%E7%A0%94%E7%A9%B6/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 类 &amp; 对象 C++ 类构造函数 &amp; 析构函数]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(二)</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
-    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
 </item></channel>
 </rss>
