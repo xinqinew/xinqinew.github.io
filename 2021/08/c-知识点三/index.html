@@ -5,33 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>C&#43;&#43;知识点(二) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(二)" />
-<meta property="og:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设" />
+        <title>C&#43;&#43;知识点(三) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(三)" />
+<meta property="og:description" content="C&#43;&#43; 存储类 存储类定义 C&#43;&#43; 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C&#43;&#43; 程序中可用的存储类： auto register static extern" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-07T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-12T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43;知识点(二)"/>
-<meta name="twitter:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设"/>
+<meta name="twitter:title" content="C&#43;&#43;知识点(三)"/>
+<meta name="twitter:description" content="C&#43;&#43; 存储类 存储类定义 C&#43;&#43; 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C&#43;&#43; 程序中可用的存储类： auto register static extern"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" /><link rel="prev" href="https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/" /><link rel="next" href="https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++知识点(二)",
+        "headline": "C++知识点(三)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1113 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/","datePublished": "2021-08-07T00:00:00+00:00","dateModified": "2021-08-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  477 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89\/","datePublished": "2021-08-12T00:00:00+00:00","dateModified": "2021-08-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -136,10 +136,10 @@
                 <div class="container"><link rel="stylesheet" href="/css/post-single.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(二)</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(三)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1113 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(二)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-12">2021-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 477 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(三)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -156,177 +156,67 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#c-存储类">C++ 存储类</a>
       <ul>
-        <li><a href="#跨进程调用call">跨进程调用CALL</a>
-          <ul>
-            <li><a href="#createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</a></li>
-          </ul>
-        </li>
-        <li><a href="#dll注入调用call">DLL注入调用CALL</a></li>
-        <li><a href="#c类与对象">C++类与对象</a>
-          <ul>
-            <li><a href="#cedit类">CEdit类</a></li>
-            <li><a href="#cstring类">CString类</a></li>
-          </ul>
-        </li>
-        <li><a href="#c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</a></li>
-        <li><a href="#枚举类型">枚举类型</a></li>
-        <li><a href="#extern变量声明">extern变量声明</a></li>
-        <li><a href="#全局变量和局部变量">全局变量和局部变量</a></li>
-        <li><a href="#c-中的类型限定符">C++ 中的类型限定符</a></li>
+        <li><a href="#auto-存储类">auto 存储类</a></li>
+        <li><a href="#register-存储类">register 存储类</a></li>
+        <li><a href="#static-存储类">static 存储类</a></li>
+        <li><a href="#extern-存储类">extern 存储类</a></li>
+        <li><a href="#mutable-存储类">mutable 存储类</a></li>
+        <li><a href="#thread_local-存储类">thread_local 存储类</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="跨进程调用call">跨进程调用CALL</h2>
-<h3 id="createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</h3>
+            </div><div class="content" id="content"><h1 id="c-存储类">C++ 存储类</h1>
+<p>存储类定义 C++ 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C++ 程序中可用的存储类：</p>
+<ul>
+<li>auto</li>
+<li>register</li>
+<li>static</li>
+<li>extern</li>
+<li>mutable</li>
+<li>thread_local (C++11)<br>
+从 C++ 17 开始，auto 关键字不再是 C++ 存储类说明符，且 register 关键字被弃用。</li>
+</ul>
+<h2 id="auto-存储类">auto 存储类</h2>
+<p>根据初始化表达式自动推断被声明的变量的类型，如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateRemoteThread</span><span class="p">(</span>
-<span class="n">_In_</span> <span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//进程句柄.
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpThreadAttributes</span><span class="p">,</span>	<span class="c1">//指针,一般设置为NULL
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">SIZE_T</span> <span class="n">dwStackSize</span><span class="p">,</span>	<span class="c1">//纯种堆栈大小,一船设置为0,表示默认为1M
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPTHREAD_START_ROUTINE</span> <span class="n">lpStartAddress</span><span class="p">,</span>	<span class="c1">//线程函数的地址
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">,</span>	<span class="c1">//线程参数
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwCreationFlags</span><span class="p">,</span>	<span class="c1">//线程的创建标志
-</span><span class="c1"></span><span class="n">_Out_</span> <span class="n">LPDWORD</span> <span class="n">lpThreadId</span>	<span class="c1">//输出参数,记录创建的远程线程的ID,不输出可传NULL
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">f</span><span class="o">=</span><span class="mf">3.14</span><span class="p">;</span>      <span class="c1">//double
+</span><span class="c1"></span><span class="k">auto</span> <span class="nf">s</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span>  <span class="c1">//const char*
+</span><span class="c1"></span><span class="k">auto</span> <span class="n">z</span> <span class="o">=</span> <span class="k">new</span> <span class="k">auto</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span> <span class="c1">// int*
+</span><span class="c1"></span><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">x3</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">;</span><span class="c1">//错误，必须是初始化为同一类型
+</span></code></pre></td></tr></table>
 </div>
-</div><p>​	<strong>线程的创建标志.</strong></p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>线程创建后立即运行</td>
-</tr>
-<tr>
-<td>CREATE_SUSPENDED<br>0x00000004</td>
-<td>线程创建后先将线程挂起,直到 <strong><a href="https://baike.baidu.com/item/ResumeThread" target="_blank" rel="noopener noreffer">ResumeThread</a></strong> 被调用.</td>
-</tr>
-<tr>
-<td>STACK_SIZE_PARAM_IS_A_RE<br/>SERVATION<br/>0x00010000</td>
-<td><em>dwStackSize</em> 参数指定为线程栈预订大小,如果STACK_SIZE_PARAM_IS_A_RESERVATION没有被指定,<em>dwStackSize</em> 参数指定为线程栈分配大小.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="dll注入调用call">DLL注入调用CALL</h2>
-<p>CWinApp::InitInstance</p>
-<p>初始化函数（一般用于MFC初始化实例）</p>
-<h2 id="c类与对象">C++类与对象</h2>
-<h3 id="cedit类">CEdit类</h3>
-<p>为Edit控件关联变量</p>
-<h3 id="cstring类">CString类</h3>
-<p>CString 成员函数用法	// CStringA，CStringW</p>
-<p>CString::GetBuffer		//获取字符串地址	char*或者wchar_t*</p>
-<p>CString::Format格式化函数	//类似printf</p>
-<p>CString::Empty()			//清空</p>
-<p>CString::GetLength()	//返回字符串长度 字节数</p>
-<p>CString::IsEmpty()		//判断字符串是否为空</p>
-<p>CString::LoadString(资源ID)	//加载资源字符串</p>
-<p>CDialogEx类</p>
-<p>CButton类</p>
-<h2 id="c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</h2>
-<h2 id="枚举类型">枚举类型</h2>
+</div><h2 id="register-存储类">register 存储类</h2>
+<p>register 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量。这意味着变量的最大尺寸等于寄存器的大小（通常是一个词），且不能对它应用一元的 &lsquo;&amp;&rsquo; 运算符（因为它没有内存位置）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">enum</span> <span class="err">枚举名</span><span class="p">{</span> 
-     <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">],</span> 
-     <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">],</span> 
-<span class="p">...</span> 
-    <span class="err">标识符</span><span class="p">[</span><span class="o">=</span><span class="err">整型常数</span><span class="p">]</span>
-<span class="p">}</span> <span class="err">枚举变量</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="extern变量声明">extern变量声明</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 变量声明
-</span><span class="c1"></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
-<span class="k">extern</span> <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
-  
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// 变量定义
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
- 
-  <span class="c1">// 实际初始化
-</span><span class="c1"></span>  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
- 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-  <span class="n">f</span> <span class="o">=</span> <span class="mf">70.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">{</span>
+   <span class="k">register</span> <span class="kt">int</span>  <span class="n">miles</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="全局变量和局部变量">全局变量和局部变量</h2>
-<p>全局变量和和局部变量同名时，可通过域名在函数中引用到全局变量，不加域名解析则引用局部变量。</p>
+</div><h2 id="static-存储类">static 存储类</h2>
+<p>静态变量</p>
+<h2 id="extern-存储类">extern 存储类</h2>
+<p>extern 是用来在另一个文件中声明一个全局变量或函数。</p>
+<h2 id="mutable-存储类">mutable 存储类</h2>
+<p>mutable 说明符仅适用于类的对象，这将在本教程的最后进行讲解。它允许对象的成员替代常量。也就是说，mutable 成员可以通过 const 成员函数修改。</p>
+<h2 id="thread_local-存储类">thread_local 存储类</h2>
+<p>以下演示了可以被声明为 thread_local 的变量：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -342,94 +232,34 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">thread_local</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// 命名空间下的全局变量
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">X</span>
 <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// 10
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// 20
-</span><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span> <span class="c1">// 类的static成员变量
+</span><span class="c1"></span><span class="p">};</span>
+<span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">X</span><span class="o">::</span><span class="n">s</span><span class="p">;</span>  <span class="c1">// X::s 是需要定义的
+</span><span class="c1"></span> 
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>  <span class="c1">// 本地变量
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>在 VS2013 环境，对全局变量的引用以及重新赋值，直接用全局变量名会出现：count 变量不明确的问题。
-在变量名前加上 :: 符号即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//全局变量初始化
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="o">::</span><span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//全局变量重新赋值
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(;</span><span class="o">::</span><span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++::</span><span class="n">count</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;全局变量count=&#34;</span><span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="c-中的类型限定符">C++ 中的类型限定符</h2>
-<p>类型限定符提供了变量的额外信息。</p>
-<table>
-<thead>
-<tr>
-<th>限定符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>const</td>
-<td>const 类型的对象在程序执行期间不能被修改改变。</td>
-</tr>
-<tr>
-<td>volatile</td>
-<td>修饰符 volatile 告诉编译器不需要优化volatile声明的变量，让程序可以直接从内存中读取变量。对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。</td>
-</tr>
-<tr>
-<td>restrict</td>
-<td>由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</td>
-</tr>
-</tbody>
-</table>
-<hr><center>- 完 -</center>
+</div><hr><center>- 完 -</center>
             
                 <div id="related-article">
                     <p>相关文章</p>
                     <ul>
                         
-                        <li><a href="/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/">C&#43;&#43;关键字</a></li>
+                        <li><a href="/2021/08/c-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B06/">C&#43;&#43; 数据类型06</a></li>
                         
-                        <li><a href="/2021/07/%E5%AD%97%E7%AC%A6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/">字符的输入与输出</a></li>
+                        <li><a href="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/">任鸟飞笔记</a></li>
                         
-                        <li><a href="/2021/07/%E6%8C%87%E9%92%88%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/">指针读写内存</a></li>
+                        <li><a href="/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/">输出您电脑上各种数据类型的大小</a></li>
                         
-                        <li><a href="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">C&#43;&#43;知识点(一)</a></li>
+                        <li><a href="/2021/08/c-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%9504/">C&#43;&#43; 基本语法04</a></li>
                         
-                        <li><a href="/2021/07/%E5%B0%96%E6%8B%AC%E5%8F%B7/">&lt;&gt;尖括号</a></li>
+                        <li><a href="/2021/08/c-%E6%B3%A8%E9%87%8A05/">C&#43;&#43; 注释05</a></li>
                         
                     </ul>
                 </div>
@@ -455,14 +285,14 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-07</span>
+                <span>更新于 2021-08-12</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -474,8 +304,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/" class="prev" rel="prev" title="C&#43;&#43;关键字"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43;关键字</a>
-            <a href="/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/" class="next" rel="next" title="pragma once与ifndef 解析">pragma once与ifndef 解析<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/" class="prev" rel="prev" title="输出您电脑上各种数据类型的大小"><i class="fas fa-angle-left fa-fw"></i>输出您电脑上各种数据类型的大小</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

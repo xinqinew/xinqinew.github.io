@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;知识点(三)</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</link>
+    <pubDate>Thu, 12 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 存储类 存储类定义 C++ 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C++ 程序中可用的存储类： auto register static extern]]></description>
+</item><item>
     <title>输出您电脑上各种数据类型的大小</title>
     <link>https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/</link>
     <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++知识点（一） 阻断函数 1 2 3 getchar() //等待键盘输入回车 sysem(&#34;pause&#34;)//任意键继续 常用函数 1 2 3 4 5 6 7 8 9 10]]></description>
-</item><item>
-    <title>&lt;&gt;尖括号</title>
-    <link>https://xinqinew.github.io/2021/07/%E5%B0%96%E6%8B%AC%E5%8F%B7/</link>
-    <pubDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/07/%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>&lt; &gt;尖括号 我习惯将尖括号用于指定类型，作为参数: 1 vector&lt;int&gt; vecOfInts ; 但是在rapidjson中，有这样的代码: 1 document.Parse&lt;0&gt;(json) ; document.Parse方]]></description>
 </item></channel>
 </rss>
