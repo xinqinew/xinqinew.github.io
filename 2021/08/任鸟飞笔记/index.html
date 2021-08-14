@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>任鸟飞笔记 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞笔记" />
-<meta property="og:description" content="汇编 dd 查看dword db 查看字节集 EAX call的返回值 ECX call的参数 汇编指令 AND 指令在两个操作数的对应位之间进行（按位）逻辑与（AND）操作，并" />
+<meta property="og:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-10T00:00:00+00:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
 <meta name="twitter:title" content="任鸟飞笔记"/>
-<meta name="twitter:description" content="汇编 dd 查看dword db 查看字节集 EAX call的返回值 ECX call的参数 汇编指令 AND 指令在两个操作数的对应位之间进行（按位）逻辑与（AND）操作，并"/>
+<meta name="twitter:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1150 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1517 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -138,8 +138,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">任鸟飞笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1150 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1517 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -158,6 +158,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#小知识">小知识</a></li>
         <li><a href="#汇编">汇编</a>
           <ul>
             <li><a href="#汇编指令">汇编指令</a></li>
@@ -186,18 +187,27 @@
             <li><a href="#转移追踪代码">转移追踪代码</a></li>
           </ul>
         </li>
+        <li><a href="#汇编实例">汇编实例</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="汇编">汇编</h2>
+            </div><div class="content" id="content"><h2 id="小知识">小知识</h2>
+<p>16进制 4x xx xx xx一般是浮点数（正数）</p>
+<p>16进制 Cx xx xx xx一般是浮点数（负数）</p>
+<p>st0 st1 st2 … 是浮点栈</p>
+<h2 id="汇编">汇编</h2>
 <p>dd	查看dword</p>
 <p>db	查看字节集</p>
 <p>EAX call的返回值</p>
 <p>ECX call的参数</p>
 <h3 id="汇编指令">汇编指令</h3>
-<p>AND 指令在两个操作数的对应位之间进行（按位）逻辑与（AND）操作，并将结果存放在目标操作数中。</p>
-<p>TEST 指令在两个操作数的对应位之间进行 AND 操作，并根据运算结果设置符号标志位、零标志位和奇偶标志位。</p>
+<ul>
+<li>
+<p><strong>AND</strong> 指令在两个操作数的对应位之间进行（按位）逻辑与（AND）操作，并将结果存放在目标操作数中。</p>
+</li>
+<li>
+<p><strong>TEST</strong> 指令在两个操作数的对应位之间进行 AND 操作，并根据运算结果设置符号标志位、零标志位和奇偶标志位。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -208,7 +218,21 @@
 <span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="err">//</span><span class="no">eax清0</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="三大发包函数">三大发包函数</h3>
+</div></li>
+<li>
+<p><strong>FLD</strong>类似于   PUSH指令 将浮点数据压入协处理器的堆栈中</p>
+</li>
+<li>
+<p><strong>FSTP</strong>类似于  POP指令 与FST相类似，FSTP执行完后，需要进行堆栈的弹出操作，堆栈将发生变化。</p>
+</li>
+<li>
+<p><strong>FADD</strong>类似于  ADD指令 源操作数与目的操作数相加</p>
+</li>
+<li>
+<p><strong>FST</strong> 将协处理器堆栈栈顶的数据传送到目标操作数中。在进行数据传送时，系统自动根据控制寄存器中舍入控制位的设置把栈顶浮点数舍入成相应精度的数据。</p>
+</li>
+</ul>
+<h3 id="三大发包函数">三大发包函数</h3>
 <p>send WSASend sendto</p>
 <p>send在64位系统上是ws2_32.send</p>
 <h3 id="确定堆栈平衡">确定堆栈平衡</h3>
@@ -377,7 +401,83 @@ a--&gt;b[&#34;[a+x]&#34;] --&gt;c[&#34;[[a+x]+x]&#34;]--&gt;d[&#34;[[[a+x]+x]+x]
 </code></pre></td></tr></table>
 </div>
 </div><p>在call内部被追踪处下条件断点，断点内容和上面的相同也可以。</p>
-<hr><center>- 完 -</center>
+<h2 id="汇编实例">汇编实例</h2>
+<p>x,z,y [[[D0DF1C]+1C]+28]+3C,40,44</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ASM" data-lang="ASM">    <span class="c">#运行时出错
+</span><span class="c"></span>    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,[</span><span class="mi">00</span><span class="no">D0DF1C</span><span class="p">]</span>
+    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">edx</span><span class="err">+</span><span class="mi">1</span><span class="no">C</span><span class="p">]</span>
+    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,[</span><span class="no">eax</span><span class="err">+</span><span class="mi">28</span><span class="p">]</span>
+    <span class="nf">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c">#y 入浮点栈
+</span><span class="c"></span>    <span class="no">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c">#z
+</span><span class="c"></span>    <span class="no">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c">#x
+</span><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="p">]</span>	<span class="c">#x	出浮点栈
+</span><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span>	<span class="c">#z
+</span><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>	<span class="c">#y	手动建立一个堆栈的结构体
+</span><span class="c"></span>    <span class="no">push</span> <span class="mi">0</span>
+    <span class="nf">push</span> <span class="mi">10</span>
+    <span class="nf">push</span> <span class="mi">00</span><span class="no">D1F930</span>
+    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c">#结构体指针
+</span><span class="c"></span>    <span class="no">push</span> <span class="no">eax</span>
+    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">00</span><span class="no">D0DEC8</span>
+		<span class="nf">call</span> <span class="mi">00445</span><span class="no">AB0</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm">    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,[</span><span class="mi">00</span><span class="no">D0DF1C</span><span class="p">]</span>
+    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">edx</span><span class="err">+</span><span class="mi">1</span><span class="no">C</span><span class="p">]</span>
+    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,[</span><span class="no">eax</span><span class="err">+</span><span class="mi">28</span><span class="p">]</span>
+    <span class="nf">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c">#y 
+</span><span class="c"></span>    <span class="no">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c">#z
+</span><span class="c"></span>    <span class="no">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c">#x
+</span><span class="c"></span>    <span class="no">push</span> <span class="mi">0</span>
+    <span class="nf">push</span> <span class="mi">10</span>
+    <span class="nf">push</span> <span class="mi">00</span><span class="no">D1F930</span>
+    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c">#结构体指针
+</span><span class="c"></span>    <span class="no">push</span> <span class="no">eax</span>
+    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">00</span><span class="no">D0DEC8</span>
+		<span class="nf">call</span> <span class="mi">00445</span><span class="no">AB0</span>
+		<span class="nf">add</span> <span class="no">esp</span><span class="p">,</span><span class="mi">0</span><span class="no">C</span>	<span class="c">#堆栈平衡
+</span></code></pre></td></tr></table>
+</div>
+</div><hr><center>- 完 -</center>
             
                 <div id="related-article">
                     <p>相关文章</p>
