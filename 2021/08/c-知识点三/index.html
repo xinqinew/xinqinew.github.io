@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>C&#43;&#43;知识点(三) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(三)" />
-<meta property="og:description" content="C&#43;&#43; 存储类 存储类定义 C&#43;&#43; 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C&#43;&#43; 程序中可用的存储类： auto register static extern" />
+        <title>C&#43;&#43;知识点(三) 存储类与运算符 - Hmily云笔记</title><meta name="Description" content="存储类与运算符"><meta property="og:title" content="C&#43;&#43;知识点(三) 存储类与运算符" />
+<meta property="og:description" content="存储类与运算符" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
@@ -15,8 +15,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43;知识点(三)"/>
-<meta name="twitter:description" content="C&#43;&#43; 存储类 存储类定义 C&#43;&#43; 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C&#43;&#43; 程序中可用的存储类： auto register static extern"/>
+<meta name="twitter:title" content="C&#43;&#43;知识点(三) 存储类与运算符"/>
+<meta name="twitter:description" content="存储类与运算符"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -25,7 +25,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++知识点(三)",
+        "headline": "C++知识点(三) 存储类与运算符",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -36,7 +36,7 @@
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "辛琪"
-            },"description": ""
+            },"description": "存储类与运算符"
     }
     </script></head>
     <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -136,10 +136,10 @@
                 <div class="container"><link rel="stylesheet" href="/css/post-single.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(三)</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(三) 存储类与运算符</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-12">2021-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2978 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(三)">
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(三) 存储类与运算符">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -149,7 +149,7 @@
         data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
         data-sizes="auto"
         alt="/images/C&#43;&#43;.jpg"
-        title="/images/C&#43;&#43;.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        title="存储类与运算符" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -839,7 +839,7 @@ Value of val :3000</p>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三)" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三) 存储类与运算符" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三) 存储类与运算符"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三) 存储类与运算符"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" data-title="C&#43;&#43;知识点(三) 存储类与运算符" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -852,7 +852,7 @@ Value of val :3000</p>
     </div>
 
     <div class="post-nav"><a href="/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/" class="prev" rel="prev" title="输出您电脑上各种数据类型的大小"><i class="fas fa-angle-left fa-fw"></i>输出您电脑上各种数据类型的大小</a>
-            <a href="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/" class="next" rel="next" title="C&#43;&#43;知识点(四)">C&#43;&#43;知识点(四)<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/" class="next" rel="next" title="C&#43;&#43;知识点(四) 循环与判断">C&#43;&#43;知识点(四) 循环与判断<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
