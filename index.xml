@@ -4,7 +4,7 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 12 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>C&#43;&#43; 数据类型06</title>
@@ -69,6 +69,15 @@
     <description><![CDATA[<p>LoveIt主题介绍：https://hugoloveit.com/zh-cn/</p>
 <p>LoveIt主题仓库：https://github.com/dillonzq/LoveIt</p>]]></description>
 </item><item>
+    <title>C&#43;&#43;知识点(四)</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/</link>
+    <pubDate>Sun, 15 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 循环]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(三)</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</link>
     <pubDate>Thu, 12 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -86,14 +95,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/renniaofei.jpg" referrerpolicy="no-referrer">
             </div>小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call]]></description>
-</item><item>
-    <title>输出您电脑上各种数据类型的大小</title>
-    <link>https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/</link>
-    <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 #include&lt;iostream&gt; #include &lt;limits&gt; using namespace std; int main() { cout &lt;&lt; &#34;type: \t\t&#34; &lt;&lt; &#34;************size**************&#34;&lt;&lt;]]></description>
 </item></channel>
 </rss>
