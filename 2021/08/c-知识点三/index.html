@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  477 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  2993 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89\/","datePublished": "2021-08-12T00:00:00+00:00","dateModified": "2021-08-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -138,8 +138,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43;知识点(三)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-12">2021-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 477 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(三)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-12">2021-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2993 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(三)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -164,6 +164,33 @@
         <li><a href="#extern-存储类">extern 存储类</a></li>
         <li><a href="#mutable-存储类">mutable 存储类</a></li>
         <li><a href="#thread_local-存储类">thread_local 存储类</a></li>
+      </ul>
+    </li>
+    <li><a href="#c运算符">C++运算符</a>
+      <ul>
+        <li><a href="#算术运算符">算术运算符</a></li>
+        <li><a href="#关系运算符">关系运算符</a></li>
+        <li><a href="#逻辑运算符">逻辑运算符</a></li>
+        <li><a href="#位运算符">位运算符</a></li>
+        <li><a href="#赋值运算符">赋值运算符</a></li>
+        <li><a href="#杂项运算符">杂项运算符</a>
+          <ul>
+            <li><a href="#逗号运算符">逗号运算符</a></li>
+            <li><a href="#成员运算符">成员运算符</a>
+              <ul>
+                <li><a href="#点运算符">（.）点运算符</a></li>
+                <li><a href="#-箭头运算符">（-&gt;）箭头运算符</a></li>
+              </ul>
+            </li>
+            <li><a href="#指针运算符-和-">指针运算符（&amp; 和 *)</a>
+              <ul>
+                <li><a href="#取地址运算符-">取地址运算符 &amp;</a></li>
+                <li><a href="#间接寻址运算符-">间接寻址运算符 *</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#c-中的运算符优先级">C++ 中的运算符优先级</a></li>
       </ul>
     </li>
   </ul>
@@ -245,7 +272,477 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><hr><center>- 完 -</center>
+</div><h1 id="c运算符">C++运算符</h1>
+<h2 id="算术运算符">算术运算符</h2>
+<p>假设变量 A 的值为 10，变量 B 的值为 20，则：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>|把两个操作数相加	|A + B 将得到 30</li>
+</ul>
+<ul>
+<li>|从第一个操作数中减去第二个操作数	|A - B 将得到 -10</li>
+</ul>
+<ul>
+<li>|把两个操作数相乘	|A * B 将得到 200
+/	|分子除以分母	|B / A 将得到 2
+%|	取模运算符，整除后的余数	|B % A 将得到 0
+++	|自增运算符，整数值增加 1|	A++ 将得到 11
+&ndash;	|自减运算符，整数值减少 1	|A&ndash; 将得到 9</li>
+</ul>
+<h2 id="关系运算符">关系运算符</h2>
+<p>假设变量 A 的值为 10，变量 B 的值为 20，则：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>检查两个操作数的值是否相等，如果相等则条件为真。</td>
+<td>(A == B) 不为真。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>检查两个操作数的值是否相等，如果不相等则条件为真。</td>
+<td>(A != B) 为真。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>|检查左操作数的值是否大于右操作数的值，如果是则条件为真。	|(A &gt; B) 不为真。
+&lt;	|检查左操作数的值是否小于右操作数的值，如果是则条件为真。	|(A &lt; B) 为真。
+=	|检查左操作数的值是否大于或等于右操作数的值，如果是则条件为真。|	(A &gt;= B) 不为真。
+&lt;=	|检查左操作数的值是否小于或等于右操作数的值，如果是则条件为真。|	(A &lt;= B) 为真。</p>
+</blockquote>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p>假设变量 A 的值为 1，变量 B 的值为 0，则：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>称为逻辑与运算符。如果两个操作数都 true，则条件为 true。</td>
+<td>(A &amp;&amp; B) 为 false。</td>
+</tr>
+<tr>
+<td>||</td>
+<td>称为逻辑或运算符。如果两个操作数中有任意一个 true，则条件为 true。</td>
+<td>(A|| B) 为 true。</td>
+</tr>
+<tr>
+<td>!</td>
+<td>称为逻辑非运算符。用来逆转操作数的逻辑状态，如果条件为 true 则逻辑非运算符将使其为 false。</td>
+<td>!(A &amp;&amp; B) 为 true。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="位运算符">位运算符</h2>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p &amp; q</th>
+<th>p | q</th>
+<th>p ^ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>假设如果 A = 60，且 B = 13，现在以二进制格式表示，它们如下所示：<br>
+A = 0011 1100<br>
+B = 0000 1101</p>
+<p>A&amp;B = 0000 1100<br>
+A|B = 0011 1101<br>
+A^B = 0011 0001<br>
+~A  = 1100 0011</p>
+<p>下表显示了 C++ 支持的位运算符。假设变量 A 的值为 60，变量 B 的值为 13，则：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>按位与操作，按二进制位进行&quot;与&quot;运算。运算规则：<br>0&amp;0=0;<br>0&amp;1=0;<br>1&amp;0=0;<br>     1&amp;1=1;</td>
+<td>(A &amp; B) 将得到 12，即为 0000 1100</td>
+</tr>
+<tr>
+<td>|</td>
+<td>按位或运算符，按二进制位进行&quot;或&quot;运算。运算规则：0|0=0;<br>0|1=1;<br>  1|0=1;<br>  1|1=1;<br></td>
+<td>(A | B) 将得到 61，即为 0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>异或运算符，按二进制位进行&quot;异或&quot;运算。运算规则：0^0=0;   <br>0^1=1;   <br>1^0=1;  <br>1^1=0;<br></td>
+<td>(A ^ B) 将得到 49，即为 0011 0001</td>
+</tr>
+<tr>
+<td>~</td>
+<td>取反运算符，按二进制位进行&quot;取反&quot;运算。运算规则：<br>~1=-2;   <br>~0=-1;</td>
+<td>(~A ) 将得到 -61，即为 1100 0011，一个有符号二进制数的补码形式。</td>
+</tr>
+<tr>
+<td>&laquo;</td>
+<td>二进制左移运算符。将一个运算对象的各二进制位全部左移若干位（左边的二进制位丢弃，右边补0）。</td>
+<td>A &laquo; 2 将得到 240，即为 1111 0000</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<blockquote>
+<p>|二进制右移运算符。将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。|	A &raquo; 2 将得到 15，即为 0000 1111</p>
+</blockquote>
+</blockquote>
+<h2 id="赋值运算符">赋值运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>简单的赋值运算符，把右边操作数的值赋给左边操作数</td>
+<td>C = A + B 将把 A + B 的值赋给 C</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>加且赋值运算符，把右边操作数加上左边操作数的结果赋值给左边操作数</td>
+<td>C += A 相当于 C = C + A</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减且赋值运算符，把左边操作数减去右边操作数的结果赋值给左边操作数</td>
+<td>C -= A 相当于 C = C - A</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘且赋值运算符，把右边操作数乘以左边操作数的结果赋值给左边操作数</td>
+<td>C *= A 相当于 C = C * A</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除且赋值运算符，把左边操作数除以右边操作数的结果赋值给左边操作数</td>
+<td>C /= A 相当于 C = C / A</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>求模且赋值运算符，求两个操作数的模赋值给左边操作数</td>
+<td>C %= A 相当于 C = C % A</td>
+</tr>
+<tr>
+<td>&laquo;=</td>
+<td>左移且赋值运算符</td>
+<td>C &laquo;= 2 等同于 C = C &laquo; 2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<blockquote>
+<p>=	|右移且赋值运算符	|C &raquo;= 2 等同于 C = C &raquo; 2
+&amp;=	|按位与且赋值运算符	|C &amp;= 2 等同于 C = C &amp; 2
+^=	|按位异或且赋值运算符	|C ^= 2 等同于 C = C ^ 2
+|=	|按位或且赋值运算符	|C |= 2 等同于 C = C | 2</p>
+</blockquote>
+</blockquote>
+<h2 id="杂项运算符">杂项运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sizeof</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-sizeof-operator.html" target="_blank" rel="noopener noreffer">sizeof 运算符</a>返回变量的大小。例如，sizeof(a) 将返回 4，其中 a 是整数。</td>
+</tr>
+<tr>
+<td>Condition ? X : Y</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-conditional-operator.html" target="_blank" rel="noopener noreffer">条件运算符</a>。如果 Condition 为真 ? 则值为 X : 否则值为 Y。</td>
+</tr>
+<tr>
+<td>,</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-comma-operator.html" target="_blank" rel="noopener noreffer">逗号运算符</a>会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。</td>
+</tr>
+<tr>
+<td>.（点）和 -&gt;（箭头）</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-member-operators.html" target="_blank" rel="noopener noreffer">成员运算符</a>用于引用类、结构和共用体的成员。</td>
+</tr>
+<tr>
+<td>Cast</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-casting-operators.html" target="_blank" rel="noopener noreffer">强制转换运算符</a>把一种数据类型转换为另一种数据类型。例如，int(2.2000) 将返回 2。</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-pointer-operators.html" target="_blank" rel="noopener noreffer">指针运算符 &amp; </a>返回变量的地址。例如 &amp;a; 将给出变量的实际地址。</td>
+</tr>
+<tr>
+<td>*</td>
+<td><a href="https://www.runoob.com/cplusplus/cpp-pointer-operators.html" target="_blank" rel="noopener noreffer">指针运算符 * </a>指向一个变量。例如，*var; 将指向变量 var。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="逗号运算符">逗号运算符</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">incr</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="成员运算符">成员运算符</h3>
+<p>.（点）运算符和 -&gt;（箭头）运算符用于引用类、结构和共用体的成员。<br>
+<strong>点运算符</strong>应用于实际的对象。<br>
+<strong>箭头运算符</strong>与一个指向对象的指针一起使用。<br>
+例如，假设有下面的结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">Employee</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">first_name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+  <span class="kt">int</span>  <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">emp</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="点运算符">（.）点运算符</h4>
+<p>下面的代码把值 &ldquo;zara&rdquo; 赋给对象 emp 的 first_name 成员：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">strcpy</span><span class="p">(</span><span class="n">emp</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span> <span class="s">&#34;zara&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="-箭头运算符">（-&gt;）箭头运算符</h4>
+<p>如果 p_emp 是一个指针，指向类型为 Employee 的对象，则要把值 &ldquo;zara&rdquo; 赋给对象 emp 的 first_name 成员，需要编写如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">strcpy</span><span class="p">(</span><span class="n">p_emp</span><span class="o">-&gt;</span><span class="n">first_name</span><span class="p">,</span> <span class="s">&#34;zara&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>-&gt; 称为箭头运算符，它是由一个减号加上一个大于号组成。
+简而言之，访问结构的成员时使用点运算符，而通过指针访问结构的成员时，则使用箭头运算符。</p>
+<h3 id="指针运算符-和-">指针运算符（&amp; 和 *)</h3>
+<h4 id="取地址运算符-">取地址运算符 &amp;</h4>
+<p>&amp; 是一元运算符，返回操作数的内存地址。例如，如果 var 是一个整型变量，则 &amp;var 是它的地址。该运算符与其他一元运算符具有相同的优先级，在运算时它是从右向左顺序进行的。
+您可以把 &amp; 运算符读作&quot;取地址运算符&quot;，这意味着，&amp;var 读作&quot;var 的地址&quot;。</p>
+<h4 id="间接寻址运算符-">间接寻址运算符 *</h4>
+<p>第二个运算符是间接寻址运算符 <em>，它是 &amp; 运算符的补充。</em> 是一元运算符，返回操作数所指定地址的变量的值。
+请看下面的实例，理解这两种运算符的用法。<br>
+<strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="n">var</span><span class="p">;</span>
+   <span class="kt">int</span>  <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+   <span class="kt">int</span>  <span class="n">val</span><span class="p">;</span>
+
+   <span class="n">var</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+
+   <span class="c1">// 获取 var 的地址
+</span><span class="c1"></span>   <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
+
+   <span class="c1">// 获取 ptr 的值
+</span><span class="c1"></span>   <span class="n">val</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of var :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">var</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of ptr :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of val :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">val</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<blockquote>
+</blockquote>
+<p>Value of var :3000<br>
+Value of ptr :0xbff64494<br>
+Value of val :3000</p>
+<h2 id="c-中的运算符优先级">C++ 中的运算符优先级</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>运算符</th>
+<th>结合性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>后缀</td>
+<td>() [] -&gt; . ++ - -</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>一元</td>
+<td>+ - ! ~ ++ - - (type)* &amp; sizeof</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>乘除</td>
+<td>* / %</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>加减</td>
+<td>+ -</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>移位</td>
+<td>&laquo; &raquo;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>&lt; &lt;= &gt; &gt;=</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>相等</td>
+<td>== !=</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>位与 AND</td>
+<td>&amp;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>位异或 XOR</td>
+<td>^</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>位或 OR</td>
+<td>|</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>逻辑与 AND</td>
+<td>&amp;&amp;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>逻辑或 OR</td>
+<td>||</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>条件</td>
+<td>?:</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>赋值</td>
+<td>= += -= *= /= %=&raquo;= &laquo;= &amp;= ^= |=</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>逗号</td>
+<td>,</td>
+<td>从左到右</td>
+</tr>
+</tbody>
+</table>
+<hr><center>- 完 -</center>
             
                 <div id="related-article">
                     <p>相关文章</p>
