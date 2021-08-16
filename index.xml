@@ -78,6 +78,13 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 循环 循环类型 循环类型 描述 while 循环 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 for 循环 多次执行一个语句序列，简化管理循环]]></description>
 </item><item>
+    <title>为 hugo-theme-even 提供 mermaid 支持.md</title>
+    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</link>
+    <pubDate>Sat, 14 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</guid>
+    <description><![CDATA[俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(三) 存储类与运算符</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</link>
     <pubDate>Thu, 12 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -86,14 +93,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 存储类 存储类定义 C++ 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C++ 程序中可用的存储类： auto register static extern]]></description>
-</item><item>
-    <title>任鸟飞笔记</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/renniaofei.jpg" referrerpolicy="no-referrer">
-            </div>小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call]]></description>
 </item></channel>
 </rss>

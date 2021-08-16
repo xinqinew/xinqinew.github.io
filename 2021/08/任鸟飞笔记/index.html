@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1517 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1749 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,13 +132,14 @@
 <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
 </div>
+<script src="/lib/mermaid/mermaid.min.js"  crossorigin="anonymous"></script>
 <main class="main">
                 <div class="container"><link rel="stylesheet" href="/css/post-single.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">任鸟飞笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1517 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1749 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -185,6 +186,7 @@
               </ul>
             </li>
             <li><a href="#转移追踪代码">转移追踪代码</a></li>
+            <li><a href="#跳出系统领空">跳出系统领空</a></li>
           </ul>
         </li>
         <li><a href="#汇编实例">汇编实例</a></li>
@@ -350,13 +352,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-a--&#34;[a+0]&#34;--&gt;b 
-a--&#34;[a+8]&#34;--&gt;c
-b --&#34;[[a+0]+0]&#34;--&gt; d
-b --&#34;[[a+0]+8]&#34;--&gt; e
-c--&#34;[[a+8]+0]&#34;--&gt;f
-e--&#34;[[[a+0]+8]+0]&#34;--&gt;g
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph TD;
+ a--&#34;[a+0]&#34;--&gt;b; 
+ a--&#34;[a+8]&#34;--&gt;c;
+ b --&#34;[[a+0]+0]&#34;--&gt; d;
+ b --&#34;[[a+0]+8]&#34;--&gt; e;
+ c--&#34;[[a+8]+0]&#34;--&gt;f;
+ e--&#34;[[[a+0]+8]+0]&#34;--&gt;g;
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="链表">链表</h4>
@@ -401,6 +403,15 @@ a--&gt;b[&#34;[a+x]&#34;] --&gt;c[&#34;[[a+x]+x]&#34;]--&gt;d[&#34;[[[a+x]+x]+x]
 </code></pre></td></tr></table>
 </div>
 </div><p>在call内部被追踪处下条件断点，断点内容和上面的相同也可以。</p>
+<h3 id="跳出系统领空">跳出系统领空</h3>
+<p>在OD内存窗口对X地址下断，游戏暂停在系统领空后，跳出系统领空的方法：</p>
+<ol>
+<li>在堆栈中查找X，找到后看是不是程序领空，如果不是的话，ctrl+L继续查找下一个。</li>
+<li>如果找到程度领空的话，ctrl+f9返回。跳到第5步。</li>
+<li>如果找不到的话，可以在堆栈中搜X省略后两位的数据，看能不能搜到。</li>
+<li>实在找不到，就在堆栈里肉眼找相近的地址。（前提是程序领空）</li>
+<li>找到后，前往“返回到”对应的地址。看“相近的地址”是第几个参数，加上相应的偏移。每有一个参数就加4 。之后就可以正常逆向了。</li>
+</ol>
 <h2 id="汇编实例">汇编实例</h2>
 <p>x,z,y [[[D0DF1C]+1C]+28]+3C,40,44</p>
 <div class="highlight"><div class="chroma">

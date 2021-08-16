@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>为 hugo-theme-even 提供 mermaid 支持.md</title>
+    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</link>
+    <pubDate>Sat, 14 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</guid>
+    <description><![CDATA[俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不]]></description>
+</item><item>
     <title>GitHub网址整理</title>
     <link>https://xinqinew.github.io/2021/08/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</link>
     <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
     <description><![CDATA[Hugo使用travis自动发布 背景 从hexo迁移到hugo后，发布博客开始变的繁琐，没有hexo -d这样的快捷部署，但是好在有travis]]></description>
-</item><item>
-    <title>Hugo使用travis自动发布 出处</title>
-    <link>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</link>
-    <pubDate>Wed, 04 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</guid>
-    <description><![CDATA[通过 Travis CI 来部署 Hugo 或者 Hexo 博客可能在配置的时候会麻烦一点，但配置好后确实是方便了不少。特别是对于 Hugo 这种没有部署插件的静态网站生成器，只能手动部署]]></description>
 </item></channel>
 </rss>
