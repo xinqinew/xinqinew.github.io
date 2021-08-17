@@ -4,9 +4,18 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 变量类型07</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B07/</link>
+    <pubDate>Mon, 16 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B07/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 变量类型 变量其实只不过是程序可操作的存储区的名称。C++ 中每个变量都有指定的类型，类型决定了变量存储的大小和布局，该范围内的值都可以存储在]]></description>
+</item><item>
     <title>C&#43;&#43; 数据类型06</title>
     <link>https://xinqinew.github.io/2021/08/c-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B06/</link>
     <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -84,14 +93,5 @@
     <author>作者</author>
     <guid>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</guid>
     <description><![CDATA[俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(三) 存储类与运算符</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</link>
-    <pubDate>Thu, 12 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 存储类 存储类定义 C++ 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C++ 程序中可用的存储类： auto register static extern]]></description>
 </item></channel>
 </rss>

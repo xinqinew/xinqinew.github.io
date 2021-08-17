@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>任鸟飞笔记 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞笔记" />
-<meta property="og:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call" />
+<meta property="og:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 sar 算术右移 每右移一位，相当于除以一次2 汇编" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-10T00:00:00+00:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
 <meta name="twitter:title" content="任鸟飞笔记"/>
-<meta name="twitter:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 汇编 dd 查看dword db 查看字节集 EAX call"/>
+<meta name="twitter:description" content="小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 sar 算术右移 每右移一位，相当于除以一次2 汇编"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1749 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  1822 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -139,7 +139,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">任鸟飞笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>辛琪</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1749 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1822 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -198,6 +198,7 @@
 <p>16进制 4x xx xx xx一般是浮点数（正数）</p>
 <p>16进制 Cx xx xx xx一般是浮点数（负数）</p>
 <p>st0 st1 st2 … 是浮点栈</p>
+<p>sar 算术右移 每右移一位，相当于除以一次2</p>
 <h2 id="汇编">汇编</h2>
 <p>dd	查看dword</p>
 <p>db	查看字节集</p>
@@ -361,6 +362,28 @@
  e--&#34;[[[a+0]+8]+0]&#34;--&gt;g;
 </code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">00433</span><span class="nf">FA6</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">10</span><span class="p">],</span><span class="no">esi</span>	<span class="c">#可能是ID
+</span><span class="c"></span><span class="mi">00433</span><span class="no">FA9</span>	<span class="no">jge</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB0</span>
+<span class="err">00433</span><span class="nf">FAB</span>	<span class="no">mov</span> <span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>		<span class="c">#右
+</span><span class="c"></span><span class="mi">00433</span><span class="no">FAE</span>	<span class="no">jmp</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB4</span>
+<span class="err">00433</span><span class="nf">FB0</span>	<span class="no">mov</span>	<span class="no">edx</span><span class="p">,</span><span class="no">eax</span>
+<span class="err">00433</span><span class="nf">FB2</span>	<span class="no">mov</span>	<span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="p">]</span>			<span class="c">#左
+</span><span class="c"></span><span class="mi">00433</span><span class="no">FB4</span>	<span class="no">cmp</span> <span class="no">byte</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">231</span><span class="p">],</span><span class="mi">0</span>		<span class="c">#判断
+</span><span class="c"></span><span class="mi">00433</span><span class="no">FBB</span>	<span class="no">je</span>	<span class="no">short</span> <span class="mi">00433</span><span class="no">FA6</span>
+</code></pre></td></tr></table>
+</div>
 </div><h4 id="链表">链表</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -381,10 +404,10 @@ a--&gt;b[&#34;[a+x]&#34;] --&gt;c[&#34;[[a+x]+x]&#34;]--&gt;d[&#34;[[[a+x]+x]+x]
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">010</span><span class="nf">A1BE0</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="err">+</span><span class="no">C</span><span class="p">],</span><span class="no">esi</span>		<span class="err">//链表循环</span>
-<span class="err">010</span><span class="nf">A1BE3</span>	<span class="no">je</span> 	<span class="no">short</span> <span class="mi">010</span><span class="no">A1BF8</span>
-<span class="err">010</span><span class="nf">A1BE5</span>	<span class="no">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="p">]</span>			<span class="err">//链表循环</span>
-<span class="err">010</span><span class="nf">A1BE7</span>	<span class="no">test</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">010</span><span class="nf">A1BE0</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="err">+</span><span class="no">C</span><span class="p">],</span><span class="no">esi</span>		<span class="c">#链表循环
+</span><span class="c"></span><span class="mi">010</span><span class="no">A1BE3</span>	<span class="no">je</span> 	<span class="no">short</span> <span class="mi">010</span><span class="no">A1BF8</span>
+<span class="err">010</span><span class="nf">A1BE5</span>	<span class="no">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="p">]</span>			<span class="c">#链表循环
+</span><span class="c"></span><span class="mi">010</span><span class="no">A1BE7</span>	<span class="no">test</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
 <span class="err">010</span><span class="nf">A1BE9</span>	<span class="no">jnz</span> <span class="no">short</span> <span class="mi">010</span><span class="no">A1BE0</span>
 </code></pre></td></tr></table>
 </div>
