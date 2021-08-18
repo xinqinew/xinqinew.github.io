@@ -34,6 +34,24 @@
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 字符串 C++ 提供了以下两种类型的字符串表示形式： C 风格字符串 C++ 引入的 string 类类型 C 风格字符串 C 风格的字符串起源于 C 语言，并在 C++ 中继续得到支持。字符]]></description>
 </item><item>
+    <title>C&#43;&#43;知识点(五) 函数与数字</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</link>
+    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 函数 定义函数 C++ 中的函数定义的一般形式如下： 1 2 3 4 return_type function_name( parameter list ) { body of the function } 函数参数 调用类型 描述 传值调用 该方法把参数的实际值赋值给函数的形式参]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点(六) 数组和字符串</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/</link>
+    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 数组 概念 描述 多维数组 C++ 支持多维数组。多维数组最简单的形式是二维数组。 指向数组的指针 您可以通过指定不带索引的数组名称来生成一个指向数组中第一]]></description>
+</item><item>
     <title>C&#43;&#43; 08变量作用域</title>
     <link>https://xinqinew.github.io/2021/08/c-08%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
     <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate>
@@ -78,23 +96,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 判断 判断结构要求程序员指定一个或多个要评估或测试的条件，以及条件为真时要执行的语句（必需的）和条件为假时要执行的语句（可选的）。 下面是大多]]></description>
-</item><item>
-    <title>C&#43;&#43; 15函数</title>
-    <link>https://xinqinew.github.io/2021/08/c-15%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-15%E5%87%BD%E6%95%B0/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 函数 函数是一组一起执行一个任务的语句。每个 C++ 程序都至少有一个函数，即主函数 main() ，所有简单的程序都可以定义其他额外的函数。 您可以把代码划分到不]]></description>
-</item><item>
-    <title>C&#43;&#43; 16数字</title>
-    <link>https://xinqinew.github.io/2021/08/c-16%E6%95%B0%E5%AD%97/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/08/c-16%E6%95%B0%E5%AD%97/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 数字 通常，当我们需要用到数字时，我们会使用原始的数据类型，如 int、short、long、float 和 double 等等。这些用于数字的数据类型，其可]]></description>
 </item></channel>
 </rss>
