@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">even 提供 mermaid - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="even 提供 mermaid" />
+<meta property="og:description" content="俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-19T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="even 提供 mermaid"/>
+<meta name="twitter:description" content="俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/hugo-mermaid%E6%9B%BF%E6%8D%A2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "even 提供 mermaid",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/even-%E6%8F%90%E4%BE%9B-mermaid\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  1483 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/08\/even-%E6%8F%90%E4%BE%9B-mermaid\/","datePublished": "2021-08-19T00:00:00+00:00","dateModified": "2021-08-19T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i> 文档 </a><a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i>  标签 </a><a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i> 分类 </a><a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i> 里程碑 </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a><a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="#" onclick="return false;" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">even 提供 mermaid</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1483 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" class="leancloud_visitors" data-flag-title="even 提供 mermaid">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#俺如何为-hugo-theme-even-提供-mermaid-支持">俺如何为 hugo-theme-even 提供 mermaid 支持</a>
+      <ul>
+        <li><a href="#如何为你的-hugo-博客引入-mermaid-支持">如何为你的 <code>Hugo</code> 博客引入 <code>mermaid</code> 支持？</a></li>
+        <li><a href="#实现原理">实现原理</a></li>
+        <li><a href="#在-even-theme-中的实现">在 even theme 中的实现</a>
+          <ul>
+            <li><a href="#导入-mermaidminjs">导入 mermaid.min.js</a>
+              <ul>
+                <li><a href="#通过-cdn-导入">通过 CDN 导入</a></li>
+                <li><a href="#通过本地文件导入">通过本地文件导入</a></li>
+              </ul>
+            </li>
+            <li><a href="#替换-html-标签">替换 HTML 标签</a></li>
+            <li><a href="#工具推荐">工具推荐</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="俺如何为-hugo-theme-even-提供-mermaid-支持">俺如何为 hugo-theme-even 提供 mermaid 支持</h1>
+<div class="mermaid" id="id-1"></div>
+<p>如上是一个利用 <code>mermaid</code> 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 <code>mermaid</code> 绘图具备诸多优点：</p>
+<ol>
+<li>网站保存的是带 <code>mermaid</code> 的 <code>markdown</code> 文件，不涉及到图片存储。存储占用小。</li>
+<li>渲染出图是 <code>SVG</code> 格式，上面的文字可以直接拷贝。</li>
+<li>网站数据传输时是使用 <code>mermaid</code> 源码，而不是图片，可以有效减少网站加载过程产生的流量耗费。</li>
+</ol>
+<h2 id="如何为你的-hugo-博客引入-mermaid-支持">如何为你的 <code>Hugo</code> 博客引入 <code>mermaid</code> 支持？</h2>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>贴士<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>虽然由于 even theme 更新过慢，似乎久已无更多维护，因此本站已经开始使用 LoveIt 作为主题。</p>
+<p>但是对于 even theme 而言，本方法应当依旧适用。</p>
+</div>
+        </div>
+    </div>
+<p>对于这一点，俺可以说前人之述备矣。反手就是一堆参考资料：</p>
+<ul>
+<li><a href="https://skeptric.com/diagrams-in-hugo/" target="_blank" rel="noopener noreffer">Diagrams in hugo with mermaid</a></li>
+<li><a href="https://kentxxq.com/contents/%E6%8B%93%E5%B1%95hugo%E7%9A%84markdown_%E6%B5%81%E7%A8%8B%E5%9B%BEmermaid/" target="_blank" rel="noopener noreffer">拓展 Hugo 的 MarkDown 流程图</a></li>
+</ul>
+<p>这些解决方案引入 <code>mermaid</code> 的方法简单素雅，这一套流程可以总结为：</p>
+<ol>
+<li>
+<p>在博客中加载 <code>mermaidJS</code>。具体方法有：</p>
+<ul>
+<li>直接在一定会加载的 <code>HTML</code> 文件中引入 <code>&lt;script&gt;</code> 标签，加载 <code>mermaid</code>。</li>
+<li>在部分支持自定义 <code>JavaScript</code> 的主题中，引入 <code>JavaScript</code> 文件。</li>
+</ul>
+</li>
+<li>
+<p>自定义 <code>ShortCodes</code>，依靠 <code>ShortCodes</code> 实现标签替换。</p>
+</li>
+</ol>
+<p>但是习惯了通过 <code>typora</code> 之类的 <code>MarkDown</code> 拓展编辑器，他们无一例外都支持按照如下风格进行渲染：</p>
+<pre><code>```mermaid
+
+... 图表内容 ...
+
+```
+</code></pre>
+<p>能不能实现它，从而实现更加一颗赛艇的编辑体验呢？</p>
+<p><strong>能的</strong>。</p>
+<hr>
+<h2 id="实现原理">实现原理</h2>
+<p>通过阅读 <code>mermaid</code> 的 API 咱们可以得知 <code>mermaidAPI</code> 渲染 <code>mermaid</code> 图形的大致流程：</p>
+<div class="mermaid" id="id-2"></div>
+<p>上述的<strong>特定标签</strong>是指&lt;div class=&quot;mermaid&quot;&gt;的 <code>HTML</code> 标签。通过检查页面元素，咱们会发现如今的大部分博客将代码块渲染成如下式样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;language-语言种类&#34;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- code --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也就是说咱们只需要找到形如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;language-mermaid&#34;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- mermaid code --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>的代码块，并将其替换成<code>&lt;div class=&quot;mermaid&quot;&gt;</code>即可。</p>
+<hr>
+<h2 id="在-even-theme-中的实现">在 even theme 中的实现</h2>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">注意： 下文中的 “/” 目录代表 even theme 项目的根目录而不是 *nix 文件系统的 root.</div>
+        </div>
+    </div>
+<p>本博客使用的是 even theme. 但是俺相信参照本文在其他博客中进行实现也会大差不差。</p>
+<p>俺在自己实现了此种风格之后即向 <a href="https://github.com/olOwOlo/hugo-theme-even" target="_blank" rel="noopener noreffer">hugo-theme-even</a> 提出了 PR，even theme 的用户应该可以在不久以后在新版本中得到 <code>mermaid</code> 支持。</p>
+<h3 id="导入-mermaidminjs">导入 mermaid.min.js</h3>
+<p>实现应当遵循原理的指示精神，首先咱们需要拥有 <code>mermaid</code> 库。通过观察源码猜测 even 主题在 <code>/static/layouts/partials/scripts.html</code> 中进行 JS 的载入。于是咱们向其中插入能够引入 <code>mermaid</code> 模块的 script 标签。（实际上只要是会被加载的 HTML 文件都可以插）</p>
+<p>这个标签在 HTML 文件里随便找个地方插就完事了，如果完全不懂，建议怼到 HTML 文件末尾。</p>
+<h4 id="通过-cdn-导入">通过 CDN 导入</h4>
+<p>为了保持文章的时效性，俺不会直接提供该 script 标签，但是你可以在 <a href="https://www.jsdelivr.com/package/npm/mermaid?path=dist" target="_blank" rel="noopener noreffer">jsdelivr.com</a> 中找到你中意版本的 <code>mermaid.min.js</code> 并按下右边的 Copy HTML + SRI 按钮即可获得对应的标签。</p>
+<h4 id="通过本地文件导入">通过本地文件导入</h4>
+<p>由于房间里的大象太大挡住了境外CDN的信号，所以你也可以选择本地文件。在网上找到你中意版本的 <code>mermaid.min.js</code>, 下载下来并放在 <code>/static/lib/mermaid/</code> 目录下（没有就新建一个），这时可以得到对应的 script 标签如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ &#34;</span><span class="na">lib</span><span class="err">/</span><span class="na">mermaid</span><span class="err">/</span><span class="na">mermaid</span><span class="err">.</span><span class="na">min</span><span class="err">.</span><span class="na">js</span><span class="err">&#34;</span> <span class="err">|</span> <span class="na">relURL</span> <span class="err">}}&#34;</span>  <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>本人对境外 CDN 在内地的稳定性持悲观态度，建议中国大陆用户使用此方法。</p>
+<h3 id="替换-html-标签">替换 HTML 标签</h3>
+<p>观察 even 主题的源码，咱们可以在 <code>/assets/js/</code> 目录下发现 <code>main.js</code> 和 <code>even.js</code>。在 <code>even.js</code> 中插入如下代码段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript">
+<span class="c1">// 插到文件末尾完事了
+</span><span class="c1"></span>
+<span class="nx">Even</span><span class="p">.</span><span class="nx">mermaid</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">mermaid</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+  <span class="kr">const</span> <span class="nx">blocks</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;pre code.language-mermaid&#34;</span><span class="p">);</span>
+
+  <span class="c1">// change all &lt;pre&gt;&lt;code mamaid&gt; tags to &lt;div class=&#34;mermaid&#34;&gt;
+</span><span class="c1"></span>  <span class="c1">// mermaid will handle the rest!
+</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">blocks</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">hljs</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+
+    <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">blocks</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="kr">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">hljs</span>
+      <span class="o">?</span> <span class="nx">block</span><span class="p">.</span><span class="nx">parentElement</span>
+      <span class="o">:</span> <span class="nx">block</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span>
+          <span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="sb">`js-mermaid-diagrams-</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="nx">container</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="nx">container</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">&#34;align-center mermaid&#34;</span><span class="p">;</span>
+    <span class="nx">container</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">block</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textContent</span><span class="p">;</span>
+    <span class="nx">rootElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">replaceChild</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">rootElement</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nx">mermaid</span><span class="p">.</span><span class="nx">mermaidAPI</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">mermaidOptions</span>
+      <span class="o">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">mermaidOptions</span>
+      <span class="o">:</span> <span class="p">{</span> <span class="nx">securityLevel</span><span class="o">:</span> <span class="s2">&#34;loose&#34;</span><span class="p">,</span> <span class="nx">theme</span><span class="o">:</span> <span class="s2">&#34;base&#34;</span> <span class="p">}</span>
+      <span class="c1">// 替换它可以修改 mermaid 的样式=======↑
+</span><span class="c1"></span> <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>main.js</code> 中插入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 个人比较喜欢插在 Even.sequence(); 的后面
+</span><span class="c1"></span><span class="nx">Even</span><span class="p">.</span><span class="nx">mermaid</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在你应该可以在自己的博客中写 <code>mermaid</code> 了。</p>
+<hr>
+<h3 id="工具推荐">工具推荐</h3>
+<ul>
+<li>
+<p><a href="https://typora.io" target="_blank" rel="noopener noreffer">Typora</a></p>
+<p>写 MarkDown 咋能少得了 「<a href="https://typora.io/" target="_blank" rel="noopener noreffer">Typora</a>」？</p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreffer">Visual Studio Code</a></p>
+<p>俺写这篇文章用的无所不能的编辑器，建议添加插件：</p>
+<ul>
+<li>Markdown All in One</li>
+<li>Markdown Preview Enhanced</li>
+<li>Mermaid Markdown Syntax Highlighting</li>
+</ul>
+<p>之所以用 Visual Studio Code，很大程度上是因为它的 Vim 拓展。 “2021年了不会还有人不会用 Vim 吧？”</p>
+<ul>
+<li>vim</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-19</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" data-title="even 提供 mermaid"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" data-title="even 提供 mermaid"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" data-title="even 提供 mermaid"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/" data-title="even 提供 mermaid"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/08/hugo-mermaid%E6%9B%BF%E6%8D%A2/" class="prev" rel="prev" title="Hugo mermaid替换"><i class="fas fa-angle-left fa-fw"></i>Hugo mermaid替换</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span>&nbsp;|&nbsp;<span class="license">https://creativecommons.org/licenses/by-nc-sa/4.0/</span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"sequenceDiagram\nparticipant 主机A\nparticipant 主机B\n主机A -\u003e\u003e 主机B: 发送 SYN (seq = x)\nNote right of 主机B: 收到 SYN (seq = x)\n主机B --\u003e\u003e 主机A: 发送 SYN (seq = y)\u003cbr/\u003e发送 ACK (ack = x+1)\nNote Left of 主机A: 收到 SYN (seq = y)\u003cbr/\u003e收到 ACK (ack = x+1)\n主机A -\u003e\u003e 主机B: 发送 ACK (ack = y+1)\nNote right of 主机B: 收到 ACK (ack = y+1)\nNote over 主机A, 主机B: TCP 连接建立成功","id-2":"sequenceDiagram\nparticipant mermaid\nNote over 网页内容: MarkDown 文件\n其他支持 --\u003e\u003e 网页内容: 渲染 MarkDown\nNote over 网页内容: HTML 文件\nNote over 网页内容: 此时 mermaid 图表代码\u003cbr/\u003e被包含在特定标签中\nNote over mermaid: mermaidAPI.initialize()\nmermaid -\u003e 网页内容: 查找、获取特定标签内容\nloop 渲染 mermaid 图表\nmermaid --\u003e\u003e mermaid: 将特定标签中的内容进行渲染\nend\nmermaid -\u003e\u003e 网页内容: 替换相应内容\nNote over 网页内容: 内容被替换为 SVG\n其他支持 --\u003e\u003e 网页内容: 其他内容渲染\nNote over 网页内容: 渲染完成的 HTML 文件"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"mermaid":true,"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="/lib/mermaid/mermaid.min.css"></div>
+</body>
+
+</html>

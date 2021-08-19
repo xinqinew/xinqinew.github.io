@@ -7,9 +7,9 @@
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E6%B1%87%E7%BC%96/" rel="self" type="application/rss+xml" /><item>
     <title>知识点</title>
     <link>https://xinqinew.github.io/2021/07/%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
-    <pubDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://xinqinew.github.io/2021/07/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+    <pubDate>Wed, 28 Jul 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/07/%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
     <description><![CDATA[知识点 小知识 ptr 强制类型转换 lea 指令可以用来将一个内存地址直接赋给目的操作数，例如： lea eax,[ebx+8] 就是将ebx+8这个值直接赋给eax mov eax,[ebx+]]></description>
 </item></channel>
 </rss>
