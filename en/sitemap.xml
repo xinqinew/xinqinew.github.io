@@ -2,33 +2,6 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://xinqinew.github.io/en/2021/08/hello-world/</loc><lastmod>2021-08-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://xinqinew.github.io/2021/08/hello-world/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://xinqinew.github.io/en/2021/08/hello-world/"
-                    /></url><url>
-            <loc>https://xinqinew.github.io/en/</loc><lastmod>2021-08-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://xinqinew.github.io/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://xinqinew.github.io/en/"
-                    /></url><url>
-            <loc>https://xinqinew.github.io/en/posts/</loc><lastmod>2021-08-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://xinqinew.github.io/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://xinqinew.github.io/en/posts/"
-                    /></url><url>
             <loc>https://xinqinew.github.io/en/milestone/</loc><lastmod>2020-12-24T19:19:21&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -82,6 +55,15 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://xinqinew.github.io/en/websites/"
+                    /></url><url>
+            <loc>https://xinqinew.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://xinqinew.github.io/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://xinqinew.github.io/en/"
                     /></url><url>
             <loc>https://xinqinew.github.io/en/links/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
