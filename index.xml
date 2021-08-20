@@ -4,9 +4,54 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 19 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 19指针</title>
+    <link>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</link>
+    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 指针 学习 C++ 的指针既简单又有趣。通过指针，可以简化一些 C++ 编程任务的执行，还有一些任务，如动态内存分配，没有指针是无法执行的。所以，想要成为一]]></description>
+</item><item>
+    <title>C&#43;&#43; 20引用</title>
+    <link>https://xinqinew.github.io/2021/08/c-20%E5%BC%95%E7%94%A8/</link>
+    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-20%E5%BC%95%E7%94%A8/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 引用 引用变量是一个别名，也就是说，它是某个已存在变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。 C++]]></description>
+</item><item>
+    <title>C&#43;&#43; 21日期 &amp; 时间</title>
+    <link>https://xinqinew.github.io/2021/08/c-21%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-21%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 日期 &amp; 时间 C++ 标准库没有提供所谓的日期类型。C++ 继承了 C 语言用于日期和时间操作的结构和函数。为了使用日期和时间相关的函数和结构，需要在 C++ 程]]></description>
+</item><item>
+    <title>C&#43;&#43; 22基本的输入输出</title>
+    <link>https://xinqinew.github.io/2021/08/c-22%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-22%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 基本的输入输出 C++ 标准库提供了一组丰富的输入/输出功能，我们将在后续的章节进行介绍。本章将讨论 C++ 编程中最基本和最常见的 I/O 操作。 C++ 的 I/O 发生在流]]></description>
+</item><item>
+    <title>C&#43;&#43; 23数据结构</title>
+    <link>https://xinqinew.github.io/2021/08/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 数据结构 C/C++ 数组允许定义可存储相同类型数据项的变量，但是结构是 C++ 中另一种用户自定义的可用的数据类型，它允许您存储不同类型的数据项。 结构用于表]]></description>
+</item><item>
     <title>任鸟飞系列</title>
     <link>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/</link>
     <pubDate>Thu, 19 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -49,50 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 函数 定义函数 C++ 中的函数定义的一般形式如下： 1 2 3 4 return_type function_name( parameter list ) { body of the function } 函数参数 调用类型 描述 传值调用 该方法把参数的实际值赋值给函数的形式参]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(六) 数组</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/</link>
-    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 数组 概念 描述 多维数组 C++ 支持多维数组。多维数组最简单的形式是二维数组。 指向数组的指针 您可以通过指定不带索引的数组名称来生成一个指向数组中第一]]></description>
-</item><item>
-    <title>C&#43;&#43; 08变量作用域</title>
-    <link>https://xinqinew.github.io/2021/08/c-08%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-08%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 变量作用域 作用域是程序的一个区域，一般来说有三个地方可以定义变量： 在函数或一个代码块内部声明的变量，称为局部变量。 在函数参数的定义中声明的]]></description>
-</item><item>
-    <title>C&#43;&#43; 11存储类</title>
-    <link>https://xinqinew.github.io/2021/08/c-11%E5%AD%98%E5%82%A8%E7%B1%BB/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-11%E5%AD%98%E5%82%A8%E7%B1%BB/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 存储类 存储类定义 C++ 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C++ 程序中可用的存储类： auto register static extern]]></description>
-</item><item>
-    <title>C&#43;&#43; 12运算符</title>
-    <link>https://xinqinew.github.io/2021/08/c-12%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-12%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 运算符 运算符是一种告诉编译器执行特定的数学或逻辑操作的符号。C++ 内置了丰富的运算符，并提供了以下类型的运算符： 算术运算符 关系运算符 逻辑运]]></description>
-</item><item>
-    <title>C&#43;&#43; 13循环</title>
-    <link>https://xinqinew.github.io/2021/08/c-13%E5%BE%AA%E7%8E%AF/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-13%E5%BE%AA%E7%8E%AF/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 循环 有的时候，可能需要多次执行同一块代码。一般情况下，语句是顺序执行的：函数中的第一个语句先执行，接着是第二个语句，依此类推。 编程语言提供]]></description>
 </item></channel>
 </rss>
