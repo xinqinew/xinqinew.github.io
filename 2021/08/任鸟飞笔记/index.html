@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  2304 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞","wordcount":  2406 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -62,6 +62,7 @@
                     <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
                     <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
                     <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
                     <span class="menu-item delimiter"></span>
                    <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
@@ -110,6 +111,7 @@
             <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
             <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
             <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
             
             <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
@@ -130,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2304 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2406 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -203,16 +205,27 @@
 <p><strong>AND</strong> 指令在两个操作数的对应位之间进行（按位）逻辑与（AND）操作，并将结果存放在目标操作数中。</p>
 </li>
 <li>
-<p><strong>TEST</strong> 指令在两个操作数的对应位之间进行 AND 操作，并根据运算结果设置符号标志位、零标志位和奇偶标志位。</p>
+<p><strong>XOR</strong> 指令在两个操作数的对应位之间进行（按位）逻辑异或（XOR）操作，并将结果存放在目标操作数中.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">test</span> <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="err">//判断</span><span class="no">eax是否为0</span>
-<span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="err">//</span><span class="no">eax清0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	 <span class="c">#eax清0
+</span><span class="c"></span><span class="no">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">A3F838C</span>	<span class="c">#简单的异或加密（可直接异或解密）
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>TEST</strong> 指令在两个操作数的对应位之间进行 AND 操作，并根据运算结果设置符号标志位、零标志位和奇偶标志位。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">test</span> <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="c">#判断eax是否为0
+</span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -237,15 +250,25 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">fstp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">ebp-28</span><span class="p">]</span>
-<span class="c">#将st0中的值传入后面的地址[ebp-28]
+<span class="c">#将st0中的值传入后面的地址[ebp-28],并出栈
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>FST</strong> 将协处理器堆栈栈顶的数据传送到目标操作数中。在进行数据传送时，系统自动根据控制寄存器中舍入控制位的设置把栈顶浮点数舍入成相应精度的数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">fst</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">ebp-28</span><span class="p">]</span>
+<span class="c">#将st0中的值传入后面的地址[ebp-28]，不出栈
 </span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p><strong>FADD</strong>类似于  ADD指令 源操作数与目的操作数相加</p>
-</li>
-<li>
-<p><strong>FST</strong> 将协处理器堆栈栈顶的数据传送到目标操作数中。在进行数据传送时，系统自动根据控制寄存器中舍入控制位的设置把栈顶浮点数舍入成相应精度的数据。</p>
 </li>
 <li>
 <p><strong>FDIV</strong> 指令执行目的操作数除以源操作数，被除数保存在目的操作数中。目的操作数总是一个寄存器，源操作数可以为寄存器或者内存操作数。其语法与 FADD 和 FSUB 相同。</p>

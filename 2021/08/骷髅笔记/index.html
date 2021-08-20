@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  280 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  509 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-20T00:00:00+00:00","dateModified": "2021-08-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -62,6 +62,7 @@
                     <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
                     <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
                     <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
                     <span class="menu-item delimiter"></span>
                    <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
@@ -110,6 +111,7 @@
             <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
             <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
             <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
             
             <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
@@ -130,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 280 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 509 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -152,6 +154,8 @@
       <ul>
         <li><a href="#npc等级">npc等级</a></li>
         <li><a href="#npc坐标">npc坐标</a></li>
+        <li><a href="#角色速度">角色速度</a></li>
+        <li><a href="#角色朝向">角色朝向</a></li>
       </ul>
     </li>
   </ul>
@@ -172,6 +176,31 @@
 <li>通过搜索未知初始值来得到当前选中怪，有可能得到的是ID，也有可能得到的是对象，然后追写入的来源，并在周围遍历到坐标。</li>
 <li>通过追角色的坐标对象，并在得到对象偏移的代码段下f2断点，f9运行得到一个不同于角色基地址的返回地址，返回后得到npc的遍历。</li>
 <li>直接双开角色，查找其中一个的坐标。</li>
+</ol>
+<h2 id="角色速度">角色速度</h2>
+<p>如何查找角色的速度，以及变态加速功能的实现：</p>
+<ol>
+<li>
+<p>通过改变角色的速度，比如上马下马，或者跑步走路，有速度值，比如走路100，跑步150，更常见。</p>
+</li>
+<li>
+<p>通过角色的行走状态，比如走路1，跑步2，上马3</p>
+<p>有可能是整数型，也可能是浮点（常见）。</p>
+<p>1-10000 （常见）</p>
+</li>
+</ol>
+<h2 id="角色朝向">角色朝向</h2>
+<p>角色朝向的几种常见数值：</p>
+<ol>
+<li>从-1到1</li>
+<li>从-π到π 或者从0到π</li>
+<li>从0到360</li>
+<li>其他程序员自定义朝向值</li>
+</ol>
+<p>朝向在数据中的表现形式：</p>
+<ol>
+<li>以一个值会变动的地址同时表现xy朝向，以单独的内存地址表现z朝向</li>
+<li>以单独内存地址分别表现xyz朝向</li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
