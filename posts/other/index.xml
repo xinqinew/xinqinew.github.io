@@ -4,7 +4,21 @@
         <link>https://xinqinew.github.io/posts/other/</link>
         <description>所有未分类的常见问题 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/other/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/other/" rel="self" type="application/rss+xml" /><item>
+    <title>Java-环境搭建Mac版</title>
+    <link>https://xinqinew.github.io/2021/08/java-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAmac%E7%89%88/</link>
+    <pubDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/java-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAmac%E7%89%88/</guid>
+    <description><![CDATA[第一步：JDK下载 打开Oracle官网，点击 资源&ndash;软件下载按钮： 进入下载页面：点击Java选项，跳转到Java相关下载的选项： 选]]></description>
+</item><item>
+    <title>阿里云盘变本地硬盘-MAC版</title>
+    <link>https://xinqinew.github.io/2021/08/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%8F%98%E6%9C%AC%E5%9C%B0%E7%A1%AC%E7%9B%98-mac%E7%89%88/</link>
+    <pubDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%8F%98%E6%9C%AC%E5%9C%B0%E7%A1%AC%E7%9B%98-mac%E7%89%88/</guid>
+    <description><![CDATA[获取阿里云盘 refresh_token 登陆阿里云盘网页版 https://www.aliyundrive.com/sign/in 登陆以后F12 复制 refresh_token 留用 配置 两种配置方式 Jar包运行 点击下载Jar包 1 java -jar webdav.jar --aliyundrive.refresh-token=&#34;your refreshToken&#34; docker运行 1 2 3 4 5]]></description>
+</item><item>
     <title>sublimetext常见问题</title>
     <link>https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
     <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate><author>
