@@ -16,6 +16,33 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 指针 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&nd]]></description>
 </item><item>
+    <title>C&#43;&#43;知识点(九) 输入输出</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B9%9D/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B9%9D/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 基本的输入输出 I/O 库头文件 下列的头文件在 C++ 编程中很重要。 头文件 函数和描述 &lt;iostream&gt; 该文件定义了 cin、cout、cerr 和 clog 对象，分别对应于标准输入]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点(八) 日期与时间</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AB/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AB/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 日期 &amp; 时间 有四个与时间相关的类型：clock_t、time_t、size_t 和 tm。类型 clock_t、size_t 和 time_t 能够把系统时间和日]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点(十) 数据结构</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 数据结构 定义结构 1 2 3 4 5 6 7 struct type_name { member_type1 member_name1; member_type2 member_name2; member_type3 member_name3; . . } object_names; 访问结构成员 使用成员访问运算符（.） 结构作为函数参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item><item>
     <title>C&#43;&#43; 19指针</title>
     <link>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</link>
     <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,32 +94,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/</guid>
     <description><![CDATA[任鸟飞天涯明月刀辅助实战教程 2020飞郁任鸟飞C++之灵魂起源 代号1124-任鸟飞2019之易语言FPS游戏自瞄爆头飞天透视画框 任鸟飞201]]></description>
-</item><item>
-    <title>C&#43;&#43; 12a自增自减运算符</title>
-    <link>https://xinqinew.github.io/2021/08/c-12a%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
-    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-12a%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 自增自减运算符 C++ 运算符 自增运算符 ++ 会把操作数加 1，自减运算符 &ndash; 会把操作数减 1。因此： 1 2 3 4 5 x = x+1; 等同于 x++; 同样的： 1 2 3 4 5 x = x-1; 等同于]]></description>
-</item><item>
-    <title>C&#43;&#43; 12b杂项运算符</title>
-    <link>https://xinqinew.github.io/2021/08/c-12b%E6%9D%82%E9%A1%B9%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
-    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-12b%E6%9D%82%E9%A1%B9%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 杂项运算符 C++ 运算符 C++ sizeof 运算符 sizeof 是一个关键字，它是一个编译时运算符，用于判断变量或数据类型的字节大小。 sizeof 运算符可用于获取类、结构、共用体和其]]></description>
-</item><item>
-    <title>C&#43;&#43; 18字符串</title>
-    <link>https://xinqinew.github.io/2021/08/c-18%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-18%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 字符串 C++ 提供了以下两种类型的字符串表示形式： C 风格字符串 C++ 引入的 string 类类型 C 风格字符串 C 风格的字符串起源于 C 语言，并在 C++ 中继续得到支持。字符]]></description>
 </item></channel>
 </rss>

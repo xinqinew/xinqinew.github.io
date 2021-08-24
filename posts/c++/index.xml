@@ -14,6 +14,33 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 指针 概念 描述 C++ Null 指针 C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 C++ 指针的算术运算 可以对指针进行四种算术运算：++、&nd]]></description>
 </item><item>
+    <title>C&#43;&#43;知识点(九) 输入输出</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B9%9D/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B9%9D/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 基本的输入输出 I/O 库头文件 下列的头文件在 C++ 编程中很重要。 头文件 函数和描述 &lt;iostream&gt; 该文件定义了 cin、cout、cerr 和 clog 对象，分别对应于标准输入]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点(八) 日期与时间</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AB/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AB/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 日期 &amp; 时间 有四个与时间相关的类型：clock_t、time_t、size_t 和 tm。类型 clock_t、size_t 和 time_t 能够把系统时间和日]]></description>
+</item><item>
+    <title>C&#43;&#43;知识点(十) 数据结构</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 数据结构 定义结构 1 2 3 4 5 6 7 struct type_name { member_type1 member_name1; member_type2 member_name2; member_type3 member_name3; . . } object_names; 访问结构成员 使用成员访问运算符（.） 结构作为函数参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(五) 函数与数字</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</link>
     <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,32 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>runoob C++教程 语言中文网C++教程]]></description>
-</item><item>
-    <title>L和_T()的区别</title>
-    <link>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/l%E5%92%8C_t%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
-</item><item>
-    <title>pragma once与ifndef 解析</title>
-    <link>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>#pragma once 与 #ifndef 解析 为了避免同一个文件被include多次，C/C++中有两种方式，一种是#ifndef方式，一种是#pragma once方式。在能]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(二)</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
-    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
 </item></channel>
 </rss>
