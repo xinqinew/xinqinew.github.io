@@ -4,9 +4,18 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43;知识点(七) 指针与引用</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%83/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%83/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 指针]]></description>
+</item><item>
     <title>C&#43;&#43; 19指针</title>
     <link>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</link>
     <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 字符串 C++ 提供了以下两种类型的字符串表示形式： C 风格字符串 C++ 引入的 string 类类型 C 风格字符串 C 风格的字符串起源于 C 语言，并在 C++ 中继续得到支持。字符]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(五) 函数与数字</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</link>
-    <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 函数 定义函数 C++ 中的函数定义的一般形式如下： 1 2 3 4 return_type function_name( parameter list ) { body of the function } 函数参数 调用类型 描述 传值调用 该方法把参数的实际值赋值给函数的形式参]]></description>
 </item></channel>
 </rss>

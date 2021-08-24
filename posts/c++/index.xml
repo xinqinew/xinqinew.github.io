@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;知识点(七) 指针与引用</title>
+    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%83/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%83/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 指针]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(五) 函数与数字</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%94/</link>
     <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -14,7 +23,7 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 函数 定义函数 C++ 中的函数定义的一般形式如下： 1 2 3 4 return_type function_name( parameter list ) { body of the function } 函数参数 调用类型 描述 传值调用 该方法把参数的实际值赋值给函数的形式参]]></description>
 </item><item>
-    <title>C&#43;&#43;知识点(六) 数组</title>
+    <title>C&#43;&#43;知识点(六) 数组与字符串</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/</link>
     <pubDate>Wed, 18 Aug 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设]]></description>
-</item><item>
-    <title>C&#43;&#43;关键字</title>
-    <link>https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
-    <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++关键字 1. asm asm (指令字符串)：允许在 C++ 程序中嵌入汇编代码。 2. auto auto（自动，automatic）是存储类型标识符，表明变量&quot;]]></description>
 </item></channel>
 </rss>

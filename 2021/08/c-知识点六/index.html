@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C&#43;&#43;知识点(六) 数组 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(六) 数组" />
+    <title class="pjax-title">C&#43;&#43;知识点(六) 数组与字符串 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(六) 数组与字符串" />
 <meta property="og:description" content="C&#43;&#43; 数组 概念 描述 多维数组 C&#43;&#43; 支持多维数组。多维数组最简单的形式是二维数组。 指向数组的指针 您可以通过指定不带索引的数组名称来生成一个指向数组中第一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43;知识点(六) 数组"/>
+<meta name="twitter:title" content="C&#43;&#43;知识点(六) 数组与字符串"/>
 <meta name="twitter:description" content="C&#43;&#43; 数组 概念 描述 多维数组 C&#43;&#43; 支持多维数组。多维数组最简单的形式是二维数组。 指向数组的指针 您可以通过指定不带索引的数组名称来生成一个指向数组中第一"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
@@ -28,12 +28,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++知识点(六) 数组",
+        "headline": "C++知识点(六) 数组与字符串",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  1334 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  1775 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD\/","datePublished": "2021-08-18T00:00:00+00:00","dateModified": "2021-08-18T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43;知识点(六) 数组</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43;知识点(六) 数组与字符串</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1334 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(六) 数组">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1775 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(六) 数组与字符串">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -156,6 +156,12 @@
         <li><a href="#c-指向数组的指针">C++ 指向数组的指针</a></li>
         <li><a href="#c-传递数组给函数">C++ 传递数组给函数</a></li>
         <li><a href="#c-从函数返回数组">C++ 从函数返回数组</a></li>
+      </ul>
+    </li>
+    <li><a href="#c-字符串">C++ 字符串</a>
+      <ul>
+        <li><a href="#c-风格字符串">C 风格字符串</a></li>
+        <li><a href="#c-中的-string-类">C++ 中的 String 类</a></li>
       </ul>
     </li>
   </ul>
@@ -608,6 +614,143 @@
 
 </code></pre></td></tr></table>
 </div>
+</div><h1 id="c-字符串">C++ 字符串</h1>
+<h2 id="c-风格字符串">C 风格字符串</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">site</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>依据数组初始化规则，您可以把上面的语句写成以下语句：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">site</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;RUNOOB&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以下是 C/C++ 中定义的字符串的内存表示：
+C/C++ 中的字符串表示</p>
+<p><img
+        class="lazyload"
+        data-src="https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png"
+        data-srcset="https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png, https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png 1.5x, https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png 2x"
+        data-sizes="auto"
+        alt="https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png"
+        title="https://www.runoob.com/wp-content/uploads/2014/09/c-strings-2020-12-21.png"
+    /></p>
+<p>C++ 中有大量的函数用来操作以 null 结尾的字符串:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">函数 &amp; 目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>strcpy(s1, s2);</strong> 复制字符串 s2 到字符串 s1。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>strcat(s1, s2);</strong> 连接字符串 s2 到字符串 s1 的末尾。连接字符串也可以用 <strong>+</strong> 号，例如: string str1 = &ldquo;runoob&rdquo;;<br/>string str2 = &ldquo;google&rdquo;; <br/>string str = str1 + str2;</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>strlen(s1);</strong> 返回字符串 s1 的长度。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>strcmp(s1, s2);</strong> 如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回值小于 0；如果 s1&gt;s2 则返回值大于 0。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>strchr(s1, ch);</strong> 返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>strstr(s1, s2);</strong> 返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="c-中的-string-类">C++ 中的 String 类</h2>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
+   <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
+   <span class="n">string</span> <span class="n">str3</span><span class="p">;</span>
+   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
+ 
+   <span class="c1">// 复制 str1 到 str3
+</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+   <span class="c1">// 连接 str1 和 str2
+</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str1 + str2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+   <span class="c1">// 连接后，str3 的总长度
+</span><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3.size() :  &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="nl">str3</span> <span class="p">:</span> <span class="n">runoob</span>
+<span class="n">str1</span> <span class="o">+</span> <span class="nl">str2</span> <span class="p">:</span> <span class="n">runoobgoogle</span>
+<span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span>  <span class="mi">12</span>
+</code></pre></td></tr></table>
+</div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -619,7 +762,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组与字符串"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组与字符串"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组与字符串"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%85%AD/" data-title="C&#43;&#43;知识点(六) 数组与字符串" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
