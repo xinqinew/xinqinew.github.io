@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  2028 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  2055 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/","datePublished": "2021-08-20T00:00:00+00:00","dateModified": "2021-08-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2028 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2055 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/08/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 23数据结构">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -495,8 +495,107 @@
 </div>
 </div><p>让我们使用结构指针来重写上面的实例，这将有助于您理解结构指针的概念：</p>
 <h2 id="实例-2">实例</h2>
-<p>#include <iostream> #include <cstring>  using namespace std; void printBook( struct Books *book );  struct Books {   char  title[50];   char  author[50];   char  subject[100];   int   book_id; };  int main( ) {   Books Book1;        // 定义结构体类型 Books 的变量 Book1   Books Book2;        // 定义结构体类型 Books 的变量 Book2     // Book1 详述   strcpy( Book1.title, &ldquo;C++ 教程&rdquo;);   strcpy( Book1.author, &ldquo;Runoob&rdquo;);    strcpy( Book1.subject, &ldquo;编程语言&rdquo;);   Book1.book_id = 12345;    // Book2 详述   strcpy( Book2.title, &ldquo;CSS 教程&rdquo;);   strcpy( Book2.author, &ldquo;Runoob&rdquo;);   strcpy( Book2.subject, &ldquo;前端技术&rdquo;);   Book2.book_id = 12346;    // 通过传 Book1 的地址来输出 Book1 信息   printBook( &amp;Book1 );    // 通过传 Book2 的地址来输出 Book2 信息   printBook( &amp;Book2 );    return 0; } // 该函数以结构指针作为参数 void printBook( struct Books *book ) {   cout &laquo; &ldquo;书标题  : &quot; &laquo; book-&gt;title &laquo;endl;   cout &laquo; &ldquo;书作者 : &quot; &laquo; book-&gt;author &laquo;endl;   cout &laquo; &ldquo;书类目 : &quot; &laquo; book-&gt;subject &laquo;endl;   cout &laquo; &ldquo;书 ID : &quot; &laquo; book-&gt;book_id &laquo;endl; }</p>
-<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">printBook</span><span class="p">(</span> <span class="k">struct</span> <span class="nc">Books</span> <span class="o">*</span><span class="n">book</span> <span class="p">);</span>
+ 
+<span class="k">struct</span> <span class="nc">Books</span>
+<span class="p">{</span>
+   <span class="kt">char</span>  <span class="n">title</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+   <span class="kt">char</span>  <span class="n">author</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+   <span class="kt">char</span>  <span class="n">subject</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+   <span class="kt">int</span>   <span class="n">book_id</span><span class="p">;</span>
+<span class="p">};</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">Books</span> <span class="n">Book1</span><span class="p">;</span>        <span class="c1">// 定义结构体类型 Books 的变量 Book1
+</span><span class="c1"></span>   <span class="n">Books</span> <span class="n">Book2</span><span class="p">;</span>        <span class="c1">// 定义结构体类型 Books 的变量 Book2
+</span><span class="c1"></span> 
+    <span class="c1">// Book1 详述
+</span><span class="c1"></span>   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book1</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;C++ 教程&#34;</span><span class="p">);</span>
+   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book1</span><span class="p">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#34;Runoob&#34;</span><span class="p">);</span> 
+   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book1</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span> <span class="s">&#34;编程语言&#34;</span><span class="p">);</span>
+   <span class="n">Book1</span><span class="p">.</span><span class="n">book_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+ 
+   <span class="c1">// Book2 详述
+</span><span class="c1"></span>   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book2</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;CSS 教程&#34;</span><span class="p">);</span>
+   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book2</span><span class="p">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#34;Runoob&#34;</span><span class="p">);</span>
+   <span class="n">strcpy</span><span class="p">(</span> <span class="n">Book2</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span> <span class="s">&#34;前端技术&#34;</span><span class="p">);</span>
+   <span class="n">Book2</span><span class="p">.</span><span class="n">book_id</span> <span class="o">=</span> <span class="mi">12346</span><span class="p">;</span>
+ 
+   <span class="c1">// 通过传 Book1 的地址来输出 Book1 信息
+</span><span class="c1"></span>   <span class="n">printBook</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Book1</span> <span class="p">);</span>
+ 
+   <span class="c1">// 通过传 Book2 的地址来输出 Book2 信息
+</span><span class="c1"></span>   <span class="n">printBook</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Book2</span> <span class="p">);</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 该函数以结构指针作为参数
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">printBook</span><span class="p">(</span> <span class="k">struct</span> <span class="nc">Books</span> <span class="o">*</span><span class="n">book</span> <span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;书标题  : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">book</span><span class="o">-&gt;</span><span class="n">title</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;书作者 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">book</span><span class="o">-&gt;</span><span class="n">author</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;书类目 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">book</span><span class="o">-&gt;</span><span class="n">subject</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;书 ID : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">book</span><span class="o">-&gt;</span><span class="n">book_id</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -520,7 +619,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="typedef-关键字">typedef 关键字</h2>
-<p>下面是一种更简单的定义结构的方式，您可以为创建的类型取一个&quot;别名&rdquo;。例如：</p>
+<p>下面是一种更简单的定义结构的方式，您可以为创建的类型取一个&quot;别名&quot;。例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
