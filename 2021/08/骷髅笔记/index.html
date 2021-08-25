@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  726 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  1199 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-20T00:00:00+00:00","dateModified": "2021-08-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 726 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1199 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -159,6 +159,17 @@
         <li><a href="#遍历背包">遍历背包</a></li>
         <li><a href="#支线任务遍历">支线任务遍历</a></li>
         <li><a href="#明文发包">明文发包</a></li>
+        <li><a href="#技能冷却">技能冷却</a></li>
+        <li><a href="#技能名称及相关信息">技能名称及相关信息</a></li>
+        <li><a href="#技能封包">技能封包</a></li>
+        <li><a href="#选中npc和打开npc-封包">选中npc和打开npc 封包</a></li>
+        <li><a href="#使用物品封包">使用物品封包</a></li>
+        <li><a href="#穿装备封包">穿装备封包</a></li>
+        <li><a href="#游戏小退封包">游戏小退封包</a></li>
+        <li><a href="#喊话call">喊话call</a></li>
+        <li><a href="#喊话坐标的调用">喊话坐标的调用</a></li>
+        <li><a href="#自动复活">自动复活</a></li>
+        <li><a href="#寻路">寻路</a></li>
       </ul>
     </li>
   </ul>
@@ -230,6 +241,51 @@
 <li>
 <p>然后确定明文包是否可以返回到功能call</p>
 </li>
+</ol>
+<h2 id="技能冷却">技能冷却</h2>
+<p>技能冷却的查找</p>
+<ol>
+<li>通过技能冷却标志位查找，常见的有搜索0和1，0和-1，-1就是FFFFFFFF或者字节型就是FF</li>
+<li>通过技能冷却时间查找，常见的有从冷却开始时间增加和从冷却开始时间减少。</li>
+<li>通过找到技能call并到附近观察跳转，找到判断技能是否冷却的方式。</li>
+</ol>
+<h2 id="技能名称及相关信息">技能名称及相关信息</h2>
+<p>大部分的游戏，技能的冷却与名字都不在同一个遍历下，为了得到全面的技能信息，需要通过搜索技能名称字符串找到技能的名字遍历，并通过技能ID与技能的其他信息进行关联。</p>
+<p>天刀是utf-8的编码方式，需要通过工具将文本型转换成字节集进行搜索。</p>
+<h2 id="技能封包">技能封包</h2>
+<ol>
+<li>
+<p>发包找技能call。<strong>常见</strong></p>
+</li>
+<li>
+<p>使用技能，在蓝量上下写入断点。</p>
+</li>
+<li>
+<p>在技能id上，或者在技能的冷却上下访问或者写入断点。</p>
+</li>
+<li>
+<p>在技能栏上下访问断点。</p>
+</li>
+</ol>
+<h2 id="选中npc和打开npc-封包">选中npc和打开npc 封包</h2>
+<p>无笔记</p>
+<h2 id="使用物品封包">使用物品封包</h2>
+<p>使用明文包返回到功能call</p>
+<h2 id="穿装备封包">穿装备封包</h2>
+<h2 id="游戏小退封包">游戏小退封包</h2>
+<h2 id="喊话call">喊话call</h2>
+<ol>
+<li>在喊话内容上下访问断</li>
+<li>喊话类型上下访问断</li>
+<li>直接通过发包来找</li>
+</ol>
+<h2 id="喊话坐标的调用">喊话坐标的调用</h2>
+<h2 id="自动复活">自动复活</h2>
+<h2 id="寻路">寻路</h2>
+<ol>
+<li>发包返回到寻路</li>
+<li>通过目的地坐标，下写入断点直接找到寻路</li>
+<li>通过目的地坐标，找到走路call，然后在走路call上下断，返回到寻路</li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
