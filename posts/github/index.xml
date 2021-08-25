@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>GitHub SSH免密与Token登录</title>
+    <link>https://xinqinew.github.io/2021/08/github-ssh%E5%85%8D%E5%AF%86%E4%B8%8Etoken%E7%99%BB%E5%BD%95/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/github-ssh%E5%85%8D%E5%AF%86%E4%B8%8Etoken%E7%99%BB%E5%BD%95/</guid>
+    <description><![CDATA[GitHub不再支持密码验证解决方案：SSH免密与Token登录配置 今天提交代码，push到GitHub上，突然出现这个问题。 remote: Support for password authentication was removed]]></description>
+</item><item>
     <title>even 提供 mermaid</title>
     <link>https://xinqinew.github.io/2021/08/even-%E6%8F%90%E4%BE%9B-mermaid/</link>
     <pubDate>Thu, 19 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
     <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
-</item><item>
-    <title>为博客添加免费的 CDN (Cloudflare)</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</guid>
-    <description><![CDATA[GitHub Pages 不仅不花钱，而且还有免费的证书拿，可以说是相当划算的。但有个问题就是 GitHub 的服务器都部署在海外，也就是说在国内访问本博客的速度的速度会比较慢]]></description>
 </item></channel>
 </rss>

@@ -4,9 +4,72 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 24类 &amp; 对象</title>
+    <link>https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 类 &amp; 对象 C++ 在 C 语言的基础上增加了面向对象编程，C++ 支持面向对象程序设计。类是 C++ 的核心特性，通常被称为用户定义的类型。 类用于指定对象的形式]]></description>
+</item><item>
+    <title>C&#43;&#43; 25继承</title>
+    <link>https://xinqinew.github.io/2021/08/c-25%E7%BB%A7%E6%89%BF/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-25%E7%BB%A7%E6%89%BF/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 继承 面向对象程序设计中最重要的一个概念是继承。继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。这样做，也达到]]></description>
+</item><item>
+    <title>C&#43;&#43; 26重载运算符和重载函数</title>
+    <link>https://xinqinew.github.io/2021/08/c-26%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-26%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 重载运算符和重载函数 C++ 允许在同一作用域中的某个函数和运算符指定多个定义，分别称为函数重载和运算符重载。 重载声明是指一个与之前已经在该作用域]]></description>
+</item><item>
+    <title>C&#43;&#43; 27多态</title>
+    <link>https://xinqinew.github.io/2021/08/c-27%E5%A4%9A%E6%80%81/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-27%E5%A4%9A%E6%80%81/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。 C++ 多态意味着调用成员函数时，会根据调用函]]></description>
+</item><item>
+    <title>C&#43;&#43; 28数据抽象</title>
+    <link>https://xinqinew.github.io/2021/08/c-28%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-28%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 数据抽象 数据抽象是指，只向外界提供关键信息，并隐藏其后台的实现细节，即只表现必要的信息而不呈现细节。 数据抽象是一种依赖于接口和实现分离的编]]></description>
+</item><item>
+    <title>C&#43;&#43; 29数据封装</title>
+    <link>https://xinqinew.github.io/2021/08/c-29%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-29%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 数据封装 所有的 C++ 程序都有以下两个基本要素： **程序语句（代码）：**这是程序中执行动作的部分，它们被称为函数。 **程序数据：**数据是程序]]></description>
+</item><item>
+    <title>C&#43;&#43; 30接口（抽象类）</title>
+    <link>https://xinqinew.github.io/2021/08/c-30%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/</link>
+    <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/c-30%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 接口（抽象类） 接口描述了类的行为和功能，而不需要完成类的特定实现。 C++ 接口是使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(七) 指针与引用</title>
     <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%83/</link>
     <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -33,66 +96,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 日期 &amp; 时间 有四个与时间相关的类型：clock_t、time_t、size_t 和 tm。类型 clock_t、size_t 和 time_t 能够把系统时间和日]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(十) 数据结构</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</link>
-    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 数据结构 定义结构 1 2 3 4 5 6 7 struct type_name { member_type1 member_name1; member_type2 member_name2; member_type3 member_name3; . . } object_names; 访问结构成员 使用成员访问运算符（.） 结构作为函数参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
-</item><item>
-    <title>C&#43;&#43; 19指针</title>
-    <link>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</link>
-    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-19%E6%8C%87%E9%92%88/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 指针 学习 C++ 的指针既简单又有趣。通过指针，可以简化一些 C++ 编程任务的执行，还有一些任务，如动态内存分配，没有指针是无法执行的。所以，想要成为一]]></description>
-</item><item>
-    <title>C&#43;&#43; 20引用</title>
-    <link>https://xinqinew.github.io/2021/08/c-20%E5%BC%95%E7%94%A8/</link>
-    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-20%E5%BC%95%E7%94%A8/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 引用 引用变量是一个别名，也就是说，它是某个已存在变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。 C++]]></description>
-</item><item>
-    <title>C&#43;&#43; 21日期 &amp; 时间</title>
-    <link>https://xinqinew.github.io/2021/08/c-21%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4/</link>
-    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-21%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 日期 &amp; 时间 C++ 标准库没有提供所谓的日期类型。C++ 继承了 C 语言用于日期和时间操作的结构和函数。为了使用日期和时间相关的函数和结构，需要在 C++ 程]]></description>
-</item><item>
-    <title>C&#43;&#43; 22基本的输入输出</title>
-    <link>https://xinqinew.github.io/2021/08/c-22%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
-    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-22%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 基本的输入输出 C++ 标准库提供了一组丰富的输入/输出功能，我们将在后续的章节进行介绍。本章将讨论 C++ 编程中最基本和最常见的 I/O 操作。 C++ 的 I/O 发生在流]]></description>
-</item><item>
-    <title>C&#43;&#43; 23数据结构</title>
-    <link>https://xinqinew.github.io/2021/08/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-    <pubDate>Fri, 20 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-23%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 数据结构 C/C++ 数组允许定义可存储相同类型数据项的变量，但是结构是 C++ 中另一种用户自定义的可用的数据类型，它允许您存储不同类型的数据项。 结构用于表]]></description>
-</item><item>
-    <title>任鸟飞系列</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/</link>
-    <pubDate>Thu, 19 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/</guid>
-    <description><![CDATA[任鸟飞天涯明月刀辅助实战教程 2020飞郁任鸟飞C++之灵魂起源 代号1124-任鸟飞2019之易语言FPS游戏自瞄爆头飞天透视画框 任鸟飞201]]></description>
 </item></channel>
 </rss>
