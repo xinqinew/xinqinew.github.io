@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  1582 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  1613 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-20T00:00:00+00:00","dateModified": "2021-08-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1582 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1613 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记 - 天涯明月刀">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -186,6 +186,7 @@
         <li><a href="#拍卖之词缀搜索">拍卖之词缀搜索</a></li>
         <li><a href="#拍卖之词缀遍历">拍卖之词缀遍历</a></li>
         <li><a href="#拍卖之上架">拍卖之上架</a></li>
+        <li><a href="#控件call">控件call</a></li>
         <li><a href="#控件遍历">控件遍历</a></li>
       </ul>
     </li>
@@ -194,23 +195,23 @@
             </div><div class="content" id="content"><h1 id="天涯明月刀">天涯明月刀</h1>
 <h2 id="npc等级">npc等级</h2>
 <p>npc等级偏移的常见找法：</p>
-<ol>
+<ul>
 <li>根据角色的等级偏移到npc对象里查找</li>
 <li>通过当前选中怪物的等级来找</li>
 <li>普通的方式，到怪物对象中进行偏移遍历</li>
 <li>双开账号，通过另一个角色的等级提升进行查找</li>
-</ol>
+</ul>
 <h2 id="npc坐标">npc坐标</h2>
 <p>遍历npc坐标的几种方式</p>
-<ol>
+<ul>
 <li>通过当前怪物血，名字等找到npc遍历，然后在对象周围进行遍历找到坐标。</li>
 <li>通过搜索未知初始值来得到当前选中怪，有可能得到的是ID，也有可能得到的是对象，然后追写入的来源，并在周围遍历到坐标。</li>
 <li>通过追角色的坐标对象，并在得到对象偏移的代码段下f2断点，f9运行得到一个不同于角色基地址的返回地址，返回后得到npc的遍历。</li>
 <li>直接双开角色，查找其中一个的坐标。</li>
-</ol>
+</ul>
 <h2 id="角色速度">角色速度</h2>
 <p>如何查找角色的速度，以及变态加速功能的实现：</p>
-<ol>
+<ul>
 <li>
 <p>通过改变角色的速度，比如上马下马，或者跑步走路，有速度值，比如走路100，跑步150，更常见。</p>
 </li>
@@ -219,37 +220,37 @@
 <p>有可能是整数型，也可能是浮点（常见）。</p>
 <p>1-10000 （常见）</p>
 </li>
-</ol>
+</ul>
 <h2 id="角色朝向">角色朝向</h2>
 <p>角色朝向的几种常见数值：</p>
-<ol>
+<ul>
 <li>从-1到1</li>
 <li>从-π到π 或者从0到π</li>
 <li>从0到360</li>
 <li>其他程序员自定义朝向值</li>
-</ol>
+</ul>
 <p>朝向在数据中的表现形式：</p>
-<ol>
+<ul>
 <li>以一个值会变动的地址同时表现xy朝向，以单独的内存地址表现z朝向</li>
 <li>以单独内存地址分别表现xyz朝向</li>
-</ol>
+</ul>
 <h2 id="遍历背包">遍历背包</h2>
 <p>遍历背包的几种方式：</p>
-<ol>
+<ul>
 <li>遍历背包格子 数组较多</li>
 <li>遍历背包物品 二叉数较多</li>
-</ol>
+</ul>
 <p>遍历背包格子，通过数量来找，或者通过是否有物品来找</p>
 <p>遍历背包物品，通过数量，背包位置，物品名称来找比较方便</p>
 <p>另外有些游戏通过发包返回功能call，分析参数也可以物到物品的遍历</p>
 <p><a href="https://stool.chinaz.com/hex" target="_blank" rel="noopener noreffer">站长工具</a></p>
 <h2 id="支线任务遍历">支线任务遍历</h2>
-<ol>
+<ul>
 <li>通过打怪数量</li>
 <li>通过任务标志（接取和放弃任务）<strong>常见</strong></li>
 <li>通过任务名字或者任务描述</li>
 <li>通过接任务或放弃任务call追参数</li>
-</ol>
+</ul>
 <h2 id="明文发包">明文发包</h2>
 <ol>
 <li>
@@ -261,16 +262,16 @@
 </ol>
 <h2 id="技能冷却">技能冷却</h2>
 <p>技能冷却的查找</p>
-<ol>
+<ul>
 <li>通过技能冷却标志位查找，常见的有搜索0和1，0和-1，-1就是FFFFFFFF或者字节型就是FF</li>
 <li>通过技能冷却时间查找，常见的有从冷却开始时间增加和从冷却开始时间减少。</li>
 <li>通过找到技能call并到附近观察跳转，找到判断技能是否冷却的方式。</li>
-</ol>
+</ul>
 <h2 id="技能名称及相关信息">技能名称及相关信息</h2>
 <p>大部分的游戏，技能的冷却与名字都不在同一个遍历下，为了得到全面的技能信息，需要通过搜索技能名称字符串找到技能的名字遍历，并通过技能ID与技能的其他信息进行关联。</p>
 <p>天刀是utf-8的编码方式，需要通过工具将文本型转换成字节集进行搜索。</p>
 <h2 id="技能封包">技能封包</h2>
-<ol>
+<ul>
 <li>
 <p>发包找技能call。<strong>常见</strong></p>
 </li>
@@ -283,79 +284,91 @@
 <li>
 <p>在技能栏上下访问断点。</p>
 </li>
-</ol>
+</ul>
 <h2 id="选中npc和打开npc-封包">选中npc和打开npc 封包</h2>
-<p>无笔记</p>
 <h2 id="使用物品封包">使用物品封包</h2>
-<p>使用明文包返回到功能call</p>
+<ul>
+<li>使用明文包返回到功能call</li>
+</ul>
 <h2 id="穿装备封包">穿装备封包</h2>
 <h2 id="游戏小退封包">游戏小退封包</h2>
 <h2 id="喊话call">喊话call</h2>
-<ol>
+<ul>
 <li>在喊话内容上下访问断</li>
 <li>喊话类型上下访问断</li>
 <li>直接通过发包来找</li>
-</ol>
+</ul>
 <h2 id="喊话坐标的调用">喊话坐标的调用</h2>
 <h2 id="自动复活">自动复活</h2>
 <h2 id="寻路">寻路</h2>
-<ol>
+<ul>
 <li>发包返回到寻路</li>
 <li>通过目的地坐标，下写入断点直接找到寻路</li>
 <li>通过目的地坐标，找到走路call，然后在走路call上下断，返回到寻路</li>
-</ol>
+</ul>
 <h2 id="地图遍历">地图遍历</h2>
-<ol>
+<ul>
 <li>通过当前地图id，下写入断点</li>
 <li>通过地图名字，下访问断点</li>
-</ol>
+</ul>
 <h2 id="传送点遍历">传送点遍历</h2>
-<ol>
+<ul>
 <li>通过传送call，跟踪返回参数，找到基地址。</li>
 <li>通过传送点的名字来找</li>
-</ol>
+</ul>
 <h2 id="npc对话选项">NPC对话（选项）</h2>
-<ol>
+<ul>
 <li>通过最后一句话进行一个发包，返回到点击npc选项的call上</li>
 <li>选项的内容，下访问断点</li>
 <li>通过对话的顺序，下访问或者写入断点</li>
-</ol>
+</ul>
 <h2 id="技能封包-1">技能封包</h2>
 <h2 id="剧情标志位">剧情标志位</h2>
 <h2 id="任务细节分析">任务细节分析</h2>
+<ul>
+<li>
 <p>第一种 怪物名字 或者 打怪数量的文本型</p>
+</li>
+<li>
 <p>第二种 就是打怪的数量</p>
+</li>
+</ul>
 <h2 id="分解及复刻装备">分解及复刻装备</h2>
-<ol>
+<ul>
 <li>分解装备</li>
 <li>复刻装备</li>
-</ol>
+</ul>
 <h2 id="拍卖之搜索">拍卖之搜索</h2>
 <h2 id="拍卖之遍历及购买">拍卖之遍历及购买</h2>
-<ol>
+<ul>
 <li>通过物品的数量</li>
 <li>通过物品名字</li>
 <li>通过拍卖页</li>
-</ol>
+</ul>
 <h2 id="万能按键call">万能按键call</h2>
-<ol>
+<ul>
 <li>通过明文包 （通过按键来触发的发包）</li>
 <li>通过打开背包或者角色栏，找到标志位，下访问或者写入断点</li>
-</ol>
+</ul>
 <h2 id="日常任务之打坐">日常任务之打坐</h2>
-<ol>
+<ul>
 <li>通过打坐获得的经验</li>
 <li>通过打坐次数（已打坐次数或剩余次数）</li>
-</ol>
+</ul>
 <h2 id="日常任务之荡寇">日常任务之荡寇</h2>
 <h2 id="动画标志">动画标志</h2>
 <h2 id="拍卖之词缀搜索">拍卖之词缀搜索</h2>
 <h2 id="拍卖之词缀遍历">拍卖之词缀遍历</h2>
-<ol>
+<ul>
 <li>ce内搜索词缀ID，然后分别下断，看哪个会被断下。</li>
 <li>直接通过词缀名字进行搜索。</li>
-</ol>
+</ul>
 <h2 id="拍卖之上架">拍卖之上架</h2>
+<h2 id="控件call">控件call</h2>
+<ul>
+<li>设置按钮，对选项的标志位进行写入</li>
+<li>直接通过功能call返回</li>
+</ul>
 <h2 id="控件遍历">控件遍历</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
