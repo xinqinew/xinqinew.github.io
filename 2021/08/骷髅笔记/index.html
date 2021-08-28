@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  1630 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 任鸟飞, 骷髅","wordcount":  1782 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-20T00:00:00+00:00","dateModified": "2021-08-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a>&nbsp;<a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1630 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1782 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="骷髅笔记 - 天涯明月刀">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -190,6 +190,11 @@
         <li><a href="#控件遍历">控件遍历</a></li>
         <li><a href="#buff遍历">buff遍历</a></li>
         <li><a href="#对象buff和技能预判">对象buff和技能预判</a></li>
+        <li><a href="#摆摊和收摊">摆摊和收摊</a></li>
+        <li><a href="#代工遍历">代工遍历</a></li>
+        <li><a href="#摆摊移动call">摆摊移动call</a></li>
+        <li><a href="#狩猎100命中">狩猎100%命中</a></li>
+        <li><a href="#狩猎堆栈检测及关键点">狩猎堆栈检测及关键点</a></li>
       </ul>
     </li>
   </ul>
@@ -374,6 +379,24 @@
 <h2 id="控件遍历">控件遍历</h2>
 <h2 id="buff遍历">buff遍历</h2>
 <h2 id="对象buff和技能预判">对象buff和技能预判</h2>
+<h2 id="摆摊和收摊">摆摊和收摊</h2>
+<h2 id="代工遍历">代工遍历</h2>
+<h2 id="摆摊移动call">摆摊移动call</h2>
+<h2 id="狩猎100命中">狩猎100%命中</h2>
+<h2 id="狩猎堆栈检测及关键点">狩猎堆栈检测及关键点</h2>
+<p>3个重点</p>
+<ul>
+<li>找到3个包 条件断点</li>
+<li>朝向计算</li>
+<li>堆栈检测（结构体内部）</li>
+</ul>
+<p>x差==x2-x1</p>
+<p>y差==y2-y1</p>
+<p>z差==(z2-z1)/2</p>
+<p>距离==（x差^2^+y差^2^+z差^2^)^0.5^</p>
+<p>x朝向==x差/距离</p>
+<p>y朝向==y差/距离</p>
+<p>z朝向==z差/距离</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
