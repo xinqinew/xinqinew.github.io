@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">任鸟飞 - 百尺竿头 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞 - 百尺竿头" />
-<meta property="og:description" content="百尺竿头 加密坐标 搜索加密坐标的解决办法：（注意45度坐标） 搜索类型 换成字符串 （找突破口容易，逆向时困难） 在人物对象下寻找 搜索未知初始值（搜索" />
+    <title class="pjax-title">C&#43;&#43;知识点(十三) 重载运算符和重载函数 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(十三) 重载运算符和重载函数" />
+<meta property="og:description" content="C&#43;&#43; 重载运算符和重载函数 C&#43;&#43; 中的函数重载 同名函数 print() 被用于输出不同的数据类型： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 #include" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-03T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-02T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="任鸟飞 - 百尺竿头"/>
-<meta name="twitter:description" content="百尺竿头 加密坐标 搜索加密坐标的解决办法：（注意45度坐标） 搜索类型 换成字符串 （找突破口容易，逆向时困难） 在人物对象下寻找 搜索未知初始值（搜索"/>
+<meta name="twitter:title" content="C&#43;&#43;知识点(十三) 重载运算符和重载函数"/>
+<meta name="twitter:description" content="C&#43;&#43; 重载运算符和重载函数 C&#43;&#43; 中的函数重载 同名函数 print() 被用于输出不同的数据类型： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 #include"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" /><link rel="next" href="https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%BA%8C/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "任鸟飞 - 百尺竿头",
+        "headline": "C++知识点(十三) 重载运算符和重载函数",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, “百尺竿头”","wordcount":  118 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4\/","datePublished": "2021-09-01T00:00:00+00:00","dateModified": "2021-09-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  217 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89\/","datePublished": "2021-09-02T00:00:00+00:00","dateModified": "2021-09-02T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,69 +128,140 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">任鸟飞 - 百尺竿头</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43;知识点(十三) 重载运算符和重载函数</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-03">2021-09-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 118 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" class="leancloud_visitors" data-flag-title="任鸟飞 - 百尺竿头">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 217 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(十三) 重载运算符和重载函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="featured-image"><img
+        class="lazyload"
+        data-src="/images/C&#43;&#43;.jpg"
+        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-sizes="auto"
+        alt="/images/C&#43;&#43;.jpg"
+        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
+    /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#百尺竿头">百尺竿头</a>
+    <li><a href="#c-重载运算符和重载函数">C++ 重载运算符和重载函数</a>
       <ul>
-        <li><a href="#加密坐标">加密坐标</a></li>
-        <li><a href="#经验">经验</a></li>
-        <li><a href="#等级加密解密">等级加密解密</a></li>
+        <li><a href="#c-中的函数重载">C++ 中的函数重载</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="百尺竿头">百尺竿头</h1>
-<h2 id="加密坐标">加密坐标</h2>
-<p>搜索加密坐标的解决办法：（注意45度坐标）</p>
-<ul>
-<li>搜索类型 换成字符串 （找突破口容易，逆向时困难）</li>
-<li>在人物对象下寻找</li>
-<li>搜索未知初始值（搜索过程复杂）</li>
-</ul>
-<h2 id="经验">经验</h2>
-<ul>
-<li>当前经验  升级经验来搜索</li>
-<li>最大经验值 搜索出一堆数据之后，数据一堆一堆得改。</li>
-</ul>
-<h2 id="等级加密解密">等级加密解密</h2>
+            </div><div class="content" id="content"><h1 id="c-重载运算符和重载函数">C++ 重载运算符和重载函数</h1>
+<h2 id="c-中的函数重载">C++ 中的函数重载</h2>
+<p>同名函数 print() 被用于输出不同的数据类型：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="k">class</span> <span class="nc">printData</span>
+<span class="p">{</span>
+   <span class="k">public</span><span class="o">:</span>
+      <span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;整数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+ 
+      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">double</span>  <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;浮点数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+ 
+      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">[])</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;字符串为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+<span class="p">};</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">printData</span> <span class="n">pd</span><span class="p">;</span>
+ 
+   <span class="c1">// 输出整数
+</span><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+   <span class="c1">// 输出浮点数
+</span><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mf">500.263</span><span class="p">);</span>
+   <span class="c1">// 输出字符串
+</span><span class="c1"></span>   <span class="kt">char</span> <span class="n">c</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello C++&#34;</span><span class="p">;</span>
+   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<blockquote>
+</blockquote>
+<p>整数为: 5<br>
+浮点数为: 500.263<br>
+字符串为: Hello C++</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-09-03</span>
+                <span>更新于 2021-09-02</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" data-title="任鸟飞 - 百尺竿头" data-hashtags="任鸟飞,“百尺竿头”"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" data-hashtag="任鸟飞"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" data-title="任鸟飞 - 百尺竿头"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" data-title="任鸟飞 - 百尺竿头"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/" data-title="任鸟飞 - 百尺竿头"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" data-title="C&#43;&#43;知识点(十三) 重载运算符和重载函数"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" data-title="C&#43;&#43;知识点(十三) 重载运算符和重载函数"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" data-title="C&#43;&#43;知识点(十三) 重载运算符和重载函数"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/" data-title="C&#43;&#43;知识点(十三) 重载运算符和重载函数" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%BB%BB%E9%B8%9F%E9%A3%9E/">任鸟飞</a>,&nbsp;<a href="/tags/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/">“百尺竿头”</a></section>
+        <section class="post-tags"></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="骷髅笔记 - 天涯明月刀"><i class="fas fa-angle-left fa-fw"></i>骷髅笔记 - 天涯明月刀</a>
-            <a href="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/" class="next" rel="next" title="任鸟飞系列">任鸟飞系列<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%BA%8C/" class="prev" rel="prev" title="C&#43;&#43;知识点(十二) 继承"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43;知识点(十二) 继承</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
