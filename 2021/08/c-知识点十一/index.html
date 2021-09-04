@@ -928,12 +928,12 @@ Object is being deleted</p>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>调用构造函数<br>
 调用拷贝构造函数并为指针 ptr 分配内存<br>
 line 大小 : 10<br>
 释放内存<br>
 释放内存</p>
+</blockquote>
 <p>下面的实例对上面的实例稍作修改，通过使用已有的同类型的对象来初始化新创建的对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1061,7 +1061,6 @@ line 大小 : 10<br>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>调用构造函数<br>
 调用拷贝构造函数并为指针 ptr 分配内存<br>
 调用拷贝构造函数并为指针 ptr 分配内存<br>
@@ -1072,6 +1071,7 @@ line 大小 : 10<br>
 释放内存<br>
 释放内存<br>
 释放内存</p>
+</blockquote>
 <h3 id="c-友元函数">C++ 友元函数</h3>
 <p>如果要声明函数为一个类的友元，需要在类定义中该函数原型前使用关键字 <strong>friend</strong>，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -1244,10 +1244,10 @@ line 大小 : 10<br>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>Max (20,10): 20<br>
 Max (0,200): 200<br>
 Max (100,1010): 1010</p>
+</blockquote>
 <h3 id="c-this-指针">C++ this 指针</h3>
 <p>友元函数没有 this 指针，因为友元不是类的成员。只有成员函数才有 this 指针。</p>
 <div class="highlight"><div class="chroma">
@@ -1346,10 +1346,10 @@ Max (100,1010): 1010</p>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>Constructor called.<br>
 Constructor called.<br>
 Box2 is equal to or larger than Box1</p>
+</blockquote>
 <h3 id="c-指向类的指针">C++ 指向类的指针</h3>
 <p>一个指向 C++ 类的指针与指向结构的指针类似，访问指向类的指针的成员，需要使用成员访问运算符 -&gt;，就像访问指向结构的指针一样。与所有的指针一样，您必须在使用指针之前，对指针进行初始化。</p>
 <div class="highlight"><div class="chroma">
@@ -1450,11 +1450,11 @@ Box2 is equal to or larger than Box1</p>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>Constructor called.<br>
 Constructor called.<br>
 Volume of Box1: 5.94<br>
 Volume of Box2: 102</p>
+</blockquote>
 <h3 id="c-类的静态成员">C++ 类的静态成员</h3>
 <p><img
         class="lazyload"
@@ -1555,10 +1555,10 @@ Volume of Box2: 102</p>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>Constructor called.<br>
 Constructor called.<br>
 Total objects: 2</p>
+</blockquote>
 <h4 id="静态成员函数">静态成员函数</h4>
 <p><strong>静态函数</strong>只要使用类名加范围解析运算符 :: 就可以访问。
 静态成员函数只能访问静态成员数据、其他静态成员函数和类外部的其他函数。</p>
@@ -1673,11 +1673,11 @@ Total objects: 2</p>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
-</blockquote>
 <p>Inital Stage Count: 0<br>
 Constructor called.<br>
 Constructor called.<br>
 Final Stage Count: 2</p>
+</blockquote>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
