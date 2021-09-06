@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 灵魂起源, C\u002b\u002b","wordcount":  372 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 灵魂起源, C\u002b\u002b","wordcount":  655 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90\/","datePublished": "2021-08-28T00:00:00+00:00","dateModified": "2021-08-31T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a>&nbsp;<a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-28">2021-08-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-31">2021-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 372 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90/" class="leancloud_visitors" data-flag-title="灵魂起源">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-28">2021-08-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-31">2021-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 655 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90/" class="leancloud_visitors" data-flag-title="灵魂起源">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -148,7 +148,10 @@
         <li><a href="#创建dll并且注入窗口中">创建DLL并且注入窗口中</a></li>
         <li><a href="#读写内存修改血量">读写内存修改血量</a></li>
         <li><a href="#函数和call的对应关系">函数和call的对应关系</a></li>
+        <li><a href="#人物属性结构">人物属性结构</a></li>
+        <li><a href="#获得人物数据">获得人物数据</a></li>
         <li><a href="#获得人物基地址大偏移">获得人物基地址+大偏移</a></li>
+        <li><a href="#寻路">寻路</a></li>
       </ul>
     </li>
   </ul>
@@ -256,7 +259,81 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="函数和call的对应关系">函数和call的对应关系</h2>
-<h2 id="获得人物基地址大偏移">获得人物基地址+大偏移</h2>
+<h2 id="人物属性结构">人物属性结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">TROLE_PROPERTY</span>	<span class="c1">//人物属性结构
+</span><span class="c1"></span><span class="p">{</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">szpName</span><span class="p">;</span>
+  <span class="n">DWORD</span> <span class="n">ndHp</span><span class="p">;</span>
+  <span class="p">...</span>
+  <span class="p">...</span>
+  <span class="n">TROLE_PROPERTY</span><span class="o">*</span> <span class="n">GetData</span><span class="p">();</span>	<span class="c1">//获得人物数据
+</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">FindWay</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+ 	<span class="n">DWORD</span> <span class="nf">GetMaxJy</span><span class="p">();</span>
+  <span class="n">DWORD</span> <span class="nf">GetisCombat</span><span class="p">();</span>
+  <span class="n">DWORD</span> <span class="nf">GetComebatNo</span><span class="p">();</span>
+   
+<span class="p">}</span><span class="n">_TROLE_PROPERTY</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="获得人物数据">获得人物数据</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">TROLE_PROPERTY</span><span class="o">*</span><span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">GetData</span><span class="p">()</span>	<span class="c1">//获得人物数据
+</span><span class="c1"></span><span class="p">{</span>
+  <span class="k">try</span>
+ 	<span class="p">{</span>
+   	<span class="n">DWORD</span> <span class="n">Base</span> <span class="o">=</span> <span class="n">GetBase</span><span class="p">(</span><span class="n">Offset_RoleProperty1</span><span class="p">);</span>
+   	<span class="n">DWORD</span> <span class="n">Offset2</span> <span class="o">=</span> <span class="n">Offset_RoleProperty2</span><span class="p">;</span>
+   	<span class="n">Base</span> <span class="o">=</span> <span class="n">Base</span><span class="o">+</span><span class="n">Offset_RoleProperty2</span><span class="p">;</span>
+    <span class="n">DWORD</span> <span class="n">Temp</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">Base</span><span class="p">;</span>
+    <span class="n">ndLv</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x12</span><span class="o">*</span><span class="mi">8</span><span class="p">);</span>
+ 	<span class="p">}</span>
+ 	<span class="k">catch</span><span class="p">(...)</span>
+ 	<span class="p">{</span>
+    <span class="n">OutputDebugStringA</span><span class="p">(</span><span class="s">&#34;读取人物信息异常</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+   	<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+ 	<span class="p">}</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="获得人物基地址大偏移">获得人物基地址+大偏移</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -290,6 +367,69 @@
     <span class="n">mov</span> <span class="n">backeax</span><span class="p">,</span><span class="n">eax</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="n">backeax</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="寻路">寻路</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">FindWay</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>	<span class="c1">//寻路
+</span><span class="c1"></span><span class="p">{</span>
+  <span class="k">try</span>
+  <span class="p">{</span>
+    <span class="n">DWORD</span> <span class="n">ID</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetData</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ndMapId</span><span class="p">;</span>
+    <span class="n">DWORD</span> <span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">DWORD</span> <span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">;</span>
+    <span class="kr">__asm</span>
+    <span class="p">{</span>
+      <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">Base_Role</span>
+      <span class="n">mov</span> <span class="n">eax</span><span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+      <span class="n">mov</span> <span class="n">edx</span><span class="p">,[</span><span class="n">eax</span><span class="o">+</span><span class="n">Offset_FindWay</span><span class="p">]</span>
+      <span class="n">call</span> <span class="n">edx</span>
+      <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">eax</span>
+      <span class="n">push</span> <span class="mi">0</span>
+      <span class="n">push</span> <span class="n">Y</span>
+      <span class="n">push</span> <span class="n">X</span>
+      <span class="n">push</span> <span class="n">ID</span>
+      <span class="n">mov</span> <span class="n">edx</span><span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+     	<span class="n">mov</span> <span class="n">eax</span><span class="p">,[</span><span class="n">edx</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+      <span class="n">call</span> <span class="n">eax</span>  
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">catch</span><span class="p">(...)</span>
+  <span class="p">{</span>
+   	<span class="n">OutputDebugStringA</span><span class="p">(</span><span class="s">&#34;寻路异常</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
