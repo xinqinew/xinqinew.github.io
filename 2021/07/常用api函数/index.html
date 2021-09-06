@@ -202,7 +202,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">HANDLE</span> <span class="nf">CreateThread</span><span class="p">(</span><span class="n">LPSECURITY_ATTRIBUTES</span><span class="p">,</span> <span class="n">SIZE_T</span><span class="p">,</span> <span class="n">LPTHREAD_START_ROUTINE</span><span class="p">,</span> <span class="n">LPVOID</span><span class="p">,</span> <span class="n">DWORD</span> <span class="p">,</span><span class="n">LPDWORD</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="nf">CreateThread</span><span class="p">(</span><span class="n">LPSECURITY_ATTRIBUTES</span><span class="p">,</span> <span class="n">SIZE_T</span><span class="p">,</span> <span class="n">LPTHREAD_START_ROUTINE</span><span class="p">,</span> <span class="n">LPVOID</span><span class="p">,</span> <span class="n">DWORD</span> <span class="p">,</span><span class="n">LPDWORD</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>CreateThread</strong> 将在主线程的基础上创建一个新线程</p>
@@ -218,7 +218,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">LPVOID</span> <span class="nf">VirtualAllocEx</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LPVOID</span> <span class="nf">VirtualAllocEx</span><span class="p">(</span>
 	<span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//申请内存所在的进程句柄。
 </span><span class="c1"></span>	<span class="n">LPVOID</span> <span class="n">lpAddress</span><span class="p">,</span>	<span class="c1">//保留页面的内存地址；一般用NULL自动分配 。
 </span><span class="c1"></span>	<span class="n">SIZE_T</span> <span class="n">dwSize</span><span class="p">,</span>	<span class="c1">//欲分配的内存大小，字节单位；注意实际分 配的内存大小是页内存大小的整数倍
