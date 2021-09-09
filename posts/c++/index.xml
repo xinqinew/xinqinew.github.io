@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;知识点(十四) 多态</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E5%9B%9B/</link>
+    <pubDate>Wed, 08 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E5%9B%9B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++ 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。 C++ 多态意味着调用成员函数时，会根据调用函]]></description>
+</item><item>
     <title>C&#43;&#43;知识点(十三) 重载运算符和重载函数</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%8D%81%E4%B8%89/</link>
     <pubDate>Thu, 02 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 数组 概念 描述 多维数组 C++ 支持多维数组。多维数组最简单的形式是二维数组。 指向数组的指针 您可以通过指定不带索引的数组名称来生成一个指向数组中第一]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(四) 循环与判断</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/</link>
-    <pubDate>Sun, 15 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 循环 循环类型 循环类型 描述 while 循环 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 for 循环 多次执行一个语句序列，简化管理循环]]></description>
 </item></channel>
 </rss>
