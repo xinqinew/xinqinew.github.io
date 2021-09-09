@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>GitHub官方git代码</title>
+    <link>https://xinqinew.github.io/2021/09/github%E5%AE%98%E6%96%B9git%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Tue, 07 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/github%E5%AE%98%E6%96%B9git%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[Quick setup — if you’ve done this kind of thing before Set up in Desktop or HTTPS https://github.com/xinqinew/NewCode.git SSH git@github.com:xinqinew/NewCode.git Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore. 在命令行上创建新的存储库 1 2 3 4 5 6 7 echo &#34;# NewCode&#34; &gt;&gt;]]></description>
+</item><item>
     <title>GitHub SSH免密与Token登录</title>
     <link>https://xinqinew.github.io/2021/08/github-ssh%E5%85%8D%E5%AF%86%E4%B8%8Etoken%E7%99%BB%E5%BD%95/</link>
     <pubDate>Wed, 25 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
     <description><![CDATA[首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即]]></description>
-</item><item>
-    <title>Github绑定freenom域名</title>
-    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
-    <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
 </item></channel>
 </rss>

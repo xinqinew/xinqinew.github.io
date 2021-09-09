@@ -5,11 +5,11 @@
         <description>所有任鸟飞 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/" rel="self" type="application/rss+xml" /><item>
-    <title>灵魂起源</title>
-    <link>https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90/</link>
+    <title>灵魂起源及画江山部分代码</title>
+    <link>https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/</link>
     <pubDate>Sat, 28 Aug 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90/</guid>
+    </author><guid>https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/</guid>
     <description><![CDATA[C++ 逆向 C++编程原理 软件安全 破解与防破解 外挂与反外挂 病毒分析 创建DLL并且注入窗口中 实例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 //唯一的]]></description>
 </item><item>
     <title>任鸟飞系列</title>
@@ -18,13 +18,6 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/</guid>
     <description><![CDATA[任鸟飞天涯明月刀辅助实战教程 2020飞郁任鸟飞C++之灵魂起源 代号1124-任鸟飞2019之易语言FPS游戏自瞄爆头飞天透视画框 任鸟飞201]]></description>
-</item><item>
-    <title>任鸟飞 - 百尺竿头</title>
-    <link>https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/</link>
-    <pubDate>Wed, 01 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E7%99%BE%E5%B0%BA%E7%AB%BF%E5%A4%B4/</guid>
-    <description><![CDATA[百尺竿头 加密坐标 搜索加密坐标的解决办法：（注意45度坐标） 搜索类型 换成字符串 （找突破口容易，逆向时困难） 在人物对象下寻找 搜索未知初始值（搜索]]></description>
 </item><item>
     <title>骷髅笔记 - 天涯明月刀</title>
     <link>https://xinqinew.github.io/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/</link>
