@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1042 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1231 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2021-07-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1042 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1231 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/07/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -156,6 +156,7 @@
         <li><a href="#dll注入">DLL注入</a></li>
         <li><a href="#dll劫持">DLL劫持</a></li>
         <li><a href="#gdi绘图">GDI绘图</a></li>
+        <li><a href="#设置钩子api">设置钩子API</a></li>
         <li><a href="#其它api函数">其它API函数</a>
           <ul>
             <li><a href="#movewindow">MoveWindow</a></li>
@@ -323,7 +324,26 @@ CDC类定义的是设备上下文对象的类</p>
 </code></pre></td></tr></table>
 </div>
 </div><p>填充形状</p>
-<h2 id="其它api函数">其它API函数</h2>
+<h2 id="设置钩子api">设置钩子API</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HHOOK</span> <span class="n">WINAPI</span> <span class="n">SetWindowsHookEx</span><span class="err">（</span>
+  <span class="n">_In_</span>  <span class="kt">int</span>    <span class="n">idHook</span><span class="err">，</span>　　　　　　　　　　　　<span class="c1">//设置钩子的类型.意思就是我要设置的钩子是什么钩子. 可以是监视窗口过程.可以是监视消息队列.
+</span><span class="c1"></span>  <span class="n">_In_</span> <span class="n">HOOKPROC</span> <span class="n">lpfn</span><span class="err">，</span>　　　　　　　　　　　　 <span class="c1">//根据钩子类型.设置不同的回调函数.
+</span><span class="c1"></span>  <span class="n">_In_</span> <span class="n">HINSTANCE</span> <span class="n">hMod</span><span class="err">，</span>　　　　　　　　　　　　<span class="c1">//钩子设置的Dll实例句柄,就是DLL的句柄
+</span><span class="c1"></span>  <span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwThreadId</span>　　　　　　　　　　   <span class="c1">//设置钩子的线程ID. 如果为0 则设置为全局钩子.
+</span><span class="c1"></span><span class="err">）</span><span class="p">;</span>　　　　　　　　　　　　　　　　　　　　　　　　　 <span class="c1">//HHOOK 返回值. 是一个钩子过程句柄.
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="其它api函数">其它API函数</h2>
 <h3 id="movewindow">MoveWindow</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
