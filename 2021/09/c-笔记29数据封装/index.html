@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C&#43;&#43;知识点(二) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(二)" />
-<meta property="og:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设" />
+    <title class="pjax-title">C&#43;&#43; 笔记29数据封装 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 笔记29数据封装" />
+<meta property="og:description" content="C&#43;&#43; 数据封装 所有的 C&#43;&#43; 程序都有以下两个基本要素： **程序语句（代码）：**这是程序中执行动作的部分，它们被称为函数。 **程序数据：**数据是程序" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-07T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-11T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43;知识点(二)"/>
-<meta name="twitter:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一船设"/>
+<meta name="twitter:title" content="C&#43;&#43; 笔记29数据封装"/>
+<meta name="twitter:description" content="C&#43;&#43; 数据封装 所有的 C&#43;&#43; 程序都有以下两个基本要素： **程序语句（代码）：**这是程序中执行动作的部分，它们被称为函数。 **程序数据：**数据是程序"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" /><link rel="prev" href="https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/" /><link rel="next" href="https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B030%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/" /><link rel="next" href="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B028%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++知识点(二)",
+        "headline": "C++ 笔记29数据封装",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  514 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/","datePublished": "2021-08-07T00:00:00+00:00","dateModified": "2021-08-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  561 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85\/","datePublished": "2021-09-11T00:00:00+00:00","dateModified": "2021-09-11T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,21 +128,21 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43;知识点(二)</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 笔记29数据封装</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 514 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(二)">
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%8F%9C%E9%B8%9Fc++%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>菜鸟C++笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-11">2021-09-11</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-11">2021-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 561 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 笔记29数据封装">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
-        data-src="/images/C&#43;&#43;.jpg"
-        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-src="/images/runoob.png"
+        data-srcset="/images/runoob.png, /images/runoob.png 1.5x, /images/runoob.png 2x"
         data-sizes="auto"
-        alt="/images/C&#43;&#43;.jpg"
-        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
+        alt="/images/runoob.png"
+        title="/images/runoob.png" height="auto" width="auto"
     /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -150,116 +150,140 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#c-数据封装">C++ 数据封装</a>
       <ul>
-        <li><a href="#跨进程调用call">跨进程调用CALL</a>
-          <ul>
-            <li><a href="#createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</a></li>
-          </ul>
-        </li>
-        <li><a href="#dll注入调用call">DLL注入调用CALL</a></li>
-        <li><a href="#c类与对象">C++类与对象</a>
-          <ul>
-            <li><a href="#cedit类">CEdit类</a></li>
-            <li><a href="#cstring类">CString类</a></li>
-          </ul>
-        </li>
-        <li><a href="#c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</a></li>
+        <li><a href="#数据封装的实例">数据封装的实例</a></li>
+        <li><a href="#设计策略">设计策略</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="跨进程调用call">跨进程调用CALL</h2>
-<h3 id="createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</h3>
+            </div><div class="content" id="content"><h1 id="c-数据封装">C++ 数据封装</h1>
+<p>所有的 C++ 程序都有以下两个基本要素：</p>
+<ul>
+<li>**程序语句（代码）：**这是程序中执行动作的部分，它们被称为函数。</li>
+<li>**程序数据：**数据是程序的信息，会受到程序函数的影响。</li>
+</ul>
+<p><strong>数据封装</strong>是一种把数据和操作数据的函数捆绑在一起的机制。</p>
+<p><strong>数据抽象</strong>是一种仅向用户暴露接口而把具体的实现细节隐藏起来的机制。</p>
+<p>把一个类定义为另一个类的友元类，会暴露实现细节，从而降低了封装性。理想的做法是尽可能地对外隐藏每个类的实现细节。</p>
+<h2 id="数据封装的实例">数据封装的实例</h2>
+<p>C++ 程序中，任何带有公有和私有成员的类都可以作为数据封装和数据抽象的实例。请看下面的实例：</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="k">class</span> <span class="nc">Adder</span><span class="p">{</span>
+   <span class="k">public</span><span class="o">:</span>
+      <span class="c1">// 构造函数
+</span><span class="c1"></span>      <span class="n">Adder</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 对外的接口
+</span><span class="c1"></span>      <span class="kt">void</span> <span class="nf">addNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 对外的接口
+</span><span class="c1"></span>      <span class="kt">int</span> <span class="nf">getTotal</span><span class="p">()</span>
+      <span class="p">{</span>
+          <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
+      <span class="p">};</span>
+   <span class="k">private</span><span class="o">:</span>
+      <span class="c1">// 对外隐藏的数据
+</span><span class="c1"></span>      <span class="kt">int</span> <span class="n">total</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">Adder</span> <span class="n">a</span><span class="p">;</span>
+   
+   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">getTotal</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateRemoteThread</span><span class="p">(</span>
-<span class="n">_In_</span> <span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//进程句柄.
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpThreadAttributes</span><span class="p">,</span>	<span class="c1">//指针,一般设置为NULL
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">SIZE_T</span> <span class="n">dwStackSize</span><span class="p">,</span>	<span class="c1">//纯种堆栈大小,一船设置为0,表示默认为1M
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPTHREAD_START_ROUTINE</span> <span class="n">lpStartAddress</span><span class="p">,</span>	<span class="c1">//线程函数的地址
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">,</span>	<span class="c1">//线程参数
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwCreationFlags</span><span class="p">,</span>	<span class="c1">//线程的创建标志
-</span><span class="c1"></span><span class="n">_Out_</span> <span class="n">LPDWORD</span> <span class="n">lpThreadId</span>	<span class="c1">//输出参数,记录创建的远程线程的ID,不输出可传NULL
-</span><span class="c1"></span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Total</span> <span class="mi">60</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>​	<strong>线程的创建标志.</strong></p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>线程创建后立即运行</td>
-</tr>
-<tr>
-<td>CREATE_SUSPENDED<br>0x00000004</td>
-<td>线程创建后先将线程挂起,直到 <strong><a href="https://baike.baidu.com/item/ResumeThread" target="_blank" rel="noopener noreffer">ResumeThread</a></strong> 被调用.</td>
-</tr>
-<tr>
-<td>STACK_SIZE_PARAM_IS_A_RE<br/>SERVATION<br/>0x00010000</td>
-<td><em>dwStackSize</em> 参数指定为线程栈预订大小,如果STACK_SIZE_PARAM_IS_A_RESERVATION没有被指定,<em>dwStackSize</em> 参数指定为线程栈分配大小.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="dll注入调用call">DLL注入调用CALL</h2>
-<p>CWinApp::InitInstance</p>
-<p>初始化函数（一般用于MFC初始化实例）</p>
-<h2 id="c类与对象">C++类与对象</h2>
-<h3 id="cedit类">CEdit类</h3>
-<p>为Edit控件关联变量</p>
-<h3 id="cstring类">CString类</h3>
-<p>CString 成员函数用法	// CStringA，CStringW</p>
-<p>CString::GetBuffer		//获取字符串地址	char*或者wchar_t*</p>
-<p>CString::Format格式化函数	//类似printf</p>
-<p>CString::Empty()			//清空</p>
-<p>CString::GetLength()	//返回字符串长度 字节数</p>
-<p>CString::IsEmpty()		//判断字符串是否为空</p>
-<p>CString::LoadString(资源ID)	//加载资源字符串</p>
-<p>CDialogEx类</p>
-<p>CButton类</p>
-<h2 id="c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</h2>
+</div><p>上面的类把数字相加，并返回总和。公有成员 <strong>addNum</strong> 和 <strong>getTotal</strong> 是对外的接口，用户需要知道它们以便使用类。私有成员 <strong>total</strong> 是对外隐藏的，用户不需要了解它，但它又是类能正常工作所必需的。</p>
+<h2 id="设计策略">设计策略</h2>
+<p>通常情况下，我们都会设置类成员状态为私有（private），除非我们真的需要将其暴露，这样才能保证良好的<strong>封装性</strong>。</p>
+<p>这通常应用于数据成员，但它同样适用于所有成员，包括虚函数。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-07</span>
+                <span>更新于 2021-09-11</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" data-title="C&#43;&#43;知识点(二)" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" data-title="C&#43;&#43; 笔记29数据封装" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;笔记"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" data-title="C&#43;&#43; 笔记29数据封装"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" data-title="C&#43;&#43; 笔记29数据封装"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/" data-title="C&#43;&#43; 笔记29数据封装" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/%E8%8F%9C%E9%B8%9Fc&#43;&#43;%E7%AC%94%E8%AE%B0/">菜鸟C&#43;&#43;笔记</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/" class="prev" rel="prev" title="C&#43;&#43;关键字"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43;关键字</a>
-            <a href="/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/" class="next" rel="next" title="pragma once与ifndef 解析">pragma once与ifndef 解析<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/09/c-%E7%AC%94%E8%AE%B030%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/" class="prev" rel="prev" title="C&#43;&#43; 笔记30接口（抽象类）"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; 笔记30接口（抽象类）</a>
+            <a href="/2021/09/c-%E7%AC%94%E8%AE%B028%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/" class="next" rel="next" title="C&#43;&#43; 笔记28数据抽象">C&#43;&#43; 笔记28数据抽象<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

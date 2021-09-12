@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">C&#43;&#43; 笔记13-14循环 &amp; 判断 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 笔记13-14循环 &amp; 判断" />
+<meta property="og:description" content="C&#43;&#43; 循环 循环类型 循环类型 描述 while 循环 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 for 循环 多次执行一个语句序列，简化管理循环" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="C&#43;&#43; 笔记13-14循环 &amp; 判断"/>
+<meta name="twitter:description" content="C&#43;&#43; 循环 循环类型 循环类型 描述 while 循环 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 for 循环 多次执行一个语句序列，简化管理循环"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B011-12%E5%AD%98%E5%82%A8%E7%B1%BB-%E8%BF%90%E7%AE%97%E7%AC%A6/" /><link rel="next" href="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B017-18%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "C++ 笔记13-14循环 \u0026 判断",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  1437 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD\/","datePublished": "2021-08-15T00:00:00+00:00","dateModified": "2021-08-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 笔记13-14循环 &amp; 判断</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%8F%9C%E9%B8%9Fc++%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>菜鸟C++笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-15">2021-08-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-15">2021-08-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1437 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 笔记13-14循环 &amp; 判断">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        data-src="/images/C&#43;&#43;.jpg"
+        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-sizes="auto"
+        alt="/images/C&#43;&#43;.jpg"
+        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
+    /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#c-循环">C++ 循环</a>
+      <ul>
+        <li><a href="#循环类型">循环类型</a>
+          <ul>
+            <li><a href="#基于范围的for循环c11">基于范围的for循环(C++11)</a></li>
+            <li><a href="#dowhile-循环">do&hellip;while 循环</a></li>
+          </ul>
+        </li>
+        <li><a href="#循环控制语句">循环控制语句</a>
+          <ul>
+            <li><a href="#break-语句">break 语句</a></li>
+            <li><a href="#continue-语句">continue 语句</a></li>
+            <li><a href="#goto-语句">goto 语句</a></li>
+          </ul>
+        </li>
+        <li><a href="#无限循环">无限循环</a></li>
+      </ul>
+    </li>
+    <li><a href="#判断">判断</a>
+      <ul>
+        <li><a href="#判断语句">判断语句</a>
+          <ul>
+            <li><a href="#switch-语句">switch 语句</a></li>
+            <li><a href="#嵌套-switch-语句">嵌套 switch 语句</a></li>
+          </ul>
+        </li>
+        <li><a href="#--运算符">? : 运算符</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="c-循环">C++ 循环</h1>
+<h2 id="循环类型">循环类型</h2>
+<table>
+<thead>
+<tr>
+<th>循环类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-while-loop.html" target="_blank" rel="noopener noreffer">while 循环</a></td>
+<td>当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-for-loop.html" target="_blank" rel="noopener noreffer">for 循环</a></td>
+<td>多次执行一个语句序列，简化管理循环变量的代码。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-do-while-loop.html" target="_blank" rel="noopener noreffer">do&hellip;while 循环</a></td>
+<td>除了它是在循环主体结尾测试条件外，其他与 while 语句类似。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-nested-loops.html" target="_blank" rel="noopener noreffer">嵌套循环</a></td>
+<td>您可以在 while、for 或 do..while 循环内使用一个或多个循环。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基于范围的for循环c11">基于范围的for循环(C++11)</h3>
+<p>拷贝range的元素时，使用for(auto x : range).</p>
+<p>修改range的元素时，使用for(auto &amp;&amp; x : range).</p>
+<p>只读range的元素时，使用for(const auto &amp; x : range).</p>
+<blockquote>
+<p>vector&lt;bool&gt;时使用auto会有问题，对于其他包含代理类的类也会有问题，直接使用for(bool x : vector&lt;bool&gt;)</p>
+</blockquote>
+<h3 id="dowhile-循环">do&hellip;while 循环</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">do</span>
+<span class="p">{</span>
+   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">condition</span> <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="循环控制语句">循环控制语句</h2>
+<table>
+<thead>
+<tr>
+<th>控制语句</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-break-statement.html" target="_blank" rel="noopener noreffer">break 语句</a></td>
+<td>终止 loop 或 switch 语句，程序流将继续执行紧接着 loop 或 switch 的下一条语句。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-continue-statement.html" target="_blank" rel="noopener noreffer">continue  语句</a></td>
+<td>引起循环跳过主体的剩余部分，立即重新开始测试条件。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-goto-statement.html" target="_blank" rel="noopener noreffer">goto 语句</a></td>
+<td>将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="break-语句">break 语句</h3>
+<p>C++ 中 break 语句有以下两种用法：</p>
+<ol>
+<li>
+<p>当 break 语句出现在一个循环内时，循环会立即终止，且程序流将继续执行紧接着循环的下一条语句。</p>
+</li>
+<li>
+<p>它可用于终止 switch 语句中的一个 case。</p>
+</li>
+<li>
+<p>如果您使用的是嵌套循环（即一个循环内嵌套另一个循环），break 语句会停止执行最内层的循环，然后开始执行该块之后的下一行代码。</p>
+</li>
+</ol>
+<p><img
+        class="lazyload"
+        data-src="https://www.runoob.com/wp-content/uploads/2014/09/c-break-statement-works.jpg"
+        data-srcset="https://www.runoob.com/wp-content/uploads/2014/09/c-break-statement-works.jpg, https://www.runoob.com/wp-content/uploads/2014/09/c-break-statement-works.jpg 1.5x, https://www.runoob.com/wp-content/uploads/2014/09/c-break-statement-works.jpg 2x"
+        data-sizes="auto"
+        alt="https://www.runoob.com/wp-content/uploads/2014/09/c-break-statement-works.jpg"
+        title="break语法"
+    /></p>
+<h3 id="continue-语句">continue 语句</h3>
+<p><img
+        class="lazyload"
+        data-src="https://www.runoob.com/wp-content/uploads/2014/09/c-continue-statement-works.jpg"
+        data-srcset="https://www.runoob.com/wp-content/uploads/2014/09/c-continue-statement-works.jpg, https://www.runoob.com/wp-content/uploads/2014/09/c-continue-statement-works.jpg 1.5x, https://www.runoob.com/wp-content/uploads/2014/09/c-continue-statement-works.jpg 2x"
+        data-sizes="auto"
+        alt="https://www.runoob.com/wp-content/uploads/2014/09/c-continue-statement-works.jpg"
+        title="continue 语句"
+    /></p>
+<h3 id="goto-语句">goto 语句</h3>
+<p><img
+        class="lazyload"
+        data-src="https://www.runoob.com/wp-content/uploads/2015/01/goto.png"
+        data-srcset="https://www.runoob.com/wp-content/uploads/2015/01/goto.png, https://www.runoob.com/wp-content/uploads/2015/01/goto.png 1.5x, https://www.runoob.com/wp-content/uploads/2015/01/goto.png 2x"
+        data-sizes="auto"
+        alt="https://www.runoob.com/wp-content/uploads/2015/01/goto.png"
+        title="goto"
+    /></p>
+<p>goto 语句一个很好的作用是退出深嵌套例程。例如，请看下面的代码片段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
+   <span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
+      <span class="k">while</span><span class="p">(...)</span> <span class="p">{</span>
+         <span class="k">if</span><span class="p">(...)</span> <span class="k">goto</span> <span class="n">stop</span><span class="p">;</span>
+         <span class="p">.</span>
+         <span class="p">.</span>
+         <span class="p">.</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+<span class="nl">stop</span><span class="p">:</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Error in program.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>消除 goto 会导致一些额外的测试被执行。一个简单的 break 语句在这里不会起到作用，因为它只会使程序退出最内层循环。</p>
+<h2 id="无限循环">无限循环</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+ 
+   <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This loop will run forever.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+   <span class="p">}</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。</p>
+<blockquote>
+<p>注意：您可以按 Ctrl + C 键终止一个无限循环。</p>
+</blockquote>
+<h1 id="判断">判断</h1>
+<h2 id="判断语句">判断语句</h2>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-if.html" target="_blank" rel="noopener noreffer">if 语句</a></td>
+<td>一个 if 语句 由一个布尔表达式后跟一个或多个语句组成。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-if-else.html" target="_blank" rel="noopener noreffer">if&hellip;else 语句</a></td>
+<td>一个 if 语句 后可跟一个可选的 else 语句，else 语句在布尔表达式为假时执行。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-nested-if.html" target="_blank" rel="noopener noreffer">嵌套 if 语句</a></td>
+<td>您可以在一个 if 或 else if 语句内使用另一个 if 或 else if 语句。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-switch.html" target="_blank" rel="noopener noreffer">switch 语句</a></td>
+<td>一个 switch 语句允许测试一个变量等于多个值时的情况。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cplusplus/cpp-nested-switch.html" target="_blank" rel="noopener noreffer">嵌套 switch 语句</a></td>
+<td>您可以在一个 switch 语句内使用另一个 switch 语句。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="switch-语句">switch 语句</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
+    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
+</span><span class="c1"></span>    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
+</span><span class="c1"></span>  
+    <span class="c1">// 您可以有任意数量的 case 语句
+</span><span class="c1"></span>    <span class="k">default</span> <span class="o">:</span> <span class="c1">// 可选的
+</span><span class="c1"></span>       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>switch 语句必须遵循下面的规则：</p>
+<ul>
+<li>switch 语句中的 expression 必须是一个整型或枚举类型，或者是一个 class 类型，其中 class 有一个单一的转换函数将其转换为整型或枚举类型。</li>
+<li>在一个 switch 中可以有任意数量的 case 语句。每个 case 后跟一个要比较的值和一个冒号。</li>
+<li>case 的 constant-expression 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量或字面量。</li>
+<li>当被测试的变量等于 case 中的常量时，case 后跟的语句将被执行，直到遇到 break 语句为止。</li>
+<li>当遇到 break 语句时，switch 终止，控制流将跳转到 switch 语句后的下一行。</li>
+<li>不是每一个 case 都需要包含 break。如果 case 语句不包含 break，控制流将会 继续 后续的 case，直到遇到 break 为止。</li>
+<li>一个 switch 语句可以有一个可选的 default case，出现在 switch 的结尾。default case 可用于在上面所有 case 都不为真时执行一个任务。default case 中的 break 语句不是必需的。</li>
+</ul>
+<h3 id="嵌套-switch-语句">嵌套 switch 语句</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">switch</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span> 
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是外部 switch 的一部分&#34;</span><span class="p">;</span>
+      <span class="k">switch</span><span class="p">(</span><span class="n">ch2</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是内部 switch 的一部分&#34;</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+         <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 内部 B case 代码
+</span><span class="c1"></span>      <span class="p">}</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 外部 B case 代码
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="--运算符">? : 运算符</h2>
+<p>条件运算符 ? :，可以用来替代 if&hellip;else 语句。它的一般形式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Exp1</span> <span class="o">?</span> <span class="nl">Exp2</span> <span class="p">:</span> <span class="n">Exp3</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-15</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" data-title="C&#43;&#43; 笔记13-14循环 &amp; 判断" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;笔记"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" data-title="C&#43;&#43; 笔记13-14循环 &amp; 判断"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" data-title="C&#43;&#43; 笔记13-14循环 &amp; 判断"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B013-14%E5%BE%AA%E7%8E%AF-%E5%88%A4%E6%96%AD/" data-title="C&#43;&#43; 笔记13-14循环 &amp; 判断" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/%E8%8F%9C%E9%B8%9Fc&#43;&#43;%E7%AC%94%E8%AE%B0/">菜鸟C&#43;&#43;笔记</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/08/c-%E7%AC%94%E8%AE%B011-12%E5%AD%98%E5%82%A8%E7%B1%BB-%E8%BF%90%E7%AE%97%E7%AC%A6/" class="prev" rel="prev" title="C&#43;&#43; 笔记11-12存储类 &amp; 运算符"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; 笔记11-12存储类 &amp; 运算符</a>
+            <a href="/2021/08/c-%E7%AC%94%E8%AE%B017-18%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="next" rel="next" title="C&#43;&#43; 笔记17-18数组 &amp; 字符串">C&#43;&#43; 笔记17-18数组 &amp; 字符串<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>
