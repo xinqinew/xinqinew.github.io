@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">C&#43;&#43; 39Web 编程 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 39Web 编程" />
+<meta property="og:description" content="C&#43;&#43; Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-13T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="C&#43;&#43; 39Web 编程"/>
+<meta name="twitter:description" content="C&#43;&#43; Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/c-40stl-%E6%95%99%E7%A8%8B/" /><link rel="next" href="https://xinqinew.github.io/2021/09/c-38%E5%A4%9A%E7%BA%BF%E7%A8%8B/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "C++ 39Web 编程",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/c-39web-%E7%BC%96%E7%A8%8B\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  6387 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/09\/c-39web-%E7%BC%96%E7%A8%8B\/","datePublished": "2021-09-13T00:00:00+00:00","dateModified": "2021-09-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 39Web 编程</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-13">2021-09-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-13">2021-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6387 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id="/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 39Web 编程">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        data-src="/images/runoob.png"
+        data-srcset="/images/runoob.png, /images/runoob.png 1.5x, /images/runoob.png 2x"
+        data-sizes="auto"
+        alt="/images/runoob.png"
+        title="/images/runoob.png" height="auto" width="auto"
+    /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#c-web-编程">C++ Web 编程</a>
+      <ul>
+        <li><a href="#什么是-cgi">什么是 CGI？</a></li>
+        <li><a href="#web-浏览">Web 浏览</a></li>
+        <li><a href="#cgi-架构图">CGI 架构图</a></li>
+        <li><a href="#web-服务器配置">Web 服务器配置</a></li>
+        <li><a href="#第一个-cgi-程序">第一个 CGI 程序</a></li>
+        <li><a href="#hello-world-这是我的第一个-cgi-程序">Hello World! 这是我的第一个 CGI 程序</a></li>
+        <li><a href="#http-头信息">HTTP 头信息</a></li>
+        <li><a href="#cgi-环境变量">CGI 环境变量</a></li>
+        <li><a href="#实例">实例</a></li>
+        <li><a href="#c-cgi-库">C++ CGI 库</a></li>
+        <li><a href="#get-和-post-方法">GET 和 POST 方法</a></li>
+        <li><a href="#使用-get-方法传递信息">使用 GET 方法传递信息</a></li>
+        <li><a href="#简单的-url-实例get-方法">简单的 URL 实例：Get 方法</a></li>
+        <li><a href="#简单的表单实例get-方法">简单的表单实例：GET 方法</a></li>
+        <li><a href="#使用-post-方法传递信息">使用 POST 方法传递信息</a></li>
+        <li><a href="#向-cgi-程序传递复选框数据">向 CGI 程序传递复选框数据</a></li>
+        <li><a href="#向-cgi-程序传递单选按钮数据">向 CGI 程序传递单选按钮数据</a></li>
+        <li><a href="#向-cgi-程序传递文本区域数据">向 CGI 程序传递文本区域数据</a></li>
+        <li><a href="#向-cgi-程序传递下拉框数据">向 CGI 程序传递下拉框数据</a></li>
+        <li><a href="#在-cgi-中使用-cookies">在 CGI 中使用 Cookies</a>
+          <ul>
+            <li><a href="#它是如何工作的">它是如何工作的</a></li>
+            <li><a href="#设置-cookies">设置 Cookies</a></li>
+            <li><a href="#获取-cookies">获取 Cookies</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件上传实例">文件上传实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="c-web-编程">C++ Web 编程</h1>
+<h2 id="什么是-cgi">什么是 CGI？</h2>
+<ul>
+<li>公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。</li>
+<li>CGI 规范目前是由 NCSA 维护的，NCSA 定义 CGI 如下：</li>
+<li>公共网关接口（CGI），是一种用于外部网关程序与信息服务器（如 HTTP 服务器）对接的接口标准。</li>
+<li>目前的版本是 CGI/1.1，CGI/1.2 版本正在推进中。</li>
+</ul>
+<h2 id="web-浏览">Web 浏览</h2>
+<p>为了更好地了解 CGI 的概念，让我们点击一个超链接，浏览一个特定的网页或 URL，看看会发生什么。</p>
+<ul>
+<li>您的浏览器联系上 HTTP Web 服务器，并请求 URL，即文件名。</li>
+<li>Web 服务器将解析 URL，并查找文件名。如果找到请求的文件，Web 服务器会把文件发送回浏览器，否则发送一条错误消息，表明您请求了一个错误的文件。</li>
+<li>Web 浏览器从 Web 服务器获取响应，并根据接收到的响应来显示文件或错误消息。</li>
+</ul>
+<p>然而，以这种方式搭建起来的 HTTP 服务器，不管何时请求目录中的某个文件，HTTP 服务器发送回来的不是该文件，而是以程序形式执行，并把执行产生的输出发送回浏览器显示出来。</p>
+<p>公共网关接口（CGI），是使得应用程序（称为 CGI 程序或 CGI 脚本）能够与 Web 服务器以及客户端进行交互的标准协议。这些 CGI 程序可以用 Python、PERL、Shell、C 或 C++ 等进行编写。</p>
+<h2 id="cgi-架构图">CGI 架构图</h2>
+<p>下图演示了 CGI 的架构：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cgiarch.gif"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cgiarch.gif, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cgiarch.gif 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cgiarch.gif 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cgiarch.gif"
+        title="CGI 架构"
+    /></p>
+<h2 id="web-服务器配置">Web 服务器配置</h2>
+<p>在您进行 CGI 编程之前，请确保您的 Web 服务器支持 CGI，并已配置成可以处理 CGI 程序。所有由 HTTP 服务器执行的 CGI 程序，都必须在预配置的目录中。该目录称为 CGI 目录，按照惯例命名为 /var/www/cgi-bin。虽然 CGI 文件是 C++ 可执行文件，但是按照惯例它的扩展名是 <strong>.cgi</strong>。</p>
+<p>默认情况下，Apache Web 服务器会配置在 /var/www/cgi-bin 中运行 CGI 程序。如果您想指定其他目录来运行 CGI 脚本，您可以在 httpd.conf 文件中修改以下部分：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="o">&lt;</span><span class="n">Directory</span> <span class="s">&#34;/var/www/cgi-bin&#34;</span><span class="o">&gt;</span>
+   <span class="n">AllowOverride</span> <span class="n">None</span>
+   <span class="n">Options</span> <span class="n">ExecCGI</span>
+   <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+   <span class="n">Allow</span> <span class="n">from</span> <span class="n">all</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+ 
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="s">&#34;/var/www/cgi-bin&#34;</span><span class="o">&gt;</span>
+<span class="n">Options</span> <span class="n">All</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这里，我们假设已经配置好 Web 服务器并能成功运行，你可以运行任意的 CGI 程序，比如 Perl 或 Shell 等。</p>
+<h2 id="第一个-cgi-程序">第一个 CGI 程序</h2>
+<p>请看下面的 C++ 程序：</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;Hello World - 第一个 CGI 程序&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;h2&gt;Hello World! 这是我的第一个 CGI 程序&lt;/h2&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>编译上面的代码，把可执行文件命名为 cplusplus.cgi，并把这个文件保存在 /var/www/cgi-bin 目录中。在运行 CGI 程序之前，请使用 <strong>chmod 755 cplusplus.cgi</strong> UNIX 命令来修改文件模式，确保文件可执行。访问可执行文件，您会看到下面的输出：</p>
+<h2 id="hello-world-这是我的第一个-cgi-程序">Hello World! 这是我的第一个 CGI 程序</h2>
+<p>上面的 C++ 程序是一个简单的程序，把它的输出写在 STDOUT 文件上，即显示在屏幕上。在这里，值得注意一点，第一行输出 <strong>Content-type:text/html\r\n\r\n</strong>。这一行发送回浏览器，并指定要显示在浏览器窗口上的内容类型。您必须理解 CGI 的基本概念，这样才能进一步使用 Python 编写更多复杂的 CGI 程序。C++ CGI 程序可以与任何其他外部的系统（如 RDBMS）进行交互。</p>
+<h2 id="http-头信息">HTTP 头信息</h2>
+<p>行 <strong>Content-type:text/html\r\n\r\n</strong> 是 HTTP 头信息的组成部分，它被发送到浏览器，以便更好地理解页面内容。HTTP 头信息的形式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HTTP</span> <span class="err">字段名称</span><span class="o">:</span> <span class="err">字段内容</span>
+ 
+<span class="err">例如</span>
+<span class="n">Content</span><span class="o">-</span><span class="nl">type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="err">\</span><span class="n">r</span><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">r</span><span class="err">\</span><span class="n">n</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>还有一些其他的重要的 HTTP 头信息，这些在您的 CGI 编程中都会经常被用到。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">头信息</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Content-type:</td>
+<td style="text-align:left">MIME 字符串，定义返回的文件格式。例如 Content-type:text/html。</td>
+</tr>
+<tr>
+<td style="text-align:left">Expires: Date</td>
+<td style="text-align:left">信息变成无效的日期。浏览器使用它来判断一个页面何时需要刷新。一个有效的日期字符串的格式应为 01 Jan 1998 12:00:00 GMT。</td>
+</tr>
+<tr>
+<td style="text-align:left">Location: URL</td>
+<td style="text-align:left">这个 URL 是指应该返回的 URL，而不是请求的 URL。你可以使用它来重定向一个请求到任意的文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">Last-modified: Date</td>
+<td style="text-align:left">资源的最后修改日期。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-length: N</td>
+<td style="text-align:left">要返回的数据的长度，以字节为单位。浏览器使用这个值来表示一个文件的预计下载时间。</td>
+</tr>
+<tr>
+<td style="text-align:left">Set-Cookie: String</td>
+<td style="text-align:left">通过 <em>string</em> 设置 cookie。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cgi-环境变量">CGI 环境变量</h2>
+<p>所有的 CGI 程序都可以访问下列的环境变量。这些变量在编写 CGI 程序时扮演了非常重要的角色。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">变量名</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CONTENT_TYPE</td>
+<td style="text-align:left">内容的数据类型。当客户端向服务器发送附加内容时使用。例如，文件上传等功能。</td>
+</tr>
+<tr>
+<td style="text-align:left">CONTENT_LENGTH</td>
+<td style="text-align:left">查询的信息长度。只对 POST 请求可用。</td>
+</tr>
+<tr>
+<td style="text-align:left">HTTP_COOKIE</td>
+<td style="text-align:left">以键 &amp; 值对的形式返回设置的 cookies。</td>
+</tr>
+<tr>
+<td style="text-align:left">HTTP_USER_AGENT</td>
+<td style="text-align:left">用户代理请求标头字段，递交用户发起请求的有关信息，包含了浏览器的名称、版本和其他平台性的附加信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">PATH_INFO</td>
+<td style="text-align:left">CGI 脚本的路径。</td>
+</tr>
+<tr>
+<td style="text-align:left">QUERY_STRING</td>
+<td style="text-align:left">通过 GET 方法发送请求时的 URL 编码信息，包含 URL 中问号后面的参数。</td>
+</tr>
+<tr>
+<td style="text-align:left">REMOTE_ADDR</td>
+<td style="text-align:left">发出请求的远程主机的 IP 地址。这在日志记录和认证时是非常有用的。</td>
+</tr>
+<tr>
+<td style="text-align:left">REMOTE_HOST</td>
+<td style="text-align:left">发出请求的主机的完全限定名称。如果此信息不可用，则可以用 REMOTE_ADDR 来获取 IP 地址。</td>
+</tr>
+<tr>
+<td style="text-align:left">REQUEST_METHOD</td>
+<td style="text-align:left">用于发出请求的方法。最常见的方法是 GET 和 POST。</td>
+</tr>
+<tr>
+<td style="text-align:left">SCRIPT_FILENAME</td>
+<td style="text-align:left">CGI 脚本的完整路径。</td>
+</tr>
+<tr>
+<td style="text-align:left">SCRIPT_NAME</td>
+<td style="text-align:left">CGI 脚本的名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">SERVER_NAME</td>
+<td style="text-align:left">服务器的主机名或 IP 地址。</td>
+</tr>
+<tr>
+<td style="text-align:left">SERVER_SOFTWARE</td>
+<td style="text-align:left">服务器上运行的软件的名称和版本。</td>
+</tr>
+</tbody>
+</table>
+<p>下面的 CGI 程序列出了所有的 CGI 变量。</p>
+<h2 id="实例">实例</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="k">const</span> <span class="n">string</span> <span class="n">ENV</span><span class="p">[</span> <span class="mi">24</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span>                 
+        <span class="s">&#34;COMSPEC&#34;</span><span class="p">,</span> <span class="s">&#34;DOCUMENT_ROOT&#34;</span><span class="p">,</span> <span class="s">&#34;GATEWAY_INTERFACE&#34;</span><span class="p">,</span>   
+        <span class="s">&#34;HTTP_ACCEPT&#34;</span><span class="p">,</span> <span class="s">&#34;HTTP_ACCEPT_ENCODING&#34;</span><span class="p">,</span>             
+        <span class="s">&#34;HTTP_ACCEPT_LANGUAGE&#34;</span><span class="p">,</span> <span class="s">&#34;HTTP_CONNECTION&#34;</span><span class="p">,</span>         
+        <span class="s">&#34;HTTP_HOST&#34;</span><span class="p">,</span> <span class="s">&#34;HTTP_USER_AGENT&#34;</span><span class="p">,</span> <span class="s">&#34;PATH&#34;</span><span class="p">,</span>            
+        <span class="s">&#34;QUERY_STRING&#34;</span><span class="p">,</span> <span class="s">&#34;REMOTE_ADDR&#34;</span><span class="p">,</span> <span class="s">&#34;REMOTE_PORT&#34;</span><span class="p">,</span>      
+        <span class="s">&#34;REQUEST_METHOD&#34;</span><span class="p">,</span> <span class="s">&#34;REQUEST_URI&#34;</span><span class="p">,</span> <span class="s">&#34;SCRIPT_FILENAME&#34;</span><span class="p">,</span>
+        <span class="s">&#34;SCRIPT_NAME&#34;</span><span class="p">,</span> <span class="s">&#34;SERVER_ADDR&#34;</span><span class="p">,</span> <span class="s">&#34;SERVER_ADMIN&#34;</span><span class="p">,</span>      
+        <span class="s">&#34;SERVER_NAME&#34;</span><span class="p">,</span><span class="s">&#34;SERVER_PORT&#34;</span><span class="p">,</span><span class="s">&#34;SERVER_PROTOCOL&#34;</span><span class="p">,</span>     
+        <span class="s">&#34;SERVER_SIGNATURE&#34;</span><span class="p">,</span><span class="s">&#34;SERVER_SOFTWARE&#34;</span> <span class="p">};</span>   
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;CGI 环境变量&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;table border = </span><span class="se">\&#34;</span><span class="s">0</span><span class="se">\&#34;</span><span class="s"> cellspacing = </span><span class="se">\&#34;</span><span class="s">2</span><span class="se">\&#34;</span><span class="s">&gt;&#34;</span><span class="p">;</span>
+ 
+   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+   <span class="p">{</span>
+       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ENV</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="p">;</span>
+       <span class="c1">// 尝试检索环境变量的值
+</span><span class="c1"></span>       <span class="kt">char</span> <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">getenv</span><span class="p">(</span> <span class="n">ENV</span><span class="p">[</span> <span class="n">i</span> <span class="p">].</span><span class="n">c_str</span><span class="p">()</span> <span class="p">);</span>  
+       <span class="k">if</span> <span class="p">(</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">){</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">;</span>                                 
+       <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;环境变量不存在。&#34;</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/table&gt;&lt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="c-cgi-库">C++ CGI 库</h2>
+<p>在真实的实例中，您需要通过 CGI 程序执行许多操作。这里有一个专为 C++ 程序而编写的 CGI 库，我们可以从 <a href="ftp://ftp.gnu.org/gnu/cgicc/" target="_blank" rel="noopener noreffer">ftp://ftp.gnu.org/gnu/cgicc/</a> 上下载这个 CGI 库，并按照下面的步骤安装库：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1662714E-4491-43C9-A38B-FD8D178F6663.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1662714E-4491-43C9-A38B-FD8D178F6663.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1662714E-4491-43C9-A38B-FD8D178F6663.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1662714E-4491-43C9-A38B-FD8D178F6663.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1662714E-4491-43C9-A38B-FD8D178F6663.jpg"
+        title="img"
+    /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">$</span> <span class="n">tar</span> <span class="n">xzf</span> <span class="n">cgicc</span><span class="o">-</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> 
+<span class="err">$</span> <span class="n">cd</span> <span class="n">cgicc</span><span class="o">-</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="o">/</span> 
+<span class="err">$</span> <span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">usr</span> 
+<span class="err">$</span> <span class="n">make</span>
+<span class="err">$</span> <span class="n">make</span> <span class="n">install</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>**注意：**libcgicc.so 和 libcgicc.a 库会被安装到/usr/lib目录下，需执行拷贝命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo cp /usr/lib/libcgicc.* /usr/lib64/
+</code></pre></td></tr></table>
+</div>
+</div><p>才能使 CGI 程序自动找到 libcgicc.so 动态链接库。</p>
+</blockquote>
+<p>您可以点击 <a href="http://www.gnu.org/software/cgicc/doc/index.html" target="_blank" rel="noopener noreffer">C++ CGI Lib Documentation</a>，查看相关的库文档。</p>
+<h2 id="get-和-post-方法">GET 和 POST 方法</h2>
+<p>您可能有遇到过这样的情况，当您需要从浏览器传递一些信息到 Web 服务器，最后再传到 CGI 程序。通常浏览器会使用两种方法把这个信息传到 Web 服务器，分别是 GET 和 POST 方法。</p>
+<h2 id="使用-get-方法传递信息">使用 GET 方法传递信息</h2>
+<p>GET 方法发送已编码的用户信息追加到页面请求中。页面和已编码信息通过 ? 字符分隔开，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">http://www.test.com/cgi-bin/cpp.cgi?key1=value1&amp;key2=value2
+</code></pre></td></tr></table>
+</div>
+</div><p>GET 方法是默认的从浏览器向 Web 服务器传信息的方法，它会在浏览器的地址栏中生成一串很长的字符串。当您向服务器传密码或其他一些敏感信息时，不要使用 GET 方法。GET 方法有大小限制，在一个请求字符串中最多可以传 1024 个字符。</p>
+<p>当使用 GET 方法时，是使用 QUERY_STRING http 头来传递信息，在 CGI 程序中可使用 QUERY_STRING 环境变量来访问。</p>
+<p>您可以通过在 URL 后跟上简单连接的键值对，也可以通过使用 HTML <FORM> 标签的 GET 方法来传信息。</p>
+<h2 id="简单的-url-实例get-方法">简单的 URL 实例：Get 方法</h2>
+<p>下面是一个简单的 URL，使用 GET 方法传递两个值给 hello_get.py 程序。</p>
+<p>/cgi-bin/cpp_get.cgi?first_name=ZARA&amp;last_name=ALI</p>
+<p>下面的实例生成 <strong>cpp_get.cgi</strong> CGI 程序，用于处理 Web 浏览器给出的输入。通过使用 C++ CGI 库，可以很容易地访问传递的信息：</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt;  </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">formData</span><span class="p">;</span>
+   
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;使用 GET 和 POST 方法&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">form_iterator</span> <span class="n">fi</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">getElement</span><span class="p">(</span><span class="s">&#34;first_name&#34;</span><span class="p">);</span>  
+   <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">fi</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">fi</span> <span class="o">!=</span> <span class="p">(</span><span class="o">*</span><span class="n">formData</span><span class="p">).</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;名：&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">fi</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;No text entered for first name&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">fi</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">getElement</span><span class="p">(</span><span class="s">&#34;last_name&#34;</span><span class="p">);</span>  
+   <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">fi</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span><span class="n">fi</span> <span class="o">!=</span> <span class="p">(</span><span class="o">*</span><span class="n">formData</span><span class="p">).</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;姓：&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">fi</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;No text entered for last name&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，编译上面的程序，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$g++ -o cpp_get.cgi cpp_get.cpp -lcgicc
+</code></pre></td></tr></table>
+</div>
+</div><p>生成 cpp_get.cgi，并把它放在 CGI 目录中，并尝试使用下面的链接进行访问：</p>
+<p>/cgi-bin/cpp_get.cgi?first_name=ZARA&amp;last_name=ALI</p>
+<p>这会产生以下结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">名：ZARA 
+姓：ALI 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="简单的表单实例get-方法">简单的表单实例：GET 方法</h2>
+<p>下面是一个简单的实例，使用 HTML 表单和提交按钮传递两个值。我们将使用相同的 CGI 脚本 cpp_get.cgi 来处理输入。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_get.cgi&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
+名：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;first_name&#34;</span><span class="p">&gt;</span>  <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+ 
+姓：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;last_name&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面是上述表单的实际输出，请输入名和姓，然后点击提交按钮查看结果。</p>
+<h2 id="使用-post-方法传递信息">使用 POST 方法传递信息</h2>
+<p>一个更可靠的向 CGI 程序传递信息的方法是 POST 方法。这种方法打包信息的方式与 GET 方法相同，不同的是，它不是把信息以文本字符串形式放在 URL 中的 ? 之后进行传递，而是把它以单独的消息形式进行传递。该消息是以标准输入的形式传给 CGI 脚本的。</p>
+<p>我们同样使用 cpp_get.cgi 程序来处理 POST 方法。让我们以同样的例子，通过使用 HTML 表单和提交按钮来传递两个值，只不过这次我们使用的不是 GET 方法，而是 POST 方法，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_get.cgi&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+名：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;first_name&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+姓：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;last_name&#34;</span> <span class="p">/&gt;</span>
+ 
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="向-cgi-程序传递复选框数据">向 CGI 程序传递复选框数据</h2>
+<p>当需要选择多个选项时，我们使用复选框。</p>
+<p>下面的 HTML 代码实例是一个带有两个复选框的表单：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_checkbox.cgi&#34;</span> 
+         <span class="na">method</span><span class="o">=</span><span class="s">&#34;POST&#34;</span> 
+         <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;maths&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;on&#34;</span> <span class="p">/&gt;</span> 数学
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;physics&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;on&#34;</span> <span class="p">/&gt;</span> 物理
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;选择学科&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的 C++ 程序会生成 cpp_checkbox.cgi 脚本，用于处理 Web 浏览器通过复选框给出的输入。</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">formData</span><span class="p">;</span>
+   <span class="kt">bool</span> <span class="n">maths_flag</span><span class="p">,</span> <span class="n">physics_flag</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;向 CGI 程序传递复选框数据&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">maths_flag</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">queryCheckbox</span><span class="p">(</span><span class="s">&#34;maths&#34;</span><span class="p">);</span>
+   <span class="k">if</span><span class="p">(</span> <span class="n">maths_flag</span> <span class="p">)</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Maths Flag: ON &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Maths Flag: OFF &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">physics_flag</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">queryCheckbox</span><span class="p">(</span><span class="s">&#34;physics&#34;</span><span class="p">);</span>
+   <span class="k">if</span><span class="p">(</span> <span class="n">physics_flag</span> <span class="p">)</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Physics Flag: ON &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Physics Flag: OFF &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="向-cgi-程序传递单选按钮数据">向 CGI 程序传递单选按钮数据</h2>
+<p>当只需要选择一个选项时，我们使用单选按钮。</p>
+<p>下面的 HTML 代码实例是一个带有两个单选按钮的表单：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_radiobutton.cgi&#34;</span> 
+         <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> 
+         <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;subject&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;maths&#34;</span> 
+                                    <span class="na">checked</span><span class="o">=</span><span class="s">&#34;checked&#34;</span><span class="p">/&gt;</span> 数学 
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;subject&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;physics&#34;</span> <span class="p">/&gt;</span> 物理
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;选择学科&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的 C++ 程序会生成 cpp_radiobutton.cgi 脚本，用于处理 Web 浏览器通过单选按钮给出的输入。</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">formData</span><span class="p">;</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;向 CGI 程序传递单选按钮数据&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">form_iterator</span> <span class="n">fi</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">getElement</span><span class="p">(</span><span class="s">&#34;subject&#34;</span><span class="p">);</span>  
+   <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">fi</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">fi</span> <span class="o">!=</span> <span class="p">(</span><span class="o">*</span><span class="n">formData</span><span class="p">).</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Radio box selected: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">fi</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="向-cgi-程序传递文本区域数据">向 CGI 程序传递文本区域数据</h2>
+<p>当需要向 CGI 程序传递多行文本时，我们使用 TEXTAREA 元素。</p>
+<p>下面的 HTML 代码实例是一个带有 TEXTAREA 框的表单：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_textarea.cgi&#34;</span> 
+         <span class="n">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> 
+         <span class="n">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">textarea</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;textcontent&#34;</span> <span class="n">cols</span><span class="o">=</span><span class="s">&#34;40&#34;</span> <span class="n">rows</span><span class="o">=</span><span class="s">&#34;4&#34;</span><span class="o">&gt;</span>
+<span class="err">请在这里输入文本</span><span class="p">...</span>
+<span class="o">&lt;/</span><span class="n">textarea</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的 C++ 程序会生成 cpp_textarea.cgi 脚本，用于处理 Web 浏览器通过文本区域给出的输入。</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">formData</span><span class="p">;</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;向 CGI 程序传递文本区域数据&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">form_iterator</span> <span class="n">fi</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">getElement</span><span class="p">(</span><span class="s">&#34;textcontent&#34;</span><span class="p">);</span>  
+   <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">fi</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">fi</span> <span class="o">!=</span> <span class="p">(</span><span class="o">*</span><span class="n">formData</span><span class="p">).</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Text Content: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">fi</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;No text entered&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="向-cgi-程序传递下拉框数据">向 CGI 程序传递下拉框数据</h2>
+<p>当有多个选项可用，但只能选择一个或两个选项时，我们使用下拉框。</p>
+<p>下面的 HTML 代码实例是一个带有下拉框的表单：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_dropdown.cgi&#34;</span> 
+                       <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;dropdown&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Maths&#34;</span> <span class="na">selected</span><span class="p">&gt;</span>数学<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Physics&#34;</span><span class="p">&gt;</span>物理<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的 C++ 程序会生成 cpp_dropdown.cgi 脚本，用于处理 Web 浏览器通过下拉框给出的输入。</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">formData</span><span class="p">;</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;向 CGI 程序传递下拉框数据&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">form_iterator</span> <span class="n">fi</span> <span class="o">=</span> <span class="n">formData</span><span class="p">.</span><span class="n">getElement</span><span class="p">(</span><span class="s">&#34;dropdown&#34;</span><span class="p">);</span>  
+   <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">fi</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">fi</span> <span class="o">!=</span> <span class="p">(</span><span class="o">*</span><span class="n">formData</span><span class="p">).</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value Selected: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">fi</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="p">}</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="在-cgi-中使用-cookies">在 CGI 中使用 Cookies</h2>
+<p>HTTP 协议是一种无状态的协议。但对于一个商业网站，它需要在不同页面间保持会话信息。例如，一个用户在完成多个页面的步骤之后结束注册。但是，如何在所有网页中保持用户的会话信息。</p>
+<p>在许多情况下，使用 cookies 是记忆和跟踪有关用户喜好、购买、佣金以及其他为追求更好的游客体验或网站统计所需信息的最有效的方法。</p>
+<h3 id="它是如何工作的">它是如何工作的</h3>
+<p>服务器以 cookie 的形式向访客的浏览器发送一些数据。如果浏览器接受了 cookie，则 cookie 会以纯文本记录的形式存储在访客的硬盘上。现在，当访客访问网站上的另一个页面时，会检索 cookie。一旦找到 cookie，服务器就知道存储了什么。</p>
+<p>cookie 是一种纯文本的数据记录，带有 5 个可变长度的字段：</p>
+<ul>
+<li><strong>Expires :</strong> cookie 的过期日期。如果此字段留空，cookie 会在访客退出浏览器时过期。</li>
+<li><strong>Domain :</strong> 网站的域名。</li>
+<li><strong>Path :</strong> 设置 cookie 的目录或网页的路径。如果您想从任意的目录或网页检索 cookie，此字段可以留空。</li>
+<li><strong>Secure :</strong> 如果此字段包含单词 &ldquo;secure&rdquo;，那么 cookie 只能通过安全服务器进行检索。如果此字段留空，则不存在该限制。</li>
+<li><strong>Name=Value :</strong> cookie 以键值对的形式被设置和获取。</li>
+</ul>
+<h3 id="设置-cookies">设置 Cookies</h3>
+<p>向浏览器发送 cookies 是非常简单的。这些 cookies 会在 Content-type 字段之前，与 HTTP 头一起被发送。假设您想设置 UserID 和 Password 为 cookies，设置 cookies 的步骤如下所示：</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set-Cookie:UserID=XYZ;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set-Cookie:Password=XYZ123;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set-Cookie:Domain=www.w3cschool.cc;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set-Cookie:Path=/perl;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;CGI 中的 Cookies&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;设置 cookies&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从这个实例中，我们了解了如何设置 cookies。我们使用 <strong>Set-Cookie</strong> HTTP 头来设置 cookies。</p>
+<p>在这里，有一些设置 cookies 的属性是可选的，比如 Expires、Domain 和 Path。值得注意的是，cookies 是在发送行 <strong>&ldquo;Content-type:text/html\r\n\r\n</strong> 之前被设置的。</p>
+<p>编译上面的程序，生成 setcookies.cgi，并尝试使用下面的链接设置 cookies。它会在您的计算机上设置四个 cookies：</p>
+<p>/cgi-bin/setcookies.cgi</p>
+<h3 id="获取-cookies">获取 Cookies</h3>
+<p>检索所有设置的 cookies 是非常简单的。cookies 被存储在 CGI 环境变量 HTTP_COOKIE 中，且它们的形式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">key1=value1;key2=value2;key3=value3....
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的实例演示了如何获取 cookies。</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">cgi</span><span class="p">;</span>
+   <span class="n">const_cookie_iterator</span> <span class="n">cci</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;CGI 中的 Cookies&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;table border = </span><span class="se">\&#34;</span><span class="s">0</span><span class="se">\&#34;</span><span class="s"> cellspacing = </span><span class="se">\&#34;</span><span class="s">2</span><span class="se">\&#34;</span><span class="s">&gt;&#34;</span><span class="p">;</span>
+   
+   <span class="c1">// 获取环境变量
+</span><span class="c1"></span>   <span class="k">const</span> <span class="n">CgiEnvironment</span><span class="o">&amp;</span> <span class="n">env</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="n">getEnvironment</span><span class="p">();</span>
+ 
+   <span class="k">for</span><span class="p">(</span> <span class="n">cci</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getCookieList</span><span class="p">().</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">cci</span> <span class="o">!=</span> <span class="n">env</span><span class="p">.</span><span class="n">getCookieList</span><span class="p">().</span><span class="n">end</span><span class="p">();</span> 
+        <span class="o">++</span><span class="n">cci</span> <span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cci</span><span class="o">-&gt;</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cci</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">();</span>                                 
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/table&gt;&lt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，编译上面的程序，生成 getcookies.cgi，并尝试使用下面的链接获取您的计算机上所有可用的 cookies：</p>
+<p>/cgi-bin/getcookies.cgi</p>
+<p>这会产生一个列表，显示了上一节中设置的四个 cookies 以及您的计算机上所有其他的 cookies：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">UserID XYZ 
+Password XYZ123 
+Domain www.w3cschool.cc 
+Path /perl 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="文件上传实例">文件上传实例</h2>
+<p>为了上传一个文件，HTML 表单必须把 enctype 属性设置为 <strong>multipart/form-data</strong>。带有文件类型的 input 标签会创建一个 &ldquo;Browse&rdquo; 按钮。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">form</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&#34;multipart/form-data&#34;</span> 
+            <span class="na">action</span><span class="o">=</span><span class="s">&#34;/cgi-bin/cpp_uploadfile.cgi&#34;</span> 
+            <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>文件：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;file&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;userfile&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;上传&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码的结果是下面的表单：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210913230301413.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210913230301413.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210913230301413.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210913230301413.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210913230301413.png"
+        title="image-20210913230301413"
+    /></p>
+<p>**注意：**上面的实例已经故意禁用了保存上传的文件在我们的服务器上。您可以在自己的服务器上尝试上面的代码。</p>
+<p>下面是用于处理文件上传的脚本 <strong>cpp_uploadfile.cpp</strong>：</p>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp">
+</span><span class="cp"></span> 
+<span class="cp">#include</span> <span class="cpf">&lt;cgicc/CgiDefs.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/Cgicc.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTTPHTMLHeader.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cgicc/HTMLClasses.h&gt;</span><span class="cp">
+</span><span class="cp"></span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cgicc</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Cgicc</span> <span class="n">cgi</span><span class="p">;</span>
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Content-type:text/html</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;title&gt;CGI 中的文件上传&lt;/title&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/head&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+ 
+   <span class="c1">// 获取要被上传的文件列表
+</span><span class="c1"></span>   <span class="n">const_file_iterator</span> <span class="n">file</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="n">getFile</span><span class="p">(</span><span class="s">&#34;userfile&#34;</span><span class="p">);</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">file</span> <span class="o">!=</span> <span class="n">cgi</span><span class="p">.</span><span class="n">getFiles</span><span class="p">().</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+      <span class="c1">// 在 cout 中发送数据类型
+</span><span class="c1"></span>      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">HTTPContentHeader</span><span class="p">(</span><span class="n">file</span><span class="o">-&gt;</span><span class="n">getDataType</span><span class="p">());</span>
+      <span class="c1">// 在 cout 中写入内容
+</span><span class="c1"></span>      <span class="n">file</span><span class="o">-&gt;</span><span class="n">writeToStream</span><span class="p">(</span><span class="n">cout</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;文件上传成功&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/body&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;/html&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的实例是在 <strong>cout</strong> 流中写入内容，但您可以打开文件流，并把上传的文件内容保存在目标位置的某个文件中。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-09-13</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" data-title="C&#43;&#43; 39Web 编程" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" data-title="C&#43;&#43; 39Web 编程"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" data-title="C&#43;&#43; 39Web 编程"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/" data-title="C&#43;&#43; 39Web 编程" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/%E8%8F%9C%E9%B8%9Fc&#43;&#43;/">菜鸟C&#43;&#43;</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/09/c-40stl-%E6%95%99%E7%A8%8B/" class="prev" rel="prev" title="C&#43;&#43; 40STL 教程"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; 40STL 教程</a>
+            <a href="/2021/09/c-38%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="next" rel="next" title="C&#43;&#43; 38多线程">C&#43;&#43; 38多线程<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C&#43;&#43; 24类 &amp; 对象 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 24类 &amp; 对象" />
-<meta property="og:description" content="C&#43;&#43; 类 &amp; 对象 C&#43;&#43; 在 C 语言的基础上增加了面向对象编程，C&#43;&#43; 支持面向对象程序设计。类是 C&#43;&#43; 的核心特性，通常被称为用户定义的类型。 类用于指定对象的形式" />
+    <title class="pjax-title">C&#43;&#43; 31文件和流 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 31文件和流" />
+<meta property="og:description" content="C&#43;&#43; 文件和流 到目前为止，我们已经使用了 iostream 标准库，它提供了 cin 和 cout 方法分别用于从标准输入读取流和向标准输出写入流。 本教程介绍如何从文件读取流和向文" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-25T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-13T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43; 24类 &amp; 对象"/>
-<meta name="twitter:description" content="C&#43;&#43; 类 &amp; 对象 C&#43;&#43; 在 C 语言的基础上增加了面向对象编程，C&#43;&#43; 支持面向对象程序设计。类是 C&#43;&#43; 的核心特性，通常被称为用户定义的类型。 类用于指定对象的形式"/>
+<meta name="twitter:title" content="C&#43;&#43; 31文件和流"/>
+<meta name="twitter:description" content="C&#43;&#43; 文件和流 到目前为止，我们已经使用了 iostream 标准库，它提供了 cin 和 cout 方法分别用于从标准输入读取流和向标准输出写入流。 本教程介绍如何从文件读取流和向文"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/c-25%E7%BB%A7%E6%89%BF/" /><link rel="next" href="https://xinqinew.github.io/2021/09/c-43%E5%AE%9E%E4%BE%8B/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/c-32%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++ 24类 \u0026 对象",
+        "headline": "C++ 31文件和流",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  1469 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1\/","datePublished": "2021-08-25T00:00:00+00:00","dateModified": "2021-08-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  1697 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/09\/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81\/","datePublished": "2021-09-13T00:00:00+00:00","dateModified": "2021-09-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 24类 &amp; 对象</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 31文件和流</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-25">2021-08-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-25">2021-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1469 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 24类 &amp; 对象">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-13">2021-09-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-13">2021-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1697 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 31文件和流">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -150,76 +150,127 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#c-类--对象">C++ 类 &amp; 对象</a>
+    <li><a href="#c-文件和流">C++ 文件和流</a>
       <ul>
-        <li><a href="#c-类定义">C++ 类定义</a></li>
-        <li><a href="#定义-c-对象">定义 C++ 对象</a></li>
-        <li><a href="#访问数据成员">访问数据成员</a></li>
+        <li><a href="#打开文件">打开文件</a></li>
+        <li><a href="#关闭文件">关闭文件</a></li>
+        <li><a href="#写入文件">写入文件</a></li>
+        <li><a href="#读取文件">读取文件</a></li>
+        <li><a href="#读取--写入实例">读取 &amp; 写入实例</a></li>
+        <li><a href="#实例">实例</a></li>
+        <li><a href="#文件位置指针">文件位置指针</a></li>
       </ul>
     </li>
-    <li><a href="#类--对象详解">类 &amp; 对象详解</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="c-类--对象">C++ 类 &amp; 对象</h1>
-<p>C++ 在 C 语言的基础上增加了面向对象编程，C++ 支持面向对象程序设计。类是 C++ 的核心特性，通常被称为用户定义的类型。</p>
-<p>类用于指定对象的形式，它包含了数据表示法和用于处理数据的方法。类中的数据和方法称为类的成员。函数在一个类中被称为类的成员。</p>
-<h2 id="c-类定义">C++ 类定义</h2>
-<p>定义一个类，本质上是定义一个数据类型的蓝图。这实际上并没有定义任何数据，但它定义了类的名称意味着什么，也就是说，它定义了类的对象包括了什么，以及可以在这个对象上执行哪些操作。</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11.png"
-        title="img"
-    /></p>
-<p>类定义是以关键字 <strong>class</strong> 开头，后跟类的名称。类的主体是包含在一对花括号中。类定义后必须跟着一个分号或一个声明列表。例如，我们使用关键字 <strong>class</strong> 定义 Box 数据类型，如下所示：</p>
+            </div><div class="content" id="content"><h1 id="c-文件和流">C++ 文件和流</h1>
+<p>到目前为止，我们已经使用了 <strong>iostream</strong> 标准库，它提供了 <strong>cin</strong> 和 <strong>cout</strong> 方法分别用于从标准输入读取流和向标准输出写入流。</p>
+<p>本教程介绍如何从文件读取流和向文件写入流。这就需要用到 C++ 中另一个标准库 <strong>fstream</strong>，它定义了三个新的数据类型：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ofstream</td>
+<td style="text-align:left">该数据类型表示输出文件流，用于创建文件并向文件写入信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">ifstream</td>
+<td style="text-align:left">该数据类型表示输入文件流，用于从文件读取信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">fstream</td>
+<td style="text-align:left">该数据类型通常表示文件流，且同时具有 ofstream 和 ifstream 两种功能，这意味着它可以创建文件，向文件写入信息，从文件读取信息。</td>
+</tr>
+</tbody>
+</table>
+<p>要在 C++ 中进行文件处理，必须在 C++ 源代码文件中包含头文件 <iostream> 和 <fstream>。</p>
+<h2 id="打开文件">打开文件</h2>
+<p>在从文件读取信息或者向文件写入信息之前，必须先打开文件。<strong>ofstream</strong> 和 <strong>fstream</strong> 对象都可以用来打开文件进行写操作，如果只需要打开文件进行读操作，则使用 <strong>ifstream</strong> 对象。</p>
+<p>下面是 open() 函数的标准语法，open() 函数是 fstream、ifstream 和 ofstream 对象的一个成员。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Box</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>   <span class="c1">// 盒子的长度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>  <span class="c1">// 盒子的宽度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 盒子的高度
-</span><span class="c1"></span><span class="p">};</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">open</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">openmode</span> <span class="n">mode</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>关键字 <strong>public</strong> 确定了类成员的访问属性。在类对象作用域内，公共成员在类的外部是可访问的。您也可以指定类的成员为 <strong>private</strong> 或 <strong>protected</strong>，这个我们稍后会进行讲解。</p>
-<h2 id="定义-c-对象">定义 C++ 对象</h2>
-<p>类提供了对象的蓝图，所以基本上，对象是根据类来创建的。声明类的对象，就像声明基本类型的变量一样。下面的语句声明了类 Box 的两个对象：</p>
+</div><p>在这里，<strong>open()</strong> 成员函数的第一参数指定要打开的文件的名称和位置，第二个参数定义文件被打开的模式。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式标志</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ios::app</td>
+<td style="text-align:left">追加模式。所有写入都追加到文件末尾。</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::ate</td>
+<td style="text-align:left">文件打开后定位到文件末尾。</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">打开文件用于读取。</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::out</td>
+<td style="text-align:left">打开文件用于写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::trunc</td>
+<td style="text-align:left">如果该文件已经存在，其内容将在打开文件之前被截断，即把文件长度设为 0。</td>
+</tr>
+</tbody>
+</table>
+<p>您可以把以上两种或两种以上的模式结合使用。例如，如果您想要以写入模式打开文件，并希望截断文件，以防文件已存在，那么您可以使用下面的语法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Box</span> <span class="n">Box1</span><span class="p">;</span>          <span class="c1">// 声明 Box1，类型为 Box
-</span><span class="c1"></span><span class="n">Box</span> <span class="n">Box2</span><span class="p">;</span>          <span class="c1">// 声明 Box2，类型为 Box
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
+<span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">trunc</span> <span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div><p>对象 Box1 和 Box2 都有它们各自的数据成员。</p>
-<h2 id="访问数据成员">访问数据成员</h2>
-<p>类的对象的公共数据成员可以使用直接成员访问运算符 <strong>.</strong> 来访问。</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11-2.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11-2.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11-2.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11-2.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/cpp-classes-objects-2020-12-10-11-2.png"
-        title="img"
-    /></p>
-<p>为了更好地理解这些概念，让我们尝试一下下面的实例：</p>
-<p><strong>实例</strong></p>
+</div><p>类似地，您如果想要打开一个文件用于读写，可以使用下面的语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ifstream</span>  <span class="n">afile</span><span class="p">;</span>
+<span class="n">afile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="关闭文件">关闭文件</h2>
+<p>当 C++ 程序终止时，它会自动关闭刷新所有流，释放所有分配的内存，并关闭所有打开的文件。但程序员应该养成一个好习惯，在程序终止前关闭所有打开的文件。</p>
+<p>下面是 close() 函数的标准语法，close() 函数是 fstream、ifstream 和 ofstream 对象的一个成员。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">close</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="写入文件">写入文件</h2>
+<p>在 C++ 编程中，我们使用流插入运算符（ &laquo; ）向文件写入信息，就像使用该运算符输出信息到屏幕上一样。唯一不同的是，在这里您使用的是 <strong>ofstream</strong> 或 <strong>fstream</strong> 对象，而不是 <strong>cout</strong> 对象。</p>
+<h2 id="读取文件">读取文件</h2>
+<p>在 C++ 编程中，我们使用流提取运算符（ &raquo; ）从文件读取信息，就像使用该运算符从键盘输入信息一样。唯一不同的是，在这里您使用的是 <strong>ifstream</strong> 或 <strong>fstream</strong> 对象，而不是 <strong>cin</strong> 对象。</p>
+<h2 id="读取--写入实例">读取 &amp; 写入实例</h2>
+<p>下面的 C++ 程序以读写模式打开一个文件。在向文件 afile.dat 写入用户输入的信息之后，程序从文件读取信息，并将其输出到屏幕上：</p>
+<h2 id="实例">实例</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -271,151 +322,125 @@
 </span><span class="lnt">47
 </span><span class="lnt">48
 </span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
  
-<span class="k">class</span> <span class="nc">Box</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
 <span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>   <span class="c1">// 长度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>  <span class="c1">// 宽度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 高度
-</span><span class="c1"></span>      <span class="c1">// 成员函数声明
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="nf">get</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-      <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span> <span class="kt">double</span> <span class="n">len</span><span class="p">,</span> <span class="kt">double</span> <span class="n">bre</span><span class="p">,</span> <span class="kt">double</span> <span class="n">hei</span> <span class="p">);</span>
-<span class="p">};</span>
-<span class="c1">// 成员函数定义
-</span><span class="c1"></span><span class="kt">double</span> <span class="n">Box</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
-<span class="p">}</span>
+    
+   <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
  
-<span class="kt">void</span> <span class="n">Box</span><span class="o">::</span><span class="n">set</span><span class="p">(</span> <span class="kt">double</span> <span class="n">len</span><span class="p">,</span> <span class="kt">double</span> <span class="n">bre</span><span class="p">,</span> <span class="kt">double</span> <span class="n">hei</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">length</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
-    <span class="n">breadth</span> <span class="o">=</span> <span class="n">bre</span><span class="p">;</span>
-    <span class="n">height</span> <span class="o">=</span> <span class="n">hei</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Box</span> <span class="n">Box1</span><span class="p">;</span>        <span class="c1">// 声明 Box1，类型为 Box
-</span><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box2</span><span class="p">;</span>        <span class="c1">// 声明 Box2，类型为 Box
-</span><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box3</span><span class="p">;</span>        <span class="c1">// 声明 Box3，类型为 Box
-</span><span class="c1"></span>   <span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>     <span class="c1">// 用于存储体积
-</span><span class="c1"></span> 
-   <span class="c1">// box 1 详述
-</span><span class="c1"></span>   <span class="n">Box1</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span> 
-   <span class="n">Box1</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">;</span> 
-   <span class="n">Box1</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="mf">7.0</span><span class="p">;</span>
+   <span class="c1">// 以写模式打开文件
+</span><span class="c1"></span>   <span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
+   <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span>
  
-   <span class="c1">// box 2 详述
-</span><span class="c1"></span>   <span class="n">Box2</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span>
-   <span class="n">Box2</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">;</span>
-   <span class="n">Box2</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="mf">13.0</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Writing to the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your name: &#34;</span><span class="p">;</span> 
+   <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
  
-   <span class="c1">// box 1 的体积
-</span><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box1</span><span class="p">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">Box1</span><span class="p">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">Box1</span><span class="p">.</span><span class="n">breadth</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Box1 的体积：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// 向文件写入用户输入的数据
+</span><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
  
-   <span class="c1">// box 2 的体积
-</span><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box2</span><span class="p">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">Box2</span><span class="p">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">Box2</span><span class="p">.</span><span class="n">breadth</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Box2 的体积：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your age: &#34;</span><span class="p">;</span> 
+   <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span>
+   <span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
+   
+   <span class="c1">// 再次向文件写入用户输入的数据
+</span><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
  
+   <span class="c1">// 关闭打开的文件
+</span><span class="c1"></span>   <span class="n">outfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
  
-   <span class="c1">// box 3 详述
-</span><span class="c1"></span>   <span class="n">Box3</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mf">16.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">);</span> 
-   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box3</span><span class="p">.</span><span class="n">get</span><span class="p">();</span> 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Box3 的体积：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// 以读模式打开文件
+</span><span class="c1"></span>   <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span> 
+   <span class="n">infile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span> 
+ 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reading from the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
+ 
+   <span class="c1">// 在屏幕上写入数据
+</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   
+   <span class="c1">// 再次从文件读取数据，并显示它
+</span><span class="c1"></span>   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+ 
+   <span class="c1">// 关闭打开的文件
+</span><span class="c1"></span>   <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+ 
    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+</div><p>当上面的代码被编译和执行时，它会产生下列输入和输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Box1</span> <span class="err">的体积：</span><span class="mi">210</span>
-<span class="n">Box2</span> <span class="err">的体积：</span><span class="mi">1560</span>
-<span class="n">Box3</span> <span class="err">的体积：</span><span class="mi">1536</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">$</span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
+<span class="n">Writing</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span>
+<span class="n">Enter</span> <span class="n">your</span> <span class="nl">name</span><span class="p">:</span> <span class="n">Zara</span>
+<span class="n">Enter</span> <span class="n">your</span> <span class="nl">age</span><span class="p">:</span> <span class="mi">9</span>
+<span class="n">Reading</span> <span class="n">from</span> <span class="n">the</span> <span class="n">file</span>
+<span class="n">Zara</span>
+<span class="mi">9</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>需要注意的是，私有的成员和受保护的成员不能使用直接成员访问运算符 (.) 来直接访问。我们将在后续的教程中学习如何访问私有成员和受保护的成员。</p>
-<h1 id="类--对象详解">类 &amp; 对象详解</h1>
-<p>到目前为止，我们已经对 C++ 的类和对象有了基本的了解。下面的列表中还列出了其他一些 C++ 类和对象相关的概念，可以点击相应的链接进行学习。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">概念</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-class-member-functions.html" target="_blank" rel="noopener noreffer">类成员函数</a></td>
-<td style="text-align:left">类的成员函数是指那些把定义和原型写在类定义内部的函数，就像类定义中的其他变量一样。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-class-access-modifiers.html" target="_blank" rel="noopener noreffer">类访问修饰符</a></td>
-<td style="text-align:left">类成员可以被定义为 public、private 或 protected。默认情况下是定义为 private。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-constructor-destructor.html" target="_blank" rel="noopener noreffer">构造函数 &amp; 析构函数</a></td>
-<td style="text-align:left">类的构造函数是一种特殊的函数，在创建一个新的对象时调用。类的析构函数也是一种特殊的函数，在删除所创建的对象时调用。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-copy-constructor.html" target="_blank" rel="noopener noreffer">C++ 拷贝构造函数</a></td>
-<td style="text-align:left">拷贝构造函数，是一种特殊的构造函数，它在创建对象时，是使用同一类中之前创建的对象来初始化新创建的对象。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-friend-functions.html" target="_blank" rel="noopener noreffer">C++ 友元函数</a></td>
-<td style="text-align:left"><strong>友元函数</strong>可以访问类的 private 和 protected 成员。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-inline-functions.html" target="_blank" rel="noopener noreffer">C++ 内联函数</a></td>
-<td style="text-align:left">通过内联函数，编译器试图在调用函数的地方扩展函数体中的代码。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-this-pointer.html" target="_blank" rel="noopener noreffer">C++ 中的 this 指针</a></td>
-<td style="text-align:left">每个对象都有一个特殊的指针 <strong>this</strong>，它指向对象本身。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-pointer-to-class.html" target="_blank" rel="noopener noreffer">C++ 中指向类的指针</a></td>
-<td style="text-align:left">指向类的指针方式如同指向结构的指针。实际上，类可以看成是一个带有函数的结构。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.runoob.com/cplusplus/cpp-static-members.html" target="_blank" rel="noopener noreffer">C++ 类的静态成员</a></td>
-<td style="text-align:left">类的数据成员和函数成员都可以被声明为静态的。</td>
-</tr>
-</tbody>
-</table>
-</div><div class="post-footer" id="post-footer">
+</div><p>上面的实例中使用了 cin 对象的附加函数，比如 getline()函数从外部读取一行，ignore() 函数会忽略掉之前读语句留下的多余字符。</p>
+<h2 id="文件位置指针">文件位置指针</h2>
+<p><strong>istream</strong> 和 <strong>ostream</strong> 都提供了用于重新定位文件位置指针的成员函数。这些成员函数包括关于 istream 的 <strong>seekg</strong>（&ldquo;seek get&rdquo;）和关于 ostream 的 <strong>seekp</strong>（&ldquo;seek put&rdquo;）。</p>
+<p>seekg 和 seekp 的参数通常是一个长整型。第二个参数可以用于指定查找方向。查找方向可以是 <strong>ios::beg</strong>（默认的，从流的开头开始定位），也可以是 <strong>ios::cur</strong>（从流的当前位置开始定位），也可以是 <strong>ios::end</strong>（从流的末尾开始定位）。</p>
+<p>文件位置指针是一个整数值，指定了从文件的起始位置到指针所在位置的字节数。下面是关于定位 &ldquo;get&rdquo; 文件位置指针的实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 定位到 fileObject 的第 n 个字节（假设是 ios::beg）
+</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span> <span class="p">);</span>
+ 
+<span class="c1">// 把文件的读指针从 fileObject 当前位置向后移 n 个字节
+</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">cur</span> <span class="p">);</span>
+ 
+<span class="c1">// 把文件的读指针从 fileObject 末尾往回移 n 个字节
+</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
+ 
+<span class="c1">// 定位到 fileObject 的末尾
+</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-25</span>
+                <span>更新于 2021-09-13</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" data-title="C&#43;&#43; 24类 &amp; 对象" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" data-title="C&#43;&#43; 24类 &amp; 对象"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" data-title="C&#43;&#43; 24类 &amp; 对象"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-24%E7%B1%BB-%E5%AF%B9%E8%B1%A1/" data-title="C&#43;&#43; 24类 &amp; 对象" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" data-title="C&#43;&#43; 31文件和流" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" data-title="C&#43;&#43; 31文件和流"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" data-title="C&#43;&#43; 31文件和流"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/" data-title="C&#43;&#43; 31文件和流" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -427,8 +452,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/08/c-25%E7%BB%A7%E6%89%BF/" class="prev" rel="prev" title="C&#43;&#43; 25继承"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; 25继承</a>
-            <a href="/2021/09/c-43%E5%AE%9E%E4%BE%8B/" class="next" rel="next" title="C&#43;&#43; 43实例">C&#43;&#43; 43实例<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/09/c-32%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="prev" rel="prev" title="C&#43;&#43; 32异常处理"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; 32异常处理</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
