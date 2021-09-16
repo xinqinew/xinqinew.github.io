@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43;菜鸟笔记 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; 笔记31文件和流</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B031%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</link>
+    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B031%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 文件和流 数据类型 描述 ofstream 该数据类型表示输出文件流，用于创建文件并向文件写入信息。 ifstream 该数据类型表示输入文件流，用于从文件读取信息。 fstream 该数据类型]]></description>
+</item><item>
     <title>C&#43;&#43; 笔记28数据抽象</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B028%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/</link>
     <pubDate>Sat, 11 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 日期 &amp; 时间 有四个与时间相关的类型：clock_t、time_t、size_t 和 tm。类型 clock_t、size_t 和 time_t 能够把系统时间和日]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记22基本的输入输出</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B022%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
-    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B022%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 基本的输入输出 I/O 库头文件 下列的头文件在 C++ 编程中很重要。 头文件 函数和描述 &lt;iostream&gt; 该文件定义了 cin、cout、cerr 和 clog 对象，分别对应于标准输入]]></description>
 </item></channel>
 </rss>
