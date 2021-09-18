@@ -4,9 +4,27 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 16 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 17 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 33笔记动态内存</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
+    <pubDate>Fri, 17 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 动态内存 C++ 程序中的内存分为两个部分： **栈：**在函数内部声明的所有变量都将占用栈内存。 **堆：**这是程序中未使用的内存，在程序运行时可]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记32异常处理</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B032%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+    <pubDate>Fri, 17 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B032%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 异常处理 C++ 异常处理涉及到三个关键字：try、catch、throw。 throw: 当问题出现时，程序会抛出一个异常。这是通过使用 throw 关键字来完成的。 catch: 在]]></description>
+</item><item>
     <title>C&#43;&#43; 31文件和流</title>
     <link>https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</link>
     <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -78,23 +96,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 多线程 多线程是多任务处理的一种特殊形式，多任务处理允许让电脑同时运行两个或两个以上的程序。一般情况下，两种类型的多任务处理：基于进程和基于]]></description>
-</item><item>
-    <title>C&#43;&#43; 39Web 编程</title>
-    <link>https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-39web-%E7%BC%96%E7%A8%8B/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC]]></description>
-</item><item>
-    <title>C&#43;&#43; 40STL 教程</title>
-    <link>https://xinqinew.github.io/2021/09/c-40stl-%E6%95%99%E7%A8%8B/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-40stl-%E6%95%99%E7%A8%8B/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ STL 教程 在前面的章节中，我们已经学习了 C++ 模板的概念。C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类]]></description>
 </item></channel>
 </rss>
