@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  571 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  635 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98\/","datePublished": "2021-09-19T00:00:00+00:00","dateModified": "2021-09-19T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 571 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 635 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/" class="leancloud_visitors" data-flag-title="封包的加密与解密、线程发包专题">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -148,7 +148,6 @@
         <li><a href="#三大发包函数">三大发包函数</a></li>
         <li><a href="#线程发包">线程发包</a></li>
         <li><a href="#条件断">条件断</a></li>
-        <li><a href="#跳出线程发包">跳出线程发包</a></li>
       </ul>
     </li>
   </ul>
@@ -171,16 +170,16 @@
 <li>有时WSASend胡乱断，不是真正的发包 ，根据它的特征码，去搜索。查找&ndash;&gt;所有命令 ,输入特征码，然后右键&ndash;&gt;在每个命令上下设置断点。然后在所有被断下的位置做标记（注释），并取消断点。然后去执行喊话等发包操作，看在哪断下。如果不断，说明在刚才被标记的里面。之后逐一下断测试。</li>
 </ol>
 <h2 id="线程发包">线程发包</h2>
-<p>线程发包的特点：</p>
+<p><strong>线程发包的特点</strong>：</p>
 <ol>
-<li>下断会立刻断下，并且非常频繁</li>
-<li>无论做任何动作断下的，我们的返回堆栈都是一样的</li>
+<li>断得非常频繁</li>
+<li>任何功能堆栈返回都是一样的</li>
 </ol>
-<p>解决办法</p>
+<p><strong>正常流程</strong></p>
 <ol>
 <li>找到发包函数</li>
 <li>判断是不是线程发包</li>
-<li>判断线程发包的地址是否变化</li>
+<li>判断包内容(非包长)的地址是否变化</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -192,10 +191,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  graph
-  z[找到发包函数] --&gt;z1[判断是不是线程发包] --是--&gt; 想办法跳出线程发包  --&gt;z2[判断线程发包的地址是否变化]
+  z[找到发包函数] --&gt;z1[判断是不是线程发包] --是--&gt; 想办法跳出线程发包  --&gt;z2[&#34;判断包内容(非包长)的地址是否变化&#34;]
   z1 --否--&gt; z3[正常发包]
-  z2 --是--&gt; z4[唯一突破口,找到包的内容来源]
-  z2 --否--&gt; z5
+  z2 --是--&gt; z4[唯一突破口,找到包的内容来源]--&gt; z5[&#34;向上追,直到追到不变的地址&#34;]--&gt;z6
+  z2 --否--&gt; z6[在包内容处下硬件写入dword断点] --&gt; 就能跳出线程发包
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="条件断">条件断</h2>
@@ -214,8 +213,7 @@
 </span><span class="c"># &amp;&amp; 和
 </span></code></pre></td></tr></table>
 </div>
-</div><h2 id="跳出线程发包">跳出线程发包</h2>
-</div><div class="post-footer" id="post-footer">
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
