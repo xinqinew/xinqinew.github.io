@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 汇编","wordcount":  3216 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 汇编","wordcount":  3225 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-09-01T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3216 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3225 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -290,15 +290,17 @@
 </ul>
 <h3 id="发包函数">发包函数</h3>
 <ul>
-<li>send WSASend sendto</li>
+<li>send</li>
+<li>WSASend</li>
+<li>sendto</li>
 </ul>
 <p>send在64位系统上是ws2_32.send</p>
-<p>WSASend （在同一个电脑上位置是固定的）</p>
+<p>WSPSend （在同一个电脑上位置是固定的）</p>
 <p>DXF单机版 私服</p>
-<p>找到WSASend</p>
+<p>找到WSPSend</p>
 <ol>
 <li>附加上口袋西游(或者任何的send发包的软件都可以)，跳到send位置</li>
-<li>send 第三个call下断（win10是第四个），断下后F7进入，这就是WSASend的位置。</li>
+<li>send 第三个call下断（win7是第三个，win10是第四个），断下后F7进入，这就是WSPSend的位置。</li>
 <li>附加到目标进程，跳转到这个地址，下断。</li>
 <li>有时WSASend胡乱断，不是真正的发包 ，根据它的特征码，去搜索。查找&ndash;&gt;所有命令 ,输入特征码，然后右键&ndash;&gt;在每个命令上下设置断点。然后在所有被断下的位置做标记（注释），并取消断点。然后去执行喊话等发包操作，看在哪断下。如果不断，说明在刚才被标记的里面。之后逐一下断测试。</li>
 </ol>

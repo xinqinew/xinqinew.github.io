@@ -5,14 +5,32 @@
         <description>所有C&#43;&#43;菜鸟笔记 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
-    <title>C&#43;&#43; 33笔记动态内存</title>
+    <title>C&#43;&#43; 笔记33动态内存</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
-    <pubDate>Fri, 17 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+    <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 动态内存 C++ 程序中的内存分为两个部分： **栈：**在函数内部声明的所有变量都将占用栈内存。 **堆：**这是程序中未使用的内存，在程序运行时可]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记34命名空间</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B034%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+    <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B034%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 命名空间 定义命名空间 命名空间的定义使用关键字 namespace，后跟命名空间的名称，如下所示： 1 2 3 namespace namespace_name { // 代码声明 } 为了调用带有命名空间]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记35模板</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B035%E6%A8%A1%E6%9D%BF/</link>
+    <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B035%E6%A8%A1%E6%9D%BF/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 模板 模板是泛型编程的基础，泛型编程即以一种独立于任何特定类型的方式编写代码。 模板是创建泛型类或函数的蓝图或公式。库容器，比如迭代器和算法，]]></description>
 </item><item>
     <title>C&#43;&#43; 笔记32异常处理</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B032%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
@@ -76,23 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 继承 1 2 3 4 5 6 7 8 9 10 11 // 基类 class Animal { // eat() 函数 // sleep() 函数 }; //派生类 class Dog : public Animal { // bark() 函数 }; 基类 &amp; 派生类 类派生列表以一个或多个基类命名，形式如]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记26重载运算符和重载函数</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B026%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Thu, 02 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B026%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 重载运算符和重载函数 C++ 中的函数重载 同名函数 print() 被用于输出不同的数据类型： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 #include]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记24类 &amp; 对象</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B024%E7%B1%BB-%E5%AF%B9%E8%B1%A1/</link>
-    <pubDate>Fri, 27 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%AC%94%E8%AE%B024%E7%B1%BB-%E5%AF%B9%E8%B1%A1/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 类 &amp; 对象 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 #include &lt;iostream&gt; using namespace std; class Box]]></description>
 </item></channel>
 </rss>
