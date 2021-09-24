@@ -5,6 +5,42 @@
         <description>所有C&#43;&#43;菜鸟笔记 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; 笔记36预处理器</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 预处理器 C++ 还支持很多预处理指令，比如 #include、#define、#if、#else、#line 等，让我们一起看看这些重要指令。 #define 预处]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记37信号处理</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B037%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B037%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 信号处理 信号是由操作系统传给进程的中断，会提早终止一个程序。在 UNIX、LINUX、Mac OS X 或 Windows 系统上，可以通过按 Ctrl+C 产生中断。 有些信号不]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记38多线程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B038%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B038%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 多线程 多线程是多任务处理的一种特殊形式，多任务处理允许让电脑同时运行两个或两个以上的程序。一般情况下，两种类型的多任务处理：基于进程和基于]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记39Web 编程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B039web-%E7%BC%96%E7%A8%8B/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B039web-%E7%BC%96%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC]]></description>
+</item><item>
     <title>C&#43;&#43; 笔记33动态内存</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
     <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -58,41 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 数据抽象 数据抽象是指，只向外界提供关键信息，并隐藏其后台的实现细节，即只表现必要的信息而不呈现细节。 就 C++ 编程而言，C++ 类为数据抽象提供了]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记29数据封装</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/</link>
-    <pubDate>Sat, 11 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B029%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 数据封装 所有的 C++ 程序都有以下两个基本要素： **程序语句（代码）：**这是程序中执行动作的部分，它们被称为函数。 **程序数据：**数据是程序]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记30接口（抽象类）</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B030%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/</link>
-    <pubDate>Sat, 11 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B030%E6%8E%A5%E5%8F%A3%E6%8A%BD%E8%B1%A1%E7%B1%BB/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 接口（抽象类） C++ 接口是使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与相关的数据分离开的概念。 如果类中至少有一个函]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记27多态</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B027%E5%A4%9A%E6%80%81/</link>
-    <pubDate>Wed, 08 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B027%E5%A4%9A%E6%80%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 多态 多态按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。 C++ 多态意味着调用成员函数时，会根据调用函]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记25继承</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B025%E7%BB%A7%E6%89%BF/</link>
-    <pubDate>Thu, 02 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B025%E7%BB%A7%E6%89%BF/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ 继承 1 2 3 4 5 6 7 8 9 10 11 // 基类 class Animal { // eat() 函数 // sleep() 函数 }; //派生类 class Dog : public Animal { // bark() 函数 }; 基类 &amp; 派生类 类派生列表以一个或多个基类命名，形式如]]></description>
 </item></channel>
 </rss>

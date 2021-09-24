@@ -4,9 +4,45 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 笔记36预处理器</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 预处理器 C++ 还支持很多预处理指令，比如 #include、#define、#if、#else、#line 等，让我们一起看看这些重要指令。 #define 预处]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记37信号处理</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B037%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B037%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 信号处理 信号是由操作系统传给进程的中断，会提早终止一个程序。在 UNIX、LINUX、Mac OS X 或 Windows 系统上，可以通过按 Ctrl+C 产生中断。 有些信号不]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记38多线程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B038%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B038%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 多线程 多线程是多任务处理的一种特殊形式，多任务处理允许让电脑同时运行两个或两个以上的程序。一般情况下，两种类型的多任务处理：基于进程和基于]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记39Web 编程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B039web-%E7%BC%96%E7%A8%8B/</link>
+    <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B039web-%E7%BC%96%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC]]></description>
+</item><item>
     <title>C&#43;&#43; 笔记33动态内存</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
     <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -58,41 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 文件和流 到目前为止，我们已经使用了 iostream 标准库，它提供了 cin 和 cout 方法分别用于从标准输入读取流和向标准输出写入流。 本教程介绍如何从文件读取流和向文]]></description>
-</item><item>
-    <title>C&#43;&#43; 32异常处理</title>
-    <link>https://xinqinew.github.io/2021/09/c-32%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-32%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 异常处理 异常是程序在执行期间产生的问题。C++ 异常是指在程序运行时发生的特殊情况，比如尝试除以零的操作。 异常提供了一种转移程序控制权的方式]]></description>
-</item><item>
-    <title>C&#43;&#43; 33动态内存</title>
-    <link>https://xinqinew.github.io/2021/09/c-33%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-33%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 动态内存 了解动态内存在 C++ 中是如何工作的是成为一名合格的 C++ 程序员必不可少的。C++ 程序中的内存分为两个部分： **栈：**在函数内部声明的所有]]></description>
-</item><item>
-    <title>C&#43;&#43; 34命名空间</title>
-    <link>https://xinqinew.github.io/2021/09/c-34%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-34%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 命名空间 假设这样一种情况，当一个班上有两个名叫 Zara 的学生时，为了明确区分它们，我们在使用名字之外，不得不使用一些额外的信息，比如他们的家庭住]]></description>
-</item><item>
-    <title>C&#43;&#43; 35模板</title>
-    <link>https://xinqinew.github.io/2021/09/c-35%E6%A8%A1%E6%9D%BF/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-35%E6%A8%A1%E6%9D%BF/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 模板 模板是泛型编程的基础，泛型编程即以一种独立于任何特定类型的方式编写代码。 模板是创建泛型类或函数的蓝图或公式。库容器，比如迭代器和算法，]]></description>
 </item></channel>
 </rss>
