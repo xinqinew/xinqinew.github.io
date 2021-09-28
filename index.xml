@@ -4,9 +4,43 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>内存存储方式</title>
+    <link>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/</link>
+    <pubDate>Mon, 27 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记40STL 教程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B040stl-%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Sun, 26 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B040stl-%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ STL 教程 在前面的章节中，我们已经学习了 C++ 模板的概念。C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记41标准库</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B041%E6%A0%87%E5%87%86%E5%BA%93/</link>
+    <pubDate>Sun, 26 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B041%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 标准库 C++ 标准库可以分为两部分： 标准函数库： 这个库是由通用的、独立的、不属于任何类的函数组成的。函数库继承自 C 语言。 面向对象类库： 这个库是类]]></description>
+</item><item>
+    <title>在线班课程目录（6788）</title>
+    <link>https://xinqinew.github.io/2021/09/%E5%9C%A8%E7%BA%BF%E7%8F%AD%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%956788/</link>
+    <pubDate>Sat, 25 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/%E5%9C%A8%E7%BA%BF%E7%8F%AD%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%956788/</guid>
+    <description><![CDATA[报名QQ: 3534373359 ================================ 本期在线班, 实战游戏列表: 口袋西游 传奇永恒 幻想神域单机版 猎天 QQ自由幻想 天涯明月刀 魔兽单机版 神途 QQ三国 新寻仙 魔兽怀旧服 自由足]]></description>
+</item><item>
     <title>C&#43;&#43; 笔记36预处理器</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</link>
     <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -60,39 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 命名空间 定义命名空间 命名空间的定义使用关键字 namespace，后跟命名空间的名称，如下所示： 1 2 3 namespace namespace_name { // 代码声明 } 为了调用带有命名空间]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记35模板</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B035%E6%A8%A1%E6%9D%BF/</link>
-    <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B035%E6%A8%A1%E6%9D%BF/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 模板 模板是泛型编程的基础，泛型编程即以一种独立于任何特定类型的方式编写代码。 模板是创建泛型类或函数的蓝图或公式。库容器，比如迭代器和算法，]]></description>
-</item><item>
-    <title>封包的加密与解密、线程发包专题</title>
-    <link>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/</link>
-    <pubDate>Sun, 19 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/</guid>
-    <description><![CDATA[封包的加密与解密、线程发包专题 三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记32异常处理</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B032%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
-    <pubDate>Fri, 17 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B032%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 异常处理 C++ 异常处理涉及到三个关键字：try、catch、throw。 throw: 当问题出现时，程序会抛出一个异常。这是通过使用 throw 关键字来完成的。 catch: 在]]></description>
-</item><item>
-    <title>C&#43;&#43; 31文件和流</title>
-    <link>https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-31%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 文件和流 到目前为止，我们已经使用了 iostream 标准库，它提供了 cin 和 cout 方法分别用于从标准输入读取流和向标准输出写入流。 本教程介绍如何从文件读取流和向文]]></description>
 </item></channel>
 </rss>

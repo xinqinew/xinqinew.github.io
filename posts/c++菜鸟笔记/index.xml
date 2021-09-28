@@ -5,6 +5,24 @@
         <description>所有C&#43;&#43;菜鸟笔记 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; 笔记40STL 教程</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B040stl-%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Sun, 26 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B040stl-%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ STL 教程 在前面的章节中，我们已经学习了 C++ 模板的概念。C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类]]></description>
+</item><item>
+    <title>C&#43;&#43; 笔记41标准库</title>
+    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B041%E6%A0%87%E5%87%86%E5%BA%93/</link>
+    <pubDate>Sun, 26 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B041%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/runoob.png" referrerpolicy="no-referrer">
+            </div>C++ 标准库 C++ 标准库可以分为两部分： 标准函数库： 这个库是由通用的、独立的、不属于任何类的函数组成的。函数库继承自 C 语言。 面向对象类库： 这个库是类]]></description>
+</item><item>
     <title>C&#43;&#43; 笔记36预处理器</title>
     <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B036%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</link>
     <pubDate>Thu, 23 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -76,23 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ 异常处理 C++ 异常处理涉及到三个关键字：try、catch、throw。 throw: 当问题出现时，程序会抛出一个异常。这是通过使用 throw 关键字来完成的。 catch: 在]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记31文件和流</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B031%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B031%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 文件和流 数据类型 描述 ofstream 该数据类型表示输出文件流，用于创建文件并向文件写入信息。 ifstream 该数据类型表示输入文件流，用于从文件读取信息。 fstream 该数据类型]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记28数据抽象</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B028%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/</link>
-    <pubDate>Sat, 11 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B028%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 数据抽象 数据抽象是指，只向外界提供关键信息，并隐藏其后台的实现细节，即只表现必要的信息而不呈现细节。 就 C++ 编程而言，C++ 类为数据抽象提供了]]></description>
 </item></channel>
 </rss>
