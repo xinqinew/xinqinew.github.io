@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">内存存储方式 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="内存存储方式" />
-<meta property="og:description" content="内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx" />
+    <title class="pjax-title">图解DbgView使用 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="图解DbgView使用" />
+<meta property="og:description" content="图解DbgView使用 一 DbgView简介 Sysinternals公司的系列调试工具。 debugview 可以捕获程序中由TRACE(debug版本)和Out" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-27T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-28T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="内存存储方式"/>
-<meta name="twitter:description" content="内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx"/>
+<meta name="twitter:title" content="图解DbgView使用"/>
+<meta name="twitter:description" content="图解DbgView使用 一 DbgView简介 Sysinternals公司的系列调试工具。 debugview 可以捕获程序中由TRACE(debug版本)和Out"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" /><link rel="prev" href="https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "内存存储方式",
+        "headline": "图解DbgView使用",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  24 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F\/","datePublished": "2021-09-27T00:00:00+00:00","dateModified": "2021-09-27T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  1774 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8\/","datePublished": "2021-09-28T00:00:00+00:00","dateModified": "2021-09-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,48 +128,185 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">内存存储方式</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">图解DbgView使用</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-27">2021-09-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-27">2021-09-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 24 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" class="leancloud_visitors" data-flag-title="内存存储方式">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-28">2021-09-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-28">2021-09-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1774 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" class="leancloud_visitors" data-flag-title="图解DbgView使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        data-src="/images/C&#43;&#43;.jpg"
-        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
-        data-sizes="auto"
-        alt="/images/C&#43;&#43;.jpg"
-        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
-    /></div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#内存中的浮点数">内存中的浮点数</a></li>
+    <li><a href="#图解dbgview使用">图解DbgView使用</a>
+      <ul>
+        <li><a href="#一-dbgview简介">一 DbgView简介</a></li>
+        <li><a href="#二-实际操作">二 实际操作</a></li>
+        <li><a href="#三-trace宏和dbgview">三 TRACE宏和Dbgview</a></li>
+        <li><a href="#四-c中使用">四 C#中使用</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="内存中的浮点数">内存中的浮点数</h1>
-<p>3开头 1.xxxx  0.xxxx</p>
-<p>4开头 100.xxxx</p>
-<p>b开头 -0.xxxx</p>
-<p>c开头 -15.xxxx</p>
+            </div><div class="content" id="content"><h1 id="图解dbgview使用">图解DbgView使用</h1>
+<h2 id="一-dbgview简介">一 DbgView简介</h2>
+<p>Sysinternals公司的系列调试工具。
+debugview 可以捕获程序中由TRACE(debug版本)和OutputDebugString输出的信息。</p>
+<p>Debug信息捕获软件
+可以很方便的捕获系统实时输出的Debug信息，并保存为日志文件。可以远程捕获服务器上的Debug信息。  比较方便开发人员在系统发布前监控一些系统流程和异常，甚至在系统不大的情况下，更能在部署后进行远程监控功能。</p>
+<h2 id="二-实际操作">二 实际操作</h2>
+<p>Computer菜单下可选择连接的计算机，默认连接本机；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165959689.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165959689.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165959689.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165959689.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165959689.png"
+        title="img"
+    /></p>
+<p>输入IP或名字可连远程计算机；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170015544.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170015544.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170015544.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170015544.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170015544.png"
+        title="img"
+    /></p>
+<p>下面四个按钮，第一个放大镜的，控制捕获的打开或关闭；第二个控制是否捕获系统内核的Debug信息；第三个控制是否捕获Win32应用的Debug信息；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165754732.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165754732.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165754732.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165754732.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165754732.png"
+        title="img"
+    /></p>
+<p>这是本机捕获的情况；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170019128.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170019128.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170019128.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170019128.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170019128.png"
+        title="img"
+    /></p>
+<p>点击漏斗型按钮，打开过滤器设置，在Include中输入TRACE，在Exclude中输入WAIT_TIMEOUT；这样就只显示带字符串“TRACE”的debug信息，不显示带“WAIT_TIMEOUT”的调试信息；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755149.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755149.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755149.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755149.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755149.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755350.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755350.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755350.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755350.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755350.png"
+        title="img"
+    /></p>
+<p>过滤以后的结果；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755558.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755558.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755558.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755558.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755558.png"
+        title="img"
+    /></p>
+<p>漏斗型按钮旁边的按钮控制显示记录的条数；下图显示16条；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755778.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755778.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755778.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755778.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928165755778.png"
+        title="img"
+    /></p>
+<p>捕获菜单中，默认捕获的是Win32，Pass-Through，Events；全局Win32，内核等，默认没有捕获；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170054755.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170054755.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170054755.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170054755.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170054755.png"
+        title="img"
+    /></p>
+<p>选项菜单，可以选择是否显示Win32进程ID，是否滚动显示等；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170058775.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170058775.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170058775.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170058775.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/Center-20210928170058775.png"
+        title="img"
+    /></p>
+<h2 id="三-trace宏和dbgview">三 TRACE宏和Dbgview</h2>
+<p><a href="http://blog.163.com/gou_ya/blog/static/102080580200810274839532/" target="_blank" rel="noopener noreffer">http://blog.163.com/gou_ya/blog/static/102080580200810274839532/</a></p>
+<p>debugview</p>
+<p>1、用debugview，打开debugview，运行你的debug版本程序，可以定位到源文件的某一行。</p>
+<p>2、包含stdlib.h crtdbg.h 两个头文件
+在程序开始处添加 #define _CRTDBG_MAP_ALLOC
+在程序结束处添加 _CrtDumpMemoryLeaks();
+比如</p>
+<p>#define _CRTDBG_MAP_ALLOC</p>
+<p>int main(void)
+{
+char *p = new char;
+return 0;</p>
+<p>_CrtDumpMemoryLeaks();
+}</p>
+<p>运行debug版本的程序。在输出信息栏里会有内存泄露信息，可以定位到某一行
+以上两种方法不是没种泄露都能定位，如果不能，会输出内存泄露信息和发生泄漏的模块，那就要自己想想，什么地方出现了泄露</p>
+<p>TRACE宏对于VC下程序调试来说是很有用的东西，有着类似printf的功能；该宏仅仅在程序的DEBUG版本中出现，当RELEASE的时候该宏就完全消失了，从而帮助你调试也在RELEASE的时候减少代码量。</p>
+<p>使用非常简单，格式如下：</p>
+<p>TRACE(&ldquo;DDDDDDDDDDD&rdquo;);
+TRACE(&ldquo;wewe%d&rdquo;,333);</p>
+<p>同样还存在TRACE0，TRACE1，TRACE2。。。分别对应0，1，2。。个参数
+TRACE信息输出到VC IDE环境的输出窗口（该窗口是你编译项目出错提示的那个窗口），但仅限于你在VC中运行你的DEBUG版本的程序。
+TRACE信息还可以使用DEBUGVIEW来捕获到。这种情况下，你不能在VC的IDE环境中运行你的程序，而将BUILD好的DEBUG版本的程序单独运行，这个时候可以在DEBUGVIEW的窗口看到DEBUGVIE格式的输出了。</p>
+<p>VC中TRACE的用法有以下四种：</p>
+<p>1:
+TRACE ，就是不带动态参数输出字符串, 类似C的printf(&ldquo;输出字符串&rdquo;);</p>
+<p>2:
+TRACE 中的字符串可以带一个参数输出 , 类似C的printf(&quot;&hellip;%d&quot;,变量);</p>
+<p>3:
+TRACE 可以带两个参数输出，类似C的printf(&quot;&hellip;%d&hellip;%f&quot;,变量1,变量2);</p>
+<p>4:
+TRACE 可以带三个参数输出，类似C的printf(&quot;&hellip;%d，%d,%d&quot;,变量1,变量2，变量3);</p>
+<p>TRACE 宏有点象我们以前在C语言中用的Printf函数，使程序在运行过程中输出一些调试信息，使我们能了解程序的一些状态。但有一点不同的是：
+TRACE 宏只有在调试状态下才有所输出，而以前用的Printf 函数在任何情况下都有输出。和Printf 函数一样，TRACE函数可以接受多个参数如：</p>
+<p>int x = 1;
+int y = 16;
+float z = 32.0;
+TRACE( &ldquo;This is a TRACE statement\n&rdquo; );
+TRACE( &ldquo;The value of x is %d\n&rdquo;, x );
+TRACE( &ldquo;x = %d and y = %d\n&rdquo;, x, y );
+TRACE( &ldquo;x = %d and y = %x and z = %f\n&rdquo;, x, y, z );</p>
+<p>要注意的是TRACE宏只对Debug 版本的工程产生作用，在Release 版本的工程中，TRACE宏将被忽略。</p>
+<h2 id="四-c中使用">四 C#中使用</h2>
+<p>在C#中的使用方法：  将WinDebug.cs加入到项目中，也可以编译成.dll文件引入。然后在程序中需要输出调试信息调用即可。</p>
+<p>另外，如果要在运行时应用不输出debug信息，可以将web.config或app.config中的 &lt;system.web&gt;  <compilation debug="true" targetFramework="4.0"/> 设置为false，然后在调用WinDebug的地方就不会再输出Debug信息了</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-09-27</span>
+                <span>更新于 2021-09-28</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" data-title="内存存储方式"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" data-title="内存存储方式"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" data-title="内存存储方式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" data-title="内存存储方式" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" data-title="图解DbgView使用"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" data-title="图解DbgView使用"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" data-title="图解DbgView使用"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/" data-title="图解DbgView使用"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -181,7 +318,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/" class="prev" rel="prev" title="输出您电脑上各种数据类型的大小"><i class="fas fa-angle-left fa-fw"></i>输出您电脑上各种数据类型的大小</a></div>
+    <div class="post-nav"><a href="/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/" class="prev" rel="prev" title="Visual C&#43;&#43;免注册调用大漠插件"><i class="fas fa-angle-left fa-fw"></i>Visual C&#43;&#43;免注册调用大漠插件</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

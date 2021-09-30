@@ -5,6 +5,13 @@
         <description>所有未分类的常见问题 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/other/" rel="self" type="application/rss+xml" /><item>
+    <title>图解DbgView使用</title>
+    <link>https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Tue, 28 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[图解DbgView使用 一 DbgView简介 Sysinternals公司的系列调试工具。 debugview 可以捕获程序中由TRACE(debug版本)和Out]]></description>
+</item><item>
     <title>Visual C&#43;&#43;免注册调用大漠插件</title>
     <link>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
     <pubDate>Thu, 16 Sep 2021 00:00:00 &#43;0000</pubDate><author>
