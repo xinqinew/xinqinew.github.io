@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "GitHub, 博客","wordcount":  5638 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "GitHub, 博客, Mermaid","wordcount":  5583 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95\/","datePublished": "2021-07-27T00:00:00+00:00","dateModified": "2021-07-27T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -131,8 +131,8 @@
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mermaid教程收录</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/markdown/"><i class="far fa-folder fa-fw"></i>Markdown</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-27">2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-27">2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5638 字&nbsp;
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/markdown/"><i class="far fa-folder fa-fw"></i>Markdown</a>&nbsp;<a href="/categories/mermaid/"><i class="far fa-folder fa-fw"></i>Mermaid</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-27">2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-27">2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5583 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" class="leancloud_visitors" data-flag-title="Mermaid教程收录">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -258,13 +258,11 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-  graph 
-  s(&#34;开始(START)&#34;) 
-  
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph 
+	s(&#34;开始(START)&#34;) 
+
 </code></pre></td></tr></table>
 </div>
 </div><p>语法：id(&quot;:转义字符;&quot;)</p>
@@ -649,33 +647,6 @@ s(&#34;开始:#9829;&#34;)
 </div><p>源代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    ```mermaid
-        graph LR;
-            A--&gt;B;
-            B[跳转百度]--&gt;C;
-            C--&gt;D;
-            click A callback &#34;Tooltip for a callback&#34;
-            click B &#34;http://www.baidu.com&#34; &#34;This is a tooltip for a link&#34;
-            click A call callback() &#34;Tooltip for a callback&#34;
-            click B href &#34;http://www.github.com&#34; &#34;This is a tooltip for a link&#34;
-    ```
-</code></pre></td></tr></table>
-</div>
-</div><p>生成效果</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -686,14 +657,39 @@ s(&#34;开始:#9829;&#34;)
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">     graph LR;
-         A--&gt;B;
-         B[跳转百度]--&gt;C;
-         C--&gt;D;
-         click A callback &#34;Tooltip for a callback&#34;
-         click B &#34;http://www.baidu.com&#34; &#34;This is a tooltip for a link&#34;
-         click A call callback() &#34;Tooltip for a callback&#34;
-         click B href &#34;http://www.github.com&#34; &#34;This is a tooltip for a link&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    graph LR;
+        A--&gt;B;
+        B[跳转百度]--&gt;C;
+        C--&gt;D;
+        click A callback &#34;Tooltip for a callback&#34;
+        click B &#34;http://www.baidu.com&#34; &#34;This is a tooltip for a link&#34;
+        click A call callback() &#34;Tooltip for a callback&#34;
+        click B href &#34;http://www.github.com&#34; &#34;This is a tooltip for a link&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>生成效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+    graph LR
+        A--&gt;B;
+        B[跳转百度]--&gt;C;
+        C--&gt;D;
+        click A callback &#34;Tooltip for a callback&#34;
+        click B &#34;http://www.baidu.com&#34; &#34;This is a tooltip for a link&#34;
+        click A call callback() &#34;Tooltip for a callback&#34;
+        click B href &#34;http://www.github.com&#34; &#34;This is a tooltip for a link&#34;
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="注释-">注释 %%</h4>
@@ -705,21 +701,11 @@ s(&#34;开始:#9829;&#34;)
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    ```mermaid
-    graph LR
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">graph LR
     %% this is a comment A -- text --&gt; B{node}
        A -- text --&gt; B -- text2 --&gt; C
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -754,23 +740,13 @@ s(&#34;开始:#9829;&#34;)
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    ```mermaid
-        graph LR
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">        graph LR
         s[&#34;开始(实线边框，4px，边框颜色：#007fff 掘金蓝 ,背景色：red)&#34;]
         e[&#34;结束(虚线边框，4px，边框颜色：red,背景色：#007fff 掘金蓝 文本颜色为白色)&#34;]
         style s  fill:red ,stroke:#007fff,stroke-width:4px
         style e  fill:#007fff,stroke:red,stroke-width:4px,stroke-dasharray: 5 5,color:#fff
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -816,22 +792,11 @@ s(&#34;开始:#9829;&#34;)
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">     ```mermaid
-    graph LR
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">    graph LR
     s[开始]:::ownstyle--&gt;e[结束]
     classDef ownstyle fill:#007fff,stroke:red,stroke-width:4px,stroke-dasharray: 5 5,color:#fff
-</code></pre></td></tr></table>
-</div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -886,31 +851,24 @@ classDef ownstyle fill:#007fff,stroke:red,stroke-width:4px,stroke-dasharray: 5 5
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    ```mermaid
-        graph LR;
-        A--&gt;B[AAA&lt;span&gt;BBB&lt;/span&gt;];
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">        graph LR;
+        A--&gt;B[AAA<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>BBB<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>];
         B--&gt;D;
         class A cssClass;
 </code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>生成效果：</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-生成效果：
- ```mermaid
-    graph LR;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    graph LR;
     A--&gt;B[AAA&lt;span&gt;BBB&lt;/span&gt;];
     B--&gt;D;
     class A cssClass;
@@ -1145,14 +1103,6 @@ classDef ownstyle fill:#007fff,stroke:red,stroke-width:4px,stroke-dasharray: 5 5
      deactivate L
 </code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果：</p>
@@ -1222,15 +1172,6 @@ L-&gt;&gt;Z:我很好，不用担心。
         Note left of 张三 :我是张三
 </code></pre></td></tr></table>
 </div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果</p>
@@ -1241,23 +1182,19 @@ L-&gt;&gt;Z:我很好，不用担心。
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  sequenceDiagram
   participant 张三
   Note left of 张三 :我是张三
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    sequenceDiagram
-    participant 张三
-    Note right of 张三 :我是张三
+```mermaid
+  sequenceDiagram
+  participant 张三
+  Note right of 张三 :我是张三
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -1324,15 +1261,6 @@ L-&gt;&gt;Z:我很好，不用担心。
         loop 每过一小时李四发消息给张三
              李四 --&gt; 张三:我很好
         end
-</code></pre></td></tr></table>
-</div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -1431,15 +1359,6 @@ L-&gt;&gt;Z:我很好，不用担心。
         end
 </code></pre></td></tr></table>
 </div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果：</p>
@@ -1528,15 +1447,6 @@ L-&gt;&gt;Z:我很好，不用担心。
         opt 可能的回答
             李四--&gt;&gt;张三:谢谢你的问候
         end
-</code></pre></td></tr></table>
-</div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -1646,18 +1556,11 @@ L-&gt;&gt;Z:我很好，不用担心。
 
 </code></pre></td></tr></table>
 </div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1677,6 +1580,7 @@ L-&gt;&gt;Z:我很好，不用担心。
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sequenceDiagram
@@ -1692,11 +1596,10 @@ L-&gt;&gt;Z:我很好，不用担心。
     李四 -&gt;&gt; 张三:没吃呢
     王五 -&gt;&gt; 张三:吃了
 
+
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-<h4 id="嵌套语法">嵌套语法：</h4>
+</div><h4 id="嵌套语法">嵌套语法：</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1791,15 +1694,6 @@ L-&gt;&gt;Z:我很好，不用担心。
 
 </code></pre></td></tr></table>
 </div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果</p>
@@ -1824,6 +1718,7 @@ L-&gt;&gt;Z:我很好，不用担心。
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sequenceDiagram
@@ -1842,6 +1737,7 @@ par 王五发消息给赵六
 and 王五发消息给A8
    王五 -&gt;&gt;A8:明天带上你的伙伴一起来哈
 end
+
 
 </code></pre></td></tr></table>
 </div>
@@ -1930,15 +1826,6 @@ end
 
 </code></pre></td></tr></table>
 </div>
-</div><p>复制代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>生成效果：</p>
@@ -1972,7 +1859,6 @@ end
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
-</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sequenceDiagram
@@ -2002,7 +1888,6 @@ end
      王五 -&gt;&gt;A8:明天带上你的伙伴一起来哈
 end
  end
-
 
 </code></pre></td></tr></table>
 </div>
@@ -2206,13 +2091,13 @@ end
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录" data-hashtags="GitHub,博客"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-hashtag="GitHub"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录" data-hashtags="GitHub,博客,Mermaid"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-hashtag="GitHub"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/07/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/" data-title="Mermaid教程收录"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/github/">GitHub</a>,&nbsp;<a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/github/">GitHub</a>,&nbsp;<a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>,&nbsp;<a href="/tags/mermaid/">Mermaid</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

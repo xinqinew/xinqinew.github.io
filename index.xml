@@ -4,9 +4,16 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 30 Sep 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>OD常识及技巧</title>
+    <link>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[OD常识及技巧 菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 快捷键 F2 下断和取消]]></description>
+</item><item>
     <title>飞郁逆向课程详解</title>
     <link>https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/</link>
     <pubDate>Thu, 30 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -83,14 +90,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>C++ Web 编程 什么是 CGI？ 公共网关接口（CGI），是一套标准，定义了信息是如何在 Web 服务器和客户端脚本之间进行交换的。 CGI 规范目前是由 NCSA 维护的，NC]]></description>
-</item><item>
-    <title>C&#43;&#43; 笔记33动态内存</title>
-    <link>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</link>
-    <pubDate>Mon, 20 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/c-%E7%AC%94%E8%AE%B033%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>C++ 动态内存 C++ 程序中的内存分为两个部分： **栈：**在函数内部声明的所有变量都将占用栈内存。 **堆：**这是程序中未使用的内存，在程序运行时可]]></description>
 </item></channel>
 </rss>

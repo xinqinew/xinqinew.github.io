@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>Mermaid之流程图语法</title>
+    <link>https://xinqinew.github.io/2021/10/mermaid%E4%B9%8B%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</link>
+    <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/mermaid%E4%B9%8B%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</guid>
+    <description><![CDATA[Mermaid之流程图语法 可能的形状有: ([])体育场形 表示开始/结束 []矩形/()圆角矩形 表示流程(一些特定的操作) [[]]表示子流程 [(]]></description>
+</item><item>
     <title>GitHub官方git代码</title>
     <link>https://xinqinew.github.io/2021/09/github%E5%AE%98%E6%96%B9git%E4%BB%A3%E7%A0%81/</link>
     <pubDate>Tue, 07 Sep 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[Git pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add &lt;file&gt; 添加文件 git commit -m &lt;message&gt; 提交说明 git status 仓库状态 git diff &lt;file&gt; 查看差别 git log 日志 git reflog 查看命令历史 git reset --hard commit_id]]></description>
-</item><item>
-    <title>Github绑定Cloudflare及freenom</title>
-    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
-    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
-    <description><![CDATA[首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即]]></description>
 </item></channel>
 </rss>

@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 汇编","wordcount":  3251 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞, 汇编","wordcount":  4239 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0\/","datePublished": "2021-08-10T00:00:00+00:00","dateModified": "2021-09-01T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E4%BB%BB%E9%B8%9F%E9%A3%9E/"><i class="far fa-folder fa-fw"></i>任鸟飞</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3251 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4239 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="任鸟飞笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -148,6 +148,8 @@
         <li><a href="#小知识">小知识</a></li>
         <li><a href="#汇编">汇编</a>
           <ul>
+            <li><a href="#od指令">OD指令</a></li>
+            <li><a href="#寄存器">寄存器</a></li>
             <li><a href="#汇编指令">汇编指令</a></li>
             <li><a href="#发包函数">发包函数</a></li>
             <li><a href="#线程发包">线程发包</a></li>
@@ -200,8 +202,10 @@
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="汇编">汇编</h2>
+<h3 id="od指令">OD指令</h3>
 <p>dd	查看dword</p>
 <p>db	查看字节集</p>
+<h3 id="寄存器">寄存器</h3>
 <p>EAX call的返回值</p>
 <p>ECX call的参数</p>
 <h3 id="汇编指令">汇编指令</h3>
@@ -354,7 +358,7 @@ d[ ]--&gt;e[&#34;检测是否真的需要发包(封包的加密解密)&#34;]--&g
 <li>此时看栈上差值</li>
 </ol>
 <h3 id="应该熟悉的汇编指令">应该熟悉的汇编指令</h3>
-<p>mov 传值 和 lea 传址</p>
+<p>mov 赋值 和 lea 传址</p>
 <p>push 入栈 和 pop 出栈</p>
 <p>pushad 和 popad 调用call之前pushad，调用call之后popad，保证寄存器不受影响</p>
 <p>add 加法 和 sub 减法</p>
@@ -473,11 +477,57 @@ d[ ]--&gt;e[&#34;检测是否真的需要发包(封包的加密解密)&#34;]--&g
 <p><strong>如果是局部变量，有两种追法</strong></p>
 <ul>
 <li>一条一条向上堆，并根据 <strong><a href="####%e6%94%b9%e5%8f%98%e5%a0%86%e6%a0%88%e7%9a%84%e6%93%8d%e4%bd%9c" rel="">影响esp的操作</a></strong> 来计算偏移</li>
-<li>需要下两个断点，第一个断点为当前[esp+xx]处，第二个断点为：在头部位置找到 <code>sub esp xx</code>,在它的下一条下断。连断两次之后，看esp变化是多少，比如是n，那么在头部要追的就是[esp+xx-n]。  在堆栈内双击esp+xx-n，做个定位，然后在头部断点位置按F8，找哪句改变了堆栈内esp+xx-n的值即可。</li>
+<li>需要下两个断点，第一个断点为当前[esp+xx]处，第二个断点为：在头部位置找到 <code>sub esp xxxx</code>,在它的下一条下断。连断两次之后，看esp变化是多少，比如是n，那么在头部要追的就是[esp+xx-n]。  在堆栈内双击esp+xx-n，做个定位，然后在头部断点位置按F8，找哪句改变了堆栈内esp+xx-n的值即可。</li>
 </ul>
 </li>
-</ol>
+<li>
+<p><strong>如果是参数</strong></p>
+<p>看它在堆栈内,第一个call返回到的下面第几个位置，就代表它是上层第几个参数</p>
 </li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph 
+z([&#34;首先要确定&lt;br&gt;我们要追的[esp+]&lt;br&gt;是参数&lt;br&gt;还是局部变量&#34;]) --&gt; z1 &amp; z4
+z1{&#34;方法1&lt;br&gt;一条一条往上推&lt;br&gt;推到最上面&#34;} --&gt; z2 &amp; z3
+z2[&#34;如果是esp+&#34;]--&gt;z6
+z3[&#34;如果是esp-&#34;]--&gt;z5
+z4{&#34;方法2&lt;br&gt;直接下断&lt;br&gt;看堆栈&#34;} --&gt; z4a &amp; z4b
+z4a[如果在第一个call&lt;br&gt;返回到的上面]--&gt; z5
+z4b[如果在第一个call&lt;br&gt;返回到的下面]--&gt; z6
+z5[&#34;局部变量&#34;]--&gt;z7 &amp; z9
+z6[&#34;参数&#34;]--&gt;z14
+z7[&#34;方法1&lt;br&gt;一条一条向上堆&#34;]--&gt;
+z8[&#34;并根据影响esp的&lt;br&gt;操作来计算偏移&#34;]
+z9[&#34;方法2&lt;br&gt;需要下两个断点&#34;]--&gt;
+z10[&#34;第一个断点为:&lt;br&gt;当前[esp+xx]处&#34;]--&gt;
+z11[&#34;第二个断点为:&lt;br&gt;在头部位置找到&lt;br&gt;sub esp xxxx&lt;br&gt;在它的下一条下断&#34;]--&gt;
+z12[&#34;连断两次之后，&lt;br&gt;看esp变化是多少，&lt;br&gt;比如是n，&lt;br&gt;那么在头部要追的就是&lt;br&gt;[esp+xx-n]&#34;]--&gt;
+z13[&#34;在堆栈内双击esp+xx-n，&lt;br&gt;做个定位，&lt;br&gt;然后在头部断点位置按F8，&lt;br&gt;找哪句改变了堆栈内&lt;br&gt;esp+xx-n的值即可。&#34;]
+z14[&#34;看它在堆栈内&lt;br&gt;第一个call返回到&lt;br&gt;的下面第几个位置，&lt;br&gt;就代表它是上层&lt;br&gt;第几个参数&#34;]
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 </li>
 </ol>
