@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  748 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  1049 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/","datePublished": "2021-10-03T00:00:00+00:00","dateModified": "2021-10-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%BE%85%E5%8A%A9/"><i class="far fa-folder fa-fw"></i>辅助</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 748 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" class="leancloud_visitors" data-flag-title="OD常识及技巧">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1049 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" class="leancloud_visitors" data-flag-title="OD常识及技巧">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -161,7 +161,14 @@
         <li><a href="#堆栈">堆栈</a></li>
         <li><a href="#堆栈平衡">堆栈平衡</a></li>
         <li><a href="#寄存器">寄存器</a></li>
-        <li><a href="#找call总结">找call总结</a></li>
+        <li><a href="#找call总结">找call总结</a>
+          <ul>
+            <li><a href="#找call时需要注意的地方"><strong>找call时，需要注意的地方：</strong></a></li>
+            <li><a href="#找到call后我们还需要对函数的参数寄存器进行分析"><strong>找到call后，我们还需要对函数的参数、寄存器进行分析。</strong></a></li>
+            <li><a href="#带有结构体的函数">带有结构体的函数</a></li>
+            <li><a href="#无法通过发包函数获得的call">无法通过发包函数获得的call</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -225,7 +232,7 @@
 <p>EAX call的返回值</p>
 <p>ECX call的参数</p>
 <h2 id="找call总结">找call总结</h2>
-<p><strong>找call时，需要注意的地方：</strong></p>
+<h3 id="找call时需要注意的地方"><strong>找call时，需要注意的地方：</strong></h3>
 <ol>
 <li>
 <p>找call在send上下断，尽量避免被心跳call干扰</p>
@@ -239,14 +246,61 @@
 </ol>
 </li>
 </ol>
-<p><strong>找到call后，我们还需要对函数的参数、寄存器进行分析。</strong></p>
+<h3 id="找到call后我们还需要对函数的参数寄存器进行分析"><strong>找到call后，我们还需要对函数的参数、寄存器进行分析。</strong></h3>
 <ol>
 <li><strong>外平栈</strong>，看清楚参数的数量，是否和平栈的数值对应。在调用call的时候一定要平栈，否则会崩溃。</li>
 <li><strong>内平栈</strong>，通过retn的数值，来判断参数的数量，并且分析ecx的来源。个别情况下，还需要分析edx和esi等参数的来源。</li>
 <li>有些函数调用的是虚函数，比如 <code>call eax</code>或者<code>call [edx+8]</code>,我们需要去分析call里寄存器的来源。</li>
-<li>如果我们的参数中需要用到eax，但是eax无法很快的得到结果，这时可以通过调用eax来源的call来获得，前提是分析清楚来源函数的参数和寄存器。</li>
+<li>如果我们的参数中需要用到eax，但是eax无法很快的得到结果，这时可以通过调用eax来源的call来获得，前提是分析清楚来源函数的参数和寄存器。调用连call。</li>
 </ol>
-</div><div class="post-footer" id="post-footer">
+<h3 id="带有结构体的函数">带有结构体的函数</h3>
+<ol>
+<li>申请一片内存（可以通过OD插件）</li>
+<li>在内存中填写结构体里的内容</li>
+<li>将我们申请的内存地址，push到call中</li>
+<li>进行调用</li>
+</ol>
+<h3 id="无法通过发包函数获得的call">无法通过发包函数获得的call</h3>
+<p>例如：寻路，控件，按键</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
+寻路--&gt;走路--&gt;z[&#34;通过目的地坐标，&lt;br&gt;下写入断点&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
+控件--&gt;z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
+按键 --&gt;z &amp; z1 &amp; z2
+z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+z1[&#34;鼠标点击&#34;]
+z2[&#34;键盘&#34;]
+
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
