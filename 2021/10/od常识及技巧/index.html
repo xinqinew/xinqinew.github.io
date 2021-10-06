@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  1049 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  1350 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/","datePublished": "2021-10-03T00:00:00+00:00","dateModified": "2021-10-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%BE%85%E5%8A%A9/"><i class="far fa-folder fa-fw"></i>辅助</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1049 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1350 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" class="leancloud_visitors" data-flag-title="OD常识及技巧">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -169,6 +169,7 @@
             <li><a href="#无法通过发包函数获得的call">无法通过发包函数获得的call</a></li>
           </ul>
         </li>
+        <li><a href="#发包函数">发包函数</a></li>
       </ul>
     </li>
   </ul>
@@ -185,6 +186,7 @@
 <h2 id="快捷键">快捷键</h2>
 <p>F2 下断和取消</p>
 <p>Shift+F2 条件断点</p>
+<p>F4 代码执行一次</p>
 <h2 id="条件断点">条件断点</h2>
 <p>== 等于</p>
 <p>!= 不等于</p>
@@ -201,7 +203,29 @@
 <p>div 除法</p>
 <p>call 函数</p>
 <p>retn 返回</p>
-<h2 id="快捷键-1">快捷键</h2>
+<p>rep 主要用来重复执行指令 <a href="https://www.jianshu.com/p/a5e3b578aeb2" target="_blank" rel="noopener noreffer">详见 REP指令前缀簇</a></p>
+<p>​	指令：REP MOVS mem8/16/32, m8/16/32</p>
+<p>​	描述：从DS:[(E)SI]中复制(E)CX个字节/字/双字到ES:[(E)DI]</p>
+<blockquote>
+<p>DS:[(E)SI]由于(E)SI寄存器中保存的是源操作数的地址，所以DS:[(E)SI]指的就是该地址保存的值</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">12</span>
+<span class="na">rep</span> <span class="nf">movs</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="no">edi</span><span class="p">],</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">esi</span><span class="p">]</span>
+<span class="c"># 从[esi]中复制 ecx个四字节 到ES:[edi]
+</span><span class="c"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
+</span><span class="c"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="快捷键-1">快捷键</h2>
 <p>F7 单步步入（进call）</p>
 <p>F8 单步步过（不进call）</p>
 <h2 id="断点">断点</h2>
@@ -298,6 +322,27 @@ z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点
 z1[&#34;鼠标点击&#34;]
 z2[&#34;键盘&#34;]
 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="发包函数">发包函数</h2>
+<ol>
+<li>bp send</li>
+<li>send sendto WSASend</li>
+<li>重新实现的发包函数 WSPSend</li>
+<li>线程发包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
+subgraph 普通发包
+功能call1 --&gt; 功能call2 --&gt; 组包的过程  --&gt; 明文封包 --&gt; 加密 --&gt; 发包发送
+end
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
