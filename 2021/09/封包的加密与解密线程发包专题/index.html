@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2007 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2041 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98\/","datePublished": "2021-09-19T00:00:00+00:00","dateModified": "2021-09-19T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2007 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2041 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/" class="leancloud_visitors" data-flag-title="封包的加密与解密、线程发包专题">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -208,7 +208,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  graph
   z([找到发包函数]) --&gt;z1{判断是不是&lt;br&gt;线程发包} --是--&gt; 想办法跳出线程发包  --&gt;z2{&#34;判断包内容&lt;br&gt;(非包长)的地址&lt;br&gt;是否变化&#34;}
   z1 --否--&gt; z3[正常发包]
-  z2 --是--&gt; z4[唯一突破口,找到包的内容来源]--&gt; z5[&#34;向上追,直到追到不变的地址&#34;]--&gt; z7[&#34;下断返回，看是否跳出线程外&#34;]
+  z2 --是--&gt; z4[唯一突破口,找到包的内容来源]--&gt; z5[&#34;向上追,直到追到不变的地址&#34;]--&gt; z7[&#34;在不变的地址上，&lt;br&gt;下硬件写入断点，&lt;br&gt;返回，看是否跳出线程外&#34;]
   z2 --否--&gt; z6[在包内容处下硬件写入dword断点] --&gt; 就能跳出线程发包 --&gt; z8
   z7 --否--&gt; z5
   z7 --是--&gt; z8([yeah])
