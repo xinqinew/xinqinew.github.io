@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  514 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  728 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/","datePublished": "2021-08-07T00:00:00+00:00","dateModified": "2021-08-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 514 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 728 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(二)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -164,7 +164,8 @@
             <li><a href="#cstring类">CString类</a></li>
           </ul>
         </li>
-        <li><a href="#c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</a></li>
+        <li><a href="#结构体与联合体联合类型">结构体与联合体(联合类型)</a></li>
+        <li><a href="#lstrcpy--与-_tcscpy-拷贝字符串">lstrcpy  与 _tcscpy 拷贝字符串</a></li>
       </ul>
     </li>
   </ul>
@@ -234,7 +235,86 @@
 <p>CString::LoadString(资源ID)	//加载资源字符串</p>
 <p>CDialogEx类</p>
 <p>CButton类</p>
-<h2 id="c类的构造函数与析构函数-类成员函数">C++类的构造函数与析构函数 类成员函数</h2>
+<h2 id="结构体与联合体联合类型">结构体与联合体(联合类型)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="err">结构类型</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">}</span><span class="err">结构类型</span><span class="p">;</span>
+
+<span class="k">union</span> <span class="err">联合类型1</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>	<span class="c1">//12
+</span><span class="c1"></span>	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">}</span><span class="err">联合类型</span><span class="n">A</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">union</span> <span class="err">联合类型2</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span><span class="err">联合类型</span><span class="n">B</span><span class="p">;</span> 
+<span class="c1">//   加typedef的话，联合类型B就是别名
+</span><span class="c1">// 不加typedef的话，联合类型B就是全局变量
+</span><span class="c1">// union 联合类型 所有成员共享一片内存，大小的话，以最大成员需求为准
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="lstrcpy--与-_tcscpy-拷贝字符串">lstrcpy  与 _tcscpy 拷贝字符串</h2>
+<p>lstrcpy 既能作用于ASCII又能用于UNICODE， 兼容宏</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#ifdef UNICODE
+</span><span class="cp">#define lstrcpy IstrepyW
+</span><span class="cp">#else
+</span><span class="cp">#define lstrepy lstrepyA
+</span><span class="cp">#endif </span><span class="c1">// !UNICODE
+</span></code></pre></td></tr></table>
+</div>
+</div><p>_tcscpy</p>
+<p>MessageBox
+MessageBoxA
+MessageBoxW</p>
+<p>Istropy
+IstrepyA
+IstrepyW</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
