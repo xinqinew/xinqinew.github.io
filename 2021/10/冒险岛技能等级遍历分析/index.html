@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">《冒险岛》技能分析之技能库 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="《冒险岛》技能分析之技能库" />
-<meta property="og:description" content="上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选" />
+    <title class="pjax-title">【冒险岛】技能等级遍历分析 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【冒险岛】技能等级遍历分析" />
+<meta property="og:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-10-13T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="《冒险岛》技能分析之技能库"/>
-<meta name="twitter:description" content="上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选"/>
+<meta name="twitter:title" content="【冒险岛】技能等级遍历分析"/>
+<meta name="twitter:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/10/x86-%E5%92%8C-x64-%E5%85%B1%E7%94%A8hook%E7%B1%BB/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "《冒险岛》技能分析之技能库",
+        "headline": "【冒险岛】技能等级遍历分析",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  859 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  998 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">《冒险岛》技能分析之技能库</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【冒险岛】技能等级遍历分析</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 859 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" class="leancloud_visitors" data-flag-title="《冒险岛》技能分析之技能库">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 998 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" class="leancloud_visitors" data-flag-title="【冒险岛】技能等级遍历分析">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -142,74 +142,96 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选择一个技能，用对其名字进行扫描，可以得到若干ASCII型的结果</p>
+            </div><div class="content" id="content"><p>随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇有难度。以下面这款游戏为例，我们从逆向安全的角度来学习一下它的技能体系数据结构。</p>
+<p>这款游戏的技能体系我们大致分为三个部分去分析，分别为技能等级结构，技能库结构，剩余级技能点数结构。下面先分析最简单的技能等级结构。</p>
+<p>技能的分析可以从技能ID，技能等级，技能名字三个角度入手分析，而如果技能等级可以使用的话自然是最方便的一种，起码扫描起来很简单。而这款游戏恰好就可以通过技能加点来入手。</p>
+<p>首先我们呢用CE来任意扫描一个高级魔法的等级，最终可以得到一个结果</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504v9zpxcphy0p9gpcy.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504v9zpxcphy0p9gpcy.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504v9zpxcphy0p9gpcy.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504v9zpxcphy0p9gpcy.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504v9zpxcphy0p9gpcy.png"
         title="img"
     /></p>
-<p>这里注意的是如果名字后面带有后缀的结果比较多的话，可以转化成字节集，并加上结束标志00再扫描。分别对这些名字进行修改，同时切换技能栏，找到一个可以改变技能名字本地显示的地址。在xdbg32中对这个地址下硬件访问断点。</p>
+<p>在xdbg32中对这个地址下硬件访问断点，游戏直接断下，并得到一个+C偏移</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ob5ky0y2efjtb20u.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ob5ky0y2efjtb20u.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ob5ky0y2efjtb20u.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ob5ky0y2efjtb20u.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ob5ky0y2efjtb20u.png"
         title="img"
     /></p>
-<p>向上分析esi的来源，经过多层参数的传递，得到来源于一个[ebp-68]的局部变量</p>
+<p>向上分析可以看到一个跳转跳过ret，执行到+C偏移处，而上面可以得到一个循环+4的链表结构</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504jitiiiuwaiikhipi.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504jitiiiuwaiikhipi.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504jitiiiuwaiikhipi.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504jitiiiuwaiikhipi.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504jitiiiuwaiikhipi.png"
         title="img"
     /></p>
-<p>继续分析局部变量的来源，发现在上面出现了2个[ebp-68]，第一个是传入0，第二个是作为ecx指针传入到了CALL中</p>
+<p>图中可以看出这个链表最初的来源是上面的一个数组，当数组指向地址+8的位置与传入的esi相等时会跳出链表，或者当链表节点eax等于0时结束链表循环。</p>
+<p>我们先到上面分析出数组的起始地址和范围，然后再获取下标的信息。</p>
+<p>在上面不远处可以看到起始地址为[ecx+4]，而外面传入的第一个参数在循环右移5之后与[ecx+8]进行模运算，可以获取到下标edx</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504s4525jtx2z6w16kw.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504s4525jtx2z6w16kw.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504s4525jtx2z6w16kw.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504s4525jtx2z6w16kw.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504s4525jtx2z6w16kw.png"
         title="img"
     /></p>
-<p>而第二个位置F2不会断，说明这个位置代码没有经过，那么来源就只能在传入0下面的CALL中了。在024B4BD处call 0x5A0CB0上下F2断点，单独到内部分析来源。这里得到了一个+C偏移，继续分析在上面又得到了一个-C偏移，而这个两个位置都是lea指令，所以只得到了+0偏移。</p>
+<p>经观察可以得出这个这个[ecx+8]恰好是数组中总的元素数量。</p>
+<p>由于数组中元素较少，而链表中的节点也不多，可以判断这个数组下标其实可以不去管他，只要我们得到技能库与之关联就可以得到所有的技能信息。</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728v0jaaoqrhg0am0jv.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728v0jaaoqrhg0am0jv.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728v0jaaoqrhg0am0jv.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728v0jaaoqrhg0am0jv.png 2x"
+        data-src="https://bbs.feiyuol.com/data/attachment/forum/202107/23/145504ggzcfpk76ltpck0j.png"
+        data-srcset="https://bbs.feiyuol.com/data/attachment/forum/202107/23/145504ggzcfpk76ltpck0j.png, https://bbs.feiyuol.com/data/attachment/forum/202107/23/145504ggzcfpk76ltpck0j.png 1.5x, https://bbs.feiyuol.com/data/attachment/forum/202107/23/145504ggzcfpk76ltpck0j.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728v0jaaoqrhg0am0jv.png"
+        alt="https://bbs.feiyuol.com/data/attachment/forum/202107/23/145504ggzcfpk76ltpck0j.png"
         title="img"
     /></p>
+<p>接下来我们继续去分析数组起始地址ecx的来源，在执行到返回后可以得到一个+0DCE偏移</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504sff7scvflozr2tuy.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504sff7scvflozr2tuy.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504sff7scvflozr2tuy.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504sff7scvflozr2tuy.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504sff7scvflozr2tuy.png"
         title="img"
     /></p>
-<p>执行到返回后继续分析第一个参数eax，得到+8偏移，以及来源局部变量[ ebp-14]。代码再次向上滚动很久，可以得出局部变量[ebp-14]来源于eax</p>
+<p>向上分析得到来来源于[ebp+8]，执行到返回继续分析第一个参数，可以得到来源[eax+4]</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ixqtnmjwqt3kf3oq.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ixqtnmjwqt3kf3oq.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ixqtnmjwqt3kf3oq.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ixqtnmjwqt3kf3oq.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504ixqtnmjwqt3kf3oq.png"
         title="img"
     /></p>
-<p>eax来源一个数组，数组起始地址eax来源于[esi+8]。我们切换不同种类的技能栏并对esi+8处下F2断点，发现esi是随着技能种类变化的，也就是说这个数组只是某个种类技能的数组，在上面还有一个技能种类的结构。</p>
-<p>我们先将这里得到的数据进行分析和整理，如下</p>
-<p>[技能种类+8]-4            技能数组元素数量
-[[技能种类+8]+n<em>8+4]+4        技能ID</em>
-[[[技能种类+8]+n*8+4]+8]+0    技能名字ASCII</p>
-<p>上面这个分析的过程除了有一点绕，并没有很难的知识点，不过这里能不能观察到esi的变化规律是一个关键，因为技能名字库还有需要对技能进行分类的游戏的确很少。在下一篇文章里我们将去分析技能种类的加密算法，并获取到完整的技能库。玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
+<p>然而这个+4并不是偏移，因为eax是一个堆栈地址，[eax+4]是一个局部变脸，并且在上面的CALL 0x2D50780中被赋值。我们到这个CALL中可以很快找到来源，并得到一个+22EC的偏移</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504zb8ikttxi11pbixt.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504zb8ikttxi11pbixt.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504zb8ikttxi11pbixt.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504zb8ikttxi11pbixt.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145504zb8ikttxi11pbixt.png"
+        title="img"
+    /></p>
+<p>退出这个CALL并再次下断执行到返回，可以很快得到基地址</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145505l4ipvi6dpppi2f6d.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145505l4ipvi6dpppi2f6d.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145505l4ipvi6dpppi2f6d.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145505l4ipvi6dpppi2f6d.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145505l4ipvi6dpppi2f6d.png"
+        title="img"
+    /></p>
+<p>这个数据结构总体来说是很简单的，只是中间的局部变量作为参数到CALL的赋值的操作对逆向新手有一些难度，如果对堆栈比较熟悉的话可以轻松搞定，从安全角度来讲，这里可以做的更加复杂一些。</p>
+<p>公式就不整理了，我们接下来将要分析较为复杂的技能库结构。</p>
+<p>玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -221,7 +243,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" data-title="《冒险岛》技能分析之技能库" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" data-title="《冒险岛》技能分析之技能库"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" data-title="《冒险岛》技能分析之技能库"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" data-title="《冒险岛》技能分析之技能库"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" data-title="【冒险岛】技能等级遍历分析" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" data-title="【冒险岛】技能等级遍历分析"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" data-title="【冒险岛】技能等级遍历分析"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" data-title="【冒险岛】技能等级遍历分析"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -233,8 +255,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="【冒险岛】技能等级遍历分析"><i class="fas fa-angle-left fa-fw"></i>【冒险岛】技能等级遍历分析</a>
-            <a href="/2021/10/x86-%E5%92%8C-x64-%E5%85%B1%E7%94%A8hook%E7%B1%BB/" class="next" rel="next" title="x86 和 x64 共用HOOK类">x86 和 x64 共用HOOK类<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="【幻想神域】人物属性分析"><i class="fas fa-angle-left fa-fw"></i>【幻想神域】人物属性分析</a>
+            <a href="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" class="next" rel="next" title="《冒险岛》技能分析之技能库">《冒险岛》技能分析之技能库<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
