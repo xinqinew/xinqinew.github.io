@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">里程碑 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="里程碑" />
-<meta property="og:description" content="2021 5月 10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。 25日，开始学习《2020DNF》、《2020DOF" />
+    <title class="pjax-title">x64&lt;传奇永恒&gt;之释放技能CALL - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="x64&lt;传奇永恒&gt;之释放技能CALL" />
+<meta property="og:description" content="今天我们来分析一下&lt;传奇永恒&gt;的释放技能CALL, 调用技能CALL可以实现全自动循环打怪功能. 首先, 定位到明文包头部 在明文包头部" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/milestone/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="" />
-<meta property="article:published_time" content="2020-07-01T19:19:21+08:00" />
-<meta property="article:modified_time" content="2020-07-01T19:19:21+08:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-12T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="里程碑"/>
-<meta name="twitter:description" content="2021 5月 10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。 25日，开始学习《2020DNF》、《2020DOF"/>
+<meta name="twitter:title" content="x64&lt;传奇永恒&gt;之释放技能CALL"/>
+<meta name="twitter:description" content="今天我们来分析一下&lt;传奇永恒&gt;的释放技能CALL, 调用技能CALL可以实现全自动循环打怪功能. 首先, 定位到明文包头部 在明文包头部"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/milestone/" /><link rel="prev" href="https://xinqinew.github.io/about/" /><link rel="next" href="https://xinqinew.github.io/message-board/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E8%B7%B3%E5%87%BA%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%9F%A9%E6%9C%8D%E5%89%91%E7%81%B52/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "里程碑",
+        "headline": "x64\u003c传奇永恒\u003e之释放技能CALL",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/milestone\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "milestone","wordcount":  1148 ,
-        "url": "https:\/\/xinqinew.github.io\/milestone\/","datePublished": "2020-07-01T19:19:21+08:00","dateModified": "2020-07-01T19:19:21+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  464 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall\/","datePublished": "2021-10-12T00:00:00+00:00","dateModified": "2021-10-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -61,12 +61,9 @@
             <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
                     <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
                     <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
-                    <a class="menu-item active " href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
                     <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
                     <span class="menu-item delimiter"></span>
-	                	<a href="/en/milestone/" class="menu-item " title="English"><i class="fas fa-language fa-fw"></i>
-	                </a>
-	                
                    <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
@@ -119,9 +116,6 @@
             <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
-                            <a href="/en/milestone/" class="menu-item " title="English"><i class="fas fa-language fa-fw"></i>
-                        </a>
-                    
                 </div>
     </div>
 </header>
@@ -132,95 +126,158 @@
     <div id="search-dropdown-mobile"></div>
 </div><main class="main">
             <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single special"><h1 class="single-title animated flipInX">
-            <i class="fas fa-monument fa-fw"></i>&nbsp;里程碑
-        </h1><div class="details toc" id="toc-static"  kept="">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">x64&lt;传奇永恒&gt;之释放技能CALL</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-12">2021-10-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-12">2021-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 464 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" class="leancloud_visitors" data-flag-title="x64&lt;传奇永恒&gt;之释放技能CALL">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#2021">2021</a>
-      <ul>
-        <li><a href="#5月">5月</a></li>
-        <li><a href="#6月">6月</a></li>
-        <li><a href="#7月">7月</a></li>
-        <li><a href="#8月">8月</a></li>
-        <li><a href="#9月">9月</a></li>
-        <li><a href="#10月">10月</a></li>
-      </ul>
-    </li>
-    <li><a href="#研究目录">研究目录</a></li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><h1 id="2021">2021</h1>
-<h2 id="5月">5月</h2>
-<p>10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。</p>
-<p>25日，开始学习《2020DNF》、《2020DOF》、《2021DNF不完整》系列教程。历时5天。</p>
-<p>30日，开始学习《英雄联盟LOL》、《亿万僵尸》、《CE WALKer》，历时9天。</p>
-<h2 id="6月">6月</h2>
-<p>8日，开始学习《小冷过游戏检测技术》及相关过检测教程，历时4天。期间还看了WOW按键视频。</p>
-<p>12日，开始学习《植物大战僵尸》，历时9天。</p>
-<p>23日，开始学习《CS》。</p>
-<p>27日，开始各种尝试，然后放弃，继续看其它教程。</p>
-<h2 id="7月">7月</h2>
-<p>3日，开始学习《郁金香2020 WOW》，教程未完待续。历时19天。</p>
-<p>24日，开始学习《郁金香2019 VS2010》，教程不完整，历时16天。</p>
-<p>26日，开始利用闲暇时间搭建博客，用于记录笔记及心路历程。尝试搭了5个不同的博客，第一款基于jekyll框架，效果不理想，之后不断摸索。</p>
-<h2 id="8月">8月</h2>
-<p>4日，博客最终锁定了Hugo框架LoveIt模板，也就是现在看到的样子。</p>
-<p>10日，开始学习《任鸟飞2015天涯明月刀》，历时18天。</p>
-<p>28日，开始学习《任鸟飞2019 C++之灵魂起源》，历时3天</p>
-<h2 id="9月">9月</h2>
-<p>1日，开始学习《任鸟飞2016 画江山》，历时18天</p>
-<p>19日，开始学习《任鸟飞 封包的加密与解密、线程发包专题》，历时8天</p>
-<p>27日，开始学习《<a href="https://edu.csdn.net/course/detail/30509" target="_blank" rel="noopener noreffer">任鸟飞逆向C++基础篇</a>》,历时4天</p>
-<h2 id="10月">10月</h2>
-<p>1日，《<a href="https://edu.csdn.net/course/detail/30680" target="_blank" rel="noopener noreffer">任鸟飞逆向C++进阶篇</a>》只学了前3节，其它需要付费。开始学习《飞郁网络培训 2018-2019》,历时12天</p>
-<p>13日，开始学习</p>
-<h1 id="研究目录">研究目录</h1>
-<ul>
-<li><i class="far fa-square fa-fw"></i> Shark恒零基础百集软件逆向教程（23:28）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2020DNF》（6:53）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2020DOF》（3:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2021DNF不完整》（12:46）</li>
-<li><i class="far fa-check-square fa-fw"></i> 英雄联盟LOL（3:16）</li>
-<li><i class="far fa-check-square fa-fw"></i> 亿万僵尸（2:13）</li>
-<li><i class="far fa-check-square fa-fw"></i> CE WALKer（6:38）</li>
-<li><i class="far fa-check-square fa-fw"></i> 小冷过游戏检测技术（3:38）</li>
-<li><i class="far fa-check-square fa-fw"></i> 植物大战僵尸（19:19）</li>
-<li><i class="far fa-check-square fa-fw"></i> CS（4:54）</li>
-<li><i class="far fa-check-square fa-fw"></i> 郁金香2020 WOW（21:13）</li>
-<li><i class="far fa-check-square fa-fw"></i> 郁金香2019 VS2010（21:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2015 天涯明月刀 （26:40）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2019 C++之灵魂起源 不完整（12:07）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2016 画江山 （14:00）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞 封包的加密与解密、线程发包专题 （4:06）</li>
-<li><i class="far fa-check-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30509" target="_blank" rel="noopener noreffer">任鸟飞逆向C++基础篇</a> （6:21）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30680" target="_blank" rel="noopener noreffer">任鸟飞逆向C++进阶篇</a> 收费（19:26）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30684" target="_blank" rel="noopener noreffer">任鸟飞逆向C++高级篇</a> 收费（7:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 飞郁网络培训 2018-2019 (17:08)</li>
-<li><i class="far fa-square fa-fw"></i> 任鸟飞2016 LOL  不完整（6:24）</li>
-<li><i class="far fa-square fa-fw"></i> 逆风魔兽 (11:40)</li>
-<li><i class="far fa-square fa-fw"></i> 逆风游戏逆向C++&amp;易语言编程特训班(5:10)</li>
-<li><i class="far fa-square fa-fw"></i> 逆风游戏安全逆向编程暑期班</li>
-<li><i class="far fa-square fa-fw"></i> 微尘系列教程</li>
-<li><i class="far fa-square fa-fw"></i> IOS逆向分析</li>
-<li><i class="far fa-square fa-fw"></i> iOS底层原理班-大神MJ精选</li>
-<li><i class="far fa-square fa-fw"></i> 安卓逆向</li>
-<li><i class="far fa-square fa-fw"></i> AGP论坛驱动教程</li>
-<li><i class="far fa-square fa-fw"></i> 逆向4_X64dbg_翠翠妹子 (3:48)</li>
-<li><i class="far fa-square fa-fw"></i> 汇编-魔鬼作坊 (3:13)</li>
-<li><i class="far fa-square fa-fw"></i> 重楼(12:32)</li>
-<li><i class="far fa-square fa-fw"></i> 梦无极过游戏驱动保护教程（25:20）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://space.bilibili.com/436517105/?spm_id_from=333.999.0.0" target="_blank" rel="noopener noreffer">唐三藏逆向</a>（2:11）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://space.bilibili.com/20612628?spm_id_from=333.788.b_765f7570696e666f.2" target="_blank" rel="noopener noreffer">HaiVince CE插件</a>（00:16）需加群</li>
-</ul>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>今天我们来分析一下&lt;传奇永恒&gt;的释放技能CALL, 调用技能CALL可以实现全自动循环打怪功能.</p>
+<p>首先, 定位到明文包头部</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kb3b3y2aizgav34i.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kb3b3y2aizgav34i.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kb3b3y2aizgav34i.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kb3b3y2aizgav34i.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kb3b3y2aizgav34i.png"
+        title="img"
+    /></p>
+<p>在明文包头部下断, 再按快捷键, 释放技能打怪</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kye2pcbbpbjliemg.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kye2pcbbpbjliemg.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kye2pcbbpbjliemg.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kye2pcbbpbjliemg.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711kye2pcbbpbjliemg.png"
+        title="img"
+    /></p>
+<p>按Ctrl+F9, 再按F8, 返回到第1层, 这个CALL看上去有点乱, 参数不明显, 再返回一层看看.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711eox6p3qdzk1idi3r.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711eox6p3qdzk1idi3r.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711eox6p3qdzk1idi3r.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711eox6p3qdzk1idi3r.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711eox6p3qdzk1idi3r.png"
+        title="img"
+    /></p>
+<p>返回到第2层, 这个CALL看起来就明朗的多了, 参数明显, 就是它了! 在CALL上下断, 分析一下参数.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711k0878ka7kvkl8aks.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711k0878ka7kvkl8aks.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711k0878ka7kvkl8aks.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711k0878ka7kvkl8aks.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711k0878ka7kvkl8aks.png"
+        title="img"
+    /></p>
+<p>经过分析, 参数1, Rcx, 来源于上面的CALL, 直接是一个&lt;基地址&gt;.</p>
+<p><img
+        class="lazyload"
+        data-src="https://bbs.feiyuol.com/data/attachment/forum/202109/27/141711ckbg0wkxxrtok3w3.png"
+        data-srcset="https://bbs.feiyuol.com/data/attachment/forum/202109/27/141711ckbg0wkxxrtok3w3.png, https://bbs.feiyuol.com/data/attachment/forum/202109/27/141711ckbg0wkxxrtok3w3.png 1.5x, https://bbs.feiyuol.com/data/attachment/forum/202109/27/141711ckbg0wkxxrtok3w3.png 2x"
+        data-sizes="auto"
+        alt="https://bbs.feiyuol.com/data/attachment/forum/202109/27/141711ckbg0wkxxrtok3w3.png"
+        title="img"
+    /></p>
+<p>参数2, Edx, 可能是&lt;怪物ID&gt;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711rnfz1o11v4odfonl.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711rnfz1o11v4odfonl.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711rnfz1o11v4odfonl.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711rnfz1o11v4odfonl.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711rnfz1o11v4odfonl.png"
+        title="img"
+    /></p>
+<p>参数3, r8d, 值并不是很大, 很有可能是&lt;技能ID&gt;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711fllrxrjb76lybc00.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711fllrxrjb76lybc00.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711fllrxrjb76lybc00.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711fllrxrjb76lybc00.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711fllrxrjb76lybc00.png"
+        title="img"
+    /></p>
+<p>参数4, r9d, 是一个更小的值, 也许是&lt;技能等级&gt;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711uyja0ntagzcm8r1z.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711uyja0ntagzcm8r1z.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711uyja0ntagzcm8r1z.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711uyja0ntagzcm8r1z.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711uyja0ntagzcm8r1z.png"
+        title="img"
+    /></p>
+<p>参数5, eax, 是一个结构体, DD之后发现是一个&lt;坐标结构体&gt;, 并且不是人物坐标, 那就一定是怪物的坐标了.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711zh4z2lpk2chlvlc2.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711zh4z2lpk2chlvlc2.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711zh4z2lpk2chlvlc2.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711zh4z2lpk2chlvlc2.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711zh4z2lpk2chlvlc2.png"
+        title="img"
+    /></p>
+<p>参数6, 经过多次下断尝试, 是个&lt;固定值, 1&gt;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711s9j6j1v8v8jfjdfp.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711s9j6j1v8v8jfjdfp.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711s9j6j1v8v8jfjdfp.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711s9j6j1v8v8jfjdfp.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141711s9j6j1v8v8jfjdfp.png"
+        title="img"
+    /></p>
+<p>参数7, 直接就是一个基地址, 并且每次释放技能, 都会+1, 所以这是一个&lt;计数器&gt;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712zsslzndjodo8dqno.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712zsslzndjodo8dqno.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712zsslzndjodo8dqno.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712zsslzndjodo8dqno.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712zsslzndjodo8dqno.png"
+        title="img"
+    /></p>
+<p>现在释放技能CALL已经分析完毕, 参数明确, 下面是循环调用释放技能CALL的效果图.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712to26ioeiehepv5d5.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712to26ioeiehepv5d5.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712to26ioeiehepv5d5.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712to26ioeiehepv5d5.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/141712to26ioeiehepv5d5.png"
+        title="img"
+    /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-10-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" data-title="x64&lt;传奇永恒&gt;之释放技能CALL" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" data-title="x64&lt;传奇永恒&gt;之释放技能CALL"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" data-title="x64&lt;传奇永恒&gt;之释放技能CALL"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" data-title="x64&lt;传奇永恒&gt;之释放技能CALL"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/10/%E8%B7%B3%E5%87%BA%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%9F%A9%E6%9C%8D%E5%89%91%E7%81%B52/" class="prev" rel="prev" title="跳出线程发包的几种方式（韩服剑灵2）"><i class="fas fa-angle-left fa-fw"></i>跳出线程发包的几种方式（韩服剑灵2）</a>
+            <a href="/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" class="next" rel="next" title="任鸟飞">任鸟飞<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
-        <div id="post-footer"></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
         </main><footer class="footer">

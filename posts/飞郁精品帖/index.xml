@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Hmily云笔记</title>
-        <link>https://xinqinew.github.io/</link>
-        <description>一个简洁、优雅且高效的博客云笔记</description>
+        <title>所有飞郁精品贴 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/</link>
+        <description>所有飞郁精品贴 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/" rel="self" type="application/rss+xml" /><item>
     <title>64位内存与通用寄存器</title>
     <link>https://xinqinew.github.io/2021/10/64%E4%BD%8D%E5%86%85%E5%AD%98%E4%B8%8E%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/</link>
     <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
@@ -48,35 +46,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E8%B7%B3%E5%87%BA%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%9F%A9%E6%9C%8D%E5%89%91%E7%81%B52/</guid>
     <description><![CDATA[明文发包CALL是分析一款游戏功能的主要突破口，但是很多游戏都是线程发包，需要跳出线程才能得到明文CALL的位置。以往的条线程方式都是在包内]]></description>
-</item><item>
-    <title>ASCII码对照表</title>
-    <link>https://xinqinew.github.io/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/</link>
-    <pubDate>Thu, 07 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/</guid>
-    <description><![CDATA[ASCII控制字符 二进制 十进制 十六进制 缩写 名称/意义 0000 0000 0 00 NUL 空字符（Null） 0000 0001 1 01 SOH 标题开始 0000 0010 2 02 STX 本文开始 0000 0011 3 03 ETX 本文结束 0000 0100 4]]></description>
-</item><item>
-    <title>OD常识及技巧</title>
-    <link>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</link>
-    <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</guid>
-    <description><![CDATA[菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 hw 硬件写入断点 hr 硬件访问断点 快捷]]></description>
-</item><item>
-    <title>飞郁逆向课程详解</title>
-    <link>https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/</link>
-    <pubDate>Thu, 30 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/</guid>
-    <description><![CDATA[购普通课程或者核心课程，为保您购买与售后无忧，先咨询飞郁客服QQ:290330101，并享受不定额度优惠！ 逆向基本工具包 链接：https:/]]></description>
-</item><item>
-    <title>内存中的浮点数与CE扫四种编码</title>
-    <link>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/</link>
-    <pubDate>Mon, 27 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx CE扫四种编码 ASCI UNIDCOE（不勾选） UNIDCOE UNIDCOE 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 graph 勾选UNIDC]]></description>
 </item></channel>
 </rss>
