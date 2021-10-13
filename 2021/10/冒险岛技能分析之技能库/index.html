@@ -142,8 +142,8 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选择一个技能，用对其名字进行扫描，可以得到若干ASCII型的结果
-<img
+            </div><div class="content" id="content"><p>上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选择一个技能，用对其名字进行扫描，可以得到若干ASCII型的结果</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png 2x"
@@ -151,8 +151,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727w6v553ia39a5w9g1.png"
         title="img"
     /></p>
-<p>这里注意的是如果名字后面带有后缀的结果比较多的话，可以转化成字节集，并加上结束标志00再扫描。分别对这些名字进行修改，同时切换技能栏，找到一个可以改变技能名字本地显示的地址。在xdbg32中对这个地址下硬件访问断点。
-<img
+<p>这里注意的是如果名字后面带有后缀的结果比较多的话，可以转化成字节集，并加上结束标志00再扫描。分别对这些名字进行修改，同时切换技能栏，找到一个可以改变技能名字本地显示的地址。在xdbg32中对这个地址下硬件访问断点。</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144727a5fzii45na4d5na6.png 2x"
@@ -169,8 +169,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728rn5gzo55g9r7nepe-20211013084325548.png"
         title="img"
     /></p>
-<p>继续分析局部变量的来源，发现在上面出现了2个[ebp-68]，第一个是传入0，第二个是作为ecx指针传入到了CALL中
-<img
+<p>继续分析局部变量的来源，发现在上面出现了2个[ebp-68]，第一个是传入0，第二个是作为ecx指针传入到了CALL中</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728jgq8rzi9efp8niri-20211013084125201.png 2x"
@@ -195,7 +195,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728uwdw99n0mmw0000l-20211013084319060.png"
         title="img"
     /></p>
-<p>执行到返回后继续分析第一个参数eax，得到+8偏移，以及来源局部变量[ ebp-14]。代码再次向上滚动很久，可以得出局部变量[ebp-14]来源于eax<img
+<p>执行到返回后继续分析第一个参数eax，得到+8偏移，以及来源局部变量[ ebp-14]。代码再次向上滚动很久，可以得出局部变量[ebp-14]来源于eax</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/144728gtdjxtjnm3233ncr.png 2x"
