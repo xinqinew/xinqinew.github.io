@@ -26,12 +26,26 @@
     </author><guid>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/</guid>
     <description><![CDATA[上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选]]></description>
 </item><item>
+    <title>【代码系列】共享内存的应用与写法</title>
+    <link>https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/</link>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/</guid>
+    <description><![CDATA[共享内存指 (shared memory)在多处理器的计算机系统中，可以被不同中央处理器(CPU)访问的大容量内存。由于多个CPU需要快速访问存储器，这样就]]></description>
+</item><item>
     <title>【冒险岛】技能等级遍历分析</title>
     <link>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/</link>
     <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇]]></description>
+</item><item>
+    <title>【安全系列】python exe文件解包方法总结</title>
+    <link>https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[一、步骤1. exe → pyc方法1：pyinstxtractor.py 执行python pyinstxtractor.py &lt;待解包文件名&gt; ，如果成功，即可获得&lt;待]]></description>
 </item><item>
     <title>【幻想神域】人物属性分析</title>
     <link>https://xinqinew.github.io/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/</link>
@@ -47,25 +61,18 @@
     </author><guid>https://xinqinew.github.io/2021/10/%E6%89%8B%E6%B8%B8%E7%B3%BB%E5%88%97%E6%9A%B4%E8%B5%B0%E9%9B%B7%E9%BE%99%E6%88%98%E6%9C%BA%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[大部分内购破解都是通过反编译软件对smali中的代码进行修改，首先通过android killer对apk进行分析，并通过模拟器对游戏进行安装]]></description>
 </item><item>
+    <title>【驱动系列】最简单的X64驱动</title>
+    <link>https://xinqinew.github.io/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/</link>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/</guid>
+    <description><![CDATA[PE结构图: 在游戏外挂和反外挂的对抗中 驱动有其重要的作用 但是随着Windows 系统的升级 很多东西出现了局限性，不过我们还是需要了解学习一下 其]]></description>
+</item><item>
     <title>技能点数结构（冒险岛技能分析）</title>
     <link>https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/</link>
     <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/</guid>
     <description><![CDATA[随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇]]></description>
-</item><item>
-    <title>x64&lt;传奇永恒&gt;之释放技能CALL</title>
-    <link>https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/</link>
-    <pubDate>Tue, 12 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/</guid>
-    <description><![CDATA[今天我们来分析一下&lt;传奇永恒&gt;的释放技能CALL, 调用技能CALL可以实现全自动循环打怪功能. 首先, 定位到明文包头部 在明文包头部]]></description>
-</item><item>
-    <title>跳出线程发包的几种方式（韩服剑灵2）</title>
-    <link>https://xinqinew.github.io/2021/10/%E8%B7%B3%E5%87%BA%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%9F%A9%E6%9C%8D%E5%89%91%E7%81%B52/</link>
-    <pubDate>Tue, 12 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E8%B7%B3%E5%87%BA%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%9F%A9%E6%9C%8D%E5%89%91%E7%81%B52/</guid>
-    <description><![CDATA[明文发包CALL是分析一款游戏功能的主要突破口，但是很多游戏都是线程发包，需要跳出线程才能得到明文CALL的位置。以往的条线程方式都是在包内]]></description>
 </item></channel>
 </rss>

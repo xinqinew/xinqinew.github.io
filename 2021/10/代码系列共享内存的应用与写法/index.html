@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">技能点数结构（冒险岛技能分析） - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="技能点数结构（冒险岛技能分析）" />
-<meta property="og:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇" />
+    <title class="pjax-title">【代码系列】共享内存的应用与写法 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【代码系列】共享内存的应用与写法" />
+<meta property="og:description" content="共享内存指 (shared memory)在多处理器的计算机系统中，可以被不同中央处理器(CPU)访问的大容量内存。由于多个CPU需要快速访问存储器，这样就" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-10-13T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="技能点数结构（冒险岛技能分析）"/>
-<meta name="twitter:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇"/>
+<meta name="twitter:title" content="【代码系列】共享内存的应用与写法"/>
+<meta name="twitter:description" content="共享内存指 (shared memory)在多处理器的计算机系统中，可以被不同中央处理器(CPU)访问的大容量内存。由于多个CPU需要快速访问存储器，这样就"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "技能点数结构（冒险岛技能分析）",
+        "headline": "【代码系列】共享内存的应用与写法",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  998 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1109 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">技能点数结构（冒险岛技能分析）</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【代码系列】共享内存的应用与写法</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 998 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" class="leancloud_visitors" data-flag-title="技能点数结构（冒险岛技能分析）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1109 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" class="leancloud_visitors" data-flag-title="【代码系列】共享内存的应用与写法">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -142,96 +142,104 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇有难度。以下面这款游戏为例，我们从逆向安全的角度来学习一下它的技能体系数据结构。</p>
-<p>这款游戏的技能体系我们大致分为三个部分去分析，分别为技能等级结构，技能库结构，剩余级技能点数结构。下面先分析最简单的技能等级结构。</p>
-<p>技能的分析可以从技能ID，技能等级，技能名字三个角度入手分析，而如果技能等级可以使用的话自然是最方便的一种，起码扫描起来很简单。而这款游戏恰好就可以通过技能加点来入手。</p>
-<p>首先我们呢用CE来任意扫描一个高级魔法的等级，最终可以得到一个结果</p>
-<p><img
+            </div><div class="content" id="content"><p>共享内存指 (shared memory)在多处理器的计算机系统中，可以被不同中央处理器(CPU)访问的大容量内存。由于多个CPU需要快速访问<a href="https://baike.so.com/doc/4224899-4426539.html" target="_blank" rel="noopener noreffer">存储器</a>，这样就要对<a href="https://baike.so.com/doc/4224899-4426539.html" target="_blank" rel="noopener noreffer">存储器</a>进行<a href="https://baike.so.com/doc/4597671-4809507.html" target="_blank" rel="noopener noreffer">缓存</a>(Cache)。任何一个缓存的数据被更新后，由于其他处理器也可能要存取，共享内存就需要立即更新，否则不同的处理器可能用到不同的数据。共享内存是 Unix下的<a href="https://baike.so.com/doc/6410893-6624560.html" target="_blank" rel="noopener noreffer">多进程</a>之间的通信方法 ,这种方法通常用于一个程序的多<a href="https://baike.so.com/doc/1591750-1682565.html" target="_blank" rel="noopener noreffer">进程</a>间通信，实际上多个程序间也可以通过共享内存来传递信息。</p>
+<p>​     百科的回答比较官方，那么实际运用中，共享内存可以用来做什么？
+详细举个例子：
+某游戏助手（如TGP/wagame），读取英雄名称或者类型，推荐最佳出装/技能方案，在单开游戏的情况下，自然用不到共享内存，而往往单开满足不了玩家需求。如大多数DNF玩家都是通过wagame或者其他助手进行双开同步刷图，这个时候想要给两个客户端同时下达相同的指令，即可用共享内存实现。</p>
+<p>流程如下（设想）：
+wagame 申请共享内存
+客户端1消息循环读取共享内存中的指令
+客户端2消息循环读取共享内存中的指令
+同步按键指令。</p>
+<p>这个时候，如果关闭申请共享内存的程序（wagame平台），那么客户端1和2都将无法访问这一块内存区域。</p>
+<p>以易语言为例子：</p>
+<p>先以申请并写入内存为例：</p>
+<p>1、CreateFileMapping申请一个文件映射内核<a href="https://baike.baidu.com/item/%e5%af%b9%e8%b1%a1/17158" target="_blank" rel="noopener noreffer">对象</a>，返回值为映射对象的句柄。
+2、MapViewOfFile  将文件映射对象映射到当前应用程序的<a href="https://baike.baidu.com/item/%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4/1423980" target="_blank" rel="noopener noreffer">地址空间</a>，返回值为内存区域指针。
+3、将要写入的数据转化为字节集的形式，并且取得字节集长度。
+4、在内存区域指针+4的位置开始写入指定的数据。
+5、UnmapViewOfFile停止当前程序的内存映射。</p>
+<p>CreateFileMapping函数原型
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095929b034bbs8zbh5585p-20211013103442291.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095929b034bbs8zbh5585p-20211013103442291.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095929b034bbs8zbh5585p-20211013103442291.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095929b034bbs8zbh5585p-20211013103442291.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095929b034bbs8zbh5585p-20211013103442291.png"
+        title="img"
+    /><br>
+MapViewOfFile函数原型
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095938skeykz381e16dmti-20211013103443631.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095938skeykz381e16dmti-20211013103443631.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095938skeykz381e16dmti-20211013103443631.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095938skeykz381e16dmti-20211013103443631.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095938skeykz381e16dmti-20211013103443631.png"
+        title="img"
+    /><br>
+UnmapViewOfFile函数
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095945kgnrt223g3ivvutb-20211013103444155.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095945kgnrt223g3ivvutb-20211013103444155.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095945kgnrt223g3ivvutb-20211013103444155.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095945kgnrt223g3ivvutb-20211013103444155.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095945kgnrt223g3ivvutb-20211013103444155.png"
         title="img"
     /></p>
-<p>在xdbg32中对这个地址下硬件访问断点，游戏直接断下，并得到一个+C偏移</p>
-<p><img
+<p>易代码如下图：
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095950q3vddojpavtvv34b-20211013103444913.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095950q3vddojpavtvv34b-20211013103444913.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095950q3vddojpavtvv34b-20211013103444913.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095950q3vddojpavtvv34b-20211013103444913.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095950q3vddojpavtvv34b-20211013103444913.png"
         title="img"
     /></p>
-<p>向上分析可以看到一个跳转跳过ret，执行到+C偏移处，而上面可以得到一个循环+4的链表结构</p>
-<p><img
+<p>完成了写入内存数据代码后，还要实现读取写入数据的代码，那么应该如何实现读取共享内存中的数据？</p>
+<p>1、OpenFileMapping 通过内存名称打开共享内存。
+2、同上，MapViewOfFile 将文件映射对象映射到当前应用程序的<a href="https://baike.baidu.com/item/%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4/1423980" target="_blank" rel="noopener noreffer">地址空间</a>，返回值为内存区域指针。
+3、将MapViewOfFile所返回的内存区域指针转换为字节集，用到易语言函数——指针到字节集。
+4、取得该内存区域的字节集长度，并在区域指针+4的位置开始读取。
+5、UnmapViewOfFile停止当前程序的内存映射。</p>
+<p>OpenFileMapping函数原型
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095956jzvumr00eax0bg41-20211013103445419.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095956jzvumr00eax0bg41-20211013103445419.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095956jzvumr00eax0bg41-20211013103445419.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095956jzvumr00eax0bg41-20211013103445419.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/095956jzvumr00eax0bg41-20211013103445419.png"
         title="img"
     /></p>
-<p>图中可以看出这个链表最初的来源是上面的一个数组，当数组指向地址+8的位置与传入的esi相等时会跳出链表，或者当链表节点eax等于0时结束链表循环。</p>
-<p>我们先到上面分析出数组的起始地址和范围，然后再获取下标的信息。</p>
-<p>在上面不远处可以看到起始地址为[ecx+4]，而外面传入的第一个参数在循环右移5之后与[ecx+8]进行模运算，可以获取到下标edx</p>
-<p><img
+<p>代码如下图:
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100002l57noor7h72oj2rn-20211013103449045.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100002l57noor7h72oj2rn-20211013103449045.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100002l57noor7h72oj2rn-20211013103449045.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100002l57noor7h72oj2rn-20211013103449045.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100002l57noor7h72oj2rn-20211013103449045.png"
         title="img"
     /></p>
-<p>经观察可以得出这个这个[ecx+8]恰好是数组中总的元素数量。</p>
-<p>由于数组中元素较少，而链表中的节点也不多，可以判断这个数组下标其实可以不去管他，只要我们得到技能库与之关联就可以得到所有的技能信息。</p>
-<p><img
+<p>以字节集的形式读出了共享内存中的内存数据，就可以给他转换为各种数据类型，文件，或者图片应用程序等等。
+转换数据类型如下图：
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100007gawtlcawwr3rbsn3-20211013103525930.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100007gawtlcawwr3rbsn3-20211013103525930.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100007gawtlcawwr3rbsn3-20211013103525930.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100007gawtlcawwr3rbsn3-20211013103525930.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100007gawtlcawwr3rbsn3-20211013103525930.png"
         title="img"
     /></p>
-<p>接下来我们继续去分析数组起始地址ecx的来源，在执行到返回后可以得到一个+0DCE偏移</p>
-<p><img
+<p>实际运用效果图如下：
+程序1写入内存数据
+程序2、3、4、5读取。
+<img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100015rjyej70zey47j472-20211013103505901.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100015rjyej70zey47j472-20211013103505901.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100015rjyej70zey47j472-20211013103505901.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100015rjyej70zey47j472-20211013103505901.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/100015rjyej70zey47j472-20211013103505901.png"
         title="img"
     /></p>
-<p>向上分析得到来来源于[ebp+8]，执行到返回继续分析第一个参数，可以得到来源[eax+4]</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png"
-        title="img"
-    /></p>
-<p>然而这个+4并不是偏移，因为eax是一个堆栈地址，[eax+4]是一个局部变脸，并且在上面的CALL 0x2D50780中被赋值。我们到这个CALL中可以很快找到来源，并得到一个+22EC的偏移</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png"
-        title="img"
-    /></p>
-<p>退出这个CALL并再次下断执行到返回，可以很快得到基地址</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png"
-        title="img"
-    /></p>
-<p>这个数据结构总体来说是很简单的，只是中间的局部变量作为参数到CALL的赋值的操作对逆向新手有一些难度，如果对堆栈比较熟悉的话可以轻松搞定，从安全角度来讲，这里可以做的更加复杂一些。</p>
-<p>公式就不整理了，我们接下来将要分析较为复杂的技能库结构。</p>
-<p>玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -243,7 +251,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" data-title="【代码系列】共享内存的应用与写法" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" data-title="【代码系列】共享内存的应用与写法"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" data-title="【代码系列】共享内存的应用与写法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/" data-title="【代码系列】共享内存的应用与写法"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -255,8 +263,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" class="prev" rel="prev" title="x64&lt;传奇永恒&gt;之释放技能CALL"><i class="fas fa-angle-left fa-fw"></i>x64&lt;传奇永恒&gt;之释放技能CALL</a>
-            <a href="/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/" class="next" rel="next" title="【驱动系列】最简单的X64驱动">【驱动系列】最简单的X64驱动<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="【冒险岛】技能等级遍历分析"><i class="fas fa-angle-left fa-fw"></i>【冒险岛】技能等级遍历分析</a>
+            <a href="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/" class="next" rel="next" title="《冒险岛》技能分析之技能库">《冒险岛》技能分析之技能库<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

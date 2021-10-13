@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">技能点数结构（冒险岛技能分析） - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="技能点数结构（冒险岛技能分析）" />
-<meta property="og:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇" />
+    <title class="pjax-title">【安全系列】python exe文件解包方法总结 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【安全系列】python exe文件解包方法总结" />
+<meta property="og:description" content="一、步骤1. exe → pyc方法1：pyinstxtractor.py 执行python pyinstxtractor.py &lt;待解包文件名&gt; ，如果成功，即可获得&lt;待" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-10-13T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="技能点数结构（冒险岛技能分析）"/>
-<meta name="twitter:description" content="随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇"/>
+<meta name="twitter:title" content="【安全系列】python exe文件解包方法总结"/>
+<meta name="twitter:description" content="一、步骤1. exe → pyc方法1：pyinstxtractor.py 执行python pyinstxtractor.py &lt;待解包文件名&gt; ，如果成功，即可获得&lt;待"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "技能点数结构（冒险岛技能分析）",
+        "headline": "【安全系列】python exe文件解包方法总结",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  998 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1929 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">技能点数结构（冒险岛技能分析）</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【安全系列】python exe文件解包方法总结</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 998 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" class="leancloud_visitors" data-flag-title="技能点数结构（冒险岛技能分析）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1929 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="【安全系列】python exe文件解包方法总结">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -142,96 +142,127 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇有难度。以下面这款游戏为例，我们从逆向安全的角度来学习一下它的技能体系数据结构。</p>
-<p>这款游戏的技能体系我们大致分为三个部分去分析，分别为技能等级结构，技能库结构，剩余级技能点数结构。下面先分析最简单的技能等级结构。</p>
-<p>技能的分析可以从技能ID，技能等级，技能名字三个角度入手分析，而如果技能等级可以使用的话自然是最方便的一种，起码扫描起来很简单。而这款游戏恰好就可以通过技能加点来入手。</p>
-<p>首先我们呢用CE来任意扫描一个高级魔法的等级，最终可以得到一个结果</p>
+            </div><div class="content" id="content"><p><strong>一、步骤<strong><strong>1. exe → pyc</strong></strong>方法1：pyinstxtractor.py</strong></p>
+<p>执行python pyinstxtractor.py &lt;待解包文件名&gt; ，如果成功，即可获得&lt;待解包文件名&gt;_extracted 文件夹。</p>
+<p><em>注：执行时会提示python版本问题，想要正常解包必须使用正确的python版本</em>。</p>
+<p><strong>方法2：archive_viewer.py</strong></p>
+<p>执行python archive_viewer.py &lt;待解包文件名&gt; ，会打印EXE文件中包含的所有文件信息</p>
+<p>使用x &lt;文件名&gt;命令将想要提取出的文件提取出来，q 命令退出。</p>
+<p><strong>两者的区别</strong></p>
+<p>方法1可以一次性提取出所有文件，方法2只能逐个提取文件。但是在个人使用时，方法2的成功率相对较高。可以先尝试用方法1，失败后用方法2。</p>
+<p><strong>2. pyc → py</strong></p>
+<p>步骤1获得的文件是pyc文件，还需要进一步反编译获得py文件。</p>
+<p><em>注：我遇到过直接获得py文件的情况，所以在反编译之前可以先查看一下是不是已经成功了。</em></p>
+<p><strong>2.1 pyc文件恢复</strong></p>
+<p><em>注：最新版pyinstxtractor.py支持自动恢复pyc，但是经实验不能保证准确性。或者说需要使用准确的python版本才行。</em></p>
+<p>在将python文件打包成exe文件的过程中，会抹去pyc文件前面的部分信息，所以在反编译之前需要检查并添加上这部分信息。</p>
+<p>抹去的信息内容可以从struct文件中获取：</p>
+<p>struct文件：</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101414t0gddgnag9h2phz8-20211013104234052.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101414t0gddgnag9h2phz8-20211013104234052.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101414t0gddgnag9h2phz8-20211013104234052.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101414t0gddgnag9h2phz8-20211013104234052.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145828f1te7xc27279c76o-20211013001555358.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101414t0gddgnag9h2phz8-20211013104234052.png"
         title="img"
     /></p>
-<p>在xdbg32中对这个地址下硬件访问断点，游戏直接断下，并得到一个+C偏移</p>
+<p>pyc文件：</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101431q4go0vnvokmuovoo-20211013104235949.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101431q4go0vnvokmuovoo-20211013104235949.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101431q4go0vnvokmuovoo-20211013104235949.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101431q4go0vnvokmuovoo-20211013104235949.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853dmzd50am8x5ao67d-20211013001555564.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101431q4go0vnvokmuovoo-20211013104235949.png"
         title="img"
     /></p>
-<p>向上分析可以看到一个跳转跳过ret，执行到+C偏移处，而上面可以得到一个循环+4的链表结构</p>
+<p>Q1：需要添加多少字节？</p>
+<p>多个参考文章中提到的添加字节数都不一致，这应该与使用的python版本有关。但是在已知的几个例子中，可以看出pyc文件开头的几个字节与struct文件中的字节是一样的。比如说上图中pyc文件是以E3 00 00 00开头，而这部分字节就和struct文件的第二行起始字节相同。</p>
+<p>因此在此例中，需要复制添加的字节就是struct文件中第一行的16个字节</p>
+<p>Q2：添加的方法是什么？</p>
+<p>在010editor中，选择Edit→Insert/Overwrite→InsertBytes，Start Address填0，Size填16。</p>
+<p>然后将字节复制进去即可。</p>
+<p><strong>2.2 反编译</strong></p>
+<p>反编译工具</p>
+<ul>
+<li>
+<p>Easy Python Decompiler</p>
+<p>这是一个GUI界面的可执行文件，下载下来直接用就可以，但是并不是每次都能成功，有些magic value不能识别。</p>
+</li>
+<li>
+<p>uncompyle6</p>
+<p>该工具需要使用pip安装，使用脚本执行。成功率较高。</p>
+</li>
+</ul>
+<p>反编译提示magic value有问题怎么办？</p>
+<p>在上面我们添加的16个字节中，前四个字节表示的就是magic value，其中前两个字节表示的是python的版本号，一般来说magic value的问题就是版本号有问题，编译工具没有识别出来该版本号表示的python版本。</p>
+<p>如果使用的是Easy Python Decompiler，那么就可以直接转用uncompyle6了。</p>
+<p>如果用的已经是uncompyle6，那么需要先看一下它可以识别的版本号都有哪些，这个信息可以在xdis包的magics.py文件中找到，具体方法如下：</p>
+<p>命令行输入pip install xdis，查看其安装位置到该目录下，打开xdis文件夹下的magics.py文件
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101503oeqnf7kre7ukfbrd-20211013104151800.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101503oeqnf7kre7ukfbrd-20211013104151800.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101503oeqnf7kre7ukfbrd-20211013104151800.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101503oeqnf7kre7ukfbrd-20211013104151800.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101503oeqnf7kre7ukfbrd-20211013104151800.png"
+        title="img"
+    />
+确定需要识别的版本号，就是之前添加的16个字节的前两个字节，此例中为0D42，需要转换为十进制，就是3394。查看magics.py中是否有该版本号。我这里一开始没有发现这个版本号
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101721ondvuun6hnvwuo5i-20211013104331086.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101721ondvuun6hnvwuo5i-20211013104331086.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101721ondvuun6hnvwuo5i-20211013104331086.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101721ondvuun6hnvwuo5i-20211013104331086.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101721ondvuun6hnvwuo5i-20211013104331086.png"
+        title="img"
+    /></p>
+<p>我的解决方法</p>
+<p>我在谷歌上搜索了int2magic(3394)，找到了<a href="https://github.com/rocky/python-xdis" target="_blank" rel="noopener noreffer">这个Github项目</a>。</p>
+<p>下载下来，按照介绍进行安装。</p>
+<p>在执行pip install -e .的时候，提示我xdis和uncompyle6的版本不匹配，于是卸载了uncompyle6，又重新安装了一次。</p>
+<p>目前的版本：xdis 5.0.5 uncompyle6 3.7.4</p>
+<p>查看该版本xdis的magics.py文件：</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101753plf3ttjzi33is20m-20211013104151925.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101753plf3ttjzi33is20m-20211013104151925.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101753plf3ttjzi33is20m-20211013104151925.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101753plf3ttjzi33is20m-20211013104151925.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853d5bbpy18pep8owew-20211013002130206.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101753plf3ttjzi33is20m-20211013104151925.png"
         title="img"
     /></p>
-<p>图中可以看出这个链表最初的来源是上面的一个数组，当数组指向地址+8的位置与传入的esi相等时会跳出链表，或者当链表节点eax等于0时结束链表循环。</p>
-<p>我们先到上面分析出数组的起始地址和范围，然后再获取下标的信息。</p>
-<p>在上面不远处可以看到起始地址为[ecx+4]，而外面传入的第一个参数在循环右移5之后与[ecx+8]进行模运算，可以获取到下标edx</p>
+<p>可以看到已经有3394了。</p>
+<p>反编译：</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101806ecde7kxucabex1kv-20211013104246615.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101806ecde7kxucabex1kv-20211013104246615.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101806ecde7kxucabex1kv-20211013104246615.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101806ecde7kxucabex1kv-20211013104246615.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853yxd088rkhcx8488h-20211013001555903.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101806ecde7kxucabex1kv-20211013104246615.png"
         title="img"
     /></p>
-<p>经观察可以得出这个这个[ecx+8]恰好是数组中总的元素数量。</p>
-<p>由于数组中元素较少，而链表中的节点也不多，可以判断这个数组下标其实可以不去管他，只要我们得到技能库与之关联就可以得到所有的技能信息。</p>
+<p>成功！</p>
+<p><em>注：pyc文件一定要有后缀名pyc，不然会报错</em></p>
+<p><strong>二、PYZ文件的加密问题</strong></p>
+<p>有些时候在步骤1 exe→pyc的过程中，会出现PYZ中的文件无法正常提取（archive_viewer.py），或者提取出来后显示encrypted（pyinstxtractor.py）的问题。</p>
+<p>这个问题可以使用参考文章2和3中的方法解决：</p>
+<p>PYZ文件加密的密钥保存在pyimod00_crypto_key文件中，该文件也是一个pyc文件，可以使用上面介绍的方法进行反编译，然后就可以获得密钥：</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101821ivuksoilesl5o6uk-20211013104250548.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101821ivuksoilesl5o6uk-20211013104250548.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101821ivuksoilesl5o6uk-20211013104250548.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101821ivuksoilesl5o6uk-20211013104250548.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145853bk35c852f1kac1k0-20211013001957413.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101821ivuksoilesl5o6uk-20211013104250548.png"
         title="img"
     /></p>
-<p>接下来我们继续去分析数组起始地址ecx的来源，在执行到返回后可以得到一个+0DCE偏移</p>
+<p>之后的解密脚本有三个可供选择，均在参考文章3中，根据pyinstaller的版本不同选择不同的脚本，使用时需要替换其中的key、header以及待解密文件名和目标文件名，执行后即可获得解密后的pyc文件，再使用uncompyle6反编译即可。</p>
+<p><em>注：这三个脚本中，第一个脚本适用于PyInstaller&lt;4.0，使用python2执行；第二个和第三个脚本适用于PyInstaller≥4.0，使用python3执行。</em></p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101834qf2ofv8yfkv8oorz-20211013104220972.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101834qf2ofv8yfkv8oorz-20211013104220972.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101834qf2ofv8yfkv8oorz-20211013104220972.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101834qf2ofv8yfkv8oorz-20211013104220972.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854ck2wty22855r1ik5-20211013001556160-20211013002029342.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/101834qf2ofv8yfkv8oorz-20211013104220972.png"
         title="img"
     /></p>
-<p>向上分析得到来来源于[ebp+8]，执行到返回继续分析第一个参数，可以得到来源[eax+4]</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854b2rkl2unjy9n3o2o-20211013002042222.png"
-        title="img"
-    /></p>
-<p>然而这个+4并不是偏移，因为eax是一个堆栈地址，[eax+4]是一个局部变脸，并且在上面的CALL 0x2D50780中被赋值。我们到这个CALL中可以很快找到来源，并得到一个+22EC的偏移</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854h2f2llnzgwpo2q88-20211013001557002.png"
-        title="img"
-    /></p>
-<p>退出这个CALL并再次下断执行到返回，可以很快得到基地址</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/145854zxxnqc26bwp2ee8j-20211013001557325.png"
-        title="img"
-    /></p>
-<p>这个数据结构总体来说是很简单的，只是中间的局部变量作为参数到CALL的赋值的操作对逆向新手有一些难度，如果对堆栈比较熟悉的话可以轻松搞定，从安全角度来讲，这里可以做的更加复杂一些。</p>
-<p>公式就不整理了，我们接下来将要分析较为复杂的技能库结构。</p>
-<p>玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -243,7 +274,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90/" data-title="技能点数结构（冒险岛技能分析）"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-title="【安全系列】python exe文件解包方法总结" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-title="【安全系列】python exe文件解包方法总结"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-title="【安全系列】python exe文件解包方法总结"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" data-title="【安全系列】python exe文件解包方法总结"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -255,8 +286,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/x64%E4%BC%A0%E5%A5%87%E6%B0%B8%E6%81%92%E4%B9%8B%E9%87%8A%E6%94%BE%E6%8A%80%E8%83%BDcall/" class="prev" rel="prev" title="x64&lt;传奇永恒&gt;之释放技能CALL"><i class="fas fa-angle-left fa-fw"></i>x64&lt;传奇永恒&gt;之释放技能CALL</a>
-            <a href="/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/" class="next" rel="next" title="【驱动系列】最简单的X64驱动">【驱动系列】最简单的X64驱动<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="【幻想神域】人物属性分析"><i class="fas fa-angle-left fa-fw"></i>【幻想神域】人物属性分析</a>
+            <a href="/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/" class="next" rel="next" title="【冒险岛】技能等级遍历分析">【冒险岛】技能等级遍历分析<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
