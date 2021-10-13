@@ -145,8 +145,8 @@
             </div><div class="content" id="content"><p>随着游戏行业的发展，x32位的程序已经很难满足一些新兴游戏的需求了，因为32位内存的最大值为0xFFFFFFFF，这个值看似足够，但是当游戏对资源需求非常大，那么真正可以分配的内存就显得捉襟见肘了，于是很多公司尝试并成功的开发了64位的游戏。并且很多32位的游戏也在向64位转型。
 很多初学者在刚刚接触64位程序时会觉得很陌生，想象着这是一个新的领域，会比32位的分析难度高很多。其实当你对32位的逆向有一定的基础和理解的时候，再来看64位就不那么难了。
 64位与32位最直观的区别就是他可分配的内存最大值是0xFFFFFFFFFFFFFFFF。有人可能会说这也就比32位的多了一倍，其实不然，他的大小是32位的0x100000000倍。这个大小就足够我们去使用了，甚至当你在分析64位的游戏时会发现，很多地址也仅仅是1XXXXXXXX，因为目前来说这些也就足够了。
-64位与32位逆向的第二个区别就是他的寄存器，他的寄存器为16个而不是8个（如图）
-<img
+64位与32位逆向的第二个区别就是他的寄存器，他的寄存器为16个而不是8个（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24548-20211013002833439.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24548-20211013002833439.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24548-20211013002833439.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24548-20211013002833439.png 2x"
@@ -154,74 +154,74 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24548-20211013002833439.png"
         title="img"
     /></p>
-<p>在这16个寄存器中，前面8个的名字与32位的很像，只是前面的E改为了R。后面的8个则以R8-R15命名。当然我们所说的这16个是通用寄存器，而后面还有16个浮点数使用的XMM寄存器（如图）
-<img
+<p>在这16个寄存器中，前面8个的名字与32位的很像，只是前面的E改为了R。后面的8个则以R8-R15命名。当然我们所说的这16个是通用寄存器，而后面还有16个浮点数使用的XMM寄存器（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24550.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24550.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24550.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24550.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24550.png"
         title="img"
-    />
-在初学者的学习中，我们主要来学习通用寄存器的使用。
-RAX与EAX的作用是类似的，他主要用来存放函数的返回值，他的数值也是经常会变化的（如图）
-<img
+    /></p>
+<p>在初学者的学习中，我们主要来学习通用寄存器的使用。
+RAX与EAX的作用是类似的，他主要用来存放函数的返回值，他的数值也是经常会变化的（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24546.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24546.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24546.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24546.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24546.png"
         title="img"
-    />
-图中是一个随意截取的一断64位函数代码，函数后面的RAX传递给RDI，其实就是将返回值进行传递，这里了解一下即可，后面还会详细讲解。
-RCX，RDX，R8，R9则常常会做为第1-4个参数（如图）
-<img
+    /></p>
+<p>图中是一个随意截取的一断64位函数代码，函数后面的RAX传递给RDI，其实就是将返回值进行传递，这里了解一下即可，后面还会详细讲解。
+RCX，RDX，R8，R9则常常会做为第1-4个参数（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24547-20211013002857409.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24547-20211013002857409.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24547-20211013002857409.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24547-20211013002857409.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24547-20211013002857409.png"
         title="img"
-    />
-图中是一个游戏调用send函数的代码，RCX-R9分别为函数的s，buf，len，flags，当然如果还有其他的参数的话则会存放在RSP+20中，这些在后面讲函数的时候会详细讲解。
-RSP和32位中的ESP是类似的，同样作为堆栈指针（如图）
-<img
+    /></p>
+<p>图中是一个游戏调用send函数的代码，RCX-R9分别为函数的s，buf，len，flags，当然如果还有其他的参数的话则会存放在RSP+20中，这些在后面讲函数的时候会详细讲解。
+RSP和32位中的ESP是类似的，同样作为堆栈指针（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24549-20211013002855094.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24549-20211013002855094.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24549-20211013002855094.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24549-20211013002855094.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24549-20211013002855094.png"
         title="img"
-    />
-RBP虽然偶尔会用来作为帧指针，也就是所谓的栈底，但是显然没有32位用的频繁，下图则是RBP在函数头部被赋值的情况（如图）
-<img
+    /></p>
+<p>RBP虽然偶尔会用来作为帧指针，也就是所谓的栈底，但是显然没有32位用的频繁，下图则是RBP在函数头部被赋值的情况（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24545.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24545.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24545.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24545.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24545.png"
         title="img"
-    />
-当然RBP也常常会被用作普通的寄存器去进行传址。
+    /></p>
+<p>当然RBP也常常会被用作普通的寄存器去进行传址。
 R10和R11在syscall/sysret 指令中会被使用，暂时只需要了解一下即可。
-而这些寄存器中，除了RAX，RCX,RDX,R8,R9,RSP之外的寄存器，如果在函数过程中被调用，则必须在调用前对其数值进行保留（如图）（如图）
-<img
+而这些寄存器中，除了RAX，RCX,RDX,R8,R9,RSP之外的寄存器，如果在函数过程中被调用，则必须在调用前对其数值进行保留（如图）（如图）</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24551.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24551.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24551.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24551.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24551.png"
         title="img"
-    />
-<img
+    /></p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24552.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24552.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24552.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24552.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/24552.png"
         title="img"
-    />
-以上就是64为内存和通用寄存器的一些基础知识，深入的内容会在后面的文章和视频中进行讲解。</p>
+    /></p>
+<p>以上就是64为内存和通用寄存器的一些基础知识，深入的内容会在后面的文章和视频中进行讲解。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

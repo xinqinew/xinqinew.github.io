@@ -160,7 +160,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335y867185kdnm6ak5m.png"
         title="img"
     /></p>
-<p>由于这里每次断的包内容地址是变化的，所以我们要取追一下来源，执行到返回后来到函数调用处<img
+<p>由于这里每次断的包内容地址是变化的，所以我们要取追一下来源，执行到返回后来到函数调用处
+<img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335a03urx0xh4c4se0h.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335a03urx0xh4c4se0h.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335a03urx0xh4c4se0h.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335a03urx0xh4c4se0h.png 2x"
@@ -168,8 +169,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335a03urx0xh4c4se0h.png"
         title="img"
     /></p>
-<p>这里的包内容来源于rax+[rdi+18]，而下断之后我们可以发现rax始终都0，所以我们继续向上追rdi，可以得到来源于CALL的返回值。在CALL上下断，并单步到内部，可以得到一个数组，这发包方式和传奇永恒的特别像
-<img
+<p>这里的包内容来源于rax+[rdi+18]，而下断之后我们可以发现rax始终都0，所以我们继续向上追rdi，可以得到来源于CALL的返回值。在CALL上下断，并单步到内部，可以得到一个数组，这发包方式和传奇永恒的特别像</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335jmnlz0o1oz47pz4k.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335jmnlz0o1oz47pz4k.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335jmnlz0o1oz47pz4k.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335jmnlz0o1oz47pz4k.png 2x"
@@ -177,8 +178,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335jmnlz0o1oz47pz4k.png"
         title="img"
     /></p>
-<p>这里的RCX是不变的，所以我们可以直接配出包内容的公式为[rcx+18]+([rcx]&amp;FFFFFFFF)*8填入rcx的值,在数据窗口中跟随,并在下面不远处选择一个地址,提前下好写入断点,不断的走路发包,等待游戏断下
-<img
+<p>这里的RCX是不变的，所以我们可以直接配出包内容的公式为[rcx+18]+([rcx]&amp;FFFFFFFF)*8填入rcx的值,在数据窗口中跟随,并在下面不远处选择一个地址,提前下好写入断点,不断的走路发包,等待游戏断下</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335whl68805l42z21na.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335whl68805l42z21na.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335whl68805l42z21na.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335whl68805l42z21na.png 2x"
@@ -186,8 +187,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335whl68805l42z21na.png"
         title="img"
     /></p>
-<p>我们发现写入的这个位置还是在原来那个函数内部,也就是说我们还是没有跳出线程
-<img
+<p>我们发现写入的这个位置还是在原来那个函数内部,也就是说我们还是没有跳出线程</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335caa0e3f1z1v1b2v2.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335caa0e3f1z1v1b2v2.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335caa0e3f1z1v1b2v2.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335caa0e3f1z1v1b2v2.png 2x"
@@ -195,8 +196,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335caa0e3f1z1v1b2v2.png"
         title="img"
     /></p>
-<p>那么我们要继续向上追rbp的来源，在执行到返回后得到了[r14+rax]
-<img
+<p>那么我们要继续向上追rbp的来源，在执行到返回后得到了[r14+rax]</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335t6zmi996i9t0qqlj.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335t6zmi996i9t0qqlj.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335t6zmi996i9t0qqlj.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335t6zmi996i9t0qqlj.png 2x"
@@ -204,7 +205,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133335t6zmi996i9t0qqlj.png"
         title="img"
     /></p>
-<p>在这里下断后发现r14始终是0，而rax是不变的，于是我们在rax上下写入断点，走路后游戏断下<img
+<p>在这里下断后发现r14始终是0，而rax是不变的，于是我们在rax上下写入断点，走路后游戏断下</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336d9sulm2mms11mmn9.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336d9sulm2mms11mmn9.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336d9sulm2mms11mmn9.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336d9sulm2mms11mmn9.png 2x"
@@ -212,8 +214,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336d9sulm2mms11mmn9.png"
         title="img"
     /></p>
-<p>现在这个位置就是很多人都会遇到的难点，继续向上追可以得到一个数组，而这数组的下标是随机获取的，想从这个里入手很麻烦
-<img
+<p>现在这个位置就是很多人都会遇到的难点，继续向上追可以得到一个数组，而这数组的下标是随机获取的，想从这个里入手很麻烦</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336vgel44empe1ve1ce-20211013002313221.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336vgel44empe1ve1ce-20211013002313221.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336vgel44empe1ve1ce-20211013002313221.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336vgel44empe1ve1ce-20211013002313221.png 2x"
@@ -221,8 +223,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336vgel44empe1ve1ce-20211013002313221.png"
         title="img"
     /></p>
-<p>既然这里不好下写入断，那我们只要整体函数的执行流程做一个分析。在上面我们发现了一个位置断的特备频繁，发包的执行流程中会掺杂大量的假包，并跳到函数尾部，不执行发包代码。而这个位置的上面会有一个判断，用来分辨当前执行的代码是否是真的发包代码。
-<img
+<p>既然这里不好下写入断，那我们只要整体函数的执行流程做一个分析。在上面我们发现了一个位置断的特备频繁，发包的执行流程中会掺杂大量的假包，并跳到函数尾部，不执行发包代码。而这个位置的上面会有一个判断，用来分辨当前执行的代码是否是真的发包代码。</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336nkg76i56xt65xfyg.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336nkg76i56xt65xfyg.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336nkg76i56xt65xfyg.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336nkg76i56xt65xfyg.png 2x"
@@ -230,8 +232,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336nkg76i56xt65xfyg.png"
         title="img"
     /></p>
-<p>所以我们分别取追一下r14d和eax的来源，并最终得到了两处赋值的位置
-<img
+<p>所以我们分别取追一下r14d和eax的来源，并最终得到了两处赋值的位置</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336y56za9idis9gals9-20211013002327758.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336y56za9idis9gals9-20211013002327758.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336y56za9idis9gals9-20211013002327758.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336y56za9idis9gals9-20211013002327758.png 2x"
@@ -239,8 +241,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336y56za9idis9gals9-20211013002327758.png"
         title="img"
     /></p>
-<p>我们在下面的数组上下断，获取到真正发包时的rbp的值，并对+40和+88进行下断观察，可以发现+88是决定代码流程的关键，因为有的时候+40不变，而+88会改变，此时恰好会让二者不相等，实现真的发包。
-<img
+<p>我们在下面的数组上下断，获取到真正发包时的rbp的值，并对+40和+88进行下断观察，可以发现+88是决定代码流程的关键，因为有的时候+40不变，而+88会改变，此时恰好会让二者不相等，实现真的发包。</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336cz626d97w7vnh6b9-20211013002335600.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336cz626d97w7vnh6b9-20211013002335600.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336cz626d97w7vnh6b9-20211013002335600.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336cz626d97w7vnh6b9-20211013002335600.png 2x"
@@ -248,8 +250,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133336cz626d97w7vnh6b9-20211013002335600.png"
         title="img"
     /></p>
-<p>于是我们在这个+88偏移上下写入断点，尝试跳出线程。在游戏内下断断的狠频繁，我们很难做出写入的动作。所以我们要来带创建角色界面下断，在这里可以很轻松的断下，并来到跳出线程的代码里
-<img
+<p>于是我们在这个+88偏移上下写入断点，尝试跳出线程。在游戏内下断断的狠频繁，我们很难做出写入的动作。所以我们要来带创建角色界面下断，在这里可以很轻松的断下，并来到跳出线程的代码里</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337eerd8m2oijyhomxj.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337eerd8m2oijyhomxj.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337eerd8m2oijyhomxj.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337eerd8m2oijyhomxj.png 2x"
@@ -257,8 +259,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337eerd8m2oijyhomxj.png"
         title="img"
     /></p>
-<p>这是我们的第一种跳出方式，而第二种方式比较简单，我们可以用CE对这个地址下写入断点，然后挨个尝试，其中会有一个写入会在线程外
-<img
+<p>这是我们的第一种跳出方式，而第二种方式比较简单，我们可以用CE对这个地址下写入断点，然后挨个尝试，其中会有一个写入会在线程外</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337bejwjwqywyqezh3f.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337bejwjwqywyqezh3f.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337bejwjwqywyqezh3f.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337bejwjwqywyqezh3f.png 2x"
@@ -266,8 +268,8 @@
         alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337bejwjwqywyqezh3f.png"
         title="img"
     /></p>
-<p>第三种方式有一些玄学，就是在模块内扫描比较函数中的基地址，虽然扫描到的基地址有很多，不过在前面的几个里面就会有一个在线程外，跳过去下断可以返回到功能CALL。当然这种方式虽然有一定的道理，但也是在我们走投无路的情况下才去尝试的。
-<img
+<p>第三种方式有一些玄学，就是在模块内扫描比较函数中的基地址，虽然扫描到的基地址有很多，不过在前面的几个里面就会有一个在线程外，跳过去下断可以返回到功能CALL。当然这种方式虽然有一定的道理，但也是在我们走投无路的情况下才去尝试的。</p>
+<p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337d60zenps4uo40c04.png"
         data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337d60zenps4uo40c04.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337d60zenps4uo40c04.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/133337d60zenps4uo40c04.png 2x"
