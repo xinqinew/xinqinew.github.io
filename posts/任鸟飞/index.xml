@@ -10,7 +10,7 @@
     <pubDate>Sat, 16 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/</guid>
-    <description><![CDATA[调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化]]></description>
+    <description><![CDATA[调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗]]></description>
 </item><item>
     <title>win7过TP</title>
     <link>https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/</link>
@@ -33,12 +33,12 @@
     </author><guid>https://xinqinew.github.io/2021/09/%E5%9C%A8%E7%BA%BF%E7%8F%AD%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%956788/</guid>
     <description><![CDATA[报名QQ: 3534373359 ================================ 本期在线班, 实战游戏列表: 口袋西游 传奇永恒 幻想神域单机版 猎天 QQ自由幻想 天涯明月刀 魔兽单机版 神途 QQ三国 新寻仙 魔兽怀旧服 自由足]]></description>
 </item><item>
-    <title>封包的加密与解密、线程发包专题</title>
-    <link>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/</link>
+    <title>封包的加密与解密、线程发包、收包</title>
+    <link>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/</link>
     <pubDate>Sun, 19 Sep 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E4%B8%93%E9%A2%98/</guid>
-    <description><![CDATA[封包的加密与解密、线程发包专题 三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加]]></description>
+    </author><guid>https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/</guid>
+    <description><![CDATA[三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加上口袋西游(或者任何的send]]></description>
 </item><item>
     <title>灵魂起源及画江山部分代码</title>
     <link>https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/</link>
