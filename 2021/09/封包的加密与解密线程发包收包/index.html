@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2369 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2487 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85\/","datePublished": "2021-09-19T00:00:00+00:00","dateModified": "2021-09-19T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2369 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-19">2021-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2487 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/" class="leancloud_visitors" data-flag-title="封包的加密与解密、线程发包、收包">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -165,6 +165,7 @@
           </ul>
         </li>
         <li><a href="#收包recv">收包recv</a></li>
+        <li><a href="#控件包">控件包</a></li>
       </ul>
     </li>
   </ul>
@@ -596,6 +597,29 @@ z6[&#34;双开喊话&#34;]
 
 z1--&gt;|可断|z3
 z1--&gt;|不可断|z5--&gt;z4--&gt;z6--&gt;A喊--&gt;B搜索--&gt;反复验证并最终确定--&gt;向上层返回--&gt;直到找到明文收包
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="控件包">控件包</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
+在明文包处--&gt;
+|下条件断 过滤心跳包|通过会触发向服务器发包的功能按键--&gt;
+z1[&#34;触发执行断点&#34;]--&gt;
+堆栈  &amp; K键堆栈 &amp; z2[&#34;外层(推荐)&#34;]
+z2--&gt;
+逐层验证并确定
+
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
