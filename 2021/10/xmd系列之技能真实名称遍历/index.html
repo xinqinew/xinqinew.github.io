@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">任鸟飞C&#43;&#43; - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞C&#43;&#43;" />
-<meta property="og:description" content="调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗" />
+    <title class="pjax-title">XMD系列之技能真实名称遍历 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="XMD系列之技能真实名称遍历" />
+<meta property="og:description" content="XMD系列之技能真实名称遍历 上一篇文章里，我们对技能名字进行分析，得到了一个数组，但是经过观察，我们发现这个数组是一个临时存放的数组，只有当" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-10-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-16T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-25T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="任鸟飞C&#43;&#43;"/>
-<meta name="twitter:description" content="调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗"/>
+<meta name="twitter:title" content="XMD系列之技能真实名称遍历"/>
+<meta name="twitter:description" content="XMD系列之技能真实名称遍历 上一篇文章里，我们对技能名字进行分析，得到了一个数组，但是经过观察，我们发现这个数组是一个临时存放的数组，只有当"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "任鸟飞C++",
+        "headline": "XMD系列之技能真实名称遍历",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞","wordcount":  87 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-\/","datePublished": "2021-10-16T00:00:00+00:00","dateModified": "2021-10-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1477 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86\/","datePublished": "2021-10-25T00:00:00+00:00","dateModified": "2021-10-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">任鸟飞C&#43;&#43;</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">XMD系列之技能真实名称遍历</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-16">2021-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-16">2021-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 87 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" class="leancloud_visitors" data-flag-title="任鸟飞C&#43;&#43;">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1477 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" class="leancloud_visitors" data-flag-title="XMD系列之技能真实名称遍历">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -143,171 +143,193 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#调试输出人物信息">调试输出（人物信息）</a></li>
-        <li><a href="#结构体初始化人物属性">结构体初始化（人物属性）</a></li>
-        <li><a href="#宏定义基址及偏移">宏定义基址及偏移</a></li>
-        <li><a href="#玩家信息">玩家信息</a></li>
-        <li><a href="#怪物列表初始化">怪物列表初始化</a></li>
-        <li><a href="#hook明文包">HOOK明文包</a></li>
-        <li><a href="#还原hook明文包">还原HOOK明文包</a></li>
-        <li><a href="#hook明文包子程序">HOOK明文包子程序</a></li>
-        <li><a href="#获取窗口句柄">获取窗口句柄</a></li>
-        <li><a href="#内联汇编">内联汇编</a></li>
-        <li><a href="#遍历周围信息">遍历周围信息</a></li>
-      </ul>
-    </li>
+    <li><a href="#xmd系列之技能真实名称遍历">XMD系列之技能真实名称遍历</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="调试输出人物信息">调试输出（人物信息）</h2>
+            </div><div class="content" id="content"><h1 id="xmd系列之技能真实名称遍历">XMD系列之技能真实名称遍历</h1>
+<p>上一篇文章里，我们对技能名字进行分析，得到了一个数组，但是经过观察，我们发现这个数组是一个临时存放的数组，只有当技能栏打开时才会显示当前一栏的技能，这样我们在获取所有技能信息时是很不方便的，所以下面我们要换一个方向找到真正的技能库遍历。</p>
+<p>在之前找到的数组上下F2断点，并获取同一个技能的对象，我们会发现及时从新打开技能栏，获取到的技能对象都是一样的，只是存放的地址发生了变化。所以我们可以通过CE对这个地址进行扫描，并通过重新打开技能栏来过滤掉临时存放的地址。</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png"
-        title="image-20211016094347356"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.png"
+        title="图片"
     /></p>
-<h2 id="结构体初始化人物属性">结构体初始化（人物属性）</h2>
+<p>分别在数据窗口中观察这两个地址，我们发现第二个地址的结构和临时存放的结构是一样的，也就是说这里就是拷贝到临时地址中的数组。</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114048391.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114048391.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114048391.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114048391.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg"
-        title="jgiwhfgry.jpg"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114048391.png"
+        title="图片"
     /></p>
-<h2 id="宏定义基址及偏移">宏定义基址及偏移</h2>
+<p>在这个地址上下硬件访问断点，切换技能栏，游戏断到一个新的数组位置</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956466.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956466.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956466.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956466.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png"
-        title="image-20211018104131958"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956466.png"
+        title="图片"
     /></p>
-<h2 id="玩家信息">玩家信息</h2>
+<p>这里同样是一个+8偏移和一个*8+4的数组，在ebx+8处下断，观察断下的值，发现里面的内容是固定不变的，重新打开技能栏，ebx也不会重新生成。</p>
+<p>我们继续分析ebx的来源，在上面可以得到来源于一个CALL的返回eax</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114041960.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114041960.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114041960.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114041960.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png"
-        title="image-20211018104442590"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114041960.png"
+        title="图片"
     /></p>
+<p>在CALL上下断，分析参数，发现这个CALL只有一个参数，而参数的值很可能就是技能类型的ID</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956736.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956736.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956736.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956736.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg"
-        title="sajkfsa"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956736.png"
+        title="图片"
     /></p>
-<h2 id="怪物列表初始化">怪物列表初始化</h2>
+<p>到CALL里面分析eax的来源，得到来源于局部变量[ebp-10]，而这个局部变量在上面的以结构体参数传到CALL中并被赋值。</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956809.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956809.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956809.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956809.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg"
-        title="ajfksajkfsjk"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113956809.png"
+        title="图片"
     /></p>
-<h2 id="hook明文包">HOOK明文包</h2>
+<p>到CALL 9CB360中分析来源，首先得到一个+10偏移</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114030037.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114030037.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114030037.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114030037.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png"
-        title="image-20211018230054909"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114030037.png"
+        title="图片"
     /></p>
-<h2 id="还原hook明文包">还原HOOK明文包</h2>
+<p>继续向上分析，可以得到一个数组套链表的结构</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957161.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957161.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957161.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957161.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png"
-        title="image-20211018230407661"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957161.png"
+        title="图片"
     /></p>
-<h2 id="hook明文包子程序">HOOK明文包子程序</h2>
+<p>对代码的走向进行分析，可以得出数组套链表的节点+8中存放的数值会反复的与外面传入的技能类型ID进行比较，所以说这个位置存放的就是技能类型ID</p>
+<p>执行到返回后，继续分析ecx的来源，可以得到+20偏移</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957261.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957261.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957261.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957261.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png"
-        title="image-20211018231002180"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957261.png"
+        title="图片"
     /></p>
-<h2 id="获取窗口句柄">获取窗口句柄</h2>
+<p>再次执行到返回可以得到基地址</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114023209.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114023209.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114023209.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114023209.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png"
-        title="image-20211018232616265"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114023209.png"
+        title="图片"
     /></p>
-<h2 id="内联汇编">内联汇编</h2>
+<p>既然得到了基地址，是不是说我们的分析结束了呢？</p>
+<p>不！还没有结束！</p>
+<p>我们对数组套链表的结构进行观察后发现，这里的元素和节点实在是太多了，我们需要继续分析传入到CALL中的技能类型ID的来源</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957636.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957636.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957636.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957636.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg"
-        title="ashfeyfu"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957636.png"
+        title="图片"
     /></p>
-<h2 id="遍历周围信息">遍历周围信息</h2>
+<p>我们执行到返回后得到了一个数组</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957691.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957691.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957691.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957691.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png"
-        title="image-20211024221028165"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957691.png"
+        title="图片"
     /></p>
-<p><strong>点击控件</strong></p>
+<p>直接用CE扫描这个ebx可以得到一个基地址</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114013577.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114013577.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114013577.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114013577.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png"
-        title="image-20211024223043409"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025114013577.png"
+        title="图片"
     /></p>
+<p>接下来分析数组里面元素，可以得出以下公式</p>
+<p>[[0x047CECD0]+138]+n*4+4技能类型</p>
+<p>n=1为1转类型ID</p>
+<p>n=2为2转类型ID</p>
+<p>n=3为3转类型ID</p>
+<p>n=4为4转类型ID</p>
+<p>而0转的技能类型所有职业都为0</p>
+<p>可以说，追到这里我们就已经可以通过关联来获取到完整遍历了，但是如果为了提高一点代码效率，我们可以用技能类型ID经过加密计算获取到数组套链表的数组下标，这部分代码就在数组套链表的上面</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957925.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957925.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957925.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957925.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png"
-        title="image-20211024223700870"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113957925.png"
+        title="图片"
     /></p>
+<p>最终我们可以整理出公式如下</p>
+<p>技能类型ID 循环右移5 得到结果为G</p>
+<p>[[[0x03CF46D8]+20+4]+(G%[[0x03CF46D8]+20+8])*4]+4链表</p>
+<p>[[[0x03CF46D8]+20+4]+(G%[[0x03CF46D8]+20+8])*4]+8ID</p>
+<p>[[[0x03CF46D8]+20+4]+(G%[[0x03CF46D8]+20+8])*4]+10对象</p>
+<p>链表+4链表</p>
+<p>链表+8ID</p>
+<p>链表+10对象</p>
+<p>当ID==技能类型ID时，取出对象</p>
+<p>==========================</p>
+<p>[对象+8]-4技能数组元素数量</p>
+<p>[[对象+8]+n*8+4]+4技能ID</p>
+<p>[[[对象+8]+n*8+4]+8]+0技能名字ASCII</p>
+<p>完整的技能遍历已经获取到了，虽然有些复杂，不过成就感是慢慢的，当然如果有小伙伴觉得这个办法太麻烦，也可以用传参调CALL的方式获取，被检测到了不要哭哦。</p>
+<p>从安全角度来讲，这个部分正向代码的设计其实要比逆向麻烦很多，如果能在关键的CALL中加入弱VM并加入本地检测，会得到意想不到的效果。</p>
+<p>玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
+<p>没看够?</p>
+<p>可以加入我们QQ直播群:805981646</p>
+<p>每晚都有免费的公开课</p>
+<p>欢迎大家加入</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-10-16</span>
+                <span>更新于 2021-10-25</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;" data-hashtags="任鸟飞"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-hashtag="任鸟飞"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" data-title="XMD系列之技能真实名称遍历" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" data-title="XMD系列之技能真实名称遍历"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" data-title="XMD系列之技能真实名称遍历"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" data-title="XMD系列之技能真实名称遍历"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%BB%BB%E9%B8%9F%E9%A3%9E/">任鸟飞</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/win7%E8%BF%87tp/" class="prev" rel="prev" title="win7过TP"><i class="fas fa-angle-left fa-fw"></i>win7过TP</a></div>
+    <div class="post-nav"><a href="/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="天刀x64明文收包及狩猎抢怪功能分析"><i class="fas fa-angle-left fa-fw"></i>天刀x64明文收包及狩猎抢怪功能分析</a>
+            <a href="/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/" class="next" rel="next" title="MXD系列之技能分析技能点数结构">MXD系列之技能分析技能点数结构<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

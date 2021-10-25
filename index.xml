@@ -4,9 +4,51 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 21 Oct 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>32位游戏逆向安全之角色及怪物分析</title>
+    <link>https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[32位游戏逆向安全之角色及怪物分析 角色对象作为一个特殊的个体，一般都是单独存放在一个基地址下的，而有些游戏则需要通过角色名字 或者ID到怪物遍]]></description>
+</item><item>
+    <title>64位数据扫描及工具介绍</title>
+    <link>https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/</guid>
+    <description><![CDATA[64位数据扫描及工具介绍 x64位程序的分析，主要用到两款工具，而这两款工具同x32位程序的分析工具类似，一款是CE，另一款则是xdbg64。]]></description>
+</item><item>
+    <title>MXD系列之技能分析技能点数结构</title>
+    <link>https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/</guid>
+    <description><![CDATA[MXD系列之技能分析技能点数结构 随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数]]></description>
+</item><item>
+    <title>XMD系列之技能真实名称遍历</title>
+    <link>https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/</guid>
+    <description><![CDATA[XMD系列之技能真实名称遍历 上一篇文章里，我们对技能名字进行分析，得到了一个数组，但是经过观察，我们发现这个数组是一个临时存放的数组，只有当]]></description>
+</item><item>
+    <title>天刀x64明文收包及狩猎抢怪功能分析</title>
+    <link>https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[天刀x64明文收包及狩猎抢怪功能分析 任鸟飞 任鸟飞逆向 8月7日 天涯明月刀》从首测开始已经经历了6年的时间，因为画风唯美，玩法多样，如今依然热度]]></description>
+</item><item>
+    <title>调试游戏.了解64位汇编指令（1）</title>
+    <link>https://xinqinew.github.io/2021/10/%E8%B0%83%E8%AF%95%E6%B8%B8%E6%88%8F.%E4%BA%86%E8%A7%A364%E4%BD%8D%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A41/</link>
+    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E8%B0%83%E8%AF%95%E6%B8%B8%E6%88%8F.%E4%BA%86%E8%A7%A364%E4%BD%8D%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A41/</guid>
+    <description><![CDATA[调试游戏.了解64位汇编指令（1） 之前我们对64位的通用寄存器和一些常用的调试器功能有了初步的认识，下面我们来通过调试游戏，对64位的汇编指]]></description>
+</item><item>
     <title>整理</title>
     <link>https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/</link>
     <pubDate>Thu, 21 Oct 2021 00:00:00 &#43;0000</pubDate><author>
@@ -34,47 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/</guid>
     <description><![CDATA[pc hunter 1 2 3 4 5 6 7 8 9 10 11 graph z1([PCHunter]) z2[&#34;System进程中&lt;br&gt;有红色等待的都&lt;br&gt;结束线程&#34;] z]]></description>
-</item><item>
-    <title>x86 和 x64 共用HOOK类</title>
-    <link>https://xinqinew.github.io/2021/10/x86-%E5%92%8C-x64-%E5%85%B1%E7%94%A8hook%E7%B1%BB/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/x86-%E5%92%8C-x64-%E5%85%B1%E7%94%A8hook%E7%B1%BB/</guid>
-    <description><![CDATA[InHook.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 #pragma once #ifdef _WIN64 typedef unsigned __int64 SELF_PTR; #else typedef unsigned int SELF_PTR; #endif #if _WIN64 constexpr int byte_length = 9; #else constexpr int byte_length = 5; #endif // 0 class InHook { public: void Initalize(SELF_PTR oldAddr,]]></description>
-</item><item>
-    <title>《冒险岛》技能分析之技能库</title>
-    <link>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%80%E8%83%BD%E5%BA%93/</guid>
-    <description><![CDATA[上一篇帖子中我们对技能等级进行了分析，接下来我们对技能名字库进行分析，进而获得完整的技能遍历。既然分析名字库，自然要从名字入手了，我们任意选]]></description>
-</item><item>
-    <title>【代码系列】共享内存的应用与写法</title>
-    <link>https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%86%99%E6%B3%95/</guid>
-    <description><![CDATA[共享内存指 (shared memory)在多处理器的计算机系统中，可以被不同中央处理器(CPU)访问的大容量内存。由于多个CPU需要快速访问存储器，这样就]]></description>
-</item><item>
-    <title>【冒险岛】技能等级遍历分析</title>
-    <link>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E5%86%92%E9%99%A9%E5%B2%9B%E6%8A%80%E8%83%BD%E7%AD%89%E7%BA%A7%E9%81%8D%E5%8E%86%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数据也处理的有模有样，分析起来也颇]]></description>
-</item><item>
-    <title>【安全系列】python exe文件解包方法总结</title>
-    <link>https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E5%AE%89%E5%85%A8%E7%B3%BB%E5%88%97python-exe%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8C%85%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
-    <description><![CDATA[一、步骤1. exe → pyc方法1：pyinstxtractor.py 执行python pyinstxtractor.py &lt;待解包文件名&gt; ，如果成功，即可获得&lt;待]]></description>
-</item><item>
-    <title>【幻想神域】人物属性分析</title>
-    <link>https://xinqinew.github.io/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/</link>
-    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E5%B9%BB%E6%83%B3%E7%A5%9E%E5%9F%9F%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[首先对角色名字进行搜索，得到3个结果，分别改变3个结果后，切换角色栏，发现角色名字变为了第三个地址的名字**（如图）** 通过OD对这个地址下]]></description>
 </item></channel>
 </rss>

@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">任鸟飞C&#43;&#43; - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞C&#43;&#43;" />
-<meta property="og:description" content="调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗" />
+    <title class="pjax-title">天刀x64明文收包及狩猎抢怪功能分析 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="天刀x64明文收包及狩猎抢怪功能分析" />
+<meta property="og:description" content="天刀x64明文收包及狩猎抢怪功能分析 任鸟飞 任鸟飞逆向 8月7日 天涯明月刀》从首测开始已经经历了6年的时间，因为画风唯美，玩法多样，如今依然热度" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-10-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-16T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-25T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="任鸟飞C&#43;&#43;"/>
-<meta name="twitter:description" content="调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗"/>
+<meta name="twitter:title" content="天刀x64明文收包及狩猎抢怪功能分析"/>
+<meta name="twitter:description" content="天刀x64明文收包及狩猎抢怪功能分析 任鸟飞 任鸟飞逆向 8月7日 天涯明月刀》从首测开始已经经历了6年的时间，因为画风唯美，玩法多样，如今依然热度"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/%E8%B0%83%E8%AF%95%E6%B8%B8%E6%88%8F.%E4%BA%86%E8%A7%A364%E4%BD%8D%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A41/" /><link rel="next" href="https://xinqinew.github.io/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "任鸟飞C++",
+        "headline": "天刀x64明文收包及狩猎抢怪功能分析",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "任鸟飞","wordcount":  87 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-\/","datePublished": "2021-10-16T00:00:00+00:00","dateModified": "2021-10-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1565 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90\/","datePublished": "2021-10-25T00:00:00+00:00","dateModified": "2021-10-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">任鸟飞C&#43;&#43;</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">天刀x64明文收包及狩猎抢怪功能分析</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-16">2021-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-16">2021-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 87 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" class="leancloud_visitors" data-flag-title="任鸟飞C&#43;&#43;">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1565 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" class="leancloud_visitors" data-flag-title="天刀x64明文收包及狩猎抢怪功能分析">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -143,171 +143,167 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#调试输出人物信息">调试输出（人物信息）</a></li>
-        <li><a href="#结构体初始化人物属性">结构体初始化（人物属性）</a></li>
-        <li><a href="#宏定义基址及偏移">宏定义基址及偏移</a></li>
-        <li><a href="#玩家信息">玩家信息</a></li>
-        <li><a href="#怪物列表初始化">怪物列表初始化</a></li>
-        <li><a href="#hook明文包">HOOK明文包</a></li>
-        <li><a href="#还原hook明文包">还原HOOK明文包</a></li>
-        <li><a href="#hook明文包子程序">HOOK明文包子程序</a></li>
-        <li><a href="#获取窗口句柄">获取窗口句柄</a></li>
-        <li><a href="#内联汇编">内联汇编</a></li>
-        <li><a href="#遍历周围信息">遍历周围信息</a></li>
-      </ul>
-    </li>
+    <li><a href="#天刀x64明文收包及狩猎抢怪功能分析">天刀x64明文收包及狩猎抢怪功能分析</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="调试输出人物信息">调试输出（人物信息）</h2>
+            </div><div class="content" id="content"><h1 id="天刀x64明文收包及狩猎抢怪功能分析">天刀x64明文收包及狩猎抢怪功能分析</h1>
+<p>任鸟飞 任鸟飞逆向 <em>8月7日</em></p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211016094347356.png"
-        title="image-20211016094347356"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640.jpg"
+        title="图片"
     /></p>
-<h2 id="结构体初始化人物属性">结构体初始化（人物属性）</h2>
+<p>天涯明月刀》从首测开始已经经历了6年的时间，因为画风唯美，玩法多样，如今依然热度不减当年，这也导致了外挂工作室的层出不穷。虽然游戏进行了反复的修改，已经基本杜绝了BUG的出现，而且各类检测也限制了大部分工作室外挂的功能，但是依然有一些暴利功能可以通过内存的角度来实现。</p>
+<p>狩猎是游戏中的一个非常重要的日常玩法，结合了RPG和FPS游戏的多种元素。由于狩猎过程中可以掉落装备强化中必不可少的材料，导致大量的外挂工作室盯上了这里。多方竞争导致最初封包自瞄秒怪已经无法满足其牟利需要，于是很多外挂开始从收包入手，来提高代码效率，达到抢怪的效果。</p>
+<p>由于从收到服务器的协议封包到本地的数据结构遍历这个过程中，会经历很多的代码，其中还包括很多反调试所必须的VMP，代码混淆，以及线程循环。所以在怪物刷新时，直接收包读取怪物信息，和遍历本地结构里的信息要经过短暂的时间间隔，大概几十毫秒甚至上百毫秒。这个时间从玩家的角度来看，是无法分辨出来的，但是从软件的代码角度来讲是可以做很多事情的。这就导致现在不用收包是无法抢到被狩猎动物的。下面，我们就对这款游戏的64位收包函数进行分析，并找到怪物刷新的封包。</p>
+<p>首先我们用64位的xllydbg对游戏进行加载，并跳转到recv函数头部(如图)</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746700.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746700.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746700.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746700.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/jgiwhfgry.jpg.jpg"
-        title="jgiwhfgry.jpg"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746700.jpg"
+        title="图片"
     /></p>
-<h2 id="宏定义基址及偏移">宏定义基址及偏移</h2>
+<p>下F2断点观察recv的参数情况（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113845254.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113845254.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113845254.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113845254.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104131958.png"
-        title="image-20211018104131958"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113845254.jpg"
+        title="图片"
     /></p>
-<h2 id="玩家信息">玩家信息</h2>
+<p>游戏断下之后，我们发现RCX，RDX都是比较正常的情况，分别是socket和buf，但是R8的值只有5，也就是说收包的len非常小，这显然是不正常的，说明这有可能是一个干扰包，或者是一个心跳包。于是我们从新下断，并点击F9，发现R8在执行几次后变成了0x101052，这比较像正常收包的情况。（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746750.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746750.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746750.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746750.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018104442590.png"
-        title="image-20211018104442590"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746750.jpg"
+        title="图片"
     /></p>
+<p>在这种情况下执行到返回，我们发现返回的位置和之前返回的位置是不同的（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113839619.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113839619.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113839619.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113839619.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/sajkfsa.jpg"
-        title="sajkfsa"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113839619.jpg"
+        title="图片"
     /></p>
-<h2 id="怪物列表初始化">怪物列表初始化</h2>
+<p>接下来就需要我们找到分解的收包，在函数上下F2断点，并点击F8单步执行（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746827.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746827.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746827.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746827.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ajfksajkfsjk.jpg"
-        title="ajfksajkfsjk"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746827.jpg"
+        title="图片"
     /></p>
-<h2 id="hook明文包">HOOK明文包</h2>
+<p>此时经过了收包函数，说明已经收到包，我们在游戏断下的情况下在包内下硬件访问断点（为了避免断在包头的位置，我们尽量在稍微靠下一些的位置下断），游戏断下（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746854.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746854.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746854.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746854.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230054909.png"
-        title="image-20211018230054909"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746854.jpg"
+        title="图片"
     /></p>
-<h2 id="还原hook明文包">还原HOOK明文包</h2>
+<p>执行到返回后我们来到一个memmove函数处（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746877.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746877.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746877.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746877.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018230407661.png"
-        title="image-20211018230407661"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113746877.jpg"
+        title="图片"
     /></p>
-<h2 id="hook明文包子程序">HOOK明文包子程序</h2>
+<p>在这里下断，并喊话，我们发现这里已经是明文收包的位置（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113829965.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113829965.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113829965.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113829965.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018231002180.png"
-        title="image-20211018231002180"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113829965.jpg"
+        title="图片"
     /></p>
-<h2 id="获取窗口句柄">获取窗口句柄</h2>
+<p>我们喊话的内容是11111111，在包里会得到很多“31”的ascii编码字节集，我们还可以确定包长为0x63，单步执行后RDX向RCX里面拷贝了收包内容（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747183.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747183.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747183.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747183.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211018232616265.png"
-        title="image-20211018232616265"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747183.jpg"
+        title="图片"
     /></p>
-<h2 id="内联汇编">内联汇编</h2>
+<p>在确定了明文收包的位置以后，我们就可以分析刷怪包了，由于怪物的刷新时间是我们无法准确掌握的，所以最好的方式是通过HOOK收包来进行分析。另外一种办法就是通过观察，得出怪物大概的刷新时间，然后提前下好断点，并不断的点击F9来获取刷怪包。</p>
+<p>首先我们在不杀死怪物的情况下下F2断点，并不断点击F9来观察收包长度的变化，发现这里的包长大部分为0x36和0x19，并没有特别大的包出现（如图）</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113824198.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113824198.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113824198.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113824198.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ashfeyfu.jpg"
-        title="ashfeyfu"
-    /></p>
-<h2 id="遍历周围信息">遍历周围信息</h2>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024221028165.png"
-        title="image-20211024221028165"
-    /></p>
-<p><strong>点击控件</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223043409.png"
-        title="image-20211024223043409"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113824198.jpg"
+        title="图片"
     /></p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113820768.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113820768.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113820768.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113820768.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211024223700870.png"
-        title="image-20211024223700870"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113820768.jpg"
+        title="图片"
     /></p>
+<p>然后我们杀死一些怪物，并在怪物快要刷新的时候下F2断点，在点击F9执行的时候发现出现了一些包长为0x239的封包（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113816828.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113816828.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113816828.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113816828.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113816828.jpg"
+        title="图片"
+    /></p>
+<p>接下来我们对这些封包进行观察，发现在+40的后面会出现一些UTF-8编码的字符串，经过转码后可以得到刷新怪物的名字（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747915.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747915.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747915.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747915.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113747915.jpg"
+        title="图片"
+    /></p>
+<p>这样就可以确定封包为刷怪包了，接下来只要通过HOOK收包，对包头和内部的属性进行关联，就可以得到怪物的ID，坐标，等其他信息了。</p>
+<p>通过这种方式获取到的怪物信息，要比在内部获取到的信息快了很多，这个差异淘汰了很多狩猎工作室，但同样也对游戏的平衡性产生了更大的影响，玩家在看不到怪物的情况下，怪物就已经被打死了。可以从CRC检测HOOK，以及加入时间戳，对怪物的刷新时间和死亡时间进行判断，来检测是否是玩家进行的操作。</p>
+<p>玩游戏，学逆向，做安全，欢迎感兴趣的小伙伴关注我们。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-10-16</span>
+                <span>更新于 2021-10-25</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;" data-hashtags="任鸟飞"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-hashtag="任鸟飞"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/" data-title="任鸟飞C&#43;&#43;"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" data-title="天刀x64明文收包及狩猎抢怪功能分析" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" data-title="天刀x64明文收包及狩猎抢怪功能分析"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" data-title="天刀x64明文收包及狩猎抢怪功能分析"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E5%A4%A9%E5%88%80x64%E6%98%8E%E6%96%87%E6%94%B6%E5%8C%85%E5%8F%8A%E7%8B%A9%E7%8C%8E%E6%8A%A2%E6%80%AA%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90/" data-title="天刀x64明文收包及狩猎抢怪功能分析"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%BB%BB%E9%B8%9F%E9%A3%9E/">任鸟飞</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/win7%E8%BF%87tp/" class="prev" rel="prev" title="win7过TP"><i class="fas fa-angle-left fa-fw"></i>win7过TP</a></div>
+    <div class="post-nav"><a href="/2021/10/%E8%B0%83%E8%AF%95%E6%B8%B8%E6%88%8F.%E4%BA%86%E8%A7%A364%E4%BD%8D%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A41/" class="prev" rel="prev" title="调试游戏.了解64位汇编指令（1）"><i class="fas fa-angle-left fa-fw"></i>调试游戏.了解64位汇编指令（1）</a>
+            <a href="/2021/10/xmd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E7%9C%9F%E5%AE%9E%E5%90%8D%E7%A7%B0%E9%81%8D%E5%8E%86/" class="next" rel="next" title="XMD系列之技能真实名称遍历">XMD系列之技能真实名称遍历<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

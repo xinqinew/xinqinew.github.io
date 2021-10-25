@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">里程碑 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="里程碑" />
-<meta property="og:description" content="2021 5月 10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。 25日，开始学习《2020DNF》、《2020DOF" />
+    <title class="pjax-title">64位数据扫描及工具介绍 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="64位数据扫描及工具介绍" />
+<meta property="og:description" content="64位数据扫描及工具介绍 x64位程序的分析，主要用到两款工具，而这两款工具同x32位程序的分析工具类似，一款是CE，另一款则是xdbg64。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/milestone/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="" />
-<meta property="article:published_time" content="2020-07-01T19:19:21+08:00" />
-<meta property="article:modified_time" content="2020-07-01T19:19:21+08:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-25T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="里程碑"/>
-<meta name="twitter:description" content="2021 5月 10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。 25日，开始学习《2020DNF》、《2020DOF"/>
+<meta name="twitter:title" content="64位数据扫描及工具介绍"/>
+<meta name="twitter:description" content="64位数据扫描及工具介绍 x64位程序的分析，主要用到两款工具，而这两款工具同x32位程序的分析工具类似，一款是CE，另一款则是xdbg64。"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/milestone/" /><link rel="prev" href="https://xinqinew.github.io/about/" /><link rel="next" href="https://xinqinew.github.io/message-board/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/" /><link rel="next" href="https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "里程碑",
+        "headline": "64位数据扫描及工具介绍",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/milestone\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "milestone","wordcount":  1252 ,
-        "url": "https:\/\/xinqinew.github.io\/milestone\/","datePublished": "2020-07-01T19:19:21+08:00","dateModified": "2020-07-01T19:19:21+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1104 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/10\/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D\/","datePublished": "2021-10-25T00:00:00+00:00","dateModified": "2021-10-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -61,12 +61,9 @@
             <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
                     <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
                     <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
-                    <a class="menu-item active " href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
                     <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
                     <span class="menu-item delimiter"></span>
-	                	<a href="/en/milestone/" class="menu-item " title="English"><i class="fas fa-language fa-fw"></i>
-	                </a>
-	                
                    <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
@@ -119,9 +116,6 @@
             <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
-                            <a href="/en/milestone/" class="menu-item " title="English"><i class="fas fa-language fa-fw"></i>
-                        </a>
-                    
                 </div>
     </div>
 </header>
@@ -132,97 +126,146 @@
     <div id="search-dropdown-mobile"></div>
 </div><main class="main">
             <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single special"><h1 class="single-title animated flipInX">
-            <i class="fas fa-monument fa-fw"></i>&nbsp;里程碑
-        </h1><div class="details toc" id="toc-static"  kept="">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">64位数据扫描及工具介绍</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-25">2021-10-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1104 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" class="leancloud_visitors" data-flag-title="64位数据扫描及工具介绍">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#2021">2021</a>
-      <ul>
-        <li><a href="#5月">5月</a></li>
-        <li><a href="#6月">6月</a></li>
-        <li><a href="#7月">7月</a></li>
-        <li><a href="#8月">8月</a></li>
-        <li><a href="#9月">9月</a></li>
-        <li><a href="#10月">10月</a></li>
-      </ul>
-    </li>
-    <li><a href="#研究目录">研究目录</a></li>
+    <li><a href="#64位数据扫描及工具介绍">64位数据扫描及工具介绍</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="2021">2021</h1>
-<h2 id="5月">5月</h2>
-<p>10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。</p>
-<p>25日，开始学习《2020DNF》、《2020DOF》、《2021DNF不完整》系列教程。历时5天。</p>
-<p>30日，开始学习《<a href="https://www.youtube.com/playlist?list=PL8TEddGT5w_j80QNqkFwl3stUTxlHol_h" target="_blank" rel="noopener noreffer">派大星&ndash;英雄联盟LOL</a>》、《<a href="https://www.youtube.com/playlist?list=PL8TEddGT5w_ju8TkWhhq2k9A69kG4x1-i" target="_blank" rel="noopener noreffer">派大星&ndash;亿万僵尸</a>》、《CE WALKer》，历时9天。</p>
-<h2 id="6月">6月</h2>
-<p>8日，开始学习《小冷过游戏检测技术》及相关过检测教程，历时4天。期间还看了WOW按键视频。</p>
-<p>12日，开始学习《植物大战僵尸》，历时9天。</p>
-<p>23日，开始学习《CS》。</p>
-<p>27日，开始各种尝试，然后放弃，继续看其它教程。</p>
-<h2 id="7月">7月</h2>
-<p>3日，开始学习《郁金香2020 WOW》，教程未完待续。历时19天。</p>
-<p>24日，开始学习《郁金香2019 VS2010》，教程不完整，历时16天。</p>
-<p>26日，开始利用闲暇时间搭建博客，用于记录笔记及心路历程。尝试搭了5个不同的博客，第一款基于jekyll框架，效果不理想，之后不断摸索。</p>
-<h2 id="8月">8月</h2>
-<p>4日，博客最终锁定了Hugo框架LoveIt模板，也就是现在看到的样子。</p>
-<p>10日，开始学习《任鸟飞2015天涯明月刀》，历时18天。</p>
-<p>28日，开始学习《任鸟飞2019 C++之灵魂起源》，历时3天</p>
-<h2 id="9月">9月</h2>
-<p>1日，开始学习《任鸟飞2016 画江山》，历时18天</p>
-<p>19日，开始学习《任鸟飞 封包的加密与解密、线程发包专题》，历时8天</p>
-<p>27日，开始学习《<a href="https://edu.csdn.net/course/detail/30509" target="_blank" rel="noopener noreffer">任鸟飞逆向C++基础篇</a>》,历时4天</p>
-<h2 id="10月">10月</h2>
-<p>1日，《<a href="https://edu.csdn.net/course/detail/30680" target="_blank" rel="noopener noreffer">任鸟飞逆向C++进阶篇</a>》只学了前3节，其它需要付费。开始学习《飞郁网络培训 2018-2019》,历时12天</p>
-<p>13日，粗看《3D游戏逆向试看》，历时6天</p>
-<p>19日，粗看《任鸟飞2016 LOL  不完整》，历时6天</p>
-<h1 id="研究目录">研究目录</h1>
-<ul>
-<li><i class="far fa-square fa-fw"></i> Shark恒零基础百集软件逆向教程（23:28）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2020DNF》（6:53）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2020DOF》（3:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 《2021DNF不完整》（12:46）</li>
-<li><i class="far fa-check-square fa-fw"></i> <a href="https://www.youtube.com/playlist?list=PL8TEddGT5w_j80QNqkFwl3stUTxlHol_h" target="_blank" rel="noopener noreffer">派大星&ndash;英雄联盟LOL</a>（3:16）</li>
-<li><i class="far fa-check-square fa-fw"></i> <a href="https://www.youtube.com/playlist?list=PL8TEddGT5w_ju8TkWhhq2k9A69kG4x1-i" target="_blank" rel="noopener noreffer">派大星&ndash;亿万僵尸</a>（2:13）</li>
-<li><i class="far fa-check-square fa-fw"></i> CE WALKer（6:38）</li>
-<li><i class="far fa-check-square fa-fw"></i> 小冷过游戏检测技术（3:38）</li>
-<li><i class="far fa-check-square fa-fw"></i> 植物大战僵尸（19:19）</li>
-<li><i class="far fa-check-square fa-fw"></i> CS（4:54）</li>
-<li><i class="far fa-check-square fa-fw"></i> 郁金香2020 WOW（21:13）</li>
-<li><i class="far fa-check-square fa-fw"></i> 郁金香2019 VS2010（21:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2015 天涯明月刀 （26:40）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2019 C++之灵魂起源 不完整（12:07）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2016 画江山 （14:00）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞 封包的加密与解密、线程发包专题 （4:06）</li>
-<li><i class="far fa-check-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30509" target="_blank" rel="noopener noreffer">任鸟飞逆向C++基础篇</a> （6:21）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30680" target="_blank" rel="noopener noreffer">任鸟飞逆向C++进阶篇</a> 收费（19:26）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://edu.csdn.net/course/detail/30684" target="_blank" rel="noopener noreffer">任鸟飞逆向C++高级篇</a> 收费（7:08）</li>
-<li><i class="far fa-check-square fa-fw"></i> 飞郁网络培训 2018-2019 (17:08)</li>
-<li><i class="far fa-check-square fa-fw"></i> 3D游戏逆向试看（8:17）</li>
-<li><i class="far fa-check-square fa-fw"></i> 任鸟飞2016 LOL  不完整（6:24）缺1,3,4,5,8,13</li>
-<li><i class="far fa-square fa-fw"></i> 逆风魔兽 (11:40)</li>
-<li><i class="far fa-square fa-fw"></i> 逆风游戏逆向C++&amp;易语言编程特训班(5:10)</li>
-<li><i class="far fa-square fa-fw"></i> 逆风游戏安全逆向编程暑期班</li>
-<li><i class="far fa-square fa-fw"></i> 微尘系列教程</li>
-<li><i class="far fa-square fa-fw"></i> IOS逆向分析</li>
-<li><i class="far fa-square fa-fw"></i> iOS底层原理班-大神MJ精选</li>
-<li><i class="far fa-square fa-fw"></i> 安卓逆向</li>
-<li><i class="far fa-square fa-fw"></i> AGP论坛驱动教程</li>
-<li><i class="far fa-square fa-fw"></i> 逆向4_X64dbg_翠翠妹子 (3:48)</li>
-<li><i class="far fa-square fa-fw"></i> 汇编-魔鬼作坊 (3:13)</li>
-<li><i class="far fa-square fa-fw"></i> 重楼(12:32)</li>
-<li><i class="far fa-square fa-fw"></i> 梦无极过游戏驱动保护教程（25:20）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://space.bilibili.com/436517105/?spm_id_from=333.999.0.0" target="_blank" rel="noopener noreffer">唐三藏逆向</a>（2:11）</li>
-<li><i class="far fa-square fa-fw"></i> <a href="https://space.bilibili.com/20612628?spm_id_from=333.788.b_765f7570696e666f.2" target="_blank" rel="noopener noreffer">HaiVince CE插件</a>（00:16）需加群</li>
-</ul>
+            </div><div class="content" id="content"><h1 id="64位数据扫描及工具介绍">64位数据扫描及工具介绍</h1>
+<p>x64位程序的分析，主要用到两款工具，而这两款工具同x32位程序的分析工具类似，一款是CE，另一款则是xdbg64。</p>
+<p>CE与x32的用法大致相同，主要用来对数据的突破口及地址进行扫描（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113203611.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113203611.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113203611.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113203611.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113203611.jpeg"
+        title="图片"
+    /></p>
+<p>有人可能会说64位程序应该用8字节来扫描，其实大部分作为突破口的数据都是从4字节开始扫描的，因为64位地址的需求还不是那么大，有些游戏数据中甚至只有基地址等少量地址是8字节的，其他的都是只有4字节的有效数据。虽然我们扫描的是4字节的数据，但是在64位的CE中是可以扫描出8字节的地址的（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126908.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126908.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126908.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126908.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126908.jpeg"
+        title="图片"
+    /></p>
+<p>当然也有一些游戏中会出现很多的8字节的数据（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126971.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126971.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126971.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126971.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113126971.jpeg"
+        title="图片"
+    /></p>
+<p>这是一款游戏中的某种对象的ID，虽然这个ID是8字节的，但是我们看到他的地址缺只是4字节的。所以说目前为止，对于64位程序的数据，大部分还是以4字节为主的，灵活的去运用ce的扫描功能才是关键。</p>
+<p>ce的其他功能和32位都大体相同，毕竟是同一款软件的不同版本，这里就不过多的讲解了。</p>
+<p>下面我们来看一下xdbg64，xdbg也分为32和64版本，他的界面和功能都和OD很像。随着游戏公司对OD的检测力度越来越大，xdbg也逐渐成为逆向调试器的主流。不过xdbg明显还是不如OD好用，有很多插件都没有被完美的移植（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113219258.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113219258.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113219258.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113219258.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113219258.jpeg"
+        title="图片"
+    /></p>
+<p>图中是一款xdbg64的界面，从左到右，从上到下，依次为反汇编窗口，寄存器窗口，参数窗口，数据窗口，以及堆栈窗口。这些都是xdbg64的常用显示窗口，除了参数窗口是为了让我们更加清晰和容易的分析x64程序的函数参数，其他的和OD都没有什么差别。</p>
+<p>下面有几个与32为OD操作不同的地方，我们着重看一下。</p>
+<p>首先是查找用户的注释，在OD中我们可以在反汇编窗口中点右键来找到，但是在xdbg中是没有的，我们需要再左上方的视图中，或者在快捷按钮中找到（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113127151.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113127151.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113127151.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113127151.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113127151.jpeg"
+        title="图片"
+    /></p>
+<p>在数据定位时，反汇编窗口需要拉倒顶端去查找，否则的话会漏掉很多（如图）（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113232287.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113232287.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113232287.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113232287.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113232287.jpeg"
+        title="图片"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113238121.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113238121.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113238121.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113238121.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113238121.jpeg"
+        title="图片"
+    /></p>
+<p>这是我们在不同位置使用相同的机器码进行的定位，这说明xdbg的定位只能定位到模块内以下的代码，而无法将上面的特征定位到。</p>
+<p>然后是数据窗口中跟随数据，在OD32中我们可以通过DD DB等指令去跳转并查看地址中的信息，但是在有些xdbg64中，这类插件并没有被完善，所以我们只能通过ctrl+g的方式去跳转到我们需要查看的地址（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113244800.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113244800.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113244800.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113244800.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113244800.jpeg"
+        title="图片"
+    /></p>
+<p>还有一些细节方面的不同，比如模块列表无法通过ALT+E查看，只能在上方导航栏点击符号进行查看（如图）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113251857.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113251857.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113251857.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113251857.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/640-20211025113251857.jpeg"
+        title="图片"
+    /></p>
+<p>以上就是在使用xdbg64中需要注意的一些地方，其他的内容我们会在后面的文章和视频中进行详细的讲解。</p>
+<p>看的不过瘾?</p>
+<p>加入任鸟飞公众号直播群</p>
+<p>QQ群号:805981646</p>
+<p>大波知识点等你来学!</p>
+<p>赶快加入吧!!!</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-10-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" data-title="64位数据扫描及工具介绍" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" data-title="64位数据扫描及工具介绍"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" data-title="64位数据扫描及工具介绍"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" data-title="64位数据扫描及工具介绍"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/" class="prev" rel="prev" title="MXD系列之技能分析技能点数结构"><i class="fas fa-angle-left fa-fw"></i>MXD系列之技能分析技能点数结构</a>
+            <a href="/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/" class="next" rel="next" title="32位游戏逆向安全之角色及怪物分析">32位游戏逆向安全之角色及怪物分析<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
-        <div id="post-footer"></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
         </main><footer class="footer">
