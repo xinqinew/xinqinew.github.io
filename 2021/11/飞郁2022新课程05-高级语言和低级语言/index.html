@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C&#43;&#43; 05注释 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 05注释" />
-<meta property="og:description" content="C&#43;&#43; 注释 程序的注释是解释性语句，您可以在 C&#43;&#43; 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。 C&#43;&#43; 支持单行注释和多行注释" />
+    <title class="pjax-title">【飞郁2022新课程】05 - 高级语言和低级语言 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】05 - 高级语言和低级语言" />
+<meta property="og:description" content="学不同语言的同学，总要争个高低，其实完全没有必要，萝卜白菜各有所爱。 但是计算机语言还真是具有高级语言和低级语言之分的。不过此高非彼高。 正式学" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-08T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-12T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43; 05注释"/>
-<meta name="twitter:description" content="C&#43;&#43; 注释 程序的注释是解释性语句，您可以在 C&#43;&#43; 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。 C&#43;&#43; 支持单行注释和多行注释"/>
+<meta name="twitter:title" content="【飞郁2022新课程】05 - 高级语言和低级语言"/>
+<meta name="twitter:description" content="学不同语言的同学，总要争个高低，其实完全没有必要，萝卜白菜各有所爱。 但是计算机语言还真是具有高级语言和低级语言之分的。不过此高非彼高。 正式学"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" /><link rel="next" href="https://xinqinew.github.io/2021/08/c-04%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" /><link rel="prev" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B06-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAhello-world%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" /><link rel="next" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++ 05注释",
+        "headline": "【飞郁2022新课程】05 - 高级语言和低级语言",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-05%E6%B3%A8%E9%87%8A\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  408 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-05%E6%B3%A8%E9%87%8A\/","datePublished": "2021-08-08T00:00:00+00:00","dateModified": "2021-08-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1571 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80\/","datePublished": "2021-11-12T00:00:00+00:00","dateModified": "2021-11-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,176 +128,136 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 05注释</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】05 - 高级语言和低级语言</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-08">2021-08-08</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-08">2021-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 408 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/c-05%E6%B3%A8%E9%87%8A/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 05注释">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-12">2021-11-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-12">2021-11-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1571 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】05 - 高级语言和低级语言">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        data-src="/images/runoob.png"
-        data-srcset="/images/runoob.png, /images/runoob.png 1.5x, /images/runoob.png 2x"
-        data-sizes="auto"
-        alt="/images/runoob.png"
-        title="/images/runoob.png" height="auto" width="auto"
-    /></div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#c-注释">C++ 注释</a>
+    <li>
       <ul>
-        <li><a href="#实例">实例</a></li>
-        <li><a href="#实例-1">实例</a></li>
+        <li><a href="#高级语言和低级语言"><strong>高级语言和低级语言</strong></a></li>
+        <li><a href="#机器语言"><strong>机器语言</strong></a></li>
+        <li><a href="#汇编语言"><strong>汇编语言</strong></a></li>
+        <li><a href="#高级语言"><strong>高级语言</strong></a></li>
+        <li><a href="#c和易语言之类的更高级语言的区别"><strong>C++和易语言之类的更高级语言的区别</strong></a></li>
+        <li><a href="#3习题考核"><strong>3.习题+考核</strong></a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="c-注释">C++ 注释</h1>
-<p>程序的注释是解释性语句，您可以在 C++ 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。</p>
-<p>C++ 支持单行注释和多行注释。注释中的所有字符会被 C++ 编译器忽略。</p>
-<p>C++ 注释一般有两种：</p>
-<ul>
-<li><strong>//</strong> - 一般用于单行注释。</li>
-<li>/*** &hellip; */** - 一般用于多行注释。</li>
-</ul>
-<p>注释以 <strong>//</strong> 开始，直到行末为止。例如：</p>
-<h2 id="实例">实例</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 这是一个注释
-</span><span class="c1"></span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>也可以放在语句后面：</p>
-<h2 id="实例-1">实例</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span> <span class="c1">// 输出 Hello World!
-</span><span class="c1"></span> 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>当上面的代码被编译时，编译器会忽略 <strong>// 这是一个注释</strong> 和 <strong>// 输出 Hello World!</strong>，最后会产生以下结果：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Hello World!
-</code></pre></td></tr></table>
-</div>
-</div><p>C++ 注释以 <strong>/*</strong> 开始，以 *<strong>/</strong> 终止。例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="cm">/* 这是注释 */</span>
- 
-    <span class="cm">/* C++ 注释也可以
-</span><span class="cm">     * 跨行
-</span><span class="cm">     */</span> 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在 <strong>/*</strong> 和 <em><strong>/</strong> 注释内部，</em><em>//</em>* 字符没有特殊的含义。在 <strong>//</strong> 注释内，<strong>/*</strong> 和 *<strong>/</strong> 字符也没有特殊的含义。因此，您可以在一种注释内嵌套另一种注释。例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/* 用于输出 Hello World 的注释
-</span><span class="cm"> 
-</span><span class="cm">cout &lt;&lt; &#34;Hello World&#34;; // 输出 Hello World
-</span><span class="cm"> 
-</span><span class="cm">*/</span>
-</code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><p>学不同语言的同学，总要争个高低，其实完全没有必要，萝卜白菜各有所爱。</p>
+<p>但是计算机语言还真是具有高级语言和低级语言之分的。不过此高非彼高。</p>
+<p>正式学习C++之前，我们先来了解下高级语言和低级语言。</p>
+<h2 id="高级语言和低级语言"><strong>高级语言和低级语言</strong></h2>
+<p>低级语言：机器语言和汇编语言。</p>
+<p>高级语言：主要是相对于汇编语言和机器语言而言的，它是较接近自然语言和数学公式的编程，基本脱离了机器的硬件系统，用人们更易理解的方式编写程序。</p>
+<p>像我们使用的C/c++ ，易语言 ，java 这些都是属于高级语言。</p>
+<p>说白了，越容易看懂月容易理解的语言越高级。和其他没有关系，不是高级就厉害。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/31854de41b4ea1c3dfcda4ab71960f4bd9ea8fa8.png@942w_623h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/31854de41b4ea1c3dfcda4ab71960f4bd9ea8fa8.png@942w_623h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/31854de41b4ea1c3dfcda4ab71960f4bd9ea8fa8.png@942w_623h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/31854de41b4ea1c3dfcda4ab71960f4bd9ea8fa8.png@942w_623h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/31854de41b4ea1c3dfcda4ab71960f4bd9ea8fa8.png@942w_623h_progressive.png"
+        title="img"
+    />1</p>
+<h2 id="机器语言"><strong>机器语言</strong></h2>
+<p>机器语言是用二进制代码表示的，计算机能直接识别和执行的一种机器指令的集合。</p>
+<p>所有的指令都是由0和1组成的一串串数字</p>
+<h2 id="汇编语言"><strong>汇编语言</strong></h2>
+<p>汇编语言是把这些二进制码用符号来代替，就成了汇编语言。</p>
+<p>汇编语言也被称为符号语言。</p>
+<h2 id="高级语言"><strong>高级语言</strong></h2>
+<p>高级语言是在汇编语言的基础上封装而成。高级语言可以再封装，成为更高级的语言。</p>
+<p><strong>我们来举个例子</strong></p>
+<p><strong>机器语言的10010000 简写以后是0x90 变成汇编语言就是 NoP 变成高级语言就是  空行</strong></p>
+<p><strong>所以我们在这里能够明白 机器语言 汇编 C++ 从低到高排列的</strong></p>
+<p>写代码和玩积木是一样的，最小的积木是0和1。</p>
+<p>例如我们去搭建一个房子，</p>
+<p>机器语言就是用最小的零件0和1去搭建房子。</p>
+<p>但是我们觉得太麻烦了，把这些0和1粘成各种形状的砖块，再去搭建房子，这就是汇编语言。</p>
+<p>然后我们觉得还是麻烦，我们继续把砖块粘起来，做成门，窗，床，沙发等等更大一点的积木，能让我们搭一个房子的时候更为简单一些，这就出现了C++。</p>
+<p>然后有人说，那我直接做一个房子，你不用搭建，想要房子的时候直接拿过去用就行了，但是房子具体是怎么搭建的你也不知道了，这可能就是易语言之类的更高级语言。</p>
+<p>从这个例子可以看出来，越低级的语言越强大，可以更灵活，而越高级的语言都已经固定化</p>
+<p>所以我们想去逆向程序,想去了 解程序的执行本质 想要精通逆向分析,就要去学习汇编语言。</p>
+<p>为什么不是机器语言？我们能看懂吗？。。。</p>
+<p>但是我们不需要用汇编代码去写程序,那是一件很繁琐的事,我们也没有这个必要 我们要了解汇编代码的含义和执行流程,这样就可以了。</p>
+<p>甚至有一些生僻的汇编指令没有遇 见过,完全可以百度一下看看他的含义或者运行一下看看这条指令操作了什么。而完全没有 必要去死记硬背汇编指令。当然你能被动的记住更多的汇编指令 也是有好处的。</p>
+<h2 id="c和易语言之类的更高级语言的区别"><strong>C++和易语言之类的更高级语言的区别</strong></h2>
+<p>1.推荐大家学习c/c++</p>
+<p>但是学员中也包含了完全没有编程概念和编程基础的学员,基础十分薄弱,英文又一窍不通的话，也可以选择先学习易语言,会让你的入门变得更为轻松。</p>
+<p>不过为了以后更好的发展，建议有一定基础以后,还是要学习 c/c++。</p>
+<p>2.这两种语言有什么样的区别呢？</p>
+<p>易语言就是c/c++封装出来的,因为是再次封装出来的,所以特征更明显,灵活性更差,对底层的了解更少 执行效率会受到一定的影响等等，这是他的缺点</p>
+<p>但是他也有一定的优势那就是新手更容易入门,因为他是完全中文编程,易学易懂。</p>
+<p>但是用易语言，千万不要用什么模块</p>
+<p>这是我们客观评价这两种语言,直接抹灭其中一种都是不对的做法,看问题都是片面的。</p>
+<p>本套课程选择C++ 进行学习，后续也会更新易语言版本。</p>
+<h2 id="3习题考核"><strong>3.习题+考核</strong></h2>
+<p><strong>高低级语言对应关系学习比较,同时可以提前了解一下简单的命令,不要求完全掌握</strong></p>
+<p><strong>例如  mov对应的a =1简单赋值</strong></p>
+<p><strong>lea对应的  a = &amp;b  传递地址</strong></p>
+<p><strong>高级语言到低级语言的转换(可以用OD或者xdbg申请内存来进行转换)</strong></p>
+<p>NOP&mdash;-0x90&mdash;-1001 0000</p>
+<p>INT3&mdash;-CC&mdash;-1100 1100</p>
+<p><strong>下面是c++代码编译出来的汇编代码,请将汇编代码转换成机器码</strong></p>
+<p>int a = 1&mdash;-      mov     dword ptr [ebp-0x8],1</p>
+<p>int b = 2&mdash;-      mov     dword ptr [ebp-0x14],02</p>
+<p>a = b + 10&mdash;-     mov     eax,dword ptr [ebp-0x14]</p>
+<p>​    add      eax,0xA</p>
+<p>​    mov     dword ptr [ebp-0x8],eax</p>
+<p>a = b - 10&mdash;-     mov     eax,dword ptr [ebp-0x14]</p>
+<p>​                mov     eax,dword ptr [ebp-0x14]</p>
+<p>​                sub      eax,0xA</p>
+<p>​                mov     dword ptr [ebp-0x8],eax</p>
+<p>a = b * 10&mdash;-     imul     eax,dword ptr [ebp-0x14],0xA</p>
+<p>​                mov     dword ptr [ebp-0x8],eax</p>
+<p>a = b / 10&mdash;-     mov     eax,dword ptr [ebp-0x14]</p>
+<p>​                cdq</p>
+<p>​                mov     ecx,0xA</p>
+<p>​                idiv      eax,ecx</p>
+<p>​                mov     dword ptr [ebp-0x8],eax</p>
+<p>a = a &laquo; 10&mdash;-    mov     eax,dword ptr [ebp-8]</p>
+<p>​    shl       eax,0xA</p>
+<p>​    mov     dword ptr [ebp-0x8],eax</p>
+<p>a = a &raquo; 10&mdash;-    mov     eax,dword ptr [ebp-0x8]</p>
+<p>​    sar       eax,0xA</p>
+<p>​    mov     dword ptr [ebp-0x8],eax</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-08</span>
+                <span>更新于 2021-11-12</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" data-title="【飞郁2022新课程】05 - 高级语言和低级语言" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" data-title="【飞郁2022新课程】05 - 高级语言和低级语言"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" data-title="【飞郁2022新课程】05 - 高级语言和低级语言"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/" data-title="【飞郁2022新课程】05 - 高级语言和低级语言"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/%E8%8F%9C%E9%B8%9Fc&#43;&#43;/">菜鸟C&#43;&#43;</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/2021/08/c-04%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="next" rel="next" title="C&#43;&#43; 04基本语法">C&#43;&#43; 04基本语法<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B06-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAhello-world%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="prev" rel="prev" title="【飞郁2022新课程】06 - 创建第一个hello world项目及其简单介绍"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】06 - 创建第一个hello world项目及其简单介绍</a>
+            <a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="next" rel="next" title="【飞郁2022新课程】04 - 十六进制">【飞郁2022新课程】04 - 十六进制<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

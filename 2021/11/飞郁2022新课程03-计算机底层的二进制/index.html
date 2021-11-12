@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C&#43;&#43; 05注释 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43; 05注释" />
-<meta property="og:description" content="C&#43;&#43; 注释 程序的注释是解释性语句，您可以在 C&#43;&#43; 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。 C&#43;&#43; 支持单行注释和多行注释" />
+    <title class="pjax-title">【飞郁2022新课程】03 - 计算机底层的二进制 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】03 - 计算机底层的二进制" />
+<meta property="og:description" content="【飞郁2022新课程】03 - 计算机底层的二进制 飞郁网络 听说你们学编程不想学基础? 说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-08T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-12T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="C&#43;&#43; 05注释"/>
-<meta name="twitter:description" content="C&#43;&#43; 注释 程序的注释是解释性语句，您可以在 C&#43;&#43; 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。 C&#43;&#43; 支持单行注释和多行注释"/>
+<meta name="twitter:title" content="【飞郁2022新课程】03 - 计算机底层的二进制"/>
+<meta name="twitter:description" content="【飞郁2022新课程】03 - 计算机底层的二进制 飞郁网络 听说你们学编程不想学基础? 说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" /><link rel="next" href="https://xinqinew.github.io/2021/08/c-04%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" /><link rel="prev" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "C++ 05注释",
+        "headline": "【飞郁2022新课程】03 - 计算机底层的二进制",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-05%E6%B3%A8%E9%87%8A\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b","wordcount":  408 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-05%E6%B3%A8%E9%87%8A\/","datePublished": "2021-08-08T00:00:00+00:00","dateModified": "2021-08-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1785 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6\/","datePublished": "2021-11-12T00:00:00+00:00","dateModified": "2021-11-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,176 +128,166 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C&#43;&#43; 05注释</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】03 - 计算机底层的二进制</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-08">2021-08-08</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-08">2021-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 408 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/08/c-05%E6%B3%A8%E9%87%8A/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 05注释">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-12">2021-11-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-12">2021-11-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1785 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】03 - 计算机底层的二进制">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        data-src="/images/runoob.png"
-        data-srcset="/images/runoob.png, /images/runoob.png 1.5x, /images/runoob.png 2x"
-        data-sizes="auto"
-        alt="/images/runoob.png"
-        title="/images/runoob.png" height="auto" width="auto"
-    /></div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#c-注释">C++ 注释</a>
+    <li><a href="#飞郁2022新课程03---计算机底层的二进制">【飞郁2022新课程】03 - 计算机底层的二进制</a>
       <ul>
-        <li><a href="#实例">实例</a></li>
-        <li><a href="#实例-1">实例</a></li>
+        <li><a href="#从进制开始学习的原因"><strong>从进制开始学习的原因</strong></a></li>
+        <li><a href="#从10进制的角度看待进制"><strong>从10进制的角度看待进制</strong></a></li>
+        <li><a href="#进制的转换"><strong>进制的转换</strong></a></li>
+        <li><a href="#十进制转二进制"><strong>十进制转二进制</strong></a></li>
+        <li><a href="#二进制转十进制"><strong>二进制转十进制</strong></a></li>
+        <li><a href="#进制的运算"><strong>进制的运算</strong></a>
+          <ul>
+            <li><a href="#二进制加法"><strong>二进制加法</strong></a></li>
+            <li><a href="#二进制减法"><strong>二进制减法</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#2学员问答"><strong>2.学员问答</strong></a></li>
+        <li><a href="#3习题考核"><strong>3.习题+考核</strong></a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="c-注释">C++ 注释</h1>
-<p>程序的注释是解释性语句，您可以在 C++ 代码中包含注释，这将提高源代码的可读性。所有的编程语言都允许某种形式的注释。</p>
-<p>C++ 支持单行注释和多行注释。注释中的所有字符会被 C++ 编译器忽略。</p>
-<p>C++ 注释一般有两种：</p>
-<ul>
-<li><strong>//</strong> - 一般用于单行注释。</li>
-<li>/*** &hellip; */** - 一般用于多行注释。</li>
-</ul>
-<p>注释以 <strong>//</strong> 开始，直到行末为止。例如：</p>
-<h2 id="实例">实例</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 这是一个注释
-</span><span class="c1"></span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>也可以放在语句后面：</p>
-<h2 id="实例-1">实例</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span> <span class="c1">// 输出 Hello World!
-</span><span class="c1"></span> 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>当上面的代码被编译时，编译器会忽略 <strong>// 这是一个注释</strong> 和 <strong>// 输出 Hello World!</strong>，最后会产生以下结果：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Hello World!
-</code></pre></td></tr></table>
-</div>
-</div><p>C++ 注释以 <strong>/*</strong> 开始，以 *<strong>/</strong> 终止。例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="cm">/* 这是注释 */</span>
- 
-    <span class="cm">/* C++ 注释也可以
-</span><span class="cm">     * 跨行
-</span><span class="cm">     */</span> 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在 <strong>/*</strong> 和 <em><strong>/</strong> 注释内部，</em><em>//</em>* 字符没有特殊的含义。在 <strong>//</strong> 注释内，<strong>/*</strong> 和 *<strong>/</strong> 字符也没有特殊的含义。因此，您可以在一种注释内嵌套另一种注释。例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/* 用于输出 Hello World 的注释
-</span><span class="cm"> 
-</span><span class="cm">cout &lt;&lt; &#34;Hello World&#34;; // 输出 Hello World
-</span><span class="cm"> 
-</span><span class="cm">*/</span>
-</code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><h1 id="飞郁2022新课程03---计算机底层的二进制">【飞郁2022新课程】03 - 计算机底层的二进制</h1>
+<p><a href="https://space.bilibili.com/476729843" target="_blank" rel="noopener noreffer">飞郁网络</a></p>
+<p>听说你们学编程不想学基础?</p>
+<p>说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的技术!</p>
+<p>不过啊! 基础有多好,**&ldquo;一定&rdquo;**决定了你以后高度有多高</p>
+<p>**&ldquo;一定&rdquo;<strong>要听老师的劝,前面枯燥的几天基础</strong>&ldquo;一定&rdquo;**要好好学</p>
+<p>俗话说的好,听人劝吃饱饭!</p>
+<p>我前几天去医院看一个老大爷,他就劝我</p>
+<p>小伙子,赚钱没有用,你**&ldquo;一定&rdquo;**带不走&hellip;</p>
+<h2 id="从进制开始学习的原因"><strong>从进制开始学习的原因</strong></h2>
+<p>由于我们要学习编程的原理,而不只是单单的学习编程,所以就要去学习计算机底层实现的原理。</p>
+<p>但是计算机只认识2进制,那么我们想要了解其本质,就必须了解进制。</p>
+<p>刨根问底,方能成就大业，<strong>否则这些知识一定带不走&hellip;（Call back）</strong></p>
+<p>实际上我们无论写出什么样的代码,最后都是变成2进制被计算机执行的,也就是说我们要学习进制,其实主要就是要学习2进制。</p>
+<h2 id="从10进制的角度看待进制"><strong>从10进制的角度看待进制</strong></h2>
+<p>10进制非常简单，我们现实生活中最常用的就是十进制。</p>
+<p>10进制是由 0，1，2，3，4，5，6，7，8，9  共10个符号组成的逢10进1的一种进制。</p>
+<p>这里面要注意的是，10进制中是没有10这个符号的， 哪个符号来代表10呢？其实是没有的。</p>
+<p>10是由1和 0 ，2个符号组成的，而不是单独的一个符号。</p>
+<p>知道了10进制的定义,我们引申出n进制定义。</p>
+<p>n进制定义：由n个符号组成 逢n进位 。</p>
+<p>n进制中是没有n这个符号的  。</p>
+<p>**例：**2进制有2个符号组成，里面有2吗？</p>
+<p>没有，逢2进位了，只有 0和1这2个符号。</p>
+<p>生活中还有很多其他进制。</p>
+<p>时间有60进制和24进制，分别是逢60进1和逢24进1。</p>
+<p>一打啤酒12瓶，就是12进制，逢12进1。</p>
+<h2 id="进制的转换"><strong>进制的转换</strong></h2>
+<p>进制我们谁都会,只是我们没有把他抽象成文字</p>
+<p>例如</p>
+<p>70秒你立刻就知道是1分钟零10秒，想想怎么算的呢？</p>
+<p>25瓶你立刻就知道是两打零1个，又是怎么计算的呢？</p>
+<p>自己莫名其妙的就会吧?  只是自己没有总结方法吧?</p>
+<p>所以啊,我不是教你知识, 只是知识挖掘工，帮助你挖掘潜能。</p>
+<p>看一下为什么70秒等于1分钟零10秒</p>
+<p>70秒/进制 = 70秒/60  = 1分钟 余10秒</p>
+<p>怎么样？得到什么启发了吗？</p>
+<h2 id="十进制转二进制"><strong>十进制转二进制</strong></h2>
+<p>那么十进制3转成二进制等于多少？</p>
+<p>3/2 = 1 余 1    十进制3 = 二进制 11 是不是很简单呢？</p>
+<p>需要除多次的十进制转二进制大家可以不掌握,因为我们只要知道原理就可以了</p>
+<p><strong>例：</strong></p>
+<p>十进制 12 转 二进制</p>
+<p>直接12除以2 看看有多少个进位</p>
+<p>12/2  = 60 （此时6在第二位，但是二进制是没有6的，所以要继续除）= 300(同理继续)= 1100（完全符合2进制的要求了）</p>
+<h2 id="二进制转十进制"><strong>二进制转十进制</strong></h2>
+<p>一小箱白酒可以装2瓶 ,一个礼盒可以装2小箱,一大箱又可以装二个礼盒</p>
+<p>请问 1大箱是多少瓶? 是不是感觉自己还是会的? 答案很简单:8瓶</p>
+<p>其实就是对应的二进制转十进制  1000 = 8，列出来可能又看不懂了</p>
+<p>那么我们来看看原理：</p>
+<p>一个十进制数123,1为什么在百位？2为什么在十位？3为什么在个位？</p>
+<p>实际上123  =  1<em>10</em>10 + 2<em>10 +3 = 1</em>进制<em>进制 + 2</em>进制 +3,</p>
+<p>2在十位的原因是因为他有2个10,是进位而来的,1在百位是因为有10个10进位而来的。</p>
+<p>那么上面的2进制1000 实际等于   1<em>2</em>2<em>2+0</em>2<em>2+0</em>2+0 = 8</p>
+<p>怎么样懂了吗？</p>
+<p><strong>例：</strong></p>
+<p>二进制111转换成10进制</p>
+<p>111 = 1<em>2</em>2 +1*2+1 = 7</p>
+<p>这样2进制就转换成10进制了</p>
+<p><strong>例：</strong></p>
+<p>二进制 10000000000  =  十进制 1024</p>
+<h2 id="进制的运算"><strong>进制的运算</strong></h2>
+<h3 id="二进制加法"><strong>二进制加法</strong></h3>
+<p>(101)2+(111)2=?</p>
+<p>101</p>
+<p>+  111</p>
+<hr>
+<p>1100</p>
+<p>1+1=10，逢二进一</p>
+<h3 id="二进制减法"><strong>二进制减法</strong></h3>
+<p>　(1111)2-(1001)2 =?</p>
+<p>​    11110</p>
+<p>－　10011</p>
+<hr>
+<p>​     1011</p>
+<p>10-1=1，被减数不够减向高位借１</p>
+<h2 id="2学员问答"><strong>2.学员问答</strong></h2>
+<p><strong>问：老师计算机底层存的是二进制还是十进制？</strong></p>
+<p><strong>答：首先同学搞乱了概念， 一个仓库里存了很多很多的酒，是按照什么进制存的？</strong></p>
+<p><strong>你按照几进制，他也是那些酒，进制只是一个统计方式而已，计算机底层是用二进制来进行描述，你要转换成10进制的方式表达也是没问题的。</strong></p>
+<h2 id="3习题考核"><strong>3.习题+考核</strong></h2>
+<p><strong>１．二进制加减法</strong></p>
+<p>101+110         111+101</p>
+<p>1111+111        100110+101101</p>
+<p>10110-1011       11010-10101</p>
+<p><strong>2．特殊的二进制加法</strong></p>
+<p>11+11           101+101</p>
+<p>110+110         1101+1101</p>
+<p>是否能发现其中规律?</p>
+<p><strong>3．二进制转十进制</strong></p>
+<p>(1111)2          (1000)2</p>
+<p>(111)2               (101)2</p>
+<p>(111000)2           (1001)2</p>
+<p><strong>4．十进制转二进制</strong></p>
+<p>10               15</p>
+<p>31               64</p>
+<p>100              255</p>
+<p><strong>5．应用题</strong></p>
+<p>大鸟有5个萝卜和5个坑，一个萝卜一个坑，他想用这些萝卜和坑来表示一个数值，那么最多能表示多少个数值？</p>
+<p>答：最多可以表示1+(11111)2个数值，也就是10进制的32。</p>
+<p>解析：萝卜放到坑里代表1，不放坑里代表0，最小值为0，最大值为(11111)2。</p>
+<p>PS：本题重在理解，谢绝抬杠！否则你“一定”学不会(call back)！</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-08</span>
+                <span>更新于 2021-11-12</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释" data-hashtags="C&#43;&#43;,菜鸟C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/08/c-05%E6%B3%A8%E9%87%8A/" data-title="C&#43;&#43; 05注释" data-image="/images/runoob.png"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" data-title="【飞郁2022新课程】03 - 计算机底层的二进制" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" data-title="【飞郁2022新课程】03 - 计算机底层的二进制"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" data-title="【飞郁2022新课程】03 - 计算机底层的二进制"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" data-title="【飞郁2022新课程】03 - 计算机底层的二进制"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/%E8%8F%9C%E9%B8%9Fc&#43;&#43;/">菜鸟C&#43;&#43;</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/2021/08/c-04%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="next" rel="next" title="C&#43;&#43; 04基本语法">C&#43;&#43; 04基本语法<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="prev" rel="prev" title="【飞郁2022新课程】04 - 十六进制"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】04 - 十六进制</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

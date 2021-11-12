@@ -5,41 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">VS常见问题 - Hmily云笔记</title><meta name="Description" content="VS常见问题"><meta property="og:title" content="VS常见问题" />
-<meta property="og:description" content="VS常见问题" />
+    <title class="pjax-title">Visual Studio的安装和简单的项目创建 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Visual Studio的安装和简单的项目创建" />
+<meta property="og:description" content="工欲善其事，必先利其器。 学习编程，学习网络空间安全,我们首先要认识的一款叫做Visual Studio的工具。 连写字都需要一张纸，代码也一样，" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-07-23T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-09T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="VS常见问题"/>
-<meta name="twitter:description" content="VS常见问题"/>
+<meta name="twitter:title" content="Visual Studio的安装和简单的项目创建"/>
+<meta name="twitter:description" content="工欲善其事，必先利其器。 学习编程，学习网络空间安全,我们首先要认识的一款叫做Visual Studio的工具。 连写字都需要一张纸，代码也一样，"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="prev" href="https://xinqinew.github.io/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="next" href="https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/" /><link rel="next" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B06-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAhello-world%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "VS常见问题",
+        "headline": "Visual Studio的安装和简单的项目创建",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/07\/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  836 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/07\/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2021-07-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  970 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/11\/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA\/","datePublished": "2021-11-09T00:00:00+00:00","dateModified": "2021-11-09T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "辛琪"
-            },"description": "VS常见问题"
+            },"description": ""
     }
     </script></head>
 
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">VS常见问题</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Visual Studio的安装和简单的项目创建</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"><i class="far fa-folder fa-fw"></i>常见问题</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 836 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="leancloud_visitors" data-flag-title="VS常见问题">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09">2021-11-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-09">2021-11-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 970 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" class="leancloud_visitors" data-flag-title="Visual Studio的安装和简单的项目创建">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -143,204 +143,164 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#vs常见问题">VS常见问题</a>
+    <li>
       <ul>
-        <li><a href="#解决vs生成sdf和ipch文件太大占用空间问题">解决VS生成sdf和ipch文件太大占用空间问题</a></li>
-        <li><a href="#visual-assist-x-安装">Visual Assist X 安装</a></li>
+        <li><a href="#工欲善其事必先利其器"><strong>工欲善其事，必先利其器。</strong></a></li>
+        <li><a href="#编译器的安装"><strong>编译器的安装</strong></a></li>
+        <li><a href="#编译器简单介绍"><strong>编译器简单介绍</strong></a></li>
+        <li><a href="#c语言项目的创建"><strong>C语言项目的创建</strong></a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="vs常见问题">VS常见问题</h1>
-<h2 id="解决vs生成sdf和ipch文件太大占用空间问题">解决VS生成sdf和ipch文件太大占用空间问题</h2>
-<p>[工具]—&gt;[选项]—&gt;[文本编辑器]—&gt;C/C++]—&gt;[高级]—&gt;[回退位置]里面的三项属性值按下图进行修改，其中回退路径随便设置。
-设置个回退路径这样可比较好管理这些庞大的臃肿的文件，可以定期清理它们，释放磁盘空间
-<img
-        class="lazyload"
-        data-src="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg"
-        data-srcset="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg, https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg 1.5x, https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg 2x"
-        data-sizes="auto"
-        alt="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg"
-        title="20160608142022414"
-    /></p>
-<h2 id="visual-assist-x-安装">Visual Assist X 安装</h2>
-<p>Visual AssistX是一款非常好的Microsoft Visual Studio插件，它可以完全集成到您的Microsoft开发环境中，升级了您的IDE，</p>
-<p>在不改变编程习惯的同时就可以感受到Visual Assist X为您带来的好处。</p>
-<p>软件支持Microsoft Visual Studio 2003-2017，C/C++，C#，ASP，VisualBasic，Java和HTML等语言，能自动识别各种关键字、系统函数、成员变量、</p>
-<p>自动给出输入提示、自动更正大小写错误、自动标示错误等。使用Visual Assist X有助于提高开发过程的自动化和开发效率。</p>
-<p>官网： <a href="https://www.wholetomato.com/" target="_blank" rel="noopener noreffer">https://www.wholetomato.com/</a></p>
-<p>破解版链接: <a href="https://pan.baidu.com/s/1jXlvYiKOclkRTP35HlQpGA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1jXlvYiKOclkRTP35HlQpGA</a> 提取码: g3u3</p>
-<p>1.下载完解压缩，点击VA_X_Setup2341_2.exe进行安装</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png"
-        title="img"
-    /></p>
-<ol start="2">
-<li>安装界面，我这装的是2012, Visual Assist自动帮我识别出来.</li>
-</ol>
-<p>如果安装有多个vs，这里会有多项被勾选，也可以根据需要去除相应vs安装本插件</p>
-<p>点击Install</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png"
-        title="img"
-    /></p>
-<ol start="3">
-<li>耐心等待安装</li>
+            </div><div class="content" id="content"><h2 id="工欲善其事必先利其器"><strong>工欲善其事，必先利其器。</strong></h2>
+<p>学习编程，学习网络空间安全,我们首先要认识的一款叫做Visual Studio的工具。</p>
+<p>连写字都需要一张纸，代码也一样，Visual Studio就是这张纸，就是这个开发环境。</p>
+<p>Visual Studio是一个基本完整的开发工具集，它包括了整个软件生命周期中所需要的大部分工具，如UML工具、代码管控工具、集成开发环境(IDE)等等,简称VS 。</p>
+<p>上面这段话看不懂？ 不理解？ 其实暂时不用懂，在这里只要知道我们写代码需要在这个环境下即可，后面会了解他的更多功能。</p>
+<p>接下来我们进行安装：</p>
+<p>首先我们需要获取这个工具 ，这里提供给大家</p>
+<p>下载链接: <a href="https://pan.baidu.com/s/1D36ITkCPEtRU0oF_1bMFwQ" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1D36ITkCPEtRU0oF_1bMFwQ</a></p>
+<p>提取码: 2v1i</p>
+<p>由于方便讲课和课后练习具有一致性，咱们统一使用vs2017编译器，当然大家可以根据喜好下载其他版本。</p>
+<h2 id="编译器的安装"><strong>编译器的安装</strong></h2>
+<ol>
+<li>打开预先下载好的安装包</li>
 </ol>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c11976c54bf03fd41c6e10f8698d7e1ae8b68381.png@942w_167h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c11976c54bf03fd41c6e10f8698d7e1ae8b68381.png@942w_167h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c11976c54bf03fd41c6e10f8698d7e1ae8b68381.png@942w_167h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c11976c54bf03fd41c6e10f8698d7e1ae8b68381.png@942w_167h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c11976c54bf03fd41c6e10f8698d7e1ae8b68381.png@942w_167h_progressive.png"
         title="img"
-    /></p>
-<ol start="4">
-<li>出现下面界面表示安装完成，点OK</li>
+    />图1</p>
+<p>2.我们会看到有2个版本的安装程序，vs_Community是社区版(免费版本) vs_Professional是专业版(收费版本)，看到了下面的激活秘钥文本文件,那么我们肯定要用专业版咯!好了我们现在就双击打开vs_Professional安装程序</p>
+<p>3.勾选使用C++的桌面开发-勾选把MFC组件勾上-勾选一个最低版本SDK和一个最高版本SDK,如图所示：</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/e09fd754286db86e5796e85c30ac559038b2633a.png@942w_476h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/e09fd754286db86e5796e85c30ac559038b2633a.png@942w_476h_progressive.png, https://i0.hdslb.com/bfs/article/e09fd754286db86e5796e85c30ac559038b2633a.png@942w_476h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/e09fd754286db86e5796e85c30ac559038b2633a.png@942w_476h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/e09fd754286db86e5796e85c30ac559038b2633a.png@942w_476h_progressive.png"
+        title="img"
+    />图2</p>
+<p>4.选择安装路径点击安装等待安装完成后</p>
+<p>5.第一次启动选择环境选C++</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/cd8758dc743d4bee24bcf1cc132bb6045b6ceb97.png@696w_849h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/cd8758dc743d4bee24bcf1cc132bb6045b6ceb97.png@696w_849h_progressive.png, https://i0.hdslb.com/bfs/article/cd8758dc743d4bee24bcf1cc132bb6045b6ceb97.png@696w_849h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/cd8758dc743d4bee24bcf1cc132bb6045b6ceb97.png@696w_849h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/cd8758dc743d4bee24bcf1cc132bb6045b6ceb97.png@696w_849h_progressive.png"
+        title="img"
+    />图3</p>
+<p>6.打开后可能会提示30天试用期,我们当然是不想试用的,要用就直接永久期限！</p>
+<p>7.选择帮助菜单-选择注册产品-输入激活码-即可完成激活</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/bca7b66f49a8e31dde368911177325d5bc1701f9.png@477w_449h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/bca7b66f49a8e31dde368911177325d5bc1701f9.png@477w_449h_progressive.png, https://i0.hdslb.com/bfs/article/bca7b66f49a8e31dde368911177325d5bc1701f9.png@477w_449h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/bca7b66f49a8e31dde368911177325d5bc1701f9.png@477w_449h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/bca7b66f49a8e31dde368911177325d5bc1701f9.png@477w_449h_progressive.png"
+        title="img"
+    />图4</p>
+<h2 id="编译器简单介绍"><strong>编译器简单介绍</strong></h2>
+<p>安装完成后，我们打开软件看看visual studio 的菜单栏，这里简单的介绍几个菜单页面</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/845eaf9f7dab320b83a8241419129f0fd8cd9ccf.png@942w_69h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/845eaf9f7dab320b83a8241419129f0fd8cd9ccf.png@942w_69h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/845eaf9f7dab320b83a8241419129f0fd8cd9ccf.png@942w_69h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/845eaf9f7dab320b83a8241419129f0fd8cd9ccf.png@942w_69h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/845eaf9f7dab320b83a8241419129f0fd8cd9ccf.png@942w_69h_progressive.png"
+        title="img"
+    />图5</p>
+<p>1.文件菜单栏：主要针对项目创建的一系列操作</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/97783929eb63fca448863e8a14f0dd0bf431a780.png@942w_524h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/97783929eb63fca448863e8a14f0dd0bf431a780.png@942w_524h_progressive.png, https://i0.hdslb.com/bfs/article/97783929eb63fca448863e8a14f0dd0bf431a780.png@942w_524h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/97783929eb63fca448863e8a14f0dd0bf431a780.png@942w_524h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/97783929eb63fca448863e8a14f0dd0bf431a780.png@942w_524h_progressive.png"
+        title="img"
+    />图6</p>
+<p>2.编辑菜单栏：主要针对项目文件的一些列操作</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/9e61bb5a8e0dea06bef4f5c8b81e66d63ef24bc0.png@942w_635h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/9e61bb5a8e0dea06bef4f5c8b81e66d63ef24bc0.png@942w_635h_progressive.png, https://i0.hdslb.com/bfs/article/9e61bb5a8e0dea06bef4f5c8b81e66d63ef24bc0.png@942w_635h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/9e61bb5a8e0dea06bef4f5c8b81e66d63ef24bc0.png@942w_635h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/9e61bb5a8e0dea06bef4f5c8b81e66d63ef24bc0.png@942w_635h_progressive.png"
+        title="img"
+    />图7</p>
+<p>3.调试菜单栏：主要针对对项目代码的调试操作</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/45603df67bc1e34bb980df703e9c76bfa6c5fe64.png@942w_525h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/45603df67bc1e34bb980df703e9c76bfa6c5fe64.png@942w_525h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/45603df67bc1e34bb980df703e9c76bfa6c5fe64.png@942w_525h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/45603df67bc1e34bb980df703e9c76bfa6c5fe64.png@942w_525h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/45603df67bc1e34bb980df703e9c76bfa6c5fe64.png@942w_525h_progressive.png"
+        title="img"
+    />图8</p>
+<p>为了不让读者感觉到繁琐 我们就先介绍这几个简单的功能,后续我们会继续介绍到更多的功能</p>
+<h2 id="c语言项目的创建"><strong>C语言项目的创建</strong></h2>
+<ol>
+<li>上面讲过项目的创建在文件菜单栏：点击文件-选择新建-选择项目</li>
 </ol>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/aefb36b09dbf228e8df7a25b3b1174beafba7983.png@942w_591h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/aefb36b09dbf228e8df7a25b3b1174beafba7983.png@942w_591h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/aefb36b09dbf228e8df7a25b3b1174beafba7983.png@942w_591h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/aefb36b09dbf228e8df7a25b3b1174beafba7983.png@942w_591h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/aefb36b09dbf228e8df7a25b3b1174beafba7983.png@942w_591h_progressive.png"
         title="img"
-    /></p>
-<ol start="5">
-<li>复制破解补丁</li>
-</ol>
-<p>破解补丁在安装包的Crack目录下的VA_X.dll</p>
+    />图9</p>
+<p>2.此时会弹出一个选择创建什么类型的项目的对话框：</p>
+<p>选择Windows桌面-选择控制台应用-设置项目保存路径-点击确认-即可完成对项目的创建</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ed24776ad25455d5900082485986a24bb9ca4c74.png@942w_654h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ed24776ad25455d5900082485986a24bb9ca4c74.png@942w_654h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ed24776ad25455d5900082485986a24bb9ca4c74.png@942w_654h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ed24776ad25455d5900082485986a24bb9ca4c74.png@942w_654h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ed24776ad25455d5900082485986a24bb9ca4c74.png@942w_654h_progressive.png"
         title="img"
-    /></p>
+    />图10</p>
+<p>3.此时如果我们看到左边有一个解决方案的项目,那么恭喜您!项目创建成功了！</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png 2x"
+        data-src="https://i0.hdslb.com/bfs/article/0195d51034e44a0ae08df6f0753692d99ba6570e.png@542w_579h_progressive.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/0195d51034e44a0ae08df6f0753692d99ba6570e.png@542w_579h_progressive.png, https://i0.hdslb.com/bfs/article/0195d51034e44a0ae08df6f0753692d99ba6570e.png@542w_579h_progressive.png 1.5x, https://i0.hdslb.com/bfs/article/0195d51034e44a0ae08df6f0753692d99ba6570e.png@542w_579h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png"
+        alt="https://i0.hdslb.com/bfs/article/0195d51034e44a0ae08df6f0753692d99ba6570e.png@542w_579h_progressive.png"
         title="img"
-    /></p>
-<p>6.打开C盘，搜索VA_X.dll</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png"
-        title="img"
-    /></p>
-<ol start="7">
-<li>己搜索到VA_X.dll</li>
-</ol>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png"
-        title="img"
-    /></p>
-<p>8.右键打开文件位置</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png"
-        title="img"
-    /></p>
-<ol start="9">
-<li>用Crack目录下的VA_X.dll替换掉即可</li>
-</ol>
-<p><img
-        class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png 2x"
-        data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png"
-        title="img"
-    /></p>
-<ol start="10">
-<li>运行Vs, 可以看到菜单栏多了个VASSISTX,工具条多了几个相应快捷按钮</li>
-</ol>
-<p><img
-        class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png 2x"
-        data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png"
-        title="img"
-    /></p>
-<ol start="11">
-<li>设置可以点击任务栏上的蕃茄按钮，也可以从菜单中选择Visual Assist Options</li>
-</ol>
-<p>Visual AssistX停用可以点击Enable/Disable Visual Assit  点击后临时停用插件，重启VS后还会重新加载</p>
-<p><img
-        class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png 2x"
-        data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png"
-        title="img"
-    /></p>
-<p>12.Visual Assist X卸载</p>
-<p>vs菜单工具-&gt;扩展和更新，然后找到Visual Assist 点击卸载即可</p>
-<p>备注：Visual Assist X 无法从控制面板-&gt;卸载程序 进行卸载</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png"
-        title="img"
-    /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png"
-        title="img"
-    /></p>
+    />图11</p>
+<p>直播交流QQ群：727731398</p>
+<p>助教报名QQ：3534373359</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-07-23</span>
+                <span>更新于 2021-11-09</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" data-title="Visual Studio的安装和简单的项目创建" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" data-title="Visual Studio的安装和简单的项目创建"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" data-title="Visual Studio的安装和简单的项目创建"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/visual-studio%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/" data-title="Visual Studio的安装和简单的项目创建"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="win10常见问题"><i class="fas fa-angle-left fa-fw"></i>win10常见问题</a>
-            <a href="/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="next" rel="next" title="sublimetext常见问题">sublimetext常见问题<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="32位游戏逆向安全之角色及怪物分析"><i class="fas fa-angle-left fa-fw"></i>32位游戏逆向安全之角色及怪物分析</a>
+            <a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B06-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAhello-world%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="next" rel="next" title="【飞郁2022新课程】06 - 创建第一个hello world项目及其简单介绍">【飞郁2022新课程】06 - 创建第一个hello world项目及其简单介绍<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
