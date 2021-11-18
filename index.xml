@@ -4,9 +4,30 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 15 Nov 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Nov 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>【飞郁2022新课程】10 - 内存</title>
+    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B10-%E5%86%85%E5%AD%98/</link>
+    <pubDate>Thu, 18 Nov 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B10-%E5%86%85%E5%AD%98/</guid>
+    <description><![CDATA[什么是内存 内存是计算机中重要的部件之一。计算机中所有程序的运行都要在内存中进行。其作用是用于暂时存放cpu中的运算数据。 我们调试软件时所说的]]></description>
+</item><item>
+    <title>【飞郁2022新课程】08 - 输入输出流</title>
+    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B08-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/</link>
+    <pubDate>Wed, 17 Nov 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B08-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/</guid>
+    <description><![CDATA[在上一节课中咱们的代码中涉及到了printf()函数以及一些参数的设置 这里肯定有很多同学不知道怎么使用这个函数 那么，今天咱们的主题就是 输入和]]></description>
+</item><item>
+    <title>【飞郁2022新课程】09 - 常量和变量</title>
+    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B09-%E5%B8%B8%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Wed, 17 Nov 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B09-%E5%B8%B8%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[相信大家在上一节课的代码中看到过很多 变量的定义和声明 1 2 3 4 5 6 7 8 9 int a=1; bool b=TRUE; char c=&#39;h&#39;; float f=1.0f; double d=2.0f; 等等 这些代码 不明白这是干什么的 其实这就是在申请一个]]></description>
+</item><item>
     <title>【飞郁2022新课程】03 - 计算机底层的二进制</title>
     <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</link>
     <pubDate>Fri, 12 Nov 2021 00:00:00 &#43;0000</pubDate><author>
@@ -55,26 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E8%8B%B1%E8%AF%AD%E4%B8%8D%E8%A7%84%E5%88%99%E5%8A%A8%E8%AF%8D%E8%A7%84%E5%BE%8B/</guid>
     <description><![CDATA[过去式 = 过去分词 = 原形 原形 过去式 过去分词 汉语意思 bet bet bet 打赌 cost cost cost 耗费**(钱)** cut cut cut 切，割 hit hit hit 撞，击打 hurt hurt hurt 使…伤痛 let let let 让 put put put 放 read]]></description>
-</item><item>
-    <title>32位游戏逆向安全之角色及怪物分析</title>
-    <link>https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/</link>
-    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/32%E4%BD%8D%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91%E5%AE%89%E5%85%A8%E4%B9%8B%E8%A7%92%E8%89%B2%E5%8F%8A%E6%80%AA%E7%89%A9%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[32位游戏逆向安全之角色及怪物分析 角色对象作为一个特殊的个体，一般都是单独存放在一个基地址下的，而有些游戏则需要通过角色名字 或者ID到怪物遍]]></description>
-</item><item>
-    <title>64位数据扫描及工具介绍</title>
-    <link>https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/64%E4%BD%8D%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[64位数据扫描及工具介绍 x64位程序的分析，主要用到两款工具，而这两款工具同x32位程序的分析工具类似，一款是CE，另一款则是xdbg64。]]></description>
-</item><item>
-    <title>MXD系列之技能分析技能点数结构</title>
-    <link>https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/</link>
-    <pubDate>Mon, 25 Oct 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/mxd%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8A%80%E8%83%BD%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD%E7%82%B9%E6%95%B0%E7%BB%93%E6%9E%84/</guid>
-    <description><![CDATA[MXD系列之技能分析技能点数结构 随着游戏代码的发展，新游戏的技能越来越华丽，分类也越来越多，数据结构用的五花八门。而老游戏也不甘寂寞，技能数]]></description>
 </item></channel>
 </rss>
