@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">飞郁逆向课程详解 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="飞郁逆向课程详解" />
-<meta property="og:description" content="购普通课程或者核心课程，为保您购买与售后无忧，先咨询飞郁客服QQ:290330101，并享受不定额度优惠！ 逆向基本工具包 链接：https:/" />
+    <title class="pjax-title">【飞郁2022新课程】11 - 字符内存中的储存方式 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】11 - 字符内存中的储存方式" />
+<meta property="og:description" content="不同的数据在内存中的存放方式是不同的 我们说内存中每一位只存放了0和1，用来表示整数很容易，那怎么表示小数怎么表示？文字符号呢？这就需要不同的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-30T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-21T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="飞郁逆向课程详解"/>
-<meta name="twitter:description" content="购普通课程或者核心课程，为保您购买与售后无忧，先咨询飞郁客服QQ:290330101，并享受不定额度优惠！ 逆向基本工具包 链接：https:/"/>
+<meta name="twitter:title" content="【飞郁2022新课程】11 - 字符内存中的储存方式"/>
+<meta name="twitter:description" content="不同的数据在内存中的存放方式是不同的 我们说内存中每一位只存放了0和1，用来表示整数很容易，那怎么表示小数怎么表示？文字符号呢？这就需要不同的"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/%E5%9C%A8%E7%BA%BF%E7%8F%AD%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%956788/" /><link rel="next" href="https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E5%B7%A5%E5%85%B7/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="prev" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B10-%E5%86%85%E5%AD%98/" /><link rel="next" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "飞郁逆向课程详解",
+        "headline": "【飞郁2022新课程】11 - 字符内存中的储存方式",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/09\/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  197 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/09\/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3\/","datePublished": "2021-09-30T00:00:00+00:00","dateModified": "2021-09-30T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  843 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F\/","datePublished": "2021-11-21T00:00:00+00:00","dateModified": "2021-11-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">飞郁逆向课程详解</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】11 - 字符内存中的储存方式</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-30">2021-09-30</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-30">2021-09-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 197 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="leancloud_visitors" data-flag-title="飞郁逆向课程详解">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21">2021-11-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-21">2021-11-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 843 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】11 - 字符内存中的储存方式">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -141,87 +141,93 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p><img
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#不同的数据在内存中的存放方式是不同的"><strong>不同的数据在内存中的存放方式是不同的</strong></a></li>
+        <li><a href="#字符的储存方式"><strong>字符的储存方式</strong></a></li>
+        <li><a href="#习题考核"><strong>习题+考核</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="不同的数据在内存中的存放方式是不同的"><strong>不同的数据在内存中的存放方式是不同的</strong></h2>
+<p>我们说内存中每一位只存放了0和1，用来表示整数很容易，那怎么表示小数怎么表示？文字符号呢？这就需要不同的存放方式，用正确的方式也就是数据类型读取数据才能得到正确的值。</p>
+<p>例如小数型的1.23，如果我们用整数的形式去读取他就不是1.23了。</p>
+<p>如下图：</p>
+<p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210308635.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210308635.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210308635.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210308635.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vsiha8jc88lilcgq.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vsiha8jc88lilcgq.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vsiha8jc88lilcgq.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vsiha8jc88lilcgq.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210308635.png"
-        title="image-20210930210308635"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vsiha8jc88lilcgq.png"
+        title="img"
+    /></p>
+<p>你可以猜结果会是1，毕竟1.23小数 硬转成整数的话，应该是1。</p>
+<p>但是这和我们现实生活中是不一样的，内存中存放不同类型的数据储存方式是不同的，比如小数点，负数这些东西他是没有办法直接存放的，要有一个另外的规则。</p>
+<p>（在我们以后逆向工具搜索数据的时候，首先要注意的也是他的数据类型）</p>
+<h2 id="字符的储存方式"><strong>字符的储存方式</strong></h2>
+<p>char字符型，一个字节宽度</p>
+<p>如果说 char a=65； 和 char a=&lsquo;A&rsquo;; 两句代码是相同的你相信吗？</p>
+<p>看下例子：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341rn0e3ooleqeodelo-20211121101544491.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341rn0e3ooleqeodelo-20211121101544491.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341rn0e3ooleqeodelo-20211121101544491.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341rn0e3ooleqeodelo-20211121101544491.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341rn0e3ooleqeodelo-20211121101544491.png"
+        title="img"
     /></p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210405731.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210405731.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210405731.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210405731.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vlz0l9m50zllr5vx-20211121101552393.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vlz0l9m50zllr5vx-20211121101552393.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vlz0l9m50zllr5vx-20211121101552393.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vlz0l9m50zllr5vx-20211121101552393.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210405731.png"
-        title="image-20210930210405731"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/122341vlz0l9m50zllr5vx-20211121101552393.png"
+        title="img"
     /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210430781.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210430781.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210430781.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210430781.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210430781.png"
-        title="image-20210930210430781"
-    /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210453961.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210453961.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210453961.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210453961.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210453961.png"
-        title="image-20210930210453961"
-    /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210518000.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210518000.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210518000.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210518000.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210518000.png"
-        title="image-20210930210518000"
-    /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210551114.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210551114.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210551114.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210551114.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210930210551114.png"
-        title="image-20210930210551114"
-    /></p>
-<p>购普通课程或者核心课程，为保您购买与售后无忧，先咨询飞郁客服QQ:290330101，并享受不定额度优惠！</p>
-<p>逆向基本工具包</p>
-<p>链接：https://pan.baidu.com/s/1CLTHQ3BXi4aA8iFbELZAJA</p>
-<p>提取码：h45h</p>
-<p>基础篇课件+课堂源码+课堂用到的一些工具等</p>
-<p>链接：https://pan.baidu.com/s/1B8ozmsy4qsDiFJk_Dnn_bA</p>
-<p>提取码：9scm</p>
+<p>为什么呢？</p>
+<p>这就是编码，用一字节可以表示256个符号，一字节范围 0-255。</p>
+<p>但是一般用不到， 128个符号足够了，我们键盘才几十个符号。</p>
+<p>这就是ASCII编码 也就是文字符号的储存方式。</p>
+<p>可是中文不像英文那样几十个符号就可以表示，中文汉字有几万个，那么我们就需要复杂的编码表。</p>
+<p>是这样设计的 ，把127个符号以后的符号用作表示汉字的一半前127保留原来的含义，这样2字节表示一个汉字，就有了万种左右的组合。</p>
+<p>但是这只是基本的情况够用 ，还是不能表示全部的汉字，那么就又有了GBK GB18030 等等的拓展</p>
+<p>以及其他的编码。</p>
+<p>例如unicode utf-8 等编码，当然其他地区也可以有自己的编码。</p>
+<p>一般如果外服软件和游戏我们出现乱码，往往原因不是这三种编码 ，我们的系统里没有字库。</p>
+<p>例子台湾big5。</p>
+<h2 id="习题考核"><strong>习题+考核</strong></h2>
+<p>1.定义两个字符分别等于&rsquo;F&rsquo;和&rsquo;B',并用无符号整数型输出二者的和</p>
+<p>2.分别打印出以下字符的ASCII码,&lsquo;1&rsquo;,&lsquo;a&rsquo;,&lsquo;F&rsquo;,'!'</p>
+<p>3.分别打印出以下数字对应的字符,49,50,59,60,69,70</p>
+<p>4.打印出大写字符F和小写字母f的ascii码,计算出他们的差值</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-09-30</span>
+                <span>更新于 2021-11-21</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" data-title="飞郁逆向课程详解"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" data-title="飞郁逆向课程详解"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" data-title="飞郁逆向课程详解"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/" data-title="飞郁逆向课程详解"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】11 - 字符内存中的储存方式" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】11 - 字符内存中的储存方式"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】11 - 字符内存中的储存方式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】11 - 字符内存中的储存方式"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/09/%E5%9C%A8%E7%BA%BF%E7%8F%AD%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%956788/" class="prev" rel="prev" title="在线班课程目录（6788）"><i class="fas fa-angle-left fa-fw"></i>在线班课程目录（6788）</a>
-            <a href="/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E5%B7%A5%E5%85%B7/" class="next" rel="next" title="任鸟飞工具">任鸟飞工具<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B10-%E5%86%85%E5%AD%98/" class="prev" rel="prev" title="【飞郁2022新课程】10 - 内存"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】10 - 内存</a>
+            <a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="next" rel="next" title="【飞郁2022新课程】12 - 整数内存中的储存方式">【飞郁2022新课程】12 - 整数内存中的储存方式<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

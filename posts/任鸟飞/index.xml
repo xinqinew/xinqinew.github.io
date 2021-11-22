@@ -10,7 +10,7 @@
     <pubDate>Sat, 16 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9Ec-/</guid>
-    <description><![CDATA[调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文包 HOOK明文包子程序 获取窗]]></description>
+    <description><![CDATA[输出调试信息 读内存 写内存 ![image-20211121215009391](/Users/xinqi/Library/Application Support/typora-user-images/image-20211121215009391.png) 调试输出（人物信息） 结构体初始化（人物属性） 宏定义基址及偏移 玩家信息 怪物列表初始化 HOOK明文包 还原HOOK明文]]></description>
 </item><item>
     <title>win7过TP</title>
     <link>https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/</link>
@@ -18,6 +18,13 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/win7%E8%BF%87tp/</guid>
     <description><![CDATA[pc hunter 1 2 3 4 5 6 7 8 9 10 11 graph z1([PCHunter]) z2[&#34;System进程中&lt;br&gt;有红色等待的都&lt;br&gt;结束线程&#34;] z]]></description>
+</item><item>
+    <title>任鸟飞工具</title>
+    <link>https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[解压密码 123 666 www.feiyuol.com]]></description>
 </item><item>
     <title>飞郁逆向课程详解</title>
     <link>https://xinqinew.github.io/2021/09/%E9%A3%9E%E9%83%81%E9%80%86%E5%90%91%E8%AF%BE%E7%A8%8B%E8%AF%A6%E8%A7%A3/</link>
@@ -59,7 +66,7 @@
     <pubDate>Mon, 15 Nov 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/11/%E5%8A%AB%E6%8C%81%E6%B3%A8%E5%85%A5/</guid>
-    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 graph subgraph z([劫持注入])--&gt; z1[[看游戏加载哪些dll]]--&gt; z2[OD]]></description>
+    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 graph subgraph z([劫持注入])--&gt; z1[[看游戏加载哪些dll]]--&gt; z2[]]></description>
 </item><item>
     <title>骷髅笔记 - 天涯明月刀</title>
     <link>https://xinqinew.github.io/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/</link>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/%E9%AA%B7%E9%AB%85%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[天涯明月刀 npc等级 npc等级偏移的常见找法： 根据角色的等级偏移到npc对象里查找 通过当前选中怪物的等级来找 普通的方式，到怪物对象中进行偏移]]></description>
-</item><item>
-    <title>任鸟飞笔记</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 sar 算术右移 每右移一位，相当于除以一次2 shl 算]]></description>
 </item></channel>
 </rss>
