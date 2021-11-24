@@ -4,9 +4,23 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Nov 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Nov 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>【飞郁2022新课程】14 - 有符号和无符号区别</title>
+    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/</link>
+    <pubDate>Wed, 24 Nov 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/</guid>
+    <description><![CDATA[一、原码 反码 补码 从不同的角度去看情况,往往会得到不同的结果,在前面的课程我们举得例子都是正数,没有看到负数,难道计算机没有负数一说？当然不是]]></description>
+</item><item>
+    <title>【飞郁2022新课程】13 - 浮点数内存中的储存方式</title>
+    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/</link>
+    <pubDate>Tue, 23 Nov 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/</guid>
+    <description><![CDATA[一个小数,无论是单精度的float型还是双精度的double型,在内存中都会储存为三个部分,即符号位,指数位,尾数 符号位就是小数的正负,0代]]></description>
+</item><item>
     <title>【飞郁2022新课程】12 - 整数内存中的储存方式</title>
     <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/</link>
     <pubDate>Mon, 22 Nov 2021 00:00:00 &#43;0000</pubDate><author>
@@ -62,19 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</guid>
     <description><![CDATA[【飞郁2022新课程】03 - 计算机底层的二进制 飞郁网络 听说你们学编程不想学基础? 说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的]]></description>
-</item><item>
-    <title>【飞郁2022新课程】04 - 十六进制</title>
-    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/</link>
-    <pubDate>Fri, 12 Nov 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/</guid>
-    <description><![CDATA[同学同学,你怎么..不开心? 进制太烦了,我算的乱七八糟 来来来,听完我这节课,你还是不说不懂的话,我不保证不打死你???&hellip; 拓展内]]></description>
-</item><item>
-    <title>【飞郁2022新课程】05 - 高级语言和低级语言</title>
-    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/</link>
-    <pubDate>Fri, 12 Nov 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B05-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E5%92%8C%E4%BD%8E%E7%BA%A7%E8%AF%AD%E8%A8%80/</guid>
-    <description><![CDATA[学不同语言的同学，总要争个高低，其实完全没有必要，萝卜白菜各有所爱。 但是计算机语言还真是具有高级语言和低级语言之分的。不过此高非彼高。 正式学]]></description>
 </item></channel>
 </rss>

@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">【飞郁2022新课程】12 - 整数内存中的储存方式 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】12 - 整数内存中的储存方式" />
-<meta property="og:description" content="还记得之前的课程，变量在内存中，看到是反着排列的吗？ 当时我们没有深究这个问题 但是我们现在学习内存了，就有疑惑了 为什么 4字节数据是反着排列的呢" />
+    <title class="pjax-title">【飞郁2022新课程】14 - 有符号和无符号区别 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】14 - 有符号和无符号区别" />
+<meta property="og:description" content="一、原码 反码 补码 从不同的角度去看情况,往往会得到不同的结果,在前面的课程我们举得例子都是正数,没有看到负数,难道计算机没有负数一说？当然不是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-11-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-22T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-24T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="【飞郁2022新课程】12 - 整数内存中的储存方式"/>
-<meta name="twitter:description" content="还记得之前的课程，变量在内存中，看到是反着排列的吗？ 当时我们没有深究这个问题 但是我们现在学习内存了，就有疑惑了 为什么 4字节数据是反着排列的呢"/>
+<meta name="twitter:title" content="【飞郁2022新课程】14 - 有符号和无符号区别"/>
+<meta name="twitter:description" content="一、原码 反码 补码 从不同的角度去看情况,往往会得到不同的结果,在前面的课程我们举得例子都是正数,没有看到负数,难道计算机没有负数一说？当然不是"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="prev" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="next" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" /><link rel="prev" href="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "【飞郁2022新课程】12 - 整数内存中的储存方式",
+        "headline": "【飞郁2022新课程】14 - 有符号和无符号区别",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  575 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F\/","datePublished": "2021-11-22T00:00:00+00:00","dateModified": "2021-11-22T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1598 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/11\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB\/","datePublished": "2021-11-24T00:00:00+00:00","dateModified": "2021-11-24T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】12 - 整数内存中的储存方式</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】14 - 有符号和无符号区别</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-22">2021-11-22</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-22">2021-11-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 575 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】12 - 整数内存中的储存方式">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-24">2021-11-24</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-24">2021-11-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1598 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】14 - 有符号和无符号区别">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -141,69 +141,158 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>还记得之前的课程，变量在内存中，看到是反着排列的吗？</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一原码-反码-补码"><strong>一、原码 反码 补码</strong></a>
+          <ul>
+            <li><a href="#11-原码-补码-反码"><strong>1.1 原码 补码 反码</strong></a></li>
+            <li><a href="#12-符号位和数值位"><strong>1.2 符号位和数值位</strong></a>
+              <ul>
+                <li><a href="#121-符号位"><strong>1.2.1 符号位:</strong></a></li>
+                <li><a href="#122-数值位"><strong>1.2.2 数值位:</strong></a></li>
+                <li><a href="#123-原码怎么计算得到补码呢"><strong>1.2.3 原码怎么计算得到补码呢?</strong></a></li>
+                <li><a href="#124-例如"><strong>1.2.4 例如:</strong></a></li>
+                <li><a href="#125-有符号无符号总结"><strong>1.2.5 有符号无符号总结：</strong></a></li>
+                <li><a href="#126-为什么用补码储存呢"><strong>1.2.6 为什么用补码储存呢？</strong></a></li>
+                <li><a href="#127例如"><strong>1.2.7.例如：</strong></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#二有符号-无符号"><strong>二、有符号 无符号</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="一原码-反码-补码"><strong>一、原码 反码 补码</strong></h2>
+<p>从不同的角度去看情况,往往会得到不同的结果,在前面的课程我们举得例子都是正数,没有看到负数,难道计算机没有负数一说？当然不是,在讲有符号 和 无符号的时候 我们需要了解一下计算机是怎么存储数据.</p>
+<h3 id="11-原码-补码-反码"><strong>1.1 原码 补码 反码</strong></h3>
+<p>计算的二进制数据有3种表现形式分别为:原码 补码 反码.</p>
+<p>首先我们看到原码是可以理解的,例如:以1个字节计算,10的原码是:0000 1010</p>
+<p>那为什么会有补码和反码的存在呢？这是由于CPU的关系,等会我们再细致讲解.</p>
+<p>我们的计算机在内存中其实存放二进制数据的形式是补码.</p>
+<p>之前的课程中我们讲到的例子全是正数没有用到过负数.</p>
+<p>其实计算机的类型会分为有符号类型(正/负号)和无符号类型(正号没有负号),一般我们的正号是可以省略的.</p>
+<p>它们均可以在类型名前加&quot;unsigned&quot;关键字表示为无符号,默认不加这个关键字就是有符号类型,</p>
+<h3 id="12-符号位和数值位"><strong>1.2 符号位和数值位</strong></h3>
+<p>原码 补码 反码三种形式均有符号位和数值位两部分,</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e38e276ac0f4eee0688bc1064f139634a91f1f1f.png@681w_555h_progressive-20211122201902549.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e38e276ac0f4eee0688bc1064f139634a91f1f1f.png@681w_555h_progressive-20211122201902549.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e38e276ac0f4eee0688bc1064f139634a91f1f1f.png@681w_555h_progressive-20211122201902549.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e38e276ac0f4eee0688bc1064f139634a91f1f1f.png@681w_555h_progressive-20211122201902549.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a4dfdfe1f90d325740f70d9a74ffdccfc2e5629e.png@338w_225h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a4dfdfe1f90d325740f70d9a74ffdccfc2e5629e.png@338w_225h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a4dfdfe1f90d325740f70d9a74ffdccfc2e5629e.png@338w_225h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a4dfdfe1f90d325740f70d9a74ffdccfc2e5629e.png@338w_225h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e38e276ac0f4eee0688bc1064f139634a91f1f1f.png@681w_555h_progressive-20211122201902549.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a4dfdfe1f90d325740f70d9a74ffdccfc2e5629e.png@338w_225h_progressive.png"
         title="img"
     /></p>
-<p>当时我们没有深究这个问题</p>
-<p>但是我们现在学习内存了，就有疑惑了</p>
-<p>为什么 4字节数据是反着排列的呢？</p>
-<p>原因是，</p>
-<p>实际上在内存中，没有正反之分，都是按一字节 一字节顺序排列的 ，只是我们要按照什么方式去拿。</p>
-<p>例如上图  内存中就是  78  56  34  12</p>
-<p>而我们拿的时候  是从后面开始拿放在高位而已 变成0x12345678</p>
-<p>但是整数类型，为什么是反着拿呢？而不是 正着拿，变成0x78563412呢？</p>
-<p>实际上根本原因是，设计者为了短类型数据兼容转换成长类型数据（小端），</p>
-<p>人为规定的储存方式而已。</p>
-<p>我们分别到内存中去观察  char  word 和dword的数值</p>
-<p>例如1，内存中分别对应的是</p>
-<p>char   01</p>
-<p>word   01  00</p>
-<p>dword  01 00  00  00</p>
-<p>所以无论你什么宽度，内存中都是第一个字节里放了1个01</p>
-<p>但是问题来了，读的时候怎么读？</p>
-<p>1,100,1000000？ 当然不对，一个鸡蛋无论放到大篮子还是小篮子里都是1</p>
-<p>那么就要注意读取的时候的方法</p>
-<p>01  00  00  00</p>
-<p>如果按照 char  取读就是 01</p>
-<p>如果按照 WORD 去读就是 0001</p>
-<p>如果按照 DWORD 去读就是 00000001</p>
-<p>这样就数据类型兼容了。</p>
-<p>所以才给我们造成一种反着存放的错觉。</p>
-<p>来个简单的题目</p>
-<p>4字节 99999 666666在内存中字节集是怎么存放的？</p>
-<p>99999转成16进制是  0x0001869F</p>
-<p>拆分成字节  就是   00  01  86  9F  而在内存中真实的存放顺序就是：9f 86 01 00</p>
-<p>同理  666666 在内存中的真实存放顺序就是：</p>
-<p>2A 2C 0A 00</p>
-<p>同样大家可以到教案软件中，进行推箱子的顺序排列锻炼</p>
-<p>如下图：</p>
+<h4 id="121-符号位"><strong>1.2.1 符号位:</strong></h4>
+<p>符号位 0 表示正数,符号位 1 表示负数.</p>
+<h4 id="122-数值位"><strong>1.2.2 数值位:</strong></h4>
+<p>三种表示形式各不相同,这样也是有原因的,因为使用补码,可以将符号位和数值域统一处理.</p>
+<p>加法和减法也可以统一处理(因为CPU只有加法器,而没有减法器).</p>
+<p>补码与原码相互转换,其运算过程是相同的,不需要额外的硬件电路。</p>
+<h4 id="123-原码怎么计算得到补码呢"><strong>1.2.3 原码怎么计算得到补码呢?</strong></h4>
+<p>原码的绝对值</p>
+<p>1.直接将二进制按照正负数的形式得到原码后取绝对值后翻译成二进制就可以了.</p>
+<p>反码</p>
+<p>2.位依次按位取反就可以得到了.</p>
+<p>补码</p>
+<p>3.反码 +1 就得到补码.</p>
+<p>注意:正数的原码、反码、补码相同.</p>
+<h4 id="124-例如"><strong>1.2.4 例如:</strong></h4>
+<p>unsigned char a = 198; char b = -58; printf(&quot;%d\r\n&quot;,b);//内存中存198 return 1;</p>
+<p>最高位1表示负数,数值位表示值</p>
+<p>1.原码取绝对值:1011  1010 (原码) =&gt; -58 =&gt; -011 1010 =&gt;|58| =&gt; |-011 1010| =&gt; 0011 1010</p>
+<p>2.按位取反:0011 1010 =&gt; 1100  0101</p>
+<p>3.反码+1遵循逢二进一:1100  0110 +1  =&gt; 0xC6</p>
+<p>这就得到了我们变量b在内存中存的补码值为0xC6.</p>
+<p>所以这就解释了为什么我们看变量a,b的内存值都是0xC6.</p>
+<h4 id="125-有符号无符号总结"><strong>1.2.5 有符号无符号总结：</strong></h4>
+<p>1.符号位 0 表示正数,符号位 1 表示负数.</p>
+<p>2.正数的原码就等于补码.</p>
+<p>3.负数的原码不等于补码.</p>
+<p>4.补码等于原码取绝对值转换成二进制然后取反再加1得到的.</p>
+<p>5.所以仅仅从内存看值 是无法确定是有符号还是无符号的,计算机是识别不了的,需要编译器操作一系列指令来识别.</p>
+<h4 id="126-为什么用补码储存呢"><strong>1.2.6 为什么用补码储存呢？</strong></h4>
+<p>有的人会问用原码多好还能直接看出来</p>
+<p>其实并不然,计算机有时候还并不是那么智能的</p>
+<p>CPU只会加法并不会减法所以才是补码存储也就是说CPU只有加法器并没有减法器</p>
+<p>我们来看看正数的补码 和 负数的补码 相加是不是得到了正确的结果呢?</p>
+<h4 id="127例如"><strong>1.2.7.例如：</strong></h4>
+<p>10+(-2)=8? 看看计算机的计算流程</p>
+<p>正数10的补码等于原码：</p>
+<p>0000 1010</p>
+<p>负数-2的补码不等于原码：</p>
+<p>这里要计算出补码</p>
+<p>1000 0010 取绝对值</p>
+<p>0000 0010 取反</p>
+<p>1111 1101 +1得到补码</p>
+<p>1111 1110 计算机验证下就是等于-2</p>
+<p>由于CPU只有加法器</p>
+<p>我们就把2个补码相加</p>
+<p>0000 1010</p>
+<p>1111 1110</p>
+<p>逢二进一等于</p>
+<p>0000 1000</p>
+<p>验证下是不是等于8？</p>
+<p>计算是对的</p>
+<p>所以明白了吗？？</p>
+<h2 id="二有符号-无符号"><strong>二、有符号 无符号</strong></h2>
+<p>1.经过上面的讲解 我们在来理解一下 有符号 和 无符号</p>
+<p>2.观察下面代码 并编译 显示</p>
+<p>3.我们观察内存中 这2个变量的值</p>
+<p>4.发现一样 ！！再回忆下上面我们讲到的负数的补码 是不是就迎刃而解了</p>
+<p>5.顿时恍然大悟的感觉</p>
+<p>#include &lt;stdio.h&gt; void main() {   unsigned char a =198  ;   char b = -58;   printf(&ldquo;a: %d\n&rdquo;,a);   printf(&ldquo;a: %d\n&rdquo;,b);     system(&ldquo;pause&rdquo;); }</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/313b8f3bc310de0d438dccb7355c7b4a40b7f328.png@830w_408h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/313b8f3bc310de0d438dccb7355c7b4a40b7f328.png@830w_408h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/313b8f3bc310de0d438dccb7355c7b4a40b7f328.png@830w_408h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/313b8f3bc310de0d438dccb7355c7b4a40b7f328.png@830w_408h_progressive.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c6a1a7c6b10b7865ed2083bf61d969c1d4f070e.png@587w_147h_progressive-20211124211222496.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c6a1a7c6b10b7865ed2083bf61d969c1d4f070e.png@587w_147h_progressive-20211124211222496.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c6a1a7c6b10b7865ed2083bf61d969c1d4f070e.png@587w_147h_progressive-20211124211222496.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c6a1a7c6b10b7865ed2083bf61d969c1d4f070e.png@587w_147h_progressive-20211124211222496.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/313b8f3bc310de0d438dccb7355c7b4a40b7f328.png@830w_408h_progressive.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c6a1a7c6b10b7865ed2083bf61d969c1d4f070e.png@587w_147h_progressive-20211124211222496.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6ffe4a577adee57b495566074c5e72364bdee49c.png@588w_149h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6ffe4a577adee57b495566074c5e72364bdee49c.png@588w_149h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6ffe4a577adee57b495566074c5e72364bdee49c.png@588w_149h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6ffe4a577adee57b495566074c5e72364bdee49c.png@588w_149h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6ffe4a577adee57b495566074c5e72364bdee49c.png@588w_149h_progressive.png"
+        title="img"
+    /></p>
+<p>我们这里面发现 a和b 的输出是不同的</p>
+<p>我们到内存中看看情况</p>
+<p>发现a和b 在内存中是相同的，都是C6</p>
+<p>是否有符号不会影响他在内存中的存放方式呢？相信经过上面的讲解大家也知道怎么回事了.</p>
+<p>因为内存中只有0和1 表示不了正负的 都是人为规定的</p>
+<p>无符号范围 0 &mdash;- 255</p>
+<p>有符号范围 0 &mdash;-127  和 -128&mdash;- -1</p>
+<p>为什么这样 ？ 人为规定的！</p>
+<p>经过上面讲解原码 反码 补码的时候知道了为什么都是C6的原因.</p>
+<p>这里我们还需要知道无符号的198是怎么转为有符号-58的.</p>
+<p>其实很简单,我们只需要, -128 +（198-128） = -58 .</p>
+<p>这里给大家画了一张图 以便大家去理解这个公式的由来：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7ebf187633f18dcc5e9a5c49d489a28bdf5df0a6.png@798w_810h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7ebf187633f18dcc5e9a5c49d489a28bdf5df0a6.png@798w_810h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7ebf187633f18dcc5e9a5c49d489a28bdf5df0a6.png@798w_810h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7ebf187633f18dcc5e9a5c49d489a28bdf5df0a6.png@798w_810h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7ebf187633f18dcc5e9a5c49d489a28bdf5df0a6.png@798w_810h_progressive.png"
         title="img"
     /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-11-22</span>
+                <span>更新于 2021-11-24</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】12 - 整数内存中的储存方式" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】12 - 整数内存中的储存方式"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】12 - 整数内存中的储存方式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B12-%E6%95%B4%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" data-title="【飞郁2022新课程】12 - 整数内存中的储存方式"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" data-title="【飞郁2022新课程】14 - 有符号和无符号区别" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" data-title="【飞郁2022新课程】14 - 有符号和无符号区别"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" data-title="【飞郁2022新课程】14 - 有符号和无符号区别"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B14-%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8C%BA%E5%88%AB/" data-title="【飞郁2022新课程】14 - 有符号和无符号区别"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -215,8 +304,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B11-%E5%AD%97%E7%AC%A6%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="prev" rel="prev" title="【飞郁2022新课程】11 - 字符内存中的储存方式"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】11 - 字符内存中的储存方式</a>
-            <a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="next" rel="next" title="【飞郁2022新课程】13 - 浮点数内存中的储存方式">【飞郁2022新课程】13 - 浮点数内存中的储存方式<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B13-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F/" class="prev" rel="prev" title="【飞郁2022新课程】13 - 浮点数内存中的储存方式"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】13 - 浮点数内存中的储存方式</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
