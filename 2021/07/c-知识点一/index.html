@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  2972 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3011 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/","datePublished": "2021-07-26T00:00:00+00:00","dateModified": "2021-07-26T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2972 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(一)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3011 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(一)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -259,9 +259,14 @@
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>	<span class="c1">//输出函数
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once	</span><span class="c1">//防止头文件被重复编译
+</span><span class="c1"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>	<span class="c1">//输出函数
 </span><span class="c1"></span><span class="n">atoi</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//字符串转整数
 </span><span class="c1"></span><span class="n">Sleep</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//等待
 </span><span class="c1"></span><span class="n">MessageBeep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>	<span class="c1">//播放系统音乐,方便OD定位
@@ -291,8 +296,9 @@
 <span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">&#34;chs&#34;</span><span class="p">);</span>
 <span class="c1">//需要实现本地化，以实现中文正常输出
 </span><span class="c1"></span>
-
-</code></pre></td></tr></table>
+<span class="n">GetLastError</span><span class="p">();</span>
+<span class="c1">//最后一次的出错代码
+</span></code></pre></td></tr></table>
 </div>
 </div><h2 id="用汇编来调用call">用汇编来调用CALL</h2>
 <div class="highlight"><div class="chroma">
@@ -688,12 +694,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LPVOID</span> <span class="nf">VirtualAllocEx</span><span class="p">(</span>
-	<span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//申请内存所在的进程句柄。
-</span><span class="c1"></span>	<span class="n">LPVOID</span> <span class="n">lpAddress</span><span class="p">,</span>	<span class="c1">//保留页面的内存地址；一般用NULL自动分配 。
+	<span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="o">//</span><span class="err">申请内存所在的进程句柄。</span>  <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="err">为当前进程句柄</span>
+	<span class="n">LPVOID</span> <span class="n">lpAddress</span><span class="p">,</span>	<span class="c1">//保留页面的内存地址；一般用NULL自动分配 。
 </span><span class="c1"></span>	<span class="n">SIZE_T</span> <span class="n">dwSize</span><span class="p">,</span>	<span class="c1">//欲分配的内存大小，字节单位；注意实际分 配的内存大小是页内存大小的整数倍
 </span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">flAllocationType</span><span class="p">,</span>	<span class="c1">//一般用MEM_COMMIT
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">flProtect</span>	<span class="o">//</span><span class="err">一般用</span><span class="n">PAGE_READWRITE</span><span class="p">(</span><span class="err">读写</span><span class="p">)</span>
-<span class="p">);</span>
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">flProtect</span>	<span class="c1">//一般用PAGE_READWRITE(读写)
+</span><span class="c1"></span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>​	<strong>flAllocationType</strong> 可取下列值：</p>
@@ -773,11 +779,11 @@
 </thead>
 <tbody>
 <tr>
-<td>MEM_DECOMMIT0x400016384D</td>
+<td>MEM_DECOMMIT 0x400016384D</td>
 <td>这种试 仅标示 内存空间不可用，内存页还将存在。</td>
 </tr>
 <tr>
-<td>MEM_RELEASE0x800032768D</td>
+<td>MEM_RELEASE 0x800032768D</td>
 <td>这种方式 很彻底，完全回收。</td>
 </tr>
 </tbody>
