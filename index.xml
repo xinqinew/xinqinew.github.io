@@ -4,9 +4,16 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Nov 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>【飞郁2022新课程】17 - 操作符运算符</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+    <description><![CDATA[不知道有没有同学发现之前几节都是在讲关于数据 那么有的同学会问 计算机是怎么处理操作运算这些数据的呢？ 好的 这节课就讲解C语言运算符 一、运算符 1.]]></description>
+</item><item>
     <title>【飞郁2022新课程】16 - 数组和字符串</title>
     <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B16-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
     <pubDate>Mon, 29 Nov 2021 00:00:00 &#43;0000</pubDate><author>
@@ -69,12 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B10-%E5%86%85%E5%AD%98/</guid>
     <description><![CDATA[什么是内存 内存是计算机中重要的部件之一。计算机中所有程序的运行都要在内存中进行。其作用是用于暂时存放cpu中的运算数据。 我们调试软件时所说的]]></description>
-</item><item>
-    <title>【飞郁2022新课程】08 - 输入输出流</title>
-    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B08-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/</link>
-    <pubDate>Wed, 17 Nov 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B08-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/</guid>
-    <description><![CDATA[在上一节课中咱们的代码中涉及到了printf()函数以及一些参数的设置 这里肯定有很多同学不知道怎么使用这个函数 那么，今天咱们的主题就是 输入和]]></description>
 </item></channel>
 </rss>
