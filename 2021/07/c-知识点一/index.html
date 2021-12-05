@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3011 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3039 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/","datePublished": "2021-07-26T00:00:00+00:00","dateModified": "2021-07-26T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3011 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3039 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(一)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -205,6 +205,7 @@
           <ul>
             <li><a href="#virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</a></li>
             <li><a href="#virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</a></li>
+            <li><a href="#freelibraryandexitthread-释放dll并结束进程">FreeLibraryAndExitThread 释放dll并结束进程</a></li>
           </ul>
         </li>
       </ul>
@@ -262,6 +263,8 @@
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once	</span><span class="c1">//防止头文件被重复编译
@@ -298,7 +301,9 @@
 </span><span class="c1"></span>
 <span class="n">GetLastError</span><span class="p">();</span>
 <span class="c1">//最后一次的出错代码
-</span></code></pre></td></tr></table>
+</span><span class="c1"></span>
+
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="用汇编来调用call">用汇编来调用CALL</h2>
 <div class="highlight"><div class="chroma">
@@ -788,7 +793,28 @@
 </tr>
 </tbody>
 </table>
-</div><div class="post-footer" id="post-footer">
+<h3 id="freelibraryandexitthread-释放dll并结束进程">FreeLibraryAndExitThread 释放dll并结束进程</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">VOID</span> <span class="nf">FreeLibraryAndExitThread</span><span class="p">(</span>
+<span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">,</span>
+<span class="n">DWORD</span> <span class="n">dwExitCode</span>
+<span class="p">);</span>
+
+<span class="n">FreeLibraryAndExitThread</span><span class="p">(</span><span class="n">theApp</span><span class="p">.</span><span class="n">m_hInstance</span><span class="p">,(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">theApp</span><span class="p">.</span><span class="n">m_hInstance</span><span class="p">);</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
