@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">【飞郁2022新课程】19 - 操作符运算符 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】19 - 操作符运算符" />
-<meta property="og:description" content="学生：上节课骷髅老师搜索数据搜索太快了，我还没看清楚呢，他就扫完了，拦都拦不住他啊！ 老师：我都拦不住他呀，他是早产儿。 学生：这和早产儿有啥关" />
+    <title class="pjax-title">Hook - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Hook" />
+<meta property="og:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP公式 跳转地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量 偏移量 = 跳" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-12-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-04T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/12/hook/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-06T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="【飞郁2022新课程】19 - 操作符运算符"/>
-<meta name="twitter:description" content="学生：上节课骷髅老师搜索数据搜索太快了，我还没看清楚呢，他就扫完了，拦都拦不住他啊！ 老师：我都拦不住他呀，他是早产儿。 学生：这和早产儿有啥关"/>
+<meta name="twitter:title" content="Hook"/>
+<meta name="twitter:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP公式 跳转地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量 偏移量 = 跳"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/" /><link rel="next" href="https://xinqinew.github.io/2021/12/mfc%E6%8E%A7%E4%BB%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/hook/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/mfc%E6%8E%A7%E4%BB%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "【飞郁2022新课程】19 - 操作符运算符",
+        "headline": "Hook",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  620 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6\/","datePublished": "2021-12-04T00:00:00+00:00","dateModified": "2021-12-04T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁2019, hook","wordcount":  538 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/","datePublished": "2021-12-06T00:00:00+00:00","dateModified": "2021-12-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】19 - 操作符运算符</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hook</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-04">2021-12-04</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-04">2021-12-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 620 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】19 - 操作符运算符">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 538 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/hook/" class="leancloud_visitors" data-flag-title="Hook">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -141,114 +141,165 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>学生：上节课骷髅老师搜索数据搜索太快了，我还没看清楚呢，他就扫完了，拦都拦不住他啊！</p>
-<p>老师：我都拦不住他呀，他是早产儿。</p>
-<p>学生：这和早产儿有啥关系啊？</p>
-<p>老师：他妈都没拦住他，我能拦住吗？</p>
-<p><strong>接着上一课，</strong></p>
-<p><strong>过第二列黄色钥匙以后。</strong></p>
-<p><strong>神秘老头告诉我们，血量地址还有第二个，</strong></p>
-<p><strong>但是我们只扫描到了一个，为什么呢？</strong></p>
-<p><strong>有三种可能，第一种加密，第二种数据类型不对，不是DWORD类型。第三种歪指针，即不是048C结尾的指针。</strong></p>
-<p><strong>而如果我们勾选上快速扫秒4，那么只会扫描048C结尾的指针</strong></p>
-<p><strong>技巧1：快速扫描的原理(歪指针)</strong></p>
-<p><strong>这里面我们不勾选快速扫描</strong></p>
-<p><strong>再扫描可以扫描到2个学地址了</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/44505832fa8510c227162db4860ffaef002746e3.png@830w_405h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/44505832fa8510c227162db4860ffaef002746e3.png@830w_405h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/44505832fa8510c227162db4860ffaef002746e3.png@830w_405h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/44505832fa8510c227162db4860ffaef002746e3.png@830w_405h_progressive.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/44505832fa8510c227162db4860ffaef002746e3.png@830w_405h_progressive.png"
-        title="img"
-    /></p>
-<p><strong>NPC问我们偏移表达式是什么？</strong></p>
-<p><strong>这里不用会追表达式，因为是歪偏移,所以只有一个歪偏移表达式 直接就是答案，选择3</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3fae95b2e8afe393ea9a4b121ad8b3c87d1e7178.png@624w_354h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3fae95b2e8afe393ea9a4b121ad8b3c87d1e7178.png@624w_354h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3fae95b2e8afe393ea9a4b121ad8b3c87d1e7178.png@624w_354h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3fae95b2e8afe393ea9a4b121ad8b3c87d1e7178.png@624w_354h_progressive.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3fae95b2e8afe393ea9a4b121ad8b3c87d1e7178.png@624w_354h_progressive.png"
-        title="img"
-    /></p>
-<p><strong>CE扫描浮点型</strong></p>
-<p><strong>来到最后的位置，墙被赌死了，我们过不去</strong></p>
-<p><strong>那么怎么办呢？只能瞬移过去</strong></p>
-<p><strong>我们尝试了各种数据类型  DWORD  FLOAT  DOUBLE 等等 都扫描不到</strong></p>
-<p><strong>只能说明数据是加密的</strong></p>
-<p><strong>那么我们通过未知初始值，然后来回改变，最终找到了结果，原来是显示坐标除以100</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8434e643cb8d8ea15d872e2e5976b33dbc8bdec.png@830w_374h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8434e643cb8d8ea15d872e2e5976b33dbc8bdec.png@830w_374h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8434e643cb8d8ea15d872e2e5976b33dbc8bdec.png@830w_374h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8434e643cb8d8ea15d872e2e5976b33dbc8bdec.png@830w_374h_progressive.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8434e643cb8d8ea15d872e2e5976b33dbc8bdec.png@830w_374h_progressive.png"
-        title="img"
-    /></p>
-<p>修改瞬移过墙</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb8d63a11c5ab2ca3b6d6f752fb81e76f3286eaa.png@830w_617h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb8d63a11c5ab2ca3b6d6f752fb81e76f3286eaa.png@830w_617h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb8d63a11c5ab2ca3b6d6f752fb81e76f3286eaa.png@830w_617h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb8d63a11c5ab2ca3b6d6f752fb81e76f3286eaa.png@830w_617h_progressive.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb8d63a11c5ab2ca3b6d6f752fb81e76f3286eaa.png@830w_617h_progressive.png"
-        title="img"
-    /></p>
-<p>这样我们就通过这关了</p>
-<p>到了第5层发现楼梯都没有了，神秘老头提示我们要穿越楼层</p>
-<p>这里大家可以下载软件 自己尝试哦</p>
-<p>到了第6层 ，我们看到有如下提示：</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9c86984ebd249261b031aea4df457f1a8532bd56.png@942w_56h_progressive-20211204161922876.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9c86984ebd249261b031aea4df457f1a8532bd56.png@942w_56h_progressive-20211204161922876.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9c86984ebd249261b031aea4df457f1a8532bd56.png@942w_56h_progressive-20211204161922876.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9c86984ebd249261b031aea4df457f1a8532bd56.png@942w_56h_progressive-20211204161922876.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9c86984ebd249261b031aea4df457f1a8532bd56.png@942w_56h_progressive-20211204161922876.png"
-        title="img"
-    /></p>
-<p>这个提示告诉我们  游戏的主模块句柄是 00400000 也就是加载的开始位置是 00400000</p>
-<p>大小是  007BB000</p>
-<p>那么在这个范围内的地址都是基地址</p>
-<p>我们如果想扫描基地址的时候</p>
-<p>直接扫描这个范围</p>
-<p>在该位置修改即可</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/023bba2d70166aa918129fef7e3337349c534685.png@477w_87h_progressive.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/023bba2d70166aa918129fef7e3337349c534685.png@477w_87h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/023bba2d70166aa918129fef7e3337349c534685.png@477w_87h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/023bba2d70166aa918129fef7e3337349c534685.png@477w_87h_progressive.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/023bba2d70166aa918129fef7e3337349c534685.png@477w_87h_progressive.png"
-        title="img"
-    /></p>
-<p><strong>当然有的时候我们觉得扫描所有地址卡的话，也可以人为 分几块区域扫描</strong></p>
-<p><strong>也是可以的。</strong></p>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#常用hook方式">常用hook方式</a></li>
+        <li><a href="#jmp公式">JMP公式</a></li>
+        <li><a href="#跨进程hook">跨进程hook</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="常用hook方式">常用hook方式</h2>
+<p>JMP指令型hook</p>
+<p>RET指令型hook</p>
+<p>Detours库hook</p>
+<h2 id="jmp公式">JMP公式</h2>
+<p><strong>跳转地址 = 当前指令地址 +指令长度 + 偏移量</strong></p>
+<p>偏移量 = 跳转地址 - 当前指令地址 - 指令长度</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">776101</span><span class="nf">EC</span>	<span class="no">E9</span>	<span class="no">C9950200</span>
+<span class="err">//</span> <span class="err">776101</span><span class="nf">EC为当前地址</span>
+<span class="err">//</span> <span class="nf">E9</span> <span class="err">为</span><span class="no">JMP</span>
+<span class="err">//</span> <span class="nf">C9950200</span> <span class="err">为偏移</span> <span class="err">逆序</span>
+<span class="err">//</span> <span class="err">776397</span><span class="nf">BA</span> <span class="err">=</span> <span class="mi">776101</span><span class="no">EC</span> <span class="err">+</span> <span class="mi">5</span> <span class="err">+</span> <span class="mi">000295</span><span class="no">C9</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="跨进程hook">跨进程hook</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//跨进程hook 动态打补丁
+</span><span class="c1"></span><span class="n">OpenProcess</span>	<span class="c1">//打开进程 获取进程权限的句柄
+</span><span class="c1"></span><span class="n">WriteProcessMemory</span>	<span class="c1">//跨进程写入进程
+</span><span class="c1"></span><span class="n">VirtualAllocEx</span>	<span class="c1">//跨进程分配内存
+</span><span class="c1"></span><span class="n">VirtualProtectEx</span>	<span class="c1">//修改内存页面属性
+</span><span class="c1"></span><span class="n">JMP</span> <span class="err">跳转指令公式</span>	<span class="err">目标偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="err">当前指令地址</span>	<span class="c1">//5是指令长度 (近跳为2)
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="n">BYTE</span> <span class="n">gbuf_0040100A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x90</span> <span class="p">};</span>
+<span class="n">BYTE</span> <span class="n">gbuf_00401886</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">,</span> <span class="mh">0xAF</span><span class="p">,</span> <span class="mh">0xC1</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xCB</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span>
+	<span class="mh">0xC8</span><span class="p">,</span> <span class="mh">0x90</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0x59</span><span class="p">,</span> <span class="mh">0x5B</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x00</span> <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+	<span class="c1">//获取目标进程句柄
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;请手动输入进程pid&#34;</span><span class="p">);</span>
+	<span class="n">scanf_s</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+	<span class="n">HANDLE</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+
+	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
+
+	<span class="c1">//写入hook代码
+</span><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x0040100A,6, gbuf_0040100A,6);//本地hook
+</span><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x00401886,32, gbuf_00401886, 32);
+</span><span class="c1"></span>	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="n">gbuf_0040100A</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
+	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="n">gbuf_00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
+
+	<span class="c1">//恢复原页面属性
+</span><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//DLL HOOK补丁	//更完美一些的可以考虑 劫持一个DLL
+</span><span class="c1"></span><span class="n">VirtualProtect</span>	<span class="c1">//修改内存页面属性
+</span><span class="c1"></span><span class="err">指针操作</span> <span class="err">写入代码即可</span>
+<span class="err">写完可以考虑恢复内存页面属性</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-12-04</span>
+                <span>更新于 2021-12-06</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" data-title="【飞郁2022新课程】19 - 操作符运算符" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" data-title="【飞郁2022新课程】19 - 操作符运算符"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" data-title="【飞郁2022新课程】19 - 操作符运算符"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" data-title="【飞郁2022新课程】19 - 操作符运算符"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/hook/" data-title="Hook" data-hashtags="飞郁2019,hook"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/hook/" data-hashtag="飞郁2019"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/hook/" data-title="Hook"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/hook/" data-title="Hook"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/hook/" data-title="Hook"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%812019/">飞郁2019</a>,&nbsp;<a href="/tags/hook/">hook</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/" class="prev" rel="prev" title="【飞郁2022新课程】18 - CE基础和扫描"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】18 - CE基础和扫描</a>
-            <a href="/2021/12/mfc%E6%8E%A7%E4%BB%B6/" class="next" rel="next" title="MFC控件">MFC控件<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/12/mfc%E6%8E%A7%E4%BB%B6/" class="prev" rel="prev" title="MFC控件"><i class="fas fa-angle-left fa-fw"></i>MFC控件</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
