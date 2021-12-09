@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <title class="pjax-title">Hook - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Hook" />
-<meta property="og:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP公式 跳转地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量 偏移量 = 跳" />
+<meta property="og:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP与CALL 公式 目标地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/12/hook/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-06T00:00:00+00:00" />
@@ -16,13 +16,13 @@
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Hook"/>
-<meta name="twitter:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP公式 跳转地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量 偏移量 = 跳"/>
+<meta name="twitter:description" content="常用hook方式 JMP指令型hook RET指令型hook Detours库hook JMP与CALL 公式 目标地址 = 当前指令地址 &#43;指令长度 &#43; 偏移量"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/hook/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/mfc%E6%8E%A7%E4%BB%B6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/hook/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/mfc%E6%8E%A7%E4%BB%B6/" /><link rel="next" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B20-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁2019, hook","wordcount":  538 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁2019, hook","wordcount":  1306 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/","datePublished": "2021-12-06T00:00:00+00:00","dateModified": "2021-12-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 538 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/hook/" class="leancloud_visitors" data-flag-title="Hook">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1306 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/12/hook/" class="leancloud_visitors" data-flag-title="Hook">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -146,8 +146,10 @@
     <li>
       <ul>
         <li><a href="#常用hook方式">常用hook方式</a></li>
-        <li><a href="#jmp公式">JMP公式</a></li>
+        <li><a href="#jmp与call-公式">JMP与CALL 公式</a></li>
         <li><a href="#跨进程hook">跨进程hook</a></li>
+        <li><a href="#dll版-动态hook">DLL版 动态HOOK</a></li>
+        <li><a href="#mfc-dll-动态hook与unhook">MFC DLL 动态HOOK与UNHOOK</a></li>
       </ul>
     </li>
   </ul>
@@ -156,9 +158,9 @@
 <p>JMP指令型hook</p>
 <p>RET指令型hook</p>
 <p>Detours库hook</p>
-<h2 id="jmp公式">JMP公式</h2>
-<p><strong>跳转地址 = 当前指令地址 +指令长度 + 偏移量</strong></p>
-<p>偏移量 = 跳转地址 - 当前指令地址 - 指令长度</p>
+<h2 id="jmp与call-公式">JMP与CALL 公式</h2>
+<p><strong>目标地址 = 当前指令地址 +指令长度 + 偏移量</strong></p>
+<p>偏移量 = 目标地址 - 当前指令地址 - 指令长度</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -276,6 +278,326 @@
 <span class="err">写完可以考虑恢复内存页面属性</span>
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="dll版-动态hook">DLL版 动态HOOK</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// dllmain.cpp : 定义 DLL 应用程序的入口点。
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">BOOL</span> <span class="n">APIENTRY</span> <span class="nf">DllMain</span><span class="p">(</span> <span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">,</span>
+                       <span class="n">DWORD</span>  <span class="n">ul_reason_for_call</span><span class="p">,</span>
+                       <span class="n">LPVOID</span> <span class="n">lpReserved</span>
+                     <span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">ul_reason_for_call</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">DLL_PROCESS_ATTACH</span><span class="p">:</span>
+	<span class="p">{</span>
+		<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
+</span><span class="c1"></span>		<span class="c1">//0006121C E8 57442E12  //call 12345678
+</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
+		<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mh">0x0006121C</span><span class="p">;</span>
+
+		<span class="c1">//向0x0006121D 4字节偏移
+</span><span class="c1"></span>		<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+		<span class="c1">//8 为4字节
+</span><span class="c1"></span>
+		<span class="c1">//写入偏移
+</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">;</span>
+		<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+		<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+
+		<span class="c1">//恢复原页面属性
+</span><span class="c1"></span>		<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+    <span class="k">case</span> <span class="nl">DLL_THREAD_ATTACH</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">DLL_THREAD_DETACH</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">DLL_PROCESS_DETACH</span><span class="p">:</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mfc-dll-动态hook与unhook">MFC DLL 动态HOOK与UNHOOK</h2>
+<p><strong>hook.cpp</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hook</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
+</span><span class="c1"></span>	<span class="c1">//0084121C E8 57442E12  //call 12345678
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
+	<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mh">0x0084121C</span><span class="p">;</span>
+
+	<span class="c1">//向0x0084121D 4字节偏移
+</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0084121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+	<span class="c1">//8 为4字节
+</span><span class="c1"></span>
+	<span class="c1">//写入偏移
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0084121D</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+	<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+
+	<span class="c1">//恢复原页面属性
+</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0084121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+
+	<span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">unhook</span><span class="p">()</span>
+<span class="p">{</span>
+
+	<span class="c1">//向0x0084121D 4字节偏移
+</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0084121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+	<span class="c1">//8 为4字节
+</span><span class="c1"></span>
+	<span class="c1">//写入偏移
+</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0084121D</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="mh">0xFFFFFF5F</span><span class="p">;</span>
+
+	<span class="c1">//恢复原页面属性
+</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+	<span class="k">return</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>hook.h</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
+</span><span class="cp"></span><span class="k">class</span> <span class="nc">HOOK</span>
+<span class="p">{</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">hook</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">unhook</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>主程序源文件 MFC_HOOK_DLL.cpp 关键部分</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 唯一的 CMFCHOOKDLLApp 对象
+</span><span class="c1"></span>
+<span class="n">CMFCHOOKDLLApp</span> <span class="n">theApp</span><span class="p">;</span>
+
+<span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
+<span class="c1">// CMFCHOOKDLLApp 初始化
+</span><span class="c1"></span><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">showDlg</span><span class="p">(</span><span class="n">PVOID</span> <span class="n">arglist</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
+	<span class="n">pg1</span><span class="p">.</span><span class="n">DoModal</span><span class="p">();</span>	<span class="c1">//显示窗口
+</span><span class="c1"></span>	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">BOOL</span> <span class="n">CMFCHOOKDLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
+	<span class="c1">//写HOOK 显示窗口
+</span><span class="c1"></span>	<span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">showDlg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Dlg源文件 CPAGE1.cpp 关键部分</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// CPAGE1 消息处理程序
+</span><span class="c1"></span>
+<span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton1Hook</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">hook</span><span class="p">();</span>
+	<span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span><span class="c1"></span><span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton2Unhook</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">unhook</span><span class="p">();</span>
+	<span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -299,7 +621,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/12/mfc%E6%8E%A7%E4%BB%B6/" class="prev" rel="prev" title="MFC控件"><i class="fas fa-angle-left fa-fw"></i>MFC控件</a></div>
+    <div class="post-nav"><a href="/2021/12/mfc%E6%8E%A7%E4%BB%B6/" class="prev" rel="prev" title="MFC控件"><i class="fas fa-angle-left fa-fw"></i>MFC控件</a>
+            <a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B20-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" class="next" rel="next" title="【飞郁2022新课程】20 - 局部变量和全局变量">【飞郁2022新课程】20 - 局部变量和全局变量<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
