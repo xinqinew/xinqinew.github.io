@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有脚本 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/%E8%84%9A%E6%9C%AC/</link>
+        <description>所有脚本 | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E8%84%9A%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>AI与大漠</title>
+    <link>https://xinqinew.github.io/2021/12/ai%E4%B8%8E%E5%A4%A7%E6%BC%A0/</link>
+    <pubDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/ai%E4%B8%8E%E5%A4%A7%E6%BC%A0/</guid>
+    <description><![CDATA[这里收录了我的脚本笔记. 1 2 3 4 5 6 7 8 graph LR subgraph AI与图色 z1[&#34;目标检测(种类、位置)&#34;] --&gt;YOLOV3 &amp; YOLOV4 &amp; YOLOV5 z2[&#34;文字识别]]></description>
+</item><item>
+    <title>课程目录</title>
+    <link>https://xinqinew.github.io/2021/12/%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</link>
+    <pubDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</guid>
+    <description><![CDATA[这里收录了我的脚本笔记.]]></description>
+</item></channel>
+</rss>
