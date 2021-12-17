@@ -40,13 +40,6 @@
     </author><guid>https://xinqinew.github.io/2021/09/%E5%9B%BE%E8%A7%A3dbgview%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[图解DbgView使用 一 DbgView简介 Sysinternals公司的系列调试工具。 debugview 可以捕获程序中由TRACE(debug版本)和Out]]></description>
 </item><item>
-    <title>Visual C&#43;&#43;免注册调用大漠插件</title>
-    <link>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
-    <pubDate>Thu, 16 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
-    <description><![CDATA[Visual C++免注册调用大漠插件 1、 注册调用 一、下载大漠插件，并注册到系统 下载地址：https://pan.baidu.com/s/1nCc5jB]]></description>
-</item><item>
     <title>Java-环境搭建Mac版</title>
     <link>https://xinqinew.github.io/2021/08/java-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAmac%E7%89%88/</link>
     <pubDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</pubDate><author>
@@ -74,5 +67,12 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%8F%98%E6%9C%AC%E5%9C%B0%E7%A1%AC%E7%9B%98-mac%E7%89%88/</guid>
     <description><![CDATA[获取阿里云盘 refresh_token 登陆阿里云盘网页版 https://www.aliyundrive.com/sign/in 登陆以后F12 复制 refresh_token 留用 配置 两种配置方式 Jar包运行 点击下载Jar包 1 java -jar webdav.jar --aliyundrive.refresh-token=&#34;your refreshToken&#34; docker运行 1 2 3 4 5]]></description>
+</item><item>
+    <title>sublimetext常见问题</title>
+    <link>https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[sublimetext常见问题 下载安装 汉化 1.点击tools&mdash;install package control 2.preferences&mdash;package control 3.选择 “Package Control: Install Package”]]></description>
 </item></channel>
 </rss>
