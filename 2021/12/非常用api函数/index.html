@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">整理 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="整理" />
-<meta property="og:description" content="整体流程 1 2 3 4 5 6 7 8 9 10 11 12 13 14 graph subgraph 整体流程 找出发包函数--&gt; 判断是否线程发包 --&gt; |否|找出加密封包 判断是否线程发包--&gt; |是" />
+    <title class="pjax-title">非常用API函数 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="非常用API函数" />
+<meta property="og:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-10-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-21T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-17T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="整理"/>
-<meta name="twitter:description" content="整体流程 1 2 3 4 5 6 7 8 9 10 11 12 13 14 graph subgraph 整体流程 找出发包函数--&gt; 判断是否线程发包 --&gt; |否|找出加密封包 判断是否线程发包--&gt; |是"/>
+<meta name="twitter:title" content="非常用API函数"/>
+<meta name="twitter:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><link rel="prev" href="https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "整理",
+        "headline": "非常用API函数",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%95%B4%E7%90%86\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "辅助","wordcount":  1002 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E6%95%B4%E7%90%86\/","datePublished": "2021-10-21T00:00:00+00:00","dateModified": "2021-10-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  1658 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-12-17T00:00:00+00:00","dateModified": "2021-12-17T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,15 +128,22 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">整理</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">非常用API函数</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%BE%85%E5%8A%A9/"><i class="far fa-folder fa-fw"></i>辅助</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-21">2021-10-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-21">2021-10-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1002 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/10/%E6%95%B4%E7%90%86/" class="leancloud_visitors" data-flag-title="整理">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1658 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="非常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="featured-image"><img
+        class="lazyload"
+        data-src="/images/C&#43;&#43;.jpg"
+        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-sizes="auto"
+        alt="/images/C&#43;&#43;.jpg"
+        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
+    /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -145,89 +152,79 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#整体流程">整体流程</a></li>
-        <li><a href="#检测">检测</a></li>
-        <li><a href="#主线程调用">主线程调用</a></li>
-        <li><a href="#hook流程">Hook流程</a>
-          <ul>
-            <li><a href="#安装与卸载主线程勾子">安装与卸载主线程勾子</a></li>
-            <li><a href="#窗口回调函数">窗口回调函数</a></li>
-            <li><a href="#注册消息">注册消息</a></li>
-            <li><a href="#发送消息向主线程发送">发送消息（向主线程发送）</a></li>
-          </ul>
-        </li>
+        <li><a href="#processentry32-存放快照进程信息的结构体">PROCESSENTRY32 存放快照进程信息的结构体</a></li>
+        <li><a href="#createtoolhelp32snapshot函数">CreateToolhelp32Snapshot函数</a></li>
+        <li><a href="#process32first-进程获取函数第一个">Process32First 进程获取函数(第一个)</a></li>
+        <li><a href="#process32next-进程获取函数下一个">Process32Next 进程获取函数(下一个)</a></li>
+        <li><a href="#strcpy-字符串比较">strcpy 字符串比较</a></li>
+        <li><a href="#wcscpy-字符串比较">wcscpy 字符串比较</a></li>
+        <li><a href="#_tcscmp-字符串比较">_tcscmp 字符串比较</a></li>
+        <li><a href="#enumwindows-枚举顶层窗口">EnumWindows 枚举顶层窗口</a></li>
+        <li><a href="#enumchildwindows-枚举子控件">EnumChildWindows 枚举子控件</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="整体流程">整体流程</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph 整体流程
-找出发包函数--&gt;
-判断是否线程发包
---&gt;
-|否|找出加密封包
-判断是否线程发包--&gt;
-|是|跳出线程发包--&gt;
-找出加密封包--&gt;
-|ctrl+F9向外层找|明文包--&gt;
-在明文包与加密封包之间找出加密call--&gt;
-分析加密call--&gt;
-|过滤心跳包|控件包
-end
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="检测">检测</h2>
-<ul>
-<li>CRC检测</li>
-<li>数据检测（内存地址）</li>
-<li>CALL检测
-<ul>
-<li>堆栈检测</li>
-<li>标志位检测</li>
-</ul>
-</li>
-</ul>
+            </div><div class="content" id="content"><h2 id="processentry32-存放快照进程信息的结构体">PROCESSENTRY32 存放快照进程信息的结构体</h2>
+<p>头文件 #include&quot;tlhelp32.h&quot;</p>
+<h2 id="createtoolhelp32snapshot函数">CreateToolhelp32Snapshot函数</h2>
+<p>获取系统中正在运行的进程信息，线程信息等。</p>
+<p><a href="https://blog.csdn.net/ktpd_pro/article/details/58601486?utm_source=app&amp;app_version=4.20.0" target="_blank" rel="noopener noreffer">详细内容见此</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph CRC检测 
-a1([CRC检测&lt;br&gt;即代码修改检测])--&gt;
-在猜测的位置下访问断
---&gt;
-能跳到检测的位置
---&gt;
-nop &amp; hook &amp; 中策:jmp &amp; 上策:改变检测标志位
-end
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateToolhelp32Snapshot</span><span class="p">(</span>
+  <span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwFlags</span><span class="p">,</span>       <span class="c1">//用来指定“快照”中需要返回的对象，可以是TH32CS_SNAPPROCESS等
+</span><span class="c1"></span>  <span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">th32ProcessID</span>  <span class="c1">//一个进程ID号，用来指定要获取哪一个进程的快照，当获取系统进程列表或获取 当前进程快照时可以设为0
+</span><span class="c1"></span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="process32first-进程获取函数第一个">Process32First 进程获取函数(第一个)</h2>
+<p>当我们利用函数<strong>CreateToolhelp32Snapshot()<strong>获得当前运行进程的快照后，我们可以利用</strong>process32First</strong>函数来获得第一个进程的句柄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">Process32First</span><span class="p">(</span>
+    <span class="n">HANDLE</span> <span class="n">hSnapshot</span><span class="p">,</span><span class="c1">//_in  从CreateToolhelp32Snapshot 返回的句柄。
+</span><span class="c1"></span>    <span class="n">LPPROCESSENTRY32</span> <span class="n">lppe</span><span class="c1">//_out  指向PROCESSENTRY32结构的指针。
+</span><span class="c1"></span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="process32next-进程获取函数下一个">Process32Next 进程获取函数(下一个)</h2>
+<p>当我们利用函数<strong>CreateToolhelp32Snapshot()<strong>获得当前运行进程的快照后,我们可以利用</strong>Process32Next</strong>函数来获得下一个进程的句柄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">Process32Next</span><span class="p">(</span>
+  <span class="n">__in</span> <span class="n">HANDLE</span> <span class="n">hSnapshot</span><span class="p">,</span>	<span class="c1">//从CreateToolhelp32Snapshot 返回的句柄。
+</span><span class="c1"></span>  <span class="n">__out</span> <span class="n">LPPROCESSENTRY32</span> <span class="n">lppe</span>  <span class="c1">//指向PROCESSENTRY32结构的指针。
+</span><span class="c1"></span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="strcpy-字符串比较">strcpy 字符串比较</h2>
+<p><strong>用于ANSI标准字符串</strong></p>
+<p>这是<strong>用于ANSI标准字符串</strong>的函数(如string和char *)，此函数接受两个字符串缓冲区做为参数，<strong>如果两个字符串是相同的则返回零</strong>。否则若第一个传入的字符串的值大于第二个字符串返回值将会大于零，若传入的第一个字符串的值小于第二个字符串返回值将小于零。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">strDestination</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">strSource</span><span class="p">);</span>  
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -244,16 +241,28 @@ end
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph CALL检测 
-d0([CALL检测])--&gt;堆栈检测 &amp; 标志位检测
-堆栈检测--&gt;
-d3[&#34;第一种&lt;br&gt;本地堆栈检测&#34;]--&gt;
-d1[&#34;mov ecx,[ebp+4]&#34;]
-堆栈检测--&gt;
-d4[&#34;第二种&lt;br&gt;网络堆栈检测&#34;]--&gt;
-d2[&#34;发包的包内容中&lt;br&gt;包含大量堆栈数据&#34;]
-end
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//实例
+</span><span class="c1"></span><span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="o">=</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">undefined</span> <span class="c1">//字符串相等
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="n">undefined</span>	<span class="c1">//字符串不相等
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="wcscpy-字符串比较">wcscpy 字符串比较</h2>
+<p><strong>用于Unicode标准字符串</strong></p>
+<p>它的使用方法和strcmp相同，它用来<strong>比较两个Unicode字符串是否相等</strong>(如wstring和wchar_t *)。</p>
+<p>wcscpy()即为strcpy()的宽字符版本，与_T类似的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">wchar_t</span> <span class="o">*</span><span class="nf">wcscpy</span><span class="p">(</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="n">strDestination</span><span class="p">,</span> <span class="k">const</span> <span class="kt">wchar_t</span> <span class="o">*</span><span class="n">strSource</span><span class="p">);</span> 
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -268,37 +277,24 @@ end
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph 数据检测 
-z1([&#34;数据检测&lt;br&gt;即内存地址数据检测&#34;])--&gt;
-CE对数据查访问--&gt;
-z3[&#34;找到疑似检测代码&#34;]
-z1--&gt;
-CE对数据的替身查访问--&gt;
-z3--&gt;
-z2[&#34;OD内找来源&lt;br&gt;可向上层找&#34;]--&gt;
-找到疑似检测call--&gt;
-观察平栈情况--&gt;
-z4[&#34;观察寄存器&lt;br&gt;在call执行前后&lt;br&gt;的变化情况&#34;]--&gt;
-z5[&#34;观察变化后的寄存器&lt;br&gt;对后面的代码有没有作用&lt;br&gt;没有作用的可忽略&#34;]--&gt;
-z6[&#34;把检测call nop掉或者hook&lt;br&gt;给有用的寄存器赋值&lt;br&gt;并平栈&#34;]
-end
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//实例
+</span><span class="c1"></span><span class="kt">wchar_t</span> <span class="o">*</span><span class="n">ch</span><span class="o">=</span><span class="sa">L</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">wcscmp</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="sa">L</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">undefined</span> <span class="c1">//字符串相等
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="n">undefined</span>	<span class="c1">//字符串不相等
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="主线程调用">主线程调用</h2>
-<ul>
-<li>call</li>
-<li>写内存</li>
-<li>hook</li>
-</ul>
-<h2 id="hook流程">Hook流程</h2>
+</div><h2 id="_tcscmp-字符串比较">_tcscmp 字符串比较</h2>
+<p><strong>_tcscpy</strong> 在编译时会根据条件被替换</p>
+<p>如果是 <strong>ANSI</strong>工程,则使用 <strong>strcpy</strong></p>
+<p>如果是<strong>UNICODE</strong>工程，则使用<strong>wcscpy</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -306,102 +302,108 @@ end
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z1([Hook流程])--&gt;
-选一个大于5字节的位置--&gt;
-保存原来的代码--&gt;
-修改代码--&gt;
-改写c++代码
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="安装与卸载主线程勾子">安装与卸载主线程勾子</h3>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022233212141.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022233212141.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022233212141.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022233212141.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022233212141.png"
-        title="安装与卸载主线程勾子"
-    /></p>
-<h3 id="窗口回调函数">窗口回调函数</h3>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211023000439359.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211023000439359.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211023000439359.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211023000439359.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211023000439359.png"
-        title="image-20211023000439359"
-    /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HHOOK</span> <span class="n">g_hhookGame</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="注册消息">注册消息</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">DWORD</span> <span class="n">MyMSGId</span><span class="o">=</span><span class="n">RegisterWindowMessageA</span><span class="p">(</span><span class="s">&#34;MyMSG&#34;</span><span class="p">);</span>	<span class="c1">//注册消息
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#ifdef UNICODE   
+</span><span class="cp"></span>    <span class="cp">#define _tcscpy     wcscpy  
+</span><span class="cp">#else  
+</span><span class="cp"></span>    <span class="cp">#define _tcscpy     strcpy  
+</span><span class="cp">#endif 
 </span></code></pre></td></tr></table>
 </div>
-</div><p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235349954.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235349954.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235349954.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235349954.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235349954.png"
-        title="image-20211022235349954"
-    /></p>
-<h3 id="发送消息向主线程发送">发送消息（向主线程发送）</h3>
-<p><strong>键盘按下的消息</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235044301.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235044301.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235044301.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235044301.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211022235044301.png"
-        title="image-20211022235044301"
-    /></p>
+</div><h2 id="enumwindows-枚举顶层窗口">EnumWindows 枚举顶层窗口</h2>
+<p>该函数枚举所有屏幕上的顶层窗口，并将<a href="https://baike.baidu.com/item/%e7%aa%97%e5%8f%a3%e5%8f%a5%e6%9f%84" target="_blank" rel="noopener noreffer">窗口句柄</a>传送给应用程序定义的<a href="https://baike.baidu.com/item/%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0" target="_blank" rel="noopener noreffer">回调函数</a>。回调函数返回FALSE将停止枚举，否则EnumWindows函数继续到所有顶层窗口枚举完为止。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#define MSG_KeyDown 100
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//函数原型
+</span><span class="c1"></span><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">EnumWindows</span><span class="p">(</span>
+    <span class="n">_In_</span> <span class="n">WNDENUMPROC</span> <span class="n">lpEnumFunc</span><span class="p">,</span><span class="c1">//为回调函数
+</span><span class="c1"></span>    <span class="n">_In_</span> <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//传递给回调函数
+</span><span class="c1"></span><span class="p">);</span>
+
+<span class="c1">//回调函数原型
+</span><span class="c1"></span><span class="n">BOOL</span> <span class="n">CALLBACK</span> <span class="nf">EnumWindowsProc</span><span class="p">(</span>
+  <span class="n">HWND</span> <span class="n">hwnd</span><span class="p">,</span>	<span class="c1">//枚举到的窗口句柄
+</span><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//EnumWindows传递过来的参数
+</span><span class="c1"></span><span class="p">);</span>
+
+</code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><p><strong>EnumWindows</strong>中的参数：<strong>lpEnumFunc</strong>回调函数，<strong>lParam</strong>参数传递给回调函数的<strong>lParam</strong>。回调函数中的参数：<strong>hwnd</strong>枚举到的窗口句柄，<strong>lParam</strong>为<strong>EnumWindows</strong>传递过来的参数。</p>
+<h2 id="enumchildwindows-枚举子控件">EnumChildWindows 枚举子控件</h2>
+<p>功能：枚举指定控件下的所有子控件，并将子控件句柄传送给应用程序定义的回调函数，回调函数返回FALSE将停止枚举，否则一直到所有子控件枚举完为止。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//函数原型：
+</span><span class="c1"></span><span class="n">BOOL</span> <span class="nf">EnumChildWindows</span><span class="p">(</span>
+  <span class="n">HWND</span> <span class="n">hWndParent</span><span class="p">,</span> <span class="c1">//为目标控件所在的父控件句柄
+</span><span class="c1"></span>  <span class="n">WNDENUMPROC</span> <span class="n">lpEnumFunc</span><span class="p">,</span> <span class="c1">//为回调函数
+</span><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//传递给回调函数
+</span><span class="c1"></span><span class="p">);</span>
+
+<span class="c1">//回调函数原型：
+</span><span class="c1"></span><span class="n">BOOL</span> <span class="n">CALLBACK</span> <span class="nf">EnumChildProc</span><span class="p">(</span>
+  <span class="n">HWND</span> <span class="n">hwnd</span><span class="p">,</span> <span class="c1">//枚举到的子控件句柄
+</span><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span> <span class="c1">//EnumChildWindows传递过来的参数
+</span><span class="c1"></span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>EnumChildWindows</strong>中的参数：<strong>hWndParent</strong>为目标控件所在的父控件句柄；<strong>lpEnumFunc</strong>为回调函数；<strong>lParam</strong>传递给回调函数。回调函数中的参数：<strong>hwnd</strong>枚举到的子控件句柄，<strong>lParam</strong>为<strong>EnumChildWindows</strong>传递过来的参数。</p>
+<blockquote>
+<p>如果<code>hWndParent</code>参数为NULL，则此函数等效于EnumWindows。</p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-10-21</span>
+                <span>更新于 2021-12-17</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" data-title="整理" data-hashtags="辅助"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" data-hashtag="辅助"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" data-title="整理"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" data-title="整理"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" data-title="整理"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" data-title="非常用API函数" data-hashtags="“API函数”"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" data-hashtag="“API函数”"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" data-title="非常用API函数"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" data-title="非常用API函数"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" data-title="非常用API函数" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BE%85%E5%8A%A9/">辅助</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/api%E5%87%BD%E6%95%B0/">“API函数”</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" class="prev" rel="prev" title="ASCII码对照表"><i class="fas fa-angle-left fa-fw"></i>ASCII码对照表</a></div>
+    <div class="post-nav"><a href="/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/" class="prev" rel="prev" title="内存中的浮点数与CE扫四种编码"><i class="fas fa-angle-left fa-fw"></i>内存中的浮点数与CE扫四种编码</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

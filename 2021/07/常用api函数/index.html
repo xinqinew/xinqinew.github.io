@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1617 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1599 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2021-07-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1617 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1599 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/07/%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -499,13 +499,15 @@ CDC类定义的是设备上下文对象的类</p>
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GetClassName</span><span class="p">(</span><span class="n">HWND</span> <span class="n">hWnd</span><span class="p">,</span> <span class="n">LPTSTR</span> <span class="n">IpClassName</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nMaxCount</span><span class="p">);</span>
-<span class="c1">// int 如果函数成功，返回值为拷贝到指定缓冲区的字符个数：如果函数失败，返回值为0
-</span><span class="c1">// hWnd：窗口的句柄及间接给出的窗口所属的类。
-</span><span class="c1">// IpClassName:指向接收窗口类名字符串的缓冲区的指针。
-</span><span class="c1">// nMaxCount：指定由参数lpClassName指示的缓冲区的字节数。如果类名字符串大于缓冲区的长度，则多出的部分被截断。
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GetClassName</span><span class="p">(</span>
+  <span class="n">HWND</span> <span class="n">hWnd</span><span class="p">,</span> <span class="c1">//窗口的句柄及间接给出的窗口所属的类。
+</span><span class="c1"></span>  <span class="n">LPTSTR</span> <span class="n">IpClassName</span><span class="p">,</span>	<span class="c1">//指向接收窗口类名字符串的缓冲区的指针。
+</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">nMaxCount</span>	<span class="c1">//指定由参数lpClassName指示的缓冲区的字节数。如果类名字符串大于缓冲区的长度，则多出的部分被截断。
+</span><span class="c1"></span><span class="p">);</span>
+<span class="c1">// 返回值: 如果函数成功，返回值为拷贝到指定缓冲区的字符个数：如果函数失败，返回值为0
 </span><span class="c1"></span>
 </code></pre></td></tr></table>
 </div>
