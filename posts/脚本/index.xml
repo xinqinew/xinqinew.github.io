@@ -5,6 +5,13 @@
         <description>所有脚本 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E8%84%9A%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>MFC</title>
+    <link>https://xinqinew.github.io/2021/12/mfc/</link>
+    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/mfc/</guid>
+    <description><![CDATA[通用 新建控件后,先改ID,然后添加变量,再添加控件事件 1 2 3 4 5 graph z([新建控件])--&gt; 改ID--&gt; 添加变量-.-&gt; 添加]]></description>
+</item><item>
     <title>大漠常见问题</title>
     <link>https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate><author>

@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  1658 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  1720 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-12-17T00:00:00+00:00","dateModified": "2021-12-17T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1658 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1720 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="非常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -161,6 +161,8 @@
         <li><a href="#_tcscmp-字符串比较">_tcscmp 字符串比较</a></li>
         <li><a href="#enumwindows-枚举顶层窗口">EnumWindows 枚举顶层窗口</a></li>
         <li><a href="#enumchildwindows-枚举子控件">EnumChildWindows 枚举子控件</a></li>
+        <li><a href="#settimer-设置定时器">SetTimer 设置定时器</a></li>
+        <li><a href="#killtimer-关闭定时器">KillTimer 关闭定时器</a></li>
       </ul>
     </li>
   </ul>
@@ -380,7 +382,35 @@
 <blockquote>
 <p>如果<code>hWndParent</code>参数为NULL，则此函数等效于EnumWindows。</p>
 </blockquote>
-</div><div class="post-footer" id="post-footer">
+<h2 id="settimer-设置定时器">SetTimer 设置定时器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">SetTimer</span><span class="p">(</span>	
+		<span class="mi">1</span><span class="p">,</span>		<span class="c1">//定时器ID
+</span><span class="c1"></span>		<span class="mi">5000</span><span class="p">,</span>	<span class="c1">//时间
+</span><span class="c1"></span>		<span class="nb">NULL</span>  <span class="c1">//调用的函数
+</span><span class="c1"></span><span class="p">);</span>	
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="killtimer-关闭定时器">KillTimer 关闭定时器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">KillTimer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//定时器编号
+</span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
