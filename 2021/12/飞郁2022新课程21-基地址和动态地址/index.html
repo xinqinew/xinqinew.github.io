@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">大漠常见问题 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="大漠常见问题" />
-<meta property="og:description" content="注册失败 返回值为-2时,VS需要启用管理员模式 chm电子书无法查看 复制到本机 雷电模拟器 查看句柄 第4项" />
+    <title class="pjax-title">【飞郁2022新课程】21 - 基地址和动态地址 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】21 - 基地址和动态地址" />
+<meta property="og:description" content="基地址 每一次程序启动,内存都会重新分配,我们在CE中扫描的地址大多会发生改变,但也有一些是不会随着游戏重启而变化的,这里面就有一部分是基地址" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-12-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-15T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-19T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="大漠常见问题"/>
-<meta name="twitter:description" content="注册失败 返回值为-2时,VS需要启用管理员模式 chm电子书无法查看 复制到本机 雷电模拟器 查看句柄 第4项"/>
+<meta name="twitter:title" content="【飞郁2022新课程】21 - 基地址和动态地址"/>
+<meta name="twitter:description" content="基地址 每一次程序启动,内存都会重新分配,我们在CE中扫描的地址大多会发生改变,但也有一些是不会随着游戏重启而变化的,这里面就有一部分是基地址"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/ai%E4%B8%8E%E5%A4%A7%E6%BC%A0/" /><link rel="next" href="https://xinqinew.github.io/2021/12/mfc/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B20-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" /><link rel="next" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "大漠常见问题",
+        "headline": "【飞郁2022新课程】21 - 基地址和动态地址",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本","wordcount":  50 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/","datePublished": "2021-12-15T00:00:00+00:00","dateModified": "2021-12-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  870 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80\/","datePublished": "2021-12-19T00:00:00+00:00","dateModified": "2021-12-19T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">大漠常见问题</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】21 - 基地址和动态地址</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-15">2021-12-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-15">2021-12-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 50 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="leancloud_visitors" data-flag-title="大漠常见问题">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-19">2021-12-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-19">2021-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 870 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】21 - 基地址和动态地址">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -145,52 +145,111 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#注册失败">注册失败</a></li>
-        <li><a href="#chm电子书无法查看">chm电子书无法查看</a></li>
-        <li><a href="#雷电模拟器-查看句柄">雷电模拟器 查看句柄</a></li>
+        <li><a href="#基地址"><strong>基地址</strong></a></li>
+        <li><a href="#偏移"><strong>偏移</strong></a></li>
+        <li><a href="#动态地址"><strong>动态地址</strong></a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="注册失败">注册失败</h2>
-<p>返回值为-2时,VS需要启用管理员模式</p>
-<h2 id="chm电子书无法查看">chm电子书无法查看</h2>
-<p>复制到本机</p>
-<h2 id="雷电模拟器-查看句柄">雷电模拟器 查看句柄</h2>
-<p>第4项</p>
+            </div><div class="content" id="content"><h2 id="基地址"><strong>基地址</strong></h2>
+<p>每一次程序启动,内存都会重新分配,我们在CE中扫描的地址大多会发生改变,但也有一些是不会随着游戏重启而变化的,这里面就有一部分是基地址.</p>
+<p>基地址是相对静态的,我们所说的基地址不变,只是说这个地址不会变,他指向的内容的意义通常也是不变的,但是指向的数值大多会随着程序重启而变化.</p>
+<p><strong>内存的角度和程序的角度看基地址</strong></p>
+<p>基地址在程序中的本质是全局变量</p>
+<p>如果我们在CE中取扫描一个数值,可以发现有一部分结果是绿色的</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211220212254305.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211220212254305.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211220212254305.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211220212254305.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134055zf2u5eulifio7iu5-20211220190336360.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134055zf2u5eulifio7iu5-20211220190336360.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134055zf2u5eulifio7iu5-20211220190336360.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134055zf2u5eulifio7iu5-20211220190336360.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211220212254305.png"
-        title="image-20211220212254305"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134055zf2u5eulifio7iu5-20211220190336360.png"
+        title="img"
     /></p>
+<p>这些绿色的地址,往往就是基地址,他们是不会随着程序重启而发生变化的</p>
+<p>我们选中这些地址并双击,将他们提取到下面的列表中,并且在列表中双击<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100irj4wqtgf4e2fe4t.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100irj4wqtgf4e2fe4t.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100irj4wqtgf4e2fe4t.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100irj4wqtgf4e2fe4t.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100irj4wqtgf4e2fe4t.png"
+        title="img"
+    /> 下面的地址,可以看到他们是由&quot;XXXX.exe+xxxx&quot;表示的.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100yjfst2ala2k31zxi-20211220190331304.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100yjfst2ala2k31zxi-20211220190331304.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100yjfst2ala2k31zxi-20211220190331304.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100yjfst2ala2k31zxi-20211220190331304.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100yjfst2ala2k31zxi-20211220190331304.png"
+        title="img"
+    /></p>
+<p>这个XXXX.EXE是模块名,这个值代表的是模块句柄,很多32位程序的主模块都是固定不变的,即0x400000,当然也有很多的模块是随着程序重启而变化的.</p>
+<p>无论是否变化,我们使用GetModuleHandleA(&ldquo;模块名&rdquo;) 获取即可</p>
+<p>基地址也是模块范围内的地址</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100exin5deid63gjiid.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100exin5deid63gjiid.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100exin5deid63gjiid.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100exin5deid63gjiid.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100exin5deid63gjiid.png"
+        title="img"
+    /></p>
+<h2 id="偏移"><strong>偏移</strong></h2>
+<p>把存储单元的实际地址与其所在段的段地址之间的距离称为段内偏移，也称为“有效地址或偏移量”。</p>
+<p>简单点说,就是一个内存地址相对于另外一个内存地址的距离,这距离的单位是字节</p>
+<p>内存地址A+偏移=内存地址b</p>
+<p>例如  0x50000 和 0x50050 的偏移就是 0x50</p>
+<p>再比如前面我们提到的基地址是由模块句柄+&ldquo;一个值&quot;得来的,其实这&quot;一个值&quot;就是基地址相对于模块句柄的偏移,</p>
+<p>而且在程序不更新的前提下,这个值是不会变化的.</p>
+<h2 id="动态地址"><strong>动态地址</strong></h2>
+<p>在我们扫描教案小游戏的人物血量后,可以得到一个地址</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100q34qup4aqkm4a4bq.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100q34qup4aqkm4a4bq.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100q34qup4aqkm4a4bq.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100q34qup4aqkm4a4bq.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100q34qup4aqkm4a4bq.png"
+        title="img"
+    /></p>
+<p>当我们重新启动游戏后,发现这个地址失效了</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100r79hw00w3tp33y3q.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100r79hw00w3tp33y3q.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100r79hw00w3tp33y3q.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100r79hw00w3tp33y3q.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/134100r79hw00w3tp33y3q.png"
+        title="img"
+    /></p>
+<p>这里显示的是&rdquo;??&quot;,这种就是动态地址,他所代表的含义并不是固定的</p>
+<p>那么如果遇见动态地址,我们怎么处理呢?</p>
+<p>我们需要找到这个地址的偏移与所在的基地址,</p>
+<p>例如[基地址]+偏移（当然也可能更多层偏移）</p>
+<p>这里的基地址我们用了一个中括号括起来,他代表的是读基地址里面的值,也就是我们后面会讲到的指针,这里有一个简单的了解即可.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-12-15</span>
+                <span>更新于 2021-12-19</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="大漠常见问题" data-hashtags="脚本"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-hashtag="脚本"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="大漠常见问题"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="大漠常见问题"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="大漠常见问题"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" data-title="【飞郁2022新课程】21 - 基地址和动态地址" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" data-title="【飞郁2022新课程】21 - 基地址和动态地址"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" data-title="【飞郁2022新课程】21 - 基地址和动态地址"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" data-title="【飞郁2022新课程】21 - 基地址和动态地址"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%84%9A%E6%9C%AC/">脚本</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/12/ai%E4%B8%8E%E5%A4%A7%E6%BC%A0/" class="prev" rel="prev" title="AI与大漠"><i class="fas fa-angle-left fa-fw"></i>AI与大漠</a>
-            <a href="/2021/12/mfc/" class="next" rel="next" title="MFC">MFC<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B20-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" class="prev" rel="prev" title="【飞郁2022新课程】20 - 局部变量和全局变量"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】20 - 局部变量和全局变量</a>
+            <a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="next" rel="next" title="【飞郁2022新课程】23 - CE找偏移表达式">【飞郁2022新课程】23 - CE找偏移表达式<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

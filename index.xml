@@ -4,9 +4,41 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43; 调用cmd的几种方法</title>
+    <link>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>调用cmd来执行响应的命令，windows实际上也给了一些接口，但是有些在执行某些命令的时候，却不能够执行，比如 winsat。 system 这个命令使用]]></description>
+</item><item>
+    <title>CMap</title>
+    <link>https://xinqinew.github.io/2021/12/cmap/</link>
+    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CMap 類別 CMap::Lookup 查阅对应至指定索引键的值。 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。]]></description>
+</item><item>
+    <title>【飞郁2022新课程】23 - CE找偏移表达式</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+    <description><![CDATA[基地址和动态地址是一对好基友,他们相隔十万八千里,却紧密联系着 他们不用像唐僧取经一样翻山越岭,经历九九八十一难,因为他们有一种如同月光宝盒一]]></description>
+</item><item>
+    <title>【飞郁2022新课程】21 - 基地址和动态地址</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/</link>
+    <pubDate>Sun, 19 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
+    <description><![CDATA[基地址 每一次程序启动,内存都会重新分配,我们在CE中扫描的地址大多会发生改变,但也有一些是不会随着游戏重启而变化的,这里面就有一部分是基地址]]></description>
+</item><item>
     <title>非常用API函数</title>
     <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
     <pubDate>Fri, 17 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -50,33 +82,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
     <description><![CDATA[学生：上节课骷髅老师搜索数据搜索太快了，我还没看清楚呢，他就扫完了，拦都拦不住他啊！ 老师：我都拦不住他呀，他是早产儿。 学生：这和早产儿有啥关]]></description>
-</item><item>
-    <title>【飞郁2022新课程】18 - CE基础和扫描</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/</link>
-    <pubDate>Fri, 03 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/</guid>
-    <description><![CDATA[1.打开CE Cheat Engine是网络安全数据分析的一款很重要的工具,我们可以在官网下载他的最新版本https://www.cheatengine]]></description>
-</item><item>
-    <title>【飞郁2022新课程】17 - 操作符运算符</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
-    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-    <description><![CDATA[不知道有没有同学发现之前几节都是在讲关于数据 那么有的同学会问 计算机是怎么处理操作运算这些数据的呢？ 好的 这节课就讲解C语言运算符 一、运算符 1.]]></description>
-</item><item>
-    <title>飞郁2019课程目录</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812019%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</link>
-    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812019%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</guid>
-    <description><![CDATA[骷髅 跨进程读写内存 2019年10月18日——跨进程读写内存 2019年10月21日——窗口相关的API，字符集，常用类型 2019年11月4日—]]></description>
-</item><item>
-    <title>【飞郁2022新课程】16 - 数组和字符串</title>
-    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B16-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-    <pubDate>Mon, 29 Nov 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B16-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-    <description><![CDATA[前面讲到了数据类型讲到过字符数组 有的同学对 数组 还不太理解 那么今天我们讲解的是 数组 和 字符串以及一些编码 好了 开始我们的讲解 一、数组 首先我们讲解数]]></description>
 </item></channel>
 </rss>
