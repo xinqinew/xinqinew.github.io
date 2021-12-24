@@ -5,6 +5,20 @@
         <description>所有飞郁精品贴 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/" rel="self" type="application/rss+xml" /><item>
+    <title>【飞郁2022新课程】32 - xdbg的认识与设置</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/</link>
+    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/</guid>
+    <description><![CDATA[xdbg的简介 Xllydbg(简称xdbg)和OD的用法和界面都是很像的,由于网络安全的发展,OD无法满足大部分人的需要了,更多的人习惯对x]]></description>
+</item><item>
+    <title>【飞郁2022新课程】31 - OD更多技巧</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[上一节课,给大家介绍OD的一些基本的使用方法,当然OD不仅仅只有这些功能和指令,这节课咱们就来更深入的了解一下OD 对命令行插件进行操作 首先我]]></description>
+</item><item>
     <title>【飞郁2022新课程】23 - CE找偏移表达式</title>
     <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
     <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -60,19 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
     <description><![CDATA[不知道有没有同学发现之前几节都是在讲关于数据 那么有的同学会问 计算机是怎么处理操作运算这些数据的呢？ 好的 这节课就讲解C语言运算符 一、运算符 1.]]></description>
-</item><item>
-    <title>飞郁2019课程目录</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812019%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</link>
-    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812019%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95/</guid>
-    <description><![CDATA[骷髅 跨进程读写内存 2019年10月18日——跨进程读写内存 2019年10月21日——窗口相关的API，字符集，常用类型 2019年11月4日—]]></description>
-</item><item>
-    <title>【飞郁2022新课程】16 - 数组和字符串</title>
-    <link>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B16-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-    <pubDate>Mon, 29 Nov 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/11/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B16-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-    <description><![CDATA[前面讲到了数据类型讲到过字符数组 有的同学对 数组 还不太理解 那么今天我们讲解的是 数组 和 字符串以及一些编码 好了 开始我们的讲解 一、数组 首先我们讲解数]]></description>
 </item></channel>
 </rss>

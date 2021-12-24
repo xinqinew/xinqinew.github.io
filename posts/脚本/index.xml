@@ -5,11 +5,18 @@
         <description>所有脚本 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E8%84%9A%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
-    <title>雷神命令</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%A5%9E%E5%91%BD%E4%BB%A4/</link>
+    <title>脚本常用文件</title>
+    <link>https://xinqinew.github.io/2021/12/%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6/</link>
     <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%A5%9E%E5%91%BD%E4%BB%A4/</guid>
+    </author><guid>https://xinqinew.github.io/2021/12/%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[大漠文件 obj.cpp obj.h dm.dll DmReg.dll 日志(输出跟踪文件) TraceService.h TraceService.cpp 线程文件 CABThread.cpp CABThread.h MFC管理文件 CAppManager.cpp CAppManager.h 服务核心头文件 ServiceCoreHead.h Data队列 WHDataQueue.cpp WHDataQueue.h 实用工具 utils.cpp utils.h]]></description>
+</item><item>
+    <title>雷电命令</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/</link>
+    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/</guid>
     <description><![CDATA[0、首先 开始之前，你得找到 雷神模拟器 **命令行程序，在安装目录下lsconsole.exe，**不管三七二十八，先cmd执行试试，好像还不错]]></description>
 </item><item>
     <title>MFC</title>
@@ -52,7 +59,7 @@
     <pubDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A2%9D%E5%A4%96%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E7%9F%A5%E8%AF%86/</guid>
-    <description><![CDATA[额外需要掌握的知识 容器的使用 list vector map MFC对话框的使用 新建对话框 button tab edit list]]></description>
+    <description><![CDATA[额外需要掌握的知识 容器的使用 list vector map MFC对话框的使用 新建对话框 button tab edit list 其它插件 乐玩、天使、图灵]]></description>
 </item><item>
     <title>Visual C&#43;&#43;免注册调用大漠插件</title>
     <link>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>

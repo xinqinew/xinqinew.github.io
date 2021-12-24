@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  2395 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  3749 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-12-17T00:00:00+00:00","dateModified": "2021-12-17T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2395 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="非常用API函数">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3749 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="非常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -164,6 +164,13 @@
         <li><a href="#settimer-设置定时器">SetTimer 设置定时器</a></li>
         <li><a href="#killtimer-关闭定时器">KillTimer 关闭定时器</a></li>
         <li><a href="#afxextractsubstring-分割字符串mfc专用">AfxExtractSubString 分割字符串(MFC专用)</a></li>
+        <li><a href="#afxbeginthread-启动线程">AfxBeginThread 启动线程</a></li>
+        <li><a href="#postmessage-发送消息不等待返回">PostMessage 发送消息(不等待返回)</a></li>
+        <li><a href="#_beginthread-_beginthreadex-创建线程">_beginthread, _beginthreadex 创建线程</a></li>
+        <li><a href="#_endthread_endthreadex-终止线程">_endthread、_endthreadex 终止线程</a></li>
+        <li><a href="#waitforsingleobject-线程等待">WaitForSingleObject 线程等待</a></li>
+        <li><a href="#assertfalse-断点">ASSERT(false) 断点</a></li>
+        <li><a href="#纪元时间">纪元时间</a></li>
         <li><a href="#类型转换">类型转换</a></li>
       </ul>
     </li>
@@ -451,7 +458,351 @@
 <p>注意：用于分割的只能是字符，不能是字符串。</p>
 <p>多个字符使用_tcstok函数。</p>
 </blockquote>
-<h2 id="类型转换">类型转换</h2>
+<h2 id="afxbeginthread-启动线程">AfxBeginThread 启动线程</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">CWinThread</span><span class="o">*</span> <span class="nf">AfxBeginThread</span><span class="p">(</span>
+    <span class="n">AFX_THREADPROC</span> <span class="n">pfnThreadProc</span><span class="p">,</span>	<span class="c1">//指向工作线程的控制函数。 指针不能为 NULL 。
+</span><span class="c1"></span>    <span class="n">LPVOID</span> <span class="n">pParam</span><span class="p">,</span>	<span class="c1">//要传递到控制函数的参数。
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">nPriority</span> <span class="o">=</span> <span class="n">THREAD_PRIORITY_NORMAL</span><span class="p">,</span>	<span class="c1">//要为线程设置的优先级。
+</span><span class="c1"></span>    <span class="n">UINT</span> <span class="n">nStackSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定新线程堆栈的大小（以字节为单位）
+</span><span class="c1"></span>    <span class="n">DWORD</span> <span class="n">dwCreateFlags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定控制线程创建的其他标志。
+</span><span class="c1"></span>    <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpSecurityAttrs</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">);</span>	<span class="c1">//指向一个 SECURITY_ATTRIBUTES 结构，该结构指定线程的安全特性
+</span><span class="c1">//返回值:指向新创建的线程对象的指针; NULL 如果发生失败，则为。
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="postmessage-发送消息不等待返回">PostMessage 发送消息(不等待返回)</h2>
+<p>在窗口的消息队列中放置一条消息，然后返回而不等待相应的窗口处理该消息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="nf">PostMessage</span><span class="p">(</span>
+    <span class="n">UINT</span> <span class="n">message</span><span class="p">,</span>				<span class="c1">//指定要发布的消息。
+</span><span class="c1"></span>    <span class="n">WPARAM</span> <span class="n">wParam</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定其他消息信息
+</span><span class="c1"></span>    <span class="n">LPARAM</span> <span class="n">lParam</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>	<span class="c1">//指定其他消息信息
+</span><span class="c1">//返回值: 如果发送消息成功，则为非零值;否则为0。
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="_beginthread-_beginthreadex-创建线程">_beginthread, _beginthreadex 创建线程</h2>
+<p><a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/reference/beginthread-beginthreadex?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">uintptr_t</span> <span class="nf">_beginthread</span><span class="p">(</span> <span class="c1">// NATIVE CODE
+</span><span class="c1"></span>   <span class="kt">void</span><span class="p">(</span> <span class="kr">__cdecl</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span>	
+<span class="p">);</span>
+<span class="n">uintptr_t</span> <span class="nf">_beginthread</span><span class="p">(</span> <span class="c1">// MANAGED CODE
+</span><span class="c1"></span>   <span class="kt">void</span><span class="p">(</span> <span class="n">__clrcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span>
+<span class="p">);</span>
+<span class="n">uintptr_t</span> <span class="nf">_beginthreadex</span><span class="p">(</span> <span class="c1">// NATIVE CODE
+</span><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">security</span><span class="p">,</span><span class="c1">//指向 SECURITY_ATTRIBUTES 结构的指针，
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span><span class="c1">//新线程的堆栈大小或 0。
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="p">(</span> <span class="kr">__stdcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span><span class="c1">//启动开始执行新线程的例程的地址
+</span><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span><span class="p">,</span><span class="c1">//要传递到新线程的参数列表，或 NULL 。
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">initflag</span><span class="p">,</span><span class="c1">//控制新线程的初始状态的标志。 
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="o">*</span><span class="n">thrdaddr</span><span class="c1">//指向接收线程标识符的 32 位变量。
+</span><span class="c1"></span><span class="p">);</span>
+<span class="n">uintptr_t</span> <span class="nf">_beginthreadex</span><span class="p">(</span> <span class="c1">// MANAGED CODE
+</span><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">security</span><span class="p">,</span>
+   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+   <span class="kt">unsigned</span> <span class="p">(</span> <span class="n">__clrcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span><span class="p">,</span>
+   <span class="kt">unsigned</span> <span class="n">initflag</span><span class="p">,</span>
+   <span class="kt">unsigned</span> <span class="o">*</span><span class="n">thrdaddr</span>
+<span class="p">);</span>
+<span class="c1">//返回值 如果成功，则这些函数中的每一个都会返回一个句柄到新创建的线程
+</span><span class="c1"></span>
+<span class="c1">//实例
+</span><span class="c1"></span><span class="n">m_hThreadHandle</span> <span class="o">=</span> <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">::</span><span class="n">_beginthreadex</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ThreadFunction</span><span class="p">,</span><span class="k">this</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m_uThreadID</span><span class="p">);</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="_endthread_endthreadex-终止线程">_endthread、_endthreadex 终止线程</h2>
+<p><a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/reference/endthread-endthreadex?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">_endthread</span><span class="p">(</span> <span class="kt">void</span> <span class="p">);</span>
+<span class="kt">void</span> <span class="nf">_endthreadex</span><span class="p">(</span>
+   <span class="kt">unsigned</span> <span class="n">retval</span>	<span class="c1">//线程退出代码。
+</span><span class="c1"></span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="waitforsingleobject-线程等待">WaitForSingleObject 线程等待</h2>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject" target="_blank" rel="noopener noreffer">详情</a> <a href="https://blog.csdn.net/LL596214569/article/details/81088862?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164033179716780357223865%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=164033179716780357223865&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-81088862.nonecase&amp;utm_term=WaitForSingleObject&amp;spm=1018.2226.3001.4450" target="_blank" rel="noopener noreffer">csdn</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">DWORD</span> <span class="nf">WaitForSingleObject</span><span class="p">(</span>
+  <span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="n">HANDLE</span> <span class="n">hHandle</span><span class="p">,</span>	<span class="c1">//需要等待线程的句柄
+</span><span class="c1"></span>  <span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="n">DWORD</span>  <span class="n">dwMilliseconds</span> <span class="c1">//超时时间 一直等待用INFINITE
+</span><span class="c1"></span><span class="p">);</span>
+<span class="c1">//返回值
+</span><span class="c1">//有三种返回类型
+</span><span class="c1">//WAIT_OBJECT_0, 表示等待的对象有信号（对线程来说，表示执行结束）；
+</span><span class="c1">//WAIT_TIMEOUT, 表示等待指定时间内，对象一直没有信号（线程没执行完）；
+</span><span class="c1">//WAIT_ABANDONED 表示对象有信号，但还是不能执行  一般是因为未获取到锁或其他原因
+</span><span class="c1"></span>
+
+<span class="c1">//实例
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">m_hThreadHandle</span><span class="p">,</span>  <span class="n">INFINITE</span><span class="p">)</span> <span class="o">==</span> <span class="n">WAIT_TIMEOUT</span><span class="p">)</span><span class="c1">//线程等待,可延时等待或者一直等待INFINITE
+</span><span class="c1"></span><span class="p">{</span>
+  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// ConsoleApplication1.cpp : 定义控制台应用程序的入口点。
+</span><span class="c1">//
+</span><span class="c1"></span> 
+<span class="cp">#include</span> <span class="cpf">&#34;stdafx.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;windows.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">FunProc</span><span class="p">(</span><span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">);</span>
+ 
+<span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">FunProc</span><span class="p">(</span><span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="p">))</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="k">else</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">HANDLE</span> <span class="n">hThread</span><span class="p">;</span>
+	<span class="n">hThread</span> <span class="o">=</span> <span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">FunProc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">DWORD</span> <span class="n">dwRet</span> <span class="o">=</span> <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">hThread</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_OBJECT_0</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;创建的线程执行结束&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_TIMEOUT</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;等待超时&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_ABANDONED</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;Abandoned&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">CloseHandle</span><span class="p">(</span><span class="n">hThread</span><span class="p">);</span>
+	<span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出结果有两种:</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png"
+        title="img"
+    /></p>
+<p>这就是未能等到线程结束信号量的等待时间就耗光了。我们也可以将WaitForSingleObject的第二个参数设置为 INFINITE，就可以一直等待。</p>
+<h2 id="assertfalse-断点">ASSERT(false) 断点</h2>
+<p>debug模式才生效</p>
+<p><a href="https://docs.microsoft.com/zh-tw/cpp/c-runtime-library/reference/assert-macro-assert-wassert?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//原型
+</span><span class="c1"></span><span class="n">assert</span><span class="p">(</span>
+   <span class="n">expression</span>	<span class="c1">//评估为非零 (true) 或 0 (false) 的纯量运算式 (包括指标运算式)。
+</span><span class="c1"></span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">_assert</span><span class="p">(</span>
+   <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">message</span><span class="p">,</span>	<span class="c1">//要显示的讯息。
+</span><span class="c1"></span>   <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">filename</span><span class="p">,</span>	<span class="c1">//判断提示失败之原始程式档的名称。
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">line</span>	<span class="c1">//判断提示失败之原始程式档中的行号。
+</span><span class="c1"></span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">_wassert</span><span class="p">(</span>
+   <span class="kt">wchar_t</span> <span class="k">const</span><span class="o">*</span> <span class="n">message</span><span class="p">,</span>
+   <span class="kt">wchar_t</span> <span class="k">const</span><span class="o">*</span> <span class="n">filename</span><span class="p">,</span>
+   <span class="kt">unsigned</span> <span class="n">line</span>
+<span class="p">);</span>
+<span class="c1">//返回值: 当结果为false时，列印诊断资讯并中止程式。
+</span><span class="c1"></span>
+
+<span class="c1">//实例
+</span><span class="c1"></span><span class="n">ASSERT</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="c1">//断点，debug模式才生效
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="纪元时间">纪元时间</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">time_t</span> <span class="n">epoch_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Epoch time: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">epoch_time</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="类型转换">类型转换</h2>
 <p>atoi&mdash;ASCII to integer,将字符串转换成整形，从数字或正负号开始转换，一直到非数字为止</p>
 <p>itoa&mdash;integer to ASCII&ndash;将整形转换成字符串</p>
 <p>atof&mdash;ascii to float&ndash;字符串转换成浮点型</p>

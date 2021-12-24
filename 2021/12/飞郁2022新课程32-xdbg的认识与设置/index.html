@@ -5,41 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">VS常见问题 - Hmily云笔记</title><meta name="Description" content="VS常见问题"><meta property="og:title" content="VS常见问题" />
-<meta property="og:description" content="VS常见问题" />
+    <title class="pjax-title">【飞郁2022新课程】32 - xdbg的认识与设置 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】32 - xdbg的认识与设置" />
+<meta property="og:description" content="xdbg的简介 Xllydbg(简称xdbg)和OD的用法和界面都是很像的,由于网络安全的发展,OD无法满足大部分人的需要了,更多的人习惯对x" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-07-23T00:00:00+00:00" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-24T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="VS常见问题"/>
-<meta name="twitter:description" content="VS常见问题"/>
+<meta name="twitter:title" content="【飞郁2022新课程】32 - xdbg的认识与设置"/>
+<meta name="twitter:description" content="xdbg的简介 Xllydbg(简称xdbg)和OD的用法和界面都是很像的,由于网络安全的发展,OD无法满足大部分人的需要了,更多的人习惯对x"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="prev" href="https://xinqinew.github.io/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="next" href="https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "VS常见问题",
+        "headline": "【飞郁2022新课程】32 - xdbg的认识与设置",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2021\/07\/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  874 ,
-        "url": "https:\/\/xinqinew.github.io\/2021\/07\/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2021-07-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1157 ,
+        "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE\/","datePublished": "2021-12-24T00:00:00+00:00","dateModified": "2021-12-24T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "辛琪"
-            },"description": "VS常见问题"
+            },"description": ""
     }
     </script></head>
 
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">VS常见问题</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【飞郁2022新课程】32 - xdbg的认识与设置</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"><i class="far fa-folder fa-fw"></i>常见问题</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 874 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="leancloud_visitors" data-flag-title="VS常见问题">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-24">2021-12-24</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-24">2021-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1157 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" class="leancloud_visitors" data-flag-title="【飞郁2022新课程】32 - xdbg的认识与设置">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -143,224 +143,169 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#vs常见问题">VS常见问题</a>
+    <li>
       <ul>
-        <li><a href="#github上传代码gitignore文件应过滤内容">GitHub上传代码.gitignore文件应过滤内容</a></li>
-        <li><a href="#解决vs生成sdf和ipch文件太大占用空间问题">解决VS生成sdf和ipch文件太大占用空间问题</a></li>
-        <li><a href="#visual-assist-x-安装">Visual Assist X 安装</a></li>
+        <li><a href="#xdbg的简介">xdbg的简介</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="vs常见问题">VS常见问题</h1>
-<h2 id="github上传代码gitignore文件应过滤内容">GitHub上传代码.gitignore文件应过滤内容</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">*.ipch
-.vs
-*.pch
-*.exe
-*.pdb
-
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="解决vs生成sdf和ipch文件太大占用空间问题">解决VS生成sdf和ipch文件太大占用空间问题</h2>
-<p>[工具]—&gt;[选项]—&gt;[文本编辑器]—&gt;C/C++]—&gt;[高级]—&gt;[回退位置]里面的三项属性值按下图进行修改，其中回退路径随便设置。
-设置个回退路径这样可比较好管理这些庞大的臃肿的文件，可以定期清理它们，释放磁盘空间
-<img
-        class="lazyload"
-        data-src="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg"
-        data-srcset="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg, https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg 1.5x, https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg 2x"
-        data-sizes="auto"
-        alt="https://user-images.githubusercontent.com/750167/125320333-2e710a80-e36e-11eb-902d-29ea409d69b9.jpg"
-        title="20160608142022414"
-    /></p>
-<h2 id="visual-assist-x-安装">Visual Assist X 安装</h2>
-<p>Visual AssistX是一款非常好的Microsoft Visual Studio插件，它可以完全集成到您的Microsoft开发环境中，升级了您的IDE，</p>
-<p>在不改变编程习惯的同时就可以感受到Visual Assist X为您带来的好处。</p>
-<p>软件支持Microsoft Visual Studio 2003-2017，C/C++，C#，ASP，VisualBasic，Java和HTML等语言，能自动识别各种关键字、系统函数、成员变量、</p>
-<p>自动给出输入提示、自动更正大小写错误、自动标示错误等。使用Visual Assist X有助于提高开发过程的自动化和开发效率。</p>
-<p>官网： <a href="https://www.wholetomato.com/" target="_blank" rel="noopener noreffer">https://www.wholetomato.com/</a></p>
-<p>破解版链接: <a href="https://pan.baidu.com/s/1jXlvYiKOclkRTP35HlQpGA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1jXlvYiKOclkRTP35HlQpGA</a> 提取码: g3u3</p>
-<p>1.下载完解压缩，点击VA_X_Setup2341_2.exe进行安装</p>
+            </div><div class="content" id="content"><h2 id="xdbg的简介">xdbg的简介</h2>
+<p>Xllydbg(简称xdbg)和OD的用法和界面都是很像的,由于网络安全的发展,OD无法满足大部分人的需要了,更多的人习惯对xdbg进行处理,来达到正常调试的目的.</p>
+<p>从官网下载一款xdbg,安装后双击下图的exe程序,可以打开32位的xdbg</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af719d58b267518a797e86c04bba56cb28712f2c.jpg@942w_390h_progressive.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af719d58b267518a797e86c04bba56cb28712f2c.jpg@942w_390h_progressive.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af719d58b267518a797e86c04bba56cb28712f2c.jpg@942w_390h_progressive.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af719d58b267518a797e86c04bba56cb28712f2c.jpg@942w_390h_progressive.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073432647-927567152.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af719d58b267518a797e86c04bba56cb28712f2c.jpg@942w_390h_progressive.jpg"
         title="img"
     /></p>
-<ol start="2">
-<li>安装界面，我这装的是2012, Visual Assist自动帮我识别出来.</li>
-</ol>
-<p>如果安装有多个vs，这里会有多项被勾选，也可以根据需要去除相应vs安装本插件</p>
-<p>点击Install</p>
+<p>xdbg的初始设置</p>
+<p>打开xdbg并随便附加一款程序,我们先来对xdbg进行一些设置,这些设置更多是针对64位的程序的</p>
+<p>我们在选项中点选择选项,可以看到事件设置</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/10b3b15c8783792c563eb3c15ebf8ecae8bd3872.png@942w_396h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/10b3b15c8783792c563eb3c15ebf8ecae8bd3872.png@942w_396h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/10b3b15c8783792c563eb3c15ebf8ecae8bd3872.png@942w_396h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/10b3b15c8783792c563eb3c15ebf8ecae8bd3872.png@942w_396h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073622125-1628013460.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/10b3b15c8783792c563eb3c15ebf8ecae8bd3872.png@942w_396h_progressive.png"
         title="img"
     /></p>
-<ol start="3">
-<li>耐心等待安装</li>
-</ol>
+<p>这里的断点没有特殊需求可以全部取消,</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8b2cfc82bfdebcb97b63b7e46e3eb7dae7bd8d6.png@576w_447h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8b2cfc82bfdebcb97b63b7e46e3eb7dae7bd8d6.png@576w_447h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8b2cfc82bfdebcb97b63b7e46e3eb7dae7bd8d6.png@576w_447h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8b2cfc82bfdebcb97b63b7e46e3eb7dae7bd8d6.png@576w_447h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216073833351-1337881578.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c8b2cfc82bfdebcb97b63b7e46e3eb7dae7bd8d6.png@576w_447h_progressive.png"
         title="img"
     /></p>
-<ol start="4">
-<li>出现下面界面表示安装完成，点OK</li>
-</ol>
+<p>然后在异常中添加区间为0-0xFFFFFFFF,保证不会被&quot;异常一&quot;干扰,当然如果出现了&quot;异常二&quot;则说明程序已经崩溃了.</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/187ffc1ffb00d1081fb16bb1fc670bdcae924bc6.png@498w_555h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/187ffc1ffb00d1081fb16bb1fc670bdcae924bc6.png@498w_555h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/187ffc1ffb00d1081fb16bb1fc670bdcae924bc6.png@498w_555h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/187ffc1ffb00d1081fb16bb1fc670bdcae924bc6.png@498w_555h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216073906060-131716802.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/187ffc1ffb00d1081fb16bb1fc670bdcae924bc6.png@498w_555h_progressive.png"
         title="img"
     /></p>
-<ol start="5">
-<li>复制破解补丁</li>
-</ol>
-<p>破解补丁在安装包的Crack目录下的VA_X.dll</p>
+<p>在反汇编界面,我们可以把高亮和0x前缀加上,这样操作起来更加方便.</p>
+<p>然后在选项-外观中选择字体</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2806f20a3da9359e890cf3b36e4589ca75d8e116.png@785w_645h_progressive-20211224150740947.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2806f20a3da9359e890cf3b36e4589ca75d8e116.png@785w_645h_progressive-20211224150740947.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2806f20a3da9359e890cf3b36e4589ca75d8e116.png@785w_645h_progressive-20211224150740947.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2806f20a3da9359e890cf3b36e4589ca75d8e116.png@785w_645h_progressive-20211224150740947.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074328183-1120989438.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2806f20a3da9359e890cf3b36e4589ca75d8e116.png@785w_645h_progressive-20211224150740947.png"
         title="img"
     /></p>
+<p>我们可以根据自己的需求和显示器的分辨率来对字体大小进行修改,保证能够完整的看到代码和其他的信息.</p>
+<p>做完以上的设置,我们就可以正常的进行操作了</p>
+<p>xdbg和OD的区别</p>
+<p>由于xdbg和OD的主要操作方式都是类似的,所以我们主要看一下二者的区别</p>
+<p>1.1 xdbg的命令行插件不是很完善,所以我们跟多是采用dump或者ctrl+G来进行数据窗口跟随,并且在数据窗口右键进行下断点,或者查看不同的数据类型等操作</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2f6798e05794dea7926cccfb2072bf483edc8921.png@531w_596h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2f6798e05794dea7926cccfb2072bf483edc8921.png@531w_596h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2f6798e05794dea7926cccfb2072bf483edc8921.png@531w_596h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2f6798e05794dea7926cccfb2072bf483edc8921.png@531w_596h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216074308576-1568118555.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2f6798e05794dea7926cccfb2072bf483edc8921.png@531w_596h_progressive.png"
         title="img"
     /></p>
-<p>6.打开C盘，搜索VA_X.dll</p>
+<p>1.2 在xdbg的反汇编窗口中点右键,我们发现布局和OD有很大的不同</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/171d1650e8237b93b53d474b2842fa0559a83cc0.png@510w_855h_progressive-20211224150734091.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/171d1650e8237b93b53d474b2842fa0559a83cc0.png@510w_855h_progressive-20211224150734091.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/171d1650e8237b93b53d474b2842fa0559a83cc0.png@510w_855h_progressive-20211224150734091.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/171d1650e8237b93b53d474b2842fa0559a83cc0.png@510w_855h_progressive-20211224150734091.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074840827-1006771414.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/171d1650e8237b93b53d474b2842fa0559a83cc0.png@510w_855h_progressive-20211224150734091.png"
         title="img"
     /></p>
-<ol start="7">
-<li>己搜索到VA_X.dll</li>
-</ol>
+<p>这里缺少了一些OD中有的内容,比如查看注释,真正的查看注释是在上面菜单栏的&quot;视图&quot;-&ldquo;注释&quot;中查看,也可以直接点图中的按钮</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6062c82a558bf71ea9e553765106e6b981bd96d7.png@942w_99h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6062c82a558bf71ea9e553765106e6b981bd96d7.png@942w_99h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6062c82a558bf71ea9e553765106e6b981bd96d7.png@942w_99h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6062c82a558bf71ea9e553765106e6b981bd96d7.png@942w_99h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216074920300-1779246257.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6062c82a558bf71ea9e553765106e6b981bd96d7.png@942w_99h_progressive.png"
         title="img"
     /></p>
-<p>8.右键打开文件位置</p>
+<p>还有一些功能的位置也发生了变化,比如查找常量,这个功能在下面的&quot;搜索&quot;中</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7233fa36152e6c3c734fb83c35a5d167002f7cb.png@791w_132h_progressive-20211224150725574.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7233fa36152e6c3c734fb83c35a5d167002f7cb.png@791w_132h_progressive-20211224150725574.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7233fa36152e6c3c734fb83c35a5d167002f7cb.png@791w_132h_progressive-20211224150725574.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7233fa36152e6c3c734fb83c35a5d167002f7cb.png@791w_132h_progressive-20211224150725574.png 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216075047073-1660039311.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7233fa36152e6c3c734fb83c35a5d167002f7cb.png@791w_132h_progressive-20211224150725574.png"
         title="img"
     /></p>
-<ol start="9">
-<li>用Crack目录下的VA_X.dll替换掉即可</li>
-</ol>
+<p>这个搜索是有范围的,我们可以通过不同的范围去查找常量,命令等等</p>
+<p>1.3 xdbg的分析代码和OD也有一些不同,我们可以在代码段中点击&quot;A&quot;来对局部代码进行分析,这一点要比OD方便的多</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fda9f8c09360a61347282daa4a19ba97e2162dc4.png@942w_150h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fda9f8c09360a61347282daa4a19ba97e2162dc4.png@942w_150h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fda9f8c09360a61347282daa4a19ba97e2162dc4.png@942w_150h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fda9f8c09360a61347282daa4a19ba97e2162dc4.png@942w_150h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216075243915-480524876.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fda9f8c09360a61347282daa4a19ba97e2162dc4.png@942w_150h_progressive.png"
         title="img"
     /></p>
-<ol start="10">
-<li>运行Vs, 可以看到菜单栏多了个VASSISTX,工具条多了几个相应快捷按钮</li>
-</ol>
+<p>1.4 xdbg还有函数调用的参数窗口,可以在函数断下时查看参数值,这一点也比OD方便一些,不过实用性并不强</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb4d335ccc62c589a7556d32d4bf5ada0a36e013.png@695w_128h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb4d335ccc62c589a7556d32d4bf5ada0a36e013.png@695w_128h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb4d335ccc62c589a7556d32d4bf5ada0a36e013.png@695w_128h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb4d335ccc62c589a7556d32d4bf5ada0a36e013.png@695w_128h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080425561-2017507576.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/bb4d335ccc62c589a7556d32d4bf5ada0a36e013.png@695w_128h_progressive.png"
         title="img"
     /></p>
-<ol start="11">
-<li>设置可以点击任务栏上的蕃茄按钮，也可以从菜单中选择Visual Assist Options</li>
-</ol>
-<p>Visual AssistX停用可以点击Enable/Disable Visual Assit  点击后临时停用插件，重启VS后还会重新加载</p>
+<p>1.5 当我们学习一段时间后还会发现,xdbg有一个OD无法比拟的优势,就是他可以查看的寄存器非常多,比如xmm和ymm寄存器</p>
 <p><img
         class="lazyload"
-        data-src="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png"
-        data-srcset="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png 1.5x, https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e64125f169b583321945ed0f9e24608a1213d86e.png@696w_497h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e64125f169b583321945ed0f9e24608a1213d86e.png@696w_497h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e64125f169b583321945ed0f9e24608a1213d86e.png@696w_497h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e64125f169b583321945ed0f9e24608a1213d86e.png@696w_497h_progressive.png 2x"
         data-sizes="auto"
-        alt="https://img2018.cnblogs.com/i-beta/1333608/201912/1333608-20191216080705410-1367403339.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e64125f169b583321945ed0f9e24608a1213d86e.png@696w_497h_progressive.png"
         title="img"
     /></p>
-<p>12.Visual Assist X卸载</p>
-<p>vs菜单工具-&gt;扩展和更新，然后找到Visual Assist 点击卸载即可</p>
-<p>备注：Visual Assist X 无法从控制面板-&gt;卸载程序 进行卸载</p>
+<p>这些寄存器在OD中是无法查看的,虽然OD也识别这些寄存器的指令,但是并没有对其数值及进行显示.</p>
+<p>1.6 xdbg的调用堆栈,和OD中的&quot;K&quot;功能在界面上还是有一点小差别的</p>
 <p><img
         class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8243c267de28974be29b675b0aaa7cfe57aee8d4.jpg@942w_239h_progressive.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8243c267de28974be29b675b0aaa7cfe57aee8d4.jpg@942w_239h_progressive.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8243c267de28974be29b675b0aaa7cfe57aee8d4.jpg@942w_239h_progressive.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8243c267de28974be29b675b0aaa7cfe57aee8d4.jpg@942w_239h_progressive.jpg 2x"
         data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081256276-841340556.png"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8243c267de28974be29b675b0aaa7cfe57aee8d4.jpg@942w_239h_progressive.jpg"
         title="img"
     /></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1333608-20191216081354097-1049940419.png"
-        title="img"
-    /></p>
+<p>xdbg需要完善的功能</p>
+<p>当然xdbg也有一些不是很完善的功能,比如在堆栈窗口中无法对数值进行查找,只能复制到文档中查找.</p>
+<p>xdbg的执行到返回,值能执行到retn,无法像OD一样自带F8步进</p>
+<p>xdbg和OD各有利弊,相信在未来几年,xdbg的功能也会越来越完善,也建议大家能够掌握这两种调试器的使用方法,以便于后面的学习.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-07-23</span>
+                <span>更新于 2021-12-24</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="VS常见问题"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" data-title="【飞郁2022新课程】32 - xdbg的认识与设置" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" data-title="【飞郁2022新课程】32 - xdbg的认识与设置"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" data-title="【飞郁2022新课程】32 - xdbg的认识与设置"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" data-title="【飞郁2022新课程】32 - xdbg的认识与设置"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
         <section>
             <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="win10常见问题"><i class="fas fa-angle-left fa-fw"></i>win10常见问题</a>
-            <a href="/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="next" rel="next" title="sublimetext常见问题">sublimetext常见问题<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/" class="prev" rel="prev" title="【飞郁2022新课程】31 - OD更多技巧"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】31 - OD更多技巧</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
