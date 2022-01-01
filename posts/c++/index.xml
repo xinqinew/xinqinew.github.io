@@ -21,7 +21,7 @@
     </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 類別 CMap::Lookup 查阅对应至指定索引键的值。 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。]]></description>
+            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。]]></description>
 </item><item>
     <title>非常用API函数</title>
     <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
@@ -40,6 +40,15 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx CE扫四种编码 ASCI UNIDCOE（不勾选） UNIDCOE UNIDCOE 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 graph 勾选UNIDC]]></description>
+</item><item>
+    <title>在c&#43;&#43;使用and替代&amp;&amp;</title>
+    <link>https://xinqinew.github.io/2021/08/%E5%9C%A8c-%E4%BD%BF%E7%94%A8and%E6%9B%BF%E4%BB%A3/</link>
+    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/%E5%9C%A8c-%E4%BD%BF%E7%94%A8and%E6%9B%BF%E4%BB%A3/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>在c++使用and替代&amp;&amp; 背景 ​ 在之前的一个项目中发现使用了 and 替代 &amp;&amp;，当时感觉很奇怪，c++有这样的用法吗]]></description>
 </item><item>
     <title>输出您电脑上各种数据类型的大小</title>
     <link>https://xinqinew.github.io/2021/08/%E8%BE%93%E5%87%BA%E6%82%A8%E7%94%B5%E8%84%91%E4%B8%8A%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F/</link>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //目标进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一]]></description>
-</item><item>
-    <title>C&#43;&#43;关键字</title>
-    <link>https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
-    <pubDate>Tue, 27 Jul 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/07/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++关键字 1. asm asm (指令字符串)：允许在 C++ 程序中嵌入汇编代码。 2. auto auto（自动，automatic）是存储类型标识符，表明变量&quot;]]></description>
 </item></channel>
 </rss>

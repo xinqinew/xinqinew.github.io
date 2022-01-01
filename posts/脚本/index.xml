@@ -5,12 +5,26 @@
         <description>所有脚本 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E8%84%9A%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>奇迹</title>
+    <link>https://xinqinew.github.io/2021/12/%E5%A5%87%E8%BF%B9/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E5%A5%87%E8%BF%B9/</guid>
+    <description><![CDATA[坐标 1 2 main.exe+78D96B4 #x main.exe+78D96B8 #y]]></description>
+</item><item>
+    <title>C&#43;&#43; MFC 其他函数获得主对话框指针并使用成员的方法</title>
+    <link>https://xinqinew.github.io/2021/12/c-mfc-%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E8%8E%B7%E5%BE%97%E4%B8%BB%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%8C%87%E9%92%88%E5%B9%B6%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Sun, 26 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/c-mfc-%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E8%8E%B7%E5%BE%97%E4%B8%BB%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%8C%87%E9%92%88%E5%B9%B6%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[MFC 在其他的类中引用Dlg类方法 不能直接引用，因为类方法是非static的。 1 ((CtcpclientDlg*)theApp.GetMainWnd())-&gt;addLog(str); A.子对话框得到父对话框的方法 (此方法也可以帮助其他函数获得主]]></description>
+</item><item>
     <title>脚本常用文件</title>
     <link>https://xinqinew.github.io/2021/12/%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6/</link>
     <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6/</guid>
-    <description><![CDATA[大漠文件 obj.cpp obj.h dm.dll DmReg.dll 日志(输出跟踪文件) TraceService.h TraceService.cpp 线程文件 CABThread.cpp CABThread.h MFC管理文件 CAppManager.cpp CAppManager.h 服务核心头文件 ServiceCoreHead.h Data队列 WHDataQueue.cpp WHDataQueue.h 实用工具 utils.cpp utils.h]]></description>
+    <description><![CDATA[大漠文件 obj.cpp obj.h dm.dll DmReg.dll 大漠助手类 COpHelper.h COpHelper.cpp 日志(输出跟踪文件) TraceService.h TraceService.cpp 线程文件 CABThread.cpp CABThread.h MFC管理文件 CAppManager.cpp CAppManager.h 实用工具 utils.cpp utils.h 脚本类 脚本管理类 CScriptManager.h CScriptManager.cpp 服务核心头文件 ServiceCoreHead.h Data]]></description>
 </item><item>
     <title>雷电命令</title>
     <link>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/</link>
@@ -31,7 +45,7 @@
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
-    <description><![CDATA[注册失败 返回值为-2时,VS需要启用管理员模式 chm电子书无法查看 复制到本机 雷电模拟器 查看句柄 第4项]]></description>
+    <description><![CDATA[注册失败 返回值为-2时,VS需要启用管理员模式 chm电子书无法查看 复制到本机 雷电模拟器 查看句柄 第4项 输入文字 常规的用KeyPressStr即]]></description>
 </item><item>
     <title>AI与大漠</title>
     <link>https://xinqinew.github.io/2021/12/ai%E4%B8%8E%E5%A4%A7%E6%BC%A0/</link>
@@ -60,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A2%9D%E5%A4%96%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E7%9F%A5%E8%AF%86/</guid>
     <description><![CDATA[额外需要掌握的知识 容器的使用 list vector map MFC对话框的使用 新建对话框 button tab edit list 其它插件 乐玩、天使、图灵]]></description>
-</item><item>
-    <title>Visual C&#43;&#43;免注册调用大漠插件</title>
-    <link>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
-    <pubDate>Thu, 16 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
-    <description><![CDATA[Visual C++免注册调用大漠插件 1、 注册调用 一、下载大漠插件，并注册到系统 下载地址：https://pan.baidu.com/s/1nCc5jB]]></description>
 </item></channel>
 </rss>

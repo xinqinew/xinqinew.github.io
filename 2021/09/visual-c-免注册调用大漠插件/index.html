@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/09\/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本","wordcount":  1028 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本","wordcount":  1085 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/09\/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6\/","datePublished": "2021-09-16T00:00:00+00:00","dateModified": "2021-09-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1028 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1085 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/" class="leancloud_visitors" data-flag-title="Visual C&#43;&#43;免注册调用大漠插件">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -143,8 +143,9 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#visual-c免注册调用大漠插件">Visual C++免注册调用大漠插件</a>
+    <li>
       <ul>
+        <li><a href="#visual-c免注册调用大漠插件">Visual C++免注册调用大漠插件</a></li>
         <li><a href="#1-注册调用">1、 注册调用</a>
           <ul>
             <li><a href="#一下载大漠插件并注册到系统">一、下载大漠插件，并注册到系统</a></li>
@@ -165,11 +166,12 @@
             <li><a href="#六修改dmtlh">六、修改dm.tlh</a></li>
           </ul>
         </li>
+        <li><a href="#必要函数">必要函数</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="visual-c免注册调用大漠插件">Visual C++免注册调用大漠插件</h1>
+            </div><div class="content" id="content"><h2 id="visual-c免注册调用大漠插件">Visual C++免注册调用大漠插件</h2>
 <h2 id="1-注册调用">1、 注册调用</h2>
 <h3 id="一下载大漠插件并注册到系统">一、下载大漠插件，并注册到系统</h3>
 <p>下载地址：https://pan.baidu.com/s/1nCc5jB4izcp_I2J6JLqEKA
@@ -499,6 +501,9 @@
 注朋码：yiging123c12aba5b0179907a750692b023298f12&quot;ww168168”
 注册码:  qq760471367f21b0879268408e5096b92cb022804da附加码vvv0000
 注册码：zhangxuhvi2d3b98fcd75ac8ee163feadabc6191b85附加码7b666777</p>
+<h2 id="必要函数">必要函数</h2>
+<p>​	CoInitializeEx(NULL, 0);//大漠所需 com组件在线程中调用的时候，需要初始化一下这个函数 。</p>
+<p>​	CoUninitialize();	//大漠所需，析构时释放。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -531,7 +536,7 @@
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
                     
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
         </div></footer></div>
 
     <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">

@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  3749 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "“API函数”","wordcount":  3898 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-12-17T00:00:00+00:00","dateModified": "2021-12-17T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3749 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-17">2021-12-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3898 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" class="leancloud_visitors" data-flag-title="非常用API函数">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -164,13 +164,15 @@
         <li><a href="#settimer-设置定时器">SetTimer 设置定时器</a></li>
         <li><a href="#killtimer-关闭定时器">KillTimer 关闭定时器</a></li>
         <li><a href="#afxextractsubstring-分割字符串mfc专用">AfxExtractSubString 分割字符串(MFC专用)</a></li>
-        <li><a href="#afxbeginthread-启动线程">AfxBeginThread 启动线程</a></li>
-        <li><a href="#postmessage-发送消息不等待返回">PostMessage 发送消息(不等待返回)</a></li>
-        <li><a href="#_beginthread-_beginthreadex-创建线程">_beginthread, _beginthreadex 创建线程</a></li>
+        <li><a href="#afxbeginthread-启动线程mfc专用">AfxBeginThread 启动线程(MFC专用)</a></li>
+        <li><a href="#postmessage-发送消息不等待直接返回">PostMessage 发送消息(不等待直接返回)</a></li>
+        <li><a href="#_beginthread-_beginthreadex-创建线程通用">_beginthread, _beginthreadex 创建线程(通用)</a></li>
         <li><a href="#_endthread_endthreadex-终止线程">_endthread、_endthreadex 终止线程</a></li>
         <li><a href="#waitforsingleobject-线程等待">WaitForSingleObject 线程等待</a></li>
         <li><a href="#assertfalse-断点">ASSERT(false) 断点</a></li>
         <li><a href="#纪元时间">纪元时间</a></li>
+        <li><a href="#safedelete-释放指针">SafeDelete 释放指针</a></li>
+        <li><a href="#gettickcount-系统开启到现在的时间">GetTickCount()  系统开启到现在的时间</a></li>
         <li><a href="#类型转换">类型转换</a></li>
       </ul>
     </li>
@@ -458,7 +460,7 @@
 <p>注意：用于分割的只能是字符，不能是字符串。</p>
 <p>多个字符使用_tcstok函数。</p>
 </blockquote>
-<h2 id="afxbeginthread-启动线程">AfxBeginThread 启动线程</h2>
+<h2 id="afxbeginthread-启动线程mfc专用">AfxBeginThread 启动线程(MFC专用)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -481,7 +483,8 @@
 </span><span class="c1">//返回值:指向新创建的线程对象的指针; NULL 如果发生失败，则为。
 </span></code></pre></td></tr></table>
 </div>
-</div><h2 id="postmessage-发送消息不等待返回">PostMessage 发送消息(不等待返回)</h2>
+</div><p>[MFC 大漠.xmind](../../../../../../iCloud~net~xmind~brownieapp/Documents/辅助/脚本/MFC 大漠.xmind)</p>
+<h2 id="postmessage-发送消息不等待直接返回">PostMessage 发送消息(不等待直接返回)</h2>
 <p>在窗口的消息队列中放置一条消息，然后返回而不等待相应的窗口处理该消息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -499,7 +502,7 @@
 </span><span class="c1">//返回值: 如果发送消息成功，则为非零值;否则为0。
 </span></code></pre></td></tr></table>
 </div>
-</div><h2 id="_beginthread-_beginthreadex-创建线程">_beginthread, _beginthreadex 创建线程</h2>
+</div><h2 id="_beginthread-_beginthreadex-创建线程通用">_beginthread, _beginthreadex 创建线程(通用)</h2>
 <p><a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/reference/beginthread-beginthreadex?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -802,7 +805,20 @@
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Epoch time: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">epoch_time</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="类型转换">类型转换</h2>
+</div><h2 id="safedelete-释放指针">SafeDelete 释放指针</h2>
+<p>有析构函数的在析构函数中释放</p>
+<p>没有的在类视图消息属性中释放</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">	<span class="n">SafeDelete</span><span class="p">(</span><span class="n">m_pOp</span><span class="p">);</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="gettickcount-系统开启到现在的时间">GetTickCount()  系统开启到现在的时间</h2>
+<p>单位,毫秒</p>
+<h2 id="类型转换">类型转换</h2>
 <p>atoi&mdash;ASCII to integer,将字符串转换成整形，从数字或正负号开始转换，一直到非数字为止</p>
 <p>itoa&mdash;integer to ASCII&ndash;将整形转换成字符串</p>
 <p>atof&mdash;ascii to float&ndash;字符串转换成浮点型</p>
@@ -882,7 +898,7 @@
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
                     
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
         </div></footer></div>
 
     <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
