@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)" />
+<meta property="og:description" content="FPS类型游戏的设计研究和游戏安全,反外挂研究 学习这套课程的基础包含少量的汇编知识和编程知识, 一定的数学知识和内存知识 基础建立在 任鸟飞202" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)"/>
+<meta name="twitter:description" content="FPS类型游戏的设计研究和游戏安全,反外挂研究 学习这套课程的基础包含少量的汇编知识和编程知识, 一定的数学知识和内存知识 基础建立在 任鸟飞202"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  3235 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3235 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" class="leancloud_visitors" data-flag-title="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>FPS类型游戏的设计研究和游戏安全,反外挂研究</p>
+<p>学习这套课程的基础包含少量的汇编知识和编程知识,</p>
+<p>一定的数学知识和内存知识</p>
+<p>基础建立在 任鸟飞2020课程 前100课的前提下即毫无压力的学习.</p>
+<p>当然我们要从最简单的概念开始学习,请勿急躁</p>
+<p>这个课题本着最简单易懂,从本质完全解析的态度,所以有任何细节不懂,哪怕是三角函数,都可以找我探讨</p>
+<p>向量</p>
+<p>可能大家问为什么要学习向量, 原因是向量是矩阵的元素,而矩阵是帮助我们快速计算的朋友</p>
+<p>所以就算不能完全掌握,了解一下是必要的.</p>
+<p>指具有大小和方向的量.</p>
+<p>一维向量,例如 1   对应的就是从0到1的向量,大小是1,方向X正轴方向</p>
+<p>我们说向量只有大小和方向, 不存在其他属性,所以  一维向量 1 也可以表示 从1到2 从-1到0</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ddda0184f3f84a67fcf1edb0a3b5e5bab33e32f9.png@704w_243h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ddda0184f3f84a67fcf1edb0a3b5e5bab33e32f9.png@704w_243h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ddda0184f3f84a67fcf1edb0a3b5e5bab33e32f9.png@704w_243h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ddda0184f3f84a67fcf1edb0a3b5e5bab33e32f9.png@704w_243h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ddda0184f3f84a67fcf1edb0a3b5e5bab33e32f9.png@704w_243h_progressive.png"
+        title="img"
+    /></p>
+<p>向量可以进行算数运算的.例如 1+1 =2  2个大小是1,方向X正轴方向的向量</p>
+<p>相加等于1个大小是2,方向X正轴方向的向量</p>
+<p>1*3 = 3  给向量放大3倍</p>
+<p>二维向量,例如  2,3 书写格式为[2,3]</p>
+<p>对应的是 从原点0,0 到 坐标 2,3 的向量, 大小就需要计算了</p>
+<p>根据三角函数,大小等于  sqrt(2<em>2+3</em>3) ,同样这也是计算 二维空间2点的距离公式</p>
+<p>(三角函数:直角三角形,斜边的平方 =  底边平方+高平方 , 知道任意2边可以计算出另外一个边的长度)</p>
+<p>距离 = sqrt((X1-x2)<em>(X1-x2)+(y1-y2)</em>(y1-y2));</p>
+<p>方向如图所示,我们下面再讲</p>
+<p>向量只有大小和方向,同样二维向量 [2,3] 也可以表示 从3,0到5,3 ,可以任意位置开始</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/51f33d549f96c1065013080b74187d3d7ebad1c7.png@869w_527h_progressive-20220107091359103.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/51f33d549f96c1065013080b74187d3d7ebad1c7.png@869w_527h_progressive-20220107091359103.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/51f33d549f96c1065013080b74187d3d7ebad1c7.png@869w_527h_progressive-20220107091359103.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/51f33d549f96c1065013080b74187d3d7ebad1c7.png@869w_527h_progressive-20220107091359103.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/51f33d549f96c1065013080b74187d3d7ebad1c7.png@869w_527h_progressive-20220107091359103.png"
+        title="img"
+    /></p>
+<p>二维向量也可以进行算数运算.</p>
+<p>例如 [2,3]+[2,1] = [4,4]</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/002bdac5787cd9eb20f1ed0b473ff9dbc933aa25.png@824w_534h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/002bdac5787cd9eb20f1ed0b473ff9dbc933aa25.png@824w_534h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/002bdac5787cd9eb20f1ed0b473ff9dbc933aa25.png@824w_534h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/002bdac5787cd9eb20f1ed0b473ff9dbc933aa25.png@824w_534h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/002bdac5787cd9eb20f1ed0b473ff9dbc933aa25.png@824w_534h_progressive.png"
+        title="img"
+    /></p>
+<p>向量的乘法 [2,3]*[3,3] = 6+9= 15  向量的内积</p>
+<p>向量的减法可以把空间2点的绝对坐标转化为相对坐标</p>
+<p>[X1,Y1] - [X2,Y2]= [X1-X2, Y1 - Y2],相当于把向量移动到原点</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1072c2e095e440d88428fd72c8bae023bb5e3ad0.png@861w_587h_progressive-20220107091430104.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1072c2e095e440d88428fd72c8bae023bb5e3ad0.png@861w_587h_progressive-20220107091430104.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1072c2e095e440d88428fd72c8bae023bb5e3ad0.png@861w_587h_progressive-20220107091430104.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1072c2e095e440d88428fd72c8bae023bb5e3ad0.png@861w_587h_progressive-20220107091430104.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/1072c2e095e440d88428fd72c8bae023bb5e3ad0.png@861w_587h_progressive-20220107091430104.png"
+        title="img"
+    /></p>
+<p>三角函数角度的问题</p>
+<p>在游戏图像计算中角度是必不可少的部分</p>
+<p>例如 我们知道了,如下三角形 高为3  底边为2</p>
+<p>那么tanA = 3/2  我们想求A的角度怎么办呢?   C++给我们提供API函数</p>
+<p>A = atan(3,2);  这样就计算出来  A的角度了</p>
+<p>不过atan()的返回值是弧度,我们如果想转为真正的角度  还是需要转换的</p>
+<p>什么是弧度呢?你可以简单的理解为  正常角度如果是0-180的话  弧度就是 0- π</p>
+<p>那么 atan(3,2) *180 / π  就把弧度转换成角度了</p>
+<p>最终</p>
+<p>A = atan(3,2)*180 / π;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6c3c0517c5c86f120bf62bf6b63e7001ff618b2a.png@455w_516h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6c3c0517c5c86f120bf62bf6b63e7001ff618b2a.png@455w_516h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6c3c0517c5c86f120bf62bf6b63e7001ff618b2a.png@455w_516h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6c3c0517c5c86f120bf62bf6b63e7001ff618b2a.png@455w_516h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6c3c0517c5c86f120bf62bf6b63e7001ff618b2a.png@455w_516h_progressive.png"
+        title="img"
+    /></p>
+<p>另外一种情况,</p>
+<p>知道了角度,想求边长</p>
+<p>例如一个向量[?,5] 角度是东偏北 60度</p>
+<p>我们怎么计算向量值呢?</p>
+<p>很简单,</p>
+<p>tan 60 = 5/底边</p>
+<p>底边 = 5/ tan60,当然这里的角度参数也是弧度  ,如果你的是真实角度,我们又要把角度转换成弧度</p>
+<p>最终</p>
+<p>底边 = 5 /  tan (60*π/180) ;</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f9521ad250f669531c368de35c695daaf02e9cfb.png@507w_401h_progressive-20220107091422141.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f9521ad250f669531c368de35c695daaf02e9cfb.png@507w_401h_progressive-20220107091422141.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f9521ad250f669531c368de35c695daaf02e9cfb.png@507w_401h_progressive-20220107091422141.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f9521ad250f669531c368de35c695daaf02e9cfb.png@507w_401h_progressive-20220107091422141.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f9521ad250f669531c368de35c695daaf02e9cfb.png@507w_401h_progressive-20220107091422141.png"
+        title="img"
+    /></p>
+<p>其他的 sin  cos  也是同理,我们不是学习数学,所以暂时了解即可,后面用到再说.</p>
+<p>三维向量</p>
+<p>例如 2,1,3  格式[2,1,3]</p>
+<p>向量写成行 或则列都可以</p>
+<p>行向量  [2,1,3]</p>
+<p>列向量</p>
+<p>[ 2</p>
+<p>1</p>
+<p>3 ]</p>
+<p>三维向量对应的是三维空间 2,1,3对应的是x,y,z</p>
+<p>(注: 三维坐标系,很多书本是Y 为高度轴,切记X,Y,Z只是个符号,你可以起名叫a b  c 也没问题</p>
+<p>调转一下坐标系X,就变成了Y ,所以没有区别,不要死记名字,按照自己习惯来)</p>
+<p>[2,1,3]就是从原点到坐标2,1,3的向量</p>
+<p>大小计算就更加复杂一点了</p>
+<p>先看懂下图的辅助线</p>
+<p>根据三角函数,向量的大小等于  sqrt(1<em>1+2</em>2+3*3) ,同样这也是计算 三维空间2点的距离公式</p>
+<p>距离 = sqrt((X1-x2)<em>(X1-x2)+(y1-y2)</em>(y1-y2)+(z1-z2)*(z1-z2));</p>
+<p>而方向不再单纯是一个角度了,他包含水平角度 和 高低角度,这个我们后面再讲</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8d3a271223b2de1970bedb70471cdb4bfdc2c911.png@942w_495h_progressive-20220107091416743.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8d3a271223b2de1970bedb70471cdb4bfdc2c911.png@942w_495h_progressive-20220107091416743.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8d3a271223b2de1970bedb70471cdb4bfdc2c911.png@942w_495h_progressive-20220107091416743.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8d3a271223b2de1970bedb70471cdb4bfdc2c911.png@942w_495h_progressive-20220107091416743.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8d3a271223b2de1970bedb70471cdb4bfdc2c911.png@942w_495h_progressive-20220107091416743.png"
+        title="img"
+    /></p>
+<p>向量的减法可以把三维空间2点的绝对坐标转化为相对坐标</p>
+<p>[X1,Y1,Z1] - [X2,Y2,Z2]= [X1-X2, Y1 - Y2,Z1-Z2],相当于把向量移动到原点</p>
+<p>同样三维向量也可以进行 加法  乘法等运算</p>
+<p>例如[X1,y1,z1] * [1,2,3]  = X1+y1<em>2+z1</em>3  向量的内积</p>
+<p>到这里是不是对几何和线性代数的基础知识不再陌生了,其实就这点东西,很简单.</p>
+<p>矩阵</p>
+<p>为什么要学习矩阵,对于我们研究的课题来说,就是为了方便计算以及精准计算的,当然你可以不用.</p>
+<p>多个向量组合成一个矩阵</p>
+<p>矩阵可以看做一个特殊的向量，而向量也可以看做一个特殊的矩阵。</p>
+<p>只有一行的矩阵  为行向量  行矩阵</p>
+<p>只有一列的矩阵  为列向量  列矩阵</p>
+<p>格式为  行*列</p>
+<p>例如 3*3 矩阵:</p>
+<p>1  2  3</p>
+<p>5  7  1</p>
+<p>2  2  1</p>
+<p>例如 3*4 矩阵</p>
+<p>1  2  3  5</p>
+<p>5  7  1  1</p>
+<p>2  2  1  2</p>
+<p>同形矩阵  可以相加减(毕竟如果不是同型的话,没有办法对应相加减  这很好理解)</p>
+<p>稍微有点难度的是矩阵相乘除</p>
+<p>那么大家要注意的是:</p>
+<p>1.矩阵是 多个向量的组合,矩阵的乘除就是 向量的乘除,而不是单独元素的乘除</p>
+<p>2.两个矩阵相乘,用第一个矩阵的行 乘 第二个矩阵的列的方式 计算</p>
+<p>由于使用方法的区别   A<em>B  !=  B</em>A  而且 A* 不同的矩阵  结果可能相同</p>
+<p>3.计算结果的存放</p>
+<p>例如 2个2*2 矩阵相乘</p>
+<p>第一行*第一列 放到  第一行第一列</p>
+<p>第一行*第二列  放到  第一行第二列</p>
+<p>第二行*第一列  放到  第二行第一列</p>
+<p>第二行*第二列  放到  第二行第二列</p>
+<p>a1  a2      乘    b1   b2     =   a1<em>b1 + a2</em>b3       a1<em>b2 + a2</em>b4</p>
+<p>a3  a4           b3   b4        a3<em>b1 +a4</em>b3        a3<em>b2 + a4</em>b4</p>
+<p>m<em>n 矩阵  和 i</em>j 矩阵  由于是行 *列  所以</p>
+<p>m<em>n 矩阵一行的元素  要和  i</em>j 矩阵一列的元素  必须相同</p>
+<p>也就是  n  == i</p>
+<p>主要满足这个条件就可以相乘  否则不可以</p>
+<p>矩阵特性</p>
+<p>矩阵对于我们来说就是为了方便计算而生,并不是无可取代</p>
+<p>举个例子</p>
+<p>只有对角线为1  其他都是0的矩阵   单位矩阵</p>
+<p>1  0  0   0</p>
+<p>0   1  0   0</p>
+<p>0   0  1   0</p>
+<p>0   0  0   1</p>
+<p>任何矩阵乘以  单位矩阵都为原来矩阵 把 1换成2  就是  放大2倍</p>
+<p>比你一个元素一个元素的*2方便很多吧?</p>
+<p>矩阵取一列</p>
+<p>1  0  0   X      乘   0    =   X    取X  Y  Z  向量</p>
+<p>0   1  0   Y          0       Y</p>
+<p>0   0  1   Z          0       Z</p>
+<p>0   0  0   1           1       1</p>
+<p>单独放大某个元素</p>
+<p>X  0  0   0      乘   0    =   0     Z 扩大10倍</p>
+<p>0   Y  0   0          0       0</p>
+<p>0   0  Z   0           10     10Z</p>
+<p>0   0  0   1           1       1</p>
+<p>矩阵的乘法可以实现很多的功能</p>
+<p>看起来是不是很方便,很强大?!</p>
+<p>不借助矩阵把游戏坐标转换成屏幕坐标</p>
+<p>无论是在窗口上绘制窗体,还是画各种方框,最核心的功能就是在于如何把游戏坐标也就是世界坐标转换成屏幕坐标.</p>
+<p>这里我们先不借助于强大好用的矩阵,单纯用几何算法转换一下坐标</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2d5eccf758f501da5e6af959a3cf5d002cb8d8bc.png@942w_560h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2d5eccf758f501da5e6af959a3cf5d002cb8d8bc.png@942w_560h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2d5eccf758f501da5e6af959a3cf5d002cb8d8bc.png@942w_560h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2d5eccf758f501da5e6af959a3cf5d002cb8d8bc.png@942w_560h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2d5eccf758f501da5e6af959a3cf5d002cb8d8bc.png@942w_560h_progressive.png"
+        title="img"
+    /></p>
+<p>图看起来有点乱,我们慢慢来</p>
+<p>这是游戏 上方俯视的平面图:</p>
+<p>如果有不懂可以加我Q2217777779,会尽力帮助解答</p>
+<p>1.水平可视角度 一般为90度, 也就是FOV 或则第一人称视角</p>
+<p>但是这个值只是约值,可能不精准也是导致后面不精准的原因之一</p>
+<p>2.我们准星一直在屏幕正中心的,所以向前做一个垂线,左右各45度</p>
+<p>3.我们把三角形补全,等腰三角形的斜边就是我们的可视范围,任何游戏中的物品 敌人和我们的连线只有和这个斜边有交单才会显示到我们的屏幕中</p>
+<p>如图中敌人和我们连线 焦点就是红色圆圈</p>
+<p>4.角度A 可以根据具体朝向值简单分析出来,后面数据分析的时候再说</p>
+<p>5.红色圆圈 在 AB 这条线上的位置</p>
+<p>就是敌人在我们屏幕X坐标的等比例位置</p>
+<p>所以这样就可以计算出来 屏幕坐标X了</p>
+<p>tanA =  X差/ (AB/2);</p>
+<p>那么  X差 = tanA*(AB/2);</p>
+<p>X差/(AB/2) =  屏幕坐标差/ (分辨率_宽度/2)</p>
+<p>继续替换</p>
+<p>tanA = 屏幕坐标差/ (分辨率_宽度/2)</p>
+<p>角度还要转换一下成弧度</p>
+<p>最终</p>
+<p>屏幕坐标差 =  tan(A*π/180)  *(分辨率_宽度/2);</p>
+<p>屏幕坐标 =  屏幕坐标差 + 分辨率_宽度/2;</p>
+<p>int 水平差 = (int)(tan(水平角度差 * 3.1416 / 180) * ((m_分辨率宽) / 2));</p>
+<p>屏幕坐标.x = (float)(m_分辨率宽 / 2 + 水平差);</p>
+<p>屏幕坐标.y 也是同样的计算方法,不过屏幕宽高是不相同的,所以可视角也是有区别的</p>
+<p>屏幕分辨率_高/屏幕分辨率_宽 = 高低可视角度 / 水平可视角度</p>
+<p>int 高度差 = (int)(tan(高低角度差 * 3.1416 / 180) * ((m_分辨率宽) / 2));// 这里也是m_分辨率宽</p>
+<p>因为可视角度不是45了,而是分辨率计算出来的角度</p>
+<p>屏幕坐标.y = (float)(m_分辨率高 / 2 + 高度差);</p>
+<p>最终代码如下:</p>
+<p>bool 绘制::世界坐标转屏幕坐标_非矩阵(坐标结构_2&amp; 屏幕坐标, FLOAT  水平角度差, FLOAT 高低角度差)</p>
+<p>{</p>
+<p>取窗口信息();</p>
+<p>FLOAT 高低可视角度 = (FLOAT)((double)atan2(m_分辨率高, m_分辨率宽)*180/3.1415);</p>
+<p>if (fabs(水平角度差) &gt; 45 || fabs(高低角度差) &gt; 高低可视角度)</p>
+<p>{</p>
+<p>return false;// 不在屏幕范围内</p>
+<p>}</p>
+<p>int 水平差 = (int)(tan(水平角度差 * 3.1416 / 180) * ((m_分辨率宽) / 2));</p>
+<p>屏幕坐标.x = (float)(m_分辨率宽 / 2 + 水平差);      i</p>
+<p>nt 高度差 = (int)(tan(高低角度差 * 3.1416 / 180) * ((m_分辨率宽) / 2));</p>
+<p>屏幕坐标.y = (float)(m_分辨率高 / 2 + 高度差);</p>
+<p>return true;</p>
+<p>}</p>
+<p>但是我们发现这样计算出来的画框 是不精准的</p>
+<p>主要2个原因一个是角度是约值,一个是计算过程中数值的溢出,尽量使用double 可以减少</p>
+<p>也可以通过微调度数等等的方式 把他修正比较准确.</p>
+<p>好我们下节课再见</p>
+<p>参考视频:</p>
+<p>链接: <a href="https://pan.baidu.com/s/1dN63zxgQECeeH1lzQ1P9cg" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1dN63zxgQECeeH1lzQ1P9cg</a> 提取码: dgs9</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-07</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" data-title="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)" data-hashtags="飞郁精品帖"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" data-hashtag="飞郁精品帖"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" data-title="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" data-title="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/" data-title="任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/">飞郁精品帖</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/" class="prev" rel="prev" title="【飞郁2022新课程】32 - xdbg的认识与设置"><i class="fas fa-angle-left fa-fw"></i>【飞郁2022新课程】32 - xdbg的认识与设置</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

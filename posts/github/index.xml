@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>数学公式</title>
+    <link>https://xinqinew.github.io/2022/01/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</link>
+    <pubDate>Sun, 02 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</guid>
+    <description><![CDATA[Markdown数学公式语法 行内与独行 行内公式：将公式插入到本行内，符号：$公式内容$，如：$xyz$ 独行公式：将公式插入到新的一行内，并且]]></description>
+</item><item>
     <title>Mermaid之流程图语法</title>
     <link>https://xinqinew.github.io/2021/10/mermaid%E4%B9%8B%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</link>
     <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
     <description><![CDATA[git使用总结 Git 分布式版本管理系统 Git 命令清单 workspace: 工作区 Index/Stage: 暂存区 Repository: 仓库区(或本地仓库) Remote: 远程仓库 新建代码库 1 2 3 4 5 6 7 8 # 在当前目录新建一个G]]></description>
-</item><item>
-    <title>Git笔记</title>
-    <link>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Fri, 06 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/git%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[Git pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add &lt;file&gt; 添加文件 git commit -m &lt;message&gt; 提交说明 git status 仓库状态 git diff &lt;file&gt; 查看差别 git log 日志 git reflog 查看命令历史 git reset --hard commit_id]]></description>
 </item></channel>
 </rss>

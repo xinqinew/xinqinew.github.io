@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>CString指南</title>
+    <link>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</link>
+    <pubDate>Mon, 03 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>我用#CSDN#这个app发现了有技术含量的博客，小伙伴们求同去《CString 应用操作指南【转】》, 一起来围观吧 https://blog.csdn.net/wallwind/article/details/6599125?utm_source=app&app_version=4.21.1 这篇文章包括以下内容： CString]]></description>
+</item><item>
     <title>C&#43;&#43; 调用cmd的几种方法</title>
     <link>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
     <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -13,15 +22,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>调用cmd来执行响应的命令，windows实际上也给了一些接口，但是有些在执行某些命令的时候，却不能够执行，比如 winsat。 system 这个命令使用]]></description>
-</item><item>
-    <title>CMap</title>
-    <link>https://xinqinew.github.io/2021/12/cmap/</link>
-    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。]]></description>
 </item><item>
     <title>非常用API函数</title>
     <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
