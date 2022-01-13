@@ -4,7 +4,25 @@
         <link>https://xinqinew.github.io/posts/mfc/</link>
         <description>所有MFC | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/mfc/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/mfc/" rel="self" type="application/rss+xml" /><item>
+    <title>CButton</title>
+    <link>https://xinqinew.github.io/2022/01/cbutton/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/cbutton/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CButton 详情 Name 描述 CButton：： GetCheck 抓取按钮控制项的检查状态。 CButton：： GetCheck 抓取选项按钮或核取方块的检查状态。 1 int GetCheck() const; 传回值 值 意义 BST_UNCHECKED 按钮状]]></description>
+</item><item>
+    <title>CWnd</title>
+    <link>https://xinqinew.github.io/2022/01/cwnd/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/cwnd/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
+</item><item>
     <title>CMap</title>
     <link>https://xinqinew.github.io/2021/12/cmap/</link>
     <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -12,6 +30,13 @@
     </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 举例如下： 1、定义一个CMAP，向这个CM]]></description>
+            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 CMap::RemoveKey 移除由键指定的元素。 举例如下： 1、定义一]]></description>
+</item><item>
+    <title>MFC</title>
+    <link>https://xinqinew.github.io/2021/12/mfc/</link>
+    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/mfc/</guid>
+    <description><![CDATA[通用 新建控件后,先改ID,然后添加变量,再添加控件事件 1 2 3 4 5 graph z([新建控件])--&gt; 改ID--&gt; 添加变量-.-&gt; 添加]]></description>
 </item></channel>
 </rss>

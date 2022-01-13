@@ -4,7 +4,25 @@
         <link>https://xinqinew.github.io/posts/c&#43;&#43;/</link>
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>多线程</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CreateThread 1 m_AcountManageThread = CreateThread(NULL, NULL, ThreadProc, this, 0, NULL);//创建线程 AfxBeginThread (MFC专用) 1 2 //创建线程 大漠的DMInitThread AfxBeginThread(DMInitThread, this, THREAD_PRIORITY_NORMAL, 0, 0, NULL); _beginthreadex 1 m_hThreadHandle = (HANDLE)::_beginthreadex(NULL, 0, ThreadFunction, this, 0, &amp;m_uThreadID); //]]></description>
+</item><item>
+    <title>C&#43;&#43; static静态成员变量</title>
+    <link>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>对象的内存中包含了成员变量，不同的对象占用不同的内存，这使得不同对象的成员变量相互独立，它们的值不受其他对象的影响。例如有两个相同类型的对象]]></description>
+</item><item>
     <title>CString指南</title>
     <link>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</link>
     <pubDate>Mon, 03 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -76,23 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>一、L&quot;str&quot; 如 L&quot;我的字符串&quot; 表示将ANSI字符串转换成unicode的字符串，就是每个字符占用]]></description>
-</item><item>
-    <title>pragma once与ifndef 解析</title>
-    <link>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</link>
-    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/pragma-once%E4%B8%8Eifndef%E8%A7%A3%E6%9E%90/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>#pragma once 与 #ifndef 解析 为了避免同一个文件被include多次，C/C++中有两种方式，一种是#ifndef方式，一种是#pragma once方式。在能]]></description>
-</item><item>
-    <title>C&#43;&#43;知识点(二)</title>
-    <link>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</link>
-    <pubDate>Sat, 07 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //目标进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一]]></description>
 </item></channel>
 </rss>

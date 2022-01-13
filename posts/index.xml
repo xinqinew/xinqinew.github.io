@@ -5,6 +5,24 @@
         <description>所有待整理 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;</title>
+    <link>https://xinqinew.github.io/posts/c&#43;&#43;/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/c&#43;&#43;/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>这里收录了我的C++笔记.]]></description>
+</item><item>
+    <title>MFC</title>
+    <link>https://xinqinew.github.io/posts/mfc/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/mfc/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>这里收录了我的MFC笔记.]]></description>
+</item><item>
     <title>飞郁精品贴</title>
     <link>https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/</link>
     <pubDate>Sat, 01 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -17,7 +35,7 @@
     <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E5%BE%85%E6%95%B4%E7%90%86/</guid>
-    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 long COpHelper::isColor(long x1, long y1, const TCHAR* color, double sim) { ASSERT(x1 &gt;= 0 &amp;&amp; x1 &lt;= MONITOR_WIDTH); ASSERT(y1 &gt;= 0 &amp;&amp; y1 &lt;= MONITOR_HEIGHT); long ret = dmsoft::CmpColor(x1, y1, color, sim); return !ret; } 待看教程 逆向 非虚拟机 【精品逆向课 十天学会破解-哔哩]]></description>
+    <description><![CDATA[Git忽略文件及文件夹操作 待看教程 逆向 非虚拟机 【精品逆向课 十天学会破解-哔哩哔哩】https://b23.tv/YSsuDo 【浴血凤凰 2019 dn]]></description>
 </item><item>
     <title>辅助精品贴</title>
     <link>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9%E7%B2%BE%E5%93%81%E8%B4%B4/</link>
@@ -55,24 +73,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/runoob.png" referrerpolicy="no-referrer">
             </div>这里收录了我的C++笔记.]]></description>
-</item><item>
-    <title>C&#43;&#43;</title>
-    <link>https://xinqinew.github.io/posts/c&#43;&#43;/</link>
-    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/posts/c&#43;&#43;/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>这里收录了我的C++笔记.]]></description>
-</item><item>
-    <title>MFC</title>
-    <link>https://xinqinew.github.io/posts/mfc/</link>
-    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/posts/mfc/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>这里收录了我的MFC笔记.]]></description>
 </item><item>
     <title>C&#43;&#43;菜鸟笔记</title>
     <link>https://xinqinew.github.io/posts/c&#43;&#43;%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B0/</link>

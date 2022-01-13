@@ -22,7 +22,7 @@
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/mfc/" /><link rel="prev" href="https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="next" href="https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/12/mfc/" /><link rel="next" href="https://xinqinew.github.io/2021/12/cmap/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/mfc\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本, MFC","wordcount":  749 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本, MFC","wordcount":  846 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/mfc\/","datePublished": "2021-12-20T00:00:00+00:00","dateModified": "2021-12-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 749 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 846 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/mfc/" class="leancloud_visitors" data-flag-title="MFC">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -148,17 +148,23 @@
         <li><a href="#通用">通用</a></li>
         <li><a href="#cdialog对话框">CDIALOG对话框</a></li>
         <li><a href="#cedit">CEdit</a></li>
-        <li><a href="#cbutton">CButton</a></li>
         <li><a href="#clistctrl">CListCtrl</a>
           <ul>
             <li><a href="#重要参数">重要参数:</a></li>
             <li><a href="#自动排序方法"><strong>自动排序方法</strong>:</a></li>
-            <li><a href="#常用成员及成员函数">常用成员及成员函数</a></li>
           </ul>
         </li>
+        <li><a href="#clistbox">CListBox</a></li>
         <li><a href="#ctabctrl">CTabCtrl</a></li>
         <li><a href="#ctraceservicecontrol">CTraceServiceControl</a></li>
         <li><a href="#cricheditctrl">CRichEditCtrl</a></li>
+        <li><a href="#cstdiofile-类">CStdioFile 类</a>
+          <ul>
+            <li><a href="#公共构造函数">公共构造函数</a></li>
+            <li><a href="#公共方法">公共方法</a></li>
+            <li><a href="#公共数据成员">公共数据成员</a></li>
+          </ul>
+        </li>
         <li><a href="#类视图">类视图</a></li>
       </ul>
     </li>
@@ -204,77 +210,62 @@ z3[添加事件TCN_SELCHANGE]
 </div>
 </div><h2 id="cedit">CEdit</h2>
 <p><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/cedit-class?view=msvc-170#syntax" target="_blank" rel="noopener noreffer">详情</a></p>
-<h2 id="cbutton">CButton</h2>
-<p><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/cbutton-class?view=msvc-170#syntax" target="_blank" rel="noopener noreffer">详情</a></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/cbutton-class?view=msvc-170#getcheck" target="_blank" rel="noopener noreffer">CButton：： GetCheck</a></td>
-<td style="text-align:left">抓取按钮控制项的检查状态。</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-<p><strong>CButton：： GetCheck</strong></p>
-<p>抓取选项按钮或核取方块的检查状态。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int GetCheck() const;
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>传回值</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th style="text-align:left">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">BST_UNCHECKED</td>
-<td style="text-align:left">按钮状态为未核取。</td>
-</tr>
-<tr>
-<td style="text-align:left">BST_CHECKED</td>
-<td style="text-align:left">按钮状态为已核取。</td>
-</tr>
-<tr>
-<td style="text-align:left">BST_INDETERMINATE</td>
-<td style="text-align:left">按钮状态是不定的 (只有在按钮具有 BS_3STATE 或 BS_AUTO3STATE 样式) 时才适用。</td>
-</tr>
-</tbody>
-</table>
 <h2 id="clistctrl">CListCtrl</h2>
 <p><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#syntax" target="_blank" rel="noopener noreffer">详情</a></p>
+<table>
+<thead>
+<tr>
+<th>公共方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#setextendedstyle" target="_blank" rel="noopener noreffer"><code>CListCtrl::SetExtendedStyle</code></a></td>
+<td>设定清单视图控制项目前的扩充样式。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getextendedstyle" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetExtendedStyle</code></a></td>
+<td>抓取清单视图控制项目前的扩充样式。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getitemtext" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetItemText</code></a></td>
+<td>抓取清单视图专案或子专案的文字。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getitemcount" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetItemCount</code></a></td>
+<td>抓取清单视图控制项中的专案数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistctrl-class?view=msvc-170#deleteitem" target="_blank" rel="noopener noreffer"><code>CListCtrl::DeleteItem</code></a></td>
+<td>删除控件中的项。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistctrl-class?view=msvc-170#insertitem" target="_blank" rel="noopener noreffer"><code>CListCtrl::InsertItem</code></a></td>
+<td>在列表视图控件中插入新项。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistctrl-class?view=msvc-170#insertcolumn" target="_blank" rel="noopener noreffer"><code>CListCtrl::InsertColumn</code></a></td>
+<td>在列表视图控件中插入新列。</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistctrl-class?view=msvc-170#setitemtext" target="_blank" rel="noopener noreffer"><code>CListCtrl::SetItemText</code></a></td>
+<td>更改列表视图项或子项的文本。</td>
+</tr>
+<tr>
+<td>CListCtrl::GetSelectionMark</td>
+<td>获取选中行的下标</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="重要参数">重要参数:</h3>
 <ul>
 <li>视图</li>
@@ -386,34 +377,34 @@ z3[添加事件TCN_SELCHANGE]
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="常用成员及成员函数">常用成员及成员函数</h3>
+</div><h2 id="clistbox">CListBox</h2>
 <table>
 <thead>
 <tr>
-<th>常用成员及成员函数</th>
-<th>描述</th>
+<th>Public</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#insertcolumn" target="_blank" rel="noopener noreffer"><code>CListCtrl::InsertColumn</code></a></td>
-<td>在清单视图控制项中插入新的资料行。</td>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistbox-class?view=msvc-170#getcursel" target="_blank" rel="noopener noreffer"><code>CListBox::GetCurSel</code></a></td>
+<td>返回列表框中当前选定字符串的从零开始的索引。</td>
 </tr>
 <tr>
-<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#setextendedstyle" target="_blank" rel="noopener noreffer"><code>CListCtrl::SetExtendedStyle</code></a></td>
-<td>设定清单视图控制项目前的扩充样式。</td>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistbox-class?view=msvc-170#gettext" target="_blank" rel="noopener noreffer"><code>CListBox::GetText</code></a></td>
+<td>将列表框项复制到缓冲区中。</td>
 </tr>
 <tr>
-<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getextendedstyle" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetExtendedStyle</code></a></td>
-<td>抓取清单视图控制项目前的扩充样式。</td>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistbox-class?view=msvc-170#deletestring" target="_blank" rel="noopener noreffer"><code>CListBox::DeleteString</code></a></td>
+<td>从列表框中删除字符串。</td>
 </tr>
 <tr>
-<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getitemtext" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetItemText</code></a></td>
-<td>抓取清单视图专案或子专案的文字。</td>
+<td><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/clistbox-class?view=msvc-170#addstring" target="_blank" rel="noopener noreffer"><code>CListBox::AddString</code></a></td>
+<td>将字符串添加到列表框。</td>
 </tr>
 <tr>
-<td><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/clistctrl-class?view=msvc-170#getitemcount" target="_blank" rel="noopener noreffer"><code>CListCtrl::GetItemCount</code></a></td>
-<td>抓取清单视图控制项中的专案数。</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -431,6 +422,65 @@ z3[添加事件TCN_SELCHANGE]
 <p>重要属性:</p>
 <p>多行</p>
 <p>垂直滚动</p>
+<h2 id="cstdiofile-类">CStdioFile 类</h2>
+<p><code>class CStdioFile : public CFile</code></p>
+<h3 id="公共构造函数">公共构造函数</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">“属性”</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#cstdiofile" target="_blank" rel="noopener noreffer"><code>CStdioFile::CStdioFile</code></a></td>
+<td style="text-align:left">从路径 <code>CStdioFile</code> 或文件指针构造 对象。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="公共方法">公共方法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">“属性”</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#open" target="_blank" rel="noopener noreffer"><code>CStdioFile::Open</code></a></td>
+<td style="text-align:left">已重载。 Open 旨在与默认构造函数一 (<code>CStdioFile</code> 重写 <a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cfile-class?view=msvc-170#open" target="_blank" rel="noopener noreffer"><code>CFile::Open</code></a>) 。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#readstring" target="_blank" rel="noopener noreffer"><code>CStdioFile::ReadString</code></a></td>
+<td style="text-align:left">读取一行文本。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#seek" target="_blank" rel="noopener noreffer"><code>CStdioFile::Seek</code></a></td>
+<td style="text-align:left">定位当前文件指针。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#writestring" target="_blank" rel="noopener noreffer"><code>CStdioFile::WriteString</code></a></td>
+<td style="text-align:left">写入一行文本。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="公共数据成员">公共数据成员</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">“属性”</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://docs.microsoft.com/zh-cn/cpp/mfc/reference/cstdiofile-class?view=msvc-170#m_pstream" target="_blank" rel="noopener noreffer"><code>CStdioFile::m_pStream</code></a></td>
+<td style="text-align:left">包含指向打开的文件的指针。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="类视图">类视图</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -471,8 +521,8 @@ z3[添加事件TCN_SELCHANGE]
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="大漠常见问题"><i class="fas fa-angle-left fa-fw"></i>大漠常见问题</a>
-            <a href="/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/" class="next" rel="next" title="雷电命令">雷电命令<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav">
+            <a href="/2021/12/cmap/" class="next" rel="next" title="CMap">CMap<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

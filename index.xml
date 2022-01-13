@@ -4,14 +4,57 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>任鸟飞FPS类型游戏绘制和游戏安全,反外挂研究(一)</title>
-    <link>https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/</link>
+    <title>多线程</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CreateThread 1 m_AcountManageThread = CreateThread(NULL, NULL, ThreadProc, this, 0, NULL);//创建线程 AfxBeginThread (MFC专用) 1 2 //创建线程 大漠的DMInitThread AfxBeginThread(DMInitThread, this, THREAD_PRIORITY_NORMAL, 0, 0, NULL); _beginthreadex 1 m_hThreadHandle = (HANDLE)::_beginthreadex(NULL, 0, ThreadFunction, this, 0, &amp;m_uThreadID); //]]></description>
+</item><item>
+    <title>C&#43;&#43; static静态成员变量</title>
+    <link>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>对象的内存中包含了成员变量，不同的对象占用不同的内存，这使得不同对象的成员变量相互独立，它们的值不受其他对象的影响。例如有两个相同类型的对象]]></description>
+</item><item>
+    <title>FPS骨骼,u3d,UE4(二)</title>
+    <link>https://xinqinew.github.io/2022/01/fps%E9%AA%A8%E9%AA%BCu3due4%E4%BA%8C/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/fps%E9%AA%A8%E9%AA%BCu3due4%E4%BA%8C/</guid>
+    <description><![CDATA[我们接着上文继续,如果没有看上文基础的同学建议先看完上文再继续本文章 本文章中均以单机游戏为例,每一种功能仅提供给网络安全工作者反外挂建议和安]]></description>
+</item><item>
+    <title>CButton</title>
+    <link>https://xinqinew.github.io/2022/01/cbutton/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/%E4%BB%BB%E9%B8%9F%E9%A3%9Efps%E7%B1%BB%E5%9E%8B%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E5%92%8C%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E5%8F%8D%E5%A4%96%E6%8C%82%E7%A0%94%E7%A9%B6%E4%B8%80/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/cbutton/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CButton 详情 Name 描述 CButton：： GetCheck 抓取按钮控制项的检查状态。 CButton：： GetCheck 抓取选项按钮或核取方块的检查状态。 1 int GetCheck() const; 传回值 值 意义 BST_UNCHECKED 按钮状]]></description>
+</item><item>
+    <title>CWnd</title>
+    <link>https://xinqinew.github.io/2022/01/cwnd/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/cwnd/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
+</item><item>
+    <title>FPS游戏绘制(一)</title>
+    <link>https://xinqinew.github.io/2022/01/fps%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E4%B8%80/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/fps%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E4%B8%80/</guid>
     <description><![CDATA[FPS类型游戏的设计研究和游戏安全,反外挂研究 学习这套课程的基础包含少量的汇编知识和编程知识, 一定的数学知识和内存知识 基础建立在 任鸟飞202]]></description>
 </item><item>
     <title>CString指南</title>
@@ -43,46 +86,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/</guid>
     <description><![CDATA[上一节课,给大家介绍OD的一些基本的使用方法,当然OD不仅仅只有这些功能和指令,这节课咱们就来更深入的了解一下OD 对命令行插件进行操作 首先我]]></description>
-</item><item>
-    <title>C&#43;&#43; 调用cmd的几种方法</title>
-    <link>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
-    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>调用cmd来执行响应的命令，windows实际上也给了一些接口，但是有些在执行某些命令的时候，却不能够执行，比如 winsat。 system 这个命令使用]]></description>
-</item><item>
-    <title>CMap</title>
-    <link>https://xinqinew.github.io/2021/12/cmap/</link>
-    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 举例如下： 1、定义一个CMAP，向这个CM]]></description>
-</item><item>
-    <title>【飞郁2022新课程】23 - CE找偏移表达式</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
-    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
-    <description><![CDATA[基地址和动态地址是一对好基友,他们相隔十万八千里,却紧密联系着 他们不用像唐僧取经一样翻山越岭,经历九九八十一难,因为他们有一种如同月光宝盒一]]></description>
-</item><item>
-    <title>【飞郁2022新课程】21 - 基地址和动态地址</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/</link>
-    <pubDate>Sun, 19 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/</guid>
-    <description><![CDATA[基地址 每一次程序启动,内存都会重新分配,我们在CE中扫描的地址大多会发生改变,但也有一些是不会随着游戏重启而变化的,这里面就有一部分是基地址]]></description>
-</item><item>
-    <title>非常用API函数</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Fri, 17 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此]]></description>
 </item></channel>
 </rss>

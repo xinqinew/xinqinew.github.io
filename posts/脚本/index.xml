@@ -33,13 +33,6 @@
     </author><guid>https://xinqinew.github.io/2021/12/%E9%9B%B7%E7%94%B5%E5%91%BD%E4%BB%A4/</guid>
     <description><![CDATA[0、首先 开始之前，你得找到 雷神模拟器 **命令行程序，在安装目录下lsconsole.exe，**不管三七二十八，先cmd执行试试，好像还不错]]></description>
 </item><item>
-    <title>MFC</title>
-    <link>https://xinqinew.github.io/2021/12/mfc/</link>
-    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/mfc/</guid>
-    <description><![CDATA[通用 新建控件后,先改ID,然后添加变量,再添加控件事件 1 2 3 4 5 graph z([新建控件])--&gt; 改ID--&gt; 添加变量-.-&gt; 添加]]></description>
-</item><item>
     <title>大漠常见问题</title>
     <link>https://xinqinew.github.io/2021/12/%E5%A4%A7%E6%BC%A0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -74,5 +67,12 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/12/%E9%A2%9D%E5%A4%96%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E7%9F%A5%E8%AF%86/</guid>
     <description><![CDATA[额外需要掌握的知识 容器的使用 list vector map MFC对话框的使用 新建对话框 button tab edit list 其它插件 乐玩、天使、图灵]]></description>
+</item><item>
+    <title>Visual C&#43;&#43;免注册调用大漠插件</title>
+    <link>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Thu, 16 Sep 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/09/visual-c-%E5%85%8D%E6%B3%A8%E5%86%8C%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[Visual C++免注册调用大漠插件 1、 注册调用 一、下载大漠插件，并注册到系统 下载地址：https://pan.baidu.com/s/1nCc5jB]]></description>
 </item></channel>
 </rss>
