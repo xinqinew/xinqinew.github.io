@@ -23,6 +23,24 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
 </item><item>
+    <title>MFC调试技巧</title>
+    <link>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>1 2 3 4 TCHAR pStr[] = _T(&#34;this is a test!&#34;); void* p = (void*)pStr; TRACE(_T(&#34;pStr is %s\n&#34;), pStr); //后台输出 ASSERT(NULL == pStr); //条件为假提示1234 @err,hr表示当前线程的GetLastError()的结]]></description>
+</item><item>
+    <title>从 0 到 1 学习 Visual Studio Debug 之五：远程调试</title>
+    <link>https://xinqinew.github.io/2022/01/%E4%BB%8E-0-%E5%88%B0-1-%E5%AD%A6%E4%B9%A0-visual-studio-debug-%E4%B9%8B%E4%BA%94%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E4%BB%8E-0-%E5%88%B0-1-%E5%AD%A6%E4%B9%A0-visual-studio-debug-%E4%B9%8B%E4%BA%94%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>有阵子没有更新这个主题，可能让大家误认为已经结束了，其实除了这一篇，后续还会有一些。 还是尽量本着善始善终的原则，我要把这个主题给讲完，并且在]]></description>
+</item><item>
     <title>CMap</title>
     <link>https://xinqinew.github.io/2021/12/cmap/</link>
     <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -30,7 +48,7 @@
     </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 CMap::RemoveKey 移除由键指定的元素。 举例如下： 1、定义一]]></description>
+            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 CMap::RemoveKey 移除由键指定的元素。 CMap::SetAt 将元素插入到映射中]]></description>
 </item><item>
     <title>MFC</title>
     <link>https://xinqinew.github.io/2021/12/mfc/</link>

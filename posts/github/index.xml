@@ -10,7 +10,7 @@
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/01/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</guid>
-    <description><![CDATA[git忽略特定文件夹操作 当用户把项目上传至git时，通常会有一些文件夹是本地依赖，不需要上传到代码仓库的。此时，可以在根目录新建git的配置]]></description>
+    <description><![CDATA[GitHub Desktop清除本地缓存 1 2 3 git rm -r --cached . git add . git commit -m &#34;update .gitignore&#34; 1、已经安装了GitHub Desktop 2、打开CMD命令行模式窗口，切换到你的仓库目录，再]]></description>
 </item><item>
     <title>数学公式</title>
     <link>https://xinqinew.github.io/2022/01/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</link>

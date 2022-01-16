@@ -4,9 +4,27 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 16 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>流程图 - 循环</title>
+    <link>https://xinqinew.github.io/2022/01/%E6%B5%81%E7%A8%8B%E5%9B%BE-%E5%BE%AA%E7%8E%AF/</link>
+    <pubDate>Sun, 16 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E6%B5%81%E7%A8%8B%E5%9B%BE-%E5%BE%AA%E7%8E%AF/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>for、while、do while三种循环的流程图画法总结（附案例） 循环结构是指在程序中需要反复执行某个功能而设置的一种程序结构，可以看成是]]></description>
+</item><item>
+    <title>ini文件读写</title>
+    <link>https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也]]></description>
+</item><item>
     <title>多线程</title>
     <link>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
     <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -57,34 +75,22 @@
     </author><guid>https://xinqinew.github.io/2022/01/fps%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E4%B8%80/</guid>
     <description><![CDATA[FPS类型游戏的设计研究和游戏安全,反外挂研究 学习这套课程的基础包含少量的汇编知识和编程知识, 一定的数学知识和内存知识 基础建立在 任鸟飞202]]></description>
 </item><item>
-    <title>CString指南</title>
-    <link>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</link>
-    <pubDate>Mon, 03 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+    <title>MFC调试技巧</title>
+    <link>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>我用#CSDN#这个app发现了有技术含量的博客，小伙伴们求同去《CString 应用操作指南【转】》, 一起来围观吧 https://blog.csdn.net/wallwind/article/details/6599125?utm_source=app&app_version=4.21.1 这篇文章包括以下内容： CString]]></description>
+            </div>1 2 3 4 TCHAR pStr[] = _T(&#34;this is a test!&#34;); void* p = (void*)pStr; TRACE(_T(&#34;pStr is %s\n&#34;), pStr); //后台输出 ASSERT(NULL == pStr); //条件为假提示1234 @err,hr表示当前线程的GetLastError()的结]]></description>
 </item><item>
-    <title>D3D黑屏优化</title>
-    <link>https://xinqinew.github.io/2021/12/d3d%E9%BB%91%E5%B1%8F%E4%BC%98%E5%8C%96/</link>
-    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+    <title>从 0 到 1 学习 Visual Studio Debug 之五：远程调试</title>
+    <link>https://xinqinew.github.io/2022/01/%E4%BB%8E-0-%E5%88%B0-1-%E5%AD%A6%E4%B9%A0-visual-studio-debug-%E4%B9%8B%E4%BA%94%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/d3d%E9%BB%91%E5%B1%8F%E4%BC%98%E5%8C%96/</guid>
-    <description><![CDATA[项目中常用的D3D黑屏优化讲解和源码分享,DX系列的游戏都可以用 诸多工作室在项目测试功能稳定后，为了更高效率的 榨干电脑性能 尽可能的多开会选择]]></description>
-</item><item>
-    <title>【飞郁2022新课程】32 - xdbg的认识与设置</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B32-xdbg%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E8%AE%BE%E7%BD%AE/</guid>
-    <description><![CDATA[xdbg的简介 Xllydbg(简称xdbg)和OD的用法和界面都是很像的,由于网络安全的发展,OD无法满足大部分人的需要了,更多的人习惯对x]]></description>
-</item><item>
-    <title>【飞郁2022新课程】31 - OD更多技巧</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/</link>
-    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/</guid>
-    <description><![CDATA[上一节课,给大家介绍OD的一些基本的使用方法,当然OD不仅仅只有这些功能和指令,这节课咱们就来更深入的了解一下OD 对命令行插件进行操作 首先我]]></description>
+    </author><guid>https://xinqinew.github.io/2022/01/%E4%BB%8E-0-%E5%88%B0-1-%E5%AD%A6%E4%B9%A0-visual-studio-debug-%E4%B9%8B%E4%BA%94%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>有阵子没有更新这个主题，可能让大家误认为已经结束了，其实除了这一篇，后续还会有一些。 还是尽量本着善始善终的原则，我要把这个主题给讲完，并且在]]></description>
 </item></channel>
 </rss>
