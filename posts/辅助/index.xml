@@ -25,5 +25,12 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</guid>
     <description><![CDATA[菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 hw 硬件写入断点 hr 硬件访问断点 快捷]]></description>
+</item><item>
+    <title>指针扫描</title>
+    <link>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</link>
+    <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</guid>
+    <description><![CDATA[0x00 Target 【基地址】+【偏移】+【偏移】+&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For]]></description>
 </item></channel>
 </rss>

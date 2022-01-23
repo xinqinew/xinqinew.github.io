@@ -23,6 +23,15 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
 </item><item>
+    <title>MFC 控件添加热键</title>
+    <link>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>给MFC中的控件添加我们想要的控件热键，在动手之前，必须清楚，热键分为local的和global的， 其中local的职能在当前程序有焦点（被]]></description>
+</item><item>
     <title>MFC调试技巧</title>
     <link>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
