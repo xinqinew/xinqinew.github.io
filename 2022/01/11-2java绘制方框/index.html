@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">11-2：java绘制方框 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="11-2：java绘制方框" />
+<meta property="og:description" content="单机手游绘制教程11-2：java绘制方框 赶码人 血条没啥好说的，drawLine就完事。游戏本身提供血条了，再画一个显得多余，咱把数字给搞出" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="11-2：java绘制方框"/>
+<meta name="twitter:description" content="单机手游绘制教程11-2：java绘制方框 赶码人 血条没啥好说的，drawLine就完事。游戏本身提供血条了，再画一个显得多余，咱把数字给搞出"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/4x4%E7%9F%A9%E9%98%B5%E4%B8%8E4x4%E7%9F%A9%E9%98%B5-%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97%E5%99%A8js%E6%BA%90%E7%A0%81/" /><link rel="next" href="https://xinqinew.github.io/2022/01/11-1%E5%AE%9A%E4%B9%89socket%E9%80%9A%E4%BF%A1%E6%A0%BC%E5%BC%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "11-2：java绘制方框",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "赶码人","wordcount":  2332 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">11-2：java绘制方框</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2332 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" class="leancloud_visitors" data-flag-title="11-2：java绘制方框">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p><a href="https://www.bilibili.com/blackboard/guguking2022.html" target="_blank" rel="noopener noreffer">单机手游绘制教程11-2：java绘制方框</a></p>
+<p><a href="https://space.bilibili.com/669962565" target="_blank" rel="noopener noreffer">赶码人</a></p>
+<p>血条没啥好说的，drawLine就完事。游戏本身提供血条了，再画一个显得多余，咱把数字给搞出来就行了。</p>
+<p>先把坐标搞明白，咱获取的坐标是一个点，而敌人身上的点多得是。如果获取坐标就是敌人坐标，而不是什么骨骼、武器坐标，那么通常就两种，xyz表示敌人这个立体图形的正中心，要么就是表示敌人脚下平面的正中心，本教程的T游戏是后者这种。</p>
+<p>那么如果画一个点上去，这个点就绘制在坦克这个立方体的底面的正中心，前面已经得到了坦克的尺寸size（经过测试，差不多是坦克高度，高度差不多是边长的一半），那么（x，y+size，z）表示坦克立方体的顶面的正中心的点坐标，（x，y，z）和（x，y+size，z）这两个点和矩阵运算得到的结果，符合“近大远小（指的是敌人远近、方框的大小）”，可以用作方框的顶边和底边的屏幕y坐标，再根据敌人的长宽比例，比如FPS的敌人宽高比差不多是0.5，本游戏的宽高比差不多是2，那么结合根据底边中心和顶边中心这两个点计算出的两个屏幕坐标的y坐标的差值，就可以得到方框的宽度，然后再通过这两个点的x坐标就可以得到方框的左边和右边的屏幕x坐标。</p>
+<p>经常能看到有人问为啥偏框，情况很多，下图这种比较常见（红色框），框框尺寸没问题，但是总是偏高半个人，说明找到的坐标是敌人中心点坐标，可以读取出这个xyz坐标后，给高度（大多数是y坐标）减去半个人物高度的值就好了。。。总之就是一件事，要用头顶的xyz和脚底的xyz一起和矩阵去运算，才能分别得到头顶在屏幕上的坐标，和脚底在屏幕的坐标&hellip;.另外，头顶脚底的x和z坐标通常相等，这里可以减少一些运算（本文没体现出来，我不在乎这点运算量&hellip;）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2b07d94b8c34f45bbb6d37821337f7ffc851c2ea.png@942w_435h_progressive-20220206101339951.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2b07d94b8c34f45bbb6d37821337f7ffc851c2ea.png@942w_435h_progressive-20220206101339951.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2b07d94b8c34f45bbb6d37821337f7ffc851c2ea.png@942w_435h_progressive-20220206101339951.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2b07d94b8c34f45bbb6d37821337f7ffc851c2ea.png@942w_435h_progressive-20220206101339951.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2b07d94b8c34f45bbb6d37821337f7ffc851c2ea.png@942w_435h_progressive-20220206101339951.png"
+        title="img"
+    /></p>
+<p>这是最常见的画方框思路，画一个方框没啥意思，这里干脆搞个3D框吧，注意接下来这个3D框和敌人朝向无关，角度只和相机有关，</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a79f1f2f2be18b5bba7ae03608da9aa44b764987.png@734w_659h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a79f1f2f2be18b5bba7ae03608da9aa44b764987.png@734w_659h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a79f1f2f2be18b5bba7ae03608da9aa44b764987.png@734w_659h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a79f1f2f2be18b5bba7ae03608da9aa44b764987.png@734w_659h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a79f1f2f2be18b5bba7ae03608da9aa44b764987.png@734w_659h_progressive.png"
+        title="img"
+    /></p>
+<p>红色的是下面的平面，绿色的是上面的平面</p>
+<p>如图，我们需要8个平面坐标系上的点，说白了就是8个3D坐标点转成的8个屏幕上的x,y点，那么我们已经知道底面的中心点是(x,y,z)，对于本系列教程的T游戏，也就是(x,0,z)，1~4这四个点就是(x-size, 0, z-size), (x-size, 0, z+size), (x+size, 0, z-size), (x+size, 0, z+size)，5~8这四个点3d坐标是(x-size, size, z-size), (x-size, size, z+size), (x+size, size, z-size), (x+size, size, z+size)。</p>
+<p>如果想搞和朝向相关的3D框，获取到敌人旋转角，把这8个点都绕着y轴旋转这个角度就行了，实际上和y轴没啥关系（因为是旋转角），可以参考这篇：https://blog.csdn.net/sinat_33425327/article/details/78333946</p>
+<p>再顺便提一句吧，我前面视频说y表示高度，这是通常情况，比如本游戏，以及unity引擎的游戏。UE4就比较特殊，（好像是）用z表示高度，我也很无语&hellip;</p>
+<p>理论说完了，其实等于没说，也没啥可说的，接下来搞代码。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png"
+        title="img"
+    /></p>
+<p>首先搞一个类，用来封装数据，这种不到200行的小项目直接弄个静态内部类就行了，为了省事，全都搞成static，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">static</span> <span class="k">class</span> <span class="nc">Role</span><span class="p">{</span>
+  <span class="k">public</span> <span class="kt">int</span> <span class="n">curHp</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">int</span> <span class="n">maxHp</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">float</span> <span class="n">size</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">float</span> <span class="n">z</span><span class="p">;</span>
+
+  
+  <span class="k">public</span> <span class="kt">int</span><span class="p">[][]</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+
+  
+  <span class="k">public</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">hpPos</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a91b6136a0592d86643b99f6e899a4c32f725f34.png@942w_624h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a91b6136a0592d86643b99f6e899a4c32f725f34.png@942w_624h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a91b6136a0592d86643b99f6e899a4c32f725f34.png@942w_624h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a91b6136a0592d86643b99f6e899a4c32f725f34.png@942w_624h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a91b6136a0592d86643b99f6e899a4c32f725f34.png@942w_624h_progressive.png"
+        title="img"
+    /></p>
+<blockquote>
+<p>别忘在Main构造方法里面对role数组初始化</p>
+</blockquote>
+<p>矩阵乘坐标会频繁调用，把3d坐标转屏幕坐标进行封装：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af0f1206c8c0ba120d8922216625734ca14f6a39.png@942w_306h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af0f1206c8c0ba120d8922216625734ca14f6a39.png@942w_306h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af0f1206c8c0ba120d8922216625734ca14f6a39.png@942w_306h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af0f1206c8c0ba120d8922216625734ca14f6a39.png@942w_306h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af0f1206c8c0ba120d8922216625734ca14f6a39.png@942w_306h_progressive.png"
+        title="img"
+    /></p>
+<blockquote>
+<p>这个本系列教程的T游戏能用，其他游戏不能照搬</p>
+</blockquote>
+<p>算了，直接发了吧，毕竟java端代码不像C语言端那么敏感，也不能直接套在其他游戏：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">package</span> <span class="n">main</span><span class="p">;</span>
+
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">BasicStroke</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">Color</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">Font</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">Graphics</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">Graphics2D</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">RenderingHints</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">IOException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">DatagramPacket</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">DatagramSocket</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">SocketException</span><span class="p">;</span>
+
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">swing</span><span class="p">.</span><span class="n">JComponent</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">swing</span><span class="p">.</span><span class="n">JFrame</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">swing</span><span class="p">.</span><span class="n">JRootPane</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">swing</span><span class="p">.</span><span class="n">WindowConstants</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Main</span> <span class="n">extends</span> <span class="n">JFrame</span><span class="p">{</span>
+
+	<span class="k">private</span> <span class="k">static</span> <span class="k">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="p">;</span>
+
+	<span class="k">private</span> <span class="k">static</span> <span class="n">JComponent</span> <span class="n">view</span><span class="p">;</span>
+
+
+
+	<span class="k">static</span> <span class="k">class</span> <span class="nc">Role</span><span class="p">{</span>
+		<span class="k">public</span> <span class="kt">int</span> <span class="n">curHp</span><span class="p">;</span>
+		<span class="k">public</span> <span class="kt">int</span> <span class="n">maxHp</span><span class="p">;</span>
+		<span class="k">public</span> <span class="kt">float</span> <span class="n">size</span><span class="p">;</span>
+		<span class="k">public</span> <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+		<span class="k">public</span> <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+		<span class="k">public</span> <span class="kt">float</span> <span class="n">z</span><span class="p">;</span>
+
+		
+		<span class="k">public</span> <span class="kt">int</span><span class="p">[][]</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+
+		
+		<span class="k">public</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">hpPos</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+	<span class="p">}</span>
+
+	<span class="k">static</span> <span class="n">Role</span><span class="p">[]</span> <span class="n">role</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Role</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span> 
+
+	<span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+
+	<span class="k">public</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Role</span><span class="p">();</span>
+		<span class="p">}</span>
+
+		<span class="k">this</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s">&#34;bilibili: 赶码人&#34;</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="n">getRootPane</span><span class="p">().</span><span class="n">setWindowDecorationStyle</span><span class="p">(</span><span class="n">JRootPane</span><span class="p">.</span><span class="n">FRAME</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="n">setUndecorated</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="n">setOpacity</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">);</span>
+
+		<span class="k">this</span><span class="p">.</span><span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">WindowConstants</span><span class="p">.</span><span class="n">DISPOSE_ON_CLOSE</span><span class="p">);</span>
+
+		<span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">private</span> <span class="k">static</span> <span class="k">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="p">;</span>
+
+			<span class="err">@</span><span class="n">Override</span>
+			<span class="k">protected</span> <span class="kt">void</span> <span class="n">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">Graphics2D</span> <span class="n">g2d</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>
+				<span class="n">g2d</span><span class="p">.</span><span class="n">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+				<span class="n">g2d</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">RED</span><span class="p">);</span>
+				<span class="n">g2d</span><span class="p">.</span><span class="n">setRenderingHint</span><span class="p">(</span><span class="n">RenderingHints</span><span class="p">.</span><span class="n">KEY_ANTIALIASING</span><span class="p">,</span><span class="n">RenderingHints</span><span class="p">.</span><span class="n">VALUE_ANTIALIAS_ON</span><span class="p">);</span>
+				
+
+				<span class="n">g2d</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&#34;宋体&#34;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="n">PLAIN</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
+				<span class="n">g2d</span><span class="p">.</span><span class="n">drawString</span><span class="p">(</span><span class="s">&#34;bilibili: 赶码人&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+				<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span> <span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">RED</span><span class="p">);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+
+					<span class="n">String</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">curHp</span> <span class="o">+</span> <span class="s">&#34;/&#34;</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">maxHp</span><span class="p">;</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">YELLOW</span><span class="p">);</span>
+					<span class="n">g2d</span><span class="p">.</span><span class="n">drawString</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">hpPos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">hpPos</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+				<span class="p">}</span>
+
+
+			<span class="p">}</span>
+
+		<span class="p">};</span>
+
+
+		<span class="k">this</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">view</span><span class="p">);</span>
+
+		<span class="k">this</span><span class="p">.</span><span class="n">setVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+
+	<span class="p">}</span>
+
+
+	<span class="k">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+		<span class="k">new</span> <span class="n">Main</span><span class="p">();</span>
+
+		<span class="n">byte</span><span class="p">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">byte</span><span class="p">[</span><span class="mi">64</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">50</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">];</span>
+
+		<span class="k">try</span><span class="p">(</span><span class="n">DatagramSocket</span> <span class="n">ds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DatagramSocket</span><span class="p">(</span><span class="mi">6666</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">DatagramPacket</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DatagramPacket</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+
+			<span class="kt">float</span><span class="p">[]</span> <span class="n">matrix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">float</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+
+			<span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">ds</span><span class="p">.</span><span class="n">receive</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+
+				<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Float</span><span class="p">.</span><span class="n">intBitsToFloat</span><span class="p">(</span><span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">4</span><span class="p">));</span>
+				<span class="p">}</span>
+
+				<span class="n">count</span> <span class="o">=</span> <span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
+
+				<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+					<span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">68</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">24</span><span class="p">;</span>
+
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">curHp</span> <span class="o">=</span> <span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span><span class="p">);</span>
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">maxHp</span> <span class="o">=</span> <span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">4</span><span class="p">);</span>
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="n">Float</span><span class="p">.</span><span class="n">intBitsToFloat</span><span class="p">(</span><span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">8</span><span class="p">));</span>
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="n">Float</span><span class="p">.</span><span class="n">intBitsToFloat</span><span class="p">(</span><span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">12</span><span class="p">));</span>
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="n">Float</span><span class="p">.</span><span class="n">intBitsToFloat</span><span class="p">(</span><span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">16</span><span class="p">));</span>
+					<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span> <span class="o">=</span> <span class="n">Float</span><span class="p">.</span><span class="n">intBitsToFloat</span><span class="p">(</span><span class="n">byteToInt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">20</span><span class="p">));</span>
+
+
+
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span><span class="p">,</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">hpPos</span><span class="p">);</span>
+
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+
+
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">-</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">6</span><span class="p">]);</span>
+					<span class="n">calcScreenPos</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">z</span> <span class="o">+</span> <span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">,</span>
+							<span class="n">role</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">screen</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>
+				<span class="p">}</span>
+
+
+
+				<span class="n">view</span><span class="p">.</span><span class="n">repaint</span><span class="p">();</span>
+
+			<span class="p">}</span>
+
+		<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">SocketException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span>
+
+	<span class="k">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">calcScreenPos</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span> <span class="n">matrix</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">screenPos</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">float</span> <span class="n">res0</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+		<span class="kt">float</span> <span class="n">res1</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+
+		<span class="kt">float</span> <span class="n">res3</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
+
+		<span class="kt">float</span> <span class="n">ndcX</span> <span class="o">=</span> <span class="n">res0</span> <span class="o">/</span> <span class="n">res3</span><span class="p">;</span>
+		<span class="kt">float</span> <span class="n">ndcY</span> <span class="o">=</span> <span class="n">res1</span> <span class="o">/</span> <span class="n">res3</span><span class="p">;</span>
+
+
+		<span class="n">screenPos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">((</span><span class="n">ndcX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2f</span> <span class="o">*</span> <span class="n">view</span><span class="p">.</span><span class="n">getWidth</span><span class="p">());</span>
+		<span class="n">screenPos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="p">(</span><span class="n">ndcY</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">view</span><span class="p">.</span><span class="n">getHeight</span><span class="p">());</span>
+	<span class="p">}</span>
+
+	<span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">byteToInt</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">3</span><span class="p">];</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">;</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">);</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">;</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">);</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">;</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">);</span>
+		<span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/02db465212d3c374a43c60fa2625cc1caeaab796-20220206101317532.png"
+        title="img"
+    /></p>
+<p>教程更新完毕，感谢大家支持！！感谢大家不嫌弃我菜（</p>
+<p>祝各位观众新年快乐~~</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" data-title="11-2：java绘制方框" data-hashtags="赶码人"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" data-hashtag="赶码人"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" data-title="11-2：java绘制方框"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" data-title="11-2：java绘制方框"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/" data-title="11-2：java绘制方框"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%B5%B6%E7%A0%81%E4%BA%BA/">赶码人</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022/01/4x4%E7%9F%A9%E9%98%B5%E4%B8%8E4x4%E7%9F%A9%E9%98%B5-%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97%E5%99%A8js%E6%BA%90%E7%A0%81/" class="prev" rel="prev" title="4x4矩阵与4x4矩阵 乘法计算器，JS源码"><i class="fas fa-angle-left fa-fw"></i>4x4矩阵与4x4矩阵 乘法计算器，JS源码</a>
+            <a href="/2022/01/11-1%E5%AE%9A%E4%B9%89socket%E9%80%9A%E4%BF%A1%E6%A0%BC%E5%BC%8F/" class="next" rel="next" title="11-1：定义socket通信格式">11-1：定义socket通信格式<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

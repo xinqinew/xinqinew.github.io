@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">谷歌colab训练自己的数据集YOLOv3 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="谷歌colab训练自己的数据集YOLOv3" />
+<meta property="og:description" content="谷歌colab训练自己的数据集YOLOv3 自己电脑的GPU不支持cuda，所以尝试使用谷歌的Colabortory,免费提供GPU，最长运行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="谷歌colab训练自己的数据集YOLOv3"/>
+<meta name="twitter:description" content="谷歌colab训练自己的数据集YOLOv3 自己电脑的GPU不支持cuda，所以尝试使用谷歌的Colabortory,免费提供GPU，最长运行"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" /><link rel="next" href="https://xinqinew.github.io/2022/01/%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "谷歌colab训练自己的数据集YOLOv3",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "yolov5","wordcount":  1566 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">谷歌colab训练自己的数据集YOLOv3</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1566 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" class="leancloud_visitors" data-flag-title="谷歌colab训练自己的数据集YOLOv3">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#谷歌colab训练自己的数据集yolov3">谷歌colab训练自己的数据集YOLOv3</a></li>
+        <li><a href="#数据集">数据集</a></li>
+        <li><a href="#colab使用">colab使用</a></li>
+        <li><a href="#安装pytorch">安装Pytorch</a></li>
+        <li><a href="#配置文件">配置文件</a></li>
+        <li><a href="#上传并构建数据集">上传并构建数据集</a></li>
+        <li><a href="#配置文件-1">配置文件</a></li>
+        <li><a href="#开始训练">开始训练</a></li>
+        <li><a href="#用训练出来的权重测试">用训练出来的权重测试</a></li>
+        <li><a href="#显示图片">显示图片</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="谷歌colab训练自己的数据集yolov3">谷歌colab训练自己的数据集YOLOv3</h2>
+<p>自己电脑的GPU不支持cuda，所以尝试使用谷歌的Colabortory,免费提供GPU，最长运行时间12小时，因此一般需要挂载到谷歌云盘上，储存文件。</p>
+<h2 id="数据集">数据集</h2>
+<p>目标检测的数据集需要自己手动标注目标物体位置并对应生成xml文件表示目标框的位置，本文简单介绍windows系统下标注工具LabelImg的使用。<br>
+LabelImg下载链接:<a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener noreffer">LabeIImg</a><br>
+下载好labelImg-master.zip后解压得到如下图所示。<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204100704464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204100704464.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204100704464.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204100704464.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204100704464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+shift+右击空白处打开powershell窗口<br>
+输入两个命令Pyrcc5 -o resources.py resources.qrc<br>
+python labelImg.py<br>
+可能会出现no module named libs.resources这样的错误，将resources.py拷贝到同级的libs目录下就可以解决了。再输入第二条命令就可以运行成功了。具体使用可以参考这篇<a href="https://blog.csdn.net/python_pycharm/article/details/85338801" target="_blank" rel="noopener noreffer">windows下使用labelImg标注图像</a><br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092759614.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092759614.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092759614.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092759614.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092759614.png"
+        title="在这里插入图片描述"
+    /><br>
+本次采用的数据集是红细胞的检测，已经标注好的数据链接：<a href="https://github.com/cosmicad/dataset" target="_blank" rel="noopener noreffer">已标注好的细胞数据连接</a>，Annotations文件是已经标注好目标框的xml文件，JPEGImages是jpg图片文件。<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201204102014473-20220209092759652.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201204102014473-20220209092759652.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201204102014473-20220209092759652.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201204102014473-20220209092759652.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201204102014473-20220209092759652.png"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="colab使用">colab使用</h2>
+<p>首先需要创建一个谷歌云盘账号，右键空白处-&gt;更多-&gt;Google Colabortory,相应目录下会生成一个.ipynb文件，下次使用可直接右键此文件以Google Colabortory方式打开。如果没有Googel Colabortory选项，点击关联更多应用添加。<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204102937867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204102937867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204102937867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204102937867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204102937867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+首先训练自己的数据集需要挂载谷歌云盘，方便文件的传输。点击链接进去，复制代码到下面框中即可。<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204103818506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204103818506.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204103818506.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204103818506.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204103818506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+挂载成功如下图<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204105333580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70#pic_center"
+        data-srcset="https://img-blog.csdnimg.cn/20201204105333580.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center, https://img-blog.csdnimg.cn/20201204105333580.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center 1.5x, https://img-blog.csdnimg.cn/20201204105333580.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70#pic_center 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204105333580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70#pic_center"
+        title="在这里插入图片描述"
+    /><br>
+下面介绍一些简单的文件操作：<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204111724596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204111724596.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204111724596.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204111724596.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204111724596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+设置GPU模式</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800174.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800174.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800174.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800174.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800174.png"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204112327990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204112327990.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204112327990.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204112327990.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204112327990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="安装pytorch">安装Pytorch</h2>
+<p>colab自带的是tensorflow,因此需要自己从官网复制代码下载pytoch,如下图<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201206102313829.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201206102313829.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201206102313829.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201206102313829.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201206102313829.png"
+        title="在这里插入图片描述"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800482.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800482.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800482.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800482.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800482.png"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800833.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800833.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800833.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092800833.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092800833.png"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="配置文件">配置文件</h2>
+<p>首先clone项目构建Darknet，输入以下命令<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204112530556.png"
+        data-srcset="https://img-blog.csdnimg.cn/20201204112530556.png, https://img-blog.csdnimg.cn/20201204112530556.png 1.5x, https://img-blog.csdnimg.cn/20201204112530556.png 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204112530556.png"
+        title="在这里插入图片描述"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204112615867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204112615867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204112615867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204112615867.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204112615867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+构建好后，右侧文件如下图：<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204112806197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204112806197.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204112806197.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204112806197.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204112806197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="上传并构建数据集">上传并构建数据集</h2>
+<p>将刚才下载好的数据集上传到/darknet/data/目录下，在谷歌云盘中相应目录下空白处右击上传即可，修改数据集名字为yolov3。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092801202.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801202.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801202.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801202.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092801202.png"
+        title="在这里插入图片描述"
+    />点进Yolov3，创建imagesets空文件夹，imagesets存放图片路径。（忽略labels文件夹）<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092801425.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801425.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801425.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092801425.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092801425.png"
+        title="在这里插入图片描述"
+    /><br>
+imagesets路径编写<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/2020120411410474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/2020120411410474.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/2020120411410474.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/2020120411410474.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/2020120411410474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    />生成的txt文件内容如下，每张图片的完整路径。</p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204152522635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204152522635.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204152522635.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204152522635.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204152522635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+分割数据集为训练集和测试集，分割后图片的名字存在imagesets下</p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204152904282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204152904282.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204152904282.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204152904282.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204152904282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+imagesets下的文件</p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204153249438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204153249438.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204153249438.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204153249438.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204153249438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802104.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802104.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802104.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802104.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802104.png"
+        title="在这里插入图片描述"
+    /><br>
+从xml文件中提取目标框坐标，并存入JPEGImages图片文件夹里，并在yolov3文件夹里生成train.txt和test.txt，与上面生成的不一样，这里是图片的完整路径</p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204153511690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204153511690.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204153511690.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204153511690.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204153511690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802335.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802335.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802335.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802335.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802335.png"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204155338773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204155338773.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204155338773.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204155338773.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204155338773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+生成的labels文件内容如下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204155650101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204155650101.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204155650101.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204155650101.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204155650101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="配置文件-1">配置文件</h2>
+<p>在/darknet/data/目录下创建rbc.data和rbc.names文件,如下：<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802838.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802838.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802838.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092802838.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092802838.png"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/2020120416014336.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/2020120416014336.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/2020120416014336.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/2020120416014336.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/2020120416014336.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+网络结构配置，将/darknet/cfg/目录下的yolov3.cf文件基础上改，可以将yolov3.cf文件复制重命名为yolov3_custom.cfg再存到cfg目录下。修改地方如下，如何修改可参考<a href="https://blog.csdn.net/longlong068/article/details/105088304" target="_blank" rel="noopener noreffer">Yolov3 win10+vs17 运行及训练自己的数据集</a><br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204160743189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204160743189.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204160743189.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204160743189.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204160743189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204160827519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201204160827519.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201204160827519.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201204160827519.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204160827519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="开始训练">开始训练</h2>
+<p>下载预训练权重<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092803194.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803194.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803194.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803194.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092803194.png"
+        title="在这里插入图片描述"
+    /><br>
+训练，第一行是防止Permission denied错误。这里注意前面构建数据的文件一定要放对路径，不然会报奇奇怪怪的错。训练产生的权重文件自动保存在/darknet/backup中<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204161405306.png"
+        data-srcset="https://img-blog.csdnimg.cn/20201204161405306.png, https://img-blog.csdnimg.cn/20201204161405306.png 1.5x, https://img-blog.csdnimg.cn/20201204161405306.png 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204161405306.png"
+        title="在这里插入图片描述"
+    /><br>
+如中间因不明原因停止可以查看backup目录下最后一次权重是多少（比如yolov3_custom_700.weights），然后运行如下代码就可以了。<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201204162854302.png"
+        data-srcset="https://img-blog.csdnimg.cn/20201204162854302.png, https://img-blog.csdnimg.cn/20201204162854302.png 1.5x, https://img-blog.csdnimg.cn/20201204162854302.png 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201204162854302.png"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="用训练出来的权重测试">用训练出来的权重测试</h2>
+<p>修改yolov3_custom.cfg为测试模式<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092803671.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803671.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803671.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092803671.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092803671.png"
+        title="在这里插入图片描述"
+    /><br>
+随便找一张细胞图片放入/darknet/data文件下（BloodImages_00001.jpg），然后输入下列代码。<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209153828245.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209153828245.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209153828245.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209153828245.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209153828245.png"
+        title="在这里插入图片描述"
+    /><br>
+得到下列结果，可以看到预测到几个目标：<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201209153938392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201209153938392.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201209153938392.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201209153938392.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201209153938392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /></p>
+<h2 id="显示图片">显示图片</h2>
+<p><img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20201209154331118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        data-srcset="https://img-blog.csdnimg.cn/20201209154331118.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70, https://img-blog.csdnimg.cn/20201209154331118.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 1.5x, https://img-blog.csdnimg.cn/20201209154331118.png?x-oss-process=image/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20201209154331118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70"
+        title="在这里插入图片描述"
+    /><br>
+显示预测结果<br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209154407851.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209154407851.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209154407851.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209154407851.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/20201209154407851.png"
+        title="在这里插入图片描述"
+    /><br>
+<img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092804216.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092804216.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092804216.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZmFuZ3poZW5naGVpdGk%2cshadow_10%2ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3%2csize_16%2ccolor_FFFFFF%2ct_70-20220209092804216.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODIyMjY3,size_16,color_FFFFFF,t_70-20220209092804216.png"
+        title="在这里插入图片描述"
+    /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" data-title="谷歌colab训练自己的数据集YOLOv3" data-hashtags="yolov5"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" data-hashtag="yolov5"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" data-title="谷歌colab训练自己的数据集YOLOv3"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" data-title="谷歌colab训练自己的数据集YOLOv3"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/%E8%B0%B7%E6%AD%8Ccolab%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86yolov3/" data-title="谷歌colab训练自己的数据集YOLOv3"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/yolov5/">yolov5</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/2022/01/%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" class="next" rel="next" title="详细步骤">详细步骤<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>
