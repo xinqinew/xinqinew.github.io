@@ -194,8 +194,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ g++ -v
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ g++ -v
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果您的计算机上已经安装了 GNU 编译器，则会显示如下消息：</p>
 <div class="highlight"><div class="chroma">
@@ -207,12 +207,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Using built-in specs.
-Target: i386-redhat-linux
-Configured with: ../configure --prefix=/usr .......
-Thread model: posix
-gcc version 4.1.2 20080704 (Red Hat 4.1.2-46)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Using built-in specs.
+</span></span><span class="line"><span class="cl">Target: i386-redhat-linux
+</span></span><span class="line"><span class="cl">Configured with: ../configure --prefix=/usr .......
+</span></span><span class="line"><span class="cl">Thread model: posix
+</span></span><span class="line"><span class="cl">gcc version 4.1.2 20080704 (Red Hat 4.1.2-46)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果未安装 GCC，那么请按照 <a href="http://gcc.gnu.org/install/" target="_blank" rel="noopener noreffer">http://gcc.gnu.org/install/</a> 上的详细说明安装 GCC。</p>
 <h3 id="mac-os-x-上的安装">Mac OS X 上的安装</h3>
@@ -286,14 +286,14 @@ gcc version 4.1.2 20080704 (Red Hat 4.1.2-46)
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#include &lt;iostream&gt;
-
-int main()
-{
-    std::cout &lt;&lt; &#34;Hello World!\n&#34;;
-    return 0;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#include &lt;iostream&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int main()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    std::cout &lt;&lt; &#34;Hello World!\n&#34;;
+</span></span><span class="line"><span class="cl">    return 0;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>界面如下所示：</p>
 <p><img
@@ -330,8 +330,8 @@ int main()
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ gcc main.cpp -lstdc++ -o main
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ gcc main.cpp -lstdc++ -o main
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面是一个保存在文件 helloworld.cpp 中一个简单的 C++ 程序的代码：</p>
 <div class="highlight"><div class="chroma">
@@ -345,14 +345,14 @@ int main()
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#include &lt;iostream&gt;
-using namespace std;
-int main()
-{
-    cout &lt;&lt; &#34;Hello, world!&#34; &lt;&lt; endl;
-    return 0;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#include &lt;iostream&gt;
+</span></span><span class="line"><span class="cl">using namespace std;
+</span></span><span class="line"><span class="cl">int main()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    cout &lt;&lt; &#34;Hello, world!&#34; &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">    return 0;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>最简单的编译方式：</p>
 <div class="highlight"><div class="chroma">
@@ -360,8 +360,8 @@ int main()
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ g++ helloworld.cpp
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ g++ helloworld.cpp
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>由于命令行中未指定可执行程序的文件名，编译器采用默认的 a.out。程序可以这样来运行：</p>
 <div class="highlight"><div class="chroma">
@@ -370,9 +370,9 @@ int main()
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ./a.out
-Hello, world!
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ./a.out
+</span></span><span class="line"><span class="cl">Hello, world!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通常我们使用 <strong>-o</strong> 选项指定可执行程序的文件名，以下实例生成一个 helloworld 的可执行文件：</p>
 <div class="highlight"><div class="chroma">
@@ -380,8 +380,8 @@ Hello, world!
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ g++ helloworld.cpp -o helloworld
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ g++ helloworld.cpp -o helloworld
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>执行 helloworld:</p>
 <div class="highlight"><div class="chroma">
@@ -390,9 +390,9 @@ Hello, world!
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ./helloworld
-Hello, world!
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ./helloworld
+</span></span><span class="line"><span class="cl">Hello, world!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果是多个 C++ 代码文件，如 runoob1.cpp、runoob2.cpp，编译命令如下：</p>
 <div class="highlight"><div class="chroma">
@@ -400,8 +400,8 @@ Hello, world!
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ g++ runoob1.cpp runoob2.cpp -o runoob
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ g++ runoob1.cpp runoob2.cpp -o runoob
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成一个 runoob 可执行文件。</p>
 <p>g++ 有些系统默认是使用 C++98，我们可以指定使用 C++11 来编译 main.cpp 文件：</p>
@@ -410,8 +410,8 @@ Hello, world!
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">g++ -g -Wall -std=c++11 main.cpp
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">g++ -g -Wall -std=c++11 main.cpp
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="g-常用命令选项">g++ 常用命令选项</h3>
 <table>

@@ -22,7 +22,7 @@
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/vs2019-%E9%85%8D%E7%BD%AE-libtorch-%E5%92%8C-opencv/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/yolov5-libtorch%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" /><link rel="next" href="https://xinqinew.github.io/2022/01/c-%E4%B8%AD%E4%BD%BF%E7%94%A8-yolov5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/vs2019-%E9%85%8D%E7%BD%AE-libtorch-%E5%92%8C-opencv/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/" /><link rel="next" href="https://xinqinew.github.io/2022/01/c-%E4%B8%AD%E4%BD%BF%E7%94%A8-yolov5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
@@ -321,14 +321,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">imread</span><span class="p">(</span><span class="s">&#34;图片路径&#34;</span><span class="p">);</span>
-	<span class="n">cv</span><span class="o">::</span><span class="n">imshow</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">img</span><span class="p">);</span>
-	<span class="n">cv</span><span class="o">::</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">imread</span><span class="p">(</span><span class="s">&#34;图片路径&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cv</span><span class="o">::</span><span class="n">imshow</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">img</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cv</span><span class="o">::</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -376,11 +376,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">c10.lib
-torch.lib
-torch_cpu.lib
-torch_cuda.lib
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">c10.lib
+</span></span><span class="line"><span class="cl">torch.lib
+</span></span><span class="line"><span class="cl">torch_cpu.lib
+</span></span><span class="line"><span class="cl">torch_cuda.lib
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -403,15 +403,15 @@ torch_cuda.lib
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;torch/torch.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">torch</span><span class="o">::</span><span class="n">Tensor</span> <span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">::</span><span class="n">rand</span><span class="p">({</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="p">});</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">torch</span><span class="o">::</span><span class="n">cuda</span><span class="o">::</span><span class="n">is_available</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;torch/torch.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">torch</span><span class="o">::</span><span class="n">Tensor</span> <span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">::</span><span class="n">rand</span><span class="p">({</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">torch</span><span class="o">::</span><span class="n">cuda</span><span class="o">::</span><span class="n">is_available</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -435,12 +435,12 @@ torch_cuda.lib
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"># 下面是 cuda10 的
-/INCLUDE:?warp_size@cuda@at@@YAHXZ
-
-# cuda11 可以尝试下面的
-/INCLUDE:?searchsorted_cuda@native@at@@YA?AVTensor@2@AEBV32@0_N1@Z 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 下面是 cuda10 的
+</span></span><span class="line"><span class="cl">/INCLUDE:?warp_size@cuda@at@@YAHXZ
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># cuda11 可以尝试下面的
+</span></span><span class="line"><span class="cl">/INCLUDE:?searchsorted_cuda@native@at@@YA?AVTensor@2@AEBV32@0_N1@Z 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>测试</li>
@@ -465,8 +465,8 @@ torch_cuda.lib
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">PATH=\path\to\libtorch\lib;\path\to\opencv\build\x64\vc15\bin;%PATH%;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PATH=\path\to\libtorch\lib;\path\to\opencv\build\x64\vc15\bin;%PATH%;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -499,7 +499,7 @@ torch_cuda.lib
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2022/01/yolov5-libtorch%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="yolov5-libtorch使用总结"><i class="fas fa-angle-left fa-fw"></i>yolov5-libtorch使用总结</a>
+    <div class="post-nav"><a href="/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/" class="prev" rel="prev" title="win10 使用TensorRT部署 yolov5-v4.0"><i class="fas fa-angle-left fa-fw"></i>win10 使用TensorRT部署 yolov5-v4.0</a>
             <a href="/2022/01/c-%E4%B8%AD%E4%BD%BF%E7%94%A8-yolov5/" class="next" rel="next" title="C&#43;&#43; 中使用 YoloV5">C&#43;&#43; 中使用 YoloV5<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>

@@ -339,12 +339,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSimDealDamageToTank</span><span class="p">(</span><span class="kt">int</span> <span class="n">result</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a4</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">v4</span> <span class="o">=</span> <span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">result</span><span class="p">;</span>
-  <span class="n">v17</span> <span class="o">=</span> <span class="n">v4</span> <span class="o">+</span> <span class="mh">0x2E00</span><span class="p">;</span>
-  <span class="n">result</span> <span class="o">=</span> <span class="n">v18</span><span class="p">(</span><span class="n">v17</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSimDealDamageToTank</span><span class="p">(</span><span class="kt">int</span> <span class="n">result</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v4</span> <span class="o">=</span> <span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v17</span> <span class="o">=</span> <span class="n">v4</span> <span class="o">+</span> <span class="mh">0x2E00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">result</span> <span class="o">=</span> <span class="n">v18</span><span class="p">(</span><span class="n">v17</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后继续，找这个函数是谁调用：</p>
 <p><img
@@ -390,11 +390,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int __fastcall DealCollateralDamage(int result, float *a2, int a3, int a4)
-{
-  v4 = (int *)result;
-  result = GmSimDealDamageToTank((int)v4, i, a4, (int)(float)((float)((float)a3 * v10) + (float)((float)a3 * v10)));
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int __fastcall DealCollateralDamage(int result, float *a2, int a3, int a4)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v4 = (int *)result;
+</span></span><span class="line"><span class="cl">  result = GmSimDealDamageToTank((int)v4, i, a4, (int)(float)((float)((float)a3 * v10) + (float)((float)a3 * v10)));
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>继续找：</p>
 <p><img
@@ -421,10 +421,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int __fastcall sub_C956AA28(int result, int a2)
-{
-    result = DealCollateralDamage(result, (float *)(a2 + 4), *(_DWORD *)(a2 + 56), *(_DWORD *)(a2 + 40));
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int __fastcall sub_C956AA28(int result, int a2)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    result = DealCollateralDamage(result, (float *)(a2 + 4), *(_DWORD *)(a2 + 56), *(_DWORD *)(a2 + 40));
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>找：</p>
 <p><img
@@ -460,10 +460,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int __fastcall GmSimProcessInstantProjectile(_DWORD *a1, int a2, float *a3)
-{
-  return sub_C956AA28((int)a1, a2);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int __fastcall GmSimProcessInstantProjectile(_DWORD *a1, int a2, float *a3)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  return sub_C956AA28((int)a1, a2);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -489,11 +489,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int __fastcall GmSimUpdateProjectiles(int result)
-{
-  v1 = (_DWORD *)result;
-  result = GmSimProcessInstantProjectile(v1, (int)v1 + v3, (float *)v43);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int __fastcall GmSimUpdateProjectiles(int result)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v1 = (_DWORD *)result;
+</span></span><span class="line"><span class="cl">  result = GmSimProcessInstantProjectile(v1, (int)v1 + v3, (float *)v43);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>剩下的都是以此类推，看图吧，</p>
 <p><img
@@ -581,39 +581,39 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int __fastcall GmSimDealDamageToTank(int result, int a2, int a3, int a4)
-{
-  v4 = (_DWORD *)result;
-  v17 = v4 + 0x2E00;
-  result = v18(v17[36], a2, a3); 
-
-int __fastcall DealCollateralDamage(int result, float *a2, int a3, int a4)
-{
-  v4 = (int *)result;
-  result = GmSimDealDamageToTank((int)v4, i, a4, (int)(float)((float)((float)a3 * v10) + (float)((float)a3 * v10)));
-
-int __fastcall sub_C956AA28(int result, int a2)
-{
-    result = DealCollateralDamage(result, (float *)(a2 + 4), *(_DWORD *)(a2 + 56), *(_DWORD *)(a2 + 40));
-
-int __fastcall GmSimProcessInstantProjectile(_DWORD *a1, int a2, float *a3)
-{
-  return sub_C956AA28((int)a1, a2);
-
-int __fastcall GmSimUpdateProjectiles(int result)
-{
-  v1 = (_DWORD *)result;
-  result = GmSimProcessInstantProjectile(v1, (int)v1 + v3, (float *)v43);
-
-int *__fastcall GmSimUpdateSim(int *result, int a2)
-{
-  v2 = (int)result;
-  GmSimUpdateProjectiles(v2);
-
-int __fastcall GmSceneCampaignUpdate(int a1)
-{
-  GmSimUpdateSim(*(int **)(a1 + 0x20), 30);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int __fastcall GmSimDealDamageToTank(int result, int a2, int a3, int a4)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v4 = (_DWORD *)result;
+</span></span><span class="line"><span class="cl">  v17 = v4 + 0x2E00;
+</span></span><span class="line"><span class="cl">  result = v18(v17[36], a2, a3); 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int __fastcall DealCollateralDamage(int result, float *a2, int a3, int a4)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v4 = (int *)result;
+</span></span><span class="line"><span class="cl">  result = GmSimDealDamageToTank((int)v4, i, a4, (int)(float)((float)((float)a3 * v10) + (float)((float)a3 * v10)));
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int __fastcall sub_C956AA28(int result, int a2)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    result = DealCollateralDamage(result, (float *)(a2 + 4), *(_DWORD *)(a2 + 56), *(_DWORD *)(a2 + 40));
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int __fastcall GmSimProcessInstantProjectile(_DWORD *a1, int a2, float *a3)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  return sub_C956AA28((int)a1, a2);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int __fastcall GmSimUpdateProjectiles(int result)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v1 = (_DWORD *)result;
+</span></span><span class="line"><span class="cl">  result = GmSimProcessInstantProjectile(v1, (int)v1 + v3, (float *)v43);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int *__fastcall GmSimUpdateSim(int *result, int a2)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  v2 = (int)result;
+</span></span><span class="line"><span class="cl">  GmSimUpdateProjectiles(v2);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">int __fastcall GmSceneCampaignUpdate(int a1)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  GmSimUpdateSim(*(int **)(a1 + 0x20), 30);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>先到这里吧，写得好累，明天再继续。</p>
 </div><div class="post-footer" id="post-footer">

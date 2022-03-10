@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁2019, hook","wordcount":  2343 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁2019, hook","wordcount":  2336 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/hook\/","datePublished": "2021-12-06T00:00:00+00:00","dateModified": "2021-12-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2343 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2336 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/12/hook/" class="leancloud_visitors" data-flag-title="Hook">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -171,12 +171,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">776101</span><span class="nf">EC</span>	<span class="no">E9</span>	<span class="no">C9950200</span>
-<span class="err">//</span> <span class="err">776101</span><span class="nf">EC为当前地址</span>
-<span class="err">//</span> <span class="nf">E9</span> <span class="err">为</span><span class="no">JMP</span>
-<span class="err">//</span> <span class="nf">C9950200</span> <span class="err">为偏移</span> <span class="err">逆序</span>
-<span class="err">//</span> <span class="err">776397</span><span class="nf">BA</span> <span class="err">=</span> <span class="mi">776101</span><span class="no">EC</span> <span class="err">+</span> <span class="mi">5</span> <span class="err">+</span> <span class="mi">000295</span><span class="no">C9</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">776101</span><span class="nf">EC</span>	<span class="no">E9</span>	<span class="no">C9950200</span>
+</span></span><span class="line"><span class="cl"><span class="err">//</span> <span class="err">776101</span><span class="nf">EC为当前地址</span>
+</span></span><span class="line"><span class="cl"><span class="err">//</span> <span class="nf">E9</span> <span class="err">为</span><span class="no">JMP</span>
+</span></span><span class="line"><span class="cl"><span class="err">//</span> <span class="nf">C9950200</span> <span class="err">为偏移</span> <span class="err">逆序</span>
+</span></span><span class="line"><span class="cl"><span class="err">//</span> <span class="err">776397</span><span class="nf">BA</span> <span class="err">=</span> <span class="mi">776101</span><span class="no">EC</span> <span class="err">+</span> <span class="mi">5</span> <span class="err">+</span> <span class="mi">000295</span><span class="no">C9</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="跨进程hook">跨进程hook</h2>
 <div class="highlight"><div class="chroma">
@@ -189,13 +189,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//跨进程hook 动态打补丁
-</span><span class="c1"></span><span class="n">OpenProcess</span>	<span class="c1">//打开进程 获取进程权限的句柄
-</span><span class="c1"></span><span class="n">WriteProcessMemory</span>	<span class="c1">//跨进程写入进程
-</span><span class="c1"></span><span class="n">VirtualAllocEx</span>	<span class="c1">//跨进程分配内存
-</span><span class="c1"></span><span class="n">VirtualProtectEx</span>	<span class="c1">//修改内存页面属性
-</span><span class="c1"></span><span class="n">JMP</span> <span class="err">跳转指令公式</span>	<span class="err">目标偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="err">当前指令地址</span>	<span class="c1">//5是指令长度 (近跳为2)
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//跨进程hook 动态打补丁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">OpenProcess</span>	<span class="c1">//打开进程 获取进程权限的句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">WriteProcessMemory</span>	<span class="c1">//跨进程写入进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">VirtualAllocEx</span>	<span class="c1">//跨进程分配内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">VirtualProtectEx</span>	<span class="c1">//修改内存页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">JMP</span> <span class="err">跳转指令公式</span>	<span class="err">目标偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="err">当前指令地址</span>	<span class="c1">//5是指令长度 (近跳为2)
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -232,38 +232,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="n">BYTE</span> <span class="n">gbuf_0040100A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x90</span> <span class="p">};</span>
-<span class="n">BYTE</span> <span class="n">gbuf_00401886</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-	<span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">,</span> <span class="mh">0xAF</span><span class="p">,</span> <span class="mh">0xC1</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xCB</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span>
-	<span class="mh">0xC8</span><span class="p">,</span> <span class="mh">0x90</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0x59</span><span class="p">,</span> <span class="mh">0x5B</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x00</span> <span class="p">};</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-	<span class="c1">//获取目标进程句柄
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;请手动输入进程pid&#34;</span><span class="p">);</span>
-	<span class="n">scanf_s</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
-	<span class="n">HANDLE</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
-
-	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
-
-	<span class="c1">//写入hook代码
-</span><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x0040100A,6, gbuf_0040100A,6);//本地hook
-</span><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x00401886,32, gbuf_00401886, 32);
-</span><span class="c1"></span>	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="n">gbuf_0040100A</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
-	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="n">gbuf_00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
-
-	<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">BYTE</span> <span class="n">gbuf_0040100A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x90</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">BYTE</span> <span class="n">gbuf_00401886</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">,</span> <span class="mh">0xAF</span><span class="p">,</span> <span class="mh">0xC1</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xCB</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="mh">0xC8</span><span class="p">,</span> <span class="mh">0x90</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0x59</span><span class="p">,</span> <span class="mh">0x5B</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x00</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//获取目标进程句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;请手动输入进程pid&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">scanf_s</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">HANDLE</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入hook代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x0040100A,6, gbuf_0040100A,6);//本地hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//memcpy_s((BYTE*)0x00401886,32, gbuf_00401886, 32);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="n">gbuf_0040100A</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">BYTE</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="n">gbuf_00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0040100A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">VirtualProtectEx</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="p">(</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x00401886</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oldProtect2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -273,11 +273,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//DLL HOOK补丁	//更完美一些的可以考虑 劫持一个DLL
-</span><span class="c1"></span><span class="n">VirtualProtect</span>	<span class="c1">//修改内存页面属性
-</span><span class="c1"></span><span class="err">指针操作</span> <span class="err">写入代码即可</span>
-<span class="err">写完可以考虑恢复内存页面属性</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//DLL HOOK补丁	//更完美一些的可以考虑 劫持一个DLL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">VirtualProtect</span>	<span class="c1">//修改内存页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">指针操作</span> <span class="err">写入代码即可</span>
+</span></span><span class="line"><span class="cl"><span class="err">写完可以考虑恢复内存页面属性</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="dll版-动态hook">DLL版 动态HOOK</h2>
 <div class="highlight"><div class="chroma">
@@ -328,59 +328,55 @@
 </span><span class="lnt">44
 </span><span class="lnt">45
 </span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// dllmain.cpp : 定义 DLL 应用程序的入口点。
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">BOOL</span> <span class="n">APIENTRY</span> <span class="nf">DllMain</span><span class="p">(</span> <span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">,</span>
-                       <span class="n">DWORD</span>  <span class="n">ul_reason_for_call</span><span class="p">,</span>
-                       <span class="n">LPVOID</span> <span class="n">lpReserved</span>
-                     <span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">switch</span> <span class="p">(</span><span class="n">ul_reason_for_call</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="k">case</span> <span class="nl">DLL_PROCESS_ATTACH</span><span class="p">:</span>
-	<span class="p">{</span>
-		<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
-</span><span class="c1"></span>		<span class="c1">//0006121C E8 57442E12  //call 12345678
-</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
-		<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mh">0x0006121C</span><span class="p">;</span>
-
-		<span class="c1">//向0x0006121D 4字节偏移
-</span><span class="c1"></span>		<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-		<span class="c1">//8 为4字节
-</span><span class="c1"></span>
-		<span class="c1">//写入偏移
-</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">;</span>
-		<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
-		<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
-
-		<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>		<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-		<span class="k">break</span><span class="p">;</span>
-	<span class="p">}</span>
-    <span class="k">case</span> <span class="nl">DLL_THREAD_ATTACH</span><span class="p">:</span>
-    <span class="k">case</span> <span class="nl">DLL_THREAD_DETACH</span><span class="p">:</span>
-    <span class="k">case</span> <span class="nl">DLL_PROCESS_DETACH</span><span class="p">:</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// dllmain.cpp : 定义 DLL 应用程序的入口点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">APIENTRY</span> <span class="nf">DllMain</span><span class="p">(</span> <span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">DWORD</span>  <span class="n">ul_reason_for_call</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">LPVOID</span> <span class="n">lpReserved</span>
+</span></span><span class="line"><span class="cl">                     <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">ul_reason_for_call</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">DLL_PROCESS_ATTACH</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">//0006121C E8 57442E12  //call 12345678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="mh">0x0006121C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">//向0x0006121D 4字节偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//8 为4字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//写入偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="mh">0x0006121D</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">DLL_THREAD_ATTACH</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">DLL_THREAD_DETACH</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">DLL_PROCESS_DETACH</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="mfc-dll-动态hook与unhook">MFC DLL 动态HOOK与UNHOOK</h2>
 <p>显示到编辑窗口中</p>
@@ -460,78 +456,74 @@
 </span><span class="lnt">63
 </span><span class="lnt">64
 </span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="k">extern</span> <span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
-<span class="n">DWORD</span> <span class="n">baseAdress1</span> <span class="o">=</span> <span class="mh">0x009C121C</span><span class="p">;</span>
-<span class="n">DWORD</span> <span class="n">baseAdress2</span> <span class="o">=</span> <span class="n">baseAdress1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
-	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;MyAdd所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
-	<span class="n">CString</span> <span class="n">strtmp</span><span class="p">;</span>
-	<span class="n">strtmp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;a=%d,b=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-	<span class="n">pg1</span><span class="p">.</span><span class="n">m_edt_str</span> <span class="o">+=</span> <span class="n">strtmp</span><span class="p">;</span> <span class="c1">//注意多线程冲突
-</span><span class="c1"></span>	
-	<span class="n">pg1</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">WM_USER</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">);</span>	<span class="c1">//变量同步到窗口 需要重写WindowProc
-</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">hook</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
-</span><span class="c1"></span>	<span class="c1">//0084121C E8 57442E12  //call 12345678
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
-	<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">baseAdress1</span><span class="p">;</span>
-
-	<span class="c1">//向0x0084121D 4字节偏移
-</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="c1">//8 为4字节
-</span><span class="c1"></span>
-	<span class="c1">//写入偏移
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
-	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
-	<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
-
-	<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-
-	<span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">void</span> <span class="nf">unhook</span><span class="p">()</span>
-<span class="p">{</span>
-
-	<span class="c1">//向0x0084121D 4字节偏移
-</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="c1">//8 为4字节
-</span><span class="c1"></span>
-	<span class="c1">//写入偏移
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
-	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="mh">0xFFFFFF5F</span><span class="p">;</span>
-
-	<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="k">return</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">extern</span> <span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">baseAdress1</span> <span class="o">=</span> <span class="mh">0x009C121C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">baseAdress2</span> <span class="o">=</span> <span class="n">baseAdress1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;MyAdd所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CString</span> <span class="n">strtmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">strtmp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;a=%d,b=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pg1</span><span class="p">.</span><span class="n">m_edt_str</span> <span class="o">+=</span> <span class="n">strtmp</span><span class="p">;</span> <span class="c1">//注意多线程冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">	<span class="n">pg1</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">WM_USER</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">);</span>	<span class="c1">//变量同步到窗口 需要重写WindowProc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">hook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//0084121C E8 57442E12  //call 12345678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">myAdd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">baseAdress1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//向0x0084121D 4字节偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//8 为4字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">poffset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unhook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//向0x0084121D 4字节偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//8 为4字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="mh">0xFFFFFF5F</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>hook.h</strong></p>
 <div class="highlight"><div class="chroma">
@@ -545,14 +537,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
-</span><span class="cp"></span><span class="k">class</span> <span class="nc">HOOK</span>
-<span class="p">{</span>
-<span class="p">};</span>
-
-<span class="kt">void</span> <span class="nf">hook</span><span class="p">();</span>
-<span class="kt">void</span> <span class="nf">unhook</span><span class="p">();</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma once
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">class</span> <span class="nc">HOOK</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">hook</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unhook</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>主程序源文件 MFC_HOOK_DLL.cpp 关键部分</strong></p>
 <div class="highlight"><div class="chroma">
@@ -581,29 +573,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 唯一的 CMFCHOOKDLLApp 对象
-</span><span class="c1"></span>
-<span class="n">CMFCHOOKDLLApp</span> <span class="n">theApp</span><span class="p">;</span>
-
-<span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
-<span class="c1">// CMFCHOOKDLLApp 初始化
-</span><span class="c1"></span><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">showDlg</span><span class="p">(</span><span class="n">PVOID</span> <span class="n">arglist</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
-	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;showDlg所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
-	<span class="n">pg1</span><span class="p">.</span><span class="n">DoModal</span><span class="p">();</span>	<span class="c1">//显示窗口
-</span><span class="c1"></span>	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">BOOL</span> <span class="n">CMFCHOOKDLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
-	<span class="c1">//写HOOK 显示窗口
-</span><span class="c1"></span>	<span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">showDlg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 唯一的 CMFCHOOKDLLApp 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">CMFCHOOKDLLApp</span> <span class="n">theApp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// CMFCHOOKDLLApp 初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">showDlg</span><span class="p">(</span><span class="n">PVOID</span> <span class="n">arglist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;showDlg所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pg1</span><span class="p">.</span><span class="n">DoModal</span><span class="p">();</span>	<span class="c1">//显示窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">CMFCHOOKDLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写HOOK 显示窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">showDlg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>Dlg源文件 CPAGE1.cpp 关键部分</strong></p>
 <div class="highlight"><div class="chroma">
@@ -640,37 +632,37 @@
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// CPAGE1 消息处理程序
-</span><span class="c1"></span>
-<span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton1Hook</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">hook</span><span class="p">();</span>
-	<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//变量同步到窗口
-</span><span class="c1"></span>	<span class="c1">// TODO: 在此添加控件通知处理程序代码
-</span><span class="c1"></span><span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton2Unhook</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">unhook</span><span class="p">();</span>
-	<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//变量同步到窗口
-</span><span class="c1"></span>	<span class="c1">// TODO: 在此添加控件通知处理程序代码
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="c1">//pg1.SendMessage(WM_USER + 2, 222, 333);
-</span><span class="c1"></span><span class="n">LRESULT</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">WindowProc</span><span class="p">(</span><span class="n">UINT</span> <span class="n">message</span><span class="p">,</span> <span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="c1">// TODO: 在此添加专用代码和/或调用基类
-</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="o">==</span><span class="n">WM_USER</span><span class="o">+</span><span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">wParam</span> <span class="o">==</span><span class="mi">222</span> <span class="o">&amp;&amp;</span> <span class="n">lParam</span> <span class="o">==</span><span class="mi">333</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//更新变量到窗口
-</span><span class="c1"></span>		<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;WindowProc所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="n">CDialogEx</span><span class="o">::</span><span class="n">WindowProc</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// CPAGE1 消息处理程序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton1Hook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">hook</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//变量同步到窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">OnBnClickedButton2Unhook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">unhook</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//变量同步到窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//pg1.SendMessage(WM_USER + 2, 222, 333);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">LRESULT</span> <span class="n">CPAGE1</span><span class="o">::</span><span class="n">WindowProc</span><span class="p">(</span><span class="n">UINT</span> <span class="n">message</span><span class="p">,</span> <span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// TODO: 在此添加专用代码和/或调用基类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="o">==</span><span class="n">WM_USER</span><span class="o">+</span><span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">wParam</span> <span class="o">==</span><span class="mi">222</span> <span class="o">&amp;&amp;</span> <span class="n">lParam</span> <span class="o">==</span><span class="mi">333</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">UpdateData</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>	<span class="c1">//更新变量到窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;WindowProc所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">CDialogEx</span><span class="o">::</span><span class="n">WindowProc</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>CPAGE1.h</strong></p>
 <div class="highlight"><div class="chroma">
@@ -705,41 +697,39 @@
 </span><span class="lnt">28
 </span><span class="lnt">29
 </span><span class="lnt">30
-</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
-</span><span class="cp"></span>
-
-<span class="c1">// CPAGE1 对话框
-</span><span class="c1"></span>
-<span class="k">class</span> <span class="nc">CPAGE1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">CDialogEx</span>
-<span class="p">{</span>
-	<span class="n">DECLARE_DYNAMIC</span><span class="p">(</span><span class="n">CPAGE1</span><span class="p">)</span>
-
-<span class="k">public</span><span class="o">:</span>
-	<span class="n">CPAGE1</span><span class="p">(</span><span class="n">CWnd</span><span class="o">*</span> <span class="n">pParent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>   <span class="c1">// 标准构造函数
-</span><span class="c1"></span>	<span class="k">virtual</span> <span class="o">~</span><span class="n">CPAGE1</span><span class="p">();</span>
-
-<span class="c1">// 对话框数据
-</span><span class="c1"></span><span class="cp">#ifdef AFX_DESIGN_TIME
-</span><span class="cp"></span>	<span class="k">enum</span> <span class="p">{</span> <span class="n">IDD</span> <span class="o">=</span> <span class="n">IDD_DIALOG1</span> <span class="p">};</span>
-<span class="cp">#endif
-</span><span class="cp"></span>
-<span class="k">protected</span><span class="o">:</span>
-	<span class="k">virtual</span> <span class="kt">void</span> <span class="n">DoDataExchange</span><span class="p">(</span><span class="n">CDataExchange</span><span class="o">*</span> <span class="n">pDX</span><span class="p">);</span>    <span class="c1">// DDX/DDV 支持
-</span><span class="c1"></span>
-	<span class="n">DECLARE_MESSAGE_MAP</span><span class="p">()</span>
-<span class="k">public</span><span class="o">:</span>
-	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="n">OnBnClickedButton1Hook</span><span class="p">();</span>
-	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnBnClickedButton2Unhook</span><span class="p">();</span>
-	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnEnChangeEdit1</span><span class="p">();</span>
-	<span class="c1">// EDIT1 m_edt_str
-</span><span class="c1"></span>	<span class="n">CString</span> <span class="n">m_edt_str</span><span class="p">;</span>
-	<span class="k">virtual</span> <span class="n">LRESULT</span> <span class="nf">WindowProc</span><span class="p">(</span><span class="n">UINT</span> <span class="n">message</span><span class="p">,</span> <span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">);</span>
-<span class="p">};</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma once
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// CPAGE1 对话框
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CPAGE1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">CDialogEx</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DECLARE_DYNAMIC</span><span class="p">(</span><span class="n">CPAGE1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CPAGE1</span><span class="p">(</span><span class="n">CWnd</span><span class="o">*</span> <span class="n">pParent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>   <span class="c1">// 标准构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">virtual</span> <span class="o">~</span><span class="n">CPAGE1</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 对话框数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#ifdef AFX_DESIGN_TIME
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="k">enum</span> <span class="p">{</span> <span class="n">IDD</span> <span class="o">=</span> <span class="n">IDD_DIALOG1</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">virtual</span> <span class="kt">void</span> <span class="n">DoDataExchange</span><span class="p">(</span><span class="n">CDataExchange</span><span class="o">*</span> <span class="n">pDX</span><span class="p">);</span>    <span class="c1">// DDX/DDV 支持
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">DECLARE_MESSAGE_MAP</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="n">OnBnClickedButton1Hook</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnBnClickedButton2Unhook</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnEnChangeEdit1</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// EDIT1 m_edt_str
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">CString</span> <span class="n">m_edt_str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">virtual</span> <span class="n">LRESULT</span> <span class="nf">WindowProc</span><span class="p">(</span><span class="n">UINT</span> <span class="n">message</span><span class="p">,</span> <span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="动态hook游戏组包">动态hook游戏组包</h2>
 <p><strong>hook.cpp</strong></p>
@@ -840,108 +830,104 @@
 </span><span class="lnt">93
 </span><span class="lnt">94
 </span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="k">extern</span> <span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
-<span class="n">DWORD</span> <span class="n">baseAdress1</span> <span class="o">=</span> <span class="mh">0x009C121C</span><span class="p">;</span>
-<span class="n">DWORD</span> <span class="n">baseAdress2</span> <span class="o">=</span> <span class="n">baseAdress1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
-	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;MyAdd所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
-	<span class="n">CString</span> <span class="n">strtmp</span><span class="p">;</span>
-	<span class="n">strtmp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;a=%d,b=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-	<span class="n">pg1</span><span class="p">.</span><span class="n">m_edt_str</span> <span class="o">+=</span> <span class="n">strtmp</span><span class="p">;</span> <span class="c1">//注意多线程冲突
-</span><span class="c1"></span>	
-	<span class="n">pg1</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">WM_USER</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">);</span>	<span class="c1">//变量同步到窗口 需要重写WindowProc
-</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="err">取数据函数</span><span class="p">()</span>
-<span class="p">{</span>
-
-<span class="p">}</span>
-
-
-<span class="n">UINT_PTR</span> <span class="n">send_off5</span> <span class="o">=</span> <span class="p">((</span><span class="n">UINT_PTR</span><span class="p">)(</span><span class="n">LoadLibraryA</span><span class="p">(</span><span class="s">&#34;Gane.exe&#34;</span><span class="p">)))</span> <span class="o">+</span> <span class="mh">0x351E75</span><span class="p">;</span>
-<span class="c1">//裸汇编
-</span><span class="c1"></span><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span><span class="kt">void</span> <span class="n">hookSend</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="c1">//取出想要的数据
-</span><span class="c1"></span>	<span class="c1">//还原指令
-</span><span class="c1"></span>	<span class="c1">//跳转到Game.exe+351E75
-</span><span class="c1"></span>	<span class="kr">__asm</span>
-	<span class="p">{</span>
-		<span class="n">call</span> <span class="err">取数据函数</span>
-		<span class="c1">//还原代码
-</span><span class="c1"></span>		<span class="n">push</span> <span class="n">ebp</span>
-		<span class="n">mov</span> <span class="n">ebp</span><span class="p">,</span> <span class="n">esp</span>
-		<span class="n">push</span> <span class="o">-</span> <span class="mi">1</span>
-		<span class="n">jmp</span> <span class="n">send_off5</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">BYTE</span> <span class="n">jmpCode</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xE9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>	<span class="c1">//偏移=目标地址-5-当前地址
-</span><span class="c1"></span>
-
-
-<span class="kt">void</span> <span class="nf">hook</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
-</span><span class="c1"></span>	<span class="c1">//0084121C E8 57442E12  //call 12345678
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">HOOK地址</span> <span class="o">=</span> <span class="n">send_off5</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>	<span class="c1">//当前指令地址
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">hookSend</span><span class="p">;</span>
-	<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">HOOK地址</span><span class="p">;</span>
-	<span class="c1">//组装jmpCode
-</span><span class="c1"></span>	<span class="n">DWORD</span><span class="o">*</span><span class="n">pJMP</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">jmpCode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-	<span class="n">pJMP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
-
-	<span class="c1">//向0x0084121D 4字节偏移
-</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">HOOK地址</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="c1">//8 为4字节
-</span><span class="c1"></span>
-	<span class="c1">//写入5字节jmpCode
-</span><span class="c1"></span>	<span class="n">memcpy</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">HOOK地址</span><span class="p">,</span> <span class="n">jmpCode</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-
-	<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-
-	<span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">void</span> <span class="nf">unhook</span><span class="p">()</span>
-<span class="p">{</span>
-
-	<span class="c1">//向0x0084121D 4字节偏移
-</span><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="c1">//8 为4字节
-</span><span class="c1"></span>
-	<span class="c1">//写入偏移
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
-	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="mh">0xFFFFFF5F</span><span class="p">;</span>
-
-	<span class="c1">//恢复原页面属性
-</span><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
-	<span class="k">return</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;pch.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;HOOK.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;CPAGE1.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">extern</span> <span class="n">CPAGE1</span> <span class="n">pg1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">baseAdress1</span> <span class="o">=</span> <span class="mh">0x009C121C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">baseAdress2</span> <span class="o">=</span> <span class="n">baseAdress1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">myAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">AFX_MANAGE_STATE</span><span class="p">(</span><span class="n">AfxGetStaticModuleState</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">GetCurrentThreadId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;MyAdd所在线程tid=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CString</span> <span class="n">strtmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">strtmp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;a=%d,b=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pg1</span><span class="p">.</span><span class="n">m_edt_str</span> <span class="o">+=</span> <span class="n">strtmp</span><span class="p">;</span> <span class="c1">//注意多线程冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">	<span class="n">pg1</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">WM_USER</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">);</span>	<span class="c1">//变量同步到窗口 需要重写WindowProc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d+%d+%d*%d=%d </span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="err">取数据函数</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UINT_PTR</span> <span class="n">send_off5</span> <span class="o">=</span> <span class="p">((</span><span class="n">UINT_PTR</span><span class="p">)(</span><span class="n">LoadLibraryA</span><span class="p">(</span><span class="s">&#34;Gane.exe&#34;</span><span class="p">)))</span> <span class="o">+</span> <span class="mh">0x351E75</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//裸汇编
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span><span class="kt">void</span> <span class="n">hookSend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//取出想要的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//还原指令
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//跳转到Game.exe+351E75
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">call</span> <span class="err">取数据函数</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//还原代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">push</span> <span class="n">ebp</span>
+</span></span><span class="line"><span class="cl">		<span class="n">mov</span> <span class="n">ebp</span><span class="p">,</span> <span class="n">esp</span>
+</span></span><span class="line"><span class="cl">		<span class="n">push</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="n">jmp</span> <span class="n">send_off5</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BYTE</span> <span class="n">jmpCode</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xE9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>	<span class="c1">//偏移=目标地址-5-当前地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">hook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入4字节 偏移 call 12345678 偏移量 = 目标地址 - 当前指令地址 - 指令长度 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//0084121C E8 57442E12  //call 12345678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">HOOK地址</span> <span class="o">=</span> <span class="n">send_off5</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>	<span class="c1">//当前指令地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="err">目标地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">hookSend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="err">偏移</span> <span class="o">=</span> <span class="err">目标地址</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">HOOK地址</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//组装jmpCode
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span><span class="o">*</span><span class="n">pJMP</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">jmpCode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pJMP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="err">偏移</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//向0x0084121D 4字节偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">HOOK地址</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//8 为4字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入5字节jmpCode
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">memcpy</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">HOOK地址</span><span class="p">,</span> <span class="n">jmpCode</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unhook</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//向0x0084121D 4字节偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//更改页面属性为 PAGE_EXECUTE_READWRITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">oldProtect1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BOOL</span> <span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//8 为4字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//写入偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">DWORD</span> <span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">poffset</span> <span class="o">=</span> <span class="mh">0xFFFFFF5F</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//恢复原页面属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">br</span> <span class="o">=</span> <span class="n">VirtualProtect</span><span class="p">((</span><span class="n">PVOID</span><span class="p">)</span><span class="n">baseAdress2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">oldProtect1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldProtect1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

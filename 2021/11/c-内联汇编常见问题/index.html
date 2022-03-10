@@ -167,17 +167,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">{</span>
-  <span class="nf">__asm</span>
-  <span class="err">{</span>
-  	<span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
-    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
-    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
-    
-    <span class="na">...</span>
-  <span class="err">}</span>
-<span class="err">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">__asm</span>
+</span></span><span class="line"><span class="cl">  <span class="err">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="na">...</span>
+</span></span><span class="line"><span class="cl">  <span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="不可直接传值">不可直接传值</h2>
 <div class="highlight"><div class="chroma">
@@ -199,22 +199,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">{</span>
-  <span class="nf">__asm</span>
-  <span class="err">{</span>
-  	
-    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="mi">0x01</span><span class="p">]</span> <span class="err">//错误</span><span class="p">,</span><span class="err">不可直接传值</span>
-      
-    <span class="err">//方法1</span>  
-    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,</span><span class="mi">0x01</span>	<span class="err">//需要通过寄存器来传值</span>  
-    <span class="no">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">eax</span><span class="p">]</span>
-    
-    <span class="err">//方法2</span>  
-    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="mi">0x01</span><span class="p">]</span>
-      
-  <span class="err">}</span>
-<span class="err">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">__asm</span>
+</span></span><span class="line"><span class="cl">  <span class="err">{</span>
+</span></span><span class="line"><span class="cl">  	
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="mi">0x01</span><span class="p">]</span> <span class="err">//错误</span><span class="p">,</span><span class="err">不可直接传值</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="err">//方法1</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,</span><span class="mi">0x01</span>	<span class="err">//需要通过寄存器来传值</span>  
+</span></span><span class="line"><span class="cl">    <span class="no">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">eax</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="err">//方法2</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="mi">0x01</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">  <span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="传局部变量的地址">传局部变量的地址</h2>
 <div class="highlight"><div class="chroma">
@@ -237,23 +237,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="err">{</span>
-	<span class="nf">int</span> <span class="no">b</span> <span class="err">=</span><span class="mi">1</span><span class="c">;
-</span><span class="c"></span>	<span class="no">int</span><span class="p">*</span> <span class="no">a</span> <span class="err">=</span> <span class="err">&amp;</span><span class="no">b</span><span class="c">;
-</span><span class="c"></span>  
-  <span class="no">DWORD</span> <span class="no">c</span> <span class="err">=</span> <span class="p">(</span><span class="no">DWORD</span><span class="p">)</span><span class="no">a</span><span class="c">;
-</span><span class="c"></span>  
-	<span class="no">__asm</span>
-	<span class="err">{</span>
-		<span class="nf">pushad</span>
-		
-		<span class="nf">push</span> <span class="no">c</span>
-		<span class="na">...</span>
-		
-		<span class="nf">popad</span>
-	<span class="err">}</span>
-<span class="err">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">int</span> <span class="no">b</span> <span class="err">=</span><span class="mi">1</span><span class="c">;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>	<span class="no">int</span><span class="p">*</span> <span class="no">a</span> <span class="err">=</span> <span class="err">&amp;</span><span class="no">b</span><span class="c">;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>  
+</span></span><span class="line"><span class="cl">  <span class="no">DWORD</span> <span class="no">c</span> <span class="err">=</span> <span class="p">(</span><span class="no">DWORD</span><span class="p">)</span><span class="no">a</span><span class="c">;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>  
+</span></span><span class="line"><span class="cl">	<span class="no">__asm</span>
+</span></span><span class="line"><span class="cl">	<span class="err">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">pushad</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		<span class="nf">push</span> <span class="no">c</span>
+</span></span><span class="line"><span class="cl">		<span class="na">...</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		<span class="nf">popad</span>
+</span></span><span class="line"><span class="cl">	<span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

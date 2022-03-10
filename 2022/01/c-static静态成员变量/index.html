@@ -175,18 +175,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">show</span><span class="p">();</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">m_total</span><span class="p">;</span>  <span class="c1">//静态成员变量
-</span><span class="c1"></span><span class="k">private</span><span class="o">:</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">m_name</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">m_age</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">m_score</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">int</span> <span class="n">m_total</span><span class="p">;</span>  <span class="c1">//静态成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">m_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m_age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">m_score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这段代码声明了一个静态成员变量 m_total，用来统计学生的人数。</p>
 <p>static 成员变量属于类，不属于某个具体的对象，即使创建多个对象，也只为 m_total 分配一份内存，所有对象使用的都是这份内存中的数据。当某个对象修改了 m_total，也会影响到其他对象。</p>
@@ -209,15 +209,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//通过类类访问 static 成员变量
-</span><span class="c1"></span><span class="n">Student</span><span class="o">::</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="c1">//通过对象来访问 static 成员变量
-</span><span class="c1"></span><span class="n">Student</span> <span class="nf">stu</span><span class="p">(</span><span class="s">&#34;小明&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">92.5f</span><span class="p">);</span>
-<span class="n">stu</span><span class="p">.</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-<span class="c1">//通过对象指针来访问 static 成员变量
-</span><span class="c1"></span><span class="n">Student</span> <span class="o">*</span><span class="n">pstu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;李华&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">96</span><span class="p">);</span>
-<span class="n">pstu</span> <span class="o">-&gt;</span> <span class="n">m_total</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//通过类类访问 static 成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span><span class="o">::</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//通过对象来访问 static 成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span> <span class="nf">stu</span><span class="p">(</span><span class="s">&#34;小明&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">92.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">stu</span><span class="p">.</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//通过对象指针来访问 static 成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span> <span class="o">*</span><span class="n">pstu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;李华&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">96</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">pstu</span> <span class="o">-&gt;</span> <span class="n">m_total</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这三种方式是等效的。</p>
 <p>**注意：static 成员变量不占用对象的内存，而是在所有对象之外开辟内存，即使不创建对象也可以访问。**具体来说，static 成员变量和普通的 static 变量类似，都在内存分区中的全局数据区分配内存，不了解的读者请阅读《<a href="http://c.biancheng.net/cpp/u/c20/" target="_blank" rel="noopener noreffer">C语言和内存</a>》专题。</p>
@@ -260,41 +260,41 @@
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">show</span><span class="p">();</span>
-<span class="k">private</span><span class="o">:</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">m_total</span><span class="p">;</span>  <span class="c1">//静态成员变量
-</span><span class="c1"></span><span class="k">private</span><span class="o">:</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">m_name</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">m_age</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">m_score</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="c1">//初始化静态成员变量
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">Student</span><span class="o">::</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">)</span><span class="o">:</span> <span class="n">m_name</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">m_age</span><span class="p">(</span><span class="n">age</span><span class="p">),</span> <span class="n">m_score</span><span class="p">(</span><span class="n">score</span><span class="p">){</span>
-    <span class="n">m_total</span><span class="o">++</span><span class="p">;</span>  <span class="c1">//操作静态成员变量
-</span><span class="c1"></span><span class="p">}</span>
-<span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">show</span><span class="p">(){</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">m_name</span><span class="o">&lt;&lt;</span><span class="s">&#34;的年龄是&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_age</span><span class="o">&lt;&lt;</span><span class="s">&#34;，成绩是&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_score</span><span class="o">&lt;&lt;</span><span class="s">&#34;（当前共有&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_total</span><span class="o">&lt;&lt;</span><span class="s">&#34;名学生）&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="c1">//创建匿名对象
-</span><span class="c1"></span>    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;小明&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
-    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;李磊&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
-    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;张华&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
-    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;王康&#34;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">int</span> <span class="n">m_total</span><span class="p">;</span>  <span class="c1">//静态成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">m_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m_age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">m_score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//初始化静态成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">Student</span><span class="o">::</span><span class="n">m_total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">float</span> <span class="n">score</span><span class="p">)</span><span class="o">:</span> <span class="n">m_name</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">m_age</span><span class="p">(</span><span class="n">age</span><span class="p">),</span> <span class="n">m_score</span><span class="p">(</span><span class="n">score</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m_total</span><span class="o">++</span><span class="p">;</span>  <span class="c1">//操作静态成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">show</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">m_name</span><span class="o">&lt;&lt;</span><span class="s">&#34;的年龄是&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_age</span><span class="o">&lt;&lt;</span><span class="s">&#34;，成绩是&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_score</span><span class="o">&lt;&lt;</span><span class="s">&#34;（当前共有&#34;</span><span class="o">&lt;&lt;</span><span class="n">m_total</span><span class="o">&lt;&lt;</span><span class="s">&#34;名学生）&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//创建匿名对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;小明&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;李磊&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;张华&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&#34;王康&#34;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行结果：
 小明的年龄是15，成绩是90（当前共有1名学生）

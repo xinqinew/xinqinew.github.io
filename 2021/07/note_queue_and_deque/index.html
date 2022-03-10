@@ -160,22 +160,22 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">q</span><span class="p">;</span>	<span class="c1">//创建一个int型空队列q  
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>	<span class="c1">//判断队列是否为空，为空返回true  
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>	<span class="c1">//将变量s从队尾入队  
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>	<span class="c1">//将队头元素弹出  	
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>	<span class="c1">//只返回队头元素  
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>	<span class="c1">//只返回队尾元素  	
-</span><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>	<span class="c1">//返回队列中元素个数   	
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">q</span><span class="p">;</span>	<span class="c1">//创建一个int型空队列q  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>	<span class="c1">//判断队列是否为空，为空返回true  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>	<span class="c1">//将变量s从队尾入队  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>	<span class="c1">//将队头元素弹出  	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>	<span class="c1">//只返回队头元素  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>	<span class="c1">//只返回队尾元素  	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>	<span class="c1">//返回队列中元素个数   	
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">queue两端访问,队尾插入,队首删除。 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">queue两端访问,队尾插入,队首删除。 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>deque操作：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -202,43 +202,43 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dq</span><span class="p">;</span>	<span class="c1">//创建一个数双端队列dq  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>	<span class="c1">//判断队列是否为空，为空返回true  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="c1">//将s从队头入队  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="c1">//将s从队尾入队，和普通队列方式一样  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>	<span class="c1">//只返回队头元素  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>	<span class="c1">//只返回队尾元素  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>	<span class="c1">//将队头元素弹出  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>	<span class="c1">//将队尾元素弹出  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>	<span class="c1">//返回队列中元素个数  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>	<span class="c1">//将队列清空    
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">insert</span><span class="p">();</span><span class="c1">//插入新元素,最多有四个参数
-</span><span class="c1">//迭代器  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的迭代器  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">cbegin</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的迭代器(const)  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的迭代器  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">cend</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的迭代器(const)  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的反向迭代器  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">crbegin</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的反向迭代器(const)  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的反向迭代器  
-</span><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">crend</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的反向迭代器(const)
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dq</span><span class="p">;</span>	<span class="c1">//创建一个数双端队列dq  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>	<span class="c1">//判断队列是否为空，为空返回true  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="c1">//将s从队头入队  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="c1">//将s从队尾入队，和普通队列方式一样  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>	<span class="c1">//只返回队头元素  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>	<span class="c1">//只返回队尾元素  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>	<span class="c1">//将队头元素弹出  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>	<span class="c1">//将队尾元素弹出  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>	<span class="c1">//返回队列中元素个数  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>	<span class="c1">//将队列清空    
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">insert</span><span class="p">();</span><span class="c1">//插入新元素,最多有四个参数
+</span></span></span><span class="line"><span class="cl"><span class="c1">//迭代器  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的迭代器  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">cbegin</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的迭代器(const)  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的迭代器  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">cend</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的迭代器(const)  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的反向迭代器  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">crbegin</span><span class="p">();</span>	<span class="c1">//回傳指向最後一個元素(尾端)的反向迭代器(const)  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的反向迭代器  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dq</span><span class="p">.</span><span class="n">crend</span><span class="p">();</span>	<span class="c1">//回傳指向第一個元素(頭端)的反向迭代器(const)
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">deque两端访问,两端插入,两端删除。 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">deque两端访问,两端插入,两端删除。 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">auto it = d.begin();其全名為std::deque&lt;int&gt;::iterator it = d.begin();
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">auto it = d.begin();其全名為std::deque&lt;int&gt;::iterator it = d.begin();
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

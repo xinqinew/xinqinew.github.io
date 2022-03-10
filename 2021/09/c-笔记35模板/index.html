@@ -174,11 +174,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">type</span><span class="o">&gt;</span> <span class="n">ret</span><span class="o">-</span><span class="n">type</span> <span class="n">func</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameter</span> <span class="n">list</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// 函数的主体
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">type</span><span class="o">&gt;</span> <span class="n">ret</span><span class="o">-</span><span class="n">type</span> <span class="n">func</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameter</span> <span class="n">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 函数的主体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，type 是函数所使用的数据类型的占位符名称。这个名称可以在函数定义中使用。</p>
 <p>下面是函数模板的实例，返回两个数中的最大值：</p>
@@ -214,34 +214,34 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">Max</span> <span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
-<span class="p">{</span> 
-    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">b</span><span class="p">:</span><span class="n">a</span><span class="p">;</span> 
-<span class="p">}</span> 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(i, j): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
- 
-    <span class="kt">double</span> <span class="n">f1</span> <span class="o">=</span> <span class="mf">13.5</span><span class="p">;</span> 
-    <span class="kt">double</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">20.7</span><span class="p">;</span> 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(f1, f2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
- 
-    <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span> 
-    <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&#34;World&#34;</span><span class="p">;</span> 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(s1, s2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
- 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">Max</span> <span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">b</span><span class="p">:</span><span class="n">a</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(i, j): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">f1</span> <span class="o">=</span> <span class="mf">13.5</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">20.7</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(f1, f2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&#34;World&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Max(s1, s2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -251,10 +251,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Max</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="mi">39</span>
-<span class="n">Max</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span><span class="o">:</span> <span class="mf">20.7</span>
-<span class="n">Max</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span><span class="o">:</span> <span class="n">World</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Max</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="mi">39</span>
+</span></span><span class="line"><span class="cl"><span class="n">Max</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span><span class="o">:</span> <span class="mf">20.7</span>
+</span></span><span class="line"><span class="cl"><span class="n">Max</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span><span class="o">:</span> <span class="n">World</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="类模板">类模板</h2>
 <p>正如我们定义函数模板一样，我们也可以定义类模板。泛型类声明的一般形式如下所示：</p>
@@ -267,12 +267,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">type</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">class</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">type</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">class</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，<strong>type</strong> 是占位符类型名称，可以在类被实例化的时候进行指定。您可以使用一个逗号分隔的列表来定义多个泛型数据类型。</p>
 <p>下面的实例定义了类 Stack&lt;&gt;，并实现了泛型方法来对元素进行入栈出栈操作：</p>
@@ -351,77 +351,77 @@
 </span><span class="lnt">70
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Stack</span> <span class="p">{</span> 
-  <span class="k">private</span><span class="o">:</span> 
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">elems</span><span class="p">;</span>     <span class="c1">// 元素 
-</span><span class="c1"></span> 
-  <span class="k">public</span><span class="o">:</span> 
-    <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">);</span>  <span class="c1">// 入栈
-</span><span class="c1"></span>    <span class="kt">void</span> <span class="nf">pop</span><span class="p">();</span>               <span class="c1">// 出栈
-</span><span class="c1"></span>    <span class="n">T</span> <span class="nf">top</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>            <span class="c1">// 返回栈顶元素
-</span><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>       <span class="c1">// 如果为空则返回真。
-</span><span class="c1"></span>        <span class="k">return</span> <span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span> 
-    <span class="p">}</span> 
-<span class="p">};</span> 
- 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">push</span> <span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">elem</span><span class="p">)</span> 
-<span class="p">{</span> 
-    <span class="c1">// 追加传入元素的副本
-</span><span class="c1"></span>    <span class="n">elems</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>    
-<span class="p">}</span> 
- 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">pop</span> <span class="p">()</span> 
-<span class="p">{</span> 
-    <span class="k">if</span> <span class="p">(</span><span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span> 
-        <span class="k">throw</span> <span class="nf">out_of_range</span><span class="p">(</span><span class="s">&#34;Stack&lt;&gt;::pop()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span><span class="s">&#34;)</span><span class="p">;</span> 
-    <span class="p">}</span>
-    <span class="c1">// 删除最后一个元素
-</span><span class="c1"></span>    <span class="n">elems</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>         
-<span class="p">}</span> 
- 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">top</span> <span class="p">()</span> <span class="k">const</span> 
-<span class="p">{</span> 
-    <span class="k">if</span> <span class="p">(</span><span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span> 
-        <span class="k">throw</span> <span class="nf">out_of_range</span><span class="p">(</span><span class="s">&#34;Stack&lt;&gt;::top()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span><span class="s">&#34;)</span><span class="p">;</span> 
-    <span class="p">}</span>
-    <span class="c1">// 返回最后一个元素的副本 
-</span><span class="c1"></span>    <span class="k">return</span> <span class="n">elems</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>      
-<span class="p">}</span> 
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
-<span class="p">{</span> 
-    <span class="k">try</span> <span class="p">{</span> 
-        <span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>         <span class="n">intStack</span><span class="p">;</span>  <span class="c1">// int 类型的栈 
-</span><span class="c1"></span>        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">stringStack</span><span class="p">;</span>    <span class="c1">// string 类型的栈 
-</span><span class="c1"></span> 
-        <span class="c1">// 操作 int 类型的栈 
-</span><span class="c1"></span>        <span class="n">intStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span> 
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">intStack</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> 
- 
-        <span class="c1">// 操作 string 类型的栈 
-</span><span class="c1"></span>        <span class="n">stringStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span> 
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">stringStack</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
-        <span class="n">stringStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> 
-        <span class="n">stringStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> 
-    <span class="p">}</span> 
-    <span class="k">catch</span> <span class="p">(</span><span class="n">exception</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span> 
-        <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Exception: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ex</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> 
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Stack</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">elems</span><span class="p">;</span>     <span class="c1">// 元素 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">);</span>  <span class="c1">// 入栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">pop</span><span class="p">();</span>               <span class="c1">// 出栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">T</span> <span class="nf">top</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>            <span class="c1">// 返回栈顶元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>       <span class="c1">// 如果为空则返回真。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">};</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">push</span> <span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">elem</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// 追加传入元素的副本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">elems</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">pop</span> <span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="nf">out_of_range</span><span class="p">(</span><span class="s">&#34;Stack&lt;&gt;::pop()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span><span class="s">&#34;)</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 删除最后一个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">elems</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>         
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">top</span> <span class="p">()</span> <span class="k">const</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">elems</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="nf">out_of_range</span><span class="p">(</span><span class="s">&#34;Stack&lt;&gt;::top()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span><span class="s">&#34;)</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 返回最后一个元素的副本 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">elems</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>      
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>         <span class="n">intStack</span><span class="p">;</span>  <span class="c1">// int 类型的栈 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">stringStack</span><span class="p">;</span>    <span class="c1">// string 类型的栈 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">        <span class="c1">// 操作 int 类型的栈 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">intStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">intStack</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="c1">// 操作 string 类型的栈 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">stringStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">stringStack</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">stringStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">stringStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span> <span class="p">(</span><span class="n">exception</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Exception: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ex</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -431,10 +431,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mi">7</span>
-<span class="n">hello</span>
-<span class="nl">Exception</span><span class="p">:</span> <span class="n">Stack</span><span class="o">&lt;&gt;::</span><span class="n">pop</span><span class="p">()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mi">7</span>
+</span></span><span class="line"><span class="cl"><span class="n">hello</span>
+</span></span><span class="line"><span class="cl"><span class="nl">Exception</span><span class="p">:</span> <span class="n">Stack</span><span class="o">&lt;&gt;::</span><span class="n">pop</span><span class="p">()</span><span class="o">:</span> <span class="n">empty</span> <span class="n">stack</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

@@ -264,69 +264,69 @@
 </span><span class="lnt">62
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;glad/glad.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;gl/glfw3.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">framebuffer_size_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">);</span>
-
-<span class="kt">void</span> <span class="nf">processInput</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">glfwGetKey</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GLFW_KEY_ESCAPE</span><span class="p">)</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span>
-        <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">//创建main函数，实例化glfw窗口
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">//实例化glfw窗口，并告诉glfw使用的opengl版本：major 3，minor 3（3.3）
-</span><span class="c1"></span>    <span class="n">glfwInit</span><span class="p">();</span>
-    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_CONTEXT_VERSION_MAJOR</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_CONTEXT_VERSION_MINOR</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_OPENGL_PROFILE</span><span class="p">,</span> <span class="n">GLFW_OPENGL_CORE_PROFILE</span><span class="p">);</span>
-    <span class="c1">//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-</span><span class="c1"></span>
-    <span class="c1">//创建窗口对象
-</span><span class="c1"></span>    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="s">&#34;OpenGLTest&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to create GLFW window&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="n">glfwTerminate</span><span class="p">();</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-
-    <span class="c1">//初始化GLAD
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">gladLoadGLLoader</span><span class="p">((</span><span class="n">GLADloadproc</span><span class="p">)</span><span class="n">glfwGetProcAddress</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to initialize GLAD&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
-
-    <span class="c1">//注册回调函数，窗口大小改变时候调用
-</span><span class="c1"></span>    <span class="n">glfwSetFramebufferSizeCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">framebuffer_size_callback</span><span class="p">);</span>
-
-    <span class="c1">//开始渲染循环
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">processInput</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//输入检测
-</span><span class="c1"></span>
-        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
-</span><span class="c1"></span>        <span class="n">glfwPollEvents</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="n">glfwTerminate</span><span class="p">();</span><span class="c1">//资源释放
-</span><span class="c1"></span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">framebuffer_size_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;glad/glad.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;gl/glfw3.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">framebuffer_size_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">processInput</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">glfwGetKey</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GLFW_KEY_ESCAPE</span><span class="p">)</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//创建main函数，实例化glfw窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//实例化glfw窗口，并告诉glfw使用的opengl版本：major 3，minor 3（3.3）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">glfwInit</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_CONTEXT_VERSION_MAJOR</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_CONTEXT_VERSION_MINOR</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glfwWindowHint</span><span class="p">(</span><span class="n">GLFW_OPENGL_PROFILE</span><span class="p">,</span> <span class="n">GLFW_OPENGL_CORE_PROFILE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//创建窗口对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="s">&#34;OpenGLTest&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to create GLFW window&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwTerminate</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//初始化GLAD
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">gladLoadGLLoader</span><span class="p">((</span><span class="n">GLADloadproc</span><span class="p">)</span><span class="n">glfwGetProcAddress</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to initialize GLAD&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//注册回调函数，窗口大小改变时候调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">glfwSetFramebufferSizeCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">framebuffer_size_callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//开始渲染循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">processInput</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//输入检测
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glfwPollEvents</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glfwTerminate</span><span class="p">();</span><span class="c1">//资源释放
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">framebuffer_size_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里注意，glad库必须在glfw库前包含否则会报错，编译后无法运行的同学记得查看自己的项目结构是否为32位(x86)</p>
 <p>learn opengl官网上的注意事项</p>
@@ -486,127 +486,127 @@
 </span><span class="lnt">120
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//ImGui部分
-</span><span class="c1"></span>    <span class="p">{</span>
-
-            <span class="k">static</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
-</span><span class="c1"></span>
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;This is some useful text.&#34;</span><span class="p">);</span>               <span class="c1">// Display some text (you can use a format strings too)
-</span><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Checkbox</span><span class="p">(</span><span class="s">&#34;Demo Window&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">show_demo_window</span><span class="p">);</span>      <span class="c1">// Edit bools storing our window open/close state
-</span><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Checkbox</span><span class="p">(</span><span class="s">&#34;Another Window&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">show_another_window</span><span class="p">);</span>
-
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">ColorEdit3</span><span class="p">(</span><span class="s">&#34;color&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">color</span><span class="p">);</span>            <span class="c1">// Edit 1 float using a slider from 0.0f to 1.0f
-</span><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">ColorEdit3</span><span class="p">(</span><span class="s">&#34;clear color&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clear_color</span><span class="p">);</span> <span class="c1">// Edit 3 floats representing a color
-</span><span class="c1"></span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">Button</span><span class="p">(</span><span class="s">&#34;Button&#34;</span><span class="p">))</span>                            <span class="c1">// Buttons return true when clicked (most widgets return true when edited/activated)
-</span><span class="c1"></span>                <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">SameLine</span><span class="p">();</span>
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;counter = %d&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
-
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Application average %.3f ms/frame (%.1f FPS)&#34;</span><span class="p">,</span> <span class="mf">1000.0f</span> <span class="o">/</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">,</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">);</span>
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
-        <span class="p">}</span>
-<span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
-<span class="p">......</span>
-<span class="c1">//绘制部分
-</span><span class="c1"></span>    <span class="c1">// 更新uniform颜色
-</span><span class="c1"></span>        <span class="n">ourShader</span><span class="p">.</span><span class="n">setVec4</span><span class="p">(</span><span class="s">&#34;newcolor&#34;</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="c1">//std::cout &lt;&lt; color.x &lt;&lt; &#34; &#34; &lt;&lt; color.y &lt;&lt; &#34; &#34; &lt;&lt; color.z &lt;&lt; &#34; &#34; &lt;&lt; color.w &lt;&lt; endl;
-</span><span class="c1"></span>        <span class="n">ourShader</span><span class="p">.</span><span class="n">use</span><span class="p">();</span>
-        <span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-
-
-        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
-</span><span class="c1">//从文件读取顶点着色器和片元着色器
-</span><span class="c1"></span><span class="n">Shader</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">vertexPath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fragmentPath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">geometryPath</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// 1. retrieve the vertex/fragment source code from filePath
-</span><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">vertexCode</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">fragmentCode</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">geometryCode</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">vShaderFile</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fShaderFile</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">gShaderFile</span><span class="p">;</span>
-        <span class="c1">// ensure ifstream objects can throw exceptions:
-</span><span class="c1"></span>        <span class="n">vShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
-        <span class="n">fShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
-        <span class="n">gShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
-        <span class="k">try</span>
-        <span class="p">{</span>
-            <span class="c1">// open files
-</span><span class="c1"></span>            <span class="n">vShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">vertexPath</span><span class="p">);</span>
-            <span class="n">fShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">fragmentPath</span><span class="p">);</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">vShaderStream</span><span class="p">,</span> <span class="n">fShaderStream</span><span class="p">;</span>
-            <span class="c1">// read file&#39;s buffer contents into streams
-</span><span class="c1"></span>            <span class="n">vShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">vShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
-            <span class="n">fShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">fShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
-            <span class="c1">// close file handlers
-</span><span class="c1"></span>            <span class="n">vShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-            <span class="n">fShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-            <span class="c1">// convert stream into string
-</span><span class="c1"></span>            <span class="n">vertexCode</span> <span class="o">=</span> <span class="n">vShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-            <span class="n">fragmentCode</span> <span class="o">=</span> <span class="n">fShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-            <span class="c1">// if geometry shader path is present, also load a geometry shader
-</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">gShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">geometryPath</span><span class="p">);</span>
-                <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">gShaderStream</span><span class="p">;</span>
-                <span class="n">gShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">gShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
-                <span class="n">gShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-                <span class="n">geometryCode</span> <span class="o">=</span> <span class="n">gShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failure</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">vShaderCode</span> <span class="o">=</span> <span class="n">vertexCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fShaderCode</span> <span class="o">=</span> <span class="n">fragmentCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-        <span class="c1">// 2. compile shaders
-</span><span class="c1"></span>        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">;</span>
-        <span class="c1">// vertex shader
-</span><span class="c1"></span>        <span class="n">vertex</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_VERTEX_SHADER</span><span class="p">);</span>
-        <span class="n">glShaderSource</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-        <span class="n">glCompileShader</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
-        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="s">&#34;VERTEX&#34;</span><span class="p">);</span>
-        <span class="c1">// fragment Shader
-</span><span class="c1"></span>        <span class="n">fragment</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_FRAGMENT_SHADER</span><span class="p">);</span>
-        <span class="n">glShaderSource</span><span class="p">(</span><span class="n">fragment</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-        <span class="n">glCompileShader</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span>
-        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">fragment</span><span class="p">,</span> <span class="s">&#34;FRAGMENT&#34;</span><span class="p">);</span>
-        <span class="c1">// if geometry shader is given, compile geometry shader
-</span><span class="c1"></span>        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">geometry</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">gShaderCode</span> <span class="o">=</span> <span class="n">geometryCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-            <span class="n">geometry</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_GEOMETRY_SHADER</span><span class="p">);</span>
-            <span class="n">glShaderSource</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-            <span class="n">glCompileShader</span><span class="p">(</span><span class="n">geometry</span><span class="p">);</span>
-            <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="s">&#34;GEOMETRY&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="c1">// shader Program
-</span><span class="c1"></span>        <span class="n">ID</span> <span class="o">=</span> <span class="n">glCreateProgram</span><span class="p">();</span>
-        <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">vertex</span><span class="p">);</span>
-        <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">fragment</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-            <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">geometry</span><span class="p">);</span>
-        <span class="n">glLinkProgram</span><span class="p">(</span><span class="n">ID</span><span class="p">);</span>
-        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="s">&#34;PROGRAM&#34;</span><span class="p">);</span>
-        <span class="c1">// delete the shaders as they&#39;re linked into our program now and no longer necessery
-</span><span class="c1"></span>        <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
-        <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-            <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">geometry</span><span class="p">);</span>
-
-    <span class="p">}</span>
-<span class="c1">//SHADER_H头文件部分
-</span><span class="c1"></span> <span class="kt">void</span> <span class="nf">setVec4</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">,</span> <span class="kt">float</span> <span class="n">w</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">glUniform4f</span><span class="p">(</span><span class="n">glGetUniformLocation</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">()),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//ImGui部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">static</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;This is some useful text.&#34;</span><span class="p">);</span>               <span class="c1">// Display some text (you can use a format strings too)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Checkbox</span><span class="p">(</span><span class="s">&#34;Demo Window&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">show_demo_window</span><span class="p">);</span>      <span class="c1">// Edit bools storing our window open/close state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Checkbox</span><span class="p">(</span><span class="s">&#34;Another Window&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">show_another_window</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">ColorEdit3</span><span class="p">(</span><span class="s">&#34;color&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">color</span><span class="p">);</span>            <span class="c1">// Edit 1 float using a slider from 0.0f to 1.0f
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">ColorEdit3</span><span class="p">(</span><span class="s">&#34;clear color&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clear_color</span><span class="p">);</span> <span class="c1">// Edit 3 floats representing a color
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">Button</span><span class="p">(</span><span class="s">&#34;Button&#34;</span><span class="p">))</span>                            <span class="c1">// Buttons return true when clicked (most widgets return true when edited/activated)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">SameLine</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;counter = %d&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Application average %.3f ms/frame (%.1f FPS)&#34;</span><span class="p">,</span> <span class="mf">1000.0f</span> <span class="o">/</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">,</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">......</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//绘制部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 更新uniform颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ourShader</span><span class="p">.</span><span class="n">setVec4</span><span class="p">(</span><span class="s">&#34;newcolor&#34;</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//std::cout &lt;&lt; color.x &lt;&lt; &#34; &#34; &lt;&lt; color.y &lt;&lt; &#34; &#34; &lt;&lt; color.z &lt;&lt; &#34; &#34; &lt;&lt; color.w &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ourShader</span><span class="p">.</span><span class="n">use</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
+</span></span></span><span class="line"><span class="cl"><span class="c1">//从文件读取顶点着色器和片元着色器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Shader</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">vertexPath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fragmentPath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">geometryPath</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 1. retrieve the vertex/fragment source code from filePath
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">vertexCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">fragmentCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">geometryCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">vShaderFile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fShaderFile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">gShaderFile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ensure ifstream objects can throw exceptions:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">gShaderFile</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">badbit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// open files
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">vertexPath</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">fragmentPath</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">vShaderStream</span><span class="p">,</span> <span class="n">fShaderStream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// read file&#39;s buffer contents into streams
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">vShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">fShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// close file handlers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// convert stream into string
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vertexCode</span> <span class="o">=</span> <span class="n">vShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fragmentCode</span> <span class="o">=</span> <span class="n">fShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// if geometry shader path is present, also load a geometry shader
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gShaderFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">geometryPath</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">gShaderStream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gShaderStream</span> <span class="o">&lt;&lt;</span> <span class="n">gShaderFile</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">gShaderFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">geometryCode</span> <span class="o">=</span> <span class="n">gShaderStream</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failure</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">vShaderCode</span> <span class="o">=</span> <span class="n">vertexCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fShaderCode</span> <span class="o">=</span> <span class="n">fragmentCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 2. compile shaders
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// vertex shader
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vertex</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_VERTEX_SHADER</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glShaderSource</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glCompileShader</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="s">&#34;VERTEX&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// fragment Shader
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">fragment</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_FRAGMENT_SHADER</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glShaderSource</span><span class="p">(</span><span class="n">fragment</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glCompileShader</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">fragment</span><span class="p">,</span> <span class="s">&#34;FRAGMENT&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// if geometry shader is given, compile geometry shader
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">geometry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">gShaderCode</span> <span class="o">=</span> <span class="n">geometryCode</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">geometry</span> <span class="o">=</span> <span class="n">glCreateShader</span><span class="p">(</span><span class="n">GL_GEOMETRY_SHADER</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glShaderSource</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gShaderCode</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glCompileShader</span><span class="p">(</span><span class="n">geometry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="s">&#34;GEOMETRY&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// shader Program
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ID</span> <span class="o">=</span> <span class="n">glCreateProgram</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">vertex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">fragment</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glAttachShader</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">geometry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glLinkProgram</span><span class="p">(</span><span class="n">ID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checkCompileErrors</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="s">&#34;PROGRAM&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// delete the shaders as they&#39;re linked into our program now and no longer necessery
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">geometryPath</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glDeleteShader</span><span class="p">(</span><span class="n">geometry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//SHADER_H头文件部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="kt">void</span> <span class="nf">setVec4</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">,</span> <span class="kt">float</span> <span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glUniform4f</span><span class="p">(</span><span class="n">glGetUniformLocation</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">()),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>后续会具体说明ImGui的使用流程等</p>
 </div><div class="post-footer" id="post-footer">

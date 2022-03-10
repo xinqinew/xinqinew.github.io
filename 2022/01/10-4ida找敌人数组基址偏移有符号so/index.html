@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/01\/10-4ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E5%9F%BA%E5%9D%80%E5%81%8F%E7%A7%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "赶码人","wordcount":  1638 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "赶码人","wordcount":  1632 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/01\/10-4ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E5%9F%BA%E5%9D%80%E5%81%8F%E7%A7%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1638 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1632 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2022/01/10-4ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E5%9F%BA%E5%9D%80%E5%81%8F%E7%A7%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so/" class="leancloud_visitors" data-flag-title="10-4：IDA找敌人数组基址偏移（有符号so）">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -175,9 +175,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">v3</span> <span class="o">=</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mi">288</span><span class="p">);</span>
-<span class="n">v7</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="kr">__fastcall</span> <span class="o">**</span><span class="p">)(</span><span class="n">_DWORD</span><span class="p">))(</span><span class="n">v3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">))(</span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">v3</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">));</span> <span class="c1">//GmSceneCampaignUpdate
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">v3</span> <span class="o">=</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mi">288</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v7</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="kr">__fastcall</span> <span class="o">**</span><span class="p">)(</span><span class="n">_DWORD</span><span class="p">))(</span><span class="n">v3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">))(</span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">v3</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">));</span> <span class="c1">//GmSceneCampaignUpdate
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在已经不用再跟了，注意这里出现了个“gmc”，v3和gmc有关，双击它之后：</p>
 <p><img
@@ -218,12 +218,10 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">刚才的</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mi">288</span><span class="p">)</span><span class="err">，写到</span><span class="n">CE就是</span><span class="err">：</span><span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">刚才的</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mi">288</span><span class="p">)</span><span class="err">，写到</span><span class="n">CE就是</span><span class="err">：</span><span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>GmSceneCampaignUpdate接收到的参数，实际是：[gmc]+0x28*[[gmc]+0x120]+0x20</p>
 <p><img
@@ -248,37 +246,31 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x28</span><span class="o">*</span><span class="p">[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x120</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0xB890</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x28</span><span class="o">*</span><span class="p">[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x120</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0xB890</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSceneCampaignCallbackSimEventTankKilled</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">result</span> <span class="o">=</span> <span class="n">GmSimGetNumOfDeadAiTanks</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">32</span><span class="p">));</span> 
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSceneCampaignCallbackSimEventTankKilled</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">result</span> <span class="o">=</span> <span class="n">GmSimGetNumOfDeadAiTanks</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">32</span><span class="p">));</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以，GmSimGetNumOfDeadAiTanks的参数一是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[[[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x28</span><span class="o">*</span><span class="p">[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x120</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[[[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x28</span><span class="o">*</span><span class="p">[[</span><span class="n">gmc</span><span class="p">]</span><span class="o">+</span><span class="mh">0x120</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20</span><span class="p">]</span><span class="o">+</span><span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>于是：</p>
 <div class="highlight"><div class="chroma">
@@ -305,33 +297,31 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSimGetNumOfDeadAiTanks</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">v1</span><span class="p">;</span> <span class="c1">// r2
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">v2</span><span class="p">;</span> <span class="c1">// r1
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">v3</span><span class="p">;</span> <span class="c1">// r3
-</span><span class="c1"></span>
-  <span class="n">v1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">v2</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span> <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890] + 0x20
-</span><span class="c1"></span>  <span class="n">v3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span> <span class="n">v1</span> <span class="o">&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span> <span class="p">)</span>
-  <span class="c1">//所以 循环终止条件这里是: [[[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x20]
-</span><span class="c1"></span>  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!*</span><span class="p">(</span><span class="n">_BYTE</span> <span class="o">*</span><span class="p">)(</span><span class="n">v2</span> <span class="o">+</span> <span class="mi">72</span><span class="p">)</span> <span class="p">)</span>
-      <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x724*n + 0x48 表示敌人n已死亡
-</span><span class="c1"></span>      <span class="o">++</span><span class="n">v3</span><span class="p">;</span>
-    <span class="o">++</span><span class="n">v1</span><span class="p">;</span>
-    <span class="n">v2</span> <span class="o">+=</span> <span class="mi">724</span><span class="p">;</span>
-    <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x724*n 这个就是每个敌人的结构体地址
-</span><span class="c1"></span>  <span class="p">}</span>
-  <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">24</span><span class="p">)</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">v3</span><span class="p">;</span>
-<span class="p">}</span> 
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="kr">__fastcall</span> <span class="nf">GmSimGetNumOfDeadAiTanks</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">v1</span><span class="p">;</span> <span class="c1">// r2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">v2</span><span class="p">;</span> <span class="c1">// r1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">v3</span><span class="p">;</span> <span class="c1">// r3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="n">v1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v2</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span> <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890] + 0x20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">v3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span> <span class="n">v1</span> <span class="o">&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//所以 循环终止条件这里是: [[[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x20]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!*</span><span class="p">(</span><span class="n">_BYTE</span> <span class="o">*</span><span class="p">)(</span><span class="n">v2</span> <span class="o">+</span> <span class="mi">72</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x724*n + 0x48 表示敌人n已死亡
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="o">++</span><span class="n">v3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="n">v1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v2</span> <span class="o">+=</span> <span class="mi">724</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// [[[[gmc]+0x28*[[gmc]+0x120]+0x20]+0x20]+0xB890]+0x724*n 这个就是每个敌人的结构体地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)(</span><span class="n">a1</span> <span class="o">+</span> <span class="mi">24</span><span class="p">)</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">v3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在已经知道敌人最大数量和每个敌人的结构体起始地址的基址偏移是：</p>
 <div class="highlight"><div class="chroma">
@@ -339,14 +329,12 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x14</span>
-
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="n">n</span> 
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x14</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="n">n</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>（这里顺便提一句，有多个基址偏移是很正常的，如果从其他函数下手，基址偏移和我这个不同也是很正常。如果想用GG脚本扫出这个数组的基址偏移，偏移量至少要填写到47248&hellip;，况且，目前没证据表明[ [gmc] + 0x120] 是个固定值，说白了就是，指针扫描或许不能通杀所有游戏</p>
 <p>接下来要找到敌人坐标的偏移，分析代码，或者直接观察内存都行；一些大型游戏，坐标数值并不在人物结构体当中，而是另一个结构体，而人物结构体保存着另一个结构体的指针（这就是所谓的XX游戏的坐标和XX属性“不在同一层”），这种可以去学学CE结构分析器用法，网上教程很多。</p>
@@ -371,15 +359,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">0</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">1</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">4</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">5</span>
-<span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">6</span>
-<span class="p">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[[[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="p">[</span> <span class="p">[</span><span class="n">gmc</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">]</span><span class="o">+</span> <span class="mh">0xB890</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x20</span><span class="p">]</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>用Ctrl+B直接观察就能看到坐标了，直接给出坐标偏移吧：0x19c</p>
 <p>血量还没看，明天再说。</p>

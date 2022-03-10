@@ -206,40 +206,40 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">class</span> <span class="nc">printData</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;整数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="p">}</span>
- 
-      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">double</span>  <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;浮点数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="p">}</span>
- 
-      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">[])</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;字符串为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">printData</span> <span class="n">pd</span><span class="p">;</span>
- 
-   <span class="c1">// 输出整数
-</span><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-   <span class="c1">// 输出浮点数
-</span><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mf">500.263</span><span class="p">);</span>
-   <span class="c1">// 输出字符串
-</span><span class="c1"></span>   <span class="kt">char</span> <span class="n">c</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello C++&#34;</span><span class="p">;</span>
-   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">printData</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;整数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">double</span>  <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;浮点数为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;字符串为: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printData</span> <span class="n">pd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出浮点数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mf">500.263</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">char</span> <span class="n">c</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello C++&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">pd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -249,10 +249,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">整数为</span><span class="o">:</span> <span class="mi">5</span>
-<span class="err">浮点数为</span><span class="o">:</span> <span class="mf">500.263</span>
-<span class="err">字符串为</span><span class="o">:</span> <span class="n">Hello</span> <span class="n">C</span><span class="o">++</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">整数为</span><span class="o">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="err">浮点数为</span><span class="o">:</span> <span class="mf">500.263</span>
+</span></span><span class="line"><span class="cl"><span class="err">字符串为</span><span class="o">:</span> <span class="n">Hello</span> <span class="n">C</span><span class="o">++</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-中的运算符重载">C++ 中的运算符重载</h2>
 <p>您可以重定义或重载大部分 C++ 内置的运算符。这样，您就能使用自定义类型的运算符。</p>
@@ -262,8 +262,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>声明加法运算符用于把两个 Box 对象相加，返回最终的 Box 对象。大多数的重载运算符可被定义为普通的非成员函数或者被定义为类成员函数。如果我们定义上面的函数为类的非成员函数，那么我们需要为每次操作传递两个参数，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -271,8 +271,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面的实例使用成员函数演示了运算符重载的概念。在这里，对象作为参数进行传递，对象的属性使用 <strong>this</strong> 运算符进行访问，如下所示：</p>
 <h2 id="实例">实例</h2>
@@ -354,81 +354,81 @@
 </span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">class</span> <span class="nc">Box</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
- 
-      <span class="kt">double</span> <span class="n">getVolume</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="kt">void</span> <span class="nf">setLength</span><span class="p">(</span> <span class="kt">double</span> <span class="n">len</span> <span class="p">)</span>
-      <span class="p">{</span>
-          <span class="n">length</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
-      <span class="p">}</span>
- 
-      <span class="kt">void</span> <span class="nf">setBreadth</span><span class="p">(</span> <span class="kt">double</span> <span class="n">bre</span> <span class="p">)</span>
-      <span class="p">{</span>
-          <span class="n">breadth</span> <span class="o">=</span> <span class="n">bre</span><span class="p">;</span>
-      <span class="p">}</span>
- 
-      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span> <span class="kt">double</span> <span class="n">hei</span> <span class="p">)</span>
-      <span class="p">{</span>
-          <span class="n">height</span> <span class="o">=</span> <span class="n">hei</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="c1">// 重载 + 运算符，用于把两个 Box 对象相加
-</span><span class="c1"></span>      <span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">Box</span> <span class="n">box</span><span class="p">;</span>
-         <span class="n">box</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-         <span class="n">box</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">breadth</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">breadth</span><span class="p">;</span>
-         <span class="n">box</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">height</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
-         <span class="k">return</span> <span class="n">box</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="k">private</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
-</span><span class="c1"></span><span class="p">};</span>
-<span class="c1">// 程序的主函数
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Box</span> <span class="n">Box1</span><span class="p">;</span>                <span class="c1">// 声明 Box1，类型为 Box
-</span><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box2</span><span class="p">;</span>                <span class="c1">// 声明 Box2，类型为 Box
-</span><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box3</span><span class="p">;</span>                <span class="c1">// 声明 Box3，类型为 Box
-</span><span class="c1"></span>   <span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>     <span class="c1">// 把体积存储在该变量中
-</span><span class="c1"></span> 
-   <span class="c1">// Box1 详述
-</span><span class="c1"></span>   <span class="n">Box1</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">6.0</span><span class="p">);</span> 
-   <span class="n">Box1</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">7.0</span><span class="p">);</span> 
-   <span class="n">Box1</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
- 
-   <span class="c1">// Box2 详述
-</span><span class="c1"></span>   <span class="n">Box2</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">12.0</span><span class="p">);</span> 
-   <span class="n">Box2</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">13.0</span><span class="p">);</span> 
-   <span class="n">Box2</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
- 
-   <span class="c1">// Box1 的体积
-</span><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box1</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box1 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// Box2 的体积
-</span><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box2</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 把两个对象相加，得到 Box3
-</span><span class="c1"></span>   <span class="n">Box3</span> <span class="o">=</span> <span class="n">Box1</span> <span class="o">+</span> <span class="n">Box2</span><span class="p">;</span>
- 
-   <span class="c1">// Box3 的体积
-</span><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box3</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Box</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">getVolume</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">setLength</span><span class="p">(</span> <span class="kt">double</span> <span class="n">len</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">length</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">setBreadth</span><span class="p">(</span> <span class="kt">double</span> <span class="n">bre</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">breadth</span> <span class="o">=</span> <span class="n">bre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span> <span class="kt">double</span> <span class="n">hei</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">height</span> <span class="o">=</span> <span class="n">hei</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 重载 + 运算符，用于把两个 Box 对象相加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">Box</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Box</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">Box</span> <span class="n">box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">box</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">box</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">breadth</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">breadth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">box</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">height</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 程序的主函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Box</span> <span class="n">Box1</span><span class="p">;</span>                <span class="c1">// 声明 Box1，类型为 Box
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box2</span><span class="p">;</span>                <span class="c1">// 声明 Box2，类型为 Box
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">Box</span> <span class="n">Box3</span><span class="p">;</span>                <span class="c1">// 声明 Box3，类型为 Box
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>     <span class="c1">// 把体积存储在该变量中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// Box1 详述
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">Box1</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">6.0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">Box1</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">7.0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">Box1</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// Box2 详述
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">Box2</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mf">12.0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">Box2</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mf">13.0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">Box2</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// Box1 的体积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box1</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box1 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// Box2 的体积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box2</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 把两个对象相加，得到 Box3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">Box3</span> <span class="o">=</span> <span class="n">Box1</span> <span class="o">+</span> <span class="n">Box2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// Box3 的体积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">volume</span> <span class="o">=</span> <span class="n">Box3</span><span class="p">.</span><span class="n">getVolume</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Volume of Box3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">volume</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -438,10 +438,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box1</span> <span class="p">:</span> <span class="mi">210</span>
-<span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box2</span> <span class="p">:</span> <span class="mi">1560</span>
-<span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box3</span> <span class="p">:</span> <span class="mi">5400</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box1</span> <span class="p">:</span> <span class="mi">210</span>
+</span></span><span class="line"><span class="cl"><span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box2</span> <span class="p">:</span> <span class="mi">1560</span>
+</span></span><span class="line"><span class="cl"><span class="n">Volume</span> <span class="n">of</span> <span class="nl">Box3</span> <span class="p">:</span> <span class="mi">5400</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="可重载运算符不可重载运算符">可重载运算符/不可重载运算符</h2>
 <p>下面是可重载的运算符列表：</p>

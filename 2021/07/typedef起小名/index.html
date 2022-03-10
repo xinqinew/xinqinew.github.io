@@ -160,8 +160,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">BYTE</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">BYTE</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这个类型定义之后，标识符 BYTE 可作为类型 <strong>unsigned char</strong> 的缩写，例如：</p>
 <div class="highlight"><div class="chroma">
@@ -169,8 +169,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BYTE</span>  <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BYTE</span>  <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>按照惯例，定义时会大写字母，以便提醒用户类型名称是一个象征性的缩写，但您也可以使用小写字母，如下：</p>
 <div class="highlight"><div class="chroma">
@@ -178,8 +178,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">byte</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">byte</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>您也可以使用 <strong>typedef</strong> 来为用户自定义的数据类型取一个新的名字。例如，您可以对结构体使用 typedef 来定义一个新的数据类型名字，然后使用这个新的数据类型来直接定义结构变量，如下：</p>
 <p><strong>实例</strong></p>
@@ -214,34 +214,34 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Books</span>
-<span class="p">{</span>
-   <span class="kt">char</span>  <span class="n">title</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
-   <span class="kt">char</span>  <span class="n">author</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
-   <span class="kt">char</span>  <span class="n">subject</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-   <span class="kt">int</span>   <span class="n">book_id</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Book</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Book</span> <span class="n">book</span><span class="p">;</span>
- 
-   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;C 教程&#34;</span><span class="p">);</span>
-   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#34;Runoob&#34;</span><span class="p">);</span> 
-   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span> <span class="s">&#34;编程语言&#34;</span><span class="p">);</span>
-   <span class="n">book</span><span class="p">.</span><span class="n">book_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
- 
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书标题 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书作者 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">author</span><span class="p">);</span>
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书类目 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">subject</span><span class="p">);</span>
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书 ID : %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">book_id</span><span class="p">);</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Books</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span>  <span class="n">title</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span>  <span class="n">author</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span>  <span class="n">subject</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>   <span class="n">book_id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">Book</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Book</span> <span class="n">book</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;C 教程&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#34;Runoob&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">strcpy</span><span class="p">(</span> <span class="n">book</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span> <span class="s">&#34;编程语言&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">book</span><span class="p">.</span><span class="n">book_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书标题 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书作者 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">author</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书类目 : %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">subject</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;书 ID : %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">book</span><span class="p">.</span><span class="n">book_id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
@@ -274,19 +274,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="cp">#define TRUE  1
-</span><span class="cp">#define FALSE 0
-</span><span class="cp"></span> 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;TRUE 的值: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
-   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;FALSE 的值: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">);</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define TRUE  1
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define FALSE 0
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;TRUE 的值: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">printf</span><span class="p">(</span> <span class="s">&#34;FALSE 的值: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>

@@ -183,19 +183,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Box</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">getVolume</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="k">private</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
-</span><span class="c1"></span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Box</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">getVolume</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>变量 length、breadth 和 height 都是私有的（private）。这意味着它们只能被 Box 类中的其他成员访问，而不能被程序中其他部分访问。这是实现封装的一种方式。</p>
 <p>为了使类中的成员变成公有的（即，程序中的其他部分也能访问），必须在这些成员前使用 <strong>public</strong> 关键字进行声明。所有定义在 public 标识符后边的变量或函数可以被程序中所有其他的函数访问。</p>
@@ -242,42 +242,42 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">class</span> <span class="nc">Adder</span><span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="c1">// 构造函数
-</span><span class="c1"></span>      <span class="n">Adder</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="c1">// 对外的接口
-</span><span class="c1"></span>      <span class="kt">void</span> <span class="nf">addNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
-      <span class="p">{</span>
-          <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="c1">// 对外的接口
-</span><span class="c1"></span>      <span class="kt">int</span> <span class="nf">getTotal</span><span class="p">()</span>
-      <span class="p">{</span>
-          <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
-      <span class="p">};</span>
-   <span class="k">private</span><span class="o">:</span>
-      <span class="c1">// 对外隐藏的数据
-</span><span class="c1"></span>      <span class="kt">int</span> <span class="n">total</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Adder</span> <span class="n">a</span><span class="p">;</span>
-   
-   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">getTotal</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Adder</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">Adder</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 对外的接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">void</span> <span class="nf">addNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 对外的接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">int</span> <span class="nf">getTotal</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 对外隐藏的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">int</span> <span class="n">total</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Adder</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">a</span><span class="p">.</span><span class="n">addNum</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">getTotal</span><span class="p">()</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -285,8 +285,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Total</span> <span class="mi">60</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Total</span> <span class="mi">60</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的类把数字相加，并返回总和。公有成员 <strong>addNum</strong> 和 <strong>getTotal</strong> 是对外的接口，用户需要知道它们以便使用类。私有成员 <strong>total</strong> 是对外隐藏的，用户不需要了解它，但它又是类能正常工作所必需的。</p>
 <h2 id="设计策略">设计策略</h2>

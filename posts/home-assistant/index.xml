@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有Home Assistant - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/home-assistant/</link>
+        <description>所有Home Assistant | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 10 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/home-assistant/" rel="self" type="application/rss+xml" /><item>
+    <title>使用小爱同学语音控制home assistant</title>
+    <link>https://xinqinew.github.io/2022/03/%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%88%B1%E5%90%8C%E5%AD%A6%E8%AF%AD%E9%9F%B3%E6%8E%A7%E5%88%B6home-assistant/</link>
+    <pubDate>Thu, 10 Mar 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/03/%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%88%B1%E5%90%8C%E5%AD%A6%E8%AF%AD%E9%9F%B3%E6%8E%A7%E5%88%B6home-assistant/</guid>
+    <description><![CDATA[STEP1：https://bemfa.com/注册账号。 STEP2：打开控制台，选择MQTT设备云。 STEP3：记录下私钥。 STEP4：右]]></description>
+</item></channel>
+</rss>

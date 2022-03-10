@@ -260,36 +260,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>   <span class="c1">//  测试自增、自减
-</span><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="o">++</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">// 重新赋值
-</span><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="o">--</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 7 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>   <span class="c1">//  测试自增、自减
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">// 重新赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 7 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -303,14 +303,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Line 1 - c 的值是 31
-Line 2 - c 的值是 11
-Line 3 - c 的值是 210
-Line 4 - c 的值是 2
-Line 5 - c 的值是 1
-Line 6 - c 的值是 10
-Line 7 - c 的值是 10
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Line 1 - c 的值是 31
+</span></span><span class="line"><span class="cl">Line 2 - c 的值是 11
+</span></span><span class="line"><span class="cl">Line 3 - c 的值是 210
+</span></span><span class="line"><span class="cl">Line 4 - c 的值是 2
+</span></span><span class="line"><span class="cl">Line 5 - c 的值是 1
+</span></span><span class="line"><span class="cl">Line 6 - c 的值是 10
+</span></span><span class="line"><span class="cl">Line 7 - c 的值是 10
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="关系运算符">关系运算符</h2>
 <p>下表显示了 C++ 支持的关系运算符。</p>
@@ -410,53 +410,53 @@ Line 7 - c 的值是 10
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
- 
-   <span class="k">if</span><span class="p">(</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - a 等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">else</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - a 不等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - a 小于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">else</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - a 不小于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - a 大于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">else</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - a 不大于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="cm">/* 改变 a 和 b 的值 */</span>
-   <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-   <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - a 小于或等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - b 大于或等于 a&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - a 等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">else</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - a 不等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - a 小于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">else</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - a 不小于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - a 大于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">else</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - a 不大于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="cm">/* 改变 a 和 b 的值 */</span>
+</span></span><span class="line"><span class="cl">   <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - a 小于或等于 b&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - b 大于或等于 a&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -468,12 +468,12 @@ Line 7 - c 的值是 10
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Line</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span> <span class="err">不等于</span> <span class="n">b</span>
-<span class="n">Line</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">a</span> <span class="err">不小于</span> <span class="n">b</span>
-<span class="n">Line</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">a</span> <span class="err">大于</span> <span class="n">b</span>
-<span class="n">Line</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">a</span> <span class="err">小于或等于</span> <span class="n">b</span>
-<span class="n">Line</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">b</span> <span class="err">大于或等于</span> <span class="n">a</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span> <span class="err">不等于</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">a</span> <span class="err">不小于</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">a</span> <span class="err">大于</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">a</span> <span class="err">小于或等于</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">b</span> <span class="err">大于或等于</span> <span class="n">a</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="逻辑运算符">逻辑运算符</h2>
 <p>下表显示了 C++ 支持的关系逻辑运算符。</p>
@@ -546,41 +546,41 @@ Line 7 - c 的值是 10
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
- 
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">||</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="cm">/* 改变 a 和 b 的值 */</span>
-   <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">else</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - 条件不为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">||</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="cm">/* 改变 a 和 b 的值 */</span>
+</span></span><span class="line"><span class="cl">   <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">else</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - 条件不为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - 条件为真&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -591,11 +591,11 @@ Line 7 - c 的值是 10
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Line</span> <span class="mi">1</span> <span class="o">-</span> <span class="err">条件为真</span>
-<span class="n">Line</span> <span class="mi">2</span> <span class="o">-</span> <span class="err">条件为真</span>
-<span class="n">Line</span> <span class="mi">4</span> <span class="o">-</span> <span class="err">条件不为真</span>
-<span class="n">Line</span> <span class="mi">5</span> <span class="o">-</span> <span class="err">条件为真</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">1</span> <span class="o">-</span> <span class="err">条件为真</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">2</span> <span class="o">-</span> <span class="err">条件为真</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">4</span> <span class="o">-</span> <span class="err">条件不为真</span>
+</span></span><span class="line"><span class="cl"><span class="n">Line</span> <span class="mi">5</span> <span class="o">-</span> <span class="err">条件为真</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="位运算符">位运算符</h2>
 <p>位运算符作用于位，并逐位执行操作。&amp;、 | 和 ^ 的真值表如下所示：</p>
@@ -727,36 +727,36 @@ Line 7 - c 的值是 10
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>      <span class="c1">// 60 = 0011 1100  
-</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>      <span class="c1">// 13 = 0000 1101
-</span><span class="c1"></span>   <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>           
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 12 = 0000 1100
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 61 = 0011 1101
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 49 = 0011 0001
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="o">~</span><span class="n">a</span><span class="p">;</span>                <span class="c1">// -61 = 1100 0011
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">// 240 = 1111 0000
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">// 15 = 0000 1111
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>      <span class="c1">// 60 = 0011 1100  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>      <span class="c1">// 13 = 0000 1101
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>           
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 12 = 0000 1100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 61 = 0011 1101
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>             <span class="c1">// 49 = 0011 0001
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="o">~</span><span class="n">a</span><span class="p">;</span>                <span class="c1">// -61 = 1100 0011
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">// 240 = 1111 0000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">// 15 = 0000 1111
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - c 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -769,13 +769,13 @@ Line 7 - c 的值是 10
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Line 1 - c 的值是 12
-Line 2 - c 的值是 61
-Line 3 - c 的值是 49
-Line 4 - c 的值是 -61
-Line 5 - c 的值是 240
-Line 6 - c 的值是 15
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Line 1 - c 的值是 12
+</span></span><span class="line"><span class="cl">Line 2 - c 的值是 61
+</span></span><span class="line"><span class="cl">Line 3 - c 的值是 49
+</span></span><span class="line"><span class="cl">Line 4 - c 的值是 -61
+</span></span><span class="line"><span class="cl">Line 5 - c 的值是 240
+</span></span><span class="line"><span class="cl">Line 6 - c 的值是 15
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="赋值运算符">赋值运算符</h2>
 <p>下表列出了 C++ 支持的赋值运算符：</p>
@@ -897,51 +897,51 @@ Line 6 - c 的值是 15
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - =  运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">+=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - += 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">-=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - -= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">*=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - *= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">/=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - /= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span>  <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-   <span class="n">c</span> <span class="o">%=</span>  <span class="n">a</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - %= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">&lt;&lt;=</span>  <span class="mi">2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 7 - &lt;&lt;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">&gt;&gt;=</span>  <span class="mi">2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 8 - &gt;&gt;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">&amp;=</span>  <span class="mi">2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 9 - &amp;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">^=</span>  <span class="mi">2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 10 - ^= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">c</span> <span class="o">|=</span>  <span class="mi">2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 11 - |= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - =  运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">+=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - += 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">-=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - -= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">*=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 4 - *= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">/=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 5 - /= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span>  <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">%=</span>  <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 6 - %= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">&lt;&lt;=</span>  <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 7 - &lt;&lt;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">&gt;&gt;=</span>  <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 8 - &gt;&gt;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">&amp;=</span>  <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 9 - &amp;= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">^=</span>  <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 10 - ^= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">c</span> <span class="o">|=</span>  <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 11 - |= 运算符实例，c 的值 = : &#34;</span> <span class="o">&lt;&lt;</span><span class="n">c</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -959,18 +959,18 @@ Line 6 - c 的值是 15
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Line 1 - =  运算符实例，c 的值 = 21
-Line 2 - += 运算符实例，c 的值 = 42
-Line 3 - -= 运算符实例，c 的值 = 21
-Line 4 - *= 运算符实例，c 的值 = 441
-Line 5 - /= 运算符实例，c 的值 = 21
-Line 6 - %= 运算符实例，c 的值 = 11
-Line 7 - &lt;&lt;= 运算符实例，c 的值 = 44
-Line 8 - &gt;&gt;= 运算符实例，c 的值 = 11
-Line 9 - &amp;= 运算符实例，c 的值 = 2
-Line 10 - ^= 运算符实例，c 的值 = 0
-Line 11 - |= 运算符实例，c 的值 = 2
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Line 1 - =  运算符实例，c 的值 = 21
+</span></span><span class="line"><span class="cl">Line 2 - += 运算符实例，c 的值 = 42
+</span></span><span class="line"><span class="cl">Line 3 - -= 运算符实例，c 的值 = 21
+</span></span><span class="line"><span class="cl">Line 4 - *= 运算符实例，c 的值 = 441
+</span></span><span class="line"><span class="cl">Line 5 - /= 运算符实例，c 的值 = 21
+</span></span><span class="line"><span class="cl">Line 6 - %= 运算符实例，c 的值 = 11
+</span></span><span class="line"><span class="cl">Line 7 - &lt;&lt;= 运算符实例，c 的值 = 44
+</span></span><span class="line"><span class="cl">Line 8 - &gt;&gt;= 运算符实例，c 的值 = 11
+</span></span><span class="line"><span class="cl">Line 9 - &amp;= 运算符实例，c 的值 = 2
+</span></span><span class="line"><span class="cl">Line 10 - ^= 运算符实例，c 的值 = 0
+</span></span><span class="line"><span class="cl">Line 11 - |= 运算符实例，c 的值 = 2
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="杂项运算符">杂项运算符</h2>
 <p>下表列出了 C++ 支持的其他一些重要的运算符。</p>
@@ -1136,32 +1136,32 @@ Line 11 - |= 运算符实例，c 的值 = 2
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">e</span><span class="p">;</span>
- 
-   <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>      <span class="c1">// ( 30 * 15 ) / 5
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;(a + b) * c / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">e</span> <span class="o">=</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>    <span class="c1">// (30 * 15 ) / 5
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;((a + b) * c) / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">);</span>   <span class="c1">// (30) * (15/5)
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;(a + b) * (c / d) 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>     <span class="c1">//  20 + (150/5)
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a + (b * c) / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-  
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>      <span class="c1">// ( 30 * 15 ) / 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;(a + b) * c / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">e</span> <span class="o">=</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>    <span class="c1">// (30 * 15 ) / 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;((a + b) * c) / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">);</span>   <span class="c1">// (30) * (15/5)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;(a + b) * (c / d) 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">;</span>     <span class="c1">//  20 + (150/5)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a + (b * c) / d 的值是 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -1172,11 +1172,11 @@ Line 11 - |= 运算符实例，c 的值 = 2
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">90</span>
-<span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">90</span>
-<span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span> <span class="err">的值是</span> <span class="mi">90</span>
-<span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">50</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">90</span>
+</span></span><span class="line"><span class="cl"><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">90</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span> <span class="err">的值是</span> <span class="mi">90</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span> <span class="err">的值是</span> <span class="mi">50</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

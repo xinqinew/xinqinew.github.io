@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3122 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1677 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80\/","datePublished": "2021-07-26T00:00:00+00:00","dateModified": "2021-07-26T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3122 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(一)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-07-26">2021-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1677 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/07/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(一)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -152,7 +152,7 @@
   <ul>
     <li><a href="#c知识点一">C++知识点（一）</a>
       <ul>
-        <li><a href="#l替换成_t">L&quot;&ldquo;替换成_T(&quot;&quot;)</a></li>
+        <li><a href="#l替换成_t">L&quot;&ldquo;替换成_T(&rdquo;&quot;)</a></li>
         <li><a href="#阻断函数">阻断函数</a></li>
         <li><a href="#常用函数">常用函数</a></li>
         <li><a href="#用汇编来调用call">用汇编来调用CALL</a></li>
@@ -201,20 +201,12 @@
           </ul>
         </li>
         <li><a href="#tchar兼容型字符串及常用函数">TCHAR兼容型字符串及常用函数</a></li>
-        <li><a href="#dll动态链接库及入口函数">DLL动态链接库及入口函数</a></li>
-        <li><a href="#跨进程分配内存">跨进程分配内存</a>
-          <ul>
-            <li><a href="#virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</a></li>
-            <li><a href="#virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</a></li>
-            <li><a href="#freelibraryandexitthread-释放dll并结束进程">FreeLibraryAndExitThread 释放dll并结束进程</a></li>
-          </ul>
-        </li>
       </ul>
     </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="c知识点一">C++知识点（一）</h1>
-<h2 id="l替换成_t">L&quot;&ldquo;替换成_T(&quot;&quot;)</h2>
+<h2 id="l替换成_t">L&quot;&ldquo;替换成_T(&rdquo;&quot;)</h2>
 <p>使用正则表达式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -222,22 +214,20 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">查找 L(\&#34;.+?\&#34;)
-替换成 _T($1)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">查找 L(\&#34;.+?\&#34;)
+</span></span><span class="line"><span class="cl">替换成 _T($1)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="阻断函数">阻断函数</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">getchar</span><span class="p">()</span>	<span class="c1">//等待键盘输入回车
-</span><span class="c1"></span><span class="n">sysem</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">)</span><span class="c1">//任意键继续
-</span><span class="c1"></span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">getchar</span><span class="p">()</span>	<span class="c1">//等待键盘输入回车
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sysem</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">)</span><span class="c1">//任意键继续
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="常用函数">常用函数</h2>
 <div class="highlight"><div class="chroma">
@@ -277,48 +267,44 @@
 </span><span class="lnt">33
 </span><span class="lnt">34
 </span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once	</span><span class="c1">//防止头文件被重复编译
-</span><span class="c1"></span><span class="cp">#pragma warning(disable:4996)</span><span class="c1">//忽略C4996错误
-</span><span class="c1"></span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>	<span class="c1">//输出函数
-</span><span class="c1"></span><span class="n">atoi</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//字符串转整数
-</span><span class="c1"></span><span class="n">Sleep</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//等待
-</span><span class="c1"></span><span class="n">MessageBeep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>	<span class="c1">//播放系统音乐,方便OD定位
-</span><span class="c1"></span><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span>  <span class="c1">//裸体函数
-</span><span class="c1"></span>
-<span class="kt">void</span> <span class="o">*</span><span class="n">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">str1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">str2</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">)</span>
-<span class="c1">//内存copy(读取与写入)
-</span><span class="c1">//str1 -- 指向用于存储复制内容的目标数组，类型强制转换为 void* 指针。
-</span><span class="c1">//str2 -- 指向要复制的数据源，类型强制转换为 void* 指针。
-</span><span class="c1">//n -- 要被复制的字节数。
-</span><span class="c1">//返回值 -- 该函数返回一个指向目标存储区 str1 的指针。
-</span><span class="c1"></span>
-<span class="kt">void</span> <span class="o">*</span><span class="n">memset</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ch</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">);</span>
-<span class="c1">//内存设置
-</span><span class="c1">//将s中当前位置后面的n个字节,用 ch 替换并返回 s 。
-</span><span class="c1"></span>
-<span class="n">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">);</span>
-<span class="c1">//计算给定字符串的长度 (ANSI)
-</span><span class="c1"></span>
-<span class="n">size_t</span> <span class="nf">wcslen</span><span class="p">(</span><span class="k">const</span> <span class="kt">wchar_t</span> <span class="o">*</span> <span class="n">str</span><span class="p">);</span>
-<span class="c1">//strlen函式的宽字节版 (Unicode)
-</span><span class="c1"></span>
-<span class="n">BOOL</span> <span class="nf">CloseHandle</span><span class="p">(</span>
-  <span class="n">HANDLE</span> <span class="n">hObject</span>	<span class="c1">//对象句柄
-</span><span class="c1"></span><span class="p">);</span><span class="c1">//关闭对象句柄。
-</span><span class="c1"></span>
-<span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">&#34;chs&#34;</span><span class="p">);</span>
-<span class="c1">//需要实现本地化，以实现中文正常输出
-</span><span class="c1"></span>
-<span class="n">GetLastError</span><span class="p">();</span>
-<span class="c1">//最后一次的出错代码
-</span><span class="c1"></span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma once	</span><span class="c1">//防止头文件被重复编译
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#pragma warning(disable:4996)</span><span class="c1">//忽略C4996错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>	<span class="c1">//输出函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">atoi</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//字符串转整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Sleep</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>	<span class="c1">//等待
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MessageBeep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>	<span class="c1">//播放系统音乐,方便OD定位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span>  <span class="c1">//裸体函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="n">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">str1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">str2</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//内存copy(读取与写入)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//str1 -- 指向用于存储复制内容的目标数组，类型强制转换为 void* 指针。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//str2 -- 指向要复制的数据源，类型强制转换为 void* 指针。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//n -- 要被复制的字节数。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//返回值 -- 该函数返回一个指向目标存储区 str1 的指针。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="n">memset</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ch</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//内存设置
+</span></span></span><span class="line"><span class="cl"><span class="c1">//将s中当前位置后面的n个字节,用 ch 替换并返回 s 。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//计算给定字符串的长度 (ANSI)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="nf">wcslen</span><span class="p">(</span><span class="k">const</span> <span class="kt">wchar_t</span> <span class="o">*</span> <span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//strlen函式的宽字节版 (Unicode)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="nf">CloseHandle</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HANDLE</span> <span class="n">hObject</span>	<span class="c1">//对象句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="c1">//关闭对象句柄。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">&#34;chs&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//需要实现本地化，以实现中文正常输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//最后一次的出错代码
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="用汇编来调用call">用汇编来调用CALL</h2>
 <div class="highlight"><div class="chroma">
@@ -342,24 +328,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">pcall</span> <span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">MessageBoxC</span><span class="p">;</span>
-<span class="kr">__asm</span>
-<span class="p">{</span>
-  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//4
-</span><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//3
-</span><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//2
-</span><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//1
-</span><span class="c1"></span>  
-  <span class="n">call</span> <span class="n">dword</span> <span class="n">ptr</span> <span class="nl">ds</span><span class="p">:[</span><span class="n">MessageBoxA</span><span class="p">]</span>	<span class="c1">//第一种
-</span><span class="c1"></span>  
-  <span class="n">mov</span> <span class="n">eax</span><span class="p">,</span><span class="n">MessageBoxB</span>
-  <span class="n">call</span> <span class="n">eax</span>	<span class="c1">//第二种
-</span><span class="c1"></span>    
-  <span class="n">call</span> <span class="n">pcall</span>	<span class="c1">//第三种
-</span><span class="c1"></span>  
-  <span class="p">;</span><span class="err">分号</span> <span class="err">注释语句</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pcall</span> <span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">MessageBoxC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">push</span> <span class="mi">0</span>	<span class="c1">//1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="n">call</span> <span class="n">dword</span> <span class="n">ptr</span> <span class="nl">ds</span><span class="p">:[</span><span class="n">MessageBoxA</span><span class="p">]</span>	<span class="c1">//第一种
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="n">mov</span> <span class="n">eax</span><span class="p">,</span><span class="n">MessageBoxB</span>
+</span></span><span class="line"><span class="cl">  <span class="n">call</span> <span class="n">eax</span>	<span class="c1">//第二种
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">  <span class="n">call</span> <span class="n">pcall</span>	<span class="c1">//第三种
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="p">;</span><span class="err">分号</span> <span class="err">注释语句</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>ds 为数据段寄存器</p>
 <h2 id="循环">循环</h2>
@@ -369,9 +355,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">break</span><span class="p">;</span>	<span class="c1">//退出循环
-</span><span class="c1"></span><span class="k">continue</span><span class="p">;</span>	<span class="c1">//跳到循环首部,循环继续
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">break</span><span class="p">;</span>	<span class="c1">//退出循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">continue</span><span class="p">;</span>	<span class="c1">//跳到循环首部,循环继续
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="其它">其它</h2>
 <h3 id="_in_--表示是一个输入参数">_In_  表示是一个输入参数</h3>
@@ -399,13 +385,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">ret</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-<span class="k">else</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">ret</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>等价于</p>
 <div class="highlight"><div class="chroma">
@@ -413,8 +399,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ret</span> <span class="o">=</span> <span class="n">flag</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ret</span> <span class="o">=</span> <span class="n">flag</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="const">const</h3>
 <p>声明变量是不变的</p>
@@ -425,8 +411,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#define hanshu(a,b) (a+b)
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#define hanshu(a,b) (a+b)
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="指针">指针</h3>
 <table>
@@ -468,11 +454,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">p</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="s">&#34;hijk&#34;</span><span class="p">;</span>	<span class="c1">//可读写
-</span><span class="c1"></span><span class="kt">char</span> <span class="n">src2</span><span class="p">[]</span><span class="o">=</span><span class="s">&#34;opq&#34;</span><span class="p">;</span>	<span class="c1">//可读写
-</span><span class="c1"></span>
-<span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="o">=</span><span class="s">&#34;abcd&#34;</span><span class="p">;</span>	<span class="c1">//只读 
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">p</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="s">&#34;hijk&#34;</span><span class="p">;</span>	<span class="c1">//可读写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">src2</span><span class="p">[]</span><span class="o">=</span><span class="s">&#34;opq&#34;</span><span class="p">;</span>	<span class="c1">//可读写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="o">=</span><span class="s">&#34;abcd&#34;</span><span class="p">;</span>	<span class="c1">//只读 
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="strcpy字符串复制wcscpy宽字节版">strcpy	字符串复制(wcscpy宽字节版)</h3>
 <div class="highlight"><div class="chroma">
@@ -480,8 +466,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>把从src地址开始且含有NULL结束符的字符串复制到以dest开始的地址空间</p>
 <p>strcpy_s 带有检测缓冲区的功能,更实用</p>
@@ -491,8 +477,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>strcat_s 带有检测缓冲区的功能,更实用</p>
 <h3 id="strstr查找字符串wcsstr宽字节版">strstr	查找字符串(wcsstr宽字节版)</h3>
@@ -501,8 +487,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">string</span> <span class="n">strstr</span><span class="p">(</span> <span class="n">string1</span><span class="err">，</span><span class="n">string2</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">string</span> <span class="n">strstr</span><span class="p">(</span> <span class="n">string1</span><span class="err">，</span><span class="n">string2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>​	strstr返回一个指针，指向string2在string1中首次出现的位置。</p>
 <h3 id="strchr查找字符wcschr宽字节版">strchr	查找字符(wcschr宽字节版)</h3>
@@ -511,8 +497,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="o">*</span><span class="n">strchr</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">strchr</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在参数<strong>str</strong>所指向的字符串中搜索第一次出现字符<strong>c</strong>（一个无符号字符）的位置。</p>
 <h3 id="strcmp字符串比较wcscmp宽字节版">strcmp	字符串比较(wcscmp宽字节版)</h3>
@@ -521,8 +507,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">extern</span> <span class="kt">int</span> <span class="nf">strcmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s2</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">int</span> <span class="nf">strcmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s2</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当s1&lt;s2时，返回为负数；</p>
 <p>当s1=s2时，返回值= 0；</p>
@@ -545,12 +531,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">wchar_t</span> <span class="n">c1</span><span class="o">=</span><span class="sc">&#39;A&#39;</span><span class="p">;</span>	<span class="c1">//单个字符不用加&#34;L&#34;
-</span><span class="c1"></span><span class="kt">wchar_t</span> <span class="n">wStr</span><span class="p">[]</span><span class="o">=</span><span class="sa">L</span><span class="s">&#34;这是一段中文&#34;</span><span class="p">;</span>	<span class="c1">//字符串前要加&#34;L&#34;
-</span><span class="c1"></span>
-<span class="kt">wchar_t</span> <span class="n">appName</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
-<span class="c1">//可以用TEXT()方法将char转换成wchar_t
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">wchar_t</span> <span class="n">c1</span><span class="o">=</span><span class="sc">&#39;A&#39;</span><span class="p">;</span>	<span class="c1">//单个字符不用加&#34;L&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">wchar_t</span> <span class="n">wStr</span><span class="p">[]</span><span class="o">=</span><span class="sa">L</span><span class="s">&#34;这是一段中文&#34;</span><span class="p">;</span>	<span class="c1">//字符串前要加&#34;L&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">wchar_t</span> <span class="n">appName</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//可以用TEXT()方法将char转换成wchar_t
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>char是8位<a href="https://baike.baidu.com/item/%e5%ad%97%e7%ac%a6" target="_blank" rel="noopener noreffer">字符</a>类型,wchar_t数据类型一般为16位或32位,wchar_t所能表示的字符数远超char型。</p>
 <ol>
@@ -562,9 +548,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"> <span class="kt">char</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
- <span class="n">strcpy</span><span class="p">(</span><span class="n">szString</span><span class="p">,</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="kt">char</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> <span class="n">strcpy</span><span class="p">(</span><span class="n">szString</span><span class="p">,</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>如果你想使用Unicode字符串，那么请使用这一套：</li>
@@ -575,9 +561,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"> <span class="kt">wchar_t</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
- <span class="n">wcscpyszString</span><span class="p">,</span><span class="sa">L</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="kt">wchar_t</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> <span class="n">wcscpyszString</span><span class="p">,</span><span class="sa">L</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>如果你想通过定义_UNICODE宏，而编译ANSI或者Unicode字符串代码：</li>
@@ -588,9 +574,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"> <span class="n">TCHAR</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
- <span class="n">_tcscpy</span><span class="p">(</span><span class="n">szString</span><span class="p">,</span><span class="n">_TEXT</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="n">TCHAR</span> <span class="n">szString</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> <span class="n">_tcscpy</span><span class="p">(</span><span class="n">szString</span><span class="p">,</span><span class="n">_TEXT</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="相关函数见-多字节字符串char及常用函数多字节字符串char及常用函数">相关函数见 <a href="#%e5%a4%9a%e5%ad%97%e8%8a%82%e5%ad%97%e7%ac%a6%e4%b8%b2%28char%29%e5%8f%8a%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b0" rel="">多字节字符串(char)及常用函数</a></h3>
 <h2 id="tchar兼容型字符串及常用函数">TCHAR兼容型字符串及常用函数</h2>
@@ -624,7 +610,7 @@
 <td>wWinMain()</td>
 </tr>
 <tr>
-<td>_T&quot;str&rdquo;</td>
+<td>_T&quot;str&quot;</td>
 <td>&ldquo;str&rdquo;</td>
 <td>L&quot;str&quot;</td>
 </tr>
@@ -640,196 +626,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="dll动态链接库及入口函数">DLL动态链接库及入口函数</h2>
-<ul>
-<li>
-<p>LoadLibrary	加载动态链接库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HMODULE</span> <span class="nf">LoadLibrary</span><span class="p">(</span><span class="n">_In_</span> <span class="n">LPCTSTR</span> <span class="n">lpFileName</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>__stdcall 参数从右向左压入堆栈</p>
-</li>
-<li>
-<p>APIENTRY 则表明此函数是应用程序的入口点,其实都是__stdcall</p>
-</li>
-<li>
-<p>winapi 表示此函数是普通的winapi函数调用方式,其实都是__stdcall</p>
-</li>
-<li>
-<p>FreeLibrary  释放动态链接库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">FreeLibrary</span><span class="p">(</span><span class="n">_In_</span> <span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>FreeLibraryAndExitThread  释放动态链接库并退出线程</p>
-</li>
-<li>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">FreeLibraryAndExitThread</span><span class="p">(</span>
-  <span class="n">HMODULE</span> <span class="n">hLibModule</span><span class="p">,</span>	<span class="c1">//模块的句柄
-</span><span class="c1"></span>  <span class="n">DWORD</span>   <span class="n">dwExitCode</span>	<span class="c1">//调用线程的退出代码
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li></li>
-<li>
-<p>DLL_PROCESS_ATTACH  宏 进程载入  // 1</p>
-</li>
-<li>
-<p>DLL_PROCESS_DETACH  宏 进程卸载  // 0</p>
-</li>
-</ul>
-<h2 id="跨进程分配内存">跨进程分配内存</h2>
-<h3 id="virtualallocex-向指定进程申请内存"><strong>VirtualAllocEx</strong> 向指定进程申请内存</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LPVOID</span> <span class="nf">VirtualAllocEx</span><span class="p">(</span>
-	<span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="o">//</span><span class="err">申请内存所在的进程句柄。</span>  <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="err">为当前进程句柄</span>
-	<span class="n">LPVOID</span> <span class="n">lpAddress</span><span class="p">,</span>	<span class="c1">//保留页面的内存地址；一般用NULL自动分配 。
-</span><span class="c1"></span>	<span class="n">SIZE_T</span> <span class="n">dwSize</span><span class="p">,</span>	<span class="c1">//欲分配的内存大小，字节单位；注意实际分 配的内存大小是页内存大小的整数倍
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">flAllocationType</span><span class="p">,</span>	<span class="c1">//一般用MEM_COMMIT
-</span><span class="c1"></span>	<span class="n">DWORD</span> <span class="n">flProtect</span>	<span class="c1">//一般用PAGE_READWRITE(读写)
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>​	<strong>flAllocationType</strong> 可取下列值：</p>
-<ul>
-<li>MEM_COMMIT：为特定的页面区域分配内存中或磁盘的页面文件中的物理存储</li>
-<li>MEM_PHYSICAL ：分配物理内存（仅用于地址窗口扩展内存）</li>
-<li>MEM_RESERVE：保留进程的虚拟地址空间，而不分配任何物理存储。保留页面可通过继续调用VirtualAlloc（）而被占用</li>
-<li>MEM_RESET ：指明在内存中由参数lpAddress和dwSize指定的数据无效</li>
-<li>MEM_TOP_DOWN：在尽可能高的地址上分配内存（Windows 98忽略此标志）</li>
-<li>MEM_WRITE_WATCH：必须与MEM_RESERVE一起指定，使系统跟踪那些被写入分配区域的页面（仅针对Windows 98）</li>
-</ul>
-<p><strong>flProtect</strong> 可取下列值</p>
-<ul>
-<li>
-<p>PAGE_READONLY： 该区域为只读。如果应用程序试图访问区域中的页的时候，将会被拒绝访</p>
-</li>
-<li>
-<p>PAGE_READWRITE 区域可被应用程序读写</p>
-</li>
-<li>
-<p>PAGE_EXECUTE： 区域包含可被系统执行的代码。试图读写该区域的操作将被拒绝。</p>
-</li>
-<li>
-<p>PAGE_EXECUTE_READ ：区域包含可执行代码，应用程序可以读该区域。</p>
-</li>
-<li>
-<p>PAGE_EXECUTE_READWRITE： 区域包含可执行代码，应用程序可以读写该区域。</p>
-</li>
-<li>
-<p>PAGE_GUARD： 区域第一次被访问时进入一个STATUS_GUARD_PAGE异常，这个标志要和其他保护标志合并使用，表明区域被第一次访问的权限</p>
-</li>
-<li>
-<p>PAGE_NOACCESS： 任何访问该区域的操作将被拒绝</p>
-</li>
-<li>
-<p>PAGE_NOCACHE： RAM中的页映射到该区域时将不会被微处理器缓存（cached)</p>
-<p>注:PAGE_GUARD和PAGE_NOCHACHE标志可以和其他标志合并使用以进一步指定页的特征。PAGE_GUARD标志指定了一个防护页（guard page），即当一个页被提交时会因第一次被访问而产生一个one-shot异常，接着取得指定的访问权限。PAGE_NOCACHE防止当它映射到虚拟页的时候被微处理器缓存。这个标志方便<a href="https://baike.baidu.com/item/%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8" target="_blank" rel="noopener noreffer">设备驱动</a>使用<a href="https://baike.baidu.com/item/%e7%9b%b4%e6%8e%a5%e5%86%85%e5%ad%98%e8%ae%bf%e9%97%ae/6024586" target="_blank" rel="noopener noreffer">直接内存访问</a>方式（DMA）来共享内存块。</p>
-<hr>
-</li>
-</ul>
-<h3 id="virtualfreeex-释放申请的虚拟内存空间">VirtualFreeEx 释放申请的虚拟内存空间</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">VirtualFreeEx</span><span class="p">(</span>
-<span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//目标进程的句柄。
-</span><span class="c1"></span><span class="n">LPVOID</span> <span class="n">lpAddress</span><span class="p">,</span>	<span class="c1">//指向要释放的虚拟内存空间首地址的指针
-</span><span class="c1"></span><span class="n">SIZE_T</span> <span class="n">dwSize</span><span class="p">,</span>		<span class="c1">//虚拟内存空间的字节数
-</span><span class="c1"></span><span class="n">DWORD</span> <span class="n">dwFreeType</span> <span class="p">);</span><span class="c1">//释放类型
-</span></code></pre></td></tr></table>
-</div>
-</div><p>​	<strong>lpAddress</strong></p>
-<p>​		指向要释放的<a href="https://baike.baidu.com/item/%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98" target="_blank" rel="noopener noreffer">虚拟内存</a>空间首地址的<a href="https://baike.baidu.com/item/%e6%8c%87%e9%92%88" target="_blank" rel="noopener noreffer">指针</a>。</p>
-<blockquote>
-<p>​		如果 <em>dwFreeType</em> 为 MEM_RELEASE, 则该参数必须为<strong>VirtualAllocEx</strong>的返回值.</p>
-</blockquote>
-<p>​	<strong>dwSize</strong></p>
-<p>​		虚拟内存空间的字节数</p>
-<blockquote>
-<p>​		如果 <em>dwFreeType</em> 为 MEM_RELEASE，则 <em>dwSize</em> 必须为0 . 按 VirtualAllocEx申请时的大小全部释放。</p>
-<p>​		如果<em>dwFreeType</em> 为 MEM_DECOMMIT, 则释放从<em>lpAddress</em> 开始的一个或多个字节 ，即 lpAddress +dwSize。</p>
-</blockquote>
-<p>​	<strong>dwFreeType</strong></p>
-<p>​	释放类型，取值见下表：</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MEM_DECOMMIT 0x400016384D</td>
-<td>这种试 仅标示 内存空间不可用，内存页还将存在。</td>
-</tr>
-<tr>
-<td>MEM_RELEASE 0x800032768D</td>
-<td>这种方式 很彻底，完全回收。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="freelibraryandexitthread-释放dll并结束进程">FreeLibraryAndExitThread 释放dll并结束进程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">VOID</span> <span class="nf">FreeLibraryAndExitThread</span><span class="p">(</span>
-<span class="n">HMODULE</span> <span class="n">hModule</span><span class="p">,</span>
-<span class="n">DWORD</span> <span class="n">dwExitCode</span>
-<span class="p">);</span>
-
-<span class="n">FreeLibraryAndExitThread</span><span class="p">(</span><span class="n">theApp</span><span class="p">.</span><span class="n">m_hInstance</span><span class="p">,(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">theApp</span><span class="p">.</span><span class="n">m_hInstance</span><span class="p">);</span>
-
-</code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

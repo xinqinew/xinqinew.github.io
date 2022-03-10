@@ -226,12 +226,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">do</span>
-<span class="p">{</span>
-   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-
-<span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">condition</span> <span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">condition</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="循环控制语句">循环控制语句</h2>
 <table>
@@ -312,19 +312,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
-   <span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
-      <span class="k">while</span><span class="p">(...)</span> <span class="p">{</span>
-         <span class="k">if</span><span class="p">(...)</span> <span class="k">goto</span> <span class="n">stop</span><span class="p">;</span>
-         <span class="p">.</span>
-         <span class="p">.</span>
-         <span class="p">.</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="nl">stop</span><span class="p">:</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Error in program.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span><span class="p">(...)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span><span class="p">(...)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">if</span><span class="p">(...)</span> <span class="k">goto</span> <span class="n">stop</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nl">stop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Error in program.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>消除 goto 会导致一些额外的测试被执行。一个简单的 break 语句在这里不会起到作用，因为它只会使程序退出最内层循环。</p>
 <h2 id="无限循环">无限循环</h2>
@@ -345,20 +345,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-   <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This loop will run forever.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-   <span class="p">}</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This loop will run forever.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。</p>
 <blockquote>
@@ -413,19 +413,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
-    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
-       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
-</span><span class="c1"></span>    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
-       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
-</span><span class="c1"></span>  
-    <span class="c1">// 您可以有任意数量的 case 语句
-</span><span class="c1"></span>    <span class="k">default</span> <span class="o">:</span> <span class="c1">// 可选的
-</span><span class="c1"></span>       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">break</span><span class="p">;</span> <span class="c1">// 可选的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">    <span class="c1">// 您可以有任意数量的 case 语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">default</span> <span class="o">:</span> <span class="c1">// 可选的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>switch 语句必须遵循下面的规则：</p>
 <ul>
@@ -454,19 +454,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">switch</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span> 
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是外部 switch 的一部分&#34;</span><span class="p">;</span>
-      <span class="k">switch</span><span class="p">(</span><span class="n">ch2</span><span class="p">)</span> <span class="p">{</span>
-         <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是内部 switch 的一部分&#34;</span><span class="p">;</span>
-            <span class="k">break</span><span class="p">;</span>
-         <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 内部 B case 代码
-</span><span class="c1"></span>      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-   <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 外部 B case 代码
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">switch</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是外部 switch 的一部分&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">switch</span><span class="p">(</span><span class="n">ch2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;这个 A 是内部 switch 的一部分&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 内部 B case 代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span> <span class="c1">// 外部 B case 代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="--运算符">? : 运算符</h2>
 <p>条件运算符 ? :，可以用来替代 if&hellip;else 语句。它的一般形式如下：</p>
@@ -475,8 +475,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Exp1</span> <span class="o">?</span> <span class="nl">Exp2</span> <span class="p">:</span> <span class="n">Exp3</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Exp1</span> <span class="o">?</span> <span class="nl">Exp2</span> <span class="p">:</span> <span class="n">Exp3</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

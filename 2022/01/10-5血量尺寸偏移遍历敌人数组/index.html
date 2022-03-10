@@ -288,38 +288,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">uintptr_t</span> <span class="nf">readPtr</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
-	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">uintptr_t</span><span class="p">));</span>
-	<span class="k">return</span> <span class="n">addr</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">char</span> <span class="nf">readByte</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
-	<span class="kt">char</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
-	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">readInt</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
-	<span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">float</span> <span class="nf">readFloat</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
-	<span class="kt">float</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
-	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">readData</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">target</span><span class="p">){</span>
-	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
-<span class="p">}</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">uintptr_t</span> <span class="nf">readPtr</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">uintptr_t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="nf">readByte</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">readInt</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">readFloat</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">res</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">readData</span><span class="p">(</span><span class="n">uintptr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">lseek64</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">read</span><span class="p">(</span><span class="n">mem_fd</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>关于这部分，可以参考我的这个视频：<a href="https://www.bilibili.com/video/BV1Hi4y1R7By?spm_id_from=333.999.0.0" target="_blank" rel="noopener noreffer">单机安卓手游绘制教程08-1：用读取文件的函数跨进程读内存</a></p>
 <p><img
@@ -368,39 +368,39 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">test</span><span class="p">(){</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;test(): </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-
-	<span class="n">uintptr_t</span> <span class="n">gmc</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span><span class="n">so_addr</span> <span class="o">+</span> <span class="mh">0x689CC</span><span class="p">);</span>
-	<span class="n">uintptr_t</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="n">readPtr</span><span class="p">(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">)</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
-	<span class="n">uintptr_t</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p1</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
-	<span class="n">uintptr_t</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p2</span> <span class="o">+</span> <span class="mh">0xB890</span> <span class="p">);</span>
-	<span class="n">uintptr_t</span> <span class="n">p4</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p3</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
-	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">readInt</span><span class="p">(</span><span class="n">p4</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;遍历终止条件： i &lt; %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="k">while</span><span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">){</span>
-		<span class="n">uintptr_t</span> <span class="n">p5</span> <span class="o">=</span> <span class="n">p4</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">;</span> <span class="c1">//敌人i的结构体地址
-</span><span class="c1"></span>		<span class="k">if</span><span class="p">(</span> <span class="n">readByte</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x48</span><span class="p">)</span> <span class="p">){</span>
-			<span class="c1">//照着IDA F5之后的代码写就行了.
-</span><span class="c1"></span>			<span class="n">printf</span><span class="p">(</span><span class="s">&#34;敌人id=%2d</span><span class="se">\t</span><span class="s">pos={%f,%f,%f}</span><span class="se">\t</span><span class="s">size=%f</span><span class="se">\t</span><span class="s">hp= %d/%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
-				<span class="n">i</span><span class="p">,</span>
-				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span><span class="p">),</span>
-				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span> <span class="o">+</span> <span class="mi">4</span><span class="p">),</span>
-				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span> <span class="o">+</span> <span class="mi">8</span><span class="p">),</span>
-				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x214</span><span class="p">),</span>
-				<span class="n">readInt</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x4</span><span class="p">),</span>
-				<span class="n">readInt</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x258</span><span class="p">)</span>
-			<span class="p">);</span>
-
-		<span class="p">}</span>
-
-		<span class="n">i</span><span class="o">++</span><span class="p">;</span>
-	<span class="p">}</span>
-
-<span class="p">}</span> <span class="err">作者：赶码人</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//www.bilibili.com/read/cv15051215?spm_id_from=333.999.0.0 出处：bilibili
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">test</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;test(): </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">gmc</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span><span class="n">so_addr</span> <span class="o">+</span> <span class="mh">0x689CC</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">gmc</span> <span class="o">+</span> <span class="mh">0x28</span> <span class="o">*</span> <span class="n">readPtr</span><span class="p">(</span><span class="n">gmc</span> <span class="o">+</span> <span class="mh">0x120</span><span class="p">)</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p1</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p2</span> <span class="o">+</span> <span class="mh">0xB890</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">p4</span> <span class="o">=</span> <span class="n">readPtr</span><span class="p">(</span> <span class="n">p3</span> <span class="o">+</span> <span class="mh">0x20</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">readInt</span><span class="p">(</span><span class="n">p4</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;遍历终止条件： i &lt; %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">uintptr_t</span> <span class="n">p5</span> <span class="o">=</span> <span class="n">p4</span> <span class="o">+</span> <span class="mh">0x2d4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">;</span> <span class="c1">//敌人i的结构体地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span><span class="p">(</span> <span class="n">readByte</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x48</span><span class="p">)</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">//照着IDA F5之后的代码写就行了.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="n">printf</span><span class="p">(</span><span class="s">&#34;敌人id=%2d</span><span class="se">\t</span><span class="s">pos={%f,%f,%f}</span><span class="se">\t</span><span class="s">size=%f</span><span class="se">\t</span><span class="s">hp= %d/%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">i</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span> <span class="o">+</span> <span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x19c</span> <span class="o">+</span> <span class="mi">8</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readFloat</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x214</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readInt</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				<span class="n">readInt</span><span class="p">(</span><span class="n">p5</span> <span class="o">+</span> <span class="mh">0x40</span> <span class="o">+</span> <span class="mh">0x258</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="err">作者：赶码人</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//www.bilibili.com/read/cv15051215?spm_id_from=333.999.0.0 出处：bilibili
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>最终效果请看<a href="https://www.bilibili.com/video/BV1yT4y1y7W9/" target="_blank" rel="noopener noreffer">视频</a>吧~</p>
 <p>做教程、写文章不容易，若有收获，欢迎给视频点赞~感谢鼓励。</p>

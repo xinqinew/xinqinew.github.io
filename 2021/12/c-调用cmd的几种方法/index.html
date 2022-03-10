@@ -172,8 +172,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">system</span><span class="p">(</span><span class="s">&#34;calc&#34;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">system</span><span class="p">(</span><span class="s">&#34;calc&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注：该函数是阻塞的</p>
@@ -184,8 +184,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">WinExec</span><span class="p">(</span><span class="s">&#34;ipconfig&#34;</span><span class="p">,</span> <span class="n">SW_SHOWNORMAL</span><span class="p">);</span> <span class="c1">//第二个参数表示显示cmd命令框
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">WinExec</span><span class="p">(</span><span class="s">&#34;ipconfig&#34;</span><span class="p">,</span> <span class="n">SW_SHOWNORMAL</span><span class="p">);</span> <span class="c1">//第二个参数表示显示cmd命令框
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注：该函数是非阻塞的，也就是说，当输入的命令需要长时间来执行时，程序并不会等待执行结果，而是直接往下运行</p>
@@ -205,15 +205,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HINSTANCE</span> <span class="nf">ShellExecuteA</span><span class="p">(</span>
-  <span class="n">HWND</span>   <span class="n">hwnd</span><span class="p">,</span>          <span class="c1">//指定父窗口，一般为NULL
-</span><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpOperation</span><span class="p">,</span>   <span class="c1">//打开方式
-</span><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpFile</span><span class="p">,</span>        <span class="c1">//要打开的文件，要执行的程序
-</span><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpParameters</span><span class="p">,</span>  <span class="c1">//参数
-</span><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpDirectory</span><span class="p">,</span>   <span class="c1">//缺省目录，一般为NULL
-</span><span class="c1"></span>  <span class="n">INT</span>    <span class="n">nShowCmd</span>       <span class="c1">//命令框打开方式
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HINSTANCE</span> <span class="nf">ShellExecuteA</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND</span>   <span class="n">hwnd</span><span class="p">,</span>          <span class="c1">//指定父窗口，一般为NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpOperation</span><span class="p">,</span>   <span class="c1">//打开方式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpFile</span><span class="p">,</span>        <span class="c1">//要打开的文件，要执行的程序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpParameters</span><span class="p">,</span>  <span class="c1">//参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCSTR</span> <span class="n">lpDirectory</span><span class="p">,</span>   <span class="c1">//缺省目录，一般为NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">INT</span>    <span class="n">nShowCmd</span>       <span class="c1">//命令框打开方式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>各个参数含义</strong>：</p>
 <ul>
@@ -249,8 +249,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ShellExecute</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34;runas&#34;</span><span class="p">,</span> <span class="s">&#34;cmd&#34;</span><span class="p">,</span> <span class="s">&#34;/c ipconfig &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">SW_SHOWNORMAL</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ShellExecute</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34;runas&#34;</span><span class="p">,</span> <span class="s">&#34;cmd&#34;</span><span class="p">,</span> <span class="s">&#34;/c ipconfig &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">SW_SHOWNORMAL</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>含义：以管理员身份运行cmd，执行ipconfg命令，将输出重定向到C:\disk.txt中，命令框正常显示</p>
 <blockquote>
@@ -273,19 +273,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">	<span class="n">SHELLEXECUTEINFO</span> <span class="n">ShExecInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">SHELLEXECUTEINFO</span><span class="p">);</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">fMask</span> <span class="o">=</span> <span class="n">SEE_MASK_NOCLOSEPROCESS</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hwnd</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpVerb</span> <span class="o">=</span> <span class="s">&#34;runas&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpFile</span> <span class="o">=</span> <span class="s">&#34;cmd&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpParameters</span> <span class="o">=</span> <span class="s">&#34;/c winsat disk &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpDirectory</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">nShow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hInstApp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShellExecuteEx</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ShExecInfo</span><span class="p">);</span>
-    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">	<span class="n">SHELLEXECUTEINFO</span> <span class="n">ShExecInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">SHELLEXECUTEINFO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">fMask</span> <span class="o">=</span> <span class="n">SEE_MASK_NOCLOSEPROCESS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hwnd</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpVerb</span> <span class="o">=</span> <span class="s">&#34;runas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpFile</span> <span class="o">=</span> <span class="s">&#34;cmd&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpParameters</span> <span class="o">=</span> <span class="s">&#34;/c winsat disk &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpDirectory</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">nShow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hInstApp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShellExecuteEx</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ShExecInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>每个参数的含义和ShellExecute都一样。其中上述命令参数中 /c：</p>
 <ul>
@@ -377,85 +377,85 @@
 </span><span class="lnt">78
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="nf">RunCmdAndOutPutRedirect</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">outPutFile</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">cmd</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">wait</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;outPutFile:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">outPutFile</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; cmd:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cmd</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; wait:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">wait</span><span class="p">;</span>
-    <span class="n">STARTUPINFOA</span> <span class="n">si</span><span class="p">;</span>
-    <span class="n">PROCESS_INFORMATION</span> <span class="n">pi</span><span class="p">;</span>
-
-
-<span class="n">SECURITY_ATTRIBUTES</span> <span class="n">sa</span><span class="p">;</span>
-<span class="n">sa</span><span class="p">.</span><span class="n">nLength</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sa</span><span class="p">);</span>
-<span class="n">sa</span><span class="p">.</span><span class="n">lpSecurityDescriptor</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="n">sa</span><span class="p">.</span><span class="n">bInheritHandle</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
-<span class="n">HANDLE</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">CreateFileA</span><span class="p">(</span><span class="n">outPutFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span>
-                            <span class="n">FILE_APPEND_DATA</span><span class="p">,</span>
-                            <span class="n">FILE_SHARE_WRITE</span> <span class="o">|</span> <span class="n">FILE_SHARE_READ</span><span class="p">,</span>
-                            <span class="o">&amp;</span><span class="n">sa</span><span class="p">,</span>
-                            <span class="n">CREATE_ALWAYS</span><span class="p">,</span>
-                            <span class="n">FILE_ATTRIBUTE_NORMAL</span><span class="p">,</span>
-                            <span class="nb">NULL</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">handle</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;CreateFile failed:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
-    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">si</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">STARTUPINFO</span><span class="p">));</span>
-<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PROCESS_INFORMATION</span><span class="p">));</span>
-<span class="n">si</span><span class="p">.</span><span class="n">cb</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">STARTUPINFO</span><span class="p">);</span>
-<span class="n">si</span><span class="p">.</span><span class="n">dwFlags</span> <span class="o">|=</span> <span class="n">STARTF_USESTDHANDLES</span><span class="p">;</span>
-<span class="n">si</span><span class="p">.</span><span class="n">wShowWindow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
-<span class="n">si</span><span class="p">.</span><span class="n">hStdInput</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="n">si</span><span class="p">.</span><span class="n">hStdError</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="n">si</span><span class="p">.</span><span class="n">hStdOutput</span> <span class="o">=</span> <span class="n">handle</span><span class="p">;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">CreateProcessA</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span>
-    <span class="p">(</span><span class="n">LPSTR</span><span class="p">)</span><span class="n">cmd</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span>
-    <span class="nb">NULL</span><span class="p">,</span>
-    <span class="nb">NULL</span><span class="p">,</span>
-    <span class="n">TRUE</span><span class="p">,</span>
-    <span class="n">CREATE_NO_WINDOW</span><span class="p">,</span>
-    <span class="nb">NULL</span><span class="p">,</span>
-    <span class="nb">NULL</span><span class="p">,</span>
-    <span class="o">&amp;</span><span class="n">si</span><span class="p">,</span>
-    <span class="o">&amp;</span><span class="n">pi</span><span class="p">))</span>
-<span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;CreateProcess failed:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
-    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">wait</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;WaitForSingleObject finish return:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
-<span class="n">CloseHandle</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
-<span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hThread</span><span class="p">);</span>
-<span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">);</span>
-<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">Task</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">PVOID</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">Wow64DisableWow64FsRedirection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oldValue</span><span class="p">))</span>
-	<span class="p">{</span>
-		<span class="n">string</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s">&#34;D:</span><span class="se">\\</span><span class="s">diak.txt&#34;</span><span class="p">;</span>
-		<span class="n">string</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#34;winsat disk&#34;</span><span class="p">;</span>
-		<span class="n">RunCmdAndOutPutRedirect</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> <span class="c1">//true表示阻塞调用
-</span><span class="c1"></span>	<span class="p">}</span>
-	<span class="k">else</span>
-	<span class="p">{</span>
-		<span class="n">LOG_WARN</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;重定向失败：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">Wow64RevertWow64FsRedirection</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="k">return</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">RunCmdAndOutPutRedirect</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">outPutFile</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">cmd</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">wait</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;outPutFile:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">outPutFile</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; cmd:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cmd</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; wait:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">wait</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">STARTUPINFOA</span> <span class="n">si</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROCESS_INFORMATION</span> <span class="n">pi</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">SECURITY_ATTRIBUTES</span> <span class="n">sa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sa</span><span class="p">.</span><span class="n">nLength</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sa</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">sa</span><span class="p">.</span><span class="n">lpSecurityDescriptor</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sa</span><span class="p">.</span><span class="n">bInheritHandle</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">HANDLE</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">CreateFileA</span><span class="p">(</span><span class="n">outPutFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">FILE_APPEND_DATA</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">FILE_SHARE_WRITE</span> <span class="o">|</span> <span class="n">FILE_SHARE_READ</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="o">&amp;</span><span class="n">sa</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">CREATE_ALWAYS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">FILE_ATTRIBUTE_NORMAL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">handle</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;CreateFile failed:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">si</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">STARTUPINFO</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PROCESS_INFORMATION</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">cb</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">STARTUPINFO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">dwFlags</span> <span class="o">|=</span> <span class="n">STARTF_USESTDHANDLES</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">wShowWindow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">hStdInput</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">hStdError</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">si</span><span class="p">.</span><span class="n">hStdOutput</span> <span class="o">=</span> <span class="n">handle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">CreateProcessA</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">LPSTR</span><span class="p">)</span><span class="n">cmd</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRUE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CREATE_NO_WINDOW</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&amp;</span><span class="n">si</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&amp;</span><span class="n">pi</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;CreateProcess failed:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;WaitForSingleObject finish return:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">CloseHandle</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hThread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Task</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PVOID</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">Wow64DisableWow64FsRedirection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oldValue</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">string</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s">&#34;D:</span><span class="se">\\</span><span class="s">diak.txt&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">string</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#34;winsat disk&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">RunCmdAndOutPutRedirect</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> <span class="c1">//true表示阻塞调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">LOG_WARN</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;重定向失败：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">Wow64RevertWow64FsRedirection</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="如何调用winsat解决应用程序重定向问题">如何调用winsat(解决应用程序重定向问题)</h2>
 <p>需要调用windows的两个函数:</p>
@@ -487,29 +487,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">PVOID</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">Wow64DisableWow64FsRedirection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oldValue</span><span class="p">))</span>
-<span class="p">{</span>
-    <span class="c1">//ShellExecute(NULL, &#34;runas&#34;, &#34;cmd&#34;, &#34;/c winsat disk &gt;&gt; D:\\disk.txt&#34;, NULL, SW_SHOWNORMAL);
-</span><span class="c1"></span>    <span class="c1">//执行cmd命令
-</span><span class="c1"></span>    <span class="n">SHELLEXECUTEINFO</span> <span class="n">ShExecInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">SHELLEXECUTEINFO</span><span class="p">);</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">fMask</span> <span class="o">=</span> <span class="n">SEE_MASK_NOCLOSEPROCESS</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hwnd</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpVerb</span> <span class="o">=</span> <span class="s">&#34;runas&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpFile</span> <span class="o">=</span> <span class="s">&#34;cmd&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpParameters</span> <span class="o">=</span> <span class="s">&#34;/k winsat disk &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpDirectory</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">nShow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
-    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hInstApp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">ShellExecuteEx</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ShExecInfo</span><span class="p">);</span>
-    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">Wow64RevertWow64FsRedirection</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">PVOID</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Wow64DisableWow64FsRedirection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oldValue</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//ShellExecute(NULL, &#34;runas&#34;, &#34;cmd&#34;, &#34;/c winsat disk &gt;&gt; D:\\disk.txt&#34;, NULL, SW_SHOWNORMAL);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//执行cmd命令
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">SHELLEXECUTEINFO</span> <span class="n">ShExecInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">SHELLEXECUTEINFO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">fMask</span> <span class="o">=</span> <span class="n">SEE_MASK_NOCLOSEPROCESS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hwnd</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpVerb</span> <span class="o">=</span> <span class="s">&#34;runas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpFile</span> <span class="o">=</span> <span class="s">&#34;cmd&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpParameters</span> <span class="o">=</span> <span class="s">&#34;/k winsat disk &gt;&gt; D:</span><span class="se">\\</span><span class="s">disk.txt&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">lpDirectory</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">nShow</span> <span class="o">=</span> <span class="n">SW_HIDE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hInstApp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ShellExecuteEx</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ShExecInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">ShExecInfo</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Wow64RevertWow64FsRedirection</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>就很好的解决了重定向的问题。
 Wow64DisableWow64FsRedirection() 主要是为了关闭重定向

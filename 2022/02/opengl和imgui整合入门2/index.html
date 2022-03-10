@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/02\/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A82\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  794 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  793 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/02\/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A82\/","datePublished": "2022-02-15T00:00:00+00:00","dateModified": "2022-02-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 794 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 793 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/02/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A82/" class="leancloud_visitors" data-flag-title="OpenGL和Imgui整合入门2">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -167,16 +167,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ImGui_ImplOpenGL3_NewFrame</span><span class="p">();</span>
-<span class="n">ImGui_ImplGlfw_NewFrame</span><span class="p">();</span>
-<span class="n">ImGui</span><span class="o">::</span><span class="n">NewFrame</span><span class="p">();</span>
-<span class="p">{</span>
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
-</span><span class="c1"></span>    <span class="c1">//自定义内容
-</span><span class="c1"></span>    <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ImGui_ImplOpenGL3_NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">ImGui_ImplGlfw_NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//自定义内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在了解创建窗口和GUI之前，我们需要先了解一下渲染器的整体流程，这里有所简化</p>
 <p>（实例化GLFW窗口，创建窗口对象 -&gt; 初始化GLAD -&gt; 开始渲染循环 -&gt; 资源回收）</p>
@@ -202,30 +202,28 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">//一些准备工作
-</span><span class="c1"></span>    <span class="n">InitGLFW</span><span class="p">();</span>
-    <span class="n">Create_glfw_Window</span><span class="p">();</span>
-    <span class="p">...</span>
-    <span class="c1">//---------------------render loop--------------------------------------
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="c1">//------------绘制Imgui-----------------
-</span><span class="c1"></span>        <span class="n">RenderImGui</span><span class="p">();</span>
-        <span class="c1">//------------渲染工作------------------
-</span><span class="c1"></span>        <span class="p">......</span>
-        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
-</span><span class="c1"></span>        <span class="n">glfwPollEvents</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="c1">//一些资源释放等收尾工作
-</span><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//一些准备工作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">InitGLFW</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Create_glfw_Window</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//---------------------render loop--------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//------------绘制Imgui-----------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">RenderImGui</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//------------渲染工作------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">......</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span><span class="c1">//双缓冲绘制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glfwPollEvents</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//一些资源释放等收尾工作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>为了让main函数内的流程更加清晰，我们把绘制GUI和创建窗口的环节单独拎出来，写一个叫GameFrame的头文件来进行管理</p>
 <div class="highlight"><div class="chroma">
@@ -268,43 +266,43 @@
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">GameFrame</span> 
-<span class="p">{</span>
-    <span class="c1">//-------------------------glfw window creation-------------------------------------
-</span><span class="c1"></span>    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="nf">Create_glfw_Window</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="s">&#34;OpenGLTest&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to create GLFW window&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-            <span class="n">glfwTerminate</span><span class="p">();</span>
-            <span class="c1">//return -1;
-</span><span class="c1"></span>        <span class="p">}</span>
-        <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-        <span class="n">glfwSwapInterval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">glfwSetScrollCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">scroll_callback</span><span class="p">);</span>
-        <span class="n">glfwSetCursorPosCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">mouse_callback</span><span class="p">);</span>
-        <span class="n">glfwSetInputMode</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GLFW_CURSOR</span><span class="p">,</span> <span class="n">GLFW_CURSOR_DISABLED</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">window</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">//-------------------------imgui creation-------------------------------------
-</span><span class="c1"></span>    <span class="kt">void</span> <span class="nf">RenderMainImGui</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">ImGui_ImplOpenGL3_NewFrame</span><span class="p">();</span>
-        <span class="n">ImGui_ImplGlfw_NewFrame</span><span class="p">();</span>
-        <span class="n">ImGui</span><span class="o">::</span><span class="n">NewFrame</span><span class="p">();</span>
-        <span class="p">{</span>
-            <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
-</span><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Use &#39;Left Alter&#39; to focus on window&#34;</span><span class="p">);</span>
-            <span class="c1">//自定义GUI内容
-</span><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
-        <span class="p">}</span>
-
-        <span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">GameFrame</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//-------------------------glfw window creation-------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="nf">Create_glfw_Window</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="s">&#34;OpenGLTest&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Failed to create GLFW window&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glfwTerminate</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//return -1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSwapInterval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSetScrollCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">scroll_callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSetCursorPosCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">mouse_callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glfwSetInputMode</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GLFW_CURSOR</span><span class="p">,</span> <span class="n">GLFW_CURSOR_DISABLED</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">window</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//-------------------------imgui creation-------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">RenderMainImGui</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ImGui_ImplOpenGL3_NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ImGui_ImplGlfw_NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ImGui</span><span class="o">::</span><span class="n">NewFrame</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="s">&#34;Edit&#34;</span><span class="p">);</span>                          <span class="c1">// Create a window called &#34;Hello, world!&#34; and append into it.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Use &#39;Left Alter&#39; to focus on window&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//自定义GUI内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ImGui</span><span class="o">::</span><span class="n">Render</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>此时就可以很清晰的把main函数的流程表示为</p>
 <div class="highlight"><div class="chroma">
@@ -321,17 +319,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">InitGLFW</span><span class="p">();</span>
-<span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">GameFrame</span><span class="o">::</span><span class="n">Create_glfw_Window</span><span class="p">();</span>
-<span class="n">InitImGui</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
- <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
- <span class="p">{</span>
-        <span class="n">RenderMainImGui</span><span class="p">()</span><span class="err">；</span>
-        <span class="n">glClearColor</span><span class="p">();</span>
-        <span class="p">...</span>
- <span class="p">}</span>
- <span class="c1">//一些收尾工作
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">InitGLFW</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="n">GameFrame</span><span class="o">::</span><span class="n">Create_glfw_Window</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">InitImGui</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">RenderMainImGui</span><span class="p">()</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glClearColor</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">//一些收尾工作
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>了解大致的流程后就可以开始正式开始编写渲染器了</p>
 <p>这里推荐learnOpenGl网站，可以根据上面进行渲染的学习，后续还会介绍一些可能会踩到的坑和一些解决方式</p>

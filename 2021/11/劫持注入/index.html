@@ -174,35 +174,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph  
-z([劫持注入])--&gt;
-z1[[看游戏加载哪些dll]]--&gt;
-z2[OD附加游戏]--&gt;
-z3[按E打开模块窗口]--&gt;
-z4([查找可劫持dll&lt;br&gt;尽量选择SysWOW64目录下的dll&lt;br&gt;假设为d3d8.dll])--&gt;
-z6[确定可劫持的dll后&lt;br&gt;进系统目录或者&lt;br&gt;游戏目录查找该dll]--&gt;
-z8[[&#34;复制dll文件到桌面&#34;]]--&gt;
-z9[&#34;打开AheadLib软件&#34;]--&gt;
-导入dll文件--&gt;
-如下图设置--&gt;
-z10[&#34;点击“生成”按钮&#34;&lt;br&gt;生成cpp代码]--&gt;
-z17[d3d8.dll改名为d3d8Org.dll]--&gt;
-z11[&#34;vs新建&#34;具有导出项的dll&#34;&#34;]--&gt;
-z12[改成release版本]--&gt;
-把之前生成的dll拖入vs中--&gt;
-复制全文并粘贴至新建的cpp文件中--&gt;
-新建的cpp中的入口函数需要删除--&gt;
-z13[[&#34;在入口函数中添加一条代码&lt;br&gt; LoadLibraryA(“Mydll.dll”);&#34;]]--&gt;
-z16[检查代码有无错误并更改&lt;br&gt;一般就是强制类型转换]--&gt;
-z14[[生成方案&lt;br&gt;找到生成的dll&lt;br&gt;复制到游戏目录]]--&gt;
-z15([&#34;把Mydll.dll和d3d8Org.dll也放进游戏目录&#34;])
-end
-
-z0([常见可劫持dll]) ---  z5[&#34;特点:容量小 代码少&#34;] --- d3d8.dll &amp; d3d8thk.dll &amp; lpk.dll &amp; d3d9.dll
-
-z7([&#34;常见dll系统目录&#34;])---c:\Windows\SysWOW64
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">subgraph  
+</span></span><span class="line"><span class="cl">z([劫持注入])--&gt;
+</span></span><span class="line"><span class="cl">z1[[看游戏加载哪些dll]]--&gt;
+</span></span><span class="line"><span class="cl">z2[OD附加游戏]--&gt;
+</span></span><span class="line"><span class="cl">z3[按E打开模块窗口]--&gt;
+</span></span><span class="line"><span class="cl">z4([查找可劫持dll&lt;br&gt;尽量选择SysWOW64目录下的dll&lt;br&gt;假设为d3d8.dll])--&gt;
+</span></span><span class="line"><span class="cl">z6[确定可劫持的dll后&lt;br&gt;进系统目录或者&lt;br&gt;游戏目录查找该dll]--&gt;
+</span></span><span class="line"><span class="cl">z8[[&#34;复制dll文件到桌面&#34;]]--&gt;
+</span></span><span class="line"><span class="cl">z9[&#34;打开AheadLib软件&#34;]--&gt;
+</span></span><span class="line"><span class="cl">导入dll文件--&gt;
+</span></span><span class="line"><span class="cl">如下图设置--&gt;
+</span></span><span class="line"><span class="cl">z10[&#34;点击“生成”按钮&#34;&lt;br&gt;生成cpp代码]--&gt;
+</span></span><span class="line"><span class="cl">z17[d3d8.dll改名为d3d8Org.dll]--&gt;
+</span></span><span class="line"><span class="cl">z11[&#34;vs新建&#34;具有导出项的dll&#34;&#34;]--&gt;
+</span></span><span class="line"><span class="cl">z12[改成release版本]--&gt;
+</span></span><span class="line"><span class="cl">把之前生成的dll拖入vs中--&gt;
+</span></span><span class="line"><span class="cl">复制全文并粘贴至新建的cpp文件中--&gt;
+</span></span><span class="line"><span class="cl">新建的cpp中的入口函数需要删除--&gt;
+</span></span><span class="line"><span class="cl">z13[[&#34;在入口函数中添加一条代码&lt;br&gt; LoadLibraryA(“Mydll.dll”);&#34;]]--&gt;
+</span></span><span class="line"><span class="cl">z16[检查代码有无错误并更改&lt;br&gt;一般就是强制类型转换]--&gt;
+</span></span><span class="line"><span class="cl">z14[[生成方案&lt;br&gt;找到生成的dll&lt;br&gt;复制到游戏目录]]--&gt;
+</span></span><span class="line"><span class="cl">z15([&#34;把Mydll.dll和d3d8Org.dll也放进游戏目录&#34;])
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z0([常见可劫持dll]) ---  z5[&#34;特点:容量小 代码少&#34;] --- d3d8.dll &amp; d3d8thk.dll &amp; lpk.dll &amp; d3d9.dll
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z7([&#34;常见dll系统目录&#34;])---c:\Windows\SysWOW64
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"

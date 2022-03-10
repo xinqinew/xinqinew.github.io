@@ -222,62 +222,62 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; </span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
-   <span class="k">protected</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span>
-      <span class="p">{</span>
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Parent class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span>
-<span class="p">};</span>
-<span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="n">Shape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-      <span class="kt">int</span> <span class="nf">area</span> <span class="p">()</span>
-      <span class="p">{</span> 
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Rectangle class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
-      <span class="p">}</span>
-<span class="p">};</span>
-<span class="k">class</span> <span class="nc">Triangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="n">Triangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="n">Shape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-      <span class="kt">int</span> <span class="nf">area</span> <span class="p">()</span>
-      <span class="p">{</span> 
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Triangle class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> 
-      <span class="p">}</span>
-<span class="p">};</span>
-<span class="c1">// 程序的主函数
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Shape</span> <span class="o">*</span><span class="n">shape</span><span class="p">;</span>
-   <span class="n">Rectangle</span> <span class="n">rec</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
-   <span class="n">Triangle</span>  <span class="n">tri</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
- 
-   <span class="c1">// 存储矩形的地址
-</span><span class="c1"></span>   <span class="n">shape</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rec</span><span class="p">;</span>
-   <span class="c1">// 调用矩形的求面积函数 area
-</span><span class="c1"></span>   <span class="n">shape</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">();</span>
- 
-   <span class="c1">// 存储三角形的地址
-</span><span class="c1"></span>   <span class="n">shape</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">tri</span><span class="p">;</span>
-   <span class="c1">// 调用三角形的求面积函数 area
-</span><span class="c1"></span>   <span class="n">shape</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">();</span>
-   
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Parent class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="n">Shape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="nf">area</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Rectangle class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Triangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Triangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="n">Shape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="nf">area</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Triangle class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 程序的主函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Shape</span> <span class="o">*</span><span class="n">shape</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rectangle</span> <span class="n">rec</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Triangle</span>  <span class="n">tri</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 存储矩形的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">shape</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rec</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用矩形的求面积函数 area
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">shape</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 存储三角形的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">shape</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">tri</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用三角形的求面积函数 area
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">shape</span><span class="o">-&gt;</span><span class="n">area</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -286,9 +286,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Parent</span> <span class="k">class</span> <span class="nc">area</span>
-<span class="n">Parent</span> <span class="k">class</span> <span class="nc">area</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Parent</span> <span class="k">class</span> <span class="nc">area</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="k">class</span> <span class="nc">area</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>导致错误输出的原因是，调用函数 area() 被编译器设置为基类中的版本，这就是所谓的<strong>静态多态</strong>，或<strong>静态链接</strong> - 函数调用在程序执行前就准备好了。有时候这也被称为<strong>早绑定</strong>，因为 area() 函数在程序编译期间就已经设置好了。</p>
 <p>但现在，让我们对程序稍作修改，在 Shape 类中，area() 的声明前放置关键字 <strong>virtual</strong>，如下所示：</p>
@@ -311,22 +311,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
-   <span class="k">protected</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span>
-      <span class="p">{</span>
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Parent class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Parent class area :&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>修改后，当编译和执行前面的实例代码时，它会产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -335,9 +335,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Rectangle</span> <span class="k">class</span> <span class="nc">area</span>
-<span class="n">Triangle</span> <span class="k">class</span> <span class="nc">area</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Rectangle</span> <span class="k">class</span> <span class="nc">area</span>
+</span></span><span class="line"><span class="cl"><span class="n">Triangle</span> <span class="k">class</span> <span class="nc">area</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>此时，编译器看的是指针的内容，而不是它的类型。因此，由于 tri 和 rec 类的对象的地址存储在 *shape 中，所以会调用各自的 area() 函数。</p>
 <p>正如您所看到的，每个子类都有一个函数 area() 的独立实现。这就是<strong>多态</strong>的一般使用方式。有了多态，您可以有多个不同的类，都带有同一个名称但具有不同实现的函数，函数的参数甚至可以是相同的。</p>
@@ -363,19 +363,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
-   <span class="k">protected</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="c1">// pure virtual function
-</span><span class="c1"></span>      <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Shape</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">width</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">height</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// pure virtual function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">area</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>= 0 告诉编译器，函数没有主体，上面的虚函数是<strong>纯虚函数</strong>。</p>
 </div><div class="post-footer" id="post-footer">

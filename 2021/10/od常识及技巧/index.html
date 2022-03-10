@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  2362 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "OD, 辅助","wordcount":  2358 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/10\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/","datePublished": "2021-10-03T00:00:00+00:00","dateModified": "2021-10-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%BE%85%E5%8A%A9/"><i class="far fa-folder fa-fw"></i>辅助</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2362 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2358 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" class="leancloud_visitors" data-flag-title="OD常识及技巧">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -231,12 +231,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">12</span>
-<span class="na">rep</span> <span class="nf">movs</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="no">edi</span><span class="p">],</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">esi</span><span class="p">]</span>
-<span class="c"># 从[esi]中复制 ecx个四字节 到ES:[edi]
-</span><span class="c"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
-</span><span class="c"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">12</span>
+</span></span><span class="line"><span class="cl"><span class="na">rep</span> <span class="nf">movs</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="no">edi</span><span class="p">],</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">esi</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 从[esi]中复制 ecx个四字节 到ES:[edi]
+</span></span></span><span class="line"><span class="cl"><span class="c"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
+</span></span></span><span class="line"><span class="cl"><span class="c"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="断点">断点</h2>
 <p><strong>内存访问</strong>	断在执行之前</p>
@@ -302,9 +302,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
-寻路--&gt;走路--&gt;z[&#34;通过目的地坐标，&lt;br&gt;下写入断点&#34;]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">寻路--&gt;走路--&gt;z[&#34;通过目的地坐标，&lt;br&gt;下写入断点&#34;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -312,9 +312,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
-控件--&gt;z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">控件--&gt;z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -323,16 +323,14 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
-按键 --&gt;z &amp; z1 &amp; z2
-z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
-z1[&#34;鼠标点击&#34;]
-z2[&#34;键盘&#34;]
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">按键 --&gt;z &amp; z1 &amp; z2
+</span></span><span class="line"><span class="cl">z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;鼠标点击&#34;]
+</span></span><span class="line"><span class="cl">z2[&#34;键盘&#34;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="发包函数">发包函数</h2>
 <ol>
@@ -351,13 +349,13 @@ z2[&#34;键盘&#34;]
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph 
-subgraph 普通发包
-喊话call --&gt; 喊话_内层call --&gt; 组包的过程1  --&gt; 最内层喊话call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包 --&gt; 加密 --&gt; 发包发送
-走路call --&gt; 走路_内层call --&gt; 组包的过程2  --&gt; 最内层走路call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
-其它call --&gt; 其它_内层call --&gt; 组包的过程3  --&gt; 最内层其它call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
-end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph 
+</span></span><span class="line"><span class="cl">subgraph 普通发包
+</span></span><span class="line"><span class="cl">喊话call --&gt; 喊话_内层call --&gt; 组包的过程1  --&gt; 最内层喊话call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包 --&gt; 加密 --&gt; 发包发送
+</span></span><span class="line"><span class="cl">走路call --&gt; 走路_内层call --&gt; 组包的过程2  --&gt; 最内层走路call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
+</span></span><span class="line"><span class="cl">其它call --&gt; 其它_内层call --&gt; 组包的过程3  --&gt; 最内层其它call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="控件">控件</h2>
 <h3 id="控件输入">控件输入</h3>
@@ -375,16 +373,16 @@ end
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z1[&#34;方法一&#34;] 
-z2[&#34;方法二&#34;]
-z3[&#34;字符串的长度&#34;]
-z4[&#34;直接搜索字符串&#34;]
-z5[&#34;下写入断点&#34;]
-
-z1--&gt;z3--&gt;z5
-z2--&gt;z4--&gt;z5
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;字符串的长度&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;直接搜索字符串&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z3--&gt;z5
+</span></span><span class="line"><span class="cl">z2--&gt;z4--&gt;z5
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="控件点击">控件点击</h3>
 <div class="highlight"><div class="chroma">
@@ -400,24 +398,20 @@ z2--&gt;z4--&gt;z5
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z[&#34;下写入断点&#34;]
-z1[&#34;方法一&#34;] 
-z2[&#34;控件界面打开，搜1或0&#34;]
-z3[&#34;控件界面关闭，搜0或1&#34;]
-z4[&#34;方法二&#34;]
-z5[&#34;单选框选中，搜1或0&#34;]
-z6[&#34;单选框未选中，搜0或1&#34;]
-
-z1--&gt;z2--&gt;z3--&gt;z
-z4--&gt;z5--&gt;z6--&gt;z
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;控件界面打开，搜1或0&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;控件界面关闭，搜0或1&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;单选框选中，搜1或0&#34;]
+</span></span><span class="line"><span class="cl">z6[&#34;单选框未选中，搜0或1&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3--&gt;z
+</span></span><span class="line"><span class="cl">z4--&gt;z5--&gt;z6--&gt;z
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="按键call">按键call</h2>
 <div class="highlight"><div class="chroma">
@@ -440,23 +434,23 @@ z4--&gt;z5--&gt;z6--&gt;z
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z[&#34;按一下对应按键来触发&#34;]
-z1[&#34;方法一&#34;] 
-z2[&#34;通过按键触发发包函数&#34;]
-z3[&#34;在发包函数处下断&#34;]
-z4[&#34;方法二&#34;]
-z5[&#34;比如通过背包打开&lt;br&gt;或者关闭的标志位&lt;br&gt;来进行查找&#34;]
-z6[&#34;下写入断点&#34;]
-z7[&#34;之后返回，&lt;br&gt;就有可能断在按键call&#34;]
-z8[&#34;有可能断在按键call&#34;]
-z9[&#34;proc断点&#34;]
-z10[&#34;方法三&#34;]
-
-z1--&gt;z2--&gt;z3--&gt;z7
-z4--&gt;z5--&gt;z6--&gt;z--&gt;z8
-z10--&gt;z9
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z[&#34;按一下对应按键来触发&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;通过按键触发发包函数&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;在发包函数处下断&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;比如通过背包打开&lt;br&gt;或者关闭的标志位&lt;br&gt;来进行查找&#34;]
+</span></span><span class="line"><span class="cl">z6[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z7[&#34;之后返回，&lt;br&gt;就有可能断在按键call&#34;]
+</span></span><span class="line"><span class="cl">z8[&#34;有可能断在按键call&#34;]
+</span></span><span class="line"><span class="cl">z9[&#34;proc断点&#34;]
+</span></span><span class="line"><span class="cl">z10[&#34;方法三&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3--&gt;z7
+</span></span><span class="line"><span class="cl">z4--&gt;z5--&gt;z6--&gt;z--&gt;z8
+</span></span><span class="line"><span class="cl">z10--&gt;z9
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>proc断点</strong>  (源自 飞郁网络培训 2018-2019 2018.12.22 proc断点分析按键CALL)</p>
 <p><img
@@ -511,16 +505,14 @@ z10--&gt;z9
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z1([遇到VM])
-z2[追附近地址&lt;br&gt;最好是对象]
-z3[需要自己算偏移]
-z1--&gt;z2--&gt;z3
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z1([遇到VM])
+</span></span><span class="line"><span class="cl">z2[追附近地址&lt;br&gt;最好是对象]
+</span></span><span class="line"><span class="cl">z3[需要自己算偏移]
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

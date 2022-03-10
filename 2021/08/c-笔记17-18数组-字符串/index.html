@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%AC%94%E8%AE%B017-18%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  1775 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  1774 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%AC%94%E8%AE%B017-18%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2\/","datePublished": "2021-08-18T00:00:00+00:00","dateModified": "2021-08-18T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%8F%9C%E9%B8%9Fc++%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>菜鸟C++笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1775 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1774 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/08/c-%E7%AC%94%E8%AE%B017-18%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 笔记17-18数组 &amp; 字符串">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -200,8 +200,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">type</span> <span class="n">name</span><span class="p">[</span><span class="n">size1</span><span class="p">][</span><span class="n">size2</span><span class="p">]...[</span><span class="n">sizeN</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">type</span> <span class="n">name</span><span class="p">[</span><span class="n">size1</span><span class="p">][</span><span class="n">size2</span><span class="p">]...[</span><span class="n">sizeN</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>初始化二维数组</p>
 <div class="highlight"><div class="chroma">
@@ -213,12 +213,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>  
- <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="p">,</span>   <span class="cm">/*  初始化索引号为 0 的行 */</span>
- <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span> <span class="p">,</span>   <span class="cm">/*  初始化索引号为 1 的行 */</span>
- <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">}</span>   <span class="cm">/*  初始化索引号为 2 的行 */</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="p">,</span>   <span class="cm">/*  初始化索引号为 0 的行 */</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span> <span class="p">,</span>   <span class="cm">/*  初始化索引号为 1 的行 */</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">}</span>   <span class="cm">/*  初始化索引号为 2 的行 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-指向数组的指针">C++ 指向数组的指针</h2>
 <div class="highlight"><div class="chroma">
@@ -253,35 +253,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="c1">// 带有 5 个元素的双精度浮点型数组
-</span><span class="c1"></span>   <span class="kt">double</span> <span class="n">runoobAarray</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">};</span>
-   <span class="kt">double</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
- 
-   <span class="n">p</span> <span class="o">=</span> <span class="n">runoobAarray</span><span class="p">;</span>
- 
-   <span class="c1">// 输出数组中每个元素的值
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;使用指针的数组值 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
-   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
-   <span class="p">{</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(p + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;使用 runoobAarray 作为地址的数组值 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
-   <span class="p">{</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(runoobAarray + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 带有 5 个元素的双精度浮点型数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">double</span> <span class="n">runoobAarray</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">double</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">p</span> <span class="o">=</span> <span class="n">runoobAarray</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出数组中每个元素的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;使用指针的数组值 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(p + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;使用 runoobAarray 作为地址的数组值 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(runoobAarray + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -300,19 +300,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">使用指针的数组值</span> 
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1000</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">2</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mf">3.4</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">17</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">50</span>
-<span class="err">使用</span> <span class="n">runoobAarray</span> <span class="err">作为地址的数组值</span> 
-<span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1000</span>
-<span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">2</span>
-<span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mf">3.4</span>
-<span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">17</span>
-<span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">50</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">使用指针的数组值</span> 
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mf">3.4</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">17</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="err">使用</span> <span class="n">runoobAarray</span> <span class="err">作为地址的数组值</span> 
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mf">3.4</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">17</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">runoobAarray</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">50</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-传递数组给函数">C++ 传递数组给函数</h2>
 <p>方式 1
@@ -327,13 +327,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>方式 2
 形式参数是一个已定义大小的数组：</p>
@@ -347,13 +347,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
-<span class="p">{</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>方式 3
 形式参数是一个未定义大小的数组：</p>
@@ -367,13 +367,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">[])</span>
-<span class="p">{</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>实例</strong>
 现在，让我们来看下面这个函数，它把数组作为参数，同时还传递了另一个参数，根据所传的参数，会返回数组中各元素的平均值：</p>
@@ -395,21 +395,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">double</span> <span class="nf">getAverage</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">int</span>    <span class="n">i</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>       
-  <span class="kt">double</span> <span class="n">avg</span><span class="p">;</span>          
- 
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-   <span class="p">}</span>
- 
-  <span class="n">avg</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span> <span class="o">/</span> <span class="n">size</span><span class="p">;</span>
- 
-  <span class="k">return</span> <span class="n">avg</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">getAverage</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span>    <span class="n">i</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>       
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">avg</span><span class="p">;</span>          
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="n">avg</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span> <span class="o">/</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">avg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在，让我们调用上面的函数，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -436,27 +436,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 函数声明
-</span><span class="c1"></span><span class="kt">double</span> <span class="nf">getAverage</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">);</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="c1">// 带有 5 个元素的整型数组
-</span><span class="c1"></span>   <span class="kt">int</span> <span class="n">balance</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
-   <span class="kt">double</span> <span class="n">avg</span><span class="p">;</span>
- 
-   <span class="c1">// 传递一个指向数组的指针作为参数
-</span><span class="c1"></span>   <span class="n">avg</span> <span class="o">=</span> <span class="n">getAverage</span><span class="p">(</span> <span class="n">balance</span><span class="p">,</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">;</span>
- 
-   <span class="c1">// 输出返回值
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;平均值是：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">avg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
-    
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">double</span> <span class="nf">getAverage</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 带有 5 个元素的整型数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span> <span class="n">balance</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">double</span> <span class="n">avg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 传递一个指向数组的指针作为参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">avg</span> <span class="o">=</span> <span class="n">getAverage</span><span class="p">(</span> <span class="n">balance</span><span class="p">,</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出返回值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;平均值是：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">avg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
@@ -476,13 +476,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="o">*</span> <span class="nf">myFunction</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span> <span class="nf">myFunction</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>C++ 不支持在函数外返回局部变量的地址，除非定义局部变量为 <strong>static</strong> 变量。</p>
 <div class="highlight"><div class="chroma">
@@ -526,44 +526,44 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 要生成和返回随机数的函数
-</span><span class="c1"></span><span class="kt">int</span> <span class="o">*</span> <span class="nf">getRandom</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">static</span> <span class="kt">int</span>  <span class="n">r</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
- 
-  <span class="c1">// 设置种子
-</span><span class="c1"></span>  <span class="n">srand</span><span class="p">(</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-  <span class="p">}</span>
- 
-  <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
-<span class="p">}</span>
- 
-<span class="c1">// 要调用上面定义函数的主函数
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="c1">// 一个指向整数的指针
-</span><span class="c1"></span>   <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
- 
-   <span class="n">p</span> <span class="o">=</span> <span class="n">getRandom</span><span class="p">();</span>
-   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
-   <span class="p">{</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(p + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
-       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 要生成和返回随机数的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="o">*</span> <span class="nf">getRandom</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">static</span> <span class="kt">int</span>  <span class="n">r</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="c1">// 设置种子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">srand</span><span class="p">(</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 要调用上面定义函数的主函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 一个指向整数的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">p</span> <span class="o">=</span> <span class="n">getRandom</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*(p + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;) : &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -588,31 +588,29 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mi">624723190</span>
-<span class="mi">1468735695</span>
-<span class="mi">807113585</span>
-<span class="mi">976495677</span>
-<span class="mi">613357504</span>
-<span class="mi">1377296355</span>
-<span class="mi">1530315259</span>
-<span class="mi">1778906708</span>
-<span class="mi">1820354158</span>
-<span class="mi">667126415</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">624723190</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1468735695</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mi">807113585</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">976495677</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">613357504</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1377296355</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1530315259</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1778906708</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">8</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1820354158</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span> <span class="o">:</span> <span class="mi">667126415</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mi">624723190</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1468735695</span>
+</span></span><span class="line"><span class="cl"><span class="mi">807113585</span>
+</span></span><span class="line"><span class="cl"><span class="mi">976495677</span>
+</span></span><span class="line"><span class="cl"><span class="mi">613357504</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1377296355</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1530315259</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1778906708</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1820354158</span>
+</span></span><span class="line"><span class="cl"><span class="mi">667126415</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="mi">624723190</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1468735695</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="mi">807113585</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="mi">976495677</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="mi">613357504</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1377296355</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1530315259</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1778906708</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">8</span><span class="p">)</span> <span class="o">:</span> <span class="mi">1820354158</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span> <span class="o">:</span> <span class="mi">667126415</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="c-字符串">C++ 字符串</h1>
 <h2 id="c-风格字符串">C 风格字符串</h2>
@@ -621,8 +619,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">site</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">site</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>依据数组初始化规则，您可以把上面的语句写成以下语句：</p>
 <div class="highlight"><div class="chroma">
@@ -630,8 +628,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">site</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;RUNOOB&#34;</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">site</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;RUNOOB&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以下是 C/C++ 中定义的字符串的内存表示：
 C/C++ 中的字符串表示</p>
@@ -710,33 +708,33 @@ C/C++ 中的字符串表示</p>
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
-   <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
-   <span class="n">string</span> <span class="n">str3</span><span class="p">;</span>
-   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
- 
-   <span class="c1">// 复制 str1 到 str3
-</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接 str1 和 str2
-</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str1 + str2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接后，str3 的总长度
-</span><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3.size() :  &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 复制 str1 到 str3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接 str1 和 str2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str1 + str2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接后，str3 的总长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3.size() :  &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -746,10 +744,10 @@ C/C++ 中的字符串表示</p>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="nl">str3</span> <span class="p">:</span> <span class="n">runoob</span>
-<span class="n">str1</span> <span class="o">+</span> <span class="nl">str2</span> <span class="p">:</span> <span class="n">runoobgoogle</span>
-<span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span>  <span class="mi">12</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">str3</span> <span class="p">:</span> <span class="n">runoob</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">+</span> <span class="nl">str2</span> <span class="p">:</span> <span class="n">runoobgoogle</span>
+</span></span><span class="line"><span class="cl"><span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span>  <span class="mi">12</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

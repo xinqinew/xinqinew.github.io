@@ -178,38 +178,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">win32gui</span>
-<span class="kn">import</span> <span class="nn">win32con</span>
-<span class="c1">#获取所有窗口句柄</span>
-<span class="n">hwnd_title</span> <span class="o">=</span> <span class="p">{}</span>
-  
-<span class="k">def</span> <span class="nf">get_all_hwnd</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">mouse</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
-            <span class="ow">and</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindowEnabled</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
-            <span class="ow">and</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindowVisible</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)):</span>
-        <span class="n">hwnd_title</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">hwnd</span><span class="p">:</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetWindowText</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)})</span>
-  
-  
-<span class="n">win32gui</span><span class="o">.</span><span class="n">EnumWindows</span><span class="p">(</span><span class="n">get_all_hwnd</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">hwnd_title</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">t</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="c1">#置顶窗口</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;置顶窗口&#34;</span><span class="p">)</span>
-<span class="n">hwnd</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">FindWindow</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;学习通答题助手&#34;</span><span class="p">)</span>
-<span class="c1"># hwnd = win32gui.FindWindow(&#39;xx.exe&#39;, None)</span>
-<span class="c1"># 窗口需要正常大小且在后台，不能最小化</span>
-<span class="n">win32gui</span><span class="o">.</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SW_SHOWNORMAL</span><span class="p">)</span>
-<span class="c1"># 窗口需要最大化且在后台，不能最小化</span>
-<span class="c1"># ctypes.windll.user32.ShowWindow(hwnd, 3)</span>
-<span class="n">win32gui</span><span class="o">.</span><span class="n">SetWindowPos</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">HWND_TOPMOST</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
-                              <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOMOVE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOACTIVATE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOOWNERZORDER</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_SHOWWINDOW</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOSIZE</span><span class="p">)</span>
-<span class="c1">#取消置顶</span>
-<span class="c1">#win32gui.SetWindowPos(hwnd, win32.HWND_NOTOPMOST, 0, 0, 0, 0,win32con.SWP_SHOWWINDOW|win32con.SWP_NOSIZE|win32con.SWP_NOMOVE)</span>
-  
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">pass</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32gui</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32con</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#获取所有窗口句柄</span>
+</span></span><span class="line"><span class="cl"><span class="n">hwnd_title</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_all_hwnd</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">mouse</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="ow">and</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindowEnabled</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="ow">and</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">IsWindowVisible</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hwnd_title</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">hwnd</span><span class="p">:</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetWindowText</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">win32gui</span><span class="o">.</span><span class="n">EnumWindows</span><span class="p">(</span><span class="n">get_all_hwnd</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">hwnd_title</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">t</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#置顶窗口</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;置顶窗口&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">hwnd</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">FindWindow</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;学习通答题助手&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># hwnd = win32gui.FindWindow(&#39;xx.exe&#39;, None)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 窗口需要正常大小且在后台，不能最小化</span>
+</span></span><span class="line"><span class="cl"><span class="n">win32gui</span><span class="o">.</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SW_SHOWNORMAL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 窗口需要最大化且在后台，不能最小化</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ctypes.windll.user32.ShowWindow(hwnd, 3)</span>
+</span></span><span class="line"><span class="cl"><span class="n">win32gui</span><span class="o">.</span><span class="n">SetWindowPos</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">HWND_TOPMOST</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOMOVE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOACTIVATE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOOWNERZORDER</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_SHOWWINDOW</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOSIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#取消置顶</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#win32gui.SetWindowPos(hwnd, win32.HWND_NOTOPMOST, 0, 0, 0, 0,win32con.SWP_SHOWWINDOW|win32con.SWP_NOSIZE|win32con.SWP_NOMOVE)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -241,24 +241,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">win32gui</span>
-<span class="kn">import</span> <span class="nn">win32con</span>
-<span class="c1">#获取所有窗口句柄</span>
- 
-<span class="n">hwnd</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">FindWindow</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;学习通答题助手&#34;</span><span class="p">)</span>
-<span class="c1"># hwnd = win32gui.FindWindow(&#39;xx.exe&#39;, None)</span>
-<span class="c1"># 窗口需要正常大小且在后台，不能最小化</span>
-<span class="n">win32gui</span><span class="o">.</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SW_SHOWNORMAL</span><span class="p">)</span>
-<span class="c1"># 窗口需要最大化且在后台，不能最小化</span>
-<span class="c1"># ctypes.windll.user32.ShowWindow(hwnd, 3)</span>
-<span class="n">win32gui</span><span class="o">.</span><span class="n">SetWindowPos</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">HWND_TOPMOST</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
-                              <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOMOVE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOACTIVATE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOOWNERZORDER</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_SHOWWINDOW</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOSIZE</span><span class="p">)</span>
-<span class="c1"># 取消置顶</span>
-<span class="c1"># win32gui.SetWindowPos(hwnd, win32con.HWND_NOTOPMOST, 0, 0, 0, 0,win32con.SWP_SHOWWINDOW|win32con.SWP_NOSIZE|win32con.SWP_NOMOVE)</span>
-  
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">pass</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32gui</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32con</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#获取所有窗口句柄</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">hwnd</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">FindWindow</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;学习通答题助手&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># hwnd = win32gui.FindWindow(&#39;xx.exe&#39;, None)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 窗口需要正常大小且在后台，不能最小化</span>
+</span></span><span class="line"><span class="cl"><span class="n">win32gui</span><span class="o">.</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SW_SHOWNORMAL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 窗口需要最大化且在后台，不能最小化</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ctypes.windll.user32.ShowWindow(hwnd, 3)</span>
+</span></span><span class="line"><span class="cl"><span class="n">win32gui</span><span class="o">.</span><span class="n">SetWindowPos</span><span class="p">(</span><span class="n">hwnd</span><span class="p">,</span> <span class="n">win32con</span><span class="o">.</span><span class="n">HWND_TOPMOST</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOMOVE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOACTIVATE</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOOWNERZORDER</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_SHOWWINDOW</span> <span class="o">|</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SWP_NOSIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 取消置顶</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># win32gui.SetWindowPos(hwnd, win32con.HWND_NOTOPMOST, 0, 0, 0, 0,win32con.SWP_SHOWWINDOW|win32con.SWP_NOSIZE|win32con.SWP_NOMOVE)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

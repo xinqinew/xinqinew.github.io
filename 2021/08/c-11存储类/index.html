@@ -185,11 +185,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">f</span><span class="o">=</span><span class="mf">3.14</span><span class="p">;</span>      <span class="c1">//double
-</span><span class="c1"></span><span class="k">auto</span> <span class="nf">s</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span>  <span class="c1">//const char*
-</span><span class="c1"></span><span class="k">auto</span> <span class="n">z</span> <span class="o">=</span> <span class="k">new</span> <span class="k">auto</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span> <span class="c1">// int*
-</span><span class="c1"></span><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">x3</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">;</span><span class="c1">//错误，必须是初始化为同一类型
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">f</span><span class="o">=</span><span class="mf">3.14</span><span class="p">;</span>      <span class="c1">//double
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="nf">s</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span>  <span class="c1">//const char*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">z</span> <span class="o">=</span> <span class="k">new</span> <span class="k">auto</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span> <span class="c1">// int*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">x3</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">;</span><span class="c1">//错误，必须是初始化为同一类型
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="register-存储类">register 存储类</h2>
 <p><strong>register</strong> 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量。这意味着变量的最大尺寸等于寄存器的大小（通常是一个词），且不能对它应用一元的 &lsquo;&amp;&rsquo; 运算符（因为它没有内存位置）。</p>
@@ -200,10 +200,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">{</span>
-   <span class="k">register</span> <span class="kt">int</span>  <span class="n">miles</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">register</span> <span class="kt">int</span>  <span class="n">miles</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>寄存器只用于需要快速访问的变量，比如计数器。还应注意的是，定义 &lsquo;register&rsquo; 并不意味着变量将被存储在寄存器中，它意味着变量可能存储在寄存器中，这取决于硬件和实现的限制。</p>
 <h2 id="static-存储类">static 存储类</h2>
@@ -238,30 +238,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="c1">// 函数声明 
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">func</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
- 
-<span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="cm">/* 全局变量 */</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">count</span><span class="o">--</span><span class="p">)</span>
-    <span class="p">{</span>
-       <span class="n">func</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">// 函数定义
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">func</span><span class="p">(</span> <span class="kt">void</span> <span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 局部静态变量
-</span><span class="c1"></span>    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;变量 i 为 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; , 变量 count 为 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数声明 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">func</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="cm">/* 全局变量 */</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">count</span><span class="o">--</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">func</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">func</span><span class="p">(</span> <span class="kt">void</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 局部静态变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;变量 i 为 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; , 变量 count 为 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -278,20 +278,20 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">变量 i 为 6 , 变量 count 为 9
-变量 i 为 7 , 变量 count 为 8
-变量 i 为 8 , 变量 count 为 7
-变量 i 为 9 , 变量 count 为 6
-变量 i 为 10 , 变量 count 为 5
-变量 i 为 11 , 变量 count 为 4
-变量 i 为 12 , 变量 count 为 3
-变量 i 为 13 , 变量 count 为 2
-变量 i 为 14 , 变量 count 为 1
-变量 i 为 15 , 变量 count 为 0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">变量 i 为 6 , 变量 count 为 9
+</span></span><span class="line"><span class="cl">变量 i 为 7 , 变量 count 为 8
+</span></span><span class="line"><span class="cl">变量 i 为 8 , 变量 count 为 7
+</span></span><span class="line"><span class="cl">变量 i 为 9 , 变量 count 为 6
+</span></span><span class="line"><span class="cl">变量 i 为 10 , 变量 count 为 5
+</span></span><span class="line"><span class="cl">变量 i 为 11 , 变量 count 为 4
+</span></span><span class="line"><span class="cl">变量 i 为 12 , 变量 count 为 3
+</span></span><span class="line"><span class="cl">变量 i 为 13 , 变量 count 为 2
+</span></span><span class="line"><span class="cl">变量 i 为 14 , 变量 count 为 1
+</span></span><span class="line"><span class="cl">变量 i 为 15 , 变量 count 为 0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="extern-存储类">extern 存储类</h2>
-<p><strong>extern</strong> 存储类用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当您使用 &lsquo;extern&rsquo; 时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
+<p><strong>extern</strong> 存储类用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当您使用 &rsquo;extern&rsquo; 时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
 <p>当您有多个文件且定义了一个可以在其他文件中使用的全局变量或函数时，可以在其他文件中使用 <em>extern</em> 来得到已定义的变量或函数的引用。可以这么理解，<em>extern</em> 是用来在另一个文件中声明一个全局变量或函数。</p>
 <p>extern 修饰符通常用于当有两个或多个文件共享相同的全局变量或函数的时候，如下所示：</p>
 <p>第一个文件：main.cpp</p>
@@ -310,17 +310,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="kt">int</span> <span class="n">count</span> <span class="p">;</span>
-<span class="k">extern</span> <span class="kt">void</span> <span class="nf">write_extern</span><span class="p">();</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">count</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-   <span class="n">write_extern</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">count</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">void</span> <span class="nf">write_extern</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">count</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">write_extern</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>第二个文件：support.cpp</p>
 <p><strong>实例</strong></p>
@@ -336,15 +336,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
- 
-<span class="kt">void</span> <span class="nf">write_extern</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Count is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">write_extern</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Count is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，第二个文件中的 <em>extern</em> 关键字用于声明已经在第一个文件 main.cpp 中定义的 count。现在 ，编译这两个文件，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -352,8 +352,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ g++ main.cpp support.cpp -o write
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ g++ main.cpp support.cpp -o write
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这会产生 <strong>write</strong> 可执行程序，尝试执行 <strong>write</strong>，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -362,9 +362,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ./write
-Count is 5
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ./write
+</span></span><span class="line"><span class="cl">Count is 5
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="mutable-存储类">mutable 存储类</h2>
 <p><strong>mutable</strong> 说明符仅适用于类的对象，这将在本教程的最后进行讲解。它允许对象的成员替代常量。也就是说，mutable 成员可以通过 const 成员函数修改。</p>
@@ -388,18 +388,18 @@ Count is 5
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">thread_local</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// 命名空间下的全局变量
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">X</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span> <span class="c1">// 类的static成员变量
-</span><span class="c1"></span><span class="p">};</span>
-<span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">X</span><span class="o">::</span><span class="n">s</span><span class="p">;</span>  <span class="c1">// X::s 是需要定义的
-</span><span class="c1"></span> 
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>  <span class="c1">// 本地变量
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">thread_local</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// 命名空间下的全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">X</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span> <span class="c1">// 类的static成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">X</span><span class="o">::</span><span class="n">s</span><span class="p">;</span>  <span class="c1">// X::s 是需要定义的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">thread_local</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>  <span class="c1">// 本地变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

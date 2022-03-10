@@ -156,14 +156,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#ifndef NativeAPI_H_
-</span><span class="cp">#define NativeAPI_H_
-</span><span class="cp"></span>
-<span class="cp">#define MAX_HIT_COUNT  5000000
-</span><span class="cp"></span><span class="n">DWORD</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protection</span><span class="p">,</span> <span class="kt">uint64_t</span><span class="o">*</span> <span class="n">match_addr</span><span class="p">);</span>
-
-<span class="cp">#endif
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#ifndef NativeAPI_H_
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define NativeAPI_H_
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX_HIT_COUNT  5000000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">DWORD</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protection</span><span class="p">,</span> <span class="kt">uint64_t</span><span class="o">*</span> <span class="n">match_addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -228,66 +228,66 @@
 </span><span class="lnt">59
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;api.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;porthelp.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;ceserver.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;threads.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;symbols.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;context.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;native-api.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="n">DWORD</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protection</span><span class="p">,</span><span class="kt">uint64_t</span> <span class="o">*</span> <span class="n">match_addr</span><span class="p">)</span> <span class="p">{</span>
-
-	<span class="n">RegionInfo</span> <span class="n">rinfo</span><span class="p">;</span>
-	<span class="kt">uint64_t</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
-	<span class="kt">uint64_t</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
-	
-	<span class="kt">char</span><span class="o">*</span> <span class="n">MemoryBuff</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">4096</span><span class="p">);</span>
-	<span class="kt">int</span> <span class="n">patternLength</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">strlen</span><span class="p">(</span><span class="n">mask</span><span class="p">);</span>
-	
-	<span class="kt">int</span> <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	
-	<span class="k">while</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">VirtualQueryEx</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">tmp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rinfo</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">rinfo</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="k">if</span><span class="p">((</span><span class="n">rinfo</span><span class="p">.</span><span class="n">protection</span> <span class="o">&amp;</span> <span class="n">protection</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-		<span class="p">{</span>
-			<span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
-			<span class="k">while</span> <span class="p">(</span><span class="n">tmp2</span> <span class="o">&lt;</span> <span class="n">tmp</span> <span class="o">+</span> <span class="n">rinfo</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
-			<span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ReadProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">tmp2</span><span class="p">,</span> <span class="n">MemoryBuff</span><span class="p">,</span> <span class="mi">4096</span><span class="p">))</span> <span class="p">{</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="p">}</span>
-	
-				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4096</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">)</span>
-				<span class="p">{</span>
-					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">patternLength</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
-					<span class="p">{</span>
-	
-						<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;?&#39;</span> <span class="o">||</span> <span class="n">pattern</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">MemoryBuff</span><span class="p">[</span><span class="n">k</span><span class="p">])))</span>
-						<span class="p">{</span>
-							<span class="k">goto</span> <span class="n">label</span><span class="p">;</span>
-	
-						<span class="p">}</span>
-					<span class="p">}</span>
-					<span class="n">match_addr</span><span class="p">[</span><span class="n">result_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp2</span><span class="p">;</span>
-					<span class="n">result_count</span><span class="o">++</span><span class="p">;</span>
-					<span class="k">if</span> <span class="p">(</span><span class="n">result_count</span> <span class="o">&gt;=</span> <span class="n">MAX_HIT_COUNT</span><span class="p">)</span><span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
-	
-				<span class="nl">label</span><span class="p">:</span>
-					<span class="n">tmp2</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">;</span> <span class="n">MemoryBuff</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="n">MemoryBuff</span> <span class="o">-=</span> <span class="mi">4096</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">tmp</span> <span class="o">+=</span> <span class="n">rinfo</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
-	<span class="p">}</span>
-
-<span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;api.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;porthelp.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;ceserver.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;threads.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;symbols.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;context.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;native-api.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protection</span><span class="p">,</span><span class="kt">uint64_t</span> <span class="o">*</span> <span class="n">match_addr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">RegionInfo</span> <span class="n">rinfo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">uint64_t</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">uint64_t</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span><span class="o">*</span> <span class="n">MemoryBuff</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">4096</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">patternLength</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">strlen</span><span class="p">(</span><span class="n">mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">VirtualQueryEx</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">tmp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rinfo</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">rinfo</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">((</span><span class="n">rinfo</span><span class="p">.</span><span class="n">protection</span> <span class="o">&amp;</span> <span class="n">protection</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">while</span> <span class="p">(</span><span class="n">tmp2</span> <span class="o">&lt;</span> <span class="n">tmp</span> <span class="o">+</span> <span class="n">rinfo</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ReadProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">tmp2</span><span class="p">,</span> <span class="n">MemoryBuff</span><span class="p">,</span> <span class="mi">4096</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4096</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">patternLength</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">						<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;?&#39;</span> <span class="o">||</span> <span class="n">pattern</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">MemoryBuff</span><span class="p">[</span><span class="n">k</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl">						<span class="p">{</span>
+</span></span><span class="line"><span class="cl">							<span class="k">goto</span> <span class="n">label</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">						<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="n">match_addr</span><span class="p">[</span><span class="n">result_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="n">result_count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="p">(</span><span class="n">result_count</span> <span class="o">&gt;=</span> <span class="n">MAX_HIT_COUNT</span><span class="p">)</span><span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">				<span class="nl">label</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">					<span class="n">tmp2</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">;</span> <span class="n">MemoryBuff</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="n">MemoryBuff</span> <span class="o">-=</span> <span class="mi">4096</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tmp</span> <span class="o">+=</span> <span class="n">rinfo</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>不知道你如何看待darkbyte的这段代码，我菜得狠，不敢乱评价，总之就是复制出来不能直接用，</p>
 <p>于是我改了改，把关键内容提取出来了，我不是很擅长C语言，仅供参考&hellip;</p>
@@ -316,28 +316,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pattern_len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">long</span><span class="o">*</span> <span class="n">match_addr</span><span class="p">,</span> <span class="kt">long</span> <span class="n">base_addr</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kt">char</span><span class="o">*</span> <span class="n">MemoryBuff</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">addr</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">pattern_len</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="p">(</span> <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="mh">0xff</span> <span class="o">&amp;&amp;</span> <span class="n">pattern</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="n">MemoryBuff</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-				<span class="k">goto</span> <span class="n">label</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		
-		<span class="n">match_addr</span><span class="p">[</span><span class="n">result_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-		<span class="n">result_count</span><span class="o">++</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">result_count</span> <span class="o">&gt;=</span> <span class="n">MAX_HIT_COUNT</span><span class="p">){</span>
-			<span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="nl">label</span><span class="p">:;</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">AOBScan</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pattern</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pattern_len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inc</span><span class="p">,</span> <span class="kt">long</span><span class="o">*</span> <span class="n">match_addr</span><span class="p">,</span> <span class="kt">long</span> <span class="n">base_addr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span><span class="o">*</span> <span class="n">MemoryBuff</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">pattern_len</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span> <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="mh">0xff</span> <span class="o">&amp;&amp;</span> <span class="n">pattern</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="n">MemoryBuff</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">goto</span> <span class="n">label</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		<span class="n">match_addr</span><span class="p">[</span><span class="n">result_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">result_count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">result_count</span> <span class="o">&gt;=</span> <span class="n">MAX_HIT_COUNT</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nl">label</span><span class="p">:;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">result_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>比较基础，但我还是大概解释一下：</p>
 <p>参数一：指针，不解释了，（别问为啥不需要pid之类的&hellip;</p>
@@ -349,9 +349,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">char</span> <span class="n">pattern</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">};</span>
-<span class="kt">char</span> <span class="n">mask</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">pattern</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">mask</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">,</span> <span class="mi">0</span><span class="n">x随便写</span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>参数六：内存对齐，通常都是1（速度慢）、2、4、8，具体用哪个，因目标程序而异，也要看你特征码找的O不OK。</p>
 <p>参数七：用来存储结果的数组</p>

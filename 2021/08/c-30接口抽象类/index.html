@@ -176,17 +176,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Box</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="c1">// 纯虚函数
-</span><span class="c1"></span>      <span class="k">virtual</span> <span class="kt">double</span> <span class="n">getVolume</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="k">private</span><span class="o">:</span>
-      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
-</span><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
-</span><span class="c1"></span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Box</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 纯虚函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">virtual</span> <span class="kt">double</span> <span class="n">getVolume</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">length</span><span class="p">;</span>      <span class="c1">// 长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">breadth</span><span class="p">;</span>     <span class="c1">// 宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>      <span class="c1">// 高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>设计<strong>抽象类</strong>（通常称为 ABC）的目的，是为了给其他类提供一个可以继承的适当的基类。抽象类不能被用于实例化对象，它只能作为<strong>接口</strong>使用。如果试图实例化一个抽象类的对象，会导致编译错误。</p>
 <p>因此，如果一个 ABC 的子类需要被实例化，则必须实现每个虚函数，这也意味着 C++ 支持使用 ABC 声明接口。如果没有在派生类中重写纯虚函数，就尝试实例化该类的对象，会导致编译错误。</p>
@@ -256,65 +256,65 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 基类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-   <span class="c1">// 提供接口框架的纯虚函数
-</span><span class="c1"></span>   <span class="k">virtual</span> <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="kt">void</span> <span class="nf">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="k">protected</span><span class="o">:</span>
-   <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
-<span class="p">};</span>
- 
-<span class="c1">// 派生类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-   <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
-   <span class="p">{</span> 
-      <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
-   <span class="p">}</span>
-<span class="p">};</span>
-<span class="k">class</span> <span class="nc">Triangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-   <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
-   <span class="p">{</span> 
-      <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> 
-   <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
-   <span class="n">Triangle</span>  <span class="n">Tri</span><span class="p">;</span>
- 
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
-   <span class="c1">// 输出对象的面积
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total Rectangle area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="n">Tri</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-   <span class="n">Tri</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
-   <span class="c1">// 输出对象的面积
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total Triangle area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Tri</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 基类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 提供接口框架的纯虚函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">virtual</span> <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 派生类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Triangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Triangle</span>  <span class="n">Tri</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出对象的面积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total Rectangle area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">Tri</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Tri</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出对象的面积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total Triangle area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Tri</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -323,9 +323,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Total</span> <span class="n">Rectangle</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">35</span>
-<span class="n">Total</span> <span class="n">Triangle</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">17</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Total</span> <span class="n">Rectangle</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">35</span>
+</span></span><span class="line"><span class="cl"><span class="n">Total</span> <span class="n">Triangle</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">17</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从上面的实例中，我们可以看到一个抽象类是如何定义一个接口 getArea()，两个派生类是如何通过不同的计算面积的算法来实现这个相同的函数。</p>
 <h2 id="设计策略">设计策略</h2>

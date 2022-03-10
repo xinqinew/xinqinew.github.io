@@ -183,28 +183,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">float</span> <span class="n">quadVertices</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
-</span><span class="c1"></span>        <span class="c1">// positions   // texCoords
-</span><span class="c1"></span>        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>
-        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
-         <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
-
-        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>
-         <span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
-         <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span>
-<span class="p">};</span>
-
-<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">quadVAO</span><span class="p">,</span> <span class="n">quadVBO</span><span class="p">;</span>
-    <span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quadVAO</span><span class="p">);</span>
-    <span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quadVBO</span><span class="p">);</span>
-    <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">quadVAO</span><span class="p">);</span>
-    <span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">quadVBO</span><span class="p">);</span>
-    <span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">quadVertices</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">quadVertices</span><span class="p">,</span> <span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
-    <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="mi">2</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">quadVertices</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// positions   // texCoords
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span>  <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">quadVAO</span><span class="p">,</span> <span class="n">quadVBO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quadVAO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quadVBO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">quadVAO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">quadVBO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">quadVertices</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">quadVertices</span><span class="p">,</span> <span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="mi">2</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="mesh类">Mesh类</h3>
 <p>一个简单的Mesh类需要包含mesh的定点信息还有他所绑定的VAO，VBO</p>
@@ -231,26 +231,26 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Mesh</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="c1">// mesh Data
-</span><span class="c1"></span>    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span>       <span class="n">vertex</span><span class="p">;</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">VAO</span><span class="p">;</span>
-
-    <span class="n">Mesh</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-    <span class="c1">// constructor
-</span><span class="c1"></span>    <span class="n">Mesh</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">vertices</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span> <span class="o">=</span> <span class="n">vertices</span><span class="p">;</span>
-        <span class="c1">// now that we have all the required data, set the vertex buffers and its attribute pointers.
-</span><span class="c1"></span>        <span class="n">setupMesh</span><span class="p">();</span>
-    <span class="p">}</span>
-
-<span class="k">private</span><span class="o">:</span>
-    <span class="c1">// render data 
-</span><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">VBO</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Mesh</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// mesh Data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span>       <span class="n">vertex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">VAO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Mesh</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// constructor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Mesh</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">vertices</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span> <span class="o">=</span> <span class="n">vertices</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// now that we have all the required data, set the vertex buffers and its attribute pointers.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">setupMesh</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// render data 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">VBO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其次我们要在Mesh类构造的时候设置其顶点信息，setupMesh的函数实现如下</p>
 <div class="highlight"><div class="chroma">
@@ -281,31 +281,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">setupMesh</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="c1">// create buffers/arrays
-</span><span class="c1"></span>        <span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">VAO</span><span class="p">);</span>
-        <span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">VBO</span><span class="p">);</span>
-
-        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">VAO</span><span class="p">);</span>
-        <span class="c1">// load data into vertex buffers
-</span><span class="c1"></span>        <span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">VBO</span><span class="p">);</span>
-        <span class="c1">// A great thing about structs is that their memory layout is sequential for all its items.
-</span><span class="c1"></span>        <span class="c1">// The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
-</span><span class="c1"></span>        <span class="c1">// again translates to 3/2 floats which translates to a byte array.
-</span><span class="c1"></span>        <span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">vertex</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">GL_STATIC_DRAW</span><span class="p">);</span>       
-        <span class="c1">// set the vertex attribute pointers
-</span><span class="c1"></span>        <span class="c1">// vertex Positions
-</span><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
-        <span class="c1">// vertex normals
-</span><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">,</span> <span class="n">Normal</span><span class="p">));</span>
-        <span class="c1">// vertex texture coords
-</span><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">,</span> <span class="n">TexCoords</span><span class="p">));</span>        
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">setupMesh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// create buffers/arrays
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">VAO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">VBO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">VAO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// load data into vertex buffers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">VBO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// A great thing about structs is that their memory layout is sequential for all its items.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// again translates to 3/2 floats which translates to a byte array.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span> <span class="n">vertex</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">GL_STATIC_DRAW</span><span class="p">);</span>       
+</span></span><span class="line"><span class="cl">        <span class="c1">// set the vertex attribute pointers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// vertex Positions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// vertex normals
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">,</span> <span class="n">Normal</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// vertex texture coords
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">GL_FALSE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">offsetof</span><span class="p">(</span><span class="n">Vertex</span><span class="p">,</span> <span class="n">TexCoords</span><span class="p">));</span>        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>最后，我们把绘制模型的步骤封装成一个可供外部调用的函数Draw（当然你也可以把Texture封装进Mesh类，然后再Draw函数内调用，这里只讲了简单的实现思路）</p>
 <div class="highlight"><div class="chroma">
@@ -323,18 +323,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">Shader</span><span class="o">&amp;</span> <span class="n">shader</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// draw mesh
-</span><span class="c1"></span>        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">VAO</span><span class="p">);</span>
-        <span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">vertex</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
-        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-        <span class="c1">// always good practice to set everything back to defaults once configured.
-</span><span class="c1"></span>        <span class="n">glActiveTexture</span><span class="p">(</span><span class="n">GL_TEXTURE0</span><span class="p">);</span>
-        
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">Shader</span><span class="o">&amp;</span> <span class="n">shader</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// draw mesh
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">VAO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">vertex</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glBindVertexArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// always good practice to set everything back to defaults once configured.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">glActiveTexture</span><span class="p">(</span><span class="n">GL_TEXTURE0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="model类">Model类</h3>
 <p>为了从obj文件读取顶点信息，存入Mesh类，我们需要再定义一个Model类，Model类包含了模型的顶点信息和模型的位置信息</p>
@@ -382,47 +382,47 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">Transform</span>
-<span class="p">{</span>
-    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">Position</span><span class="p">;</span>
-    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">Scale</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">Rotation</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-    <span class="n">Transform</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">Position</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">Scale</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">Model</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">Mesh</span><span class="o">*</span> <span class="n">mesh</span><span class="p">;</span>
-    <span class="n">Transform</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">Transform</span><span class="p">();</span>
-
-    <span class="n">Model</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_path</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">loadOBJ</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
-        <span class="n">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span> <span class="n">GetModelMatrix</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span> <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">transform</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">scale</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">Scale</span><span class="p">);</span>
-
-        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
-
-        <span class="k">return</span> <span class="n">model</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="k">private</span><span class="o">:</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">buffer</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Transform</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">Position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">Scale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">Rotation</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Transform</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Position</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Scale</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Model</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Mesh</span><span class="o">*</span> <span class="n">mesh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Transform</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">Transform</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Model</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">loadOBJ</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span> <span class="n">GetModelMatrix</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span> <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">transform</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">scale</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">Scale</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">Rotation</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">model</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">buffer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>loadOBJ将从obj文件读取顶点信息并存入缓存buffer，GetModelMatrix则是获取模型的模型空间矩阵，所有模型空间的变换结果将会通过这个函数计算</p>
 <p>下面是读取模型信息的过程，obj文件的信息可以通过txt打开，打开后会发现，顶点信息存储在v开头的行，法线信息存储在vn开头的行，uv信息则存储在vt开头的行，最后f是面信息，我们通过obj文件的构成规则进行解析就行：</p>
@@ -531,108 +531,108 @@
 </span><span class="lnt">101
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"> <span class="kt">bool</span> <span class="nf">loadOBJ</span><span class="p">(</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">path</span><span class="p">,</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;&amp;</span> <span class="n">vertices</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Loading OBJ file %s...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
-
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">vertexIndices</span><span class="p">,</span> <span class="n">uvIndices</span><span class="p">,</span> <span class="n">normalIndices</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">temp_vertices</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec2</span><span class="o">&gt;</span> <span class="n">temp_uvs</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">temp_normals</span><span class="p">;</span>
-
-        <span class="n">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-            <span class="n">getchar</span><span class="p">();</span>
-            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="p">{</span>
-
-            <span class="kt">char</span> <span class="n">lineHeader</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
-            <span class="c1">// read the first word of the line
-</span><span class="c1"></span>            <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">lineHeader</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span>
-                <span class="k">break</span><span class="p">;</span> <span class="c1">// EOF = End Of File. Quit the loop.
-</span><span class="c1"></span>
-            <span class="c1">// else : parse lineHeader
-</span><span class="c1"></span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;v&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">vertex</span><span class="p">;</span>
-                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
-                <span class="n">temp_vertices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;vt&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">glm</span><span class="o">::</span><span class="n">vec2</span> <span class="n">uv</span><span class="p">;</span>
-                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uv</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uv</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-                <span class="n">uv</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">uv</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="c1">// Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
-</span><span class="c1"></span>                <span class="n">temp_uvs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uv</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;vn&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">normal</span><span class="p">;</span>
-                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
-                <span class="n">temp_normals</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;f&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">vertex3</span><span class="p">;</span>
-                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertexIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">uvIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">normalIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-                <span class="kt">int</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%d/%d/%d %d/%d/%d %d/%d/%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">matches</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;File can&#39;t be read by our simple parser :-( Try exporting with other options</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-                    <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-                    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-            <span class="p">}</span>
-            <span class="k">else</span>
-            <span class="p">{</span>
-                <span class="c1">// Probably a comment, eat up the rest of the line
-</span><span class="c1"></span>                <span class="kt">char</span> <span class="n">stupidBuffer</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-                <span class="n">fgets</span><span class="p">(</span><span class="n">stupidBuffer</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="c1">// For each vertex of each triangle
-</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vertexIndices</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-
-            <span class="c1">// Get the indices of its attributes
-</span><span class="c1"></span>            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertexIndex</span> <span class="o">=</span> <span class="n">vertexIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">uvIndex</span> <span class="o">=</span> <span class="n">uvIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">normalIndex</span> <span class="o">=</span> <span class="n">normalIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-
-            <span class="c1">// Get the attributes thanks to the index
-</span><span class="c1"></span>            <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">vertex</span> <span class="o">=</span> <span class="n">temp_vertices</span><span class="p">[</span><span class="n">vertexIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-            <span class="n">glm</span><span class="o">::</span><span class="n">vec2</span> <span class="n">uv</span> <span class="o">=</span> <span class="n">temp_uvs</span><span class="p">[</span><span class="n">uvIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-            <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">temp_normals</span><span class="p">[</span><span class="n">normalIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-
-            <span class="n">Vertex</span> <span class="n">temp</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">uv</span><span class="p">);</span>
-
-            <span class="c1">// Put the attributes in buffers
-</span><span class="c1"></span>            <span class="n">vertices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Load  successful&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="kt">bool</span> <span class="nf">loadOBJ</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;&amp;</span> <span class="n">vertices</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Loading OBJ file %s...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">vertexIndices</span><span class="p">,</span> <span class="n">uvIndices</span><span class="p">,</span> <span class="n">normalIndices</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">temp_vertices</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec2</span><span class="o">&gt;</span> <span class="n">temp_uvs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">temp_normals</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">getchar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">lineHeader</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// read the first word of the line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">lineHeader</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span> <span class="c1">// EOF = End Of File. Quit the loop.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// else : parse lineHeader
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;v&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">vertex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertex</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp_vertices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;vt&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">glm</span><span class="o">::</span><span class="n">vec2</span> <span class="n">uv</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uv</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uv</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uv</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">uv</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="c1">// Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">temp_uvs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;vn&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%f %f %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp_normals</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">lineHeader</span><span class="p">,</span> <span class="s">&#34;f&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">vertex3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertexIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">uvIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">normalIndex</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;%d/%d/%d %d/%d/%d %d/%d/%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">matches</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;File can&#39;t be read by our simple parser :-( Try exporting with other options</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vertexIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vertexIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uvIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">uvIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">normalIndices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">normalIndex</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// Probably a comment, eat up the rest of the line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kt">char</span> <span class="n">stupidBuffer</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fgets</span><span class="p">(</span><span class="n">stupidBuffer</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// For each vertex of each triangle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vertexIndices</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Get the indices of its attributes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertexIndex</span> <span class="o">=</span> <span class="n">vertexIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">uvIndex</span> <span class="o">=</span> <span class="n">uvIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">normalIndex</span> <span class="o">=</span> <span class="n">normalIndices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Get the attributes thanks to the index
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">vertex</span> <span class="o">=</span> <span class="n">temp_vertices</span><span class="p">[</span><span class="n">vertexIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glm</span><span class="o">::</span><span class="n">vec2</span> <span class="n">uv</span> <span class="o">=</span> <span class="n">temp_uvs</span><span class="p">[</span><span class="n">uvIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">temp_normals</span><span class="p">[</span><span class="n">normalIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">Vertex</span> <span class="n">temp</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">uv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Put the attributes in buffers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vertices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Load  successful&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>实现了这两个类后，我们直接在main函数中调用即可</p>
 <h3 id="调用">调用</h3>
@@ -656,23 +656,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Shader</span> <span class="nf">ourShader</span><span class="p">(</span><span class="s">&#34;resources/shader/shader.vs&#34;</span><span class="p">,</span> <span class="s">&#34;resources/shader/testShader.fs&#34;</span><span class="p">);</span>
-<span class="n">Model</span> <span class="nf">nanosuit_model</span><span class="p">(</span><span class="s">&#34;resources/models/nanosuit/nanosuit.obj&#34;</span><span class="p">);</span>
-<span class="p">...</span>
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="p">...</span>
-    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="p">...</span>
-        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;model&#34;</span><span class="p">,</span> <span class="n">Rendering</span><span class="o">::</span><span class="n">model</span><span class="o">-&gt;</span><span class="n">GetModelMatrix</span><span class="p">());</span>
-        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;projection&#34;</span><span class="p">,</span> <span class="n">projection</span><span class="p">);</span>
-        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;view&#34;</span><span class="p">,</span> <span class="n">view</span><span class="p">);</span>
-        <span class="n">ourShader</span><span class="p">.</span><span class="n">setVec3</span><span class="p">(</span><span class="s">&#34;viewPos&#34;</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">camera</span><span class="o">-&gt;</span><span class="n">Position</span><span class="p">);</span>
-        <span class="n">nanosuit_model</span><span class="p">.</span><span class="n">mesh</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">(</span><span class="n">ourShader</span><span class="p">);</span>
-     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Shader</span> <span class="nf">ourShader</span><span class="p">(</span><span class="s">&#34;resources/shader/shader.vs&#34;</span><span class="p">,</span> <span class="s">&#34;resources/shader/testShader.fs&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Model</span> <span class="nf">nanosuit_model</span><span class="p">(</span><span class="s">&#34;resources/models/nanosuit/nanosuit.obj&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;model&#34;</span><span class="p">,</span> <span class="n">Rendering</span><span class="o">::</span><span class="n">model</span><span class="o">-&gt;</span><span class="n">GetModelMatrix</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;projection&#34;</span><span class="p">,</span> <span class="n">projection</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ourShader</span><span class="p">.</span><span class="n">setMat4</span><span class="p">(</span><span class="s">&#34;view&#34;</span><span class="p">,</span> <span class="n">view</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ourShader</span><span class="p">.</span><span class="n">setVec3</span><span class="p">(</span><span class="s">&#34;viewPos&#34;</span><span class="p">,</span> <span class="n">InputManager</span><span class="o">::</span><span class="n">camera</span><span class="o">-&gt;</span><span class="n">Position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nanosuit_model</span><span class="p">.</span><span class="n">mesh</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">(</span><span class="n">ourShader</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://learnopengl.com/code_viewer_gh.php?code=includes/learnopengl/shader.h" target="_blank" rel="noopener noreffer">Shader类</a>和<a href="https://learnopengl.com/code_viewer_gh.php?code=includes/learnopengl/camera.h" target="_blank" rel="noopener noreffer">Camera类</a>的实现可参考learnOpenGL网站，InputManager是管理窗口输入的头文件，该头文件定义了一个Camera指针，表示当前窗口控制的主摄像机，并封装了所有输入回调函数。</p>
 <p>如果不出错的话，最终即可正确绘制（此处模型的texture是在main函数里绑定的）</p>

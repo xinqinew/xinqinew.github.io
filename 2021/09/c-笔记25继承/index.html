@@ -184,18 +184,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 基类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
-    <span class="c1">// eat() 函数
-</span><span class="c1"></span>    <span class="c1">// sleep() 函数
-</span><span class="c1"></span><span class="p">};</span>
-
-
-<span class="c1">//派生类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Dog</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Animal</span> <span class="p">{</span>
-    <span class="c1">// bark() 函数
-</span><span class="c1"></span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 基类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// eat() 函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// sleep() 函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//派生类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Dog</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Animal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// bark() 函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="基类--派生类">基类 &amp; 派生类</h2>
 <p>类派生列表以一个或多个基类命名，形式如下：</p>
@@ -204,8 +204,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">derived</span><span class="o">-</span><span class="k">class</span><span class="err">: </span><span class="nc">access</span><span class="o">-</span><span class="n">specifier</span> <span class="n">base</span><span class="o">-</span><span class="k">class</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">derived</span><span class="o">-</span><span class="k">class</span><span class="err">: </span><span class="nc">access</span><span class="o">-</span><span class="n">specifier</span> <span class="n">base</span><span class="o">-</span><span class="k">class</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中，访问修饰符 <strong>access-specifier</strong> 是 <strong>public、protected</strong> 或 <strong>private</strong> 其中的一个，<strong>base-class</strong> 是之前定义过的某个类的名称。如果未使用访问修饰符 <strong>access-specifier</strong>，则默认为 <strong>private</strong>。</p>
 <p>假设有一个基类 Shape，Rectangle 是它的派生类，如下所示：</p>
@@ -256,50 +256,50 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 基类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">void</span> <span class="n">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="k">protected</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
-      <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
-<span class="p">};</span>
- 
-<span class="c1">// 派生类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
-      <span class="p">{</span> 
-         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
-      <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
- 
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
- 
-   <span class="c1">// 输出对象的面积
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 基类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="n">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 派生类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出对象的面积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <blockquote>
@@ -363,11 +363,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="err">&lt;派生类名</span><span class="o">&gt;:&lt;</span><span class="err">继承方式</span><span class="mi">1</span><span class="o">&gt;&lt;</span><span class="err">基类名</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">继承方式</span><span class="mi">2</span><span class="o">&gt;&lt;</span><span class="err">基类名</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span><span class="err">…</span>
-<span class="p">{</span>
-<span class="o">&lt;</span><span class="err">派生类类体</span><span class="o">&gt;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="err">&lt;派生类名</span><span class="o">&gt;:&lt;</span><span class="err">继承方式</span><span class="mi">1</span><span class="o">&gt;&lt;</span><span class="err">基类名</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">继承方式</span><span class="mi">2</span><span class="o">&gt;&lt;</span><span class="err">基类名</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span><span class="err">…</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">派生类类体</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中，访问修饰符继承方式是 <strong>public、protected</strong> 或 <strong>private</strong> 其中的一个，用来修饰每个基类，各个基类之间用逗号分隔，如上所示。现在让我们一起看看下面的实例：</p>
 <p><strong>实例</strong></p>
@@ -434,66 +434,66 @@
 </span><span class="lnt">59
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 基类 Shape
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">void</span> <span class="n">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="k">protected</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
-      <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
-<span class="p">};</span>
- 
-<span class="c1">// 基类 PaintCost
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">PaintCost</span> 
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">getCost</span><span class="p">(</span><span class="kt">int</span> <span class="n">area</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="k">return</span> <span class="n">area</span> <span class="o">*</span> <span class="mi">70</span><span class="p">;</span>
-      <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="c1">// 派生类
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">,</span> <span class="k">public</span> <span class="n">PaintCost</span>
-<span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
-      <span class="p">{</span> 
-         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
-      <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">area</span><span class="p">;</span>
- 
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
- 
-   <span class="n">area</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
-   
-   <span class="c1">// 输出对象的面积
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 输出总花费
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total paint cost: $&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getCost</span><span class="p">(</span><span class="n">area</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 基类 Shape
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Shape</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="n">setWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">width</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">height</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 基类 PaintCost
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">PaintCost</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">getCost</span><span class="p">(</span><span class="kt">int</span> <span class="n">area</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">area</span> <span class="o">*</span> <span class="mi">70</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 派生类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span><span class="p">,</span> <span class="k">public</span> <span class="n">PaintCost</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rectangle</span> <span class="n">Rect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">area</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">area</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出对象的面积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total area: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出总花费
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Total paint cost: $&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Rect</span><span class="p">.</span><span class="n">getCost</span><span class="p">(</span><span class="n">area</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -502,9 +502,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Total</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">35</span>
-<span class="n">Total</span> <span class="n">paint</span> <span class="nl">cost</span><span class="p">:</span> <span class="err">$</span><span class="mi">2450</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Total</span> <span class="nl">area</span><span class="p">:</span> <span class="mi">35</span>
+</span></span><span class="line"><span class="cl"><span class="n">Total</span> <span class="n">paint</span> <span class="nl">cost</span><span class="p">:</span> <span class="err">$</span><span class="mi">2450</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

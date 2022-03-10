@@ -164,14 +164,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">CWindow</span><span class="o">::</span><span class="n">GetDlgItem</span>
-<span class="n">HWND</span> <span class="n">GetDlgItem</span><span class="p">(</span> <span class="n">intnID</span><span class="p">)</span><span class="k">const</span><span class="p">;</span>
-<span class="cm">/*
-</span><span class="cm">说明——
-</span><span class="cm">参数 nID：接收消息的控件的标识；
-</span><span class="cm">返回值：标识所标记的控制窗口句柄 
-</span><span class="cm">*/</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">CWindow</span><span class="o">::</span><span class="n">GetDlgItem</span>
+</span></span><span class="line"><span class="cl"><span class="n">HWND</span> <span class="n">GetDlgItem</span><span class="p">(</span> <span class="n">intnID</span><span class="p">)</span><span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">说明——
+</span></span></span><span class="line"><span class="cl"><span class="cm">参数 nID：接收消息的控件的标识；
+</span></span></span><span class="line"><span class="cl"><span class="cm">返回值：标识所标记的控制窗口句柄 
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -192,22 +192,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">CWnd</span><span class="o">::</span><span class="n">GetDlgItem</span>
-<span class="n">CWnd</span><span class="o">*</span> <span class="n">GetDlgItem</span> <span class="p">(</span> <span class="n">intnID</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-<span class="kt">void</span> <span class="n">CWnd</span><span class="o">::</span><span class="n">GetDlgItem</span><span class="p">(</span> <span class="kt">int</span> <span class="n">nID</span><span class="p">,</span> <span class="n">HWND</span> <span class="o">*</span><span class="n">phWnd</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-<span class="cm">/*
-</span><span class="cm">说明——
-</span><span class="cm">参数 nID：接收消息的控件的标识；
-</span><span class="cm">参数phWnd:子类窗口的指针；
-</span><span class="cm">返回值：标识所标记的控件（或子类窗口）的指针； 
-</span><span class="cm">*/</span>
-
-<span class="c1">//Example
-</span><span class="c1">// Uses GetDlgItem to return a pointer to a user interface control.
-</span><span class="c1"></span><span class="n">CEdit</span><span class="o">*</span> <span class="n">pBoxOne</span><span class="p">;</span>
-<span class="n">pBoxOne</span> <span class="o">=</span> <span class="p">(</span><span class="n">CEdit</span><span class="o">*</span><span class="p">)</span> <span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_EDIT1</span><span class="p">);</span>
-<span class="n">GotoDlgCtrl</span><span class="p">(</span><span class="n">pBoxOne</span><span class="p">);</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">CWnd</span><span class="o">::</span><span class="n">GetDlgItem</span>
+</span></span><span class="line"><span class="cl"><span class="n">CWnd</span><span class="o">*</span> <span class="n">GetDlgItem</span> <span class="p">(</span> <span class="n">intnID</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CWnd</span><span class="o">::</span><span class="n">GetDlgItem</span><span class="p">(</span> <span class="kt">int</span> <span class="n">nID</span><span class="p">,</span> <span class="n">HWND</span> <span class="o">*</span><span class="n">phWnd</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">说明——
+</span></span></span><span class="line"><span class="cl"><span class="cm">参数 nID：接收消息的控件的标识；
+</span></span></span><span class="line"><span class="cl"><span class="cm">参数phWnd:子类窗口的指针；
+</span></span></span><span class="line"><span class="cl"><span class="cm">返回值：标识所标记的控件（或子类窗口）的指针； 
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Example
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Uses GetDlgItem to return a pointer to a user interface control.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">CEdit</span><span class="o">*</span> <span class="n">pBoxOne</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">pBoxOne</span> <span class="o">=</span> <span class="p">(</span><span class="n">CEdit</span><span class="o">*</span><span class="p">)</span> <span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_EDIT1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">GotoDlgCtrl</span><span class="p">(</span><span class="n">pBoxOne</span><span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -224,18 +224,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Windows</span> <span class="n">SDK</span>
-<span class="n">HWND</span> <span class="nf">GetDlgItem</span><span class="p">(</span>
-<span class="n">HWNDhDlg</span><span class="p">,</span> <span class="c1">// handle to dialog box
-</span><span class="c1"></span><span class="n">intnIDDlgItem</span><span class="c1">// control identifier
-</span><span class="c1"></span><span class="p">);</span>
-<span class="cm">/*
-</span><span class="cm">参数说明：
-</span><span class="cm">hDlg：标识含有控件的对话框。
-</span><span class="cm">nlDDlgltem：指定将被检索的控件标识符。
-</span><span class="cm">返回值：如果函数调用成功则返回值为给定控件的窗口句柄。如果函数调用失败，则返回值为NULL，表示为一个无效的对话框句柄或一个不存在的控件。若想获得更多错误信息，请调用GetLastError函数。
-</span><span class="cm">*/</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Windows</span> <span class="n">SDK</span>
+</span></span><span class="line"><span class="cl"><span class="n">HWND</span> <span class="nf">GetDlgItem</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="n">HWNDhDlg</span><span class="p">,</span> <span class="c1">// handle to dialog box
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">intnIDDlgItem</span><span class="c1">// control identifier
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">hDlg：标识含有控件的对话框。
+</span></span></span><span class="line"><span class="cl"><span class="cm">nlDDlgltem：指定将被检索的控件标识符。
+</span></span></span><span class="line"><span class="cl"><span class="cm">返回值：如果函数调用成功则返回值为给定控件的窗口句柄。如果函数调用失败，则返回值为NULL，表示为一个无效的对话框句柄或一个不存在的控件。若想获得更多错误信息，请调用GetLastError函数。
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="控件常用函数">控件常用函数</h2>
 <div class="highlight"><div class="chroma">
@@ -252,17 +252,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">{</span>	
-  <span class="n">CWnd</span> <span class="o">*</span><span class="n">pbtn1</span> <span class="o">=</span> <span class="p">(</span><span class="n">CWnd</span><span class="o">*</span><span class="p">)</span><span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_BUTTON1</span><span class="p">);</span>	<span class="c1">//获取控件对象
-</span><span class="c1"></span>	<span class="n">TRACE</span><span class="p">(</span><span class="s">&#34;pbtn1 = %p </span><span class="se">\r\n</span><span class="s"> &#34;</span><span class="p">,</span> <span class="n">pbtn1</span><span class="p">);</span>	<span class="c1">//debug中输出
-</span><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">SetWindowTextW</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;三三三&#34;</span><span class="p">);</span>	<span class="c1">//设置控件标题 方法1
-</span><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">SetWindowTextW</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;二二二&#34;</span><span class="p">));</span>	<span class="c1">//设置控件标题 方法2
-</span><span class="c1"></span>  <span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">EnableWindow</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>	<span class="c1">// 激活/不激活 控件
-</span><span class="c1"></span>  
-  <span class="n">RECT</span> <span class="n">r1</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>	<span class="c1">//定义范围变量
-</span><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">GetWindowRect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r1</span><span class="p">);</span>	<span class="c1">//取得范围值,并赋给参数r1
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">{</span>	
+</span></span><span class="line"><span class="cl">  <span class="n">CWnd</span> <span class="o">*</span><span class="n">pbtn1</span> <span class="o">=</span> <span class="p">(</span><span class="n">CWnd</span><span class="o">*</span><span class="p">)</span><span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_BUTTON1</span><span class="p">);</span>	<span class="c1">//获取控件对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">TRACE</span><span class="p">(</span><span class="s">&#34;pbtn1 = %p </span><span class="se">\r\n</span><span class="s"> &#34;</span><span class="p">,</span> <span class="n">pbtn1</span><span class="p">);</span>	<span class="c1">//debug中输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">SetWindowTextW</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;三三三&#34;</span><span class="p">);</span>	<span class="c1">//设置控件标题 方法1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">SetWindowTextW</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;二二二&#34;</span><span class="p">));</span>	<span class="c1">//设置控件标题 方法2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">EnableWindow</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>	<span class="c1">// 激活/不激活 控件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="n">RECT</span> <span class="n">r1</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>	<span class="c1">//定义范围变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">pbtn1</span><span class="o">-&gt;</span><span class="n">GetWindowRect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r1</span><span class="p">);</span>	<span class="c1">//取得范围值,并赋给参数r1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

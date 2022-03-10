@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%AC%94%E8%AE%B034%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  1925 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, 菜鸟C\u002b\u002b笔记","wordcount":  1923 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/09\/c-%E7%AC%94%E8%AE%B034%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4\/","datePublished": "2021-09-20T00:00:00+00:00","dateModified": "2021-09-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-20">2021-09-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-20">2021-09-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1925 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-20">2021-09-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-09-20">2021-09-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1923 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/09/c-%E7%AC%94%E8%AE%B034%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="leancloud_visitors" data-flag-title="C&#43;&#43; 笔记34命名空间">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -184,23 +184,19 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">namespace_name</span> <span class="p">{</span>
-   <span class="c1">// 代码声明
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">namespace_name</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 代码声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>为了调用带有命名空间的函数或变量，需要在前面加上命名空间的名称，如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">name</span><span class="o">::</span><span class="n">code</span><span class="p">;</span>  <span class="c1">// code 可以是变量或函数
-</span><span class="c1"></span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">name</span><span class="o">::</span><span class="n">code</span><span class="p">;</span>  <span class="c1">// code 可以是变量或函数
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>让我们来看看命名空间如何为变量或函数等实体定义范围：</p>
 <p><strong>实例</strong></p>
@@ -234,33 +230,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 第一个命名空间
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
-   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// 第二个命名空间
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
-   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-   <span class="c1">// 调用第一个命名空间中的函数
-</span><span class="c1"></span>   <span class="n">first_space</span><span class="o">::</span><span class="n">func</span><span class="p">();</span>
-   
-   <span class="c1">// 调用第二个命名空间中的函数
-</span><span class="c1"></span>   <span class="n">second_space</span><span class="o">::</span><span class="n">func</span><span class="p">();</span> 
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 第一个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 第二个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用第一个命名空间中的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">first_space</span><span class="o">::</span><span class="n">func</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用第二个命名空间中的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">second_space</span><span class="o">::</span><span class="n">func</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -269,9 +265,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Inside</span> <span class="n">first_space</span>
-<span class="n">Inside</span> <span class="n">second_space</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Inside</span> <span class="n">first_space</span>
+</span></span><span class="line"><span class="cl"><span class="n">Inside</span> <span class="n">second_space</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="using-指令">using 指令</h2>
 <p>您可以使用 <strong>using namespace</strong> 指令，这样在使用命名空间时就可以不用在前面加上命名空间的名称。这个指令会告诉编译器，后续的代码将使用指定的命名空间中的名称。</p>
@@ -304,31 +300,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 第一个命名空间
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
-   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// 第二个命名空间
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
-   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">first_space</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-   <span class="c1">// 调用第一个命名空间中的函数
-</span><span class="c1"></span>   <span class="n">func</span><span class="p">();</span>
-   
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 第一个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 第二个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">first_space</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用第一个命名空间中的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">func</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -336,8 +332,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Inside</span> <span class="n">first_space</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Inside</span> <span class="n">first_space</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>using 指令也可以用来指定命名空间中的特定项目。例如，如果您只打算使用 std 命名空间中的 cout 部分，您可以使用如下的语句：</p>
 <div class="highlight"><div class="chroma">
@@ -345,8 +341,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>随后的代码中，在使用 cout 时就可以不用加上命名空间名称作为前缀，但是 <strong>std</strong> 命名空间中的其他项目仍然需要加上命名空间名称作为前缀，如下所示：</p>
 <p><strong>实例</strong></p>
@@ -364,17 +360,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;std::endl is used with std!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-   
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;std::endl is used with std!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -382,8 +378,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="n">is</span> <span class="n">used</span> <span class="n">with</span> <span class="n">std</span><span class="o">!</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="n">is</span> <span class="n">used</span> <span class="n">with</span> <span class="n">std</span><span class="o">!</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>using</strong> 指令引入的名称遵循正常的范围规则。名称从使用 <strong>using</strong> 指令开始是可见的，直到该范围结束。此时，在范围以外定义的同名实体是隐藏的。</p>
 <h2 id="不连续的命名空间">不连续的命名空间</h2>
@@ -396,10 +392,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">namespace_name</span> <span class="p">{</span>
-   <span class="c1">// 代码声明
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">namespace_name</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 代码声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="嵌套的命名空间">嵌套的命名空间</h2>
 <p>命名空间可以嵌套，您可以在一个命名空间中定义另一个命名空间，如下所示：</p>
@@ -413,13 +409,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">namespace_name1</span> <span class="p">{</span>
-   <span class="c1">// 代码声明
-</span><span class="c1"></span>   <span class="k">namespace</span> <span class="n">namespace_name2</span> <span class="p">{</span>
-      <span class="c1">// 代码声明
-</span><span class="c1"></span>   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">namespace_name1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 代码声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">namespace</span> <span class="n">namespace_name2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 代码声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>您可以通过使用 :: 运算符来访问嵌套的命名空间中的成员：</p>
 <div class="highlight"><div class="chroma">
@@ -431,12 +427,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 访问 namespace_name2 中的成员
-</span><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">namespace_name1</span><span class="o">::</span><span class="n">namespace_name2</span><span class="p">;</span>
- 
-<span class="c1">// 访问 namespace:name1 中的成员
-</span><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">namespace_name1</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 访问 namespace_name2 中的成员
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">namespace_name1</span><span class="o">::</span><span class="n">namespace_name2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 访问 namespace:name1 中的成员
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">namespace_name1</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在上面的语句中，如果使用的是 namespace_name1，那么在该范围内 namespace_name2 中的元素也是可用的，如下所示：</p>
 <p><strong>实例</strong></p>
@@ -468,31 +464,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="c1">// 第一个命名空间
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
-   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="c1">// 第二个命名空间
-</span><span class="c1"></span>   <span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
-      <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">first_space</span><span class="o">::</span><span class="n">second_space</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
- 
-   <span class="c1">// 调用第二个命名空间中的函数
-</span><span class="c1"></span>   <span class="n">func</span><span class="p">();</span>
-   
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 第一个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">first_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside first_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 第二个命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">namespace</span> <span class="n">second_space</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside second_space&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">first_space</span><span class="o">::</span><span class="n">second_space</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 调用第二个命名空间中的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">func</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -500,8 +496,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Inside</span> <span class="n">second_space</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Inside</span> <span class="n">second_space</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="菜鸟官方笔记">菜鸟官方笔记</h1>
 <h2 id="关于命名空间内变量和函数及全局变量的使用和作用域">关于命名空间内变量和函数及全局变量的使用和作用域:</h2>
@@ -536,34 +532,34 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">namespace</span> <span class="n">A</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
-</span><span class="c1"></span>    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span><span class="mi">20</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span><span class="c1">//定义一个全局变量
-</span><span class="c1"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;A::a =&#34;</span><span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;A::B::a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;::a =&#34;</span><span class="o">&lt;&lt;::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;::a =&#34;</span><span class="o">&lt;&lt;::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">A</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span><span class="c1">//定义一个全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;A::a =&#34;</span><span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;A::B::a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;::a =&#34;</span><span class="o">&lt;&lt;::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;a =&#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;::a =&#34;</span><span class="o">&lt;&lt;::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果：</p>
 <div class="highlight"><div class="chroma">
@@ -576,13 +572,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">100</span>  
-<span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">20</span>
-<span class="n">a</span> <span class="o">=</span><span class="mi">200</span>      <span class="c1">//全局变量a
-</span><span class="c1"></span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">200</span>
-<span class="n">a</span> <span class="o">=</span><span class="mi">30</span>       <span class="c1">//局部变量a
-</span><span class="c1"></span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">200</span>   
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">100</span>  
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span><span class="mi">200</span>      <span class="c1">//全局变量a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">200</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span><span class="mi">30</span>       <span class="c1">//局部变量a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">::</span><span class="n">a</span> <span class="o">=</span><span class="mi">200</span>   
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>即：全局变量 a 表达为 ::a，用于当有同名的局部变量时来区别两者。</p>
 <p>补充关于 using 的错误事例：</p>
@@ -619,36 +615,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">namespace</span> <span class="n">A</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="nf">fun</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;a = &#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
-</span><span class="c1"></span>    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span><span class="mi">20</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="nf">fun</span><span class="p">()</span>
-        <span class="p">{</span>
-             <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;a = &#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">fun</span><span class="p">();</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">A</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">fun</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;a = &#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="nf">fun</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;a = &#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fun</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样会出错：会显示 a 变量和 fun 函数 “was not declared in this scope”，即找不到这个 a 和 fun 函数。</p>
 <p>解决办法： 用 using 来告诉编译器用到的是哪个命名空间内的内容。在 main() 上面加 using namespace A; 或者 using namespace A::B; 。这样就可以使用其中的 a 和 fun()。但是不能同时使用，因为这样也会导致编译出错，编译器器不知道要去使用哪个 a 和 fun()。</p>
@@ -695,45 +691,45 @@
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
-</span><span class="c1"></span>    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span><span class="c1">//定义一个全局变量
-</span><span class="c1"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>        <span class="c1">//A::a =100
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A::B::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//A::B::a =20
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>              <span class="c1">//a =200
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>          <span class="c1">//::a =200
-</span><span class="c1"></span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">A</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// Reference to &#39;a&#39; is ambiguous // 命名空间冲突，编译期错误
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
-</span><span class="c1"></span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">//a =30
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
-</span><span class="c1"></span>
-    <span class="c1">//即：全局变量 a 表达为 ::a，用于当有同名的局部变量时来区别两者。
-</span><span class="c1"></span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">A</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// a =30  // 当有本地同名变量后，优先使用本地，冲突解除
-</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
-</span><span class="c1"></span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">B</span>            <span class="c1">//嵌套一个命名空间B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span><span class="c1">//定义一个全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>        <span class="c1">//A::a =100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A::B::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">B</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//A::B::a =20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>              <span class="c1">//a =200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>          <span class="c1">//::a =200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="k">namespace</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// Reference to &#39;a&#39; is ambiguous // 命名空间冲突，编译期错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">//a =30
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//即：全局变量 a 表达为 ::a，用于当有同名的局部变量时来区别两者。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="k">namespace</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// a =30  // 当有本地同名变量后，优先使用本地，冲突解除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;::a =&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//::a =200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

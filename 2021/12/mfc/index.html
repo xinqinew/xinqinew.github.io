@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/mfc\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本, MFC","wordcount":  846 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "脚本, MFC","wordcount":  845 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/mfc\/","datePublished": "2021-12-20T00:00:00+00:00","dateModified": "2021-12-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 846 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-20">2021-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 845 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2021/12/mfc/" class="leancloud_visitors" data-flag-title="MFC">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -181,12 +181,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z([新建控件])--&gt;
-改ID--&gt;
-添加变量-.-&gt;
-添加控件事件
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z([新建控件])--&gt;
+</span></span><span class="line"><span class="cl">改ID--&gt;
+</span></span><span class="line"><span class="cl">添加变量-.-&gt;
+</span></span><span class="line"><span class="cl">添加控件事件
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="cdialog对话框">CDIALOG对话框</h2>
 <p>新建DIALOG对话框记得添加类</p>
@@ -200,13 +200,13 @@ z([新建控件])--&gt;
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph 
-z([新建DIALOG对话框])--&gt;
-添加类--&gt;
-z1[style选child]--&gt;
-z2[border重选]--&gt;
-z3[添加事件TCN_SELCHANGE]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph 
+</span></span><span class="line"><span class="cl">z([新建DIALOG对话框])--&gt;
+</span></span><span class="line"><span class="cl">添加类--&gt;
+</span></span><span class="line"><span class="cl">z1[style选child]--&gt;
+</span></span><span class="line"><span class="cl">z2[border重选]--&gt;
+</span></span><span class="line"><span class="cl">z3[添加事件TCN_SELCHANGE]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="cedit">CEdit</h2>
 <p><a href="https://docs.microsoft.com/zh-tw/cpp/mfc/reference/cedit-class?view=msvc-170#syntax" target="_blank" rel="noopener noreffer">详情</a></p>
@@ -327,55 +327,55 @@ z3[添加事件TCN_SELCHANGE]
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">DWORD</span> <span class="n">dwSelColID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">bASC</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="kt">int</span> <span class="k">static</span> <span class="n">CALLBACK</span> <span class="nf">CompareFunc</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lParam1</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam2</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParamSort</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">CListCtrl</span><span class="o">*</span> <span class="n">pListCtrl</span> <span class="o">=</span> <span class="p">(</span><span class="n">CListCtrl</span><span class="o">*</span><span class="p">)</span><span class="n">lParamSort</span><span class="p">;</span>
-	<span class="n">LVFINDINFO</span> <span class="n">findInfo</span><span class="p">;</span>
-	<span class="n">findInfo</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">LVFI_PARAM</span><span class="p">;</span>
-	<span class="n">findInfo</span><span class="p">.</span><span class="n">lParam</span> <span class="o">=</span> <span class="n">lParam1</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">iItem1</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">FindItem</span><span class="p">(</span><span class="o">&amp;</span><span class="n">findInfo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-
-	<span class="n">findInfo</span><span class="p">.</span><span class="n">lParam</span> <span class="o">=</span> <span class="n">lParam2</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">iItem2</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">FindItem</span><span class="p">(</span><span class="o">&amp;</span><span class="n">findInfo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-
-	<span class="n">CString</span> <span class="n">strItem1</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">GetItemText</span><span class="p">(</span><span class="n">iItem1</span><span class="p">,</span> <span class="n">dwSelColID</span><span class="p">);</span>
-	<span class="n">CString</span> <span class="n">strItem2</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">GetItemText</span><span class="p">(</span><span class="n">iItem2</span><span class="p">,</span> <span class="n">dwSelColID</span><span class="p">);</span>
-
-	<span class="kt">int</span> <span class="n">iItem1Value</span> <span class="o">=</span> <span class="n">_ttoi</span><span class="p">(</span><span class="n">strItem1</span><span class="p">);</span>
-	<span class="kt">int</span> <span class="n">iItem2Value</span> <span class="o">=</span> <span class="n">_ttoi</span><span class="p">(</span><span class="n">strItem2</span><span class="p">);</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">bASC</span><span class="p">)</span>
-		<span class="k">return</span> <span class="n">iItem1Value</span> <span class="o">&gt;</span> <span class="n">iItem2Value</span><span class="p">;</span>
-	<span class="k">else</span>
-		<span class="k">return</span> <span class="n">iItem1Value</span> <span class="o">&lt;</span> <span class="n">iItem2Value</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">CAutoToolTestDlg</span><span class="o">::</span><span class="n">OnLvnColumnclickListInfo</span><span class="p">(</span><span class="n">NMHDR</span><span class="o">*</span> <span class="n">pNMHDR</span><span class="p">,</span> <span class="n">LRESULT</span><span class="o">*</span> <span class="n">pResult</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">LPNMLISTVIEW</span> <span class="n">pNMLV</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">LPNMLISTVIEW</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pNMHDR</span><span class="p">);</span>
-	<span class="c1">//if (pNMLV-&gt;iSubItem != 0) //只排序指定列
-</span><span class="c1"></span>	<span class="c1">//{
-</span><span class="c1"></span>	<span class="c1">//	return;
-</span><span class="c1"></span>	<span class="c1">//}
-</span><span class="c1"></span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">dwSelColID</span> <span class="o">!=</span> <span class="n">pNMLV</span><span class="o">-&gt;</span><span class="n">iSubItem</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">dwSelColID</span> <span class="o">=</span> <span class="n">pNMLV</span><span class="o">-&gt;</span><span class="n">iSubItem</span><span class="p">;</span>
-		<span class="n">bASC</span> <span class="o">=</span> <span class="n">bASC</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span>
-		<span class="n">bASC</span> <span class="o">=</span> <span class="o">!</span><span class="n">bASC</span><span class="p">;</span>
-
-	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">m_lstApp</span><span class="p">.</span><span class="n">GetItemCount</span><span class="p">();</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-		<span class="n">m_lstApp</span><span class="p">.</span><span class="n">SetItemData</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-
-	<span class="n">m_lstApp</span><span class="p">.</span><span class="n">SortItems</span><span class="p">(</span><span class="n">CompareFunc</span><span class="p">,</span> <span class="p">(</span><span class="n">LPARAM</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">m_lstApp</span><span class="p">));</span>
-	<span class="o">*</span><span class="n">pResult</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">dwSelColID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">bASC</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="k">static</span> <span class="n">CALLBACK</span> <span class="nf">CompareFunc</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lParam1</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam2</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParamSort</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CListCtrl</span><span class="o">*</span> <span class="n">pListCtrl</span> <span class="o">=</span> <span class="p">(</span><span class="n">CListCtrl</span><span class="o">*</span><span class="p">)</span><span class="n">lParamSort</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">LVFINDINFO</span> <span class="n">findInfo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">findInfo</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">LVFI_PARAM</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">findInfo</span><span class="p">.</span><span class="n">lParam</span> <span class="o">=</span> <span class="n">lParam1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">iItem1</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">FindItem</span><span class="p">(</span><span class="o">&amp;</span><span class="n">findInfo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">findInfo</span><span class="p">.</span><span class="n">lParam</span> <span class="o">=</span> <span class="n">lParam2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">iItem2</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">FindItem</span><span class="p">(</span><span class="o">&amp;</span><span class="n">findInfo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">CString</span> <span class="n">strItem1</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">GetItemText</span><span class="p">(</span><span class="n">iItem1</span><span class="p">,</span> <span class="n">dwSelColID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CString</span> <span class="n">strItem2</span> <span class="o">=</span> <span class="n">pListCtrl</span><span class="o">-&gt;</span><span class="n">GetItemText</span><span class="p">(</span><span class="n">iItem2</span><span class="p">,</span> <span class="n">dwSelColID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">iItem1Value</span> <span class="o">=</span> <span class="n">_ttoi</span><span class="p">(</span><span class="n">strItem1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">iItem2Value</span> <span class="o">=</span> <span class="n">_ttoi</span><span class="p">(</span><span class="n">strItem2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">bASC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">iItem1Value</span> <span class="o">&gt;</span> <span class="n">iItem2Value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">iItem1Value</span> <span class="o">&lt;</span> <span class="n">iItem2Value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CAutoToolTestDlg</span><span class="o">::</span><span class="n">OnLvnColumnclickListInfo</span><span class="p">(</span><span class="n">NMHDR</span><span class="o">*</span> <span class="n">pNMHDR</span><span class="p">,</span> <span class="n">LRESULT</span><span class="o">*</span> <span class="n">pResult</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">LPNMLISTVIEW</span> <span class="n">pNMLV</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">LPNMLISTVIEW</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pNMHDR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//if (pNMLV-&gt;iSubItem != 0) //只排序指定列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//{
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//	return;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">dwSelColID</span> <span class="o">!=</span> <span class="n">pNMLV</span><span class="o">-&gt;</span><span class="n">iSubItem</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">dwSelColID</span> <span class="o">=</span> <span class="n">pNMLV</span><span class="o">-&gt;</span><span class="n">iSubItem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">bASC</span> <span class="o">=</span> <span class="n">bASC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="n">bASC</span> <span class="o">=</span> <span class="o">!</span><span class="n">bASC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">m_lstApp</span><span class="p">.</span><span class="n">GetItemCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">m_lstApp</span><span class="p">.</span><span class="n">SetItemData</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">m_lstApp</span><span class="p">.</span><span class="n">SortItems</span><span class="p">(</span><span class="n">CompareFunc</span><span class="p">,</span> <span class="p">(</span><span class="n">LPARAM</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">m_lstApp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">pResult</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="clistbox">CListBox</h2>
 <table>
@@ -488,15 +488,13 @@ z3[添加事件TCN_SELCHANGE]
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-类视图--&gt;消息 &amp; 重写
-消息--&gt;WM_TIMER
-重写--&gt;OnInitDialog &amp; OnOk &amp; OnCancel &amp; OnWndMsg
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">类视图--&gt;消息 &amp; 重写
+</span></span><span class="line"><span class="cl">消息--&gt;WM_TIMER
+</span></span><span class="line"><span class="cl">重写--&gt;OnInitDialog &amp; OnOk &amp; OnCancel &amp; OnWndMsg
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

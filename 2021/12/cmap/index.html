@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/12\/cmap\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "CMap","wordcount":  2071 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "CMap","wordcount":  2030 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/12\/cmap\/","datePublished": "2021-12-21T00:00:00+00:00","dateModified": "2021-12-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2071 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2030 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/2021/12/cmap/" class="leancloud_visitors" data-flag-title="CMap">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -156,7 +156,7 @@
         <li><a href="#举例如下">举例如下：</a>
           <ul>
             <li><a href="#1定义一个cmap向这个cmap中增加数据项键-值对">1、定义一个CMAP，向这个CMAP中增加数据项（键-值对）。</a></li>
-            <li><a href="#2遍历正个cmap的常用方法">2、遍历正个CMAP的常用方法。</a></li>
+            <li><a href="#2遍历整个cmap的常用方法">2、遍历整个CMAP的常用方法。</a></li>
             <li><a href="#3在cmap中查找相应的数据项">3、在CMAP中查找相应的数据项。</a></li>
             <li><a href="#完整例子">完整例子</a></li>
           </ul>
@@ -213,19 +213,19 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-<span class="n">CMap</span><span class="o">&lt;</span><span class="n">CString</span><span class="p">,</span> <span class="n">LPCTSTR</span><span class="p">,</span> <span class="n">CString</span><span class="p">,</span> <span class="n">LPCTSTR</span><span class="o">&gt;</span><span class="n">m_ItemMap</span><span class="p">;</span>
-<span class="n">CString</span> <span class="n">strKey</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">),</span> <span class="n">str</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">strKey</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>              <span class="c1">//这个是键
-</span><span class="c1"></span>        <span class="n">str</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;A%d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>               <span class="c1">//键对应的值 
-</span><span class="c1"></span>        <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="n">strKey</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CMap</span><span class="o">&lt;</span><span class="n">CString</span><span class="p">,</span> <span class="n">LPCTSTR</span><span class="p">,</span> <span class="n">CString</span><span class="p">,</span> <span class="n">LPCTSTR</span><span class="o">&gt;</span><span class="n">m_ItemMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CString</span> <span class="n">strKey</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">),</span> <span class="n">str</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">strKey</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>              <span class="c1">//这个是键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">str</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;A%d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>               <span class="c1">//键对应的值 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="n">strKey</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2遍历正个cmap的常用方法">2、遍历正个CMAP的常用方法。</h3>
+</div><h3 id="2遍历整个cmap的常用方法">2、遍历整个CMAP的常用方法。</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -237,14 +237,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-    <span class="n">POSITION</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">GetStartPosition</span><span class="p">();</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">GetNextAssoc</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">strKey</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">strKey</span><span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="o">&lt;&lt;</span> <span class="n">str</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">POSITION</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">GetStartPosition</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m_ItemMap</span><span class="p">.</span><span class="n">GetNextAssoc</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">strKey</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">strKey</span><span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="o">&lt;&lt;</span> <span class="n">str</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="3在cmap中查找相应的数据项">3、在CMAP中查找相应的数据项。</h3>
 <div class="highlight"><div class="chroma">
@@ -255,19 +255,15 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-    <span class="n">CString</span> <span class="n">pReset</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">m_ItemMap</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">pReset</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">pReset</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">CString</span> <span class="n">pReset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">m_ItemMap</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">pReset</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">pReset</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="完整例子">完整例子</h3>
 <div class="highlight"><div class="chroma">
@@ -317,132 +313,54 @@
 </span><span class="lnt">43
 </span><span class="lnt">44
 </span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Point</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">Point</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">m_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-        <span class="n">m_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-    <span class="p">}</span>
-
-    <span class="n">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="p">{</span>
-
-        <span class="n">m_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-
-        <span class="n">m_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-
-    <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span>
-
-    <span class="kt">int</span> <span class="n">m_x</span><span class="p">;</span>
-
-    <span class="kt">int</span> <span class="n">m_y</span><span class="p">;</span>
-
-<span class="p">};</span>
-
-<span class="k">typedef</span> <span class="n">CMap</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Point</span><span class="o">&amp;&gt;</span>     <span class="n">CMapPnt</span><span class="p">;</span> <span class="c1">//请在使用之前定义
-</span><span class="c1"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-
-<span class="p">{</span>
-
-    <span class="n">Point</span> <span class="n">elem1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">elem2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">elem3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">point</span><span class="p">;</span>
-
-    <span class="n">CMapPnt</span> <span class="n">mp</span><span class="p">;</span>
-
-    <span class="c1">// insert 3 elements into map，          #1
-</span><span class="c1"></span>
-    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;1st&#34;</span><span class="p">,</span> <span class="n">elem1</span><span class="p">);</span>
-
-    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;2nd&#34;</span><span class="p">,</span> <span class="n">elem2</span><span class="p">);</span>
-
-    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;3th&#34;</span><span class="p">,</span> <span class="n">elem3</span><span class="p">);</span>
-
-   
-
-    <span class="c1">// search a point named &#34;2nd&#34; from map                  #2
-</span><span class="c1"></span>
-    <span class="n">mp</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&#34;2nd&#34;</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
-
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;2nd: m_x: %d, m_y: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_x</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_y</span><span class="p">);</span>
-
-<span class="c1">// insert a new pair into map      #3
-</span><span class="c1"></span>
-<span class="n">Point</span> <span class="n">elem4</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
-
-<span class="n">mp</span><span class="p">[</span><span class="s">&#34;4th&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem4</span><span class="p">;</span>
-
-<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;count: &#34;</span><span class="o">&lt;&lt;</span><span class="n">mp</span><span class="p">.</span><span class="n">GetCount</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-
-<span class="c1">// traverse the entire map                    #4
-</span><span class="c1"></span>
-<span class="n">size_t</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pszKey</span><span class="p">;</span>
-
-<span class="n">POSITION</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">GetStartPosition</span><span class="p">();</span>
-
-<span class="k">while</span><span class="p">(</span> <span class="n">ps</span> <span class="p">)</span>
-
-<span class="p">{</span>  
-
-<span class="n">mp</span><span class="p">.</span><span class="n">GetNextAssoc</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">pszKey</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
-
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;index: %d, m_x: %d, m_y: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">++</span><span class="n">index</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_x</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_y</span><span class="p">);</span>
-
-<span class="p">}</span>
-
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Point</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Point</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m_x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m_y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">CMap</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Point</span><span class="o">&amp;&gt;</span>     <span class="n">CMapPnt</span><span class="p">;</span> <span class="c1">//请在使用之前定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Point</span> <span class="n">elem1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">elem2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">elem3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">point</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CMapPnt</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// insert 3 elements into map，          #1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;1st&#34;</span><span class="p">,</span> <span class="n">elem1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;2nd&#34;</span><span class="p">,</span> <span class="n">elem2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mp</span><span class="p">.</span><span class="n">SetAt</span><span class="p">(</span><span class="s">&#34;3th&#34;</span><span class="p">,</span> <span class="n">elem3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">    <span class="c1">// search a point named &#34;2nd&#34; from map                  #2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">mp</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&#34;2nd&#34;</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;2nd: m_x: %d, m_y: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_x</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// insert a new pair into map      #3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Point</span> <span class="n">elem4</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mp</span><span class="p">[</span><span class="s">&#34;4th&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;count: &#34;</span><span class="o">&lt;&lt;</span><span class="n">mp</span><span class="p">.</span><span class="n">GetCount</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// traverse the entire map                    #4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">size_t</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pszKey</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">POSITION</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">GetStartPosition</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span> <span class="n">ps</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">mp</span><span class="p">.</span><span class="n">GetNextAssoc</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">pszKey</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;index: %d, m_x: %d, m_y: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">++</span><span class="n">index</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_x</span><span class="p">,</span> <span class="n">point</span><span class="p">.</span><span class="n">m_y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>代码中，我已经给出了一些注释，我同样建议读者们，用英文在代码中注释，这样的好处实在是太多了。尤其在代码需要在不同编码的操作系统上调试的时候。</p>
 <p>对于CMap这个类，我不得不着重啰嗦一下的是：遍历操作以及取下标【】操作，当然还有那个令很多人困惑不已的ARG_KEY到底应该如何选择的问题。</p>

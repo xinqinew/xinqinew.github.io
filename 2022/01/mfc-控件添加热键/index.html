@@ -184,8 +184,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HACCEL</span> <span class="n">m_hAcc</span><span class="o">=</span><span class="n">LoadAccelerators</span><span class="p">(</span><span class="n">AfxGetInstanceHandle</span><span class="p">(),</span><span class="n">MAKEINTRESOURCE</span><span class="p">(</span><span class="n">IDR_ACCELERATOR1</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HACCEL</span> <span class="n">m_hAcc</span><span class="o">=</span><span class="n">LoadAccelerators</span><span class="p">(</span><span class="n">AfxGetInstanceHandle</span><span class="p">(),</span><span class="n">MAKEINTRESOURCE</span><span class="p">(</span><span class="n">IDR_ACCELERATOR1</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="5">
 <li>重载函数PreTranslateMessage，使用类向导，重载虚函数PreTranslateMessage，如：</li>
@@ -204,17 +204,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">CAutoToolDlg</span><span class="o">::</span><span class="n">PreTranslateMessage</span><span class="p">(</span><span class="n">MSG</span><span class="o">*</span> <span class="n">pMsg</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">WM_KEYFIRST</span><span class="o">&lt;=</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">message</span><span class="o">&amp;&amp;</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">message</span><span class="o">&lt;=</span> <span class="n">WM_KEYLAST</span><span class="p">)</span> 
-    <span class="p">{</span> 
-        <span class="n">HACCEL</span> <span class="n">hAccel</span><span class="o">=</span><span class="n">m_hAcc</span><span class="p">;</span> 
-        <span class="k">if</span> <span class="p">(</span><span class="n">hAccel</span> <span class="o">&amp;&amp;</span> <span class="o">::</span><span class="n">TranslateAccelerator</span><span class="p">(</span><span class="n">m_hWnd</span><span class="p">,</span> <span class="n">hAccel</span><span class="p">,</span> <span class="n">pMsg</span><span class="p">))</span> 
-        <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
-    <span class="p">}</span> 
-    <span class="k">return</span> <span class="n">CDialogEx</span><span class="o">::</span><span class="n">PreTranslateMessage</span><span class="p">(</span><span class="n">pMsg</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">CAutoToolDlg</span><span class="o">::</span><span class="n">PreTranslateMessage</span><span class="p">(</span><span class="n">MSG</span><span class="o">*</span> <span class="n">pMsg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">WM_KEYFIRST</span><span class="o">&lt;=</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">message</span><span class="o">&amp;&amp;</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">message</span><span class="o">&lt;=</span> <span class="n">WM_KEYLAST</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">HACCEL</span> <span class="n">hAccel</span><span class="o">=</span><span class="n">m_hAcc</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">hAccel</span> <span class="o">&amp;&amp;</span> <span class="o">::</span><span class="n">TranslateAccelerator</span><span class="p">(</span><span class="n">m_hWnd</span><span class="p">,</span> <span class="n">hAccel</span><span class="p">,</span> <span class="n">pMsg</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">CDialogEx</span><span class="o">::</span><span class="n">PreTranslateMessage</span><span class="p">(</span><span class="n">pMsg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="6">
 <li>通过以上5个步骤基本上即可对工程中的菜单或者按钮添加热键。</li>
@@ -232,9 +232,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">afx_msg</span> <span class="n">LRESULT</span> <span class="nf">OnHotKey</span><span class="p">(</span><span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">);</span>
-<span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnDestroy</span><span class="p">();</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">afx_msg</span> <span class="n">LRESULT</span> <span class="nf">OnHotKey</span><span class="p">(</span><span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">afx_msg</span> <span class="kt">void</span> <span class="nf">OnDestroy</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -249,11 +249,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BEGIN_MESSAGE_MAP</span><span class="p">(</span><span class="n">CYourDlg</span><span class="p">,</span> <span class="n">CDialog</span><span class="p">)</span>
-   <span class="n">ON_MESSAGE</span><span class="p">(</span><span class="n">WM_HOTKEY</span><span class="p">,</span><span class="n">OnHotKey</span><span class="p">)</span> 
-   <span class="n">ON_WM_DESTROY</span><span class="p">()</span>
-<span class="n">END_MESSAGE_MAP</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BEGIN_MESSAGE_MAP</span><span class="p">(</span><span class="n">CYourDlg</span><span class="p">,</span> <span class="n">CDialog</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ON_MESSAGE</span><span class="p">(</span><span class="n">WM_HOTKEY</span><span class="p">,</span><span class="n">OnHotKey</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">ON_WM_DESTROY</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">END_MESSAGE_MAP</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -271,14 +271,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LRESULT</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnHotKey</span><span class="p">(</span><span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span><span class="err">（</span><span class="n">wParam</span><span class="o">==</span><span class="n">IDC_XXX</span><span class="err">）</span>
-        <span class="n">OnYourFunction</span><span class="p">();</span>
-<span class="c1">//ToDo: add function
-</span><span class="c1"></span>     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">LRESULT</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnHotKey</span><span class="p">(</span><span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="err">（</span><span class="n">wParam</span><span class="o">==</span><span class="n">IDC_XXX</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">OnYourFunction</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//ToDo: add function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -293,11 +293,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BOOL</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnInitDialog</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="o">::</span><span class="n">RegisterHotKey</span><span class="p">(</span><span class="n">GetSafeHwnd</span><span class="p">(),</span> <span class="n">IDC_XXX</span><span class="p">,</span> <span class="n">MOD_ALT</span><span class="p">,</span> <span class="sc">&#39;D&#39;</span><span class="p">);</span><span class="c1">//注册热键alt+D（D必须大写）
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnInitDialog</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">::</span><span class="n">RegisterHotKey</span><span class="p">(</span><span class="n">GetSafeHwnd</span><span class="p">(),</span> <span class="n">IDC_XXX</span><span class="p">,</span> <span class="n">MOD_ALT</span><span class="p">,</span> <span class="sc">&#39;D&#39;</span><span class="p">);</span><span class="c1">//注册热键alt+D（D必须大写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -312,11 +312,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnDestroy</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="o">::</span><span class="n">UnregisterHotKey</span><span class="p">(</span><span class="n">GetSafeHwnd</span><span class="p">(),</span><span class="n">IDC_XXX</span><span class="p">);</span><span class="c1">//销毁热键
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CYourDlg</span><span class="o">::</span><span class="n">OnDestroy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">::</span><span class="n">UnregisterHotKey</span><span class="p">(</span><span class="n">GetSafeHwnd</span><span class="p">(),</span><span class="n">IDC_XXX</span><span class="p">);</span><span class="c1">//销毁热键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>

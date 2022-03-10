@@ -170,8 +170,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>也可以使用拷贝构造函数：</p>
 <div class="highlight"><div class="chroma">
@@ -179,8 +179,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">copy_words</span> <span class="p">{</span><span class="n">words</span><span class="p">};</span> <span class="c1">// A duplicate of words
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">copy_words</span> <span class="p">{</span><span class="n">words</span><span class="p">};</span> <span class="c1">// A duplicate of words
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>stack<T>、queue<T> 这类适配器类都默认封装了一个 deque<T> 容器，也可以通过指定第二个模板类型参数来使用其他类型的容器：</p>
 <div class="highlight"><div class="chroma">
@@ -188,8 +188,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="n">words</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="n">words</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>底层容器必须提供这些操作：front()、back()、push_back()、pop_front()、empty() 和 size()。</p>
 <h2 id="queue-操作">queue 操作</h2>
@@ -219,15 +219,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mf">1.</span>  <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">values</span> <span class="p">{</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">};</span> <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">numbers</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
-<span class="mf">2.</span>
-<span class="mf">3.</span>  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">numbers</span><span class="p">,</span> <span class="n">empty</span><span class="p">())</span>
-<span class="mf">4.</span>  <span class="p">{</span>
-<span class="mf">5.</span>      <span class="n">std</span> <span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">.</span> <span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span> <span class="c1">// Output the 1st element 
-</span><span class="c1"></span><span class="mf">6.</span>      <span class="n">numbers</span><span class="p">.</span> <span class="n">pop</span><span class="p">();</span>  <span class="c1">// Delete the 1st element
-</span><span class="c1"></span><span class="mf">7.</span>  <span class="p">}</span>
-<span class="mf">8.</span>  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mf">1.</span>  <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">values</span> <span class="p">{</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">};</span> <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">numbers</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span>  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">numbers</span><span class="p">,</span> <span class="n">empty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">5.</span>      <span class="n">std</span> <span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">.</span> <span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span> <span class="c1">// Output the 1st element 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">6.</span>      <span class="n">numbers</span><span class="p">.</span> <span class="n">pop</span><span class="p">();</span>  <span class="c1">// Delete the 1st element
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">7.</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">8.</span>  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>用循环列出 numbers 的内容，循环由 empty() 返回的值控制。调用 empty() 可以保证我们能够调用一个空队列的 ftont() 函数。如代码所示，为了访问 queue 中的全部元素，必须删除它们。如果不想删除容器中的元素，必须将它们复制到另一个容器中。如果一定要这么操作，我们可能需要换一个容器。</p>
 <h2 id="queue-容器的实际使用">queue 容器的实际使用</h2>
@@ -258,28 +258,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mf">1.</span>  <span class="c1">// Defines a customer by their time to checkout
-</span><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">CUSTOMER_H</span>
-<span class="mf">3.</span>  <span class="err">#</span><span class="n">define</span> <span class="n">CUSTOMER_H</span>
-<span class="mf">4.</span>
-<span class="mf">5.</span>  <span class="k">class</span> <span class="nc">Customer</span>
-<span class="mf">6.</span>  <span class="p">{</span>
-<span class="mf">7.</span>  <span class="k">protected</span><span class="o">:</span>
-<span class="mf">8.</span>      <span class="n">size_t</span> <span class="n">service_t</span> <span class="p">{};</span> <span class="c1">// Time to checkout
-</span><span class="c1"></span><span class="mf">9.</span>  <span class="k">public</span><span class="o">:</span>
-<span class="mf">10.</span>      <span class="k">explicit</span> <span class="n">Customer</span><span class="p">(</span><span class="n">size_t</span> <span class="n">st</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">:</span><span class="n">service_t</span> <span class="p">{</span><span class="n">st</span><span class="p">}{}</span>
-<span class="mf">11.</span>
-<span class="mf">12.</span>      <span class="c1">// Decrement time remaining to checkout
-</span><span class="c1"></span><span class="mf">13.</span>      <span class="n">Customer</span><span class="o">&amp;</span> <span class="n">time_decrement</span><span class="p">()</span>
-<span class="mf">14.</span>      <span class="p">{</span>
-<span class="mf">15.</span>          <span class="k">if</span> <span class="p">(</span><span class="n">service_t</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="mf">16.</span>              <span class="o">--</span><span class="n">service_t</span><span class="p">;</span>
-<span class="mf">17.</span>          <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<span class="mf">18.</span>      <span class="p">}</span>
-<span class="mf">19.</span>      <span class="kt">bool</span> <span class="n">done</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">service_t</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
-<span class="mf">20.</span>  <span class="p">};</span>
-<span class="mf">21.</span>  <span class="err">#</span><span class="n">endif</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mf">1.</span>  <span class="c1">// Defines a customer by their time to checkout
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">CUSTOMER_H</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span>  <span class="err">#</span><span class="n">define</span> <span class="n">CUSTOMER_H</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">5.</span>  <span class="k">class</span> <span class="nc">Customer</span>
+</span></span><span class="line"><span class="cl"><span class="mf">6.</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">7.</span>  <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="mf">8.</span>      <span class="n">size_t</span> <span class="n">service_t</span> <span class="p">{};</span> <span class="c1">// Time to checkout
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">9.</span>  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="mf">10.</span>      <span class="k">explicit</span> <span class="n">Customer</span><span class="p">(</span><span class="n">size_t</span> <span class="n">st</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">:</span><span class="n">service_t</span> <span class="p">{</span><span class="n">st</span><span class="p">}{}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">11.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">12.</span>      <span class="c1">// Decrement time remaining to checkout
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">13.</span>      <span class="n">Customer</span><span class="o">&amp;</span> <span class="n">time_decrement</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mf">14.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">15.</span>          <span class="k">if</span> <span class="p">(</span><span class="n">service_t</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">16.</span>              <span class="o">--</span><span class="n">service_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">17.</span>          <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">18.</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">19.</span>      <span class="kt">bool</span> <span class="n">done</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">service_t</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">20.</span>  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">21.</span>  <span class="err">#</span><span class="n">endif</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里只有一个成员变量 service_t，用来记录顾客结账需要的时间。每个顾客的结账时间都不同。每过一分钟，会调用一次 time_decrement() 函数，这个函数会减少 service_t 的值，它可以反映顾客结账所花费的时间。当 service_t 的值为 0 时，成员函数 done() 返回 true。</p>
 <p>超市的每个结账柜台都有一队排队等待的顾客。Checkout.h 中定义的 Checkout 类如下：</p>
@@ -315,35 +315,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mf">1.</span>  <span class="c1">// Supermarket checkout - maintains and processes customers in a queue
-</span><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">CHECKOUT_H</span>
-<span class="mf">3.</span>  <span class="err">#</span><span class="n">define</span> <span class="n">CHECKOUT_H</span>
-<span class="mf">4.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">queue</span><span class="o">&gt;</span> <span class="c1">// For queue container
-</span><span class="c1"></span><span class="mf">5.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Customer.h&#34;</span>
-<span class="mf">6.</span>
-<span class="mf">7.</span>  <span class="k">class</span> <span class="nc">Checkout</span>
-<span class="mf">8.</span>  <span class="p">{</span>
-<span class="mf">9.</span>  <span class="k">private</span><span class="o">:</span>
-<span class="mf">10.</span>      <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">;</span> <span class="c1">// The queue waiting to checkout
-</span><span class="c1"></span><span class="mf">11.</span>  <span class="k">public</span><span class="o">:</span>
-<span class="mf">12.</span>      <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="k">const</span> <span class="n">Customer</span><span class="o">&amp;</span> <span class="n">customer</span><span class="p">)</span> <span class="p">{</span> <span class="n">customers</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span> <span class="p">}</span>
-<span class="mf">13.</span>      <span class="n">size_t</span> <span class="n">qlength</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">customers</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="p">}</span>
-<span class="mf">14.</span>
-<span class="mf">15.</span>      <span class="c1">// Increment the time by one minute
-</span><span class="c1"></span><span class="mf">16.</span>      <span class="kt">void</span> <span class="n">time_increment</span><span class="p">()</span>
-<span class="mf">17.</span>      <span class="p">{</span>
-<span class="mf">18.</span>          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">customers</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-<span class="mf">19.</span>          <span class="p">{</span> <span class="c1">// There are customers waiting...
-</span><span class="c1"></span><span class="mf">20.</span>              <span class="k">if</span> <span class="p">(</span><span class="n">customers</span><span class="p">.</span><span class="n">front</span><span class="p">().</span><span class="n">time_decrement</span><span class="p">().</span><span class="n">done</span><span class="p">())</span>  <span class="c1">// If the customer is done...
-</span><span class="c1"></span><span class="mf">21.</span>                  <span class="n">customers</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="c1">// ...remove from the queue
-</span><span class="c1"></span><span class="mf">22.</span>          <span class="p">}</span>
-<span class="mf">23.</span>      <span class="p">};</span>
-<span class="mf">24.</span>
-<span class="mf">25.</span>      <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Checkout</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">qlength</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">other</span><span class="p">.</span><span class="n">qlength</span><span class="p">();</span> <span class="p">}</span>
-<span class="mf">26.</span>      <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Checkout</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">qlength</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">other</span><span class="p">.</span><span class="n">qlength</span><span class="p">();</span> <span class="p">}</span>
-<span class="mf">27.</span>  <span class="p">};</span>
-<span class="mf">28.</span>  <span class="err">#</span><span class="n">endif</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mf">1.</span>  <span class="c1">// Supermarket checkout - maintains and processes customers in a queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">CHECKOUT_H</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span>  <span class="err">#</span><span class="n">define</span> <span class="n">CHECKOUT_H</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">queue</span><span class="o">&gt;</span> <span class="c1">// For queue container
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">5.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Customer.h&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">6.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">7.</span>  <span class="k">class</span> <span class="nc">Checkout</span>
+</span></span><span class="line"><span class="cl"><span class="mf">8.</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">9.</span>  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="mf">10.</span>      <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">;</span> <span class="c1">// The queue waiting to checkout
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">11.</span>  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="mf">12.</span>      <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="k">const</span> <span class="n">Customer</span><span class="o">&amp;</span> <span class="n">customer</span><span class="p">)</span> <span class="p">{</span> <span class="n">customers</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">13.</span>      <span class="n">size_t</span> <span class="n">qlength</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">customers</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">14.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">15.</span>      <span class="c1">// Increment the time by one minute
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">16.</span>      <span class="kt">void</span> <span class="n">time_increment</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mf">17.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">18.</span>          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">customers</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="mf">19.</span>          <span class="p">{</span> <span class="c1">// There are customers waiting...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">20.</span>              <span class="k">if</span> <span class="p">(</span><span class="n">customers</span><span class="p">.</span><span class="n">front</span><span class="p">().</span><span class="n">time_decrement</span><span class="p">().</span><span class="n">done</span><span class="p">())</span>  <span class="c1">// If the customer is done...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">21.</span>                  <span class="n">customers</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="c1">// ...remove from the queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">22.</span>          <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">23.</span>      <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">24.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">25.</span>      <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Checkout</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">qlength</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">other</span><span class="p">.</span><span class="n">qlength</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">26.</span>      <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Checkout</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">qlength</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">other</span><span class="p">.</span><span class="n">qlength</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">27.</span>  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">28.</span>  <span class="err">#</span><span class="n">endif</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这相当于自我解释。queue 容器是 Checkout 唯一的成员变量，用来保存等待结账的 Customer 对象。成员函数 add() 可以向队列中添加新顾客。只能处理队列中的第一个元素。 每过一分钟，调用一次 Checkout 对象的成员函数 time_increment(}，它会调用第一个 Customer 对象的成员函数 time_decrement() 来减少剩余的服务时间，然后再调用成员函数 done()。如果 done() 返回 true，表明顾客结账完成，因此把他从队列中移除。Checkout 对象的比较运算符可以比较队列的长度。</p>
 <p>为了模拟超市结账，我们需要有随机数生成的功能。因此打算使用 random 头文件中的一个非常简单的工具，但不打算深入解释它。我们会在教程后面的章节深入探讨 random 头文件中的内容。程序使用了一个 uniform_int_distribution() 类型的实例。顾名思义，它定义的整数值在最大值和最小值之间均匀分布。在均匀分布中，所有这个范围内的值都可能相等。可以在 10 和 100 之间定义如下分布：</p>
@@ -471,114 +471,114 @@
 </span><span class="lnt">107
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mf">1.</span>  <span class="c1">// Simulating a supermarket with multiple checkouts
-</span><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span>                              <span class="c1">// For s[tan](http://c.biancheng.net/ref/tan.html)dard streams
-</span><span class="c1"></span><span class="mf">3.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">iomanip</span><span class="o">&gt;</span>                               <span class="c1">// For stream manipulators
-</span><span class="c1"></span><span class="mf">4.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">vector</span><span class="o">&gt;</span>                                <span class="c1">// For vector container
-</span><span class="c1"></span><span class="mf">5.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span>                                <span class="c1">// For string class
-</span><span class="c1"></span><span class="mf">6.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">numeric</span><span class="o">&gt;</span>                               <span class="c1">// For accumulate()
-</span><span class="c1"></span><span class="mf">7.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">algorithm</span><span class="o">&gt;</span>                             <span class="c1">// For min_element &amp; max_element
-</span><span class="c1"></span><span class="mf">8.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">random</span><span class="o">&gt;</span>                                <span class="c1">// For random number generation
-</span><span class="c1"></span><span class="mf">9.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Customer.h&#34;</span>
-<span class="mf">10.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Checkout.h&#34;</span>
-
-<span class="mf">12.</span>  <span class="n">u</span><span class="p">[</span><span class="n">sin</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//c.biancheng.net/ref/sin.html)g std::string;
-</span><span class="c1"></span><span class="mf">13.</span>  <span class="k">using</span> <span class="n">distribution</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;&gt;</span><span class="p">;</span>
-
-<span class="mf">15.</span>  <span class="c1">// Output histogram of service times
-</span><span class="c1"></span><span class="mf">16.</span>  <span class="kt">void</span> <span class="n">histogram</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">min</span><span class="p">)</span>
-<span class="mf">17.</span>  <span class="p">{</span>
-<span class="mf">18.</span>      <span class="n">string</span> <span class="n">bar</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="sc">&#39;*&#39;</span><span class="p">);</span>                          <span class="c1">// Row of asterisks for bar
-</span><span class="c1"></span><span class="mf">19.</span>      <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="p">{};</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-<span class="mf">20.</span>      <span class="p">{</span>
-<span class="mf">21.</span>          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">+</span><span class="n">min</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span>    <span class="c1">// Service time is index + min
-</span><span class="c1"></span><span class="mf">22.</span>          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span>             <span class="c1">// Output no. of occurrences
-</span><span class="c1"></span><span class="mf">23.</span>          <span class="o">&lt;&lt;</span> <span class="n">bar</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>                     <span class="c1">// ...and that no. of asterisks
-</span><span class="c1"></span><span class="mf">24.</span>          <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bar</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">?</span> <span class="s">&#34;...&#34;</span><span class="o">:</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-<span class="mf">25.</span>          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="mf">26.</span>      <span class="p">}</span>
-<span class="mf">27.</span>  <span class="p">}</span>
-
-<span class="mf">29.</span>  <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="mf">30.</span>  <span class="p">{</span>
-<span class="mf">31.</span>      <span class="n">std</span><span class="o">::</span><span class="n">random_device</span> <span class="n">random_n</span><span class="p">;</span>
-
-<span class="mf">33.</span>      <span class="c1">// Setup minimum &amp; maximum checkout periods - times in minutes
-</span><span class="c1"></span><span class="mf">34.</span>      <span class="kt">int</span> <span class="n">service_t_min</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="n">service_t_max</span> <span class="p">{</span><span class="mi">15</span><span class="p">};</span>
-<span class="mf">35.</span>      <span class="n">distribution</span> <span class="n">service_t_d</span> <span class="p">{</span><span class="n">service_t_min</span><span class="p">,</span> <span class="n">service_t_max</span><span class="p">};</span>
-
-<span class="mf">37.</span>      <span class="c1">// Setup minimum &amp; maximum number of customers at store opening
-</span><span class="c1"></span><span class="mf">38.</span>      <span class="kt">int</span> <span class="n">min_customers</span> <span class="p">{</span><span class="mi">15</span><span class="p">},</span> <span class="n">max_customers</span> <span class="p">{</span><span class="mi">20</span><span class="p">};</span>
-<span class="mf">39.</span>      <span class="n">distribution</span> <span class="n">n_1st_customers_d</span> <span class="p">{</span><span class="n">min_customers</span><span class="p">,</span> <span class="n">max_customers</span><span class="p">};</span>
-
-<span class="mf">41.</span>      <span class="c1">// Setup minimum &amp; maximum intervals between customer arrivals
-</span><span class="c1"></span><span class="mf">42.</span>      <span class="kt">int</span> <span class="n">min_arr_interval</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="n">max_arr_interval</span> <span class="p">{</span><span class="mi">5</span><span class="p">};</span>
-<span class="mf">43.</span>      <span class="n">distribution</span> <span class="n">arrival_interval_d</span> <span class="p">{</span><span class="n">min_arr_interval</span><span class="p">,</span> <span class="n">max_arr_interval</span><span class="p">};</span>
-
-<span class="mf">45.</span>      <span class="n">size_t</span> <span class="n">n_checkouts</span> <span class="p">{};</span>
-<span class="mf">46.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter the number of checkouts in the supermarket: &#34;</span><span class="p">;</span>
-<span class="mf">47.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n_checkouts</span><span class="p">;</span>
-<span class="mf">48.</span>      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">n_checkouts</span><span class="p">)</span>
-<span class="mf">49.</span>      <span class="p">{</span>
-<span class="mf">50.</span>          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Number of checkouts must be greater than 0. Setting to 1.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="mf">51.</span>          <span class="n">n_checkouts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="mf">52.</span>      <span class="p">}</span>
-
-<span class="mf">54.</span>      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Checkout</span><span class="o">&gt;</span> <span class="n">checkouts</span> <span class="p">{</span><span class="n">n_checkouts</span><span class="p">};</span>
-<span class="mf">55.</span>      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">service_times</span><span class="p">(</span><span class="n">service_t_max</span><span class="o">-</span><span class="n">service_t_min</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-
-<span class="mf">57.</span>      <span class="c1">// Add customers waiting when store opens
-</span><span class="c1"></span><span class="mf">58.</span>      <span class="kt">int</span> <span class="n">count</span> <span class="p">{</span><span class="n">n_1st_customers_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">)};</span>
-<span class="mf">59.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Customers waiting at store opening: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="mf">60.</span>      <span class="kt">int</span> <span class="n">added</span> <span class="p">{};</span>
-<span class="mf">61.</span>      <span class="kt">int</span> <span class="n">service_t</span> <span class="p">{};</span>
-<span class="mf">62.</span>      <span class="k">while</span> <span class="p">(</span><span class="n">added</span><span class="o">++</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">)</span>
-<span class="mf">63.</span>      <span class="p">{</span>
-<span class="mf">64.</span>          <span class="n">service_t</span> <span class="o">=</span> <span class="n">service_t_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>
-<span class="mf">65.</span>          <span class="n">std</span><span class="o">::</span><span class="n">min_element</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">checkouts</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">checkouts</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">Customer</span><span class="p">(</span><span class="n">service_t</span><span class="p">));</span>
-<span class="mf">66.</span>          <span class="o">++</span><span class="n">service_times</span><span class="p">[</span><span class="n">service_t</span> <span class="o">-</span> <span class="n">service_t_min</span><span class="p">];</span>
-<span class="mf">67.</span>      <span class="p">}</span>
-
-<span class="mf">69.</span>      <span class="n">size_t</span> <span class="n">time</span> <span class="p">{};</span>                                <span class="c1">// Stores time elapsed
-</span><span class="c1"></span><span class="mf">70.</span>      <span class="k">const</span> <span class="n">size_t</span> <span class="n">total_time</span> <span class="p">{</span><span class="mi">600</span><span class="p">};</span>                 <span class="c1">// Duration of simulation - minutes
-</span><span class="c1"></span><span class="mf">71.</span>      <span class="n">size_t</span> <span class="n">longest_q</span> <span class="p">{};</span>                           <span class="c1">// Stores longest checkout queue length
-</span><span class="c1"></span>
-<span class="mf">73.</span>      <span class="c1">// Period until next customer arrives
-</span><span class="c1"></span><span class="mf">74.</span>      <span class="kt">int</span> <span class="n">new_cust_interval</span> <span class="p">{</span><span class="n">arrival_interval_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">)};</span>
-
-<span class="mf">76.</span>      <span class="c1">// Run store simulation for period of total_time minutes
-</span><span class="c1"></span><span class="mf">77.</span>      <span class="k">while</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">total_time</span><span class="p">)</span>                      <span class="c1">// Simulation loops over time
-</span><span class="c1"></span><span class="mf">78.</span>      <span class="p">{</span>
-<span class="mf">79.</span>          <span class="o">++</span><span class="n">time</span><span class="p">;</span>                                      <span class="c1">// Increment by 1 minute
-</span><span class="c1"></span>
-<span class="mf">81.</span>          <span class="c1">// New customer arrives when arrival interval is zero
-</span><span class="c1"></span><span class="mf">82.</span>          <span class="k">if</span> <span class="p">(</span><span class="o">--</span><span class="n">new_cust_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<span class="mf">83.</span>          <span class="p">{</span>
-<span class="mf">84.</span>              <span class="n">service_t</span> <span class="o">=</span> <span class="n">service_t_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>         <span class="c1">// Random customer service time
-</span><span class="c1"></span><span class="mf">85.</span>              <span class="n">std</span><span class="o">::</span><span class="n">min_element</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">checkouts</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">checkouts</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">Customer</span><span class="p">(</span><span class="n">service_t</span><span class="p">));</span>
-<span class="mf">86.</span>              <span class="o">++</span><span class="n">service_times</span><span class="p">[</span><span class="n">service_t</span> <span class="o">-</span> <span class="n">service_t_min</span><span class="p">];</span>  <span class="c1">// Record service time
-</span><span class="c1"></span>
-<span class="mf">88.</span>              <span class="c1">// Update record of the longest queue occurring
-</span><span class="c1"></span><span class="mf">89.</span>              <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span> <span class="nl">checkout</span> <span class="p">:</span> <span class="n">checkouts</span><span class="p">)</span>
-<span class="mf">90.</span>                  <span class="n">longest_q</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">longest_q</span><span class="p">,</span> <span class="n">checkout</span><span class="p">.</span><span class="n">qlength</span><span class="p">());</span>
-
-<span class="mf">92.</span>              <span class="n">new_cust_interval</span> <span class="o">=</span> <span class="n">arrival_interval_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>
-<span class="mf">93.</span>          <span class="p">}</span>
-
-<span class="mf">95.</span>          <span class="c1">// Update the time in the checkouts - serving the 1st customer in each queue
-</span><span class="c1"></span><span class="mf">96.</span>          <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span> <span class="nl">checkout</span> <span class="p">:</span> <span class="n">checkouts</span><span class="p">)</span>
-<span class="mf">97.</span>              <span class="n">checkout</span><span class="p">.</span><span class="n">time_increment</span><span class="p">();</span>
-<span class="mf">98.</span>      <span class="p">}</span>
-
-<span class="mf">100.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Maximum queue length = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">longest_q</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="mf">101.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">Histogram of service times:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-<span class="mf">102.</span>      <span class="n">histogram</span><span class="p">(</span><span class="n">service_times</span><span class="p">,</span> <span class="n">service_t_min</span><span class="p">);</span>
-
-<span class="mf">104.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">Total number of customers today: &#34;</span>
-<span class="mf">105.</span>              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">service_times</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">service_times</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-<span class="mf">106.</span>              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="mf">107.</span>  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mf">1.</span>  <span class="c1">// Simulating a supermarket with multiple checkouts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">2.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span>                              <span class="c1">// For s[tan](http://c.biancheng.net/ref/tan.html)dard streams
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">3.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">iomanip</span><span class="o">&gt;</span>                               <span class="c1">// For stream manipulators
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">4.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">vector</span><span class="o">&gt;</span>                                <span class="c1">// For vector container
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">5.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span>                                <span class="c1">// For string class
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">6.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">numeric</span><span class="o">&gt;</span>                               <span class="c1">// For accumulate()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">7.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">algorithm</span><span class="o">&gt;</span>                             <span class="c1">// For min_element &amp; max_element
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">8.</span>  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">random</span><span class="o">&gt;</span>                                <span class="c1">// For random number generation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">9.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Customer.h&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">10.</span>  <span class="err">#</span><span class="n">include</span> <span class="s">&#34;Checkout.h&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">12.</span>  <span class="n">u</span><span class="p">[</span><span class="n">sin</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//c.biancheng.net/ref/sin.html)g std::string;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">13.</span>  <span class="k">using</span> <span class="n">distribution</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">15.</span>  <span class="c1">// Output histogram of service times
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">16.</span>  <span class="kt">void</span> <span class="n">histogram</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">min</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">17.</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">18.</span>      <span class="n">string</span> <span class="n">bar</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="sc">&#39;*&#39;</span><span class="p">);</span>                          <span class="c1">// Row of asterisks for bar
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">19.</span>      <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="p">{};</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">20.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">21.</span>          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">+</span><span class="n">min</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span>    <span class="c1">// Service time is index + min
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">22.</span>          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span>             <span class="c1">// Output no. of occurrences
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">23.</span>          <span class="o">&lt;&lt;</span> <span class="n">bar</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>                     <span class="c1">// ...and that no. of asterisks
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">24.</span>          <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bar</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">?</span> <span class="s">&#34;...&#34;</span><span class="o">:</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">25.</span>          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">26.</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">27.</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">29.</span>  <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mf">30.</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">31.</span>      <span class="n">std</span><span class="o">::</span><span class="n">random_device</span> <span class="n">random_n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">33.</span>      <span class="c1">// Setup minimum &amp; maximum checkout periods - times in minutes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">34.</span>      <span class="kt">int</span> <span class="n">service_t_min</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="n">service_t_max</span> <span class="p">{</span><span class="mi">15</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">35.</span>      <span class="n">distribution</span> <span class="n">service_t_d</span> <span class="p">{</span><span class="n">service_t_min</span><span class="p">,</span> <span class="n">service_t_max</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">37.</span>      <span class="c1">// Setup minimum &amp; maximum number of customers at store opening
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">38.</span>      <span class="kt">int</span> <span class="n">min_customers</span> <span class="p">{</span><span class="mi">15</span><span class="p">},</span> <span class="n">max_customers</span> <span class="p">{</span><span class="mi">20</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">39.</span>      <span class="n">distribution</span> <span class="n">n_1st_customers_d</span> <span class="p">{</span><span class="n">min_customers</span><span class="p">,</span> <span class="n">max_customers</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">41.</span>      <span class="c1">// Setup minimum &amp; maximum intervals between customer arrivals
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">42.</span>      <span class="kt">int</span> <span class="n">min_arr_interval</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="n">max_arr_interval</span> <span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">43.</span>      <span class="n">distribution</span> <span class="n">arrival_interval_d</span> <span class="p">{</span><span class="n">min_arr_interval</span><span class="p">,</span> <span class="n">max_arr_interval</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">45.</span>      <span class="n">size_t</span> <span class="n">n_checkouts</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">46.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter the number of checkouts in the supermarket: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">47.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n_checkouts</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">48.</span>      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">n_checkouts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">49.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">50.</span>          <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Number of checkouts must be greater than 0. Setting to 1.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">51.</span>          <span class="n">n_checkouts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">52.</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">54.</span>      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Checkout</span><span class="o">&gt;</span> <span class="n">checkouts</span> <span class="p">{</span><span class="n">n_checkouts</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">55.</span>      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">service_times</span><span class="p">(</span><span class="n">service_t_max</span><span class="o">-</span><span class="n">service_t_min</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">57.</span>      <span class="c1">// Add customers waiting when store opens
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">58.</span>      <span class="kt">int</span> <span class="n">count</span> <span class="p">{</span><span class="n">n_1st_customers_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">)};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">59.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Customers waiting at store opening: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">60.</span>      <span class="kt">int</span> <span class="n">added</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.</span>      <span class="kt">int</span> <span class="n">service_t</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="mf">62.</span>      <span class="k">while</span> <span class="p">(</span><span class="n">added</span><span class="o">++</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">63.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">64.</span>          <span class="n">service_t</span> <span class="o">=</span> <span class="n">service_t_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="mf">65.</span>          <span class="n">std</span><span class="o">::</span><span class="n">min_element</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">checkouts</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">checkouts</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">Customer</span><span class="p">(</span><span class="n">service_t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="mf">66.</span>          <span class="o">++</span><span class="n">service_times</span><span class="p">[</span><span class="n">service_t</span> <span class="o">-</span> <span class="n">service_t_min</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="mf">67.</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">69.</span>      <span class="n">size_t</span> <span class="n">time</span> <span class="p">{};</span>                                <span class="c1">// Stores time elapsed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">70.</span>      <span class="k">const</span> <span class="n">size_t</span> <span class="n">total_time</span> <span class="p">{</span><span class="mi">600</span><span class="p">};</span>                 <span class="c1">// Duration of simulation - minutes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">71.</span>      <span class="n">size_t</span> <span class="n">longest_q</span> <span class="p">{};</span>                           <span class="c1">// Stores longest checkout queue length
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="mf">73.</span>      <span class="c1">// Period until next customer arrives
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">74.</span>      <span class="kt">int</span> <span class="n">new_cust_interval</span> <span class="p">{</span><span class="n">arrival_interval_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">)};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">76.</span>      <span class="c1">// Run store simulation for period of total_time minutes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">77.</span>      <span class="k">while</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">total_time</span><span class="p">)</span>                      <span class="c1">// Simulation loops over time
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">78.</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">79.</span>          <span class="o">++</span><span class="n">time</span><span class="p">;</span>                                      <span class="c1">// Increment by 1 minute
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="mf">81.</span>          <span class="c1">// New customer arrives when arrival interval is zero
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">82.</span>          <span class="k">if</span> <span class="p">(</span><span class="o">--</span><span class="n">new_cust_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">83.</span>          <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mf">84.</span>              <span class="n">service_t</span> <span class="o">=</span> <span class="n">service_t_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>         <span class="c1">// Random customer service time
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">85.</span>              <span class="n">std</span><span class="o">::</span><span class="n">min_element</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">checkouts</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">checkouts</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">Customer</span><span class="p">(</span><span class="n">service_t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="mf">86.</span>              <span class="o">++</span><span class="n">service_times</span><span class="p">[</span><span class="n">service_t</span> <span class="o">-</span> <span class="n">service_t_min</span><span class="p">];</span>  <span class="c1">// Record service time
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="mf">88.</span>              <span class="c1">// Update record of the longest queue occurring
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">89.</span>              <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span> <span class="nl">checkout</span> <span class="p">:</span> <span class="n">checkouts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">90.</span>                  <span class="n">longest_q</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">longest_q</span><span class="p">,</span> <span class="n">checkout</span><span class="p">.</span><span class="n">qlength</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">92.</span>              <span class="n">new_cust_interval</span> <span class="o">=</span> <span class="n">arrival_interval_d</span><span class="p">(</span><span class="n">random_n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="mf">93.</span>          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">95.</span>          <span class="c1">// Update the time in the checkouts - serving the 1st customer in each queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">96.</span>          <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span> <span class="nl">checkout</span> <span class="p">:</span> <span class="n">checkouts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">97.</span>              <span class="n">checkout</span><span class="p">.</span><span class="n">time_increment</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="mf">98.</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">100.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Maximum queue length = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">longest_q</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">101.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">Histogram of service times:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">102.</span>      <span class="n">histogram</span><span class="p">(</span><span class="n">service_times</span><span class="p">,</span> <span class="n">service_t_min</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">104.</span>      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">Total number of customers today: &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">105.</span>              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">service_times</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">service_times</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mf">106.</span>              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">107.</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>直接使用 using 指令可以减少代码输入，简化代码。顾客服务次数记录在 vector 中。服务时间减去 service_times 的最小值可以用来索引需要自增的 vector 元素，这导致 vector 的第一个元素会记录下最少服务时间的发生次数。histogram() 函数会以水平条形图的形式生成每个服务时间出现次数的柱状图。</p>
 <p>输入的唯一数字是 checkouts。此处选择将模拟持续时间设置为 600 分钟，也可以用参数输入这个时间。main() 函数生成了顾客服务时间，超市开门时等在门外的顾客数，以及顾客到达时间间隔的分布对象。它表明顾客在同一时间到达。我们可以轻松地将这个程序扩展为每次到达的顾客数是一个处于一定范围内的随机数。</p>
@@ -610,28 +610,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">Enter</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">checkouts</span> <span class="n">in</span> <span class="n">the</span> <span class="nl">supermarket</span><span class="p">:</span> <span class="mi">3</span>  
-<span class="n">Customers</span> <span class="n">waiting</span> <span class="n">at</span> <span class="n">store</span> <span class="nl">opening</span><span class="p">:</span> <span class="mi">19</span>  
-<span class="n">Maximum</span> <span class="n">queue</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">10</span>  
-  
-<span class="n">Histogram</span> <span class="n">of</span> <span class="n">service</span> <span class="nl">times</span><span class="p">:</span>  
-  <span class="mi">2</span>   <span class="mi">16</span> <span class="o">****************</span>  
-  <span class="mi">3</span>   <span class="mi">15</span> <span class="o">***************</span>  
-  <span class="mi">4</span>   <span class="mi">12</span> <span class="o">************</span>  
-  <span class="mi">5</span>   <span class="mi">11</span> <span class="o">***********</span>  
-  <span class="mi">6</span>   <span class="mi">17</span> <span class="o">*****************</span>  
-  <span class="mi">7</span>   <span class="mi">20</span> <span class="o">********************</span>  
-  <span class="mi">8</span>   <span class="mi">18</span> <span class="o">******************</span>  
-  <span class="mi">9</span>   <span class="mi">16</span> <span class="o">****************</span>  
-<span class="mi">10</span>   <span class="mi">10</span> <span class="o">**********</span>  
-<span class="mi">11</span>   <span class="mi">12</span> <span class="o">************</span>  
-<span class="mi">12</span>   <span class="mi">16</span> <span class="o">****************</span>  
-<span class="mi">13</span>   <span class="mi">21</span> <span class="o">*********************</span>  
-<span class="mi">14</span>   <span class="mi">17</span> <span class="o">*****************</span>  
-<span class="mi">15</span>   <span class="mi">21</span> <span class="o">*********************</span>  
-  
-<span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">customers</span> <span class="nl">today</span><span class="p">:</span> <span class="mi">222</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">checkouts</span> <span class="n">in</span> <span class="n">the</span> <span class="nl">supermarket</span><span class="p">:</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Customers</span> <span class="n">waiting</span> <span class="n">at</span> <span class="n">store</span> <span class="nl">opening</span><span class="p">:</span> <span class="mi">19</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Maximum</span> <span class="n">queue</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">10</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">Histogram</span> <span class="n">of</span> <span class="n">service</span> <span class="nl">times</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span>   <span class="mi">16</span> <span class="o">****************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span>   <span class="mi">15</span> <span class="o">***************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span>   <span class="mi">12</span> <span class="o">************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span>   <span class="mi">11</span> <span class="o">***********</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span>   <span class="mi">17</span> <span class="o">*****************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>   <span class="mi">20</span> <span class="o">********************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>   <span class="mi">18</span> <span class="o">******************</span>  
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span>   <span class="mi">16</span> <span class="o">****************</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>   <span class="mi">10</span> <span class="o">**********</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>   <span class="mi">12</span> <span class="o">************</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>   <span class="mi">16</span> <span class="o">****************</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>   <span class="mi">21</span> <span class="o">*********************</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>   <span class="mi">17</span> <span class="o">*****************</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>   <span class="mi">21</span> <span class="o">*********************</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">customers</span> <span class="nl">today</span><span class="p">:</span> <span class="mi">222</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里有 3 个结账柜台。将它们设为 2 个时，最长队列的长度达到 42——已经长到会让顾客放弃付款。还可以做更多改进，让模拟更加真实。均匀分配并不符合实际，例如，顾客通常成群结队到来。可以增加一些其他的因素，比如收银员休息时间、某个收银员生病工作状态不佳，这些都会导致顾客不选择这个柜台结账。</p>
 </div><div class="post-footer" id="post-footer">

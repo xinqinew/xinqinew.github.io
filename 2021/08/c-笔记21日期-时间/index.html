@@ -176,18 +176,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">tm</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">tm_sec</span><span class="p">;</span>   <span class="c1">// 秒，正常范围从 0 到 59，但允许至 61
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_min</span><span class="p">;</span>   <span class="c1">// 分，范围从 0 到 59
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_hour</span><span class="p">;</span>  <span class="c1">// 小时，范围从 0 到 23
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_mday</span><span class="p">;</span>  <span class="c1">// 一月中的第几天，范围从 1 到 31
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_mon</span><span class="p">;</span>   <span class="c1">// 月，范围从 0 到 11
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_year</span><span class="p">;</span>  <span class="c1">// 自 1900 年起的年数
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_wday</span><span class="p">;</span>  <span class="c1">// 一周中的第几天，范围从 0 到 6，从星期日算起
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_yday</span><span class="p">;</span>  <span class="c1">// 一年中的第几天，范围从 0 到 365，从 1 月 1 日算起
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_isdst</span><span class="p">;</span> <span class="c1">// 夏令时
-</span><span class="c1"></span><span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">tm</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">tm_sec</span><span class="p">;</span>   <span class="c1">// 秒，正常范围从 0 到 59，但允许至 61
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_min</span><span class="p">;</span>   <span class="c1">// 分，范围从 0 到 59
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_hour</span><span class="p">;</span>  <span class="c1">// 小时，范围从 0 到 23
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_mday</span><span class="p">;</span>  <span class="c1">// 一月中的第几天，范围从 1 到 31
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_mon</span><span class="p">;</span>   <span class="c1">// 月，范围从 0 到 11
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_year</span><span class="p">;</span>  <span class="c1">// 自 1900 年起的年数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_wday</span><span class="p">;</span>  <span class="c1">// 一周中的第几天，范围从 0 到 6，从星期日算起
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_yday</span><span class="p">;</span>  <span class="c1">// 一年中的第几天，范围从 0 到 365，从 1 月 1 日算起
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">tm_isdst</span><span class="p">;</span> <span class="c1">// 夏令时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -260,27 +260,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// 基于当前系统的当前日期/时间
-</span><span class="c1"></span>   <span class="n">time_t</span> <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-   
-   <span class="c1">// 把 now 转换为字符串形式
-</span><span class="c1"></span>   <span class="kt">char</span><span class="o">*</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;本地日期和时间：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">dt</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 把 now 转换为 tm 结构
-</span><span class="c1"></span>   <span class="n">tm</span> <span class="o">*</span><span class="n">gmtm</span> <span class="o">=</span> <span class="n">gmtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
-   <span class="n">dt</span> <span class="o">=</span> <span class="n">asctime</span><span class="p">(</span><span class="n">gmtm</span><span class="p">);</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;UTC 日期和时间：&#34;</span><span class="o">&lt;&lt;</span> <span class="n">dt</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 基于当前系统的当前日期/时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">time_t</span> <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 把 now 转换为字符串形式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">char</span><span class="o">*</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;本地日期和时间：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">dt</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 把 now 转换为 tm 结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">tm</span> <span class="o">*</span><span class="n">gmtm</span> <span class="o">=</span> <span class="n">gmtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">dt</span> <span class="o">=</span> <span class="n">asctime</span><span class="p">(</span><span class="n">gmtm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;UTC 日期和时间：&#34;</span><span class="o">&lt;&lt;</span> <span class="n">dt</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -290,10 +290,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">本地日期和时间：</span><span class="n">Sat</span> <span class="n">Jan</span>  <span class="mi">8</span> <span class="mi">20</span><span class="o">:</span><span class="mo">07</span><span class="o">:</span><span class="mi">41</span> <span class="mi">2011</span>
-
-<span class="n">UTC</span> <span class="err">日期和时间：</span><span class="n">Sun</span> <span class="n">Jan</span>  <span class="mi">9</span> <span class="mo">03</span><span class="o">:</span><span class="mo">07</span><span class="o">:</span><span class="mi">41</span> <span class="mi">2011</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">本地日期和时间：</span><span class="n">Sat</span> <span class="n">Jan</span>  <span class="mi">8</span> <span class="mi">20</span><span class="o">:</span><span class="mo">07</span><span class="o">:</span><span class="mi">41</span> <span class="mi">2011</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UTC</span> <span class="err">日期和时间：</span><span class="n">Sun</span> <span class="n">Jan</span>  <span class="mi">9</span> <span class="mo">03</span><span class="o">:</span><span class="mo">07</span><span class="o">:</span><span class="mi">41</span> <span class="mi">2011</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用结构-tm-格式化时间">使用结构 tm 格式化时间</h2>
 <p>使用箭头 <strong>-&gt; 运算符</strong>来访问结构成员</p>
@@ -323,29 +323,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// 基于当前系统的当前日期/时间
-</span><span class="c1"></span>   <span class="n">time_t</span> <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;1970 到目前经过秒数:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">now</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="n">tm</span> <span class="o">*</span><span class="n">ltm</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
- 
-   <span class="c1">// 输出 tm 结构的各个组成部分
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;年: &#34;</span><span class="o">&lt;&lt;</span> <span class="mi">1900</span> <span class="o">+</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_year</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;月: &#34;</span><span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;日: &#34;</span><span class="o">&lt;&lt;</span>  <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_mday</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;时间: &#34;</span><span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_sec</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 基于当前系统的当前日期/时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">time_t</span> <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;1970 到目前经过秒数:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">now</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">tm</span> <span class="o">*</span><span class="n">ltm</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出 tm 结构的各个组成部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;年: &#34;</span><span class="o">&lt;&lt;</span> <span class="mi">1900</span> <span class="o">+</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_year</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;月: &#34;</span><span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;日: &#34;</span><span class="o">&lt;&lt;</span>  <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_mday</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;时间: &#34;</span><span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ltm</span><span class="o">-&gt;</span><span class="n">tm_sec</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -357,12 +357,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="mi">1970</span> <span class="err">到目前时间</span><span class="o">:</span><span class="mi">1503564157</span>
-<span class="err">年</span><span class="o">:</span> <span class="mi">2017</span>
-<span class="err">月</span><span class="o">:</span> <span class="mi">8</span>
-<span class="err">日</span><span class="o">:</span> <span class="mi">24</span>
-<span class="err">时间</span><span class="o">:</span> <span class="mi">16</span><span class="o">:</span><span class="mi">42</span><span class="o">:</span><span class="mi">37</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="mi">1970</span> <span class="err">到目前时间</span><span class="o">:</span><span class="mi">1503564157</span>
+</span></span><span class="line"><span class="cl"><span class="err">年</span><span class="o">:</span> <span class="mi">2017</span>
+</span></span><span class="line"><span class="cl"><span class="err">月</span><span class="o">:</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="err">日</span><span class="o">:</span> <span class="mi">24</span>
+</span></span><span class="line"><span class="cl"><span class="err">时间</span><span class="o">:</span> <span class="mi">16</span><span class="o">:</span><span class="mi">42</span><span class="o">:</span><span class="mi">37</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

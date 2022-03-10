@@ -186,24 +186,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span>  <span class="n">var1</span><span class="p">;</span>
-   <span class="kt">char</span> <span class="n">var2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;var1 变量的地址： &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">var1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;var2 变量的地址： &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">var2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>  <span class="n">var1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">var2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;var1 变量的地址： &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">var1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;var2 变量的地址： &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">var2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -212,9 +212,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">var1</span> <span class="err">变量的地址：</span> <span class="mh">0xbfebd5c0</span>
-<span class="n">var2</span> <span class="err">变量的地址：</span> <span class="mh">0xbfebd5b6</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">var1</span> <span class="err">变量的地址：</span> <span class="mh">0xbfebd5c0</span>
+</span></span><span class="line"><span class="cl"><span class="n">var2</span> <span class="err">变量的地址：</span> <span class="mh">0xbfebd5b6</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过上面的实例，我们了解了什么是内存地址以及如何访问它。接下来让我们看看什么是指针。</p>
 <h2 id="什么是指针">什么是指针？</h2>
@@ -224,8 +224,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">type</span> <span class="o">*</span><span class="n">var</span><span class="o">-</span><span class="n">name</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">type</span> <span class="o">*</span><span class="n">var</span><span class="o">-</span><span class="n">name</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，<strong>type</strong> 是指针的基类型，它必须是一个有效的 C++ 数据类型，<strong>var-name</strong> 是指针变量的名称。用来声明指针的星号 * 与乘法中使用的星号是相同的。但是，在这个语句中，星号是用来指定一个变量是指针。以下是有效的指针声明：</p>
 <div class="highlight"><div class="chroma">
@@ -236,11 +236,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span>    <span class="o">*</span><span class="n">ip</span><span class="p">;</span>    <span class="cm">/* 一个整型的指针 */</span>
-<span class="kt">double</span> <span class="o">*</span><span class="n">dp</span><span class="p">;</span>    <span class="cm">/* 一个 double 型的指针 */</span>
-<span class="kt">float</span>  <span class="o">*</span><span class="n">fp</span><span class="p">;</span>    <span class="cm">/* 一个浮点型的指针 */</span>
-<span class="kt">char</span>   <span class="o">*</span><span class="n">ch</span><span class="p">;</span>    <span class="cm">/* 一个字符型的指针 */</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span>    <span class="o">*</span><span class="n">ip</span><span class="p">;</span>    <span class="cm">/* 一个整型的指针 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="o">*</span><span class="n">dp</span><span class="p">;</span>    <span class="cm">/* 一个 double 型的指针 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span>  <span class="o">*</span><span class="n">fp</span><span class="p">;</span>    <span class="cm">/* 一个浮点型的指针 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span>   <span class="o">*</span><span class="n">ch</span><span class="p">;</span>    <span class="cm">/* 一个字符型的指针 */</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同。</p>
 <h2 id="c-中使用指针">C++ 中使用指针</h2>
@@ -274,31 +274,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span>  <span class="n">var</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>   <span class="c1">// 实际变量的声明
-</span><span class="c1"></span>   <span class="kt">int</span>  <span class="o">*</span><span class="n">ip</span><span class="p">;</span>        <span class="c1">// 指针变量的声明
-</span><span class="c1"></span> 
-   <span class="n">ip</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>       <span class="c1">// 在指针变量中存储 var 的地址
-</span><span class="c1"></span> 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of var variable: &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">var</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 输出在指针变量中存储的地址
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Address stored in ip variable: &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ip</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 访问指针中地址的值
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of *ip variable: &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ip</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>  <span class="n">var</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>   <span class="c1">// 实际变量的声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span>  <span class="o">*</span><span class="n">ip</span><span class="p">;</span>        <span class="c1">// 指针变量的声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">   <span class="n">ip</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>       <span class="c1">// 在指针变量中存储 var 的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of var variable: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">var</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出在指针变量中存储的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Address stored in ip variable: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ip</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 访问指针中地址的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of *ip variable: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ip</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -308,10 +308,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Value</span> <span class="n">of</span> <span class="n">var</span> <span class="nl">variable</span><span class="p">:</span> <span class="mi">20</span>
-<span class="n">Address</span> <span class="n">stored</span> <span class="n">in</span> <span class="n">ip</span> <span class="nl">variable</span><span class="p">:</span> <span class="mh">0xbfc601ac</span>
-<span class="n">Value</span> <span class="n">of</span> <span class="o">*</span><span class="n">ip</span> <span class="nl">variable</span><span class="p">:</span> <span class="mi">20</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="n">var</span> <span class="nl">variable</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">Address</span> <span class="n">stored</span> <span class="n">in</span> <span class="n">ip</span> <span class="nl">variable</span><span class="p">:</span> <span class="mh">0xbfc601ac</span>
+</span></span><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="o">*</span><span class="n">ip</span> <span class="nl">variable</span><span class="p">:</span> <span class="mi">20</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-指针详解">C++ 指针详解</h2>
 <p>在 C++ 中，有很多指针相关的概念，这些概念都很简单，但是都很重要。下面列出了 C++ 程序员必须清楚的一些与指针相关的重要概念：</p>

@@ -276,57 +276,57 @@
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">go</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">go</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="s2">&#34;1.8&#34;</span><span class="w">  </span><span class="c"># 指定Golang 1.8</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># Specify which branches to build using a safelist</span><span class="w">
-</span><span class="w"></span><span class="c"># 分支白名单限制：只有 master 分支的提交才会触发构建</span><span class="w">
-</span><span class="w"></span><span class="c"># branches:</span><span class="w">
-</span><span class="w"></span><span class="c">#   only:</span><span class="w">
-</span><span class="w"></span><span class="c">#     - master</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">install</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># 安装最新的hugo</span><span class="w">
-</span><span class="w">  </span>- <span class="l">wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb</span><span class="w">
-</span><span class="w">  </span>- <span class="l">sudo dpkg -i hugo*.deb</span><span class="w">
-</span><span class="w">  </span><span class="c"># 安装主题</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git clone [你使用的主题的 Git 地址]</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">script</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># 运行hugo命令</span><span class="w">
-</span><span class="w">  </span>- <span class="l">hugo</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">after_script</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># 部署</span><span class="w">
-</span><span class="w">  </span>- <span class="l">cd ./public</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git init</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git config user.name &#34;[你的名字]&#34;</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git config user.email &#34;[你的邮箱]&#34;</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git add .</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34;</span><span class="w">
-</span><span class="w">  </span><span class="c"># Github Pages</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git push --force --quiet &#34;https://$GITHUB_TOKEN@${GH_REF}&#34; master:master</span><span class="w">
-</span><span class="w">  </span><span class="c"># Github Pages</span><span class="w">
-</span><span class="w">  </span>- <span class="l">git push --quiet &#34;https://$GITHUB_TOKEN@${GH_REF}&#34; master:master --tags</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span><span class="w"> </span><span class="nt">global</span><span class="p">:</span><span class="w">
-</span><span class="w">   </span><span class="c"># Github Pages</span><span class="w">
-</span><span class="w">   </span>- <span class="nt">GH_REF</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">用来部署博客的 Git 地址]</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">deploy</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">pages</span><span class="w"> </span><span class="c"># 重要，指定这是一份github pages的部署配置</span><span class="w">
-</span><span class="w">  </span><span class="nt">skip-cleanup</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 重要，不能省略</span><span class="w">
-</span><span class="w">  </span><span class="nt">local-dir</span><span class="p">:</span><span class="w"> </span><span class="l">public</span><span class="w"> </span><span class="c"># 静态站点文件所在目录</span><span class="w">
-</span><span class="w">  </span><span class="c"># target-branch: master # 要将静态站点文件发布到哪个分支</span><span class="w">
-</span><span class="w">  </span><span class="nt">github-token</span><span class="p">:</span><span class="w"> </span><span class="l">$GITHUB_TOKEN</span><span class="w"> </span><span class="c"># 重要，$GITHUB_TOKEN是变量，需要在GitHub上申请、再到配置到Travis</span><span class="w">
-</span><span class="w">  </span><span class="c"># fqdn:  # 如果是自定义域名，此处要填</span><span class="w">
-</span><span class="w">  </span><span class="nt">keep-history</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 是否保持target-branch分支的提交记录</span><span class="w">
-</span><span class="w">  </span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w"> </span><span class="c"># 博客源码的分支</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">go</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">go</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;1.8&#34;</span><span class="w">  </span><span class="c"># 指定Golang 1.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Specify which branches to build using a safelist</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 分支白名单限制：只有 master 分支的提交才会触发构建</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># branches:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#   only:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#     - master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">install</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 安装最新的hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">sudo dpkg -i hugo*.deb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 安装主题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git clone [你使用的主题的 Git 地址]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 运行hugo命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">after_script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 部署</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">cd ./public</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git init</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git config user.name &#34;[你的名字]&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git config user.email &#34;[你的邮箱]&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git add .</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Github Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git push --force --quiet &#34;https://$GITHUB_TOKEN@${GH_REF}&#34; master:master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Github Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git push --quiet &#34;https://$GITHUB_TOKEN@${GH_REF}&#34; master:master --tags</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">global</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="c"># Github Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="nt">GH_REF</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">用来部署博客的 Git 地址]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">pages</span><span class="w"> </span><span class="c"># 重要，指定这是一份github pages的部署配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skip-cleanup</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 重要，不能省略</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">local-dir</span><span class="p">:</span><span class="w"> </span><span class="l">public</span><span class="w"> </span><span class="c"># 静态站点文件所在目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># target-branch: master # 要将静态站点文件发布到哪个分支</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">github-token</span><span class="p">:</span><span class="w"> </span><span class="l">$GITHUB_TOKEN</span><span class="w"> </span><span class="c"># 重要，$GITHUB_TOKEN是变量，需要在GitHub上申请、再到配置到Travis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># fqdn:  # 如果是自定义域名，此处要填</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">keep-history</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 是否保持target-branch分支的提交记录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w"> </span><span class="c"># 博客源码的分支</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>Copy</p>
 <p>将上面的配置文件按照你的实际情况更改。</p>
@@ -354,10 +354,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">public/*
-themes/*
-resources/*
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">public/*
+</span></span><span class="line"><span class="cl">themes/*
+</span></span><span class="line"><span class="cl">resources/*
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Copy</p>
 <h3 id="travis-ci-的分支白名单">Travis CI 的分支白名单</h3>
@@ -371,12 +371,12 @@ resources/*
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Specify which branches to build using a safelist</span><span class="w">
-</span><span class="w"></span><span class="c"># 分支白名单限制：只有 master 分支的提交才会触发构建</span><span class="w">
-</span><span class="w"></span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="l">master</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Specify which branches to build using a safelist</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 分支白名单限制：只有 master 分支的提交才会触发构建</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">master</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>Copy</p>
 <p>这一段的作用是限制触发构建的分支。这在正常开发中是很重要的配置，特别是在团队 (多人) 开发的场景中。</p>

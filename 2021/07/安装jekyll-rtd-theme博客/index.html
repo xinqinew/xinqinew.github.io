@@ -178,10 +178,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> <span class="s2">&#34;https://rubygems.org&#34;</span> <span class="c1"># gems.ruby-china.com</span>
-gem <span class="s2">&#34;jekyll-rtd-theme&#34;</span>
-gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;https://rubygems.org&#34;</span> <span class="c1"># gems.ruby-china.com</span>
+</span></span><span class="line"><span class="cl">gem <span class="s2">&#34;jekyll-rtd-theme&#34;</span>
+</span></span><span class="line"><span class="cl">gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
 <li>终端再次运行 <code> bundle update</code></li>
@@ -199,12 +199,12 @@ gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> <span class="s2">&#34;https://rubygems.org&#34;</span> <span class="c1"># gems.ruby-china.com</span>
-
-gem <span class="s2">&#34;jekyll-rtd-theme&#34;</span>
-
-gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;https://rubygems.org&#34;</span> <span class="c1"># gems.ruby-china.com</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gem <span class="s2">&#34;jekyll-rtd-theme&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>2.将以下内容添加到您的网站 <code>_config.yml</code></p>
 <div class="highlight"><div class="chroma">
@@ -216,12 +216,12 @@ gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Your awesome title</span><span class="w">
-</span><span class="w"></span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l">en</span><span class="w">
-</span><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Write an awesome description for your new site here</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">jekyll-rtd-theme</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Your awesome title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l">en</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Write an awesome description for your new site here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">jekyll-rtd-theme</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="b基于远程主题">b.基于远程主题</h3>
 <ol>
@@ -232,8 +232,8 @@ gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">remote_theme: rundocs/jekyll-rtd-theme
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">remote_theme: rundocs/jekyll-rtd-theme
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>删除任何其他<code>theme</code>或<code>remote_theme</code>条目</li>
@@ -253,9 +253,9 @@ gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">readme_index:
-  with_frontmatter: <span class="nb">true</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">readme_index:
+</span></span><span class="line"><span class="cl">  with_frontmatter: <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>在需要排序的文件中添加 格式头</li>
@@ -267,10 +267,10 @@ gem <span class="s2">&#34;github-pages&#34;</span>, group: :jekyll_plugins
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">---
-sort: 1 # follow a certain sequence of letters or numbers
----
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">sort: 1 # follow a certain sequence of letters or numbers
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="三在readme文件中列出文件">三.在README文件中列出文件</h2>
 <p>在README文件中添加</p>
@@ -292,18 +292,18 @@ sort: 1 # follow a certain sequence of letters or numbers
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph TB
-    c1--&gt;a2
-    subgraph one
-    a1--&gt;a2
-    end
-    subgraph two
-    b1--&gt;b2
-    end
-    subgraph three
-    c1--&gt;c2
-    end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TB
+</span></span><span class="line"><span class="cl">    c1--&gt;a2
+</span></span><span class="line"><span class="cl">    subgraph one
+</span></span><span class="line"><span class="cl">    a1--&gt;a2
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">    subgraph two
+</span></span><span class="line"><span class="cl">    b1--&gt;b2
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">    subgraph three
+</span></span><span class="line"><span class="cl">    c1--&gt;c2
+</span></span><span class="line"><span class="cl">    end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>笔记</strong></p>
 <div class="highlight"><div class="chroma">
@@ -317,14 +317,14 @@ sort: 1 # follow a certain sequence of letters or numbers
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">这是笔记
-
-支持 Markdown, 文本可以是**粗体**, _斜体, or ~~删除线~~. [链接](https://github.com) 是蓝色的,且没有下划线
-
-`inline code`
-
-[`inline code inside link`](#)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">这是笔记
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">支持 Markdown, 文本可以是**粗体**, _斜体, or ~~删除线~~. [链接](https://github.com) 是蓝色的,且没有下划线
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">`inline code`
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[`inline code inside link`](#)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>提示</strong></p>
 <div class="highlight"><div class="chroma">
@@ -332,8 +332,8 @@ sort: 1 # follow a certain sequence of letters or numbers
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">它比面包盒还大..
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">它比面包盒还大..
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>警告</strong></p>
 <div class="highlight"><div class="chroma">
@@ -341,8 +341,8 @@ sort: 1 # follow a certain sequence of letters or numbers
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">强烈的散文可能会引起极度的脑力消耗。强烈建议读者酌情决定.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">强烈的散文可能会引起极度的脑力消耗。强烈建议读者酌情决定.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>危险</strong></p>
 <div class="highlight"><div class="chroma">
@@ -350,8 +350,8 @@ sort: 1 # follow a certain sequence of letters or numbers
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">疯狂的科学家在工作！
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">疯狂的科学家在工作！
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>更新
 sudo bundle install

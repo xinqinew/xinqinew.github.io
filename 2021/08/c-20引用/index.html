@@ -175,8 +175,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int i = 17;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int i = 17;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们可以为 i 声明引用变量，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -185,9 +185,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int&amp;  r = i;
-double&amp; s = d;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int&amp;  r = i;
+</span></span><span class="line"><span class="cl">double&amp; s = d;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这些声明中，&amp; 读作<strong>引用</strong>。因此，第一个声明可以读作 &ldquo;r 是一个初始化为 i 的整型引用&rdquo;，第二个声明可以读作 &ldquo;s 是一个初始化为 d 的 double 型引用&rdquo;。下面的实例使用了 int 和 double 引用：</p>
 <h2 id="实例">实例</h2>
@@ -219,31 +219,31 @@ double&amp; s = d;
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="c1">// 声明简单的变量
-</span><span class="c1"></span>   <span class="kt">int</span>    <span class="n">i</span><span class="p">;</span>
-   <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
- 
-   <span class="c1">// 声明引用变量
-</span><span class="c1"></span>   <span class="kt">int</span><span class="o">&amp;</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-   <span class="kt">double</span><span class="o">&amp;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
-   
-   <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of i : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of i reference : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">r</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="n">d</span> <span class="o">=</span> <span class="mf">11.7</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of d : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of d reference : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">s</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 声明简单的变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span>    <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 声明引用变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">int</span><span class="o">&amp;</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">double</span><span class="o">&amp;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of i : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of i reference : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">r</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">d</span> <span class="o">=</span> <span class="mf">11.7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of d : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of d reference : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">s</span>  <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -254,11 +254,11 @@ double&amp; s = d;
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Value</span> <span class="n">of</span> <span class="nl">i</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="n">Value</span> <span class="n">of</span> <span class="n">i</span> <span class="nl">reference</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="n">Value</span> <span class="n">of</span> <span class="nl">d</span> <span class="p">:</span> <span class="mf">11.7</span>
-<span class="n">Value</span> <span class="n">of</span> <span class="n">d</span> <span class="nl">reference</span> <span class="p">:</span> <span class="mf">11.7</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="nl">i</span> <span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="n">i</span> <span class="nl">reference</span> <span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="nl">d</span> <span class="p">:</span> <span class="mf">11.7</span>
+</span></span><span class="line"><span class="cl"><span class="n">Value</span> <span class="n">of</span> <span class="n">d</span> <span class="nl">reference</span> <span class="p">:</span> <span class="mf">11.7</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>引用通常用于函数参数列表和函数返回值。下面列出了 C++ 程序员必须清楚的两个与 C++ 引用相关的重要概念：</p>
 <table>

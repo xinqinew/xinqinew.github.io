@@ -186,20 +186,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">try</span>
-<span class="p">{</span>
-   <span class="c1">// 保护代码
-</span><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e1</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// catch 块
-</span><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e2</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// catch 块
-</span><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">eN</span> <span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// catch 块
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 保护代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// catch 块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e2</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// catch 块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">eN</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// catch 块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果 <strong>try</strong> 块在不同的情境下会抛出不同的异常，这个时候可以尝试罗列多个 <strong>catch</strong> 语句，用于捕获不同类型的异常。</p>
 <h2 id="抛出异常">抛出异常</h2>
@@ -217,15 +217,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">double</span> <span class="nf">division</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="k">if</span><span class="p">(</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="k">throw</span> <span class="s">&#34;Division by zero condition!&#34;</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">division</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="s">&#34;Division by zero condition!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="捕获异常">捕获异常</h2>
 <p><strong>catch</strong> 块跟在 <strong>try</strong> 块后面，用于捕获异常。您可以指定想要捕捉的异常类型，这是由 catch 关键字后的括号内的异常声明决定的。</p>
@@ -240,14 +240,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">try</span>
-<span class="p">{</span>
-   <span class="c1">// 保护代码
-</span><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// 处理 ExceptionName 异常的代码
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 保护代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span> <span class="n">ExceptionName</span> <span class="n">e</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 处理 ExceptionName 异常的代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的代码会捕获一个类型为 <strong>ExceptionName</strong> 的异常。如果您想让 catch 块能够处理 try 块抛出的任何类型的异常，则必须在异常声明的括号内使用省略号 &hellip;，如下所示：</p>
 <div class="highlight"><div class="chroma">
@@ -261,14 +261,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">try</span>
-<span class="p">{</span>
-   <span class="c1">// 保护代码
-</span><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(...)</span>
-<span class="p">{</span>
-  <span class="c1">// 能处理任何异常的代码
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 保护代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="k">catch</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 能处理任何异常的代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面是一个实例，抛出一个除以零的异常，并在 catch 块中捕获该异常。</p>
 <p><strong>实例</strong></p>
@@ -303,34 +303,34 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">double</span> <span class="nf">division</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="k">if</span><span class="p">(</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="k">throw</span> <span class="s">&#34;Division by zero condition!&#34;</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
- 
-   <span class="k">try</span> <span class="p">{</span>
-     <span class="n">z</span> <span class="o">=</span> <span class="n">division</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">msg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">division</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="s">&#34;Division by zero condition!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">z</span> <span class="o">=</span> <span class="n">division</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">msg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>由于我们抛出了一个类型为 <strong>const char*</strong> 的异常，因此，当捕获该异常时，我们必须在 catch 块中使用 const char*。当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -338,8 +338,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Division</span> <span class="n">by</span> <span class="n">zero</span> <span class="n">condition</span><span class="o">!</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Division</span> <span class="n">by</span> <span class="n">zero</span> <span class="n">condition</span><span class="o">!</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-标准的异常">C++ 标准的异常</h2>
 <p>C++ 提供了一系列标准的异常，定义在 <strong><exception></strong> 中，我们可以在程序中使用这些标准的异常。它们是以父子类层次结构组织起来的，如下所示：</p>
@@ -453,35 +453,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;exception&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="k">struct</span> <span class="nc">MyException</span> <span class="o">:</span> <span class="k">public</span> <span class="n">exception</span>
-<span class="p">{</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">what</span> <span class="p">()</span> <span class="k">const</span> <span class="k">throw</span> <span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="s">&#34;C++ Exception&#34;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="k">try</span>
-  <span class="p">{</span>
-    <span class="k">throw</span> <span class="n">MyException</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="k">catch</span><span class="p">(</span><span class="n">MyException</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;MyException caught&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">catch</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="c1">//其他的错误
-</span><span class="c1"></span>  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;exception&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">MyException</span> <span class="o">:</span> <span class="k">public</span> <span class="n">exception</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">what</span> <span class="p">()</span> <span class="k">const</span> <span class="k">throw</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;C++ Exception&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="n">MyException</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">catch</span><span class="p">(</span><span class="n">MyException</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;MyException caught&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">catch</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//其他的错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这将产生以下结果：</p>
 <div class="highlight"><div class="chroma">
@@ -490,9 +490,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">MyException</span> <span class="n">caught</span>
-<span class="n">C</span><span class="o">++</span> <span class="n">Exception</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">MyException</span> <span class="n">caught</span>
+</span></span><span class="line"><span class="cl"><span class="n">C</span><span class="o">++</span> <span class="n">Exception</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，<strong>what()</strong> 是异常类提供的一个公共方法，它已被所有子异常类重载。这将返回异常产生的原因。</p>
 </div><div class="post-footer" id="post-footer">

@@ -236,16 +236,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
-
-
-<span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
-<span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
-	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
-		<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">&#39;</span><span class="n">uidm__jumap</span> <span class="err">被调用&#39;</span><span class="p">)</span>
-	<span class="p">},</span>
-<span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">&#39;</span><span class="n">uidm__jumap</span> <span class="err">被调用&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这段代码，可以让jumap函数被调用后（jumap内部代码被执行之前），在终端/cmd执行我们1.js的onEnter指定的方法（这里是输出个提示），</p>
 <p>先看看它的调用情况如何，比如是否会被调用，如果这个函数确实会被调用，分两种情况，</p>
@@ -307,24 +307,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
-
-<span class="n">function</span> <span class="n">vy</span><span class="p">(){</span>
-	<span class="n">let</span> <span class="n">baseaddr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0xA8BDC8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
-	<span class="n">let</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span> <span class="n">ptr</span><span class="p">(</span><span class="n">baseaddr</span> <span class="o">+</span> <span class="mh">0xb8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span> <span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
-	<span class="n">let</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">v2</span> <span class="o">+</span> <span class="mh">0x58</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span>
-
-	<span class="n">vy</span><span class="p">.</span><span class="n">writeFloat</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
-<span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
-	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
-		<span class="n">vy</span><span class="p">();</span>
-	<span class="p">},</span>
-<span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">vy</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">baseaddr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0xA8BDC8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span> <span class="n">ptr</span><span class="p">(</span><span class="n">baseaddr</span> <span class="o">+</span> <span class="mh">0xb8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span> <span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">v2</span> <span class="o">+</span> <span class="mh">0x58</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">vy</span><span class="p">.</span><span class="n">writeFloat</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">vy</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>就是说，只要按一下跳跃键，就把速度写入+10，那么接下来的一小段时间内，咱们会越飞越高，同时速度也在趋近于0，紧接着速度为0，达到最高点，然后速度逐渐向下增大，总之，和普通的跳跃的视觉效果是一样的。</p>
 <p>至此为止，本文已经结束了。</p>

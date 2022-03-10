@@ -172,12 +172,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">x = x+1;
- 
-等同于
- 
-x++;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x = x+1;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">等同于
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">x++;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>同样的：</p>
 <div class="highlight"><div class="chroma">
@@ -189,12 +189,12 @@ x++;
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">x = x-1;
- 
-等同于
- 
-x--;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x = x-1;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">等同于
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">x--;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>无论是自增运算符还是自减运算符，都可以放在操作数的前面（前缀）或后面（后缀）。例如：</p>
 <div class="highlight"><div class="chroma">
@@ -206,12 +206,12 @@ x--;
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">x = x+1;
- 
-可以写成：
- 
-++x; // 前缀形式
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x = x+1;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">可以写成：
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">++x; // 前缀形式
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者：</p>
 <div class="highlight"><div class="chroma">
@@ -219,8 +219,8 @@ x--;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">x++; // 后缀形式
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x++; // 后缀形式
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>前缀形式与后缀形式之间有一点不同。如果使用前缀形式，则会在表达式计算之前完成自增或自减，如果使用后缀形式，则会在表达式计算之后完成自增或自减。</p>
 <p><strong>实例</strong></p>
@@ -249,27 +249,27 @@ x--;
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
- 
-   <span class="c1">// a 的值在赋值之前不会自增
-</span><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span>   
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - Value of a++ is :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="c1">// 表达式计算之后，a 的值增加 1
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - Value of a is :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
- 
-   <span class="c1">// a 的值在赋值之前自增
-</span><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="o">++</span><span class="n">a</span><span class="p">;</span>  
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - Value of ++a is  :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// a 的值在赋值之前不会自增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 1 - Value of a++ is :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 表达式计算之后，a 的值增加 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 2 - Value of a is :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// a 的值在赋值之前自增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">c</span> <span class="o">=</span> <span class="o">++</span><span class="n">a</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Line 3 - Value of ++a is  :&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -279,10 +279,10 @@ x--;
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Line 1 - Value of a++ is :21
-Line 2 - Value of a is :22
-Line 3 - Value of ++a is  :23
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Line 1 - Value of a++ is :21
+</span></span><span class="line"><span class="cl">Line 2 - Value of a is :22
+</span></span><span class="line"><span class="cl">Line 3 - Value of ++a is  :23
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://www.runoob.com/cplusplus/cpp-operators.html" target="_blank" rel="noopener noreffer"><img
         class="lazyload"

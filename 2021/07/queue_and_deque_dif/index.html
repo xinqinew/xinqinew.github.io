@@ -159,10 +159,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;deque&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span><span class="k">typename</span> <span class="n">Allocator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nc">deque</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;deque&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span><span class="k">typename</span> <span class="n">Allocator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nc">deque</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>支持push_front、pop_front、push_back、pop_back等几种操作的。queue是容器适配器，他的声明是</p>
 <div class="highlight"><div class="chroma">
@@ -172,10 +172,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;queue&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span><span class="k">typename</span> <span class="n">Container</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nc">queue</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;queue&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span><span class="k">typename</span> <span class="n">Container</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="k">class</span> <span class="nc">queue</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>类型Container是用来存储元素的，相当于是这个queue的实现。这个queue模板看起来像是包装了这个Container类型，只提供一些特殊的接口，使他看起来想一个queue。</p>
 <p>模板参数Container需要满足顺序容器的条件，而且必须支持front、back、push_back、pop_front操作，标准容器中有deque和list满足。也就是说标准容器中deque和list可以封装成queue。</p>

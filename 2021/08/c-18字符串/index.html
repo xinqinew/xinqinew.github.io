@@ -172,8 +172,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">char site[7] = {&#39;R&#39;, &#39;U&#39;, &#39;N&#39;, &#39;O&#39;, &#39;O&#39;, &#39;B&#39;, &#39;\0&#39;};
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">char site[7] = {&#39;R&#39;, &#39;U&#39;, &#39;N&#39;, &#39;O&#39;, &#39;O&#39;, &#39;B&#39;, &#39;\0&#39;};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>依据数组初始化规则，您可以把上面的语句写成以下语句：</p>
 <div class="highlight"><div class="chroma">
@@ -181,8 +181,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">char site[] = &#34;RUNOOB&#34;;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">char site[] = &#34;RUNOOB&#34;;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以下是 C/C++ 中定义的字符串的内存表示：</p>
 <p><img
@@ -212,20 +212,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">char</span> <span class="n">site</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;菜鸟教程: &#34;</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">site</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">site</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;菜鸟教程: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">site</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -233,8 +233,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">菜鸟教程: RUNOOB
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">菜鸟教程: RUNOOB
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>C++ 中有大量的函数用来操作以 null 结尾的字符串:</p>
 <table>
@@ -303,33 +303,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">char</span> <span class="n">str1</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
-   <span class="kt">char</span> <span class="n">str2</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
-   <span class="kt">char</span> <span class="n">str3</span><span class="p">[</span><span class="mi">13</span><span class="p">];</span>
-   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
- 
-   <span class="c1">// 复制 str1 到 str3
-</span><span class="c1"></span>   <span class="n">strcpy</span><span class="p">(</span> <span class="n">str3</span><span class="p">,</span> <span class="n">str1</span><span class="p">);</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strcpy( str3, str1) : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接 str1 和 str2
-</span><span class="c1"></span>   <span class="n">strcat</span><span class="p">(</span> <span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">);</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strcat( str1, str2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接后，str1 的总长度
-</span><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strlen(str1) : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">str1</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">str2</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">str3</span><span class="p">[</span><span class="mi">13</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 复制 str1 到 str3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">strcpy</span><span class="p">(</span> <span class="n">str3</span><span class="p">,</span> <span class="n">str1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strcpy( str3, str1) : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接 str1 和 str2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">strcat</span><span class="p">(</span> <span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strcat( str1, str2): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接后，str1 的总长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;strlen(str1) : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -339,10 +339,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">strcpy( str3, str1) : runoob
-strcat( str1, str2): runoobgoogle
-strlen(str1) : 12
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">strcpy( str3, str1) : runoob
+</span></span><span class="line"><span class="cl">strcat( str1, str2): runoobgoogle
+</span></span><span class="line"><span class="cl">strlen(str1) : 12
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-中的-string-类">C++ 中的 String 类</h2>
 <p>C++ 标准库提供了 <strong>string</strong> 类类型，支持上述所有的操作，另外还增加了其他更多的功能。我们将学习 C++ 标准库中的这个类，现在让我们先来看看下面这个实例：</p>
@@ -378,33 +378,33 @@ strlen(str1) : 12
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp"></span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
-   <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
-   <span class="n">string</span> <span class="n">str3</span><span class="p">;</span>
-   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
- 
-   <span class="c1">// 复制 str1 到 str3
-</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接 str1 和 str2
-</span><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str1 + str2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 连接后，str3 的总长度
-</span><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3.size() :  &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;runoob&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&#34;google&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">string</span> <span class="n">str3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span>  <span class="n">len</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 复制 str1 到 str3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接 str1 和 str2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str1 + str2 : &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 连接后，str3 的总长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">len</span> <span class="o">=</span> <span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;str3.size() :  &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -414,10 +414,10 @@ strlen(str1) : 12
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="nl">str3</span> <span class="p">:</span> <span class="n">runoob</span>
-<span class="n">str1</span> <span class="o">+</span> <span class="nl">str2</span> <span class="p">:</span> <span class="n">runoobgoogle</span>
-<span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span>  <span class="mi">12</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">str3</span> <span class="p">:</span> <span class="n">runoob</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">+</span> <span class="nl">str2</span> <span class="p">:</span> <span class="n">runoobgoogle</span>
+</span></span><span class="line"><span class="cl"><span class="n">str3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span>  <span class="mi">12</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

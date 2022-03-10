@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/10\/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1970 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "飞郁精品帖","wordcount":  1968 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/10\/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8\/","datePublished": "2021-10-13T00:00:00+00:00","dateModified": "2021-10-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1970 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-10-13">2021-10-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1968 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/2021/10/%E9%A9%B1%E5%8A%A8%E7%B3%BB%E5%88%97%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84x64%E9%A9%B1%E5%8A%A8/" class="leancloud_visitors" data-flag-title="【驱动系列】最简单的X64驱动">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -361,210 +361,206 @@
 </span><span class="lnt">195
 </span><span class="lnt">196
 </span><span class="lnt">197
-</span><span class="lnt">198
-</span><span class="lnt">199
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//KdPrint类似于 控制台的printf
-</span><span class="c1">//DriverEntry类似于 C / C++里的main
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;ntifs.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cp">#pragma code_seg(&#34;PAGE&#34;)
-</span><span class="cp"></span><span class="c1">//创建驱动设备对象
-</span><span class="c1"></span><span class="n">NTSTATUS</span> <span class="nf">CreateDevice</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">NTSTATUS</span> <span class="n">status</span><span class="p">;</span>
-        <span class="n">UNICODE_STRING</span> <span class="n">uzDriverName</span><span class="p">;</span>
-        <span class="n">PDEVICE_OBJECT</span> <span class="n">device</span><span class="p">;</span>
-        <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">DEVICE</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span>
-        <span class="c1">//创建驱动设备
-</span><span class="c1"></span>        <span class="n">status</span> <span class="o">=</span> <span class="n">IoCreateDevice</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">DriverExtension</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">,</span> <span class="n">FILE_DEVICE_UNKNOWN</span><span class="p">,</span> <span class="n">FILE_DEVICE_SECURE_OPEN</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
-
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">STATUS_SUCCESS</span><span class="p">)</span>
-        <span class="p">{</span>
-                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动设备对象 %wZ 创建成功，OK -----------</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">));</span>
-                <span class="c1">//为设备对象绑定一个符号链接
-</span><span class="c1"></span>                <span class="n">UNICODE_STRING</span> <span class="n">uzSymbolName</span><span class="p">;</span> <span class="c1">//符号链接名字                 
-</span><span class="c1"></span>                <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span> <span class="c1">//CreateFile
-</span><span class="c1"></span>                <span class="n">status</span> <span class="o">=</span> <span class="n">IoCreateSymbolicLink</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="n">STATUS_SUCCESS</span><span class="p">)</span>
-                <span class="p">{</span>
-                        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:创建符号链接 %wZ 成功 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
-                <span class="p">}</span>
-                <span class="k">else</span>
-                <span class="p">{</span>
-                        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:创建符号链接 %wZ 失败 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-
-                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动设备对象 %wZ 创建失败，准备删除Device -----------</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">));</span>
-                <span class="n">IoDeleteDevice</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//驱动卸载例程
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">UnLoad</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">NTSTATUS</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">IoDeleteDevice</span><span class="p">(</span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">DeviceObject</span><span class="p">);</span> <span class="c1">//删除设备对象,如果此处不删除 卸载不干净 再次用IoCreateDevice创建同名驱动 会蓝屏
-</span><span class="c1"></span>        <span class="c1">//删除符号链接
-</span><span class="c1"></span>        <span class="n">UNICODE_STRING</span> <span class="n">uzSymbolName</span><span class="p">;</span> <span class="c1">//符号链接名字
-</span><span class="c1"></span>        <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span>
-        <span class="n">status</span><span class="o">=</span><span class="n">IoDeleteSymbolicLink</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">status</span><span class="p">)</span> <span class="c1">//if(status == STATUS_SUCCESS)
-</span><span class="c1"></span>        <span class="p">{</span>
-                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:删除符号链接 %wZ 成功 &#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:删除符号链接 %wZ 失败 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
-        <span class="p">}</span>
-        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动卸载成功</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="n">NTSTATUS</span> <span class="nf">DriverEntry</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">,</span><span class="n">PVOID</span> <span class="n">szReg</span><span class="p">)</span> <span class="c1">//main
-</span><span class="c1"></span><span class="p">{</span>
-        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:进入了我们的驱动 </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">));</span> <span class="c1">//printf
-</span><span class="c1"></span>        <span class="n">driver</span><span class="o">-&gt;</span><span class="n">DriverUnload</span> <span class="o">=</span> <span class="n">UnLoad</span><span class="p">;</span>
-        <span class="n">NTSTATUS</span> <span class="n">status</span><span class="o">=</span><span class="n">CreateDevice</span><span class="p">(</span><span class="n">driver</span><span class="p">);</span><span class="c1">//创建了设备对象
-</span><span class="c1"></span>
-        <span class="k">return</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-
-<span class="n">IRP</span> <span class="err">派遣函数</span>
-
-
-<span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_DEVICE_CONTROL</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span><span class="c1">//DeviceIoControl
-</span><span class="c1"></span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_CREATE</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span> <span class="c1">//CreateFile
-</span><span class="c1"></span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_CLOSE</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span><span class="c1">//卸载驱动 CloseHandle
-</span><span class="c1"></span>
-
-<span class="n">NTSTATUS</span> <span class="nf">DeviceIrpCtl</span><span class="p">(</span><span class="n">PDEVICE_OBJECT</span> <span class="n">device</span><span class="p">,</span><span class="n">PIRP</span> <span class="n">pirp</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:进入派遣函数&#34;</span><span class="p">));</span>
-        <span class="n">PIO_STACK_LOCATION</span> <span class="n">irpStackL</span><span class="p">;</span>
-        <span class="n">ULONG</span> <span class="n">CtlCode</span><span class="p">;</span>
-        <span class="n">ULONG</span> <span class="n">InputBuffLength</span><span class="p">;</span>
-
-
-        <span class="n">irpStackL</span><span class="o">=</span><span class="n">IoGetCurrentIrpStackLocation</span><span class="p">(</span><span class="n">pirp</span><span class="p">);</span> <span class="c1">//获取应用层传来的参数
-</span><span class="c1"></span>
-        <span class="k">switch</span><span class="p">(</span><span class="n">irpStackL</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">)</span>
-         <span class="p">{</span>
-          <span class="n">IRP_MJ_DEVICE_CONTROL</span><span class="p">;</span>
-          <span class="n">IRP_MJ_CREATE</span><span class="p">;</span>
-          <span class="n">IRP_MJ_CLOSE</span><span class="p">;</span>
-         <span class="p">}</span>
-
-        <span class="n">pirp</span><span class="o">-&gt;</span><span class="n">IoStatus</span><span class="p">.</span><span class="n">Status</span> <span class="o">=</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
-        <span class="n">pirp</span><span class="o">-&gt;</span><span class="n">IoStatus</span><span class="p">.</span><span class="n">Information</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="c1">//返回给DeviceIoControl中的 倒数第二个参数lpBytesReturned
-</span><span class="c1"></span>        <span class="n">IoCompleteRequest</span><span class="p">(</span><span class="n">pirp</span><span class="p">,</span> <span class="n">IO_NO_INCREMENT</span><span class="p">);</span><span class="c1">//调用方已完成所有I/O请求处理操作 并且不增加优先级 
-</span><span class="c1"></span>        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:离开派遣函数&#34;</span><span class="p">));</span>
-        <span class="k">return</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-
-<span class="c1">//打开驱动设备
-</span><span class="c1"></span><span class="kt">void</span> <span class="n">CIoControlIrpDlg</span><span class="o">::</span><span class="n">OnBnClickedCreate</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="c1">// TODO: 在此添加控件通知处理程序代码
-</span><span class="c1"></span>        <span class="n">DeviceHandle</span> <span class="o">=</span> <span class="n">CreateFileW</span><span class="p">(</span>
-                <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">,</span>
-                <span class="n">GENERIC_READ</span> <span class="o">|</span> <span class="n">GENERIC_WRITE</span><span class="p">,</span>
-                <span class="n">FILE_SHARE_READ</span> <span class="o">|</span> <span class="n">FILE_SHARE_WRITE</span><span class="p">,</span>
-                <span class="nb">NULL</span><span class="p">,</span>
-                <span class="n">OPEN_EXISTING</span><span class="p">,</span>
-                <span class="n">FILE_ATTRIBUTE_NORMAL</span><span class="p">,</span>
-                <span class="nb">NULL</span><span class="p">);</span>
-
-<span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="n">CIoControlIrpDlg</span><span class="o">::</span><span class="n">OnBnClickedButtonClose</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="c1">// TODO: 在此添加控件通知处理程序代码
-</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">DeviceHandle</span><span class="p">)</span>
-        <span class="p">{</span>
-                <span class="n">CloseHandle</span><span class="p">(</span><span class="n">DeviceHandle</span><span class="p">);</span>
-                <span class="n">DeviceHandle</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="n">R3应用层与R0驱动层简单通信</span>
-
-<span class="cp">#define IO_IS_OK_TEST   CTL_CODE(FILE_DEVICE_UNKNOWN,         0x803,         METHOD_BUFFERED,FILE_ANY_ACCESS) </span><span class="c1">//测试
-</span><span class="c1"></span>
-<span class="c1">//WriteFile ReadFile
-</span><span class="c1"></span><span class="n">BOOL</span> <span class="n">DeviceIoControl</span><span class="p">(</span>
-  <span class="n">HANDLE</span> <span class="n">hDevice</span><span class="p">,</span>              <span class="c1">// 设备驱动的句柄 由CreateFile获取 
-</span><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">dwIoControlCode</span><span class="p">,</span>       <span class="c1">// 操作控制码
-</span><span class="c1"></span>  <span class="n">LPVOID</span> <span class="n">lpInBuffer</span><span class="p">,</span>           <span class="c1">// 输入缓冲区指针 要传入驱动的 参数
-</span><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">nInBufferSize</span><span class="p">,</span>         <span class="c1">// 输入缓冲区大小
-</span><span class="c1"></span>  <span class="n">LPVOID</span> <span class="n">lpOutBuffer</span><span class="p">,</span>          <span class="c1">// 输出缓冲区指针
-</span><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">nOutBufferSize</span><span class="p">,</span>        <span class="c1">// 输出缓冲区大小
-</span><span class="c1"></span>  <span class="n">LPDWORD</span> <span class="n">lpBytesReturned</span><span class="p">,</span>     <span class="c1">// 存放返回的字节数的指针
-</span><span class="c1"></span>  <span class="n">LPOVERLAPPED</span> <span class="n">lpOverlapped</span>    <span class="c1">// 异步结构指针,同步或者异步
-</span><span class="c1"></span><span class="p">);</span>
-
-
-<span class="n">BOOL</span>  <span class="n">WINAPI</span> <span class="nf">IoControlIsOK</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="n">DWORD</span> <span class="n">nTypeCode</span> <span class="o">=</span> <span class="n">IO_IS_OK_TEST</span><span class="p">;</span>
-        <span class="n">ULONG64</span> <span class="n">BufferInData</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;;</span>
-        <span class="n">DWORD</span> <span class="n">NumberOfBytesRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">BOOL</span> <span class="n">IsOK</span> <span class="o">=</span> <span class="n">DeviceIoControl</span><span class="p">(</span>
-                <span class="n">GetDeviceHandle</span><span class="p">(),</span> <span class="c1">//CreateFile函数打开的设备句柄
-</span><span class="c1"></span>                <span class="n">nTypeCode</span><span class="p">,</span><span class="c1">//自定义的控制码
-</span><span class="c1"></span>                <span class="o">&amp;</span><span class="n">BufferInData</span><span class="p">,</span><span class="c1">//输入缓冲区
-</span><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">BufferInData</span><span class="p">),</span><span class="c1">//输入缓冲区大小
-</span><span class="c1"></span>                <span class="o">&amp;</span><span class="n">BufferInData</span><span class="p">,</span><span class="c1">////输出缓冲区
-</span><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">BufferInData</span><span class="p">),</span><span class="c1">//输出缓冲区的大小
-</span><span class="c1"></span>                <span class="o">&amp;</span><span class="n">NumberOfBytesRead</span><span class="p">,</span><span class="c1">//实际返回的字节数，对应驱动程序中pIrp-&gt;IoStatus.Information。
-</span><span class="c1"></span>                <span class="nb">NULL</span><span class="p">);</span> <span class="c1">////重叠操作结构指针。同步设为NULL，DeviceIoControl将进行阻塞调用；否则，应在编程时按异步操作设计
-</span><span class="c1"></span>        <span class="n">DbgPrintA</span><span class="p">(</span><span class="s">&#34;yjx:IsOK=%d,NumberOfBytesRead=%d  BufferInData=%d&#34;</span><span class="p">,</span> <span class="n">IsOK</span><span class="p">,</span> <span class="n">NumberOfBytesRead</span><span class="p">,</span> <span class="n">BufferInData</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">NumberOfBytesRead</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="cp">#include</span> 
-<span class="cpf">#define IO_IS_OK_TEST   CTL_CODE(FILE_DEVICE_UNKNOWN,         0x803,         METHOD_BUFFERED,FILE_ANY_ACCESS) //测试</span><span class="cp">
-</span><span class="cp"></span><span class="kt">void</span> <span class="n">CMFCIRPCTRLDlg</span><span class="o">::</span><span class="n">OnBnClickedButtonIoCtl</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="c1">// TODO: 在此添加控件通知处理程序代码
-</span><span class="c1"></span>        <span class="n">INT64</span> <span class="n">InBuf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x123456</span><span class="p">,</span><span class="mh">0x123456789ABCDEF</span><span class="p">,</span><span class="mh">0x888888ABC</span> <span class="p">};</span> <span class="c1">//输入缓冲区
-</span><span class="c1"></span>        <span class="n">INT64</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-        <span class="n">DWORD</span> <span class="n">dwSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">DeviceIoControl</span><span class="p">(</span>
-                <span class="n">DeviceHandle</span><span class="p">,</span> 
-                <span class="n">IO_IS_OK_TEST</span><span class="p">,</span>
-                <span class="n">InBuf</span><span class="p">,</span><span class="c1">//输入缓冲区指针
-</span><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">InBuf</span><span class="p">),</span><span class="c1">//2*8,//输入缓冲区大小
-</span><span class="c1"></span>                <span class="n">OutBuf</span><span class="p">,</span><span class="c1">//输出缓冲区
-</span><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">OutBuf</span><span class="p">),</span> <span class="c1">//输出缓冲区大小 6*8 =48
-</span><span class="c1"></span>                <span class="o">&amp;</span><span class="n">dwSize</span><span class="p">,</span><span class="c1">//返回 字节数 pIrp-&gt;IoStatus.Information //IRP.IOStatus.InforMation
-</span><span class="c1"></span>                <span class="nb">NULL</span> <span class="c1">//同步异步
-</span><span class="c1"></span>        <span class="p">);</span>
-        <span class="n">CString</span> <span class="n">csStr</span><span class="p">;</span>
-        <span class="n">csStr</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;yjx:EXE:%llx,%llx,%llx,%llx,%llx,%llx dwSize=%llx .....OK</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">dwSize</span><span class="p">);</span>
-        <span class="n">OutputDebugStringW</span><span class="p">(</span><span class="n">csStr</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="c1">//驱动层 获取用户层参数
-</span><span class="c1"></span><span class="n">Irp</span><span class="o">-&gt;</span><span class="n">AssociatedIrp</span><span class="p">.</span><span class="n">SystemBuffer</span><span class="p">;</span>
-<span class="n">driver</span><span class="o">-&gt;</span><span class="n">Flags</span> <span class="o">|=</span> <span class="n">DO_BUFFERED_IO</span><span class="p">;</span> <span class="c1">//IO访问方式  重要 对应 METHOD_BUFFERED
-</span><span class="c1"></span>        <span class="n">inBufLength</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">InputBufferLength</span><span class="p">;</span>
-        <span class="n">outBufLength</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">OutputBufferLength</span><span class="p">;</span>
-        <span class="n">ioControlCode</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">IoControlCode</span><span class="p">;</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//KdPrint类似于 控制台的printf
+</span></span></span><span class="line"><span class="cl"><span class="c1">//DriverEntry类似于 C / C++里的main
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;ntifs.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#pragma code_seg(&#34;PAGE&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//创建驱动设备对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NTSTATUS</span> <span class="nf">CreateDevice</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NTSTATUS</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">UNICODE_STRING</span> <span class="n">uzDriverName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">PDEVICE_OBJECT</span> <span class="n">device</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">DEVICE</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//创建驱动设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">status</span> <span class="o">=</span> <span class="n">IoCreateDevice</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">DriverExtension</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">,</span> <span class="n">FILE_DEVICE_UNKNOWN</span><span class="p">,</span> <span class="n">FILE_DEVICE_SECURE_OPEN</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">STATUS_SUCCESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动设备对象 %wZ 创建成功，OK -----------</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">//为设备对象绑定一个符号链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">UNICODE_STRING</span> <span class="n">uzSymbolName</span><span class="p">;</span> <span class="c1">//符号链接名字                 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span> <span class="c1">//CreateFile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">status</span> <span class="o">=</span> <span class="n">IoCreateSymbolicLink</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="n">STATUS_SUCCESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:创建符号链接 %wZ 成功 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:创建符号链接 %wZ 失败 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动设备对象 %wZ 创建失败，准备删除Device -----------</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzDriverName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="n">IoDeleteDevice</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//驱动卸载例程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">UnLoad</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NTSTATUS</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">IoDeleteDevice</span><span class="p">(</span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">DeviceObject</span><span class="p">);</span> <span class="c1">//删除设备对象,如果此处不删除 卸载不干净 再次用IoCreateDevice创建同名驱动 会蓝屏
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//删除符号链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">UNICODE_STRING</span> <span class="n">uzSymbolName</span><span class="p">;</span> <span class="c1">//符号链接名字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="n">IoDeleteSymbolicLink</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">status</span><span class="p">)</span> <span class="c1">//if(status == STATUS_SUCCESS)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:删除符号链接 %wZ 成功 &#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:删除符号链接 %wZ 失败 &#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">uzSymbolName</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:驱动卸载成功</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NTSTATUS</span> <span class="nf">DriverEntry</span><span class="p">(</span><span class="n">PDRIVER_OBJECT</span> <span class="n">driver</span><span class="p">,</span><span class="n">PVOID</span> <span class="n">szReg</span><span class="p">)</span> <span class="c1">//main
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:进入了我们的驱动 </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">));</span> <span class="c1">//printf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">driver</span><span class="o">-&gt;</span><span class="n">DriverUnload</span> <span class="o">=</span> <span class="n">UnLoad</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NTSTATUS</span> <span class="n">status</span><span class="o">=</span><span class="n">CreateDevice</span><span class="p">(</span><span class="n">driver</span><span class="p">);</span><span class="c1">//创建了设备对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">IRP</span> <span class="err">派遣函数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_DEVICE_CONTROL</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span><span class="c1">//DeviceIoControl
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_CREATE</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span> <span class="c1">//CreateFile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">driver</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">[</span><span class="n">IRP_MJ_CLOSE</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeviceIrpCtl</span><span class="p">;</span><span class="c1">//卸载驱动 CloseHandle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NTSTATUS</span> <span class="nf">DeviceIrpCtl</span><span class="p">(</span><span class="n">PDEVICE_OBJECT</span> <span class="n">device</span><span class="p">,</span><span class="n">PIRP</span> <span class="n">pirp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:进入派遣函数&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">PIO_STACK_LOCATION</span> <span class="n">irpStackL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ULONG</span> <span class="n">CtlCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ULONG</span> <span class="n">InputBuffLength</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">irpStackL</span><span class="o">=</span><span class="n">IoGetCurrentIrpStackLocation</span><span class="p">(</span><span class="n">pirp</span><span class="p">);</span> <span class="c1">//获取应用层传来的参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span><span class="p">(</span><span class="n">irpStackL</span><span class="o">-&gt;</span><span class="n">MajorFunction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">IRP_MJ_DEVICE_CONTROL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">IRP_MJ_CREATE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">IRP_MJ_CLOSE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">pirp</span><span class="o">-&gt;</span><span class="n">IoStatus</span><span class="p">.</span><span class="n">Status</span> <span class="o">=</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pirp</span><span class="o">-&gt;</span><span class="n">IoStatus</span><span class="p">.</span><span class="n">Information</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="c1">//返回给DeviceIoControl中的 倒数第二个参数lpBytesReturned
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">IoCompleteRequest</span><span class="p">(</span><span class="n">pirp</span><span class="p">,</span> <span class="n">IO_NO_INCREMENT</span><span class="p">);</span><span class="c1">//调用方已完成所有I/O请求处理操作 并且不增加优先级 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">KdPrint</span><span class="p">((</span><span class="s">&#34;yjx:离开派遣函数&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">STATUS_SUCCESS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//打开驱动设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="n">CIoControlIrpDlg</span><span class="o">::</span><span class="n">OnBnClickedCreate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">DeviceHandle</span> <span class="o">=</span> <span class="n">CreateFileW</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">L</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">??</span><span class="se">\\</span><span class="s">uzDriverName001&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">GENERIC_READ</span> <span class="o">|</span> <span class="n">GENERIC_WRITE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">FILE_SHARE_READ</span> <span class="o">|</span> <span class="n">FILE_SHARE_WRITE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">OPEN_EXISTING</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">FILE_ATTRIBUTE_NORMAL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CIoControlIrpDlg</span><span class="o">::</span><span class="n">OnBnClickedButtonClose</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">DeviceHandle</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">CloseHandle</span><span class="p">(</span><span class="n">DeviceHandle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">DeviceHandle</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">R3应用层与R0驱动层简单通信</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define IO_IS_OK_TEST   CTL_CODE(FILE_DEVICE_UNKNOWN,         0x803,         METHOD_BUFFERED,FILE_ANY_ACCESS) </span><span class="c1">//测试
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//WriteFile ReadFile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">DeviceIoControl</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HANDLE</span> <span class="n">hDevice</span><span class="p">,</span>              <span class="c1">// 设备驱动的句柄 由CreateFile获取 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">dwIoControlCode</span><span class="p">,</span>       <span class="c1">// 操作控制码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPVOID</span> <span class="n">lpInBuffer</span><span class="p">,</span>           <span class="c1">// 输入缓冲区指针 要传入驱动的 参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">nInBufferSize</span><span class="p">,</span>         <span class="c1">// 输入缓冲区大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPVOID</span> <span class="n">lpOutBuffer</span><span class="p">,</span>          <span class="c1">// 输出缓冲区指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">nOutBufferSize</span><span class="p">,</span>        <span class="c1">// 输出缓冲区大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPDWORD</span> <span class="n">lpBytesReturned</span><span class="p">,</span>     <span class="c1">// 存放返回的字节数的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPOVERLAPPED</span> <span class="n">lpOverlapped</span>    <span class="c1">// 异步结构指针,同步或者异步
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BOOL</span>  <span class="n">WINAPI</span> <span class="nf">IoControlIsOK</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DWORD</span> <span class="n">nTypeCode</span> <span class="o">=</span> <span class="n">IO_IS_OK_TEST</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ULONG64</span> <span class="n">BufferInData</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DWORD</span> <span class="n">NumberOfBytesRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BOOL</span> <span class="n">IsOK</span> <span class="o">=</span> <span class="n">DeviceIoControl</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">GetDeviceHandle</span><span class="p">(),</span> <span class="c1">//CreateFile函数打开的设备句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">nTypeCode</span><span class="p">,</span><span class="c1">//自定义的控制码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="o">&amp;</span><span class="n">BufferInData</span><span class="p">,</span><span class="c1">//输入缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">BufferInData</span><span class="p">),</span><span class="c1">//输入缓冲区大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="o">&amp;</span><span class="n">BufferInData</span><span class="p">,</span><span class="c1">////输出缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">BufferInData</span><span class="p">),</span><span class="c1">//输出缓冲区的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="o">&amp;</span><span class="n">NumberOfBytesRead</span><span class="p">,</span><span class="c1">//实际返回的字节数，对应驱动程序中pIrp-&gt;IoStatus.Information。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nb">NULL</span><span class="p">);</span> <span class="c1">////重叠操作结构指针。同步设为NULL，DeviceIoControl将进行阻塞调用；否则，应在编程时按异步操作设计
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">DbgPrintA</span><span class="p">(</span><span class="s">&#34;yjx:IsOK=%d,NumberOfBytesRead=%d  BufferInData=%d&#34;</span><span class="p">,</span> <span class="n">IsOK</span><span class="p">,</span> <span class="n">NumberOfBytesRead</span><span class="p">,</span> <span class="n">BufferInData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">NumberOfBytesRead</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> 
+</span></span><span class="line"><span class="cl"><span class="cpf">#define IO_IS_OK_TEST   CTL_CODE(FILE_DEVICE_UNKNOWN,         0x803,         METHOD_BUFFERED,FILE_ANY_ACCESS) //测试</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="n">CMFCIRPCTRLDlg</span><span class="o">::</span><span class="n">OnBnClickedButtonIoCtl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// TODO: 在此添加控件通知处理程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">INT64</span> <span class="n">InBuf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x123456</span><span class="p">,</span><span class="mh">0x123456789ABCDEF</span><span class="p">,</span><span class="mh">0x888888ABC</span> <span class="p">};</span> <span class="c1">//输入缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">INT64</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DWORD</span> <span class="n">dwSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DeviceIoControl</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">DeviceHandle</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">IO_IS_OK_TEST</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">InBuf</span><span class="p">,</span><span class="c1">//输入缓冲区指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">InBuf</span><span class="p">),</span><span class="c1">//2*8,//输入缓冲区大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">OutBuf</span><span class="p">,</span><span class="c1">//输出缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">sizeof</span><span class="p">(</span><span class="n">OutBuf</span><span class="p">),</span> <span class="c1">//输出缓冲区大小 6*8 =48
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="o">&amp;</span><span class="n">dwSize</span><span class="p">,</span><span class="c1">//返回 字节数 pIrp-&gt;IoStatus.Information //IRP.IOStatus.InforMation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nb">NULL</span> <span class="c1">//同步异步
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CString</span> <span class="n">csStr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">csStr</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;yjx:EXE:%llx,%llx,%llx,%llx,%llx,%llx dwSize=%llx .....OK</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">OutBuf</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">dwSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">OutputDebugStringW</span><span class="p">(</span><span class="n">csStr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//驱动层 获取用户层参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Irp</span><span class="o">-&gt;</span><span class="n">AssociatedIrp</span><span class="p">.</span><span class="n">SystemBuffer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">-&gt;</span><span class="n">Flags</span> <span class="o">|=</span> <span class="n">DO_BUFFERED_IO</span><span class="p">;</span> <span class="c1">//IO访问方式  重要 对应 METHOD_BUFFERED
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">inBufLength</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">InputBufferLength</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">outBufLength</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">OutputBufferLength</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ioControlCode</span> <span class="o">=</span> <span class="n">irpStack</span><span class="o">-&gt;</span><span class="n">Parameters</span><span class="p">.</span><span class="n">DeviceIoControl</span><span class="p">.</span><span class="n">IoControlCode</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

@@ -207,9 +207,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hostnamectl --static set-hostname localhost  
-重启  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hostnamectl --static set-hostname localhost  
+</span></span><span class="line"><span class="cl">重启  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装软件</p>
 <div class="highlight"><div class="chroma">
@@ -220,11 +220,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt install git  
-apt install nginx   
-apt install rz  
-apt install unzip  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install git  
+</span></span><span class="line"><span class="cl">apt install nginx   
+</span></span><span class="line"><span class="cl">apt install rz  
+</span></span><span class="line"><span class="cl">apt install unzip  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="ssh安全配置">SSH安全配置</h3>
 <ul>
@@ -244,12 +244,12 @@ apt install unzip
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">...
-include /etc/nginx/conf.d/*.conf<span class="p">;</span>
-<span class="c1"># 注释下面这行。如果sites-enabled/路径下存在默认配置文件，可能覆盖/etc/nginx/conf.d/default.conf配置</span>
-<span class="c1"># include /etc/nginx/sites-enabled/*;</span>
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">include /etc/nginx/conf.d/*.conf<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 注释下面这行。如果sites-enabled/路径下存在默认配置文件，可能覆盖/etc/nginx/conf.d/default.conf配置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># include /etc/nginx/sites-enabled/*;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>配置 <code>/etc/nginx/conf.d/default.conf</code></p>
 <div class="highlight"><div class="chroma">
@@ -268,19 +268,19 @@ include /etc/nginx/conf.d/*.conf<span class="p">;</span>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">server <span class="o">{</span> 
-    listen 80<span class="p">;</span> 
-    server_name www.xiaodejiyi.com xiaodejiyi.com<span class="p">;</span> <span class="c1"># 注意www和没有www都要配置</span>
-    index index.html index.htm<span class="p">;</span> 
-    root /var/www/html/public<span class="p">;</span> 
-    
-    location / <span class="o">{</span> 
-        root /var/www/html/public<span class="p">;</span> 
-        index index.html<span class="p">;</span> 
-    <span class="o">}</span> 
-    error_page <span class="m">404</span> /404.html<span class="p">;</span> 
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">server <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    listen 80<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    server_name www.xiaodejiyi.com xiaodejiyi.com<span class="p">;</span> <span class="c1"># 注意www和没有www都要配置</span>
+</span></span><span class="line"><span class="cl">    index index.html index.htm<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    root /var/www/html/public<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    location / <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">        root /var/www/html/public<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        index index.html<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">    error_page <span class="m">404</span> /404.html<span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="上传">上传</h3>
 <p>将blog的<code>public</code>目录压缩为zip格式，使用<code>rz</code>命令上传到服务器上，<code>unzip</code>命令解压到Nginx配置的网站根目录中。</p>

@@ -197,8 +197,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">open</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">openmode</span> <span class="n">mode</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">open</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">openmode</span> <span class="n">mode</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里，<strong>open()</strong> 成员函数的第一参数指定要打开的文件的名称和位置，第二个参数定义文件被打开的模式。</p>
 <table>
@@ -238,9 +238,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
-<span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">trunc</span> <span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">trunc</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>类似地，您如果想要打开一个文件用于读写，可以使用下面的语法：</p>
 <div class="highlight"><div class="chroma">
@@ -249,9 +249,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ifstream</span>  <span class="n">afile</span><span class="p">;</span>
-<span class="n">afile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ifstream</span>  <span class="n">afile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">afile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;file.dat&#34;</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="关闭文件">关闭文件</h2>
 <p>当 C++ 程序终止时，它会自动关闭刷新所有流，释放所有分配的内存，并关闭所有打开的文件。但程序员应该养成一个好习惯，在程序终止前关闭所有打开的文件。</p>
@@ -261,8 +261,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">close</span><span class="p">();</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">close</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="写入文件">写入文件</h2>
 <p>在 C++ 编程中，我们使用流插入运算符（ &laquo; ）向文件写入信息，就像使用该运算符输出信息到屏幕上一样。唯一不同的是，在这里您使用的是 <strong>ofstream</strong> 或 <strong>fstream</strong> 对象，而不是 <strong>cout</strong> 对象。</p>
@@ -324,56 +324,56 @@
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-    
-   <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
- 
-   <span class="c1">// 以写模式打开文件
-</span><span class="c1"></span>   <span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
-   <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Writing to the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your name: &#34;</span><span class="p">;</span> 
-   <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
- 
-   <span class="c1">// 向文件写入用户输入的数据
-</span><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your age: &#34;</span><span class="p">;</span> 
-   <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span>
-   <span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
-   
-   <span class="c1">// 再次向文件写入用户输入的数据
-</span><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 关闭打开的文件
-</span><span class="c1"></span>   <span class="n">outfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
- 
-   <span class="c1">// 以读模式打开文件
-</span><span class="c1"></span>   <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span> 
-   <span class="n">infile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span> 
- 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reading from the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
-   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
- 
-   <span class="c1">// 在屏幕上写入数据
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   
-   <span class="c1">// 再次从文件读取数据，并显示它
-</span><span class="c1"></span>   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
- 
-   <span class="c1">// 关闭打开的文件
-</span><span class="c1"></span>   <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 以写模式打开文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Writing to the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your name: &#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 向文件写入用户输入的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter your age: &#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 再次向文件写入用户输入的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">outfile</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 关闭打开的文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">outfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 以读模式打开文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">infile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;afile.dat&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reading from the file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 在屏幕上写入数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 再次从文件读取数据，并显示它
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 关闭打开的文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当上面的代码被编译和执行时，它会产生下列输入和输出：</p>
 <div class="highlight"><div class="chroma">
@@ -387,14 +387,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="err">$</span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
-<span class="n">Writing</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span>
-<span class="n">Enter</span> <span class="n">your</span> <span class="nl">name</span><span class="p">:</span> <span class="n">Zara</span>
-<span class="n">Enter</span> <span class="n">your</span> <span class="nl">age</span><span class="p">:</span> <span class="mi">9</span>
-<span class="n">Reading</span> <span class="n">from</span> <span class="n">the</span> <span class="n">file</span>
-<span class="n">Zara</span>
-<span class="mi">9</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">$</span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
+</span></span><span class="line"><span class="cl"><span class="n">Writing</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">your</span> <span class="nl">name</span><span class="p">:</span> <span class="n">Zara</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enter</span> <span class="n">your</span> <span class="nl">age</span><span class="p">:</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl"><span class="n">Reading</span> <span class="n">from</span> <span class="n">the</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl"><span class="n">Zara</span>
+</span></span><span class="line"><span class="cl"><span class="mi">9</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的实例中使用了 cin 对象的附加函数，比如 getline()函数从外部读取一行，ignore() 函数会忽略掉之前读语句留下的多余字符。</p>
 <h2 id="文件位置指针">文件位置指针</h2>
@@ -416,18 +416,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 定位到 fileObject 的第 n 个字节（假设是 ios::beg）
-</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span> <span class="p">);</span>
- 
-<span class="c1">// 把文件的读指针从 fileObject 当前位置向后移 n 个字节
-</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">cur</span> <span class="p">);</span>
- 
-<span class="c1">// 把文件的读指针从 fileObject 末尾往回移 n 个字节
-</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
- 
-<span class="c1">// 定位到 fileObject 的末尾
-</span><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 定位到 fileObject 的第 n 个字节（假设是 ios::beg）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 把文件的读指针从 fileObject 当前位置向后移 n 个字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">cur</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 把文件的读指针从 fileObject 末尾往回移 n 个字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 定位到 fileObject 的末尾
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">fileObject</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">end</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

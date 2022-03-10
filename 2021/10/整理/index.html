@@ -22,7 +22,7 @@
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2021/10/%E6%95%B4%E7%90%86/" /><link rel="prev" href="https://xinqinew.github.io/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" /><link rel="next" href="https://xinqinew.github.io/2022/02/%E5%A4%9C%E9%A3%8E_%E6%9D%A5%E8%A2%AD-c-%E9%80%86%E5%90%91/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
@@ -179,21 +179,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph 整体流程
-找出发包函数--&gt;
-判断是否线程发包
---&gt;
-|否|找出加密封包
-判断是否线程发包--&gt;
-|是|跳出线程发包--&gt;
-找出加密封包--&gt;
-|ctrl+F9向外层找|明文包--&gt;
-在明文包与加密封包之间找出加密call--&gt;
-分析加密call--&gt;
-|过滤心跳包|控件包
-end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">subgraph 整体流程
+</span></span><span class="line"><span class="cl">找出发包函数--&gt;
+</span></span><span class="line"><span class="cl">判断是否线程发包
+</span></span><span class="line"><span class="cl">--&gt;
+</span></span><span class="line"><span class="cl">|否|找出加密封包
+</span></span><span class="line"><span class="cl">判断是否线程发包--&gt;
+</span></span><span class="line"><span class="cl">|是|跳出线程发包--&gt;
+</span></span><span class="line"><span class="cl">找出加密封包--&gt;
+</span></span><span class="line"><span class="cl">|ctrl+F9向外层找|明文包--&gt;
+</span></span><span class="line"><span class="cl">在明文包与加密封包之间找出加密call--&gt;
+</span></span><span class="line"><span class="cl">分析加密call--&gt;
+</span></span><span class="line"><span class="cl">|过滤心跳包|控件包
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="检测">检测</h2>
 <ul>
@@ -219,16 +219,16 @@ end
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph CRC检测 
-a1([CRC检测&lt;br&gt;即代码修改检测])--&gt;
-在猜测的位置下访问断
---&gt;
-能跳到检测的位置
---&gt;
-nop &amp; hook &amp; 中策:jmp &amp; 上策:改变检测标志位
-end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">subgraph CRC检测 
+</span></span><span class="line"><span class="cl">a1([CRC检测&lt;br&gt;即代码修改检测])--&gt;
+</span></span><span class="line"><span class="cl">在猜测的位置下访问断
+</span></span><span class="line"><span class="cl">--&gt;
+</span></span><span class="line"><span class="cl">能跳到检测的位置
+</span></span><span class="line"><span class="cl">--&gt;
+</span></span><span class="line"><span class="cl">nop &amp; hook &amp; 中策:jmp &amp; 上策:改变检测标志位
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -244,17 +244,17 @@ end
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph CALL检测 
-d0([CALL检测])--&gt;堆栈检测 &amp; 标志位检测
-堆栈检测--&gt;
-d3[&#34;第一种&lt;br&gt;本地堆栈检测&#34;]--&gt;
-d1[&#34;mov ecx,[ebp+4]&#34;]
-堆栈检测--&gt;
-d4[&#34;第二种&lt;br&gt;网络堆栈检测&#34;]--&gt;
-d2[&#34;发包的包内容中&lt;br&gt;包含大量堆栈数据&#34;]
-end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">subgraph CALL检测 
+</span></span><span class="line"><span class="cl">d0([CALL检测])--&gt;堆栈检测 &amp; 标志位检测
+</span></span><span class="line"><span class="cl">堆栈检测--&gt;
+</span></span><span class="line"><span class="cl">d3[&#34;第一种&lt;br&gt;本地堆栈检测&#34;]--&gt;
+</span></span><span class="line"><span class="cl">d1[&#34;mov ecx,[ebp+4]&#34;]
+</span></span><span class="line"><span class="cl">堆栈检测--&gt;
+</span></span><span class="line"><span class="cl">d4[&#34;第二种&lt;br&gt;网络堆栈检测&#34;]--&gt;
+</span></span><span class="line"><span class="cl">d2[&#34;发包的包内容中&lt;br&gt;包含大量堆栈数据&#34;]
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -275,22 +275,22 @@ end
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-subgraph 数据检测 
-z1([&#34;数据检测&lt;br&gt;即内存地址数据检测&#34;])--&gt;
-CE对数据查访问--&gt;
-z3[&#34;找到疑似检测代码&#34;]
-z1--&gt;
-CE对数据的替身查访问--&gt;
-z3--&gt;
-z2[&#34;OD内找来源&lt;br&gt;可向上层找&#34;]--&gt;
-找到疑似检测call--&gt;
-观察平栈情况--&gt;
-z4[&#34;观察寄存器&lt;br&gt;在call执行前后&lt;br&gt;的变化情况&#34;]--&gt;
-z5[&#34;观察变化后的寄存器&lt;br&gt;对后面的代码有没有作用&lt;br&gt;没有作用的可忽略&#34;]--&gt;
-z6[&#34;把检测call nop掉或者hook&lt;br&gt;给有用的寄存器赋值&lt;br&gt;并平栈&#34;]
-end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">subgraph 数据检测 
+</span></span><span class="line"><span class="cl">z1([&#34;数据检测&lt;br&gt;即内存地址数据检测&#34;])--&gt;
+</span></span><span class="line"><span class="cl">CE对数据查访问--&gt;
+</span></span><span class="line"><span class="cl">z3[&#34;找到疑似检测代码&#34;]
+</span></span><span class="line"><span class="cl">z1--&gt;
+</span></span><span class="line"><span class="cl">CE对数据的替身查访问--&gt;
+</span></span><span class="line"><span class="cl">z3--&gt;
+</span></span><span class="line"><span class="cl">z2[&#34;OD内找来源&lt;br&gt;可向上层找&#34;]--&gt;
+</span></span><span class="line"><span class="cl">找到疑似检测call--&gt;
+</span></span><span class="line"><span class="cl">观察平栈情况--&gt;
+</span></span><span class="line"><span class="cl">z4[&#34;观察寄存器&lt;br&gt;在call执行前后&lt;br&gt;的变化情况&#34;]--&gt;
+</span></span><span class="line"><span class="cl">z5[&#34;观察变化后的寄存器&lt;br&gt;对后面的代码有没有作用&lt;br&gt;没有作用的可忽略&#34;]--&gt;
+</span></span><span class="line"><span class="cl">z6[&#34;把检测call nop掉或者hook&lt;br&gt;给有用的寄存器赋值&lt;br&gt;并平栈&#34;]
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="主线程调用">主线程调用</h2>
 <ul>
@@ -309,13 +309,13 @@ end
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph
-z1([Hook流程])--&gt;
-选一个大于5字节的位置--&gt;
-保存原来的代码--&gt;
-修改代码--&gt;
-改写c++代码
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z1([Hook流程])--&gt;
+</span></span><span class="line"><span class="cl">选一个大于5字节的位置--&gt;
+</span></span><span class="line"><span class="cl">保存原来的代码--&gt;
+</span></span><span class="line"><span class="cl">修改代码--&gt;
+</span></span><span class="line"><span class="cl">改写c++代码
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装与卸载主线程勾子">安装与卸载主线程勾子</h3>
 <p><img
@@ -340,8 +340,8 @@ z1([Hook流程])--&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HHOOK</span> <span class="n">g_hhookGame</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HHOOK</span> <span class="n">g_hhookGame</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="注册消息">注册消息</h3>
 <div class="highlight"><div class="chroma">
@@ -349,8 +349,8 @@ z1([Hook流程])--&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">DWORD</span> <span class="n">MyMSGId</span><span class="o">=</span><span class="n">RegisterWindowMessageA</span><span class="p">(</span><span class="s">&#34;MyMSG&#34;</span><span class="p">);</span>	<span class="c1">//注册消息
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">DWORD</span> <span class="n">MyMSGId</span><span class="o">=</span><span class="n">RegisterWindowMessageA</span><span class="p">(</span><span class="s">&#34;MyMSG&#34;</span><span class="p">);</span>	<span class="c1">//注册消息
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -375,8 +375,8 @@ z1([Hook流程])--&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#define MSG_KeyDown 100
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#define MSG_KeyDown 100
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -401,7 +401,8 @@ z1([Hook流程])--&gt;
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" class="prev" rel="prev" title="ASCII码对照表"><i class="fas fa-angle-left fa-fw"></i>ASCII码对照表</a></div>
+    <div class="post-nav"><a href="/2021/10/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" class="prev" rel="prev" title="ASCII码对照表"><i class="fas fa-angle-left fa-fw"></i>ASCII码对照表</a>
+            <a href="/2022/02/%E5%A4%9C%E9%A3%8E_%E6%9D%A5%E8%A2%AD-c-%E9%80%86%E5%90%91/" class="next" rel="next" title="C&#43;&#43;逆向">C&#43;&#43;逆向<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

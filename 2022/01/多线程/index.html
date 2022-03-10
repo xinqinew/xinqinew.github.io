@@ -165,8 +165,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">m_AcountManageThread</span> <span class="o">=</span> <span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">ThreadProc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span><span class="c1">//创建线程
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">m_AcountManageThread</span> <span class="o">=</span> <span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">ThreadProc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span><span class="c1">//创建线程
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="afxbeginthread-mfc专用">AfxBeginThread (MFC专用)</h2>
 <div class="highlight"><div class="chroma">
@@ -175,9 +175,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//创建线程 大漠的DMInitThread
-</span><span class="c1"></span><span class="n">AfxBeginThread</span><span class="p">(</span><span class="n">DMInitThread</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">THREAD_PRIORITY_NORMAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//创建线程 大漠的DMInitThread
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AfxBeginThread</span><span class="p">(</span><span class="n">DMInitThread</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">THREAD_PRIORITY_NORMAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="_beginthreadex">_beginthreadex</h2>
 <div class="highlight"><div class="chroma">
@@ -185,8 +185,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">m_hThreadHandle</span> <span class="o">=</span> <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">::</span><span class="n">_beginthreadex</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ThreadFunction</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_uThreadID</span><span class="p">);</span>	<span class="c1">//创建线程
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">m_hThreadHandle</span> <span class="o">=</span> <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">::</span><span class="n">_beginthreadex</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ThreadFunction</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_uThreadID</span><span class="p">);</span>	<span class="c1">//创建线程
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

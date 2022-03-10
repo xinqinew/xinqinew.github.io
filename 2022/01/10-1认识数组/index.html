@@ -245,73 +245,73 @@
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">struct</span> <span class="nc">Role</span><span class="p">{</span>
-	<span class="kt">int</span> <span class="n">hp</span><span class="p">;</span> <span class="c1">//血量
-</span><span class="c1"></span>	<span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-	<span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-	<span class="kt">float</span> <span class="n">z</span><span class="p">;</span>
-  	<span class="c1">//...实际上，属性会多的很，并且可能有指向另一个结构体（比如武器）的指针，这里省略...
-</span><span class="c1"></span><span class="p">};</span>
-
-<span class="cp">#define ROLE_MAX_COUNT 20
-</span><span class="cp"></span>
-<span class="k">struct</span> <span class="nc">GameData1</span><span class="p">{</span>
-	<span class="kt">int</span> <span class="n">roleCount</span><span class="p">;</span> <span class="c1">//敌人实际数量
-</span><span class="c1"></span>	<span class="k">struct</span> <span class="nc">Role</span><span class="o">*</span> <span class="n">roles</span><span class="p">[</span><span class="n">ROLE_MAX_COUNT</span><span class="p">];</span> <span class="c1">//敌人数组
-</span><span class="c1"></span>	<span class="c1">//...省略
-</span><span class="c1"></span><span class="p">}</span> <span class="n">gd1</span><span class="p">;</span>
-
-<span class="k">struct</span> <span class="nc">GameData2</span><span class="p">{</span>
-	<span class="kt">int</span> <span class="n">roleCount</span><span class="p">;</span> <span class="c1">//敌人实际数量
-</span><span class="c1"></span>	<span class="k">struct</span> <span class="nc">Role</span> <span class="n">roles</span><span class="p">[</span><span class="n">ROLE_MAX_COUNT</span><span class="p">];</span> <span class="c1">//敌人数组
-</span><span class="c1"></span>	<span class="c1">//...省略
-</span><span class="c1"></span><span class="p">}</span> <span class="n">gd2</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-	<span class="n">gd1</span><span class="p">.</span><span class="n">roleCount</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-	<span class="k">struct</span> <span class="nc">Role</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">;</span>
-	<span class="n">r1</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="n">r1</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="n">r1</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">r1</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-
-	<span class="n">r2</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
-	<span class="n">r2</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-	<span class="n">r2</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">r2</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-	
-	<span class="n">r3</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">95</span><span class="p">;</span>
-	<span class="n">r3</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-	<span class="n">r3</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">r3</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r1</span><span class="p">;</span>
-	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r2</span><span class="p">;</span>
-	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r3</span><span class="p">;</span>
-	
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roleCount</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-	
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-	
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-	
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">95</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-	
-	<span class="n">getchar</span><span class="p">();</span>
-	
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Role</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">hp</span><span class="p">;</span> <span class="c1">//血量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  	<span class="c1">//...实际上，属性会多的很，并且可能有指向另一个结构体（比如武器）的指针，这里省略...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define ROLE_MAX_COUNT 20
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">GameData1</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">roleCount</span><span class="p">;</span> <span class="c1">//敌人实际数量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">struct</span> <span class="nc">Role</span><span class="o">*</span> <span class="n">roles</span><span class="p">[</span><span class="n">ROLE_MAX_COUNT</span><span class="p">];</span> <span class="c1">//敌人数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//...省略
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">gd1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">GameData2</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">roleCount</span><span class="p">;</span> <span class="c1">//敌人实际数量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">struct</span> <span class="nc">Role</span> <span class="n">roles</span><span class="p">[</span><span class="n">ROLE_MAX_COUNT</span><span class="p">];</span> <span class="c1">//敌人数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//...省略
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">gd2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd1</span><span class="p">.</span><span class="n">roleCount</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="nc">Role</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r1</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r1</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r1</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r1</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">r2</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r2</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r2</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r2</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">r3</span><span class="p">.</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">95</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r3</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r3</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">r3</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd1</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">r3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roleCount</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">hp</span> <span class="o">=</span> <span class="mi">95</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gd2</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="n">getchar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>代码中gd1和gd2就是两种不同的敌人数组的形式，</p>
 <p>用NDK编译，推到手机运行，ce+ceserver附加（我前面视频教程演示过，本文省略），添加地址两次，分别直接写gd1和gd2：</p>

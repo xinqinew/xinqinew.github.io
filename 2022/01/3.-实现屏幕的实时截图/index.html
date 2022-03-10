@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/01\/3.-%E5%AE%9E%E7%8E%B0%E5%B1%8F%E5%B9%95%E7%9A%84%E5%AE%9E%E6%97%B6%E6%88%AA%E5%9B%BE\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "yolov5","wordcount":  930 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "yolov5","wordcount":  929 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/01\/3.-%E5%AE%9E%E7%8E%B0%E5%B1%8F%E5%B9%95%E7%9A%84%E5%AE%9E%E6%97%B6%E6%88%AA%E5%9B%BE\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 930 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 929 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/01/3.-%E5%AE%9E%E7%8E%B0%E5%B1%8F%E5%B9%95%E7%9A%84%E5%AE%9E%E6%97%B6%E6%88%AA%E5%9B%BE/" class="leancloud_visitors" data-flag-title="3. 实现屏幕的实时截图">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -199,44 +199,44 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">win32gui</span>
-<span class="kn">import</span> <span class="nn">win32ui</span>
-<span class="kn">import</span> <span class="nn">win32con</span>
-<span class="kn">import</span> <span class="nn">win32api</span>
-
-
-<span class="k">def</span> <span class="nf">grab_screen</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">hwin</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetDesktopWindow</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">region</span><span class="p">:</span>
-        <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">region</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">width</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_CXVIRTUALSCREEN</span><span class="p">)</span>
-        <span class="n">height</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_CYVIRTUALSCREEN</span><span class="p">)</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_XVIRTUALSCREEN</span><span class="p">)</span>
-        <span class="n">top</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_YVIRTUALSCREEN</span><span class="p">)</span>
-
-    <span class="n">hwindc</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetWindowDC</span><span class="p">(</span><span class="n">hwin</span><span class="p">)</span>
-    <span class="n">srcdc</span> <span class="o">=</span> <span class="n">win32ui</span><span class="o">.</span><span class="n">CreateDCFromHandle</span><span class="p">(</span><span class="n">hwindc</span><span class="p">)</span>
-    <span class="n">memdc</span> <span class="o">=</span> <span class="n">srcdc</span><span class="o">.</span><span class="n">CreateCompatibleDC</span><span class="p">()</span>
-    <span class="n">bmp</span> <span class="o">=</span> <span class="n">win32ui</span><span class="o">.</span><span class="n">CreateBitmap</span><span class="p">()</span>
-    <span class="n">bmp</span><span class="o">.</span><span class="n">CreateCompatibleBitmap</span><span class="p">(</span><span class="n">srcdc</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
-    <span class="n">memdc</span><span class="o">.</span><span class="n">SelectObject</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-    <span class="n">memdc</span><span class="o">.</span><span class="n">BitBlt</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">srcdc</span><span class="p">,</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">),</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SRCCOPY</span><span class="p">)</span>
-
-    <span class="n">signedIntsArray</span> <span class="o">=</span> <span class="n">bmp</span><span class="o">.</span><span class="n">GetBitmapBits</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">signedIntsArray</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
-    <span class="n">img</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-    <span class="n">srcdc</span><span class="o">.</span><span class="n">DeleteDC</span><span class="p">()</span>
-    <span class="n">memdc</span><span class="o">.</span><span class="n">DeleteDC</span><span class="p">()</span>
-    <span class="n">win32gui</span><span class="o">.</span><span class="n">ReleaseDC</span><span class="p">(</span><span class="n">hwin</span><span class="p">,</span> <span class="n">hwindc</span><span class="p">)</span>
-    <span class="n">win32gui</span><span class="o">.</span><span class="n">DeleteObject</span><span class="p">(</span><span class="n">bmp</span><span class="o">.</span><span class="n">GetHandle</span><span class="p">())</span>
-
-    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2BGR</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32gui</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32ui</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32con</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">win32api</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">grab_screen</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hwin</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetDesktopWindow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">region</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">region</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">width</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_CXVIRTUALSCREEN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">height</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_CYVIRTUALSCREEN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_XVIRTUALSCREEN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top</span> <span class="o">=</span> <span class="n">win32api</span><span class="o">.</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="n">win32con</span><span class="o">.</span><span class="n">SM_YVIRTUALSCREEN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">hwindc</span> <span class="o">=</span> <span class="n">win32gui</span><span class="o">.</span><span class="n">GetWindowDC</span><span class="p">(</span><span class="n">hwin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">srcdc</span> <span class="o">=</span> <span class="n">win32ui</span><span class="o">.</span><span class="n">CreateDCFromHandle</span><span class="p">(</span><span class="n">hwindc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memdc</span> <span class="o">=</span> <span class="n">srcdc</span><span class="o">.</span><span class="n">CreateCompatibleDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bmp</span> <span class="o">=</span> <span class="n">win32ui</span><span class="o">.</span><span class="n">CreateBitmap</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bmp</span><span class="o">.</span><span class="n">CreateCompatibleBitmap</span><span class="p">(</span><span class="n">srcdc</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memdc</span><span class="o">.</span><span class="n">SelectObject</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memdc</span><span class="o">.</span><span class="n">BitBlt</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">srcdc</span><span class="p">,</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">),</span> <span class="n">win32con</span><span class="o">.</span><span class="n">SRCCOPY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">signedIntsArray</span> <span class="o">=</span> <span class="n">bmp</span><span class="o">.</span><span class="n">GetBitmapBits</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">signedIntsArray</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">srcdc</span><span class="o">.</span><span class="n">DeleteDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memdc</span><span class="o">.</span><span class="n">DeleteDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">win32gui</span><span class="o">.</span><span class="n">ReleaseDC</span><span class="p">(</span><span class="n">hwin</span><span class="p">,</span> <span class="n">hwindc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">win32gui</span><span class="o">.</span><span class="n">DeleteObject</span><span class="p">(</span><span class="n">bmp</span><span class="o">.</span><span class="n">GetHandle</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2BGR</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="mss">mss</h2>
 <div class="highlight"><div class="chroma">
@@ -244,8 +244,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pip install mss
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install mss
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -275,37 +275,35 @@
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
-</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">mss</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
-
-<span class="n">sct</span> <span class="o">=</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span>
-<span class="n">screen_width</span> <span class="o">=</span> <span class="mi">1920</span>  <span class="c1"># 屏幕的宽</span>
-<span class="n">screen_height</span> <span class="o">=</span> <span class="mi">1080</span>  <span class="c1"># 屏幕的高</span>
-<span class="n">GAME_LEFT</span><span class="p">,</span> <span class="n">GAME_TOP</span><span class="p">,</span> <span class="n">GAME_WIDTH</span><span class="p">,</span> <span class="n">GAME_HEIGHT</span> <span class="o">=</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># 游戏内截图区域</span>
-<span class="n">RESIZE_WIN_WIDTH</span><span class="p">,</span> <span class="n">RESIZE_WIN_HEIGHT</span> <span class="o">=</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">5</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">5</span>  <span class="c1"># 显示窗口大小</span>
-<span class="n">monitor</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="n">GAME_LEFT</span><span class="p">,</span>
-    <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="n">GAME_TOP</span><span class="p">,</span>
-    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">GAME_WIDTH</span><span class="p">,</span>
-    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">GAME_HEIGHT</span>
-<span class="p">}</span>
-<span class="n">window_name</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">sct</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="n">monitor</span><span class="p">)</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-    <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">WINDOW_NORMAL</span><span class="p">)</span>  <span class="c1"># cv2.WINDOW_NORMAL 根据窗口大小设置我们的图片大小</span>
-    <span class="n">cv2</span><span class="o">.</span><span class="n">resizeWindow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">RESIZE_WIN_WIDTH</span><span class="p">,</span> <span class="n">RESIZE_WIN_HEIGHT</span><span class="p">)</span>
-    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">256</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># ESC</span>
-        <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
-        <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;ESC ...&#39;</span><span class="p">)</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">mss</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sct</span> <span class="o">=</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">screen_width</span> <span class="o">=</span> <span class="mi">1920</span>  <span class="c1"># 屏幕的宽</span>
+</span></span><span class="line"><span class="cl"><span class="n">screen_height</span> <span class="o">=</span> <span class="mi">1080</span>  <span class="c1"># 屏幕的高</span>
+</span></span><span class="line"><span class="cl"><span class="n">GAME_LEFT</span><span class="p">,</span> <span class="n">GAME_TOP</span><span class="p">,</span> <span class="n">GAME_WIDTH</span><span class="p">,</span> <span class="n">GAME_HEIGHT</span> <span class="o">=</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># 游戏内截图区域</span>
+</span></span><span class="line"><span class="cl"><span class="n">RESIZE_WIN_WIDTH</span><span class="p">,</span> <span class="n">RESIZE_WIN_HEIGHT</span> <span class="o">=</span> <span class="n">screen_width</span> <span class="o">//</span> <span class="mi">5</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">//</span> <span class="mi">5</span>  <span class="c1"># 显示窗口大小</span>
+</span></span><span class="line"><span class="cl"><span class="n">monitor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="n">GAME_LEFT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="n">GAME_TOP</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">GAME_WIDTH</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">GAME_HEIGHT</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">window_name</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span> <span class="o">=</span> <span class="n">sct</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="n">monitor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">WINDOW_NORMAL</span><span class="p">)</span>  <span class="c1"># cv2.WINDOW_NORMAL 根据窗口大小设置我们的图片大小</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">resizeWindow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">RESIZE_WIN_WIDTH</span><span class="p">,</span> <span class="n">RESIZE_WIN_HEIGHT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">window_name</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">256</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># ESC</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;ESC ...&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="waitkey函数">waitKey()函数</h3>
 <ol>

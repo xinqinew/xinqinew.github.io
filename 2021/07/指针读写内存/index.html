@@ -216,65 +216,65 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#define BASE 0x00417000
-</span><span class="cp"></span>
-<span class="kt">int</span> <span class="n">g_a</span> <span class="o">=</span> <span class="mi">111</span><span class="p">;</span>	<span class="c1">//0x00417000
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">g_b</span> <span class="o">=</span> <span class="mi">222</span><span class="p">;</span>	<span class="c1">//0x00417004
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">g_c</span> <span class="o">=</span> <span class="mi">333</span><span class="p">;</span>	<span class="c1">//0x00417008
-</span><span class="c1"></span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">T3</span>
-<span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a1</span><span class="p">;</span>	<span class="c1">//偏移0
-</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">a2</span><span class="p">;</span>	<span class="c1">//偏移4
-</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">a3</span><span class="p">;</span>	<span class="c1">//偏移8
-</span><span class="c1"></span><span class="p">}</span><span class="n">TYPE3</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-	<span class="c1">//指针读内存
-</span><span class="c1"></span>	<span class="kt">int</span><span class="o">*</span> <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417000</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;A:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>	
-	<span class="c1">//A:111,222,333
-</span><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;B:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">0</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="p">));</span>	
-	<span class="c1">//B:111,222,333
-</span><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;C:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>	
-	<span class="c1">//C:111,222,333
-</span><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;D:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0041700</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417004</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0041708</span><span class="p">);</span>	
-	<span class="c1">//D:111,222,333
-</span><span class="c1"></span>
-	<span class="c1">//用指针向内存地址写入数据
-</span><span class="c1"></span>	<span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mi">11567</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;A:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
-	<span class="c1">//A:111,222,11567
-</span><span class="c1"></span>	<span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">22567</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;B:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
-	<span class="c1">//B:111,222,22567
-</span><span class="c1"></span>	<span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="mh">0x0041700</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span><span class="o">=</span><span class="mi">333678</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;C:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
-	<span class="c1">//C:111,222,333678
-</span><span class="c1"></span>
-	<span class="n">TYPE3</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span><span class="p">(</span><span class="n">TYPE3</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417000</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%p,%p,%p </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a2</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a3</span><span class="p">);</span>
-	<span class="c1">//111,222,333678
-</span><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a1</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a2</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a3</span><span class="p">);</span>
-	<span class="c1">//111,222,333678
-</span><span class="c1"></span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;p3=%p,p3+1=%p,sizeof(TYPE3)=%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">));</span>
-	<span class="c1">//p3=00417000,p3+1=0041700C,sizeof(TYPE3)=C
-</span><span class="c1"></span>	
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;p3=%p,p3+2=%p,sizeof(TYPE3)=%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">));</span>
-	<span class="c1">//p3=00417000,p3+2=00417018,sizeof(TYPE3)=C
-</span><span class="c1"></span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt;&gt;&gt;:p3+2=%X =%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mh">0x00417000</span><span class="o">+</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
-	<span class="c1">//&gt;&gt;&gt;:p3+2=417018 =417018
-</span><span class="c1"></span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt;&gt;&gt;:p3+2=%X =%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mh">0x00417000</span><span class="o">+</span><span class="mh">0xC</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
-	<span class="c1">//&gt;&gt;&gt;:p3+2=417018 =417018
-</span><span class="c1"></span>
-
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define BASE 0x00417000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">g_a</span> <span class="o">=</span> <span class="mi">111</span><span class="p">;</span>	<span class="c1">//0x00417000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">g_b</span> <span class="o">=</span> <span class="mi">222</span><span class="p">;</span>	<span class="c1">//0x00417004
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">g_c</span> <span class="o">=</span> <span class="mi">333</span><span class="p">;</span>	<span class="c1">//0x00417008
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">T3</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a1</span><span class="p">;</span>	<span class="c1">//偏移0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">a2</span><span class="p">;</span>	<span class="c1">//偏移4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">a3</span><span class="p">;</span>	<span class="c1">//偏移8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="n">TYPE3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//指针读内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span><span class="o">*</span> <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;A:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//A:111,222,333
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;B:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">0</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="p">));</span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//B:111,222,333
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;C:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//C:111,222,333
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;D:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0041700</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417004</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mh">0x0041708</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//D:111,222,333
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//用指针向内存地址写入数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mi">11567</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;A:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//A:111,222,11567
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">22567</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;B:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//B:111,222,22567
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="mh">0x0041700</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span><span class="o">=</span><span class="mi">333678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;C:%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">g_a</span><span class="p">,</span><span class="n">g_b</span><span class="p">,</span><span class="n">g_c</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//C:111,222,333678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">TYPE3</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span><span class="p">(</span><span class="n">TYPE3</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00417000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%p,%p,%p </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a1</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a2</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//111,222,333678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d,%d,%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a1</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a2</span><span class="p">,</span><span class="n">p3</span><span class="o">-&gt;</span><span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//111,222,333678
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;p3=%p,p3+1=%p,sizeof(TYPE3)=%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//p3=00417000,p3+1=0041700C,sizeof(TYPE3)=C
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;p3=%p,p3+2=%p,sizeof(TYPE3)=%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//p3=00417000,p3+2=00417018,sizeof(TYPE3)=C
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt;&gt;&gt;:p3+2=%X =%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mh">0x00417000</span><span class="o">+</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TYPE3</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//&gt;&gt;&gt;:p3+2=417018 =417018
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt;&gt;&gt;:p3+2=%X =%X </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mh">0x00417000</span><span class="o">+</span><span class="mh">0xC</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//&gt;&gt;&gt;:p3+2=417018 =417018
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

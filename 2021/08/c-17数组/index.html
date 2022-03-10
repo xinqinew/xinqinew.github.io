@@ -171,8 +171,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">type arrayName [ arraySize ];
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">type arrayName [ arraySize ];
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这叫做一维数组。<strong>arraySize</strong> 必须是一个大于零的整数常量，<strong>type</strong> 可以是任意有效的 C++ 数据类型。例如，要声明一个类型为 double 的包含 10 个元素的数组 <strong>balance</strong>，声明语句如下：</p>
 <div class="highlight"><div class="chroma">
@@ -180,8 +180,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">double balance[10];
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">double balance[10];
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在 <em>balance</em> 是一个可用的数组，可以容纳 10 个类型为 double 的数字。</p>
 <h2 id="初始化数组">初始化数组</h2>
@@ -191,8 +191,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>大括号 { } 之间的值的数目不能大于我们在数组声明时在方括号 [ ] 中指定的元素数目。</p>
 <p>如果您省略掉了数组的大小，数组的大小则为初始化时元素的个数。因此，如果：</p>
@@ -201,8 +201,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>您将创建一个数组，它与前一个实例中所创建的数组是完全相同的。下面是一个为数组中某个元素赋值的实例：</p>
 <div class="highlight"><div class="chroma">
@@ -210,8 +210,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">balance[4] = 50.0;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">balance[4] = 50.0;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上述的语句把数组中第五个元素的值赋为 50.0。所有的数组都是以 0 作为它们第一个元素的索引，也被称为基索引，数组的最后一个索引是数组的总大小减去 1。以下是上面所讨论的数组的的图形表示：</p>
 <p><img
@@ -229,8 +229,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">double salary = balance[9];
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">double salary = balance[9];
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的语句将把数组中第 10 个元素的值赋给 salary 变量。下面的实例使用了上述的三个概念，即，声明数组、数组赋值、访问数组：</p>
 <p><strong>实例</strong></p>
@@ -263,32 +263,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">n</span><span class="p">[</span> <span class="mi">10</span> <span class="p">];</span> <span class="c1">// n 是一个包含 10 个整数的数组
-</span><span class="c1"></span> 
-   <span class="c1">// 初始化数组元素          
-</span><span class="c1"></span>   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">n</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 设置元素 i 为 i + 100
-</span><span class="c1"></span>   <span class="p">}</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Element&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">13</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="c1">// 输出数组中每个元素的值                     
-</span><span class="c1"></span>   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">7</span> <span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">13</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span> <span class="n">j</span> <span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">n</span><span class="p">[</span> <span class="mi">10</span> <span class="p">];</span> <span class="c1">// n 是一个包含 10 个整数的数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 初始化数组元素          
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">n</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 设置元素 i 为 i + 100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Element&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">13</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="c1">// 输出数组中每个元素的值                     
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">7</span> <span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span> <span class="mi">13</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span> <span class="n">j</span> <span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的程序使用了 <strong><a href="https://www.runoob.com/w3cnote/cpp-func-setw.html" target="_blank" rel="noopener noreffer">setw() 函数</a></strong> 来格式化输出。当上面的代码被编译和执行时，它会产生下列结果：</p>
 <div class="highlight"><div class="chroma">
@@ -306,18 +306,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Element        Value
-      0          100
-      1          101
-      2          102
-      3          103
-      4          104
-      5          105
-      6          106
-      7          107
-      8          108
-      9          109
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Element        Value
+</span></span><span class="line"><span class="cl">      0          100
+</span></span><span class="line"><span class="cl">      1          101
+</span></span><span class="line"><span class="cl">      2          102
+</span></span><span class="line"><span class="cl">      3          103
+</span></span><span class="line"><span class="cl">      4          104
+</span></span><span class="line"><span class="cl">      5          105
+</span></span><span class="line"><span class="cl">      6          106
+</span></span><span class="line"><span class="cl">      7          107
+</span></span><span class="line"><span class="cl">      8          108
+</span></span><span class="line"><span class="cl">      9          109
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="c-中数组详解">C++ 中数组详解</h2>
 <p>在 C++ 中，数组是非常重要的，我们需要了解更多有关数组的细节。下面列出了 C++ 程序员必须清楚的一些与数组相关的重要概念：</p>

@@ -201,10 +201,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span><span class="c1">//没有初始化
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="c1">//初始化为0
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">};</span><span class="c1">//初始化值
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span><span class="c1">//没有初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="c1">//初始化为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">};</span><span class="c1">//初始化值
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="11-数组的初始化"><strong>1.1 数组的初始化</strong></h3>
 <div class="highlight"><div class="chroma">
@@ -214,10 +214,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">iArray1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="c1">//没有初始化
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">iArray2</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="c1">//初始化
-</span><span class="c1"></span><span class="kt">int</span> <span class="n">iArray3</span><span class="p">[]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span><span class="c1">//省略写法 自动推到出成员个数
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iArray1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="c1">//没有初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">iArray2</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="c1">//初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">iArray3</span><span class="p">[]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span><span class="c1">//省略写法 自动推到出成员个数
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="111-注意"><strong>1.1.1 注意:</strong></h4>
 <p><code>int iArray2[10]={0};//初始化</code></p>
@@ -249,11 +249,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="13-访问下标最大范围-从0开始到最大成员减1杜绝访问下标冲突引起的访问冲突异常"><strong>1.3 访问下标最大范围 从0开始到最大成员减1,杜绝访问下标冲突,引起的访问冲突异常</strong></h3>
 <div class="highlight"><div class="chroma">
@@ -266,13 +266,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="c1">//iArray[10]=1;//错误 会报异常 访问冲突
-</span><span class="c1">//iArray[9]=1;//正确
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iArray</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">iArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//iArray[10]=1;//错误 会报异常 访问冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1">//iArray[9]=1;//正确
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>其实上面我们讲到的是1维数组 那么有二维数组 吗？那么三维呢？ 多维呢？</p>
 <p>肯定是有的 基本写法是 每多一个维度 就要多加一个[数量] 这里我们稍微的知道有这些东西就行了</p>
@@ -306,15 +306,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">char</span>  <span class="n">cc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="c1">//注意表示字符串的话 要&#39;\0&#39;结尾哦
-</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;cc = %s</span><span class="se">\n</span><span class="s"> &#34;</span><span class="p">,</span><span class="n">cc</span><span class="p">);</span><span class="c1">//%s表示 输出的值的类型是 字符串类型
-</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;          char  cc[6] 大小=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cc</span><span class="p">));</span><span class="c1">//其实也就是6个字符表示的一个字符串
-</span><span class="c1"></span>
-  <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span><span class="c1">//暂停的意思 以免控制台消失
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span>  <span class="n">cc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="c1">//注意表示字符串的话 要&#39;\0&#39;结尾哦
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;cc = %s</span><span class="se">\n</span><span class="s"> &#34;</span><span class="p">,</span><span class="n">cc</span><span class="p">);</span><span class="c1">//%s表示 输出的值的类型是 字符串类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;          char  cc[6] 大小=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cc</span><span class="p">));</span><span class="c1">//其实也就是6个字符表示的一个字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span><span class="c1">//暂停的意思 以免控制台消失
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"

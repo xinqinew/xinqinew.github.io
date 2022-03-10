@@ -177,11 +177,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//字体配置  
-</span><span class="c1"></span><span class="n">ImFontConfig</span> <span class="n">f_cfg</span><span class="p">;</span>  
-<span class="n">f_cfg</span><span class="p">.</span><span class="n">FontDataOwnedByAtlas</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-<span class="k">const</span> <span class="n">ImFont</span><span class="o">*</span> <span class="n">font</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">Fonts</span><span class="o">-&gt;</span><span class="n">AddFontFromMemoryTTF</span><span class="p">((</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">baidu_font_data</span><span class="p">,</span> <span class="n">baidu_font_size</span><span class="p">,</span> <span class="mf">18.0f</span><span class="p">,</span><span class="o">&amp;</span><span class="n">f_cfg</span><span class="p">,</span> <span class="n">io</span><span class="p">.</span><span class="n">Fonts</span><span class="o">-&gt;</span><span class="n">GetGlyphRangesChineseSimplifiedCommon</span><span class="p">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//字体配置  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ImFontConfig</span> <span class="n">f_cfg</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="n">f_cfg</span><span class="p">.</span><span class="n">FontDataOwnedByAtlas</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ImFont</span><span class="o">*</span> <span class="n">font</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">Fonts</span><span class="o">-&gt;</span><span class="n">AddFontFromMemoryTTF</span><span class="p">((</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">baidu_font_data</span><span class="p">,</span> <span class="n">baidu_font_size</span><span class="p">,</span> <span class="mf">18.0f</span><span class="p">,</span><span class="o">&amp;</span><span class="n">f_cfg</span><span class="p">,</span> <span class="n">io</span><span class="p">.</span><span class="n">Fonts</span><span class="o">-&gt;</span><span class="n">GetGlyphRangesChineseSimplifiedCommon</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考源码1">参考源码1:</h2>
 <div class="highlight"><div class="chroma">
@@ -219,38 +219,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;你好世界 Hello, world!&#34;</span><span class="p">);</span>
-<span class="n">ImGuiTabBarFlags</span> <span class="n">tab_bar_flags</span> <span class="o">=</span> <span class="n">ImGuiTabBarFlags_None</span><span class="p">;</span>   
-<span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabBar</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;mytab&#34;</span><span class="p">,</span> <span class="n">tab_bar_flags</span><span class="p">))</span>    
-<span class="p">{</span>  
-  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab1&#34;</span><span class="p">))</span>     
-  <span class="p">{</span>     
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是1的内容&#34;</span><span class="p">);</span>    
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>     
-  <span class="p">}</span>     
-  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab2&#34;</span><span class="p">))</span>    
-  <span class="p">{</span>
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是2的内容&#34;</span><span class="p">);</span>  
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>      
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab3&#34;</span><span class="p">))</span>   
-  <span class="p">{</span>       
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是3的内容&#34;</span><span class="p">);</span>   
-    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>      
-  <span class="p">}</span>
-  <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabBar</span><span class="p">();</span>   
-<span class="p">}</span>
-
-<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Application average %.3f ms/frame (%.1f FPS)&#34;</span><span class="p">,</span> <span class="mf">1000.0f</span> <span class="o">/</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">,</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">);</span>  
-<span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
-
- 
-<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">&#34;abcdefg123456绘制字符串&#34;</span><span class="p">;</span>
-
-<span class="k">auto</span> <span class="n">drawList</span> <span class="o">=</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetOverlayDrawList</span><span class="p">();</span>    
-<span class="n">drawList</span><span class="o">-&gt;</span><span class="n">AddRectFilled</span><span class="p">({</span> <span class="mf">100.f</span><span class="p">,</span><span class="mf">100.f</span> <span class="p">},</span> <span class="p">{</span><span class="mf">200.f</span><span class="p">,</span><span class="mf">200.f</span><span class="p">},</span> <span class="n">ImColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mf">5.f</span><span class="p">);</span>    
-<span class="n">drawList</span><span class="o">-&gt;</span><span class="n">AddText</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="mf">25.f</span><span class="p">,</span> <span class="p">{</span> <span class="mf">250.f</span><span class="p">,</span><span class="mf">100.f</span> <span class="p">},</span> <span class="n">ImColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">Begin</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;你好世界 Hello, world!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ImGuiTabBarFlags</span> <span class="n">tab_bar_flags</span> <span class="o">=</span> <span class="n">ImGuiTabBarFlags_None</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabBar</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;mytab&#34;</span><span class="p">,</span> <span class="n">tab_bar_flags</span><span class="p">))</span>    
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab1&#34;</span><span class="p">))</span>     
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>     
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是1的内容&#34;</span><span class="p">);</span>    
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>     
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>     
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab2&#34;</span><span class="p">))</span>    
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是2的内容&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>      
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTabItem</span><span class="p">(</span><span class="s">&#34;tab3&#34;</span><span class="p">))</span>   
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>       
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="sa">u8</span><span class="s">&#34;这里是3的内容&#34;</span><span class="p">);</span>   
+</span></span><span class="line"><span class="cl">    <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabItem</span><span class="p">();</span>      
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ImGui</span><span class="o">::</span><span class="n">EndTabBar</span><span class="p">();</span>   
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Application average %.3f ms/frame (%.1f FPS)&#34;</span><span class="p">,</span> <span class="mf">1000.0f</span> <span class="o">/</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">,</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetIO</span><span class="p">().</span><span class="n">Framerate</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="n">ImGui</span><span class="o">::</span><span class="n">End</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">&#34;abcdefg123456绘制字符串&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">drawList</span> <span class="o">=</span> <span class="n">ImGui</span><span class="o">::</span><span class="n">GetOverlayDrawList</span><span class="p">();</span>    
+</span></span><span class="line"><span class="cl"><span class="n">drawList</span><span class="o">-&gt;</span><span class="n">AddRectFilled</span><span class="p">({</span> <span class="mf">100.f</span><span class="p">,</span><span class="mf">100.f</span> <span class="p">},</span> <span class="p">{</span><span class="mf">200.f</span><span class="p">,</span><span class="mf">200.f</span><span class="p">},</span> <span class="n">ImColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mf">5.f</span><span class="p">);</span>    
+</span></span><span class="line"><span class="cl"><span class="n">drawList</span><span class="o">-&gt;</span><span class="n">AddText</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="mf">25.f</span><span class="p">,</span> <span class="p">{</span> <span class="mf">250.f</span><span class="p">,</span><span class="mf">100.f</span> <span class="p">},</span> <span class="n">ImColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考源码2-手动锁帧">参考源码2 (手动锁帧):</h2>
 <div class="highlight"><div class="chroma">
@@ -349,99 +349,99 @@
 </span><span class="lnt">92
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">DxTimeControl</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>	
-  <span class="c1">//初始化函数	
-</span><span class="c1"></span>  <span class="n">DxTimeControl</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="n">s_tStart</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
-    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>	
-  <span class="p">}</span>
-  <span class="c1">//初始化函数	
-</span><span class="c1"></span>  <span class="n">DxTimeControl</span><span class="p">(</span><span class="kt">int</span> <span class="n">ms</span><span class="p">)</span>	
-  <span class="p">{</span>
-    <span class="n">ms</span> <span class="o">=</span> <span class="p">(</span><span class="n">ms</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ms</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="o">?</span> <span class="mi">15</span> <span class="o">:</span> <span class="n">ms</span><span class="p">;</span>	
-    <span class="n">s_tStart</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
-    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">//析构函数	
-</span><span class="c1"></span>  <span class="o">~</span><span class="n">DxTimeControl</span><span class="p">()</span>
-  <span class="p">{</span>
-  <span class="p">}</span>
-  <span class="c1">// 获取上一帧与当前帧的时间间隔（秒）	
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="nf">getDeltaTime</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tLast</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.f</span> <span class="o">/</span> <span class="mf">1000.f</span><span class="p">;</span>	<span class="p">}</span>
-  <span class="c1">// 获取上一帧与当前帧的时间间隔（毫秒）	
-</span><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getDeltaTimeMilliseconds</span><span class="p">()</span>	
-  <span class="p">{</span>		
-    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tLast</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>	
-  <span class="p">}</span>
-  <span class="c1">// 获取游戏总时长（秒）	
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="nf">getTotalTime</span><span class="p">()</span>	
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tStart</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.f</span> <span class="o">/</span> <span class="mf">1000.f</span><span class="p">;</span>	
-  <span class="p">}</span>
-  <span class="c1">// 获取游戏总时长（毫秒）
-</span><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getTotalTimeMilliseconds</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tStart</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>
-  <span class="p">}</span>
-  <span class="c1">// 循环周期	
-</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">cycleTime</span><span class="p">(</span><span class="kt">int</span> <span class="n">ms</span><span class="p">)</span> 
-  <span class="p">{</span>
-    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>	
-  <span class="p">};</span>
-  <span class="c1">// 是否达到更新时间	
-</span><span class="c1"></span>  <span class="kt">bool</span> <span class="nf">isReady</span><span class="p">()</span>	
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">s_tExceptedInvertal</span> <span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tFixed</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="c1">// 更新当前时间	
-</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">updateNow</span><span class="p">()</span>	
-  <span class="p">{</span>
-    <span class="c1">// 刷新时间	
-</span><span class="c1"></span>    <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="c1">// 更新时间信息
-</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">updateLast</span><span class="p">()</span>	
-  <span class="p">{</span>
-    <span class="n">s_tFixed</span> <span class="o">+=</span> <span class="n">s_tExceptedInvertal</span><span class="p">;</span>
-    
-		<span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span><span class="p">;</span>
-    <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
-  <span class="p">}</span>
-  <span class="c1">// 重置时间信息	
-</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span>	
-  <span class="p">{</span>
-    <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="c1">// 挂起线程
-</span><span class="c1"></span>  <span class="kt">void</span> <span class="nf">sleep</span><span class="p">()</span>
-  <span class="p">{</span>		
-    <span class="c1">// 计算挂起时长		
-</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">nWaitMS</span> <span class="o">=</span> <span class="n">s_tExceptedInvertal</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">-</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tFixed</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>
-    
-		<span class="k">if</span> <span class="p">(</span><span class="n">nWaitMS</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>	
-    <span class="p">{</span>
-      <span class="c1">// 挂起线程，释放 CPU 占用			
-</span><span class="c1"></span>      <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">nWaitMS</span><span class="p">));</span>	
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="k">private</span><span class="o">:</span>	
-  <span class="c1">// 游戏开始时间	
-</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tStart</span><span class="p">;</span>
-  <span class="c1">// 当前时间	
-</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tNow</span><span class="p">;</span>	
-  <span class="c1">// 上一帧刷新时间	
-</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tLast</span><span class="p">;</span>
-  <span class="c1">// 固定的刷新时间	
-</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tFixed</span><span class="p">;</span>	
-  <span class="c1">// 每一帧间隔	
-</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span> <span class="n">s_tExceptedInvertal</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DxTimeControl</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>	
+</span></span><span class="line"><span class="cl">  <span class="c1">//初始化函数	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DxTimeControl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s_tStart</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
+</span></span><span class="line"><span class="cl">    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//初始化函数	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DxTimeControl</span><span class="p">(</span><span class="kt">int</span> <span class="n">ms</span><span class="p">)</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ms</span> <span class="o">=</span> <span class="p">(</span><span class="n">ms</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ms</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="o">?</span> <span class="mi">15</span> <span class="o">:</span> <span class="n">ms</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">    <span class="n">s_tStart</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
+</span></span><span class="line"><span class="cl">    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//析构函数	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">~</span><span class="n">DxTimeControl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 获取上一帧与当前帧的时间间隔（秒）	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">float</span> <span class="nf">getDeltaTime</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tLast</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.f</span> <span class="o">/</span> <span class="mf">1000.f</span><span class="p">;</span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 获取上一帧与当前帧的时间间隔（毫秒）	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getDeltaTimeMilliseconds</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>		
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tLast</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 获取游戏总时长（秒）	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">float</span> <span class="nf">getTotalTime</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tStart</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.f</span> <span class="o">/</span> <span class="mf">1000.f</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 获取游戏总时长（毫秒）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getTotalTimeMilliseconds</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tStart</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 循环周期	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">cycleTime</span><span class="p">(</span><span class="kt">int</span> <span class="n">ms</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s_tExceptedInvertal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">ms</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 是否达到更新时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">bool</span> <span class="nf">isReady</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">s_tExceptedInvertal</span> <span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tFixed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 更新当前时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">updateNow</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 刷新时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 更新时间信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">updateLast</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s_tFixed</span> <span class="o">+=</span> <span class="n">s_tExceptedInvertal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">		<span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tNow</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 重置时间信息	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span>	
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s_tLast</span> <span class="o">=</span> <span class="n">s_tFixed</span> <span class="o">=</span> <span class="n">s_tNow</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 挂起线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">sleep</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>		
+</span></span><span class="line"><span class="cl">    <span class="c1">// 计算挂起时长		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">nWaitMS</span> <span class="o">=</span> <span class="n">s_tExceptedInvertal</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">-</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_tNow</span> <span class="o">-</span> <span class="n">s_tFixed</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">nWaitMS</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>	
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 挂起线程，释放 CPU 占用			
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="n">nWaitMS</span><span class="p">));</span>	
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>	
+</span></span><span class="line"><span class="cl">  <span class="c1">// 游戏开始时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tStart</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 当前时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tNow</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">  <span class="c1">// 上一帧刷新时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tLast</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 固定的刷新时间	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">time_point</span> <span class="n">s_tFixed</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">  <span class="c1">// 每一帧间隔	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span> <span class="n">s_tExceptedInvertal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>TODO: 下节课要讲dx了,大家看下什么时dx的顶点缓存</strong>
 学会使用std的一些东西,自己写个类,重写运算符TODO: 了解下11的特性 遍历器是什么,有什么用</p>

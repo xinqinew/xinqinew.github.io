@@ -183,32 +183,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="c1">//定义结构体 Student
-</span><span class="c1"></span><span class="k">struct</span> <span class="nc">Student</span><span class="p">{</span>
-    <span class="c1">//结构体包含的成员变量
-</span><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">score</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="c1">//显示结构体的成员变量
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">struct</span> <span class="nc">Student</span> <span class="n">stu</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s的年龄是 %d，成绩是 %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">score</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="k">struct</span> <span class="nc">Student</span> <span class="n">stu1</span><span class="p">;</span>
-    <span class="c1">//为结构体的成员变量赋值
-</span><span class="c1"></span>    <span class="n">stu1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;小明&#34;</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="mf">92.5</span><span class="p">;</span>
-    <span class="c1">//调用函数
-</span><span class="c1"></span>    <span class="n">display</span><span class="p">(</span><span class="n">stu1</span><span class="p">);</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//定义结构体 Student
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">Student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//结构体包含的成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//显示结构体的成员变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">struct</span> <span class="nc">Student</span> <span class="n">stu</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s的年龄是 %d，成绩是 %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">stu</span><span class="p">.</span><span class="n">score</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">Student</span> <span class="n">stu1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//为结构体的成员变量赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">stu1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;小明&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="mf">92.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//调用函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">display</span><span class="p">(</span><span class="n">stu1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>结构体是一种构造类型，可以包含若干成员变量，每个成员变量的类型可以不同；可以通过结构体来定义结构体变量，每个变量拥有相同的性质。###</p>
 </div><div class="post-footer" id="post-footer">

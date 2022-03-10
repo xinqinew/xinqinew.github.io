@@ -153,8 +153,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">![AltText](/path/to/img.jpg)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">![AltText](/path/to/img.jpg)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然而，如果你需要进行更多的控制，情况立刻变得复杂了起来。由于 Markdown 秉持结构和样式分离的原则，你无法在插入图片时控制其大小。要达到这样的目的，你需要使用普通的 <code>&lt;img&gt;</code> 标签：</p>
 <div class="highlight"><div class="chroma">
@@ -162,8 +162,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;img src=&#34;/path/to/img.jpg&#34; width=&#34;100&#34; height=&#34;100&#34; alt=&#34;AltText&#34; /&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img src=&#34;/path/to/img.jpg&#34; width=&#34;100&#34; height=&#34;100&#34; alt=&#34;AltText&#34; /&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>相对前一种语法，后者明显麻烦许多。所幸这种情况一般都是极少数。一般来说，我们只需要使用前一种语法。然而，有一种状况会让你需要大量使用后一种语法 —— Retina 屏幕的截图。一张 100pt * 100pt 的截图事实上是 200px * 200px。贴到文章里之后，电脑又会以 200pt * 200pt 的大小来渲染。你的截图立刻变得大而模糊。为了避免这种状况，你需要手动计算图片的实际大小，然后使用 HTML 语法插入图片。当你需要插入大量图片时，这一工作很快变得枯燥而难以忍受。</p>
 <p>当然，你可以通过指定比例从而避免手工计算大小：</p>
@@ -172,8 +172,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;img src=&#34;/path/to/img.jpg&#34; width=&#34;50%&#34; alt=&#34;AltText&#34; /&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img src=&#34;/path/to/img.jpg&#34; width=&#34;50%&#34; alt=&#34;AltText&#34; /&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>虽然免去了计算大小，你依然需要使用冗长的 HTML 语法。能不能用 Markdown 语法来做这件事呢？</p>
 <p>我们知道有些 Markdown 方言支持调整图片大小，例如：</p>
@@ -188,14 +188,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Mou:
-![AltText](/path/to/img.jpg =100x)
-
-MWeb:
-![AltText-w100](/path/to/img.jpg)
-
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Mou:
+</span></span><span class="line"><span class="cl">![AltText](/path/to/img.jpg =100x)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MWeb:
+</span></span><span class="line"><span class="cl">![AltText-w100](/path/to/img.jpg)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>显然，这些在 Jekyll 中都是不支持的。不过，我们有更好的方法：</p>
 <div class="highlight"><div class="chroma">
@@ -203,8 +203,8 @@ MWeb:
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">![AltText @2x]()
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">![AltText @2x]()
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>只需添加 <code>@2x</code> 后缀，图片就会自动缩放为50%大小</p>
 <p>这显然不是 Markdown 或 Jekyll 的功能，在你的博客中使用不会有任何效果。真正的魔法在 CSS 样式表中：</p>
@@ -215,10 +215,10 @@ MWeb:
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.post-container img[alt~=&#34;@2x&#34;] {
-    zoom: 50%;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.post-container img[alt~=&#34;@2x&#34;] {
+</span></span><span class="line"><span class="cl">    zoom: 50%;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们用到了 CSS 中的属性选择器，它可以对拥有指定属性的 HTML 元素设置样式。在这里，我们对 alt 中包含 <code>@2x</code> 的所有图片添加了 <code>zoom: 50%</code> 属性。</p>
 <p>同理，你也可以为 iPhone * Plus 的截图设置三倍缩放：</p>
@@ -229,10 +229,10 @@ MWeb:
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.post-container img[alt~=&#34;@3x&#34;] {
-    zoom: 33%;
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.post-container img[alt~=&#34;@3x&#34;] {
+</span></span><span class="line"><span class="cl">    zoom: 33%;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 </div><div class="post-footer" id="post-footer">

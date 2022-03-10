@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Windows下TensorRT-yolov5-使用总结 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Windows下TensorRT-yolov5-使用总结" />
+<meta property="og:description" content="原文 一、简介 Yolov5是基于开源的python学习库Pytorch来做的，如果想要在C&#43;&#43;环境下来运行yolov5做目标检测，那么就需要转" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Windows下TensorRT-yolov5-使用总结"/>
+<meta name="twitter:description" content="原文 一、简介 Yolov5是基于开源的python学习库Pytorch来做的，如果想要在C&#43;&#43;环境下来运行yolov5做目标检测，那么就需要转"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/yolov5-libtorch%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" /><link rel="next" href="https://xinqinew.github.io/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Windows下TensorRT-yolov5-使用总结",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "yolov5","wordcount":  3752 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Windows下TensorRT-yolov5-使用总结</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3752 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="Windows下TensorRT-yolov5-使用总结">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一简介"><strong>一、简介</strong></a></li>
+        <li><a href="#二环境"><strong>二、环境</strong></a></li>
+        <li><a href="#三libtorch"><strong>三、libtorch</strong></a></li>
+        <li><a href="#1部署"><strong>1、部署</strong></a></li>
+        <li><a href="#2存在问题"><strong>2、存在问题</strong></a></li>
+        <li><a href="#四tensorrt"><strong>四、tensorRT</strong></a></li>
+        <li><a href="#1安装部署vs2017--opencv347--cmake3164--dirent"><strong>1、安装部署vs2017 + opencv3.4.7 + cmake3.16.4 + dirent</strong></a></li>
+        <li><a href="#2安装部署tensorrt"><strong>2、安装部署TensorRT</strong></a></li>
+        <li><a href="#3下载相同版本的yolov5程序和tensorrt程序"><strong>3、下载相同版本的yolov5程序和tensorRT程序</strong></a></li>
+        <li><a href="#4pt模型转换为wts模型"><strong>4、.pt模型转换为.wts模型</strong></a></li>
+        <li><a href="#5编译tensorrt程序中yolov5的vs工程"><strong>5、编译tensorRT程序中yolov5的vs工程</strong></a></li>
+        <li><a href="#6运行tensorrt中yolov5"><strong>6、运行tensorRT中yolov5</strong></a></li>
+        <li><a href="#7问题汇总"><strong>7、问题汇总</strong></a></li>
+        <li><a href="#8注意事项"><strong>8、注意事项</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://www.cxybb.com/article/qq_27278957/120004516" target="_blank" rel="noopener noreffer">原文</a></p>
+<h2 id="一简介"><strong>一、简介</strong></h2>
+<p>Yolov5是基于开源的python学习库Pytorch来做的，如果想要在C++环境下来运行yolov5做目标检测，那么就需要转换成新的框架，其中就包括libtorch、tensorRT</p>
+<h2 id="二环境"><strong>二、环境</strong></h2>
+<p>系统：Windows10</p>
+<p>Yolov5：python3.8 + pytorch1.7.0 + cuda11.1 + cudnn11.1 + opencv4.2【默认yolov5运行环境已经安装好了，可参考：<a href="https://blog.csdn.net/qq_27278957/article/details/120011337" target="_blank" rel="noopener noreffer">windows下Pytorch安装教程</a>】</p>
+<p>Libtorch：vs2017 + libtorch-1.7.0-cuda11.0-release + opencv3.4.7</p>
+<p>tensorRT：vs2017 + TensorRT-7.2.3.4 + opencv3.4.7 + cmake3.16.4 + dirent</p>
+<h2 id="三libtorch"><strong>三、libtorch</strong></h2>
+<h2 id="1部署"><strong>1、部署</strong></h2>
+<p>首先说一下使用libtorch，github上能够找到一些用libtorch版的yolov5，附上我使用的程序链接<a href="https://github.com/yasenh/libtorch-yolov5" target="_blank" rel="noopener noreffer">https://github.com/yasenh/libtorch-yolov5</a> ；真实使用时，需要根据自己的需求去修改程序（注意：配置环境可能也是个头疼的问题）。</p>
+<p>具体使用步骤及总结，参考：</p>
+<p><a href="https://blog.csdn.net/qq_27278957/article/details/120013992" target="_blank" rel="noopener noreffer">libTorch环境配置及使用</a></p>
+<p><a href="https://blog.csdn.net/qq_27278957/article/details/120014289" target="_blank" rel="noopener noreffer">yolov5-libtorch使用总结</a></p>
+<h2 id="2存在问题"><strong>2、存在问题</strong></h2>
+<p>使用官方模型yolov5s模型，检测每帧（分辨率1920*1080）的耗时较长：127ms。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151052735.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151052735.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151052735.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151052735.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151052735.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151052735.png"
+    /></p>
+<p>这个检测耗时比pytorch版的yolov5慢了10倍多，pytorch版的yolov5检测每帧耗时11ms左右。</p>
+<h2 id="四tensorrt"><strong>四、tensorRT</strong></h2>
+<h2 id="1安装部署vs2017--opencv347--cmake3164--dirent"><strong>1、安装部署vs2017 + opencv3.4.7 + cmake3.16.4 + dirent</strong></h2>
+<p>这些环境在网上有很多教程，这里就不再多介绍了。</p>
+<p>这里说一下dirent，在github官方地址<a href="https://github.com/tronkko/dirent" target="_blank" rel="noopener noreffer">https://github.com/tronkko/dirent</a> 下载下来，解压后备用。</p>
+<h2 id="2安装部署tensorrt"><strong>2、安装部署TensorRT</strong></h2>
+<p>（1）从官网下载tensorRT</p>
+<p>官网地址：<a href="https://developer.nvidia.com/nvidia-tensorrt-download" target="_blank" rel="noopener noreffer">https://developer.nvidia.com/nvidia-tensorrt-download</a> 会需要先登陆才能下载。</p>
+<p>注意：下载与cuda版本一致的tensorRT，这里我下载的包名是</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151101302.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151101302.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151101302.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151101302.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151101302.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151101302.png"
+    /></p>
+<p>（2）解压部署tensorRT</p>
+<p>解压后把tensorRT添加到环境变量Path中：E:\3rd-Part\TensorRT-7.2.3.4\lib</p>
+<p>（3）安装graphsurgeon和uff</p>
+<p>在如下的两个目录中找到graphsurgeon和uff</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151106680.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151106680.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151106680.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151106680.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151106680.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151106680.png"
+    /></p>
+<p>通过anaconda prompt安装它们，安装指令是：</p>
+<blockquote>
+<p>pip install graphsurgeon-0.4.5-py2.py3-none-any.whl</p>
+<p>pip install uff-0.6.9-py2.py3-none-any.whl</p>
+</blockquote>
+<p>（4）将TensorRT-7.2.3.4\include目录中所有的文件，拷贝到cuda的include目录中，我的：</p>
+<p>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include</p>
+<p>（5）将TensorRT-7.2.3.4\lib目录中所有的文件，拷贝到cuda的lib/64目录中，我的：</p>
+<p>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\lib\x64</p>
+<p>（6）将TensorRT-7.2.3.4\lib目录中所有的文件，拷贝到cuda的bin目录中，我的：</p>
+<p>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin</p>
+<p>（7）使用vs2017打开tensorRT的测试示例TensorRT-7.2.3.4\samples\sampleMNIST</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150942948.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150942948.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150942948.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150942948.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150942948.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150942948.png"
+    /></p>
+<p>示例项目中的环境配置，都是已经配置好的，也会自动识别系统环境变量中的cuda环境；直接右击项目生成即可。</p>
+<p>（8）通过anaconda prompt进入TensorRT-7.2.3.4\data\mnist目录，运行download_pgms.py文件，下载测试数据（我测试过很多次，都失败了，我已经下载好了一份，点击<a href="https://download.csdn.net/download/qq_27278957/21739786" target="_blank" rel="noopener noreffer">下载</a>）；下载指令如下：</p>
+<blockquote>
+<p>python download_pgms.py</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943009.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943009.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943009.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943009.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943009.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943009.png"
+    /></p>
+<p>（9）运行sampleMNIST项目，如果看到如下画面，说明tensorRT安装部署成功：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151124066.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151124066.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151124066.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151124066.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151124066.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151124066.png"
+    /></p>
+<p>（10）参考链接：</p>
+<p><a href="https://www.freesion.com/article/7394364554/" target="_blank" rel="noopener noreffer">https://www.freesion.com/article/7394364554/</a></p>
+<p><a href="https://blog.csdn.net/lishiyu93/article/details/115526772?spm=1001.2014.3001.5501" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lishiyu93/article/details/115526772?spm=1001.2014.3001.5501</a></p>
+<h2 id="3下载相同版本的yolov5程序和tensorrt程序"><strong>3、下载相同版本的yolov5程序和tensorRT程序</strong></h2>
+<p><strong><strong>一定要下载相同版本的yolov5程序和tensorRT程序</strong></strong>。这里用的是yolov5 2.0和tensorRT 2.0。</p>
+<p>Git下载指令：</p>
+<blockquote>
+<p>git clone -b v3.0 <a href="https://github.com/ultralytics/yolov5.git" target="_blank" rel="noopener noreffer">https://github.com/ultralytics/yolov5.git</a></p>
+<p>git clone -b yolov5-v3.0 <a href="https://github.com/wang-xinyu/tensorrtx.git" target="_blank" rel="noopener noreffer">https://github.com/wang-xinyu/tensorrtx.git</a></p>
+</blockquote>
+<p>如果不想通过git来下载，可以直接去github官网下载：</p>
+<p>Yolov5的github地址：<a href="https://github.com/ultralytics/yolov5" target="_blank" rel="noopener noreffer">https://github.com/ultralytics/yolov5</a></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151131154.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151131154.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151131154.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151131154.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151131154.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151131154.png"
+    /></p>
+<p>tensorRT程序的github地址：<a href="https://github.com/wang-xinyu/tensorrtx" target="_blank" rel="noopener noreffer">https://github.com/wang-xinyu/tensorrtx</a> 【注：感谢wang-xinyu】</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943991.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943991.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943991.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150943991.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943991.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150943991.png"
+    /></p>
+<h2 id="4pt模型转换为wts模型"><strong>4、.pt模型转换为.wts模型</strong></h2>
+<p>（1）将tensorrtx/yolov5目录中的gen_wts.py拷贝到yolov5目录下；</p>
+<p>（2）修改gen_wts.py文件，如下图，在这个文件中默认了.pt模型的路径，以及yolov5模型的类型（yolov5s类型），可根据需要，自行修改；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944107.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944107.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944107.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944107.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944107.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944107.png"
+    /></p>
+<p>（3）通过anaconda prompt进入yolov5目录，执行“python gen_wts.py”，即可生成.wts文件。</p>
+<p>（4）注意：每个版本的tensorRT中gen_wts.py程序可能会不同，比如tensorRT 4.0的gen_wts.py程序如下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944281.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944281.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944281.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150944281.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944281.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150944281.png"
+    /></p>
+<p>要想生成yolov5s.wts文件，只需执行“python gen_wts.py yolov5s.pt”即可。</p>
+<h2 id="5编译tensorrt程序中yolov5的vs工程"><strong>5、编译tensorRT程序中yolov5的vs工程</strong></h2>
+<p>（1）修改tensorrtx\yolov5\CMakeLists.txt文件</p>
+<p>注：我这有一些已经编译成功的CMakeLists.txt文件，可以直接使用；点击<a href="https://download.csdn.net/download/qq_27278957/21739817" target="_blank" rel="noopener noreffer">下载</a></p>
+<p>官方给的是基于linux系统的配置，这里需要修改一下：</p>
+<ul>
+<li>#1：工程名称</li>
+<li>#2：opencv路径</li>
+<li>#3：tensorRT路径</li>
+<li>#4：dirent路径</li>
+<li>#5：工程包含目录</li>
+<li>#6：tensorRT包含目录</li>
+<li>#7：dirent包含目录</li>
+<li>#8：opencv包含目录</li>
+<li>#9：tensorRT库目录</li>
+<li>#10：添加工程文件</li>
+<li>#11：添加tensorRT附加依赖项</li>
+<li>#12：opencv库目录</li>
+<li>#13：cuda附加依赖项</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151156587.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151156587.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151156587.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151156587.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151156587.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151156587.png"
+    /></p>
+<p>这里参考博文：<a href="https://blog.csdn.net/lishiyu93/article/details/115861265" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lishiyu93/article/details/115861265</a></p>
+<p>这篇博文中介绍这块的时候，添加了很多项【可根据需要自选添加】：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151219496.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151219496.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151219496.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151219496.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151219496.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151219496.png"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151207485.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151207485.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151207485.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151207485.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151207485.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151207485.png"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151358942.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151358942.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151358942.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151358942.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151358942.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151358942.png"
+    /></p>
+<p>（2）用cmake编译工程</p>
+<p>在tensorrtx\yolov5中创建目录build，用于存放编译生成的工程文件。先点击Configure，在点击Generate，生成成功即可。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945136.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945136.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945136.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945136.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945136.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945136.png"
+    /></p>
+<p>（3）编译工程</p>
+<p>打开tensorrtx\yolov5\build目录下生成的vs工程，右击工程重新生成即可</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_18,color_FFFFFF,t_70,g_se,x_16-20220223151346304.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_18%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151346304.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_18%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151346304.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_18%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151346304.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_18,color_FFFFFF,t_70,g_se,x_16-20220223151346304.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_18,color_FFFFFF,t_70,g_se,x_16-20220223151346304.png"
+    /></p>
+<h2 id="6运行tensorrt中yolov5"><strong>6、运行tensorRT中yolov5</strong></h2>
+<p>注：我这里有一个已经编译好的项目示例，点击<a href="https://download.csdn.net/download/qq_27278957/21739805" target="_blank" rel="noopener noreffer">下载</a></p>
+<p>（1）将生成的yolov5s.wts（或者自定义的.wts模型）文件拷贝到tensorrtx\yolov5目录；</p>
+<p>（2）修改类别数参数</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945603.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945603.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945603.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945603.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945603.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945603.png"
+    /></p>
+<p>默认CLASS_NUM是80，coco数据集中的类别总数,如果用的是yolov5官方的模型，那这里就不需要修改了。如果.wts模型文件是自定义的模型文件【<strong><strong>注意：自定义的模型必须是在对应yolov5版本（这里是yolov5 2.0版本）中训练得到的</strong></strong>】，可将CLASS_NUM设置成自己模型中的类别总数。</p>
+<p>（3）右击项目属性 -&gt; 配置属性 -&gt; 调试 -&gt; 命令参数中输入生成.engine文件的指令：</p>
+<blockquote>
+<p>-s yolov5s.wts yolov5s.engine s</p>
+</blockquote>
+<p>运行项目，即可生成yolov5s.engine。注意：生成.engine文件的时间较长，需要耐心等待；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151331748.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151331748.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151331748.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151331748.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151331748.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151331748.png"
+    /></p>
+<p>其中 -s表示将.wts文件成功.engine文件；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945753.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945753.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945753.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150945753.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945753.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150945753.png"
+    /></p>
+<p>注意图中的engine_name，初始化的参数STR2(NET)宏定义，默认是s，可自行根据模型类型修改；</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151322104.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151322104.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151322104.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151322104.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151322104.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151322104.png"
+    /></p>
+<p>engine_name名称默认是yolov5s.engine，可根据需要自定义修改。</p>
+<p>创建engine文件的方法共四个，分别是s模型、m模型、l模型、x模型。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946300.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946300.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946300.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946300.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946300.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946300.png"
+    /></p>
+<p>以s模型为例：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946395.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946395.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946395.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150946395.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946395.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150946395.png"
+    /></p>
+<p>函数中默认了.wts的名称和路径。如果是自己训练的模型，就自己修改成自己模型的名称。</p>
+<p>（4）右击项目属性 -&gt; 配置属性 -&gt; 调试 -&gt; 命令参数中输入运行检测的指令：</p>
+<blockquote>
+<p>-d yolov5s.engine ./images</p>
+</blockquote>
+<p>此指令的意思是：利用yolov5s.engine检测./images目录中所有的图像；</p>
+<p>检测结果如下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151311698.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151311698.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151311698.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151311698.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151311698.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151311698.png"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947135.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947135.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947135.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947135.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947135.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947135.png"
+    /></p>
+<p>（5）如果同时使用多个模型检测时，可以创建全局的类别数量参数g_nCLASS_NUM，而CLASS_NUM在检测时就作废不用了（但是还会用于“创建.engine文件”）。<strong><strong>【注意：新版本中，<strong><strong><strong><strong>CLASS_NUM</strong></strong></strong></strong>只用于wts转换为engine文件，而不用于检测，就是说检测时不依赖任何类别数量参数】</strong></strong></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151304454.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151304454.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151304454.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151304454.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151304454.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151304454.png"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151255754.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151255754.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151255754.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151255754.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151255754.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151255754.png"
+    /></p>
+<p>注意：模型检测时都需要修改g_nCLASS_NUM为模型的类别数量；检测时，需要在对应.engine文件加载之前设置g_nCLASS_NUM。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151250013.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151250013.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151250013.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151250013.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151250013.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151250013.png"
+    /></p>
+<p>（6）参考博文</p>
+<p><a href="https://blog.csdn.net/lishiyu93/article/details/115861265" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lishiyu93/article/details/115861265</a></p>
+<p><a href="https://blog.csdn.net/weixin_41552975/article/details/114398669" target="_blank" rel="noopener noreffer">https://blog.csdn.net/weixin_41552975/article/details/114398669</a></p>
+<h2 id="7问题汇总"><strong>7、问题汇总</strong></h2>
+<p>（1）.wts生成.engine文件时，当CLASS_NUM参数值与.wts模型的类别数不相同时，会出现如下错误：</p>
+<blockquote>
+<p>“Assertion failed: engine != nullptr”</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947836.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947836.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947836.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150947836.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947836.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150947836.png"
+    /></p>
+<p>（2）当生成.pt模型的yolov5版本 与 tensorRT程序版本不一致，会出现如下问题：</p>
+<blockquote>
+<p>“Parameter check failed at: Network.cpp::nvinfer1::Network::addScale::484, condition: shift.count &gt; 0 ? (shift.values != nullptr) : (shift.values == nullptr)”</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151242795.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151242795.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151242795.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223151242795.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151242795.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223151242795.png"
+    /></p>
+<h2 id="8注意事项"><strong>8、注意事项</strong></h2>
+<p>（1）在不同的硬件环境下，引擎文件（.engine）需要重新生成才能使用，wts文件是可以通用的。</p>
+<p>举例说明：</p>
+<p>我在显卡RTX3070的主机中生成的引擎文件（.engine），放在相同环境下（cuda版本、tensorRT版本、opencv版本等等）的显卡RTX1060的主机上运行，就会出现如下错误：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150948062.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150948062.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150948062.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark%2ctype_ZHJvaWRzYW5zZmFsbGJhY2s%2cshadow_50%2ctext_Q1NETiBA6auY56WleGlhbmc=%2csize_20%2ccolor_FFFFFF%2ct_70%2cg_se%2cx_16-20220223150948062.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150948062.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6auY56WleGlhbmc=,size_20,color_FFFFFF,t_70,g_se,x_16-20220223150948062.png"
+    /></p>
+<p>在显卡RTX1060的主机上用wts文件重新生成引擎文件（.engine），再次调用引擎文件检测，即可正常。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" data-title="Windows下TensorRT-yolov5-使用总结" data-hashtags="yolov5"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" data-hashtag="yolov5"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" data-title="Windows下TensorRT-yolov5-使用总结"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" data-title="Windows下TensorRT-yolov5-使用总结"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" data-title="Windows下TensorRT-yolov5-使用总结"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/yolov5/">yolov5</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022/01/yolov5-libtorch%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="yolov5-libtorch使用总结"><i class="fas fa-angle-left fa-fw"></i>yolov5-libtorch使用总结</a>
+            <a href="/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/" class="next" rel="next" title="win10 使用TensorRT部署 yolov5-v4.0">win10 使用TensorRT部署 yolov5-v4.0<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

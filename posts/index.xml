@@ -56,14 +56,14 @@
     <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/</guid>
-    <description><![CDATA[这里收录了我的任鸟飞笔记. 0052D314 E8 776C0100 call 00543F90 喊话call 1 2 3 4 5 6 7 8 9 10 11 12 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0019FB98 00B921B6 ws2_32.WSASend game.00B921B0 0019FBE8 0019FBDC 008861A0 game.00B91FA0 game.0088619B 0019FBE8 0019FBEC 00B90F27]]></description>
+    <description><![CDATA[这里收录了我的任鸟飞笔记. 0052D314 E8 776C0100 call 00543F90 喊话call 1 2 3 4 5 6 7 8 9 10 11 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0019FB98 00B921B6 ws2_32.WSASend game.00B921B0 0019FBE8 0019FBDC 008861A0 game.00B91FA0 game.0088619B 0019FBE8 0019FBEC 00B90F27 包]]></description>
 </item><item>
     <title>辅助</title>
     <link>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</link>
     <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</guid>
-    <description><![CDATA[这里收录了我的辅助相关笔记. 1 2 3 4 5 6 7 8 9 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0016F530 00546039 ws2_32.send vxClient.00546033 0016F598 0016F59C 0054643C vxClient.00546000 vxClient.00546437 0016F598 0019F668 007EE350 包含vxClient.00]]></description>
+    <description><![CDATA[这里收录了我的辅助相关笔记. 1 2 3 4 5 6 7 8 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0016F530 00546039 ws2_32.send vxClient.00546033 0016F598 0016F59C 0054643C vxClient.00546000 vxClient.00546437 0016F598 0019F668 007EE350 包含vxClient.005]]></description>
 </item><item>
     <title>C&#43;&#43;菜鸟教程</title>
     <link>https://xinqinew.github.io/posts/c&#43;&#43;%E6%95%99%E7%A8%8B/</link>

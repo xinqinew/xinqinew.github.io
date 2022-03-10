@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <title class="pjax-title">C&#43;&#43;知识点(二) - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C&#43;&#43;知识点(二)" />
-<meta property="og:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //目标进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一" />
+<meta property="og:description" content="C&#43;&#43;类与对象 CEdit类 为Edit控件关联变量 CString类 CString 成员函数用法 // CStringA，CStringW CString::GetBuffer //获取字符串地址 cha" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xinqinew.github.io/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-07T00:00:00+00:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
 <meta name="twitter:title" content="C&#43;&#43;知识点(二)"/>
-<meta name="twitter:description" content="跨进程调用CALL CreateRemoteThread 创建远程进程 1 2 3 4 5 6 7 8 9 HANDLE WINAPI CreateRemoteThread( _In_ HANDLE hProcess, //目标进程句柄. _In_ LPSECURITY_ATTRIBUTES lpThreadAttributes, //指针,一般设置为NULL _In_ SIZE_T dwStackSize, //纯种堆栈大小,一"/>
+<meta name="twitter:description" content="C&#43;&#43;类与对象 CEdit类 为Edit控件关联变量 CString类 CString 成员函数用法 // CStringA，CStringW CString::GetBuffer //获取字符串地址 cha"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1387 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1073 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/08\/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C\/","datePublished": "2021-08-07T00:00:00+00:00","dateModified": "2021-08-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1387 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-07">2021-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1073 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/08/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C/" class="leancloud_visitors" data-flag-title="C&#43;&#43;知识点(二)">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -152,12 +152,6 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#跨进程调用call">跨进程调用CALL</a>
-          <ul>
-            <li><a href="#createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</a></li>
-          </ul>
-        </li>
-        <li><a href="#dll注入调用call">DLL注入调用CALL</a></li>
         <li><a href="#c类与对象">C++类与对象</a>
           <ul>
             <li><a href="#cedit类">CEdit类</a></li>
@@ -173,59 +167,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="跨进程调用call">跨进程调用CALL</h2>
-<h3 id="createremotethread-创建远程进程">CreateRemoteThread 创建远程进程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateRemoteThread</span><span class="p">(</span>
-<span class="n">_In_</span> <span class="n">HANDLE</span> <span class="n">hProcess</span><span class="p">,</span>	<span class="c1">//目标进程句柄.
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpThreadAttributes</span><span class="p">,</span>	<span class="c1">//指针,一般设置为NULL
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">SIZE_T</span> <span class="n">dwStackSize</span><span class="p">,</span>	<span class="c1">//纯种堆栈大小,一船设置为0,表示默认为1M
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">LPTHREAD_START_ROUTINE</span> <span class="n">lpStartAddress</span><span class="p">,</span>	<span class="o">//</span><span class="err">线程函数的地址</span><span class="p">(</span><span class="err">目标进程代码地址</span><span class="p">)</span>
-<span class="n">_In_</span> <span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">,</span>	<span class="c1">//线程参数
-</span><span class="c1"></span><span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwCreationFlags</span><span class="p">,</span>	<span class="c1">//线程的创建标志
-</span><span class="c1"></span><span class="n">_Out_</span> <span class="n">LPDWORD</span> <span class="n">lpThreadId</span>	<span class="c1">//输出参数,记录创建的远程线程的ID,不输出可传NULL
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>​	<strong>线程的创建标志.</strong></p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>线程创建后立即运行</td>
-</tr>
-<tr>
-<td>CREATE_SUSPENDED<br>0x00000004</td>
-<td>线程创建后先将线程挂起,直到 <strong><a href="https://baike.baidu.com/item/ResumeThread" target="_blank" rel="noopener noreffer">ResumeThread</a></strong> 被调用.</td>
-</tr>
-<tr>
-<td>STACK_SIZE_PARAM_IS_A_RE<br/>SERVATION<br/>0x00010000</td>
-<td><em>dwStackSize</em> 参数指定为线程栈预订大小,如果STACK_SIZE_PARAM_IS_A_RESERVATION没有被指定,<em>dwStackSize</em> 参数指定为线程栈分配大小.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="dll注入调用call">DLL注入调用CALL</h2>
-<p>CWinApp::InitInstance</p>
-<p>初始化函数（一般用于MFC初始化实例）</p>
-<h2 id="c类与对象">C++类与对象</h2>
+            </div><div class="content" id="content"><h2 id="c类与对象">C++类与对象</h2>
 <h3 id="cedit类">CEdit类</h3>
 <p>为Edit控件关联变量</p>
 <h3 id="cstring类">CString类</h3>
@@ -267,31 +209,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="err">结构类型</span>
-<span class="p">{</span>
-	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
-<span class="p">}</span><span class="err">结构类型</span><span class="p">;</span>
-
-<span class="k">union</span> <span class="err">联合类型1</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>	<span class="c1">//12
-</span><span class="c1"></span>	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
-<span class="p">}</span><span class="err">联合类型</span><span class="n">A</span><span class="p">;</span>
-
-<span class="k">typedef</span> <span class="k">union</span> <span class="err">联合类型2</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
-<span class="p">}</span><span class="err">联合类型</span><span class="n">B</span><span class="p">;</span> 
-<span class="c1">//   加typedef的话，联合类型B就是别名
-</span><span class="c1">// 不加typedef的话，联合类型B就是全局变量
-</span><span class="c1">// union 联合类型 所有成员共享一片内存，大小的话，以最大成员需求为准
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="err">结构类型</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">结构类型</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">union</span> <span class="err">联合类型1</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>	<span class="c1">//12
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">联合类型</span><span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">union</span> <span class="err">联合类型2</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">联合类型</span><span class="n">B</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">//   加typedef的话，联合类型B就是别名
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 不加typedef的话，联合类型B就是全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1">// union 联合类型 所有成员共享一片内存，大小的话，以最大成员需求为准
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="lstrcpy--与-_tcscpy-拷贝字符串">lstrcpy  与 _tcscpy 拷贝字符串</h2>
 <p>lstrcpy 既能作用于ASCII又能用于UNICODE， 兼容宏</p>
@@ -304,12 +246,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#ifdef UNICODE
-</span><span class="cp">#define lstrcpy IstrepyW
-</span><span class="cp">#else
-</span><span class="cp">#define lstrepy lstrepyA
-</span><span class="cp">#endif </span><span class="c1">// !UNICODE
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#ifdef UNICODE
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define lstrcpy IstrepyW
+</span></span></span><span class="line"><span class="cl"><span class="cp">#else
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define lstrepy lstrepyA
+</span></span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// !UNICODE
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>_tcscpy</p>
 <p>MessageBox
@@ -340,30 +282,28 @@ IstrepyW</p>
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-<span class="k">enum</span> <span class="nc">EColor</span>
-<span class="p">{</span>
-	<span class="n">RED</span><span class="p">,</span>
-	<span class="n">GREEN</span><span class="p">,</span>
-	<span class="n">BLUE</span>
-<span class="p">};</span>
- 
-<span class="n">EColor</span> <span class="n">eColor</span> <span class="o">=</span> <span class="n">RED</span><span class="p">;</span>
-
-<span class="c1">//=====================================================
-</span><span class="c1"></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">EColor</span>
-<span class="p">{</span>
-	<span class="n">RED</span><span class="p">,</span>
-	<span class="n">GREEN</span><span class="p">,</span>
-	<span class="n">BLUE</span>
-<span class="p">};</span>
- 
-<span class="n">EColor</span> <span class="n">eColor</span> <span class="o">=</span> <span class="n">EColor</span><span class="o">::</span><span class="n">RED</span><span class="p">;</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">EColor</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">RED</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GREEN</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BLUE</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">EColor</span> <span class="n">eColor</span> <span class="o">=</span> <span class="n">RED</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//=====================================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">EColor</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">RED</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GREEN</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">BLUE</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">EColor</span> <span class="n">eColor</span> <span class="o">=</span> <span class="n">EColor</span><span class="o">::</span><span class="n">RED</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="switch语句">switch语句</h2>
 <div class="highlight"><div class="chroma">
@@ -382,19 +322,19 @@ IstrepyW</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
-    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
-       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-       <span class="k">break</span><span class="p">;</span> <span class="c1">//optional
-</span><span class="c1"></span>    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
-       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-       <span class="k">break</span><span class="p">;</span> <span class="c1">//optional
-</span><span class="c1"></span>  
-    <span class="c1">// you can have any number of case statements.
-</span><span class="c1"></span>    <span class="k">default</span> <span class="o">:</span> <span class="c1">//Optional
-</span><span class="c1"></span>       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">switch</span><span class="p">(</span><span class="n">expression</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">break</span><span class="p">;</span> <span class="c1">//optional
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="n">constant</span><span class="o">-</span><span class="nl">expression</span>  <span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">break</span><span class="p">;</span> <span class="c1">//optional
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">    <span class="c1">// you can have any number of case statements.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">default</span> <span class="o">:</span> <span class="c1">//Optional
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>实例</strong></p>
 <div class="highlight"><div class="chroma">
@@ -431,37 +371,37 @@ IstrepyW</p>
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
- 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-   <span class="c1">// local variable declaration:
-</span><span class="c1"></span>   <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">&#39;D&#39;</span><span class="p">;</span>
-
-   <span class="k">switch</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
-   <span class="p">{</span>
-   <span class="k">case</span> <span class="sc">&#39;A&#39;</span> <span class="o">:</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Excellent!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
-      <span class="k">break</span><span class="p">;</span>
-   <span class="k">case</span> <span class="sc">&#39;B&#39;</span> <span class="o">:</span>
-   <span class="k">case</span> <span class="sc">&#39;C&#39;</span> <span class="o">:</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Well done&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-   <span class="k">case</span> <span class="sc">&#39;D&#39;</span> <span class="o">:</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;You passed&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-   <span class="k">case</span> <span class="sc">&#39;F&#39;</span> <span class="o">:</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Better try again&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-   <span class="k">default</span> <span class="o">:</span>
-      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Invalid grade&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Your grade is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">grade</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
- 
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// local variable declaration:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">&#39;D&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">switch</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;A&#39;</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Excellent!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;B&#39;</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;C&#39;</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Well done&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;D&#39;</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;You passed&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="sc">&#39;F&#39;</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Better try again&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">default</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Invalid grade&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Your grade is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">grade</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="状态机">状态机</h2>
 <div class="highlight"><div class="chroma">
@@ -507,46 +447,46 @@ IstrepyW</p>
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">enum</span> <span class="k">class</span> <span class="err">状态机标志位</span>
-<span class="p">{</span>
-  <span class="n">EN_状态机标志_学技术</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_开始上班</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_写代码</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_做项目</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_修BUG</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_测试</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_把项目卖给客户</span><span class="err">，</span>
-  <span class="n">EN_快态机标志_公司挣了1个亿</span><span class="err">，</span>
-  <span class="n">EN_状态机标志_老板给我升职加薪</span><span class="err">，</span>
-<span class="p">};</span>
-
-<span class="kt">void</span> <span class="nf">FunTest</span><span class="p">(</span><span class="err">状态机标志位</span> <span class="err">状态）</span>
-<span class="p">{</span>
-  <span class="k">switch</span><span class="p">(</span><span class="err">状态</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_学技术</span><span class="p">:</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_开始上班</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_狀态机标志_写代码</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_做项目</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_修BUG</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_测试</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_把项目卖给客户</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_公司挣了1个亿</span><span class="p">:</span>
-   	 	<span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_老板给我升职加薪</span><span class="p">:</span>
-    	<span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="k">break</span><span class="p">;</span>
-  <span class="p">}</span>  
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">enum</span> <span class="k">class</span> <span class="err">状态机标志位</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_学技术</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_开始上班</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_写代码</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_做项目</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_修BUG</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_测试</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_把项目卖给客户</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_快态机标志_公司挣了1个亿</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EN_状态机标志_老板给我升职加薪</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">FunTest</span><span class="p">(</span><span class="err">状态机标志位</span> <span class="err">状态）</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span><span class="p">(</span><span class="err">状态</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_学技术</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_开始上班</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_狀态机标志_写代码</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_做项目</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_修BUG</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_测试</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_把项目卖给客户</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_公司挣了1个亿</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   	 	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="err">状态机标志位</span><span class="o">::</span><span class="nl">EN_状态机标志_老板给我升职加薪</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

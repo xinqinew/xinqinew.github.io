@@ -196,12 +196,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.text:0000000000720020                 LDR             X20, [X19,#0xA0]
-.text:0000000000720024                 LDR             X19, [X19,#0xB0]
-.text:0000000000720028                 CBNZ            X20, loc_720034
-.text:000000000072002C                 MOV             X0, XZR
-.text:0000000000720030                 BL              sub_4F8DDC
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.text:0000000000720020                 LDR             X20, [X19,#0xA0]
+</span></span><span class="line"><span class="cl">.text:0000000000720024                 LDR             X19, [X19,#0xB0]
+</span></span><span class="line"><span class="cl">.text:0000000000720028                 CBNZ            X20, loc_720034
+</span></span><span class="line"><span class="cl">.text:000000000072002C                 MOV             X0, XZR
+</span></span><span class="line"><span class="cl">.text:0000000000720030                 BL              sub_4F8DDC
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>因为后面指令还用到X20和X19，前两个LDR要保留，并且需要调整顺序（避免X20被影响），</p>
 <p>CBNZ给NOP掉，然后MOV和BL改成MOV和STR：</p>
@@ -214,12 +214,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.text:0000000000720020                 MOV             W8, #0x41200000
-.text:0000000000720024                 STR             W8, [X20,#0x6C]
-.text:0000000000720028                 NOP
-.text:000000000072002C                 LDR             X20, [X19,#0xA0]
-.text:0000000000720030                 LDR             X19, [X19,#0xB0]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.text:0000000000720020                 MOV             W8, #0x41200000
+</span></span><span class="line"><span class="cl">.text:0000000000720024                 STR             W8, [X20,#0x6C]
+</span></span><span class="line"><span class="cl">.text:0000000000720028                 NOP
+</span></span><span class="line"><span class="cl">.text:000000000072002C                 LDR             X20, [X19,#0xA0]
+</span></span><span class="line"><span class="cl">.text:0000000000720030                 LDR             X19, [X19,#0xB0]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"

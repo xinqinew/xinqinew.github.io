@@ -162,10 +162,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">name</span><span class="p">{</span>
-    <span class="c1">//variables, functions, classes
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">name</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//variables, functions, classes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>name是命名空间的名字，它里面可以包含变量、函数、类、typedef、#define 等，最后由{ }包围。</p>
 <hr>
@@ -179,13 +179,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">Li</span><span class="p">{</span>  <span class="c1">//小李的变量定义
-</span><span class="c1"></span>    <span class="n">FILE</span> <span class="n">fp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">namespace</span> <span class="n">Han</span><span class="p">{</span>  <span class="c1">//小韩的变量定义
-</span><span class="c1"></span>    <span class="n">FILE</span> <span class="n">fp</span> <span class="o">=</span> <span class="nb">NULL</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">Li</span><span class="p">{</span>  <span class="c1">//小李的变量定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span> <span class="n">fp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">Han</span><span class="p">{</span>  <span class="c1">//小韩的变量定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span> <span class="n">fp</span> <span class="o">=</span> <span class="nb">NULL</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -193,21 +193,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Li</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
-</span><span class="c1"></span><span class="n">Han</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
-</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">using</span> <span class="n">Li</span><span class="o">::</span><span class="n">fp</span><span class="p">;</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
-</span><span class="c1"></span><span class="n">Han</span> <span class="o">::</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Li</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Han</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -216,10 +204,22 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">using</span> <span class="k">namespace</span> <span class="n">Li</span><span class="p">;</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
-</span><span class="c1"></span><span class="n">Han</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Li</span><span class="o">::</span><span class="n">fp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Han</span> <span class="o">::</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">Li</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;one.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>  <span class="c1">//使用小李定义的变量 fp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Han</span><span class="o">::</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;two.txt&#34;</span><span class="p">,</span> <span class="s">&#34;rb+&#34;</span><span class="p">);</span>  <span class="c1">//使用小韩定义的变量 fp
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -248,30 +248,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="c1">//将类定义在命名空间中
-</span><span class="c1"></span><span class="k">namespace</span> <span class="n">Diy</span><span class="p">{</span>
-    <span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">score</span><span class="p">;</span>
-  
-    <span class="k">public</span><span class="o">:</span>
-        <span class="kt">void</span> <span class="n">say</span><span class="p">(){</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s的年龄是 %d，成绩是 %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">score</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">};</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">Diy</span><span class="o">::</span><span class="n">Student</span> <span class="n">stu1</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;小明&#34;</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="mf">92.5f</span><span class="p">;</span>
-    <span class="n">stu1</span><span class="p">.</span><span class="n">say</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//将类定义在命名空间中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">Diy</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">void</span> <span class="n">say</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s的年龄是 %d，成绩是 %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">score</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Diy</span><span class="o">::</span><span class="n">Student</span> <span class="n">stu1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;小明&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="mf">92.5f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stu1</span><span class="p">.</span><span class="n">say</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

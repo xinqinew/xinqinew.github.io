@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2021\/07\/%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1315 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  1314 ,
         "url": "https:\/\/xinqinew.github.io\/2021\/07\/%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2020-10-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2020-10-16">2020-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1315 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2020-10-16">2020-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1314 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/2021/07/%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/" class="leancloud_visitors" data-flag-title="cin和cout输入输出">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -171,8 +171,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">TRACE</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;大漠版本号:%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">),</span><span class="n">dm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TRACE</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;大漠版本号:%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">),</span><span class="n">dm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="cin和cout输入输出">cin和cout输入输出</h2>
 <p>适用于控制台</p>
@@ -194,20 +194,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input an int number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The int number is x= &#34;</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input a float number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The float number is y= &#34;</span><span class="o">&lt;&lt;</span><span class="n">y</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>   
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input an int number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The int number is x= &#34;</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input a float number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The float number is y= &#34;</span><span class="o">&lt;&lt;</span><span class="n">y</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行结果如下（↙表示按下回车键）：</p>
 <blockquote>
@@ -233,22 +233,20 @@ The float number is y= 7.4</p>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input an int number and a float number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The int number is x= &#34;</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The float number is y= &#34;</span><span class="o">&lt;&lt;</span><span class="n">y</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>   
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Please input an int number and a float number:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The int number is x= &#34;</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;The float number is y= &#34;</span><span class="o">&lt;&lt;</span><span class="n">y</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行结果：</p>
 <blockquote>
@@ -283,27 +281,27 @@ The float number is y= 7.4</p>
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//原型
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">MessageBox</span><span class="p">(</span>
-  <span class="n">HWND</span> <span class="n">hWnd</span><span class="p">,</span> 	<span class="o">//</span><span class="n">hWnd</span><span class="err">：父视窗</span><span class="p">(</span><span class="n">Parent</span> <span class="n">Window</span><span class="p">)</span><span class="err">的</span><span class="n">Handle如果为NULL则设为非强制回应模式</span><span class="p">(</span><span class="n">Modeless</span><span class="p">)</span>
-  <span class="n">LPCTSTR</span> <span class="n">lpszText</span><span class="p">,</span>	<span class="c1">//lpszTex：表示在讯息框内显示的内容
-</span><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpszCaption</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">,</span>	<span class="c1">//lpszCaption：讯息框标题(预设为空)
-</span><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span><span class="n">MB_OK</span> 	<span class="c1">//nType：讯息框的风格
-</span><span class="c1"></span><span class="p">);</span>
-
-<span class="c1">//实例
-</span><span class="c1"></span>
-<span class="n">CString</span> <span class="n">Stemp</span><span class="p">;</span>
-<span class="n">Stemp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">),</span><span class="n">a</span><span class="p">);</span>
-<span class="n">MessageBox</span><span class="p">(</span><span class="n">Stemp</span><span class="p">);</span>
-
-<span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这是最简单的讯息框&#34;</span><span class="p">);</span>
-<span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框是自订标题&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">);</span>
-<span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有确定取消按钮&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_OKCANCEL</span> <span class="p">);</span>
-<span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有警告图示&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_ICONEXCLAMATION</span> <span class="p">);</span>
-<span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有确定取消按钮搭配警告图示&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_ICONEXCLAMATION</span> <span class="o">|</span> <span class="n">MB_OKCANCEL</span> <span class="p">);</span>
-  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//原型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">MessageBox</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND</span> <span class="n">hWnd</span><span class="p">,</span> 	<span class="o">//</span><span class="n">hWnd</span><span class="err">：父视窗</span><span class="p">(</span><span class="n">Parent</span> <span class="n">Window</span><span class="p">)</span><span class="err">的</span><span class="n">Handle如果为NULL则设为非强制回应模式</span><span class="p">(</span><span class="n">Modeless</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">LPCTSTR</span> <span class="n">lpszText</span><span class="p">,</span>	<span class="c1">//lpszTex：表示在讯息框内显示的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpszCaption</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">,</span>	<span class="c1">//lpszCaption：讯息框标题(预设为空)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span><span class="n">MB_OK</span> 	<span class="c1">//nType：讯息框的风格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">CString</span> <span class="n">Stemp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Stemp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">),</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="n">Stemp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这是最简单的讯息框&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框是自订标题&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有确定取消按钮&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_OKCANCEL</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有警告图示&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_ICONEXCLAMATION</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#34;这讯息框有确定取消按钮搭配警告图示&#34;</span><span class="p">,</span> <span class="s">&#34;这是标题&#34;</span><span class="p">,</span> <span class="n">MB_ICONEXCLAMATION</span> <span class="o">|</span> <span class="n">MB_OKCANCEL</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="afxmessagebox-信息提示框">AfxMessageBox 信息提示框</h3>
 <div class="highlight"><div class="chroma">
@@ -331,28 +329,28 @@ The float number is y= 7.4</p>
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//双原型：
-</span><span class="c1"></span><span class="kt">int</span> <span class="nf">AfxMessageBox</span><span class="p">(</span>
-  <span class="n">LPCTSTR</span> <span class="n">lpszText</span><span class="p">,</span>	<span class="c1">//lpszText：表示在讯息框内显示的内容，讯息框的标题为应用程式名称。
-</span><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span> <span class="n">MB_OK</span><span class="p">,</span>	<span class="o">//</span><span class="n">nType</span><span class="err">：为讯息框中显示的按钮和图示的组合，可以使用</span> <span class="o">|</span> <span class="p">(</span><span class="err">或</span><span class="p">)</span> <span class="err">来组合各种风格。</span>
-  <span class="n">UINT</span> <span class="n">nIDHelp</span> <span class="o">=</span> <span class="mi">0</span> 	<span class="c1">//nIDHelp：讯息的说明内容ID，0表示使用系统预设说明内容。
-</span><span class="c1"></span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">AFXAPI</span> <span class="nf">AfxMessageBox</span><span class="p">(</span> 
-  <span class="n">UINT</span> <span class="n">nIDPrompt</span><span class="p">,</span>	<span class="o">//</span><span class="n">nIDPrompt</span><span class="err">：表示在讯息框内显示的字串表</span><span class="p">(</span><span class="n">String</span> <span class="n">Table</span><span class="p">)</span><span class="err">资源</span><span class="n">ID</span><span class="err">，使用时会自动从字串表载入字串。</span>
-  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span> <span class="n">MB_OK</span><span class="p">,</span> <span class="c1">//同上
-</span><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nIDHelp</span> <span class="o">=</span> <span class="p">(</span><span class="n">UINT</span><span class="p">)</span> <span class="err">–</span><span class="mi">1</span>	<span class="c1">//同上
-</span><span class="c1"></span><span class="p">);</span>
-
-
-<span class="c1">//实例
-</span><span class="c1"></span>
-<span class="cp">#define IDS_STR_TABLE &#34;这是使用字串表&#34;;
-</span><span class="cp"></span><span class="n">CString</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;这是直接使用字串&#34;</span><span class="p">;</span>
-
-<span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">IDS_STR_HELLO</span><span class="p">);</span>
-<span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-<span class="n">AfxMessageBox</span><span class="p">(</span><span class="s">&#34;这是加入按钮及图示的讯息框&#34;</span><span class="p">,</span> <span class="n">MB_YESNO</span> <span class="o">|</span> <span class="n">MB_ICONSTOP</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//双原型：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">AfxMessageBox</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">LPCTSTR</span> <span class="n">lpszText</span><span class="p">,</span>	<span class="c1">//lpszText：表示在讯息框内显示的内容，讯息框的标题为应用程式名称。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span> <span class="n">MB_OK</span><span class="p">,</span>	<span class="o">//</span><span class="n">nType</span><span class="err">：为讯息框中显示的按钮和图示的组合，可以使用</span> <span class="o">|</span> <span class="p">(</span><span class="err">或</span><span class="p">)</span> <span class="err">来组合各种风格。</span>
+</span></span><span class="line"><span class="cl">  <span class="n">UINT</span> <span class="n">nIDHelp</span> <span class="o">=</span> <span class="mi">0</span> 	<span class="c1">//nIDHelp：讯息的说明内容ID，0表示使用系统预设说明内容。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">AFXAPI</span> <span class="nf">AfxMessageBox</span><span class="p">(</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">UINT</span> <span class="n">nIDPrompt</span><span class="p">,</span>	<span class="o">//</span><span class="n">nIDPrompt</span><span class="err">：表示在讯息框内显示的字串表</span><span class="p">(</span><span class="n">String</span> <span class="n">Table</span><span class="p">)</span><span class="err">资源</span><span class="n">ID</span><span class="err">，使用时会自动从字串表载入字串。</span>
+</span></span><span class="line"><span class="cl">  <span class="n">UINT</span> <span class="n">nType</span> <span class="o">=</span> <span class="n">MB_OK</span><span class="p">,</span> <span class="c1">//同上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">UINT</span> <span class="n">nIDHelp</span> <span class="o">=</span> <span class="p">(</span><span class="n">UINT</span><span class="p">)</span> <span class="err">–</span><span class="mi">1</span>	<span class="c1">//同上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define IDS_STR_TABLE &#34;这是使用字串表&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">CString</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;这是直接使用字串&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">IDS_STR_HELLO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">AfxMessageBox</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">AfxMessageBox</span><span class="p">(</span><span class="s">&#34;这是加入按钮及图示的讯息框&#34;</span><span class="p">,</span> <span class="n">MB_YESNO</span> <span class="o">|</span> <span class="n">MB_ICONSTOP</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="下列属性两者皆适用">下列属性两者皆适用：</h3>
 <p><strong>按钮风格(nType)：</strong></p>

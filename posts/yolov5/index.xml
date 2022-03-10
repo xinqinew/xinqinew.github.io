@@ -40,6 +40,20 @@
     </author><guid>https://xinqinew.github.io/2022/01/vs2019-%E9%85%8D%E7%BD%AE-libtorch-%E5%92%8C-opencv/</guid>
     <description><![CDATA[下载所需要的库 LibTorch OpenCV 配置环境变量 LibTorch 配置到 lib 目录就好，OpenCV根据自己选择使用的 vc14 或 vc15 配置到其下面的 bin 目录 用VS新建一个空项目 配置 OpenCV 右键项目]]></description>
 </item><item>
+    <title>win10 使用TensorRT部署 yolov5-v4.0</title>
+    <link>https://xinqinew.github.io/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/win10-%E4%BD%BF%E7%94%A8tensorrt%E9%83%A8%E7%BD%B2-yolov5-v4.0/</guid>
+    <description><![CDATA[作者csdn win10 使用TensorRT部署 yolov5-v4.0（C++） 一、环境及文件准备 安装 CUDA+cudnn+TensorRT 【查看上一篇文章】 默认安装Anaconda并安]]></description>
+</item><item>
+    <title>Windows下TensorRT-yolov5-使用总结</title>
+    <link>https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/windows%E4%B8%8Btensorrt-yolov5-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[原文 一、简介 Yolov5是基于开源的python学习库Pytorch来做的，如果想要在C++环境下来运行yolov5做目标检测，那么就需要转]]></description>
+</item><item>
     <title>yolov5-libtorch使用总结</title>
     <link>https://xinqinew.github.io/2022/01/yolov5-libtorch%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link>
     <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -60,19 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/01/%E6%A0%87%E6%B3%A8%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
     <description><![CDATA[标注数据集 在线: https://www.makesense.ai/ https://cvat.org/ (推荐) 本地: 精灵标注助手 http://www.jinglingbiaozhu.com 后羿采集 https://www.houyicaiji.com]]></description>
-</item><item>
-    <title>流程</title>
-    <link>https://xinqinew.github.io/2022/01/%E6%B5%81%E7%A8%8B/</link>
-    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/%E6%B5%81%E7%A8%8B/</guid>
-    <description><![CDATA[流程 项目的部署环境搭建 如何实现一个自己的训练集 预先准备 实现屏幕截图 鼠标驱动 研读修改 YOLOv5 源代码 进行重构]]></description>
-</item><item>
-    <title>详细步骤</title>
-    <link>https://xinqinew.github.io/2022/01/%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</link>
-    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</guid>
-    <description><![CDATA[Colab 1 2 3 4 5 6 7 8 9 10 cd /content/drive/MyDrive/Colab Notebooks/yolov5-6.0 !pip install -r requirements.txt %load_ext tensorboard %tensorboard --logdir=runs/train !unzip baby.v2i.yolov5pytorch.zip -d ./ !python detect.py !python trainFlyboy.py --rect #!python train.py --rect --data=data/coco.yaml #!python trainFlyboy.py --img 640 --batch 16 --epochs 3 --data flyboy.yaml --weights yolov5s.pt !pip install wandb]]></description>
 </item></channel>
 </rss>

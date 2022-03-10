@@ -227,31 +227,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// g++ std-deque.cpp -o a.out -std=c++11  
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
-</span><span class="cp"></span>  
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
-  
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
- <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  <span class="c1">// [1, 2, 3, 4]  
-</span><span class="c1"></span>  
- <span class="n">d</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4, 5]  
-</span><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span> <span class="c1">// [2, 3, 4, 5]  
-</span><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// [0, 2, 3, 4, 5]  
-</span><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">// [0, 2, 3, 4]  
-</span><span class="c1"></span>  
- <span class="c1">// 印出 deque 內所有內容, c++11 才支援  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// g++ std-deque.cpp -o a.out -std=c++11  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  <span class="c1">// [1, 2, 3, 4]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"> <span class="n">d</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4, 5]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span> <span class="c1">// [2, 3, 4, 5]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// [0, 2, 3, 4, 5]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">d</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">// [0, 2, 3, 4]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 印出 deque 內所有內容, c++11 才支援  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>輸出內容如下：</p>
 <blockquote>
@@ -301,44 +301,44 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// g++ std-deque2.cpp -o a.out -std=c++11  
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
-</span><span class="cp"></span>  
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
-  
-<span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>  
-<span class="k">public</span><span class="o">:</span>  
- <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span> <span class="p">}</span>  
-  
- <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>  
-<span class="p">};</span>  
-  
-<span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>  
-  
-<span class="kt">void</span> <span class="nf">deque_push_back</span><span class="p">(</span><span class="n">Student</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">d</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>  
- <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">d</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>  
- <span class="p">}</span>  
-<span class="p">}</span>  
-  
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
- <span class="n">Student</span> <span class="n">a1</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">a2</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">a3</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">a4</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>  
- <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>  
- <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span>  
- <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a3</span><span class="p">);</span>  
- <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a4</span><span class="p">);</span>  
-  
- <span class="c1">// 印出 deque 內所有內容, c++11 才支援  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// g++ std-deque2.cpp -o a.out -std=c++11  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">};</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">deque_push_back</span><span class="p">(</span><span class="n">Student</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">d</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">d</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">Student</span> <span class="n">a1</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">a2</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">a3</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">a4</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a3</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque_push_back</span><span class="p">(</span><span class="n">a4</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 印出 deque 內所有內容, c++11 才支援  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="範例3-用-for-迴圈遍歷-deque-容器">範例3. 用 for 迴圈遍歷 deque 容器</h2>
 <p>以下範例是用 for 迴圈配合 deque 容器的迭代器，去遍歷 deque 並且把值印出來，前兩種是從頭印到尾，後兩種是從尾印到頭。從頭端印到最尾端就是使用 begin() 搭配 end() ，從最尾端印到頭端就是使用 rbegin() 搭配 rend() 。</p>
@@ -386,44 +386,44 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">
-<span class="c1">// g++ std-deque3.cpp -o a.out -std=c++11  
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
-</span><span class="cp"></span>  
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
-  
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
- <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  
-  
- <span class="c1">// 從頭到尾  
-</span><span class="c1"></span> <span class="c1">//for (std::deque&lt;int&gt;::iterator it = d.begin(); it != d.end(); ++it) {  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="c1">// 從頭到尾  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">cbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">cend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="c1">// 從尾到頭  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="c1">// 從尾到頭  
-</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">crbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">crend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
-  
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// g++ std-deque3.cpp -o a.out -std=c++11  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 從頭到尾  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//for (std::deque&lt;int&gt;::iterator it = d.begin(); it != d.end(); ++it) {  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 從頭到尾  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">cbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">cend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 從尾到頭  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 從尾到頭  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">crbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">crend</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>輸出</p>
 <blockquote>
@@ -465,33 +465,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// g++ std-deque4.cpp -o a.out -std=c++11  
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
-</span><span class="cp"></span>  
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
-  
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
- <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  
-  
- <span class="c1">// 從頭到尾  
-</span><span class="c1"></span> <span class="kt">int</span> <span class="n">find_num</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  
- <span class="c1">//std::deque&lt;int&gt;::iterator it = d.begin();  
-</span><span class="c1"></span> <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>  
- <span class="k">while</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
- <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">find_num</span><span class="p">)</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Found &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">find_num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
- <span class="k">break</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="n">it</span><span class="o">++</span><span class="p">;</span>  
- <span class="p">}</span>  
- <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
- <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Not found &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">find_num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
- <span class="p">}</span>  
-  
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// g++ std-deque4.cpp -o a.out -std=c++11  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;deque&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="c1">// 從頭到尾  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="kt">int</span> <span class="n">find_num</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="c1">//std::deque&lt;int&gt;::iterator it = d.begin();  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl"> <span class="k">while</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">find_num</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Found &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">find_num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="k">break</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">it</span><span class="o">++</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">d</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Not found &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">find_num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>輸出</p>
 <blockquote>

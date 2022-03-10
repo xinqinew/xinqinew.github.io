@@ -180,8 +180,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule add &lt;url&gt; &lt;path&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add &lt;url&gt; &lt;path&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Copy</p>
 <p>删要手动删：</p>
@@ -194,12 +194,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># https://blog.csdn.net/guotianqing/article/details/82391665</span>
-rm -rf            <span class="c1">#子模块目录 删除子模块目录及源码</span>
-vi .gitmodules    <span class="c1">#删除项目目录下.gitmodules文件中子模块相关条目</span>
-vi .git/config    <span class="c1">#删除配置项中子模块相关条目</span>
-rm .git/module/*  <span class="c1">#删除模块下的子模块目录，注意只删除对应的子模块目录即可</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># https://blog.csdn.net/guotianqing/article/details/82391665</span>
+</span></span><span class="line"><span class="cl">rm -rf            <span class="c1">#子模块目录 删除子模块目录及源码</span>
+</span></span><span class="line"><span class="cl">vi .gitmodules    <span class="c1">#删除项目目录下.gitmodules文件中子模块相关条目</span>
+</span></span><span class="line"><span class="cl">vi .git/config    <span class="c1">#删除配置项中子模块相关条目</span>
+</span></span><span class="line"><span class="cl">rm .git/module/*  <span class="c1">#删除模块下的子模块目录，注意只删除对应的子模块目录即可</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Copy</p>
 <h2 id="重新配置mathjax和mermaid">重新配置MathJax和mermaid</h2>
@@ -221,19 +221,19 @@ rm .git/module/*  <span class="c1">#删除模块下的子模块目录，注意�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">{{ if .Params.usemermaid}}
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/mermaid.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span> <span class="nx">theme</span><span class="o">:</span> <span class="s2">&#34;dark&#34;</span> <span class="p">})</span>
-        <span class="nx">mermaid</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s2">&#34;.language-mermaid&#34;</span><span class="p">);</span>
-    <span class="p">};</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-{{ end }}
-{{ if .Params.usemathjax }}
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;/MathJax.js&#39;</span> <span class="na">async</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-{{ end }}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .Params.usemermaid}}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/mermaid.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span> <span class="nx">theme</span><span class="o">:</span> <span class="s2">&#34;dark&#34;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mermaid</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s2">&#34;.language-mermaid&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl">{{ if .Params.usemathjax }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;/MathJax.js&#39;</span> <span class="na">async</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>用模版的语法判断当前页面是否启用了MathJax或者mermaid支持，只有当在文章开头的Front Matter里面显式地注明<code>usemathjax: true</code>和<code>usemermaid: true</code>，才为当前页面引入相应的.js。</p>
 <p>网上有种配置mermaid的方法要用到shortcodes，但是那种用起来麻烦。我这种的话直接在Markdown里定义一个语言类型为mermaid的代码块就能渲染出图表了</p>
@@ -249,14 +249,14 @@ rm .git/module/*  <span class="c1">#删除模块下的子模块目录，注意�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="s">```mermaid
-</span><span class="s"></span>graph LR
-    A[Hard edge] --&gt;|Link text| B(Round edge)
-    B --&gt; C{Decision}
-    C --&gt;|One| D[Result one]
-    C --&gt;|Two| E[Result two]
-<span class="s">```</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="s">```mermaid
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>graph LR
+</span></span><span class="line"><span class="cl">    A[Hard edge] --&gt;|Link text| B(Round edge)
+</span></span><span class="line"><span class="cl">    B --&gt; C{Decision}
+</span></span><span class="line"><span class="cl">    C --&gt;|One| D[Result one]
+</span></span><span class="line"><span class="cl">    C --&gt;|Two| E[Result two]
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -267,12 +267,12 @@ rm .git/module/*  <span class="c1">#删除模块下的子模块目录，注意�
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">graph LR
-    A[Hard edge] --&gt;|Link text| B(Round edge)
-    B --&gt; C{Decision}
-    C --&gt;|One| D[Result one]
-    C --&gt;|Two| E[Result two]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">    A[Hard edge] --&gt;|Link text| B(Round edge)
+</span></span><span class="line"><span class="cl">    B --&gt; C{Decision}
+</span></span><span class="line"><span class="cl">    C --&gt;|One| D[Result one]
+</span></span><span class="line"><span class="cl">    C --&gt;|Two| E[Result two]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><em>ps: 在代码块里嵌入<code>要用到零宽字符</code>\u200b`</em></p>
 <h3 id="使用mathjax">使用MathJax</h3>

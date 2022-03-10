@@ -164,9 +164,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 下载 YoloV5-LibTorch
-git clone https://github.com/ncdhz/YoloV5-LibTorch.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 下载 YoloV5-LibTorch
+</span></span><span class="line"><span class="cl">git clone https://github.com/ncdhz/YoloV5-LibTorch.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>
@@ -208,15 +208,15 @@ git clone https://github.com/ncdhz/YoloV5-LibTorch.git
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">mkdir</span> <span class="n">build</span>
-<span class="n">cd</span> <span class="n">build</span>
-<span class="c1">// 下面这行代码在 windows 下依赖于 VS2019 别的系统只需要有 cmake 和 make 就好
-</span><span class="c1"></span><span class="n">cmake</span> <span class="p">..</span>
-<span class="c1">// 构建项目 （如果你下载的是Debug版本的 LibTorch 不用加 --config Release 是 Release 版本需要加）
-</span><span class="c1"></span><span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="p">.</span>
-<span class="c1">// 下载项目 后面的 Debug 可以替换成 Release 这取决于上一条命令是否加了 --config Release
-</span><span class="c1"></span><span class="n">cmake</span> <span class="o">--</span><span class="n">install</span> <span class="p">.</span> <span class="o">--</span><span class="n">config</span> <span class="n">Debug</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">mkdir</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 下面这行代码在 windows 下依赖于 VS2019 别的系统只需要有 cmake 和 make 就好
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cmake</span> <span class="p">..</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 构建项目 （如果你下载的是Debug版本的 LibTorch 不用加 --config Release 是 Release 版本需要加）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 下载项目 后面的 Debug 可以替换成 Release 这取决于上一条命令是否加了 --config Release
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cmake</span> <span class="o">--</span><span class="n">install</span> <span class="p">.</span> <span class="o">--</span><span class="n">config</span> <span class="n">Debug</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -237,13 +237,13 @@ git clone https://github.com/ncdhz/YoloV5-LibTorch.git
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 下面操作我没有在 Linux 系统下测试 主要本人懒下载虚拟机等等
-</span><span class="c1"></span><span class="n">mkdir</span> <span class="n">build</span>
-<span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="p">..</span>
-<span class="n">make</span>
-<span class="n">make</span> <span class="n">install</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 下面操作我没有在 Linux 系统下测试 主要本人懒下载虚拟机等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">mkdir</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl"><span class="n">cmake</span> <span class="p">..</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span> <span class="n">install</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="6">
 <li>测试识别物体</li>
@@ -255,10 +255,10 @@ git clone https://github.com/ncdhz/YoloV5-LibTorch.git
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 先 cd 到根目录
-</span><span class="c1"></span><span class="n">cd</span> <span class="n">bin</span>
-<span class="p">.</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="n">exe</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 先 cd 到根目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cd</span> <span class="n">bin</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="n">exe</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -375,53 +375,53 @@ git clone https://github.com/ncdhz/YoloV5-LibTorch.git
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 复制下面的代码到main.cpp
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;YoloV5.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="c1">// 第二个参数为是否启用 cuda 详细用法可以参考 YoloV5.h 文件
-</span><span class="c1"></span>	<span class="n">YoloV5</span> <span class="n">yolo</span><span class="p">(</span><span class="s">&#34;C:/Users/hwx/Documents/Github/YoloV5-LibTorch/test/yolov5s.cuda.pt&#34;</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-	<span class="c1">// 读取分类标签（我们用的官方的所以这里是 coco 中的分类）
-</span><span class="c1"></span>	<span class="c1">// 其实这些代码无所谓哪 只是后面预测出来的框没有标签罢了
-</span><span class="c1"></span>	<span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">f</span><span class="p">(</span><span class="s">&#34;C:/Users/hwx/Documents/Github/YoloV5-LibTorch/test/coco.txt&#34;</span><span class="p">);</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">labels</span><span class="p">;</span>
-	<span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-	<span class="p">{</span>
-		<span class="n">labels</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name</span><span class="p">));</span>
-		<span class="n">i</span><span class="o">++</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="c1">// 用 OpenCV 打开摄像头读取文件（你随便咋样获取图片都OK哪）
-</span><span class="c1"></span>	<span class="n">cv</span><span class="o">::</span><span class="n">VideoCapture</span> <span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="c1">// 设置宽高 无所谓多宽多高后面都会通过一个算法转换为固定宽高的
-</span><span class="c1"></span>	<span class="c1">// 固定宽高值应该是你通过YoloV5训练得到的模型所需要的
-</span><span class="c1"></span>	<span class="c1">// 传入方式是构造 YoloV5 对象时传入 width 默认值为 640，height 默认值为 640
-</span><span class="c1"></span>	<span class="n">cap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-	<span class="n">cap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="mi">800</span><span class="p">);</span>
-	<span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">frame</span><span class="p">;</span>
-	<span class="k">while</span> <span class="p">(</span><span class="n">cap</span><span class="p">.</span><span class="n">isOpened</span><span class="p">())</span>
-	<span class="p">{</span>
-		<span class="c1">// 读取一帧
-</span><span class="c1"></span>		<span class="n">cap</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-		<span class="p">{</span>
-			<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Read frame failed!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-			<span class="k">break</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="c1">// 预测
-</span><span class="c1"></span>		<span class="c1">// 简单吧，两行代码预测结果就出来了，封装的还可以吧 嘚瑟
-</span><span class="c1"></span>		<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">torch</span><span class="o">::</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">yolo</span><span class="p">.</span><span class="n">prediction</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
-		<span class="c1">// 画框根据你自己的项目调用相应的方法，也可以不画框自己处理
-</span><span class="c1"></span>		<span class="n">frame</span> <span class="o">=</span> <span class="n">yolo</span><span class="p">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="p">);</span>
-		<span class="c1">// show 图片
-</span><span class="c1"></span>		<span class="n">cv</span><span class="o">::</span><span class="n">imshow</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">27</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 复制下面的代码到main.cpp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;YoloV5.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 第二个参数为是否启用 cuda 详细用法可以参考 YoloV5.h 文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">YoloV5</span> <span class="n">yolo</span><span class="p">(</span><span class="s">&#34;C:/Users/hwx/Documents/Github/YoloV5-LibTorch/test/yolov5s.cuda.pt&#34;</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 读取分类标签（我们用的官方的所以这里是 coco 中的分类）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 其实这些代码无所谓哪 只是后面预测出来的框没有标签罢了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">f</span><span class="p">(</span><span class="s">&#34;C:/Users/hwx/Documents/Github/YoloV5-LibTorch/test/coco.txt&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">labels</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">labels</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 用 OpenCV 打开摄像头读取文件（你随便咋样获取图片都OK哪）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cv</span><span class="o">::</span><span class="n">VideoCapture</span> <span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 设置宽高 无所谓多宽多高后面都会通过一个算法转换为固定宽高的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 固定宽高值应该是你通过YoloV5训练得到的模型所需要的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 传入方式是构造 YoloV5 对象时传入 width 默认值为 640，height 默认值为 640
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="mi">800</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">frame</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">cap</span><span class="p">.</span><span class="n">isOpened</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 读取一帧
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">cap</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Read frame failed!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 预测
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 简单吧，两行代码预测结果就出来了，封装的还可以吧 嘚瑟
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">torch</span><span class="o">::</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">yolo</span><span class="p">.</span><span class="n">prediction</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 画框根据你自己的项目调用相应的方法，也可以不画框自己处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">frame</span> <span class="o">=</span> <span class="n">yolo</span><span class="p">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// show 图片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">cv</span><span class="o">::</span><span class="n">imshow</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">27</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"

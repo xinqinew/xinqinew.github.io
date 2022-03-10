@@ -217,21 +217,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#ifndef MAIN_H
-</span><span class="cp">#define MAIN_H
-</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;afx.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;afxwin.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;afxext.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;atlbase.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;atlstr.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;afxdtctl.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;afxcmn.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;afxdisp.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;obj.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cp">#endif
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#ifndef MAIN_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAIN_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afx.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afxwin.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afxext.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;atlbase.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;atlstr.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afxdtctl.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afxcmn.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;afxdisp.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;obj.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="六maincpp">六、main.cpp</h3>
 <div class="highlight"><div class="chroma">
@@ -262,31 +262,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;main.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;obj.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	
-
-	<span class="n">CoInitializeEx</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span><span class="c1">//初始化
-</span><span class="c1"></span>	<span class="n">AfxWinInit</span><span class="p">(</span><span class="n">GetModuleHandle</span><span class="p">(</span><span class="nb">NULL</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">GetCommandLine</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
-	<span class="n">dmsoft</span><span class="o">*</span> <span class="n">pDm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dmsoft</span><span class="p">;</span>
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">MoveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>	
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">RunApp</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;notepad&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">KeyPressStr</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;123456789011&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-	<span class="n">wcout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)(</span><span class="n">pDm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">())</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-	
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;main.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;obj.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">CoInitializeEx</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span><span class="c1">//初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">AfxWinInit</span><span class="p">(</span><span class="n">GetModuleHandle</span><span class="p">(</span><span class="nb">NULL</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">GetCommandLine</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">dmsoft</span><span class="o">*</span> <span class="n">pDm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dmsoft</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">MoveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">RunApp</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;notepad&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">KeyPressStr</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;123456789011&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">wcout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)(</span><span class="n">pDm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">())</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2免注册调用">2、免注册调用</h2>
 <h3 id="一创建一个空项目">一、创建一个空项目</h3>
@@ -318,14 +318,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#import &#34;dm.dll&#34; no_namespace
-</span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#import &#34;dm.dll&#34; no_namespace
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="三添加dmdll">三、添加dm.dll</h3>
 <p><img
@@ -432,61 +432,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="c1">//#import &#34;dm.dll&#34; no_namespace
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;Debug\dm.tlh&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="n">Idmsoft</span><span class="o">*</span> <span class="nf">GetDmObject</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">Idmsoft</span><span class="o">*</span> <span class="n">m_dm</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="kt">bool</span> <span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-	<span class="c1">//直接加载dll创建对象，避免进行注册文件
-</span><span class="c1"></span>	<span class="k">typedef</span> <span class="n">HRESULT</span><span class="p">(</span><span class="n">_stdcall</span><span class="o">*</span> <span class="n">pfnGCO</span><span class="p">)(</span><span class="n">REFCLSID</span><span class="p">,</span> <span class="n">REFIID</span><span class="p">,</span> <span class="kt">void</span><span class="o">**</span><span class="p">);</span>
-	<span class="n">pfnGCO</span> <span class="n">fnGCO</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="n">HINSTANCE</span> <span class="n">hdllInst</span> <span class="o">=</span> <span class="n">LoadLibrary</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;dm.dll&#34;</span><span class="p">);</span>
-	<span class="n">fnGCO</span> <span class="o">=</span> <span class="p">(</span><span class="n">pfnGCO</span><span class="p">)</span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">hdllInst</span><span class="p">,</span> <span class="s">&#34;DllGetClassObject&#34;</span><span class="p">);</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">fnGCO</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">IClassFactory</span><span class="o">*</span> <span class="n">pcf</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-		<span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="p">(</span><span class="n">fnGCO</span><span class="p">)(</span><span class="n">__uuidof</span><span class="p">(</span><span class="n">dmsoft</span><span class="p">),</span> <span class="n">IID_IClassFactory</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">pcf</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pcf</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span>
-		<span class="p">{</span>
-			<span class="n">hr</span> <span class="o">=</span> <span class="n">pcf</span><span class="o">-&gt;</span><span class="n">CreateInstance</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">__uuidof</span><span class="p">(</span><span class="n">Idmsoft</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_dm</span><span class="p">);</span>
-			<span class="k">if</span> <span class="p">((</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">m_dm</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
-				<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-
-		<span class="p">}</span>
-		<span class="n">pcf</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
-		<span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span>
-		<span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-	<span class="k">return</span> <span class="n">m_dm</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">Idmsoft</span><span class="o">*</span> <span class="n">pDm</span> <span class="o">=</span> <span class="n">GetDmObject</span><span class="p">();</span>
-	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pDm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-	<span class="c1">//dm-&gt;Reg(L&#34;注册码&#34;, L&#34;dass&#34;);//收费版本需要注册后才能使用
-</span><span class="c1"></span>	<span class="cm">/*6.1538版本修改内存可直接调用*/</span>
-	<span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">GetCurrentProcessId</span><span class="p">();</span>
-	<span class="kt">int</span> <span class="n">handle</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">GetModuleHandle</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;dm.dll&#34;</span><span class="p">);</span>
-	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;进程ID:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">pid</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;模块句柄：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">handle</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-	<span class="n">HANDLE</span> <span class="n">hProcess</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
-	<span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="kt">bool</span> <span class="n">is</span> <span class="o">=</span> <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">LPVOID</span><span class="p">(</span><span class="n">handle</span> <span class="o">+</span> <span class="mi">1078240</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-	<span class="cm">/*调用大漠插件内函数*/</span>
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">MoveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>	
-	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">KeyPressStr</span><span class="p">(</span><span class="s">&#34;1234567890&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//#import &#34;dm.dll&#34; no_namespace
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;Debug\dm.tlh&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Idmsoft</span><span class="o">*</span> <span class="nf">GetDmObject</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Idmsoft</span><span class="o">*</span> <span class="n">m_dm</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//直接加载dll创建对象，避免进行注册文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">typedef</span> <span class="n">HRESULT</span><span class="p">(</span><span class="n">_stdcall</span><span class="o">*</span> <span class="n">pfnGCO</span><span class="p">)(</span><span class="n">REFCLSID</span><span class="p">,</span> <span class="n">REFIID</span><span class="p">,</span> <span class="kt">void</span><span class="o">**</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pfnGCO</span> <span class="n">fnGCO</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">HINSTANCE</span> <span class="n">hdllInst</span> <span class="o">=</span> <span class="n">LoadLibrary</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;dm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">fnGCO</span> <span class="o">=</span> <span class="p">(</span><span class="n">pfnGCO</span><span class="p">)</span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">hdllInst</span><span class="p">,</span> <span class="s">&#34;DllGetClassObject&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">fnGCO</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">IClassFactory</span><span class="o">*</span> <span class="n">pcf</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="p">(</span><span class="n">fnGCO</span><span class="p">)(</span><span class="n">__uuidof</span><span class="p">(</span><span class="n">dmsoft</span><span class="p">),</span> <span class="n">IID_IClassFactory</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">pcf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pcf</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">hr</span> <span class="o">=</span> <span class="n">pcf</span><span class="o">-&gt;</span><span class="n">CreateInstance</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">__uuidof</span><span class="p">(</span><span class="n">Idmsoft</span><span class="p">),</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_dm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">((</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">m_dm</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pcf</span><span class="o">-&gt;</span><span class="n">Release</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="n">m_bInit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">m_dm</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Idmsoft</span><span class="o">*</span> <span class="n">pDm</span> <span class="o">=</span> <span class="n">GetDmObject</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pDm</span><span class="o">-&gt;</span><span class="n">Ver</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//dm-&gt;Reg(L&#34;注册码&#34;, L&#34;dass&#34;);//收费版本需要注册后才能使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="cm">/*6.1538版本修改内存可直接调用*/</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">GetCurrentProcessId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">handle</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">GetModuleHandle</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;dm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;进程ID:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">pid</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;模块句柄：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">handle</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">HANDLE</span> <span class="n">hProcess</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">is</span> <span class="o">=</span> <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">LPVOID</span><span class="p">(</span><span class="n">handle</span> <span class="o">+</span> <span class="mi">1078240</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/*调用大漠插件内函数*/</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">MoveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">pDm</span><span class="o">-&gt;</span><span class="n">KeyPressStr</span><span class="p">(</span><span class="s">&#34;1234567890&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>注册码</p>
 <p><img
