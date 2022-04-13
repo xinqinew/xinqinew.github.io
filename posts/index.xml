@@ -21,6 +21,13 @@
     </author><guid>https://xinqinew.github.io/posts/iphone/</guid>
     <description><![CDATA[]]></description>
 </item><item>
+    <title>Lua</title>
+    <link>https://xinqinew.github.io/posts/lua/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/lua/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>MFC</title>
     <link>https://xinqinew.github.io/posts/mfc/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -71,14 +78,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</guid>
     <description><![CDATA[这里收录了我的辅助相关笔记. 1 2 3 4 5 6 7 8 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0016F530 00546039 ws2_32.send vxClient.00546033 0016F598 0016F59C 0054643C vxClient.00546000 vxClient.00546437 0016F598 0019F668 007EE350 包含vxClient.005]]></description>
-</item><item>
-    <title>C&#43;&#43;菜鸟教程</title>
-    <link>https://xinqinew.github.io/posts/c&#43;&#43;%E6%95%99%E7%A8%8B/</link>
-    <pubDate>Mon, 13 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/posts/c&#43;&#43;%E6%95%99%E7%A8%8B/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/runoob.png" referrerpolicy="no-referrer">
-            </div>这里收录了我的C++笔记.]]></description>
 </item></channel>
 </rss>

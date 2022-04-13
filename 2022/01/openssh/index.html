@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/01\/openssh\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "iPhone","wordcount":  280 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "iPhone","wordcount":  512 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/01\/openssh\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 280 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/01/openssh/" class="leancloud_visitors" data-flag-title="OpenSSH">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 512 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/01/openssh/" class="leancloud_visitors" data-flag-title="OpenSSH">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -152,6 +152,11 @@
         <li><a href="#查看ssh版本">查看SSH版本</a></li>
         <li><a href="#建立安全连接">建立安全连接</a></li>
         <li><a href="#认证方式免密登陆">认证方式(免密登陆)</a></li>
+        <li><a href="#远程拷贝">远程拷贝</a></li>
+        <li><a href="#文件权限">文件权限</a></li>
+        <li><a href="#端口-默认22">端口 默认22</a></li>
+        <li><a href="#usb登录">USB登录</a></li>
+        <li><a href="#usb传输文件">USB传输文件</a></li>
       </ul>
     </li>
   </ul>
@@ -252,7 +257,7 @@
 </li>
 <li>
 <p>客户端生成公钥及私钥</p>
-<p><code>ssh-keygen</code></p>
+<p><code>ssh-keygen</code>一路敲回车即可</p>
 <p><img
         class="lazyload"
         data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220328222056011.png"
@@ -275,6 +280,82 @@
     /></p>
 </li>
 </ul>
+<h2 id="远程拷贝">远程拷贝</h2>
+<ul>
+<li>
+<p>拷贝公钥至服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">scp ~/.ssh/id_rsa.pub root@192.168.1.2:~/.ssh
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>追加至授权文件尾部</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat id_rsa.pub &gt;&gt; authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除公钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rm ~/id_rsa.pub
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="文件权限">文件权限</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod 755 ~
+</span></span><span class="line"><span class="cl">chmod 755 ~/.ssh
+</span></span><span class="line"><span class="cl">chmod 644 ~/.ssh/authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="端口-默认22">端口 默认22</h2>
+<p>可以查看/etc/ssh/sshd_config的port字段</p>
+<h2 id="usb登录">USB登录</h2>
+<ul>
+<li>usbmixd 的使用</li>
+</ul>
+<ol>
+<li>
+<p>下载usbmixd软件包（主要用到python脚本 tcprelay.py)</p>
+<p><a href="https://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.gz" target="_blank" rel="noopener noreffer">https://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.gz</a></p>
+<p>或者</p>
+<p><a href="https://github.com/xinqinew/pic/raw/main/other/usbmuxd-1.0.8.tar" target="_blank" rel="noopener noreffer">https://github.com/xinqinew/pic/raw/main/other/usbmuxd-1.0.8.tar</a></p>
+</li>
+<li>
+<p>将iphone的22端口映射到本地10010端口</p>
+<p>在usbmixd目录执行tcprelay.py脚本</p>
+<p><code>python tcprelay.py -t 22:10010</code></p>
+</li>
+<li>
+<p>登录本地的10010端口</p>
+</li>
+</ol>
+<p><code>ssh root@localhost -p 10010</code></p>
+<p>或者</p>
+<p><code>ssh root@127.0.0.1 -p 10010</code></p>
+<h2 id="usb传输文件">USB传输文件</h2>
+<p><code>scp -P 10010 ~/.ssh/id_rsa.pub root@localhost:~</code></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
