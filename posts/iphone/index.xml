@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有iPhone - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/posts/iphone/</link>
+        <description>所有iPhone | Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/iphone/" rel="self" type="application/rss+xml" /><item>
+    <title>OpenSSH</title>
+    <link>https://xinqinew.github.io/2022/01/openssh/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/openssh/</guid>
+    <description><![CDATA[登录 终端输入 ssh 账户名@服务器主机地址 1 2 ssh root@192.168.1.2 ssh mobile@192.168.1.2 默认密码: alpine 退出 exit 常用账户 root和mobile root 最高权限 $HOME是/var/root mobile 普]]></description>
+</item><item>
+    <title>工具</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[提高工作效率的工具 Alfred 便捷搜索 工作流 XtraFinder 增强型Finder iTerm2 完爆Terminal的命令行工具 Go2Shell 从Finder快速定位到命令行工具]]></description>
+</item><item>
+    <title>越狱</title>
+    <link>https://xinqinew.github.io/2022/01/%E8%B6%8A%E7%8B%B1/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E8%B6%8A%E7%8B%B1/</guid>
+    <description><![CDATA[越狱 在线越狱 http://jbme.cf itunes备份路径 ~/Library/application support/mobilesync 自动安装路径 /var/root/Media/Cydia/AutoInstall 常用源 apt.saurik.com 官方作者源 apt.thebigboss.org/repofiles/cydia 官方自带 cydia.hackulo.us apt.178.com apt.if0rce.com apt.feng.com cydia.crazydoraemon.com apt.25pp.com fairylabs.com/wp-content/cydia/ 流量监视源 cydia.xsellize.com 源 apt.chinasnow.net apt.sbtools.me 烧饼辅助Cydia源地址 apt.82flex.com 流]]></description>
+</item></channel>
+</rss>
