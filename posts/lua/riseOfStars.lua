@@ -1,4 +1,4 @@
-toast("在线版本0.9.5")
+toast("在线版本0.9.6")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -829,7 +829,6 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-
     if isColor(507, 519, 0x135eaa, 95) and isColor(646, 523, 0x121a22, 95) and isColor(782, 523, 0x121a22, 95) then
         debug("司令官信息")
         touchClick(511, 600, 0x0c0c0e)
@@ -980,8 +979,8 @@ function zongHe1(...)
             getOut()
         end
     end
-
-    if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
+    if isColor(123,125,0xff6600,95) and isColor(776,515,0xce890e,95) and isColor(123,268,0x5798dc,95) and isColor(999,431,0x413013,95) then
+    -- if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         debug("骗你充一次钱")
         touchClick(510, 607, 0x375070)
         if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
