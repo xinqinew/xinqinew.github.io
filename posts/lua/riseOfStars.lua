@@ -4380,6 +4380,7 @@ function isRewardLiZi()
                 end
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
+                isBug_LiZi = false -- bug 粒子
                     isLiZi = true
                     return true
                 end
@@ -4399,6 +4400,7 @@ function isRewardLiZi()
                 end
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
+                    isBug_LiZi = false -- bug 粒子
                     isLiZi = true
                     return true
                 end
@@ -4419,6 +4421,7 @@ function isRewardLiZi()
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
                     isLiZi = true
+                    isBug_LiZi = false -- bug 粒子
                     return true
                 end
             end
