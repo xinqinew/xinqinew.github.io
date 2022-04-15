@@ -1,4 +1,4 @@
-toast("在线版本0.10.4")
+toast("在线版本0.10.5")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1632,24 +1632,6 @@ function zongHe1(...)
             touchClick(685, 257)
             numSpeedUp = 1
             writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
-        elseif isColor(466, 175, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("攻击舰-休息")
-            touchClick(466, 175)
-            isJiDiXianKuangIntoProduce = true
-        elseif isColor(685, 174, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("高速舰-休息")
-            touchClick(685, 175)
-            isJiDiXianKuangIntoProduce = true
-        elseif isColor(471, 253, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("运输舰-休息")
-            touchClick(471, 253)
-            isJiDiXianKuangIntoProduce = true
-        elseif isColor(681, 257, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("防御舰-休息")
-            touchClick(685, 257)
-            isJiDiXianKuangIntoProduce = true
-            -- 474,257,0x8a4c17 完毕 
-            -- 518,175,0x306090 休息中
         elseif muBiao == mb_ChuHang then
             debug("出航")
             touchClick(513, 611)
@@ -3894,6 +3876,9 @@ function timeJianCe()
         if nowTime - timeShengChan >= 60 * 60 * 2 then
             isShengChan = true
             timeShengChan = nowTime
+        end
+        if check15 == "生产加速" then
+            isShengChan = true
         end
     end
     if isChongDianKaZiYuan == true then
