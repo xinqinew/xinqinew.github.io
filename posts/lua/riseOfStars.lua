@@ -1,4 +1,4 @@
-toast("在线版本0.10.6")
+toast("在线版本0.10.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3669,6 +3669,17 @@ function loginWallte()
         touchClick(741, 346, 0xffffff) -- google
         mSleep(1000)
         touchClick(671, 193, 0x1182fe) -- 继续
+        repeat
+            mSleep(1000)
+        until isColor(219, 595, 0xea4335, 95) and isColor(229, 591, 0x4285f4, 95) and isColor(239, 593, 0x34a853, 95)--选择账号
+        touchClick(563,432,0xffffff    )
+        for i = 1, 60, 1 do
+            if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
+                gaiMuBiaoNew(3, "兑换粒子")
+                break
+            end
+            mSleep(1000)
+        end
     end
 end
 
