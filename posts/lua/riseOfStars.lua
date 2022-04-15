@@ -913,12 +913,12 @@ function zongHe1(...)
             touchClick(511, 500)
         end
     end
-    if isColor(271,196,0xf7a901,95) and isColor(690,355,0x114c8a,95) and isColor(860,412,0xb8b7b8,95) then
-    -- if isColor(273, 149, 0xf7a901, 95) and isColor(260, 490, 0x658090, 95) and isColor(694, 318, 0x4693cf, 95) and
+    if isColor(271, 196, 0xf7a901, 95) and isColor(690, 355, 0x114c8a, 95) and isColor(860, 412, 0xb8b7b8, 95) then
+        -- if isColor(273, 149, 0xf7a901, 95) and isColor(260, 490, 0x658090, 95) and isColor(694, 318, 0x4693cf, 95) and
         -- isColor(844, 462, 0x052b57, 95) then
         debug("认证和观看视频")
         -- touchClick(726, 433, 0x1c6dba) -- 观看视频
-            touchClick(769,381,0xffffff        )--认证
+        touchClick(769, 381, 0xffffff) -- 认证
     end
     if isColor(310, 103, 0xf5a801, 95) and isColor(311, 159, 0x264569, 95) and isColor(691, 202, 0x116eb9, 95) and
         isColor(813, 201, 0x116eb9, 95) then
@@ -979,8 +979,9 @@ function zongHe1(...)
             getOut()
         end
     end
-    if isColor(123,125,0xff6600,95) and isColor(776,515,0xce890e,95) and isColor(123,268,0x5798dc,95) and isColor(999,431,0x413013,95) then
-    -- if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
+    if isColor(123, 125, 0xff6600, 95) and isColor(776, 515, 0xce890e, 95) and isColor(123, 268, 0x5798dc, 95) and
+        isColor(999, 431, 0x413013, 95) then
+        -- if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         debug("骗你充一次钱")
         touchClick(510, 607, 0x375070)
         if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
@@ -2270,16 +2271,24 @@ function zongHe1(...)
                     isJiaSuProduce = true
                 elseif isColor(431, 589, 0x1c6eba, 95) then
                     debug("可升级")
-                    if isColor(246, 604, 0xfddb81, 95) and isColor(269, 612, 0xfad275, 95) then
+                    if haoLV <= 2 then
+                        if isColor(246, 604, 0xfddb81, 95) and isColor(269, 612, 0xfad275, 95) then
+                            debug("免费")
+                            touchClick(246, 604)
+                        else
+                            debug("花钱升级")
+                            touchClick(442, 592)
+                        end
+                    else
+                        getOut()
+                    end
+                elseif isColor(246, 604, 0xfddb81, 95) and isColor(270, 612, 0xf5c566, 95) then
+                    if haoLV <= 2 then
                         debug("免费")
                         touchClick(246, 604)
                     else
-                        debug("花钱升级")
-                        touchClick(442, 592)
+                        getOut()
                     end
-                elseif isColor(246, 604, 0xfddb81, 95) and isColor(270, 612, 0xf5c566, 95) then
-                    debug("免费")
-                    touchClick(246, 604)
                 elseif isColor(421, 598, 0x1eb686, 95) then
                     debug("建设--加速")
                     touchClick(421, 598)
@@ -4020,21 +4029,21 @@ function zhuXian()
             touchClick(1074, 582) -- 回基地
         end
     end
-    if isColor(267,521,0xdbddec,95) and isColor(440,535,0x3fe3f9,95) then
-    -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
+    if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
+        -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debug("搜索界面--主线")
-        if isColor(519,437,0x116eb9, 95) then -- 矿
-            touchClick(519,437)
-        elseif isColor(661,435,0x116eb9       , 95) then -- 金属
+        if isColor(519, 437, 0x116eb9, 95) then -- 矿
+            touchClick(519, 437)
+        elseif isColor(661, 435, 0x116eb9, 95) then -- 金属
             touchClick(661, 435)
-        elseif isColor(803,432,0x116eb9        , 95) then -- 三氯气
-            touchClick(803,432)
-        -- elseif isColor(878, 432, 0x116eb9, 95) then -- 新金属粒子
+        elseif isColor(803, 432, 0x116eb9, 95) then -- 三氯气
+            touchClick(803, 432)
+            -- elseif isColor(878, 432, 0x116eb9, 95) then -- 新金属粒子
             -- touchClick(878, 432)
-        elseif isColor(236,430,0x116eb9        , 0x116eb9, 95) then -- 海盗
+        elseif isColor(236, 430, 0x116eb9, 0x116eb9, 95) then -- 海盗
             touchClick(236, 430)
-        elseif isColor(375,435,0x116eb9        , 0x116eb9, 95) then -- 精英
-            touchClick(375,435)
+        elseif isColor(375, 435, 0x116eb9, 0x116eb9, 95) then -- 精英
+            touchClick(375, 435)
         end
     end
     if isColor(8, 23, 0xff9c00, 95) and isColor(16, 25, 0xffffff, 95) and isColor(866, 599, 0xd78b00, 95) and
@@ -4138,8 +4147,8 @@ function chuHang()
             end
         end
     end
-    if isColor(267,521,0xdbddec,95) and isColor(440,535,0x3fe3f9,95) then
-    -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
+    if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
+        -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debug("搜索界面--出航")
         -- if isLiZi == false then
         --     touchClick(925, 561, 0x1f101d) -- 粒子
@@ -4164,14 +4173,14 @@ function chuHang()
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
                 writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
-                touchClick(284,539,0x6d5c5d) -- 海盗
+                touchClick(284, 539, 0x6d5c5d) -- 海盗
                 mSleep(1000)
                 for i = 1, 3, 1 do
-                    if isColor(235,427,0x116eb9                    , 95) then
-                        touchClick(235,427,0x116eb9                    ) -- 搜索
+                    if isColor(235, 427, 0x116eb9, 95) then
+                        touchClick(235, 427, 0x116eb9) -- 搜索
                     end
                     mSleep(1000)
-                    if isColor(235,427,0x116eb9, 95) == false then
+                    if isColor(235, 427, 0x116eb9, 95) == false then
                         break
                     end
                     if i == 3 then
@@ -4179,14 +4188,14 @@ function chuHang()
                     end
                 end
             else
-                touchClick(442,536,0x71e7ff            ) -- 精英
+                touchClick(442, 536, 0x71e7ff) -- 精英
                 mSleep(1000)
                 for i = 1, 3, 1 do
-                    if isColor(380,429,0x116eb9                    , 95) then
-                        touchClick(380,429,0x116eb9                    ) -- 搜索
+                    if isColor(380, 429, 0x116eb9, 95) then
+                        touchClick(380, 429, 0x116eb9) -- 搜索
                     end
                     mSleep(1000)
-                    if isColor(380,429,0x116eb9                    , 95) == false then
+                    if isColor(380, 429, 0x116eb9, 95) == false then
                         break
                     end
                     if i == 3 then
@@ -4196,33 +4205,33 @@ function chuHang()
             end
         else
             if numChuHang == 1 then
-                touchClick(711,548,0x75493a            ) -- 金属
+                touchClick(711, 548, 0x75493a) -- 金属
                 mSleep(1000)
-                touchClick(846,367,0xffffff            ) -- 加
-                touchClick(661,433,0x116eb9            ) -- 搜索
+                touchClick(846, 367, 0xffffff) -- 加
+                touchClick(661, 433, 0x116eb9) -- 搜索
                 mSleep(1000)
                 for i = 1, 2, 1 do
-                    if isColor(283,540,0x211b1d                    , 95) then
-                        touchClick(571,366,0xffffff                    ) -- 减
-                        touchClick(661,433,0x116eb9) -- 搜索
+                    if isColor(283, 540, 0x211b1d, 95) then
+                        touchClick(571, 366, 0xffffff) -- 减
+                        touchClick(661, 433, 0x116eb9) -- 搜索
                         mSleep(1000)
                     else
                         break
                     end
                 end
             elseif numChuHang == 2 then
-                if isColor(780+71, 541, 0xe0e0e0, 95) then
+                if isColor(780 + 71, 541, 0xe0e0e0, 95) then
                     numChuHang = numChuHang + 1
                 else
-                    touchClick(855,547,0x282114                ) -- 三氯气
+                    touchClick(855, 547, 0x282114) -- 三氯气
                     mSleep(1000)
-                    touchClick(988,366,0xffffff                ) -- 加
-                    touchClick(807,431,0x116eb9                ) -- 搜索
+                    touchClick(988, 366, 0xffffff) -- 加
+                    touchClick(807, 431, 0x116eb9) -- 搜索
                     mSleep(1000)
                     for i = 1, 2, 1 do
-                        if isColor(283,540,0x211b1d, 95) then
-                            touchClick(716,366,0xffffff                        ) -- 减
-                            touchClick(807,431,0x116eb9) -- 搜索
+                        if isColor(283, 540, 0x211b1d, 95) then
+                            touchClick(716, 366, 0xffffff) -- 减
+                            touchClick(807, 431, 0x116eb9) -- 搜索
                             mSleep(1000)
                         else
                             break
@@ -4230,15 +4239,15 @@ function chuHang()
                     end
                 end
             elseif numChuHang == 3 then
-                touchClick(568,538,0xef5870            ) -- 矿物
+                touchClick(568, 538, 0xef5870) -- 矿物
                 mSleep(1000)
-                touchClick(704,367,0xffffff            ) -- 加
-                touchClick(526,430,0x116eb9            ) -- 搜索
+                touchClick(704, 367, 0xffffff) -- 加
+                touchClick(526, 430, 0x116eb9) -- 搜索
                 mSleep(1000)
                 for i = 1, 2, 1 do
-                    if isColor(283,540,0x211b1d, 95) then
-                        touchClick(431,366,0xffffff                    ) -- 减
-                        touchClick(526,430,0x116eb9) -- 搜索
+                    if isColor(283, 540, 0x211b1d, 95) then
+                        touchClick(431, 366, 0xffffff) -- 减
+                        touchClick(526, 430, 0x116eb9) -- 搜索
                         mSleep(1000)
                     else
                         break
@@ -4342,9 +4351,9 @@ function chuHang()
         else
             if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
                 isRewardLiZi()
-            if isBug_LiZi==false then
-                touchClick(199, 522) -- 搜索
-            end
+                if isBug_LiZi == false then
+                    touchClick(199, 522) -- 搜索
+                end
             elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
                 touchClick(570, 469, 0x4a6181)
             end
@@ -4380,7 +4389,7 @@ function isRewardLiZi()
                 end
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
-                isBug_LiZi = false -- bug 粒子
+                    isBug_LiZi = false -- bug 粒子
                     isLiZi = true
                     return true
                 end
@@ -4433,7 +4442,7 @@ function isRewardLiZi()
             touchClick(20, 20)
             -- mSleep(1000)
         end
-                    isBug_LiZi = true -- bug 粒子
+        isBug_LiZi = true -- bug 粒子
         isLiZi = false
         return false
     end
