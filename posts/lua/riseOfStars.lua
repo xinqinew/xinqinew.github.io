@@ -1,4 +1,4 @@
-toast("在线版本0.10.8")
+toast("在线版本0.10.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -326,7 +326,7 @@ function main2()
     elseif bid == "com.apple.DocumentsApp" then
         setRotationLockEnable(false);
         init(1)
-    else
+    elseif bid == "" then
         -- debug("哪个都没开")
         APP.isYiDengLu = 0
         runApp(apps1)
