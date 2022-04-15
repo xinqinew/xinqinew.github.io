@@ -4176,9 +4176,9 @@ function zhuXian()
             touchClick(803, 432)
             -- elseif isColor(878, 432, 0x116eb9, 95) then -- 新金属粒子
             -- touchClick(878, 432)
-        elseif isColor(236, 430, 0x116eb9, 0x116eb9, 95) then -- 海盗
+        elseif isColor(236, 430, 0x116eb9, 95) then -- 海盗
             touchClick(236, 430)
-        elseif isColor(375, 435, 0x116eb9, 0x116eb9, 95) then -- 精英
+        elseif isColor(375, 435, 0x116eb9, 95) then -- 精英
             touchClick(375, 435)
         end
     end
