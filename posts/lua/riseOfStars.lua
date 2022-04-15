@@ -1,4 +1,4 @@
-toast("在线版本0.9.8")
+toast("在线版本0.9.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2297,16 +2297,32 @@ function zongHe1(...)
                     end
                 elseif isColor(652, 403, 0x3e8fee, 95) and isAutoNext == true then
                     debug("2蓝")
-                    touchClick(843, 390)
+                    if haoLV <= 2 then
+                        touchClick(843, 390)
+                    else
+                        getOut()
+                    end
                 elseif isColor(1104, 390, 0x1a406b, 95) and isAutoNext == true then
                     debug("2蓝")
-                    touchClick(843, 390)
+                    if haoLV <= 2 then
+                        touchClick(843, 390)
+                    else
+                        getOut()
+                    end
                 elseif isColor(652, 368, 0x3e8fee, 95) and isAutoNext == true then
                     debug("1蓝")
-                    touchClick(1089, 356)
+                    if haoLV <= 2 then
+                        touchClick(1089, 356)
+                    else
+                        getOut()
+                    end
                 elseif isColor(1104, 356, 0x1a406b, 95) and isAutoNext == true then
                     debug("1蓝")
-                    touchClick(1089, 356)
+                    if haoLV <= 2 then
+                        touchClick(1089, 356)
+                    else
+                        getOut()
+                    end
                 else
                     getOut()
                 end
