@@ -1,4 +1,4 @@
-toast("在线版本0.10.3")
+toast("在线版本0.10.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1594,6 +1594,24 @@ function zongHe1(...)
         elseif isColor(681, 257, 0x8a4c17, 95) then
             debug("防御舰-完毕")
             touchClick(685, 257)
+        elseif isColor(466, 175, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
+            debug("攻击舰-休息")
+            touchClick(466, 175)
+            isJiDiXianKuangIntoProduce = true
+        elseif isColor(685, 174, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
+            debug("高速舰-休息")
+            touchClick(685, 175)
+            isJiDiXianKuangIntoProduce = true
+        elseif isColor(471, 253, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
+            debug("运输舰-休息")
+            touchClick(471, 253)
+            isJiDiXianKuangIntoProduce = true
+        elseif isColor(681, 257, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
+            debug("防御舰-休息")
+            touchClick(685, 257)
+            isJiDiXianKuangIntoProduce = true
+            -- 474,257,0x8a4c17 完毕 
+            -- 518,175,0x306090 休息中
         elseif isColor(460, 175, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 1 then
             debug("攻击舰-加速")
             touchClick(466, 175)
