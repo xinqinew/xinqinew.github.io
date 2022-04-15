@@ -1,4 +1,4 @@
-toast("在线版本0.11.3")
+toast("在线版本0.11.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -841,6 +841,18 @@ function zongHe1(...)
             debug("free")
             touchClick(33, 493)
         end
+    end
+    if isColor(472,485,0x114c8a,95) and isColor(659,505,0x1c6fbb,95) and isColor(772,228,0x5a5f65,95) then
+        debug("集结时间")
+        touchClick(510,570,0x0c0c0e    )
+    end
+    if isColor(834,163,0xff6600,95) and isColor(667,433,0xd78b00,95) and isColor(489,421,0x6b4600,95) then
+        debug("误开加工缩短时间")
+        touchClick(510,526,0x0c0c0e    )
+    end
+    if isColor(377,211,0xa353c5,95) and isColor(495,203,0xf8ec61,95) and isColor(632,210,0x4080cb,95) then
+        debug("中级装备材料选择箱子--误开")
+        touchClick(515,569,0x3d5879    )
     end
     if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
         debug("未知信号")
@@ -4354,6 +4366,9 @@ function chuHang()
                     else
                         break
                     end
+                    if i == 2 then
+                        numChuHang = numChuHang + 1 
+                    end
                 end
             elseif numChuHang == 2 then
                 if isColor(780 + 71, 541, 0xe0e0e0, 95) then
@@ -4372,6 +4387,9 @@ function chuHang()
                         else
                             break
                         end
+                        if i == 2 then
+                            numChuHang = numChuHang + 1 
+                        end
                     end
                 end
             elseif numChuHang == 3 then
@@ -4387,6 +4405,9 @@ function chuHang()
                         mSleep(1000)
                     else
                         break
+                    end
+                    if i == 2 then
+                        numChuHang = 1
                     end
                 end
             end
