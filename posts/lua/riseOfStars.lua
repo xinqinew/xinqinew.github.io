@@ -3645,6 +3645,7 @@ end
 -- 钱包检测
 function walletWatch()
     if nowTime - timeWalletWatch >= 10 * 60 then
+        debug("钱包检测10分钟一次")
         runApp(appWallet)
         mSleep(1000)
         while true do
