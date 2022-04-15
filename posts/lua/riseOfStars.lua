@@ -3116,6 +3116,8 @@ function zongHe1(...)
                 if isPause == true then
                     return
                 end
+                x,y = findMultiColorInRegionFuzzy( 0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 162)--战舰
+                useBagThings()
                 x, y = findMultiColorInRegionFuzzy(0x13c8d4, "12|10|0x1a99b9,89|9|0x2cb6d2", 90, 169, 75, 1052, 162)
                 useBagThings()
                 x, y = findMultiColorInRegionFuzzy(0x425e6a, "35|32|0x0c2748,9|35|0x333b4c", 90, 169, 75, 1052, 162)
