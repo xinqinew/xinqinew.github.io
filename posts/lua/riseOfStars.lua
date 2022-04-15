@@ -1,4 +1,4 @@
-toast("在线版本0.9.9")
+toast("在线版本0.10.1")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -828,6 +828,10 @@ function zongHe1(...)
             debug("free")
             touchClick(33, 493)
         end
+    end
+    if isColor(1049,607,0x1c68af,95) and isColor(1045,554,0x1c68af,95) and isColor(1,1,0xff9000,95) then
+        debug("宇宙地图")
+        touchClick(511,611,0x0c0c0e    )
     end
     if isColor(507, 519, 0x135eaa, 95) and isColor(646, 523, 0x121a22, 95) and isColor(782, 523, 0x121a22, 95) then
         debug("司令官信息")
