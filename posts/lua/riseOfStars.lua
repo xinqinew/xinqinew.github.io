@@ -1,4 +1,4 @@
-toast("在线版本0.10.5")
+toast("在线版本0.10.6")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1219,7 +1219,7 @@ function zongHe1(...)
                     if isPause == true then
                         return
                     end
-                    if isColor(38, 604, 0x000000, 95) == false then -- 没有键盘,点击文本框
+                    if isColor(475, 599, 0xffffff, 95) == false then -- 没有键盘,点击文本框
                         touchClick(659, 45)
                         mSleep(1000)
                     else
