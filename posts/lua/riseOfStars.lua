@@ -1,4 +1,4 @@
-toast("在线版本0.10.7")
+toast("在线版本0.10.8")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3632,9 +3632,9 @@ function doTarget()
         fixShip()
     elseif muBiao == "开区检测" then
         openCheck()
-    elseif muBiao == "钱包检测 " then
+    elseif muBiao == "钱包检测" then
         walletWatch()
-    elseif muBiao == "登录钱包 " then
+    elseif muBiao == "登录钱包" then
         loginWallte()
     elseif muBiao1 == mb_EveryDay then
         everyDayTask()
@@ -5243,7 +5243,7 @@ function duiHuanJianCe()
             tonumber(numDuiHuan) + 8 * 2 then
             if muBiao3 == "无" and muBiao2 == "无" then
                 gaiMuBiaoNew(2, "兑换")
-                gaiMuBiaoNew(3, "钱包检测 ")
+                gaiMuBiaoNew(3, "钱包检测")
             end
         end
     end
