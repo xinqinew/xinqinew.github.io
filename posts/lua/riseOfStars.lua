@@ -127,7 +127,8 @@ function newUi()
     UIEdit(2, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
     UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(2, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(2, "目标3 无,整理,出航,修船,研究,钱包检测 ", 10, "left", "72,61,139", -1, 0, "center")
+    UILabel(2, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left",
+        "72,61,139", -1, 0, "center")
     UIEdit(2, "muBiao3", "目标3", "无", 15, "left", "95,158,160", "default", 0, 0)
 
     UIShow()
@@ -836,6 +837,10 @@ function zongHe1(...)
             debug("free")
             touchClick(33, 493)
         end
+    end
+    if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
+        debug("未知信号")
+        touchClick(511, 605, 0x0c0c0e)
     end
     if isColor(1049, 607, 0x1c68af, 95) and isColor(1045, 554, 0x1c68af, 95) and isColor(1, 1, 0xff9000, 95) then
         debug("宇宙地图")
@@ -3629,6 +3634,8 @@ function doTarget()
         openCheck()
     elseif muBiao == "钱包检测 " then
         walletWatch()
+    elseif muBiao == "登录钱包 " then
+        loginWallte()
     elseif muBiao1 == mb_EveryDay then
         everyDayTask()
     elseif muBiao1 == mb_ShengChan then
@@ -3640,7 +3647,50 @@ function walletWatch()
     if nowTime - timeWalletWatch >= 10 * 60 then
         runApp(appWallet)
         mSleep(1000)
+        while true do
+            if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
+                gaiMuBiaoNew(3, "兑换粒子")
+                return true
+            elseif isColor(999, 139, 0x00bc0d, 95) then -- 微信图标
+                gaiMuBiaoNew(3, "登录钱包")
+                return false
+            end
+            mSleep(1000)
+        end
+    end
+end
+-- 登录钱包
+function loginWallte()
+    if isColor(828, 529, 0x3b5998, 95) and isColor(940, 530, 0x00bc0d, 95) then
+        debug("钱包登录界面")
+        ShadowrocketToConfigure() -- 切换至配置
+        runApp(appWallet)
+        mSleep(1000)
+        touchClick(741, 346, 0xffffff) -- google
+        mSleep(1000)
+        touchClick(671, 193, 0x1182fe) -- 继续
+    end
+end
 
+-- Shadowrocket 切换至配置
+function ShadowrocketToConfigure()
+    runApp(appShadowrocket)
+    repeat
+        mSleep(1000)
+    until isColor(1096, 569, 0x2473bd, 95) and isColor(1096, 581, 0xf5f5f5, 95) -- 首页
+    touchClick(293, 116, 0x8a8a8a) -- 全局路由
+    mSleep(1000)
+    touchClick(465, 378, 0xffffff) -- 配置
+    mSleep(1000)
+    for i = 1, 30, 1 do
+        webdata = httpGet("https://www.google.com.hk/") -- 获取百度首页网页数据
+        if webdata and webdata ~= "" then
+            break
+        end
+        if i == 30 then
+            toast("翻墙失败")
+        end
+        mSleep(1000)
     end
 end
 
@@ -4515,7 +4565,11 @@ function searchLiZi()
         nowTime = os.time();
         timeXXX = nowTime
 
-        debug("搜索粒子")
+        -- debug("搜索粒子")
+        if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
+            debug("未知信号")
+            touchClick(511, 605, 0x0c0c0e)
+        end
         if isColor(6, 24, 0xf59600, 95) and isColor(18, 24, 0xffffff, 95) and isColor(355, 86, 0x5195db, 95) then
             debug("司令官界面")
             touchClick(20, 20)
