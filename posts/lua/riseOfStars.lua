@@ -282,13 +282,17 @@ function main1()
 
     autoVpn()
     autoUnlockDevice()
-    zongHe1()
-    zongHe_Mult()
-    zongHe_Screen()
-    timeJianCe()
+    if bid == apps1 then
+        zongHe1()
+        zongHe_Mult()
+        zongHe_Screen()
+        timeJianCe()
+    end
     doTarget()
-    checkXXX()
-    everyDayInit()
+    if bid == apps1 then
+        checkXXX()
+        everyDayInit()
+    end
     resetIDLETimer();
     -- timeJianGe(debug.getinfo(1).currentline)
     -- nowTime2 = os.time();
@@ -3678,6 +3682,14 @@ function loginWallte()
         for i = 1, 60, 1 do
             if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
                 gaiMuBiaoNew(3, "兑换粒子")
+                runApp(apps1)
+                mSleep(1000)
+                break
+            end
+            if isColor(477,447,0xa6a6a6,95) and isColor(697,293,0x949494,95) and isColor(477,442,0x000000,95) then
+                debug("Error")
+                closeApp(appWallet)
+                gaiMuBiaoNew(3, "登录钱包")
                 break
             end
             mSleep(1000)
