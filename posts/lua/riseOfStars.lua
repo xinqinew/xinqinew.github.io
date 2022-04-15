@@ -1,4 +1,4 @@
-toast("在线版本0.10.1")
+toast("在线版本0.10.2")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -112,8 +112,9 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究", "3@5", -1, 0, "", 1, 3) -- 多选1
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速", "3@5", -1, 0, "",
+        1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("check15,check16", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
@@ -381,6 +382,13 @@ function oncePlist()
     end
 
     -----------------------私有部分--------------------------
+
+    -- 加速生产船型
+    numSpeedUp = loadPlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型")
+    if numSpeedUp == nil then
+        numSpeedUp = 1
+        writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+    end
 
     -- 已兑换
     isDuiHuan = loadPlist(luaMuLu .. xiangMu .. ".plist", "已兑换")
@@ -829,9 +837,9 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(1049,607,0x1c68af,95) and isColor(1045,554,0x1c68af,95) and isColor(1,1,0xff9000,95) then
+    if isColor(1049, 607, 0x1c68af, 95) and isColor(1045, 554, 0x1c68af, 95) and isColor(1, 1, 0xff9000, 95) then
         debug("宇宙地图")
-        touchClick(511,611,0x0c0c0e    )
+        touchClick(511, 611, 0x0c0c0e)
     end
     if isColor(507, 519, 0x135eaa, 95) and isColor(646, 523, 0x121a22, 95) and isColor(782, 523, 0x121a22, 95) then
         debug("司令官信息")
@@ -1586,6 +1594,26 @@ function zongHe1(...)
         elseif isColor(681, 257, 0x8a4c17, 95) then
             debug("防御舰-完毕")
             touchClick(685, 257)
+        elseif isColor(460, 175, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 1 then
+            debug("攻击舰-加速")
+            touchClick(466, 175)
+            numSpeedUp = numSpeedUp + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+        elseif isColor(655, 174, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 2 then
+            debug("高速舰-加速")
+            touchClick(685, 175)
+            numSpeedUp = numSpeedUp + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+        elseif isColor(469, 258, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 3 then
+            debug("运输舰-加速")
+            touchClick(471, 253)
+            numSpeedUp = numSpeedUp + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+        elseif isColor(659, 255, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 4 then
+            debug("防御舰-加速")
+            touchClick(685, 257)
+            numSpeedUp = 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
         elseif isColor(466, 175, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
             debug("攻击舰-休息")
             touchClick(466, 175)
@@ -3116,7 +3144,7 @@ function zongHe1(...)
                 if isPause == true then
                     return
                 end
-                x,y = findMultiColorInRegionFuzzy( 0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 162)--战舰
+                x, y = findMultiColorInRegionFuzzy(0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 162) -- 战舰
                 useBagThings()
                 x, y = findMultiColorInRegionFuzzy(0x13c8d4, "12|10|0x1a99b9,89|9|0x2cb6d2", 90, 169, 75, 1052, 162)
                 useBagThings()
