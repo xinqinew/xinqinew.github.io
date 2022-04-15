@@ -1,4 +1,4 @@
-toast("在线版本0.11.2")
+toast("在线版本0.11.3")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3679,17 +3679,25 @@ function loginWallte()
         until isColor(219, 595, 0xea4335, 95) and isColor(229, 591, 0x4285f4, 95) and isColor(239, 593, 0x34a853, 95) and
             isColor(187, 639, 0x007aff, 95) == false -- 选择账号
         touchClick(563, 432, 0xffffff)
-        for i = 1, 60, 1 do
+        for i = 1, 30, 1 do
             if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
                 gaiMuBiaoNew(3, "兑换粒子")
                 runApp(apps1)
                 mSleep(1000)
                 break
             end
-            if isColor(477,447,0xa6a6a6,95) and isColor(697,293,0x949494,95) and isColor(477,442,0x000000,95) then
+            if isColor(477, 447, 0xa6a6a6, 95) and isColor(697, 293, 0x949494, 95) and isColor(477, 442, 0x000000, 95) then
                 debug("Error")
                 closeApp(appWallet)
-                gaiMuBiaoNew(3, "登录钱包")
+                gaiMuBiaoNew(3, "钱包检测")
+                runApp(appWallet)
+                mSleep(1000)
+                timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
+                break
+            end
+            if isColor(122,605,0x007aff,95) and isColor(1092,589,0xcccccc,95) and isColor(142,490,0x000000,95)==false then
+                debug("登录失败-取消")
+                touchClick(122,605)
                 break
             end
             mSleep(1000)
