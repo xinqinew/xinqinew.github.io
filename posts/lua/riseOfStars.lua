@@ -387,6 +387,13 @@ function oncePlist()
     end
 
     -----------------------私有部分--------------------------
+    -- over章节
+    isOverLesson = loadPlist(luaMuLu .. xiangMu .. ".plist", "over章节")
+    if isOverLesson == nil then
+        isOverLesson = false
+        writePlist(luaMuLu .. xiangMu .. ".plist", "over章节", isOverLesson)
+    end
+
     -- 指挥中心等级
     numLv = loadPlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级")
     if numLv == nil then
@@ -2314,7 +2321,7 @@ function zongHe1(...)
                 x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
                 local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
                 if tonumber(numStr) >= 0 then
-                    numLv = tonumber(numStr)
+                    numLv = tonumber(numStr) - 1
                     writePlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级", numLv)
                     toast(numLv)
                 end
