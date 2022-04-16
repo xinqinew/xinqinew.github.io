@@ -1,4 +1,4 @@
-toast("在线版本0.11.6")
+toast("在线版本0.11.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1133,6 +1133,7 @@ function zongHe1(...)
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
         isColor(836, 102, 0xfab1cb, 95) then
         debug("奖励积分币")
+        mSleep(1000)
         isJustBack = false
         x, y = findColorInRegionFuzzy(0xd78b01, 95, 71, 87, 1121, 587);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
@@ -1594,7 +1595,7 @@ function zongHe1(...)
         elseif isColor(686, 458, 0x9e1111, 95) then
             debug("补给太空船--红点")
             touchClick(624, 495, 0x306090)
-        elseif isColor(1008, 179, 0x0f161f, 95) then
+        elseif isColor(1008, 179, 0x0f161f, 95) and haoLV <= 2 then
             debug("研究所可建")
             touchClick(1008, 179)
             gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
