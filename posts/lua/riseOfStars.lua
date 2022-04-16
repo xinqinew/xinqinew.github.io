@@ -1,4 +1,4 @@
-toast("在线版本0.11.8")
+toast("在线版本0.11.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3166,11 +3166,11 @@ function zongHe1(...)
                 if isPause == true then
                     return
                 end
-                x, y = findMultiColorInRegionFuzzy(0x1d232f, "-18|-20|0xcbd1d3,23|-21|0xf1f5f6", 90, 169, 75, 1052, 162) -- 补给箱
+                x, y = findMultiColorInRegionFuzzy(0x1d232f, "-18|-20|0xcbd1d3,23|-21|0xf1f5f6", 90, 169, 75, 249, 162) -- 补给箱
                 useBagThings()
-                x, y = findMultiColorInRegionFuzzy(0xa9a9a9, "12|0|0xa9a9a9", 90, 169, 75, 1052, 162) -- 战舰--灰
+                x, y = findMultiColorInRegionFuzzy(0xa9a9a9, "12|0|0xa9a9a9", 90, 169, 75, 1052, 76) -- 战舰--灰
                 useBagThings()
-                x, y = findMultiColorInRegionFuzzy(0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 162) -- 战舰--绿
+                x, y = findMultiColorInRegionFuzzy(0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 76) -- 战舰--绿
                 useBagThings()
                 x, y = findMultiColorInRegionFuzzy(0x13c8d4, "12|10|0x1a99b9,89|9|0x2cb6d2", 90, 169, 75, 1052, 162)
                 useBagThings()
