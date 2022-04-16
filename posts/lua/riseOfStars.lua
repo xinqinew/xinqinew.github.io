@@ -3986,12 +3986,11 @@ function timeJianCe()
 end
 -- 5分钟不见某界面
 function checkXXX(...)
+    nowTime = os.time()
     if isColor(1020, 545, 0x744218, 95) and isColor(1123, 619, 0x744218, 95) then -- 有右下角的灰色块
-        nowTime = os.time()
         timeXXX = nowTime
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(59, 579, 0x00428c, 95) then -- 左上角有基地现况
-        nowTime = os.time()
         timeXXX = nowTime
     end
     if haoLV == 3 then
