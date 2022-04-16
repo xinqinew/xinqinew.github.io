@@ -1,4 +1,4 @@
-toast("在线版本0.11.9")
+toast("在线版本0.11.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -387,6 +387,12 @@ function oncePlist()
     end
 
     -----------------------私有部分--------------------------
+    -- 指挥中心等级
+    numLv = loadPlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级")
+    if numLv == nil then
+        numLv = 1
+        writePlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级", numLv)
+    end
 
     -- 加速生产船型
     numSpeedUp = loadPlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型")
@@ -2303,6 +2309,16 @@ function zongHe1(...)
         end
         if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
             debug("升级界面")
+            if haoLV <= 2 and isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95) then
+                debug("指挥中心")
+                x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
+                local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
+                if tonumber(numStr) >= 0 then
+                    numLv = tonumber(numStr)
+                    writePlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级", numLv)
+                    toast(numLv)
+                end
+            end
             if haoLV >= 3 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
                 debug("点击交易所")
                 touchClick(42, 331)
