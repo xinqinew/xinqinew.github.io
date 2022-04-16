@@ -16,4 +16,9 @@ function people:ctor(name, age)
     self.name = name
     self.age = age
 end
-zhangshan = people.new
+zhangshan = people:new("zhangshan", 11)
+function zhangshan:say()
+    print(self.name)
+end
+zhangshan:say()
+zhangshan:sayhi()

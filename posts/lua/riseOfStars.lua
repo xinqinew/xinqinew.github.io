@@ -1,4 +1,4 @@
-toast("在线版本0.11.5")
+toast("在线版本0.11.6")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3337,6 +3337,9 @@ function zongHe1(...)
 end
 -- 综合--多点
 function zongHe_Mult(...)
+    if haoLV == 3 then
+        return false
+    end
     x, y = findMultiColorInRegionFuzzy(0xffde8c, "-43|-3|0xbd834d,-1|-44|0xc68852", 90, 0, 0, 1136, 640, {
         orient = 5
     })
