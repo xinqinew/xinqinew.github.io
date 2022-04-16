@@ -1,4 +1,4 @@
-toast("在线版本0.11.4")
+toast("在线版本0.11.5")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -112,9 +112,9 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速", "3@5", -1, 0, "",
-        1, 3) -- 多选1
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8", "3@5", -1, 0,
+        "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
@@ -842,17 +842,17 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(472,485,0x114c8a,95) and isColor(659,505,0x1c6fbb,95) and isColor(772,228,0x5a5f65,95) then
+    if isColor(472, 485, 0x114c8a, 95) and isColor(659, 505, 0x1c6fbb, 95) and isColor(772, 228, 0x5a5f65, 95) then
         debug("集结时间")
-        touchClick(510,570,0x0c0c0e    )
+        touchClick(510, 570, 0x0c0c0e)
     end
-    if isColor(834,163,0xff6600,95) and isColor(667,433,0xd78b00,95) and isColor(489,421,0x6b4600,95) then
+    if isColor(834, 163, 0xff6600, 95) and isColor(667, 433, 0xd78b00, 95) and isColor(489, 421, 0x6b4600, 95) then
         debug("误开加工缩短时间")
-        touchClick(510,526,0x0c0c0e    )
+        touchClick(510, 526, 0x0c0c0e)
     end
-    if isColor(377,211,0xa353c5,95) and isColor(495,203,0xf8ec61,95) and isColor(632,210,0x4080cb,95) then
+    if isColor(377, 211, 0xa353c5, 95) and isColor(495, 203, 0xf8ec61, 95) and isColor(632, 210, 0x4080cb, 95) then
         debug("中级装备材料选择箱子--误开")
-        touchClick(515,569,0x3d5879    )
+        touchClick(515, 569, 0x3d5879)
     end
     if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
         debug("未知信号")
@@ -3707,9 +3707,10 @@ function loginWallte()
                 timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
                 break
             end
-            if isColor(122,605,0x007aff,95) and isColor(1092,589,0xcccccc,95) and isColor(142,490,0x000000,95)==false then
+            if isColor(122, 605, 0x007aff, 95) and isColor(1092, 589, 0xcccccc, 95) and isColor(142, 490, 0x000000, 95) ==
+                false then
                 debug("登录失败-取消")
-                touchClick(122,605)
+                touchClick(122, 605)
                 break
             end
             mSleep(1000)
@@ -4192,6 +4193,18 @@ function zhuXian()
             touchClick(236, 430)
         elseif isColor(375, 435, 0x116eb9, 95) then -- 精英
             touchClick(375, 435)
+        elseif isColor(466, 437, 0x0d67b2, 95) then -- 矿--6
+            touchClick(466, 437)
+        elseif isColor(593, 435, 0x116eb9, 95) then -- 金属
+            touchClick(593, 435)
+        elseif isColor(733, 428, 0x116eb9, 95) then -- 三氯气
+            touchClick(733, 428)
+        elseif isColor(878, 432, 0x116eb9, 95) then -- 新金属粒子
+            touchClick(878, 432)
+        elseif isColor(170, 430, 0x116eb9, 95) then -- 海盗
+            touchClick(170, 430)
+        elseif isColor(314, 429, 0x116eb9, 95) then -- 精英
+            touchClick(314, 429)
         end
     end
     if isColor(8, 23, 0xff9c00, 95) and isColor(16, 25, 0xffffff, 95) and isColor(866, 599, 0xd78b00, 95) and
@@ -4297,25 +4310,7 @@ function chuHang()
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
-        debug("搜索界面--出航")
-        -- if isLiZi == false then
-        --     touchClick(925, 561, 0x1f101d) -- 粒子
-        --     mSleep(1000)
-        --     for i = 0, 1, 1 do
-        --         if isColor(874, 430, 0x116eb9, 95) then
-        --             touchClick(925, 431, 0x075ea8) -- 搜索
-        --         end
-        --         mSleep(1000)
-        --         if isColor(786, 366, 0xffffff, 95) == false then
-        --             break
-        --         end
-        --         mSleep(1000 * 10)
-        --         if i >= 0 then
-        --             -- isLiZi = true
-        --             isBug_LiZi = true -- bug 粒子
-        --             touchClick(20, 20)
-        --         end
-        --     end
+        debug("搜索界面--出航--无粒子")
         if isKillPirate == true then
             debug("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
@@ -4367,7 +4362,7 @@ function chuHang()
                         break
                     end
                     if i == 2 then
-                        numChuHang = numChuHang + 1 
+                        numChuHang = numChuHang + 1
                     end
                 end
             elseif numChuHang == 2 then
@@ -4388,7 +4383,7 @@ function chuHang()
                             break
                         end
                         if i == 2 then
-                            numChuHang = numChuHang + 1 
+                            numChuHang = numChuHang + 1
                         end
                     end
                 end
@@ -4408,6 +4403,114 @@ function chuHang()
                     end
                     if i == 2 then
                         numChuHang = 1
+                    end
+                end
+            end
+        end
+    end
+    if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
+        debug("搜索界面--出航--有粒子")
+        if isLiZi == false then
+            touchClick(925, 561, 0x1f101d) -- 粒子
+            mSleep(1000)
+            for i = 0, 1, 1 do
+                if isColor(874, 430, 0x116eb9, 95) then
+                    touchClick(925, 431, 0x075ea8) -- 搜索
+                end
+                mSleep(1000)
+                if isColor(786, 366, 0xffffff, 95) == false then
+                    break
+                end
+                mSleep(1000 * 10)
+                if i >= 0 then
+                    -- isLiZi = true
+                    isBug_LiZi = true -- bug 粒子
+                    touchClick(20, 20)
+                end
+            end
+        elseif isKillPirate == true then
+            debug("有体力,杀海盗")
+            if num3Pirate <= 4 or haoLV <= 2 then
+                num3Pirate = num3Pirate + 1
+                writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+                touchClick(209, 541, 0xc0b7bf) -- 海盗
+                mSleep(1000)
+                for i = 1, 3, 1 do
+                    if isColor(167, 427, 0x116eb9, 95) then
+                        touchClick(217, 429, 0x377ab4) -- 搜索
+                    end
+                    mSleep(1000)
+                    if isColor(303, 431, 0x116eb9, 95) == false then
+                        break
+                    end
+                    if i == 3 then
+                        isKillPirate = false
+                    end
+                end
+            else
+                touchClick(358, 537, 0xaecffa) -- 精英
+                mSleep(1000)
+                for i = 1, 3, 1 do
+                    if isColor(307, 430, 0x116eb9, 95) then
+                        touchClick(353, 432, 0x075ea8) -- 搜索
+                    end
+                    mSleep(1000)
+                    if isColor(303, 431, 0x116eb9, 95) == false then
+                        break
+                    end
+                    if i == 3 then
+                        isKillPirate = false
+                    end
+                end
+            end
+        else
+            if numChuHang == 1 then
+                touchClick(643, 548) -- 金属
+                mSleep(1000)
+                touchClick(776, 365, 0xffffff) -- 加
+                touchClick(639, 434) -- 搜索
+                mSleep(1000)
+                for i = 1, 2, 1 do
+                    if isColor(369, 535, 0x39e3f6, 95) then
+                        touchClick(501, 367, 0xe2e4e8) -- 减
+                        touchClick(639, 434) -- 搜索
+                        mSleep(1000)
+                    else
+                        break
+                    end
+                end
+            elseif numChuHang == 2 then
+                if isColor(780, 541, 0xe0e0e0, 95) then
+                    numChuHang = numChuHang + 1
+                else
+                    touchClick(783, 561, 0x1f101d) -- 三氯气
+                    mSleep(1000)
+                    touchClick(917, 365, 0xffffff) -- 加
+                    touchClick(783, 431, 0x075ea8) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(369, 535, 0x39e3f6, 95) then
+                            touchClick(644, 367, 0xe2e4e8) -- 减
+                            touchClick(783, 431, 0x075ea8) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                    end
+                end
+            elseif numChuHang == 3 then
+                touchClick(500, 545) -- 矿物
+                mSleep(1000)
+                touchClick(633, 365, 0xffffff) -- 加
+                touchClick(508, 431, 0x075ea8) -- 搜索
+                mSleep(1000)
+                for i = 1, 2, 1 do
+                    if isColor(369, 535, 0x39e3f6, 95) then
+                        touchClick(359, 367, 0xe2e4e8) -- 减
+                        touchClick(508, 431, 0x075ea8) -- 搜索
+                        mSleep(1000)
+                    else
+                        break
                     end
                 end
             end
@@ -4546,7 +4649,9 @@ function isRewardLiZi()
                 end
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
-                    isBug_LiZi = false -- bug 粒子
+                    if check16 ~= "vip8" then
+                        isBug_LiZi = false -- bug 粒子
+                    end
                     isLiZi = true
                     return true
                 end
@@ -4566,7 +4671,9 @@ function isRewardLiZi()
                 end
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
-                    isBug_LiZi = false -- bug 粒子
+                    if check16 ~= "vip8" then
+                        isBug_LiZi = false -- bug 粒子
+                    end
                     isLiZi = true
                     return true
                 end
@@ -4587,7 +4694,9 @@ function isRewardLiZi()
                 numLiZi = numLiZi + 1
                 if numLiZi >= tonumber(numShip) then
                     isLiZi = true
-                    isBug_LiZi = false -- bug 粒子
+                    if check16 ~= "vip8" then
+                        isBug_LiZi = false -- bug 粒子
+                    end
                     return true
                 end
             end
@@ -4599,7 +4708,9 @@ function isRewardLiZi()
             touchClick(20, 20)
             -- mSleep(1000)
         end
-        isBug_LiZi = true -- bug 粒子
+        if check16 ~= "vip8" then
+            isBug_LiZi = true -- bug 粒子
+        end
         isLiZi = false
         return false
     end
