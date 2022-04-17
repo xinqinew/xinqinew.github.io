@@ -23,22 +23,22 @@ function bianLiang()
     appWallet = "com.wemadetree.wemixwallet"
 
     -- 项目ID
-    appXiangMu = loadPlist(luaMuLu .. xiangMu .. ".plist", "项目ID")
+    appXiangMu = loadPlistNew( "项目ID")
     if appXiangMu == nil then
         appXiangMu = dialogInput("请输入项目ID", "在这里输入项目ID", "确认");
-        writePlist(luaMuLu .. xiangMu .. ".plist", "项目ID", appXiangMu)
+        writePlistNew( "项目ID", appXiangMu)
     end
     apps1 = appXiangMu
 
     -- 云打码
-    YDM_username = loadPlist(luaMuLu .. xiangMu .. ".plist", "YDM_username")
+    YDM_username = loadPlistNew( "YDM_username")
     if YDM_username == nil then
         YDM_username, YDM_password = dialogInput("请输入云打码帐号和密钥",
             "在这里输入YDM_username #在这里输入YDM_password", "确认");
-        writePlist(luaMuLu .. xiangMu .. ".plist", "YDM_username", YDM_username)
-        writePlist(luaMuLu .. xiangMu .. ".plist", "YDM_password", YDM_password)
+        writePlistNew( "YDM_username", YDM_username)
+        writePlistNew( "YDM_password", YDM_password)
     end
-    YDM_password = loadPlist(luaMuLu .. xiangMu .. ".plist", "YDM_password")
+    YDM_password = loadPlistNew( "YDM_password")
 
     op = {
         -- 必填参数
@@ -210,7 +210,37 @@ function writeConfigNew(id, neirong)
     -- f:write(str)
     f:close()
 end
+-- loadPlistNew
+function loadPlistNew(key)
+    ts.config.open(luaMuLu .. xiangMu .. ".plist")
+    -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
+    -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
+    -- ts.config.save("金币数",999) 
+    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table） 
+    -- ps:键值对（key - value）是一种存储格式，一个 key 对应一 个 value
+    -- 此处代表"金币数"是 key,999 是 value，将存入此键值对
+    local temStr = ts.config.get(key)
+    -- 获取键对应的值, 此处代表获取"金币数"所对应的值 coin = 999
+    -- 但是此处暂时获取不到 coin 值，因为操作还没结束，请继续往下阅读
+    ts.config.close(true)
+    return temStr
+end
 
+-- writePlistNew(key,value)
+function writePlistNew(key, value)
+    ts.config.open(luaMuLu .. xiangMu .. ".plist")
+    -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
+    -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
+    ts.config.save(key, value)
+    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table） 
+    -- ps:键值对（key - value）是一种存储格式，一个 key 对应一 个 value
+    -- 此处代表"金币数"是 key,999 是 value，将存入此键值对
+    -- local temStr = ts.config.get(key)          
+    -- 获取键对应的值, 此处代表获取"金币数"所对应的值 coin = 999
+    -- 但是此处暂时获取不到 coin 值，因为操作还没结束，请继续往下阅读
+    ts.config.close(true)
+
+end
 function expand(s)
     return string.gsub(s, "$(%w+)", _G)
 end
@@ -359,193 +389,193 @@ function oncePlist()
     -----------------------公共部分--------------------------
 
     -- 百度识字
-    baidu_API = loadPlist(luaMuLu .. xiangMu .. ".plist", "baidu_API")
+    baidu_API = loadPlistNew( "baidu_API")
     if baidu_API == nil then
         -- baidu_API, baidu_Secret = dialogInput("请输入百度API和密钥",
         --     "在这里输入百度API #在这里输入百度密钥", "确认");
         baidu_API = "SywchAAQBy5TFu9X4r4xUy0S"
         baidu_Secret = "WcZ92Nm4Wmst30Wl4t7bjCoNlOZh4z42"
-        writePlist(luaMuLu .. xiangMu .. ".plist", "baidu_API", baidu_API)
-        writePlist(luaMuLu .. xiangMu .. ".plist", "baidu_Secret", baidu_Secret)
+        writePlistNew( "baidu_API", baidu_API)
+        writePlistNew( "baidu_Secret", baidu_Secret)
     end
-    baidu_Secret = loadPlist(luaMuLu .. xiangMu .. ".plist", "baidu_Secret")
+    baidu_Secret = loadPlistNew( "baidu_Secret")
 
     -- 服务器IP
-    serverIP = loadPlist(luaMuLu .. xiangMu .. ".plist", "服务器IP")
+    serverIP = loadPlistNew( "服务器IP")
     if serverIP == nil then
         -- serverIP = dialogInput("请输入服务器IP", "在这里输入服务器IP", "确认");
         serverIP = "192.168.1.34"
-        writePlist(luaMuLu .. xiangMu .. ".plist", "服务器IP", serverIP)
+        writePlistNew( "服务器IP", serverIP)
     end
 
     -- FTP
-    ftpMuLu = loadPlist(luaMuLu .. xiangMu .. ".plist", "FTP目录")
+    ftpMuLu = loadPlistNew( "FTP目录")
     if ftpMuLu == nil then
         -- ftpMuLu = dialogInput("请输入FTP目录", "在这里输入FTP目录", "确认");
         ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
-        writePlist(luaMuLu .. xiangMu .. ".plist", "FTP目录", ftpMuLu)
+        writePlistNew( "FTP目录", ftpMuLu)
     end
 
     -----------------------私有部分--------------------------
     -- over章节
-    isOverLesson = loadPlist(luaMuLu .. xiangMu .. ".plist", "over章节")
+    isOverLesson = loadPlistNew( "over章节")
     if isOverLesson == nil then
         isOverLesson = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "over章节", isOverLesson)
+        writePlistNew( "over章节", isOverLesson)
     end
 
     -- 指挥中心等级
-    numLv = loadPlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级")
+    numLv = loadPlistNew( "指挥中心等级")
     if numLv == nil then
         numLv = 1
-        writePlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级", numLv)
+        writePlistNew( "指挥中心等级", numLv)
     end
 
     -- 加速生产船型
-    numSpeedUp = loadPlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型")
+    numSpeedUp = loadPlistNew( "加速生产船型")
     if numSpeedUp == nil then
         numSpeedUp = 1
-        writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+        writePlistNew( "加速生产船型", numSpeedUp)
     end
 
     -- 已兑换
-    isDuiHuan = loadPlist(luaMuLu .. xiangMu .. ".plist", "已兑换")
+    isDuiHuan = loadPlistNew( "已兑换")
     if isDuiHuan == nil then
         isDuiHuan = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "已兑换", isDuiHuan)
+        writePlistNew( "已兑换", isDuiHuan)
     end
 
     -- 粒子方向
-    numSearchLiZi = loadPlist(luaMuLu .. xiangMu .. ".plist", "粒子方向")
+    numSearchLiZi = loadPlistNew( "粒子方向")
     if numSearchLiZi == nil then
         numSearchLiZi = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+        writePlistNew( "粒子方向", numSearchLiZi)
     end
 
     -- 广告次数
-    numGuangGao = loadPlist(luaMuLu .. xiangMu .. ".plist", "广告次数")
+    numGuangGao = loadPlistNew( "广告次数")
     if numGuangGao == nil then
         numGuangGao = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+        writePlistNew( "广告次数", numGuangGao)
     end
 
     -- 传输次数
-    numChuanShu = loadPlist(luaMuLu .. xiangMu .. ".plist", "传输次数")
+    numChuanShu = loadPlistNew( "传输次数")
     if numChuanShu == nil then
         numChuanShu = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+        writePlistNew( "传输次数", numChuanShu)
     end
 
     -- 交易行
-    isTrade = loadPlist(luaMuLu .. xiangMu .. ".plist", "交易行")
+    isTrade = loadPlistNew( "交易行")
     if isTrade == nil then
         isTrade = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+        writePlistNew( "交易行", isTrade)
     end
 
     -- 每日5道具
-    num5DaoJu = loadPlist(luaMuLu .. xiangMu .. ".plist", "每日5道具")
+    num5DaoJu = loadPlistNew( "每日5道具")
     if num5DaoJu == nil then
         num5DaoJu = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+        writePlistNew( "每日5道具", num5DaoJu)
     end
 
     -- 每日3海盗
-    num3Pirate = loadPlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗")
+    num3Pirate = loadPlistNew( "每日3海盗")
     if num3Pirate == nil then
         num3Pirate = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+        writePlistNew( "每日3海盗", num3Pirate)
     end
 
     -- 增产
-    numAddChanLiang = loadPlist(luaMuLu .. xiangMu .. ".plist", "增产")
+    numAddChanLiang = loadPlistNew( "增产")
     if numAddChanLiang == nil then
         numAddChanLiang = 0
-        writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChanLiang)
+        writePlistNew( "增产", numAddChanLiang)
     end
 
     -- 整理背包
-    isZhengLi = loadPlist(luaMuLu .. xiangMu .. ".plist", "整理")
+    isZhengLi = loadPlistNew( "整理")
     if isZhengLi == nil then
         isZhengLi = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "整理", isZhengLi)
+        writePlistNew( "整理", isZhengLi)
     end
 
     -- 吃经验
-    isEatEXP = loadPlist(luaMuLu .. xiangMu .. ".plist", "吃经验")
+    isEatEXP = loadPlistNew( "吃经验")
     if isEatEXP == nil then
         isEatEXP = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "吃经验", isEatEXP)
+        writePlistNew( "吃经验", isEatEXP)
     end
 
     -- 再次收获
-    isAgainReward = loadPlist(luaMuLu .. xiangMu .. ".plist", "再次收获")
+    isAgainReward = loadPlistNew( "再次收获")
     if isAgainReward == nil then
         isAgainReward = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
+        writePlistNew( "再次收获", isAgainReward)
     end
 
     -- 卡优化
-    isKaYouHua = loadPlist(luaMuLu .. xiangMu .. ".plist", "卡优化")
+    isKaYouHua = loadPlistNew( "卡优化")
     if isKaYouHua == nil then
         isKaYouHua = false
-        writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+        writePlistNew( "卡优化", isKaYouHua)
     end
 
     -- 材料编号
-    numCaiLiao = loadPlist(luaMuLu .. xiangMu .. ".plist", "材料编号")
+    numCaiLiao = loadPlistNew( "材料编号")
     if numCaiLiao == nil then
         numCaiLiao = 1
-        writePlist(luaMuLu .. xiangMu .. ".plist", "材料编号", numCaiLiao)
+        writePlistNew( "材料编号", numCaiLiao)
     end
 
     -- 研究资源
-    isYanJiuZiYuan = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究资源")
+    isYanJiuZiYuan = loadPlistNew( "研究资源")
     if isYanJiuZiYuan == nil then
         isYanJiuZiYuan = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究资源", isYanJiuZiYuan)
+        writePlistNew( "研究资源", isYanJiuZiYuan)
     end
 
     -- 研究开发
-    isYanJiuKaiFa = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究开发")
+    isYanJiuKaiFa = loadPlistNew( "研究开发")
     if isYanJiuKaiFa == nil then
         isYanJiuKaiFa = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究开发", isYanJiuKaiFa)
+        writePlistNew( "研究开发", isYanJiuKaiFa)
     end
 
     -- 研究防御
-    isYanJiuFangYu = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究防御")
+    isYanJiuFangYu = loadPlistNew( "研究防御")
     if isYanJiuFangYu == nil then
         isYanJiuFangYu = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究防御", isYanJiuFangYu)
+        writePlistNew( "研究防御", isYanJiuFangYu)
     end
 
     -- 研究生产
-    isYanJiuShengChan = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究生产")
+    isYanJiuShengChan = loadPlistNew( "研究生产")
     if isYanJiuShengChan == nil then
         isYanJiuShengChan = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究生产", isYanJiuShengChan)
+        writePlistNew( "研究生产", isYanJiuShengChan)
     end
 
     -- 研究精锐
-    isYanJiuJingRui = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究精锐")
+    isYanJiuJingRui = loadPlistNew( "研究精锐")
     if isYanJiuJingRui == nil then
         isYanJiuJingRui = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究精锐", isYanJiuJingRui)
+        writePlistNew( "研究精锐", isYanJiuJingRui)
     end
 
     -- 研究战舰
-    isYanJiuZhanJian = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究战舰")
+    isYanJiuZhanJian = loadPlistNew( "研究战舰")
     if isYanJiuZhanJian == nil then
         isYanJiuZhanJian = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究战舰", isYanJiuZhanJian)
+        writePlistNew( "研究战舰", isYanJiuZhanJian)
     end
 
     -- 研究
-    isYanJiu = loadPlist(luaMuLu .. xiangMu .. ".plist", "研究")
+    isYanJiu = loadPlistNew( "研究")
     if isYanJiu == nil then
         isYanJiu = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "研究", isYanJiu)
+        writePlistNew( "研究", isYanJiu)
     end
 end
 -- onceOther
@@ -977,7 +1007,7 @@ function zongHe1(...)
         touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
             isKaYouHua = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+            writePlistNew( "卡优化", isKaYouHua)
             gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -1004,7 +1034,7 @@ function zongHe1(...)
         touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
             isKaYouHua = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+            writePlistNew( "卡优化", isKaYouHua)
             gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -1153,7 +1183,7 @@ function zongHe1(...)
             touchClick(x, y)
             -- 广告次数
             numGuangGao = numGuangGao + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+            writePlistNew( "广告次数", numGuangGao)
             mSleep(5 * 1000)
             if isColor(98, 272, 0x2d5996, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xeccfc0, 95) then
                 debug("已观看视频2")
@@ -1651,22 +1681,22 @@ function zongHe1(...)
             debug("攻击舰-加速")
             touchClick(466, 175)
             numSpeedUp = numSpeedUp + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+            writePlistNew( "加速生产船型", numSpeedUp)
         elseif isColor(655, 174, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 2 then
             debug("高速舰-加速")
             touchClick(685, 175)
             numSpeedUp = numSpeedUp + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+            writePlistNew( "加速生产船型", numSpeedUp)
         elseif isColor(469, 258, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 3 then
             debug("运输舰-加速")
             touchClick(471, 253)
             numSpeedUp = numSpeedUp + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+            writePlistNew( "加速生产船型", numSpeedUp)
         elseif isColor(659, 255, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 4 then
             debug("防御舰-加速")
             touchClick(685, 257)
             numSpeedUp = 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "加速生产船型", numSpeedUp)
+            writePlistNew( "加速生产船型", numSpeedUp)
         elseif muBiao == mb_ChuHang then
             debug("出航")
             touchClick(513, 611)
@@ -2090,7 +2120,7 @@ function zongHe1(...)
                 getOut()
                 if muBiao == mb_YouHua then
                     isKaYouHua = true
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+                    writePlistNew( "卡优化", isKaYouHua)
                     gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
                     gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -2256,7 +2286,7 @@ function zongHe1(...)
             touchClick(20, 20)
             isJustBack = false
             numChuanShu = numChuanShu + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+            writePlistNew( "传输次数", numChuanShu)
         end
 
     end
@@ -2322,7 +2352,7 @@ function zongHe1(...)
                 local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
                 if tonumber(numStr) >= 0 then
                     numLv = tonumber(numStr) - 1
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "指挥中心等级", numLv)
+                    writePlistNew( "指挥中心等级", numLv)
                     toast(numLv)
                 end
             end
@@ -2514,7 +2544,7 @@ function zongHe1(...)
                     touchClick(865, 288, 0x2d2f35)
                 else
                     isYanJiu = false
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "研究", isYanJiu)
+                    writePlistNew( "研究", isYanJiu)
                 end
             elseif isColor(129, 230, 0xb3b4b5, 95) then
                 debug("研究界面--资源")
@@ -2554,7 +2584,7 @@ function zongHe1(...)
                 end
                 if isColor(1082, 234, 0xffffff, 95) then -- 7
                     isYanJiuZiYuan = false
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "研究资源", isYanJiuZiYuan)
+                    writePlistNew( "研究资源", isYanJiuZiYuan)
                     touchClick(75, 608, 0x1db687)
                     return
                 end
@@ -2611,7 +2641,7 @@ function zongHe1(...)
                 end
                 if isColor(1082, 234, 0xffffff, 95) then -- 7
                     isYanJiuKaiFa = false
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "研究开发", isYanJiuKaiFa)
+                    writePlistNew( "研究开发", isYanJiuKaiFa)
                     touchClick(75, 608, 0x1db687)
                     return
                 end
@@ -2813,7 +2843,7 @@ function zongHe1(...)
             elseif isColor(16, 24, 0xffffff, 95) then
                 touchClick(20, 20)
                 isTrade = true
-                writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+                writePlistNew( "交易行", isTrade)
             end
         elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
@@ -2821,13 +2851,13 @@ function zongHe1(...)
                 if isColor(1047, 396, 0xea080f, 95) then
                     numAddChanLiang = 3
                     touchClick(20, 20)
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChanLiang)
+                    writePlistNew( "增产", numAddChanLiang)
                     isJustBack = false
                 else
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChanLiang)
+                    writePlistNew( "增产", numAddChanLiang)
                     isJustBack = false
                 end
 
@@ -2975,7 +3005,7 @@ function zongHe1(...)
             if numCaiLiao >= 13 then
                 numCaiLiao = 1
             end
-            writePlist(luaMuLu .. xiangMu .. ".plist", "材料编号", numCaiLiao)
+            writePlistNew( "材料编号", numCaiLiao)
         else
             touchClick(516, 523, 0x604411)
         end
@@ -3050,7 +3080,7 @@ function zongHe1(...)
             if muBiao == "研究" then
                 gaiMuBiaoNew(3, "无")
                 isYanJiu = false
-                writePlist(luaMuLu .. xiangMu .. ".plist", "研究", isYanJiu)
+                writePlistNew( "研究", isYanJiu)
             end
         elseif isColor(620, 500, 0x1a61a3, 95) then
             debug("可使用")
@@ -3058,7 +3088,7 @@ function zongHe1(...)
         else
             if muBiao == mb_YouHua then
                 isKaYouHua = true
-                writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+                writePlistNew( "卡优化", isKaYouHua)
                 gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 mSleep(1000)
                 touchClick(511, 603, 0x0c0c0e)
@@ -3172,7 +3202,7 @@ function zongHe1(...)
                 if isColor(215 + i * 100, 78, 0xa0a0a0, 95) or isColor(215 + i * 100, 78, 0x33a904, 95) then
                     touchClick(215 + i * 100, 117)
                     num5DaoJu = num5DaoJu + 1
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+                    writePlistNew( "每日5道具", num5DaoJu)
 
                     break
                 end
@@ -3233,7 +3263,7 @@ function zongHe1(...)
                 useBagThings()
             end
             isZhengLi = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "整理", isZhengLi)
+            writePlistNew( "整理", isZhengLi)
         else
 
             -- if isColorPlus(137, 105, 0x9e1111, 95) then -- 资源
@@ -3453,39 +3483,39 @@ function numYanJiu()
         numZiYuan = numZiYuan + 1
         if numZiYuan == 8 then
             isYanJiuZiYuan = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究资源", isYanJiuZiYuan)
+            writePlistNew( "研究资源", isYanJiuZiYuan)
         end
     elseif isYanJiuKaiFa == true then
         numKaiFa = numKaiFa + 1
         if numKaiFa == 8 then
             isYanJiuKaiFa = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究开发", isYanJiuKaiFa)
+            writePlistNew( "研究开发", isYanJiuKaiFa)
         end
     elseif isYanJiuFangYu == true then
         numFangYu = numFangYu + 1
         if numFangYu == 10 then
             isYanJiuFangYu = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究防御", isYanJiuFangYu)
+            writePlistNew( "研究防御", isYanJiuFangYu)
         end
     elseif isYanJiuShengChan == true then
         numShengChan = numShengChan + 1
         if numShengChan == 9 then
             isYanJiuShengChan = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究生产", isYanJiuShengChan)
+            writePlistNew( "研究生产", isYanJiuShengChan)
         end
     elseif isYanJiuJingRui == true then
         numJingRui = numJingRui + 1
         if numJingRui == 8 then
             isYanJiuJingRui = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究精锐", isYanJiuJingRui)
+            writePlistNew( "研究精锐", isYanJiuJingRui)
         end
     elseif isYanJiuZhanJian == true then
         numZhanJian = numZhanJian + 1
         if numZhanJian == 9 then
             isYanJiuZhanJian = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究战舰", isYanJiuZhanJian)
+            writePlistNew( "研究战舰", isYanJiuZhanJian)
             isYanJiu = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究", isYanJiu)
+            writePlistNew( "研究", isYanJiu)
         end
     end
 end
@@ -3561,7 +3591,7 @@ function checkRed1()
         end
         -- touchClick(20, 20)
         isEatEXP = true
-        writePlist(luaMuLu .. xiangMu .. ".plist", "吃经验", isEatEXP)
+        writePlistNew( "吃经验", isEatEXP)
     elseif isZhengLi == false and haoLV >= 2 then
         debug("整理")
         touchClick(967, 586, 0x2d2f2b)
@@ -4039,12 +4069,12 @@ function checkXXX(...)
             end
 
             -- numDiaoXian = numDiaoXian + 1
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
+            -- writePlistNew( "numDiaoXian", numDiaoXian)
             -- if numDiaoXian >= 6 then
             --     numDiaoXian = 0
-            --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
+            --     writePlistNew( "numDiaoXian", numDiaoXian)
             --     numDiaoXianDengDai = numDiaoXianDengDai + 1
-            --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXianDengDai", numDiaoXianDengDai)
+            --     writePlistNew( "numDiaoXianDengDai", numDiaoXianDengDai)
             --     -- dialog("掉线6次,等一小时",60*60)
             -- end
 
@@ -4128,7 +4158,7 @@ function chongZhiJiDiXianKuang()
                 gaiMuBiaoNew(2, mb_Reward, mm_Reward)
 
                 isAgainReward = true
-                writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
+                writePlistNew( "再次收获", isAgainReward)
             end
 
         end
@@ -4345,7 +4375,7 @@ function chuHang()
             debug("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
-                writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+                writePlistNew( "每日3海盗", num3Pirate)
                 touchClick(284, 539, 0x6d5c5d) -- 海盗
                 mSleep(1000)
                 for i = 1, 3, 1 do
@@ -4462,7 +4492,7 @@ function chuHang()
             debug("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
-                writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+                writePlistNew( "每日3海盗", num3Pirate)
                 touchClick(209, 541, 0xc0b7bf) -- 海盗
                 mSleep(1000)
                 for i = 1, 3, 1 do
@@ -4819,7 +4849,7 @@ function searchLiZi()
                             if numSearchLiZi == 7 then
                                 numSearchLiZi = 0
                             end
-                            writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                            writePlistNew( "粒子方向", numSearchLiZi)
                             isLiZi = true
                             if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                 touchClick(490, 431)
@@ -4845,7 +4875,7 @@ function searchLiZi()
                                 if numSearchLiZi == 7 then
                                     numSearchLiZi = 0
                                 end
-                                writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                                writePlistNew( "粒子方向", numSearchLiZi)
                                 isLiZi = true
                                 if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                     touchClick(490, 431)
@@ -4862,7 +4892,7 @@ function searchLiZi()
                         if numSearchLiZi == 7 then
                             numSearchLiZi = 0
                         end
-                        writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                        writePlistNew( "粒子方向", numSearchLiZi)
                         isLiZi = true
                         return
                     elseif isColor(1106, 574, 0xd88b00, 95) then
@@ -4912,7 +4942,7 @@ function searchLiZi()
                         isLiZi = true
                         isBug_LiZi = false
                     end
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                    writePlistNew( "粒子方向", numSearchLiZi)
                 end
                 break
             end
@@ -4957,7 +4987,7 @@ function searchLiZi()
                         if numSearchLiZi == 7 then
                             numSearchLiZi = 0
                         end
-                        writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                        writePlistNew( "粒子方向", numSearchLiZi)
                         isLiZi = true
                         if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                             touchClick(490, 431)
@@ -4983,7 +5013,7 @@ function searchLiZi()
                             if numSearchLiZi == 7 then
                                 numSearchLiZi = 0
                             end
-                            writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                            writePlistNew( "粒子方向", numSearchLiZi)
                             isLiZi = true
                             if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                 touchClick(490, 431)
@@ -5000,7 +5030,7 @@ function searchLiZi()
                     if numSearchLiZi == 7 then
                         numSearchLiZi = 0
                     end
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                    writePlistNew( "粒子方向", numSearchLiZi)
                     isLiZi = true
                     return
                 elseif isColor(1106, 574, 0xd88b00, 95) then
@@ -5047,7 +5077,7 @@ function searchLiZi()
                         isLiZi = true
                         isBug_LiZi = false
                     end
-                    writePlist(luaMuLu .. xiangMu .. ".plist", "粒子方向", numSearchLiZi)
+                    writePlistNew( "粒子方向", numSearchLiZi)
                 end
                 break
             end
@@ -5221,11 +5251,11 @@ function everyDayInit(...)
     -- if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 55 then
     --     debug("晚重置")
     --     nowDayNight = nowDateTime.day
-    --     writePlist(luaMuLu .. xiangMu .. ".plist", "日期晚", nowDayNight)
+    --     writePlistNew( "日期晚", nowDayNight)
     --     numJiaoYi = 0
-    --     writePlist(luaMuLu .. xiangMu .. ".plist", "交易次数", numJiaoYi)
+    --     writePlistNew( "交易次数", numJiaoYi)
     --     numJiaoYiChaoShi = 0
-    --     writePlist(luaMuLu .. xiangMu .. ".plist", "交易超时", numJiaoYiChaoShi)
+    --     writePlistNew( "交易超时", numJiaoYiChaoShi)
     -- end
     -- if numQuanShu ~= 0 then
     -- local tmpXuanXiang = string.find(duoXuan1, "1")
@@ -5245,61 +5275,61 @@ function everyDayInit(...)
             numZhanJian = 1
 
             nowDay = nowDateTime.day
-            writePlist(luaMuLu .. xiangMu .. ".plist", "日期", nowDay)
+            writePlistNew( "日期", nowDay)
 
             numDay = numDay + 1
-            writePlist(luaMuLu .. xiangMu .. ".plist", "第几天", numDay)
+            writePlistNew( "第几天", numDay)
 
             numGuangGao = 0
-            writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+            writePlistNew( "广告次数", numGuangGao)
 
             numChuanShu = 0
-            writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+            writePlistNew( "传输次数", numChuanShu)
 
             isTrade = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+            writePlistNew( "交易行", isTrade)
 
             num5DaoJu = 0
-            writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+            writePlistNew( "每日5道具", num5DaoJu)
 
             numAddChanLiang = 0
-            writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChanLiang)
+            writePlistNew( "增产", numAddChanLiang)
 
             isAgainReward = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
+            writePlistNew( "再次收获", isAgainReward)
 
             num3Pirate = 0
-            writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+            writePlistNew( "每日3海盗", num3Pirate)
 
             isKaYouHua = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+            writePlistNew( "卡优化", isKaYouHua)
 
             isZhengLi = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "整理", isZhengLi)
+            writePlistNew( "整理", isZhengLi)
 
             isEatEXP = false
-            writePlist(luaMuLu .. xiangMu .. ".plist", "吃经验", isEatEXP)
+            writePlistNew( "吃经验", isEatEXP)
 
             isYanJiuZiYuan = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究资源", isYanJiuZiYuan)
+            writePlistNew( "研究资源", isYanJiuZiYuan)
 
             isYanJiuKaiFa = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究开发", isYanJiuKaiFa)
+            writePlistNew( "研究开发", isYanJiuKaiFa)
 
             isYanJiuFangYu = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究防御", isYanJiuFangYu)
+            writePlistNew( "研究防御", isYanJiuFangYu)
 
             isYanJiuShengChan = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究生产", isYanJiuShengChan)
+            writePlistNew( "研究生产", isYanJiuShengChan)
 
             isYanJiuJingRui = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究精锐", isYanJiuJingRui)
+            writePlistNew( "研究精锐", isYanJiuJingRui)
 
             isYanJiuZhanJian = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究战舰", isYanJiuZhanJian)
+            writePlistNew( "研究战舰", isYanJiuZhanJian)
 
             isYanJiu = true
-            writePlist(luaMuLu .. xiangMu .. ".plist", "研究", isYanJiu)
+            writePlistNew( "研究", isYanJiu)
 
             if haoLV == 3 then
                 gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
@@ -5328,17 +5358,17 @@ function everyDayInit(...)
             -- end
             -- closeApp(appXiangMu)
             -- numJiaoSe = 0
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "角色", numJiaoSe)
+            -- writePlistNew( "角色", numJiaoSe)
             -- huanJiaoSeChongZhi()
             -- timeMaiLan = nowTime
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "timeMaiLan", timeMaiLan)
+            -- writePlistNew( "timeMaiLan", timeMaiLan)
 
             -- isWeiXinWeiHu = false
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "微信维护", isWeiXinWeiHu)
+            -- writePlistNew( "微信维护", isWeiXinWeiHu)
             -- hourWeiXin = random(10, 22)
             -- minWeiXin = random(1, 50)
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "时", hourWeiXin)
-            -- writePlist(luaMuLu .. xiangMu .. ".plist", "分", minWeiXin)
+            -- writePlistNew( "时", hourWeiXin)
+            -- writePlistNew( "分", minWeiXin)
 
             -- gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
         end
