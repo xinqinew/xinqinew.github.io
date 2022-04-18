@@ -1,4 +1,4 @@
-toast("在线版本0.12.1")
+toast("在线版本0.12.2")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -57,7 +57,7 @@ function bianLiang()
     };
 
     -----------------------私有部分--------------------------
-
+    isKaSearch = false -- 卡搜索
     isBuyLiZi = true -- 买粒子
     isLiZi = false -- 粒子
     isShengChan = true -- 生产标志
@@ -4401,27 +4401,47 @@ function chuHang()
                 end
             end
         else
-            if numChuHang == 1 then
-                touchClick(711, 548, 0x75493a) -- 金属
-                mSleep(1000)
-                touchClick(846, 367, 0xffffff) -- 加
-                touchClick(661, 433, 0x116eb9) -- 搜索
-                mSleep(1000)
-                for i = 1, 2, 1 do
-                    if isColor(283, 540, 0x211b1d, 95) then
-                        touchClick(571, 366, 0xffffff) -- 减
-                        touchClick(661, 433, 0x116eb9) -- 搜索
-                        mSleep(1000)
-                    else
-                        break
+            if haoLV == 3 and isKaSearch == false then
+                local numMin = iif(numKuang <= numJinShu, numKuang, numJinShu)
+                numMin = iif(numMin <= numLvQi * 6, numMin, numLvQi)
+                if numMin == numKuang then
+                    touchClick(568, 538, 0xef5870) -- 矿物
+                    mSleep(1000)
+                    touchClick(704, 367, 0xffffff) -- 加
+                    touchClick(526, 430, 0x116eb9) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(283, 540, 0x211b1d, 95) then
+                            touchClick(431, 366, 0xffffff) -- 减
+                            touchClick(526, 430, 0x116eb9) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = 1
+                            isKaSearch = true
+                        end
                     end
-                    if i == 2 then
-                        numChuHang = numChuHang + 1
+                elseif numMin == numJinShu then
+                    touchClick(711, 548, 0x75493a) -- 金属
+                    mSleep(1000)
+                    touchClick(846, 367, 0xffffff) -- 加
+                    touchClick(661, 433, 0x116eb9) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(283, 540, 0x211b1d, 95) then
+                            touchClick(571, 366, 0xffffff) -- 减
+                            touchClick(661, 433, 0x116eb9) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = 2
+                            isKaSearch = true
+                        end
                     end
-                end
-            elseif numChuHang == 2 then
-                if isColor(780 + 71, 541, 0xe0e0e0, 95) then
-                    numChuHang = numChuHang + 1
                 else
                     touchClick(855, 547, 0x282114) -- 三氯气
                     mSleep(1000)
@@ -4437,26 +4457,72 @@ function chuHang()
                             break
                         end
                         if i == 2 then
-                            numChuHang = numChuHang + 1
+                            numChuHang = 3
+                            isKaSearch = true
                         end
                     end
                 end
-            elseif numChuHang == 3 then
-                touchClick(568, 538, 0xef5870) -- 矿物
-                mSleep(1000)
-                touchClick(704, 367, 0xffffff) -- 加
-                touchClick(526, 430, 0x116eb9) -- 搜索
-                mSleep(1000)
-                for i = 1, 2, 1 do
-                    if isColor(283, 540, 0x211b1d, 95) then
-                        touchClick(431, 366, 0xffffff) -- 减
-                        touchClick(526, 430, 0x116eb9) -- 搜索
-                        mSleep(1000)
-                    else
-                        break
+            else
+                if numChuHang == 1 then
+                    touchClick(711, 548, 0x75493a) -- 金属
+                    mSleep(1000)
+                    touchClick(846, 367, 0xffffff) -- 加
+                    touchClick(661, 433, 0x116eb9) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(283, 540, 0x211b1d, 95) then
+                            touchClick(571, 366, 0xffffff) -- 减
+                            touchClick(661, 433, 0x116eb9) -- 搜索
+                            mSleep(1000)
+                        else
+                            isKaSearch = false
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = numChuHang + 1
+                        end
                     end
-                    if i == 2 then
-                        numChuHang = 1
+                elseif numChuHang == 2 then
+                    if isColor(780 + 71, 541, 0xe0e0e0, 95) then
+                        numChuHang = numChuHang + 1
+                    else
+                        touchClick(855, 547, 0x282114) -- 三氯气
+                        mSleep(1000)
+                        touchClick(988, 366, 0xffffff) -- 加
+                        touchClick(807, 431, 0x116eb9) -- 搜索
+                        mSleep(1000)
+                        for i = 1, 2, 1 do
+                            if isColor(283, 540, 0x211b1d, 95) then
+                                touchClick(716, 366, 0xffffff) -- 减
+                                touchClick(807, 431, 0x116eb9) -- 搜索
+                                mSleep(1000)
+                            else
+                                isKaSearch = false
+                                break
+                            end
+                            if i == 2 then
+                                numChuHang = numChuHang + 1
+                            end
+                        end
+                    end
+                elseif numChuHang == 3 then
+                    touchClick(568, 538, 0xef5870) -- 矿物
+                    mSleep(1000)
+                    touchClick(704, 367, 0xffffff) -- 加
+                    touchClick(526, 430, 0x116eb9) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(283, 540, 0x211b1d, 95) then
+                            touchClick(431, 366, 0xffffff) -- 减
+                            touchClick(526, 430, 0x116eb9) -- 搜索
+                            mSleep(1000)
+                        else
+                            isKaSearch = false
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = 1
+                        end
                     end
                 end
             end
@@ -5457,10 +5523,12 @@ function OCR_num()
                 temStr = string.gsub(temStr, "M", "")
                 temNum = tonumber(temStr)
                 if temNum ~= nil then
-                    temNum = temNum * 1000*1000
+                    temNum = temNum * 1000 * 1000
                 end
+            else
+                temNum = 1
             end
-            if temNum ~=nil then
+            if temNum ~= nil then
                 numKuang = temNum
                 writePlistNew("矿物", numKuang)
             end
@@ -5481,10 +5549,12 @@ function OCR_num()
                 temStr = string.gsub(temStr, "M", "")
                 temNum = tonumber(temStr)
                 if temNum ~= nil then
-                    temNum = temNum * 1000*1000
+                    temNum = temNum * 1000 * 1000
                 end
+            else
+                temNum = 1
             end
-            if temNum ~=nil then
+            if temNum ~= nil then
                 numJinShu = temNum
                 writePlistNew("金属", numJinShu)
             end
@@ -5505,10 +5575,12 @@ function OCR_num()
                 temStr = string.gsub(temStr, "M", "")
                 temNum = tonumber(temStr)
                 if temNum ~= nil then
-                    temNum = temNum * 1000*1000
+                    temNum = temNum * 1000 * 1000
                 end
+            else
+                temNum = 1
             end
-            if temNum ~=nil then
+            if temNum ~= nil then
                 numLvQi = temNum
                 writePlistNew("氯气", numLvQi)
             end
@@ -5529,10 +5601,12 @@ function OCR_num()
                 temStr = string.gsub(temStr, "M", "")
                 temNum = tonumber(temStr)
                 if temNum ~= nil then
-                    temNum = temNum * 1000*1000
+                    temNum = temNum * 1000 * 1000
                 end
+            else
+                temNum = 1
             end
-            if temNum ~=nil then
+            if temNum ~= nil then
                 numLiZi = temNum
                 writePlistNew("粒子", numLiZi)
             end
@@ -5553,15 +5627,17 @@ function OCR_num()
                 temStr = string.gsub(temStr, "M", "")
                 temNum = tonumber(temStr)
                 if temNum ~= nil then
-                    temNum = temNum * 1000*1000
+                    temNum = temNum * 1000 * 1000
                 end
+            else
+                temNum = 1
             end
-            if temNum ~=nil then
+            if temNum ~= nil then
                 numCoin = temNum
                 writePlistNew("金币", numCoin)
             end
         end
-        toast(numKuang.." "..numJinShu.." "..numLvQi.." "..numLiZi.." "..numCoin)
+        -- toast(numKuang .. " " .. numJinShu .. " " .. numLvQi .. " " .. numLiZi .. " " .. numCoin)
     end
 end
 -- 兑换检测
