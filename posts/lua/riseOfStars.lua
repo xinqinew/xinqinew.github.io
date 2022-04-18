@@ -1,4 +1,4 @@
-toast("在线版本0.13.7")
+toast("在线版本0.13.8")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2571,6 +2571,10 @@ function zongHe1(...)
                 if isColor(579, 617, 0x9f7249, 95) then
                     debug("T5 => T4")
                     touchClick(483, 603, 0x1e3248)
+                    mSleep(1000)
+                elseif isKaShengChan == true then
+                    debug("T2")
+                    touchClick(283,596,0x455b72                )
                     mSleep(1000)
                 end
                 if isColor(1090, 527, 0x1d6eba, 95) then -- 可生产
