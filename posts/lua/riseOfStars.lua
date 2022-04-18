@@ -1,4 +1,4 @@
-toast("在线版本0.12.10")
+toast("在线版本0.13.1")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2202,6 +2202,17 @@ function zongHe1(...)
                 touchClick(1022, 547)
             elseif isColor(1023, 254, 0x116eb9, 95) then
                 debug("舰长--使用")
+                local maxKaJianZhangJingYan = 0
+                if isColor(1019,464,0x116eb9,95) then 
+                    maxKaJianZhangJingYan = 3
+                elseif isColor(1022,357,0x116eb9,95) then
+                    maxKaJianZhangJingYan = 2
+                elseif isColor(1021,256,0x116eb9,95) then
+                    maxKaJianZhangJingYan = 1
+                end
+                if isKaJianZhangJingYan > maxKaJianZhangJingYan then
+                    isKaJianZhangJingYan = maxKaJianZhangJingYan
+                end
                 if isColor(819, 459, 0x00ace4, 95) and isKaJianZhangJingYan == 3 then
                     debug("3满")
                     touchClick(860, 465)
