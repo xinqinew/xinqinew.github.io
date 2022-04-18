@@ -1005,11 +1005,12 @@ function zongHe1(...)
         debug("抽奖人物")
         touchClick(885, 569, 0xd68b02)
     end
-    if isColor(0, 0, 0xa80404, 95) and isColor(1135, 0, 0xa60101, 95) and isColor(0, 639, 0xa90304, 95) and
-        isColor(1135, 639, 0xa60001, 95) then
-        nowTime = os.time()
-        timeXXX = nowTime
-    end
+    -- if isColor(0, 0, 0xa80404, 95) and isColor(1135, 0, 0xa60101, 95) and isColor(0, 639, 0xa90304, 95) and
+    --     isColor(1135, 639, 0xa60001, 95) then
+    --         debug("被攻击")
+    --     nowTime = os.time()
+    --     timeXXX = nowTime
+    -- end
     if isColor(725, 435, 0x117955, 95) and isColor(845, 460, 0x14a977, 95) and isColor(505, 614, 0x3a5475, 95) and
         isColor(272, 467, 0xffa900, 95) then
         debug("升阶--关闭")
@@ -5302,7 +5303,7 @@ function inside1(...)
     isXiaoHao()
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
         -- debug("室内")
-        if isColor(0, 0, 0x9f2d3d, 90) and isColor(1135, 639, 0x991517, 90) and nowTime - timeBeAttack >= 60 then
+        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) and nowTime - timeBeAttack >= 60 then
             debug("被攻击")
             timeBeAttack = nowTime
             touchClick(1074, 582) -- 出基地
@@ -5339,7 +5340,7 @@ end
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
         -- debug("室外")
-        if isColor(0, 0, 0x9f2d3d, 90) and isColor(1135, 639, 0x991517, 90) and nowTime - timeBeAttack >= 60 then
+        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) and nowTime - timeBeAttack >= 60 then
             debug("被攻击")
             timeBeAttack = nowTime
             touchClick(1074, 582) -- 回基地
