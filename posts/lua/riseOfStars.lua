@@ -1,4 +1,4 @@
-toast("在线版本0.13.3")
+toast("在线版本0.13.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -69,8 +69,9 @@ function bianLiang()
     isBug_LiZi = false -- bug 粒子
     isChongDianKaZiYuan = false -- 充电卡资源
     isShipBad = false -- 航母 坏
-    isKaZhuXian = false -- 卡主线
-    isKaJianZhangJingYan = 3 -- 卡舰长经验
+    isKaZhuXianJianZhang = false -- 卡主线--舰长
+    isKaJianZhangJingYan = 3 -- 卡主线--舰长经验
+    isKaShengChan = false -- 卡主线--生产
 
     numZiYuan = 1
     numKaiFa = 1
@@ -2290,9 +2291,9 @@ function zongHe1(...)
         if bMultiColor == false then
             if isColor(1123, 95, 0x9e1111, 95) then
                 debug("舰长--升级--红点--外") -- 暂时不升
-                if isKaZhuXian == true then
+                if isKaZhuXianJianZhang == true then
                     touchClick(1077, 116)
-                    isKaZhuXian = false
+                    isKaZhuXianJianZhang = false
                 else
                     getOut()
                 end
@@ -2300,9 +2301,9 @@ function zongHe1(...)
                 debug("舰长--获得")
                 touchClick(1123, 95, 0xf18e071123, 95, 0xf18e07)
             else
-                if isKaZhuXian == true then
+                if isKaZhuXianJianZhang == true then
                     touchClick(634, 554, 0x131215) -- 旗舰
-                    isKaZhuXian = false
+                    isKaZhuXianJianZhang = false
                 else
                     getOut()
                 end
@@ -2489,6 +2490,10 @@ function zongHe1(...)
             elseif haoLV >= 3 and numAddChanLiang <= 2 and isColor(30, 336, 0x01f520, 95) then
                 debug("点击增产")
                 touchClick(42, 331)
+                return
+            end
+            if isKaShengChan == true then
+                touchClick(45, 338, 0x28242b) -- 生产战舰
                 return
             end
             if bMultiColor == false then
@@ -4246,7 +4251,11 @@ function task()
                         debug("拥有一名舰长")
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
                         touchClick(782, 583, 0xf8efd1) -- 舰长
-                        isKaZhuXian = true
+                        isKaZhuXianJianZhang = true
+                    elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
+                        debug("生产20战舰")
+                        isKaShengChan = true
+                        touchClick(170, 510, 0x4784b8) -- 移动
                     else
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
                         touchClick(38, 492) -- 工具
@@ -4275,7 +4284,11 @@ function task()
                             debug("拥有一名舰长")
                             touchClick(511, 572, 0x0c0c0e) -- 关闭
                             touchClick(782, 583, 0xf8efd1) -- 舰长
-                            isKaZhuXian = true
+                            isKaZhuXianJianZhang = true
+                        elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
+                            debug("生产20战舰")
+                            isKaShengChan = true
+                            touchClick(170, 510, 0x4784b8) -- 移动
                         else
                             touchClick(511, 572, 0x0c0c0e) -- 关闭
                             touchClick(38, 492) -- 工具
@@ -4739,24 +4752,47 @@ function chuHang()
                 end
             end
         else
-            if numChuHang == 1 then
-                touchClick(643, 548) -- 金属
-                mSleep(1000)
-                touchClick(776, 365, 0xffffff) -- 加
-                touchClick(639, 434) -- 搜索
-                mSleep(1000)
-                for i = 1, 2, 1 do
-                    if isColor(369, 535, 0x39e3f6, 95) then
-                        touchClick(501, 367, 0xe2e4e8) -- 减
-                        touchClick(639, 434) -- 搜索
-                        mSleep(1000)
-                    else
-                        break
+            if haoLV == 3 and isKaSearch == false then
+                local numMin = iif(numKuang <= numJinShu, numKuang, numJinShu)
+                numMin = iif(numMin <= numLvQi * 6, numMin, numLvQi)
+                if numMin == numKuang then
+                    touchClick(500, 545) -- 矿物
+                    mSleep(1000)
+                    touchClick(633, 365, 0xffffff) -- 加
+                    touchClick(508, 431, 0x075ea8) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(369, 535, 0x39e3f6, 95) then
+                            touchClick(359, 367, 0xe2e4e8) -- 减
+                            touchClick(508, 431, 0x075ea8) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = 1
+                            isKaSearch = true
+                        end
                     end
-                end
-            elseif numChuHang == 2 then
-                if isColor(780, 541, 0xe0e0e0, 95) then
-                    numChuHang = numChuHang + 1
+                elseif numMin == numJinShu then
+                    touchClick(643, 548) -- 金属
+                    mSleep(1000)
+                    touchClick(776, 365, 0xffffff) -- 加
+                    touchClick(639, 434) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(369, 535, 0x39e3f6, 95) then
+                            touchClick(501, 367, 0xe2e4e8) -- 减
+                            touchClick(639, 434) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                        if i == 2 then
+                            numChuHang = 2
+                            isKaSearch = true
+                        end
+                    end
                 else
                     touchClick(783, 561, 0x1f101d) -- 三氯气
                     mSleep(1000)
@@ -4771,21 +4807,61 @@ function chuHang()
                         else
                             break
                         end
+                        if i == 2 then
+                            numChuHang = 3
+                            isKaSearch = true
+                        end
                     end
                 end
-            elseif numChuHang == 3 then
-                touchClick(500, 545) -- 矿物
-                mSleep(1000)
-                touchClick(633, 365, 0xffffff) -- 加
-                touchClick(508, 431, 0x075ea8) -- 搜索
-                mSleep(1000)
-                for i = 1, 2, 1 do
-                    if isColor(369, 535, 0x39e3f6, 95) then
-                        touchClick(359, 367, 0xe2e4e8) -- 减
-                        touchClick(508, 431, 0x075ea8) -- 搜索
-                        mSleep(1000)
+            else
+                if numChuHang == 1 then
+                    touchClick(643, 548) -- 金属
+                    mSleep(1000)
+                    touchClick(776, 365, 0xffffff) -- 加
+                    touchClick(639, 434) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(369, 535, 0x39e3f6, 95) then
+                            touchClick(501, 367, 0xe2e4e8) -- 减
+                            touchClick(639, 434) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
+                    end
+                elseif numChuHang == 2 then
+                    if isColor(780, 541, 0xe0e0e0, 95) then
+                        numChuHang = numChuHang + 1
                     else
-                        break
+                        touchClick(783, 561, 0x1f101d) -- 三氯气
+                        mSleep(1000)
+                        touchClick(917, 365, 0xffffff) -- 加
+                        touchClick(783, 431, 0x075ea8) -- 搜索
+                        mSleep(1000)
+                        for i = 1, 2, 1 do
+                            if isColor(369, 535, 0x39e3f6, 95) then
+                                touchClick(644, 367, 0xe2e4e8) -- 减
+                                touchClick(783, 431, 0x075ea8) -- 搜索
+                                mSleep(1000)
+                            else
+                                break
+                            end
+                        end
+                    end
+                elseif numChuHang == 3 then
+                    touchClick(500, 545) -- 矿物
+                    mSleep(1000)
+                    touchClick(633, 365, 0xffffff) -- 加
+                    touchClick(508, 431, 0x075ea8) -- 搜索
+                    mSleep(1000)
+                    for i = 1, 2, 1 do
+                        if isColor(369, 535, 0x39e3f6, 95) then
+                            touchClick(359, 367, 0xe2e4e8) -- 减
+                            touchClick(508, 431, 0x075ea8) -- 搜索
+                            mSleep(1000)
+                        else
+                            break
+                        end
                     end
                 end
             end
