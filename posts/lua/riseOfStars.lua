@@ -1,4 +1,4 @@
-toast("在线版本0.13.10")
+toast("在线版本0.14.1")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -57,6 +57,10 @@ function bianLiang()
     };
 
     -----------------------私有部分--------------------------
+    RGB_NoticeBJ = "306090" -- "FFFF00"
+    RGB_NoticeFont = "FFFFFF" -- "FF0000"
+    strNotice = "..."
+
     isKaSearch = false -- 卡搜索
     isBuyLiZi = true -- 买粒子
     isLiZi = false -- 粒子
@@ -794,7 +798,11 @@ function floatingWindow()
     fwShowWnd("window1", 500, 0, 500 + 50 * 2, 30, 1);
     -- 子窗口视图是以父窗口载体的（100,100）点坐标为（0,0）点坐标显示的  
     -- fwShowButton("window1", "btn1", "on", "FFFFFF", "025062", "", 12, 0, 0, 50, 30);
-    fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
+    if haoLV == 3 then
+        fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
+    else
+        fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+    end
     -- fwShowButton("window1", "more", "...", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
     mSleep(500)
 end
@@ -871,8 +879,11 @@ function windowsDecide()
         -- fwCloseView("window1", "btn2"); -- 关闭文字视图
         -- fwShowButton("window1", "btn1", "on", "FFFFFF", "025062", "", 12, 0, 0, 50, 30);
         fwCloseView("window1", "moreX"); -- 关闭文字视图
-        fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
-        -- fwShowButton("window1", "more", "...", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
+        if haoLV == 3 then
+            fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
+        else
+            fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+        end
         mSleep(500)
         fwCloseWnd("moreWin"); -- 关闭父窗口
     elseif vid == "btn_update" then
@@ -3672,10 +3683,12 @@ end
 -- 检查红点
 function checkRed1()
     -- ocrNumbers()
-    snapshot("lizi.jpg", 956, 16, 1016, 29, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
-    fwCloseView("window1", "more"); -- 关闭文字视图
-    fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
-    mSleep(500)
+    if haoLV == 3 then
+        snapshot("lizi.jpg", 956, 16, 1016, 29, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
+        fwCloseView("window1", "more"); -- 关闭文字视图
+        fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
+        mSleep(500)
+    end
     OCR_num()
     if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
         debug("验证码--红点")
@@ -4287,6 +4300,17 @@ function task()
                     debug("生产20战舰")
                     isKaShengChan = true
                     touchClick(170, 510, 0x4784b8) -- 移动
+                elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
+                    isColor(223, 501, 0x116eb9, 95) then
+                    debug("提升1次舰长星级")
+                    gaiMuBiaoNew(1, mb_WaKuang)
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    RGB_NoticeBJ = "FFFF00"
+                    RGB_NoticeFont = "FF0000"
+                    strNotice = "升星"
+                    fwCloseView("window1", "more"); -- 关闭文字视图
+                    fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                    mSleep(500)
                 else
                     touchClick(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
@@ -4327,6 +4351,17 @@ function task()
                         debug("生产20战舰")
                         isKaShengChan = true
                         touchClick(170, 510, 0x4784b8) -- 移动
+                    elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
+                        isColor(223, 501, 0x116eb9, 95) then
+                        debug("提升1次舰长星级")
+                        gaiMuBiaoNew(1, mb_WaKuang)
+                        touchClick(511, 572, 0x0c0c0e) -- 关闭
+                        RGB_NoticeBJ = "FFFF00"
+                        RGB_NoticeFont = "FF0000"
+                        strNotice = "升星"
+                        fwCloseView("window1", "more"); -- 关闭文字视图
+                        fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                        mSleep(500)
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
                         if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
