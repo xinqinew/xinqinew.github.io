@@ -1,4 +1,4 @@
-toast("在线版本0.13.1")
+toast("在线版本0.13.2")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -920,6 +920,14 @@ function zongHe1(...)
         if isColor(33, 493, 0xffffff, 95) and isColor(21, 474, 0x5ea7e8, 95) then
             debug("free")
             touchClick(33, 493)
+        end
+    end
+    if isColor(76, 68, 0xff6600, 95) and isColor(387, 68, 0xff2a00, 95) and isColor(629, 607, 0x306090, 95) then
+        debug("旗舰--升级")
+        if isColor(1019, 254, 0x116eb9, 95) then
+            touchClick(1019, 254)
+        else
+            touchClick(20, 20)
         end
     end
     if isColor(337, 11, 0xe0e0e0, 95) and isColor(499, 515, 0x6a3920, 95) and isColor(498, 497, 0x6b4600, 95) and
@@ -2203,11 +2211,11 @@ function zongHe1(...)
             elseif isColor(1023, 254, 0x116eb9, 95) then
                 debug("舰长--使用")
                 local maxKaJianZhangJingYan = 0
-                if isColor(1019,464,0x116eb9,95) then 
+                if isColor(1019, 464, 0x116eb9, 95) then
                     maxKaJianZhangJingYan = 3
-                elseif isColor(1022,357,0x116eb9,95) then
+                elseif isColor(1022, 357, 0x116eb9, 95) then
                     maxKaJianZhangJingYan = 2
-                elseif isColor(1021,256,0x116eb9,95) then
+                elseif isColor(1021, 256, 0x116eb9, 95) then
                     maxKaJianZhangJingYan = 1
                 end
                 if isKaJianZhangJingYan > maxKaJianZhangJingYan then
@@ -2252,7 +2260,7 @@ function zongHe1(...)
                     end
                 end
             else
-                isKaJianZhangJingYan = 3                
+                isKaJianZhangJingYan = 3
                 touchClick(20, 20)
             end
         elseif isColor(135, 167, 0x9e1111, 95) then
@@ -2291,7 +2299,12 @@ function zongHe1(...)
                 debug("舰长--获得")
                 touchClick(1123, 95, 0xf18e071123, 95, 0xf18e07)
             else
-                getOut()
+                if isKaZhuXian == true then
+                    touchClick(634, 554, 0x131215) -- 旗舰
+                    isKaZhuXian = false
+                else
+                    getOut()
+                end
             end
         end
     end
