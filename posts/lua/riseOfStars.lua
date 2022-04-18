@@ -1,4 +1,4 @@
-toast("在线版本0.12.9")
+toast("在线版本0.12.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -70,6 +70,7 @@ function bianLiang()
     isChongDianKaZiYuan = false -- 充电卡资源
     isShipBad = false -- 航母 坏
     isKaZhuXian = false -- 卡主线
+    isKaJianZhangJingYan = 3 -- 卡舰长经验
 
     numZiYuan = 1
     numKaiFa = 1
@@ -2201,23 +2202,46 @@ function zongHe1(...)
                 touchClick(1022, 547)
             elseif isColor(1023, 254, 0x116eb9, 95) then
                 debug("舰长--使用")
-                if isColor(819, 459, 0x00ace4, 95) then
+                if isColor(819, 459, 0x00ace4, 95) and isKaJianZhangJingYan == 3 then
                     debug("3满")
                     touchClick(860, 465)
-                elseif isColor(1020, 461, 0x116eb9, 95) then
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        isKaJianZhangJingYan = 2
+                        touchClick(510, 494, 0x0c0c0e)
+                    end
+                elseif isColor(1020, 461, 0x116eb9, 95) and isKaJianZhangJingYan == 3 then
                     touchClick(1020, 461)
-                elseif isColor(819, 357, 0x00ace4, 95) then
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        isKaJianZhangJingYan = 2
+                        touchClick(510, 494, 0x0c0c0e)
+                    end
+                elseif isColor(819, 357, 0x00ace4, 95) and isKaJianZhangJingYan == 2 then
                     debug("2满")
                     touchClick(860, 357)
-                elseif isColor(1020, 359, 0x116eb9, 95) then
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        isKaJianZhangJingYan = 1
+                        touchClick(510, 494, 0x0c0c0e)
+                    end
+                elseif isColor(1020, 359, 0x116eb9, 95) and isKaJianZhangJingYan == 2 then
                     touchClick(1020, 359)
-                elseif isColor(819, 239, 0x00ace4, 95) then
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        isKaJianZhangJingYan = 1
+                        touchClick(510, 494, 0x0c0c0e)
+                    end
+                elseif isColor(819, 239, 0x00ace4, 95) and isKaJianZhangJingYan == 1 then
                     debug("1满")
                     touchClick(860, 261)
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        touchClick(514, 419, 0x1c6dba)
+                    end
                 else
                     touchClick(1022, 254)
+                    if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
+                        touchClick(514, 419, 0x1c6dba)
+                    end
                 end
             else
+                isKaJianZhangJingYan = 3                
                 touchClick(20, 20)
             end
         elseif isColor(135, 167, 0x9e1111, 95) then
