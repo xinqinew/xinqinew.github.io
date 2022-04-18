@@ -1,4 +1,4 @@
-toast("在线版本0.13.9")
+toast("在线版本0.13.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -4276,12 +4276,14 @@ function task()
                     end
                     mSleep(1000)
                 end
-                if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
+                if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
+                    isColor(114, 511, 0x116eb9, 95) then
                     debug("拥有一名舰长")
                     touchClick(511, 572, 0x0c0c0e) -- 关闭
                     touchClick(782, 583, 0xf8efd1) -- 舰长
                     isKaZhuXianJianZhang = true
-                elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
+                elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
+                    isColor(114, 511, 0x116eb9, 95) then
                     debug("生产20战舰")
                     isKaShengChan = true
                     touchClick(170, 510, 0x4784b8) -- 移动
@@ -4314,12 +4316,14 @@ function task()
                         end
                         mSleep(1000)
                     end
-                    if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
+                    if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
+                        isColor(114, 511, 0x116eb9, 95) then
                         debug("拥有一名舰长")
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
                         touchClick(782, 583, 0xf8efd1) -- 舰长
                         isKaZhuXianJianZhang = true
-                    elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
+                    elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
+                        isColor(114, 511, 0x116eb9, 95) then
                         debug("生产20战舰")
                         isKaShengChan = true
                         touchClick(170, 510, 0x4784b8) -- 移动
