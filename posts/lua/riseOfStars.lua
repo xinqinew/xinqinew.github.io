@@ -1,4 +1,4 @@
-toast("在线版本0.11.10")
+toast("在线版本0.12.1")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2880,63 +2880,37 @@ function zongHe1(...)
                 end
                 return
             end
-            if isColor(505, 110, 0x3e6b96, 95) then -- 1号航母存在
-                if isColor(440, 263, 0xffffff, 95) then
-                    debug("充电中")
-                    isShipBad = false
+            if isColor(505, 110, 0x3e6b96, 95) -- 1号航母存在
+            and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
+            and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
+            and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
+                debug("1号来充电吧")
+                touchClick(440, 263)
+            elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
+            and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
+            and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
+            and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
+                debug("2号来充电吧")
+                touchClick(639, 263)
+            elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
+            and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
+            and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
+            and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
+                debug("3号来充电吧")
+                touchClick(838, 263)
+            elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
+            and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
+            and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
+            and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
+                debug("4号来充电吧")
+                touchClick(1036, 263)
+            else
+                touchClick(20, 20)
+                isShipBad = false
+                if muBiao == mb_FixShip then
                     gaiMuBiaoNew(3, mb_Wu, mm_Wu)
-                    touchClick(20, 20)
-                elseif isColor(410, 271, 0xffffff, 95) then
-                    debug("升阶中")
-                    touchClick(20, 20)
-                    if muBiao == mb_FixShip then
-                        gaiMuBiaoNew(3, mb_Wu, mm_Wu)
-                    end
-                elseif isColor(440, 281, 0xffffff, 95) then
-                    debug("1号航母使用中")
-                else
-                    touchClick(440, 263)
                 end
             end
-            if isColor(704, 110, 0x3e6b96, 95) then -- 2号航母存在
-                if isColor(639,256,0xffffff,95) then
-                    debug("充电中")
-                    isShipBad = false
-                    gaiMuBiaoNew(3, mb_Wu, mm_Wu)
-                    touchClick(20, 20)
-                elseif isColor(639, 281, 0xffffff, 95) then
-                    debug("2号航母使用中")
-                else
-                    touchClick(639, 263)
-                end
-            end
-            if isColor(902, 110, 0x3e6b96, 95) then -- 3号航母存在
-                if isColor(838,256,0xffffff,95) then
-                    debug("充电中")
-                    isShipBad = false
-                    gaiMuBiaoNew(3, mb_Wu, mm_Wu)
-                    touchClick(20, 20)
-                elseif isColor(838, 281, 0xffffff, 95) then
-                    debug("3号航母使用中")
-                else
-                    touchClick(838, 263)
-                end
-            end
-            if isColor(1079,110,0x3e6b96,95) then-- 4号航母存在
-                if isColor(1036,256,0xffffff,95) then
-                    debug("充电中")
-                    isShipBad = false
-                    gaiMuBiaoNew(3, mb_Wu, mm_Wu)
-                    touchClick(20, 20)
-                elseif isColor(1036, 281, 0xffffff, 95) then
-                    debug("4号航母使用中")
-                else
-                    touchClick(1036, 263)
-                end
-            end
-            -- else
-            touchClick(20, 20)
-            -- end
         elseif isColor(45, 418, 0xecb445, 95) and isColor(44, 403, 0xffffff, 95) then
             debug("加工站界面")
             if isColor(184, 345, 0x4e6374, 95) then
