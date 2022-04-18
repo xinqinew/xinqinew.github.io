@@ -920,6 +920,10 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
+    if isColor(291,72,0xf8a901,95) and isColor(459,502,0x8f4d14,95) and isColor(664,542,0xd87501,95) then
+        debug("布置")
+        touchClick(664,542,0xd87501    )
+    end
     if isColor(472, 485, 0x114c8a, 95) and isColor(659, 505, 0x1c6fbb, 95) and isColor(772, 228, 0x5a5f65, 95) then
         debug("集结时间")
         touchClick(510, 570, 0x0c0c0e)
