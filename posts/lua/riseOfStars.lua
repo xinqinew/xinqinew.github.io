@@ -76,7 +76,7 @@ function bianLiang()
     numShengChan = 1
     numJingRui = 1
     numZhanJian = 1
-    numLiZi = 0 -- 在挖粒子的队伍
+    numLiZiTeam = 0 -- 在挖粒子的队伍
     numSearchLiZiSecond = 20
     -- numSearchLiZi = 0
     num5DaoJu = 0
@@ -429,6 +429,40 @@ function oncePlist()
     if numLv == nil then
         numLv = 1
         writePlistNew("指挥中心等级", numLv)
+    end
+
+    -- 矿物
+    numKuang = loadPlistNew("矿物")
+    if numKuang == nil then
+        numKuang = 0
+        writePlistNew("矿物", numKuang)
+    end
+
+    -- 金属
+    numJinShu = loadPlistNew("金属")
+    if numJinShu == nil then
+        numJinShu = 0
+        writePlistNew("金属", numJinShu)
+    end
+
+    -- 氯气
+    numLvQi = loadPlistNew("氯气")
+    if numLvQi == nil then
+        numLvQi = 0
+        writePlistNew("氯气", numLvQi)
+    end
+    -- 粒子
+    numLiZi = loadPlistNew("粒子")
+    if numLiZi == nil then
+        numLiZi = 0
+        writePlistNew("粒子", numLiZi)
+    end
+
+    -- 金币
+    numCoin = loadPlistNew("金币")
+    if numCoin == nil then
+        numCoin = 0
+        writePlistNew("金币", numCoin)
     end
 
     -- 加速生产船型
@@ -4653,7 +4687,7 @@ function isRewardLiZi()
         isLiZi = true
         return false
     else
-        numLiZi = 0
+        numLiZiTeam = 0
         -- timeLiZi = nowTime
         if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
             touchClick(1058, 244, 0xdaa395)
@@ -4667,8 +4701,8 @@ function isRewardLiZi()
                     touchClick(20, 20)
                     -- mSleep(1000)
                 end
-                numLiZi = numLiZi + 1
-                if numLiZi >= tonumber(numShip) then
+                numLiZiTeam = numLiZiTeam + 1
+                if numLiZiTeam >= tonumber(numShip) then
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
                     end
@@ -4689,8 +4723,8 @@ function isRewardLiZi()
                     touchClick(20, 20)
                     -- mSleep(1000)
                 end
-                numLiZi = numLiZi + 1
-                if numLiZi >= tonumber(numShip) then
+                numLiZiTeam = numLiZiTeam + 1
+                if numLiZiTeam >= tonumber(numShip) then
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
                     end
@@ -4711,8 +4745,8 @@ function isRewardLiZi()
                     touchClick(20, 20)
                     -- mSleep(1000)
                 end
-                numLiZi = numLiZi + 1
-                if numLiZi >= tonumber(numShip) then
+                numLiZiTeam = numLiZiTeam + 1
+                if numLiZiTeam >= tonumber(numShip) then
                     isLiZi = true
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
@@ -5407,7 +5441,128 @@ function OCR_num()
     -- else
     --     debug("获取失败:" .. access_token)
     -- end
+    if haoLV == 3 then
+        do
+            local temStr = ocrText(645, 14, 711, 30, 0, "0123456789.KM")
+            local temNum = 0
+            local num1 = string.find(temStr, "K")
+            local num2 = string.find(temStr, "M")
+            if num1 ~= nil then
+                temStr = string.gsub(temStr, "K", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000
+                end
+            elseif num2 ~= nil then
+                temStr = string.gsub(temStr, "M", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000*1000
+                end
+            end
+            if temNum ~=nil then
+                numKuang = temNum
+                writePlistNew("矿物", numKuang)
+            end
+        end
 
+        do
+            local temStr = ocrText(746, 14, 812, 30, 0, "0123456789.KM")
+            local temNum = 0
+            local num1 = string.find(temStr, "K")
+            local num2 = string.find(temStr, "M")
+            if num1 ~= nil then
+                temStr = string.gsub(temStr, "K", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000
+                end
+            elseif num2 ~= nil then
+                temStr = string.gsub(temStr, "M", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000*1000
+                end
+            end
+            if temNum ~=nil then
+                numJinShu = temNum
+                writePlistNew("金属", numJinShu)
+            end
+        end
+
+        do
+            local temStr = ocrText(844, 14, 914, 30, 0, "0123456789.KM")
+            local temNum = 0
+            local num1 = string.find(temStr, "K")
+            local num2 = string.find(temStr, "M")
+            if num1 ~= nil then
+                temStr = string.gsub(temStr, "K", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000
+                end
+            elseif num2 ~= nil then
+                temStr = string.gsub(temStr, "M", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000*1000
+                end
+            end
+            if temNum ~=nil then
+                numLvQi = temNum
+                writePlistNew("氯气", numLvQi)
+            end
+        end
+
+        do
+            local temStr = ocrText(947, 14, 1016, 30, 0, "0123456789.KM")
+            local temNum = 0
+            local num1 = string.find(temStr, "K")
+            local num2 = string.find(temStr, "M")
+            if num1 ~= nil then
+                temStr = string.gsub(temStr, "K", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000
+                end
+            elseif num2 ~= nil then
+                temStr = string.gsub(temStr, "M", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000*1000
+                end
+            end
+            if temNum ~=nil then
+                numLiZi = temNum
+                writePlistNew("粒子", numLiZi)
+            end
+        end
+
+        do
+            local temStr = ocrText(1050, 14, 1119, 30, 0, "0123456789.KM")
+            local temNum = 0
+            local num1 = string.find(temStr, "K")
+            local num2 = string.find(temStr, "M")
+            if num1 ~= nil then
+                temStr = string.gsub(temStr, "K", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000
+                end
+            elseif num2 ~= nil then
+                temStr = string.gsub(temStr, "M", "")
+                temNum = tonumber(temStr)
+                if temNum ~= nil then
+                    temNum = temNum * 1000*1000
+                end
+            end
+            if temNum ~=nil then
+                numCoin = temNum
+                writePlistNew("金币", numCoin)
+            end
+        end
+        toast(numKuang.." "..numJinShu.." "..numLvQi.." "..numLiZi.." "..numCoin)
+    end
 end
 -- 兑换检测
 function duiHuanJianCe()
