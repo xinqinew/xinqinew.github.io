@@ -1,4 +1,4 @@
-toast("在线版本0.12.7")
+toast("在线版本0.12.8")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -69,6 +69,7 @@ function bianLiang()
     isBug_LiZi = false -- bug 粒子
     isChongDianKaZiYuan = false -- 充电卡资源
     isShipBad = false -- 航母 坏
+    isKaZhuXian = false -- 卡主线
 
     numZiYuan = 1
     numKaiFa = 1
@@ -2235,8 +2236,12 @@ function zongHe1(...)
         if bMultiColor == false then
             if isColor(1123, 95, 0x9e1111, 95) then
                 debug("舰长--升级--红点--外") -- 暂时不升
-                -- touchClick(1077, 116)
-                getOut()
+                if isKaZhuXian == true then
+                    touchClick(1077, 116)
+                    isKaZhuXian = false
+                else
+                    getOut()
+                end
             elseif isColor(1123, 95, 0xf18e07, 95) then
                 debug("舰长--获得")
                 touchClick(1123, 95, 0xf18e071123, 95, 0xf18e07)
@@ -4182,6 +4187,7 @@ function task()
                         debug("拥有一名舰长")
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
                         touchClick(782, 583, 0xf8efd1) -- 舰长
+                        isKaZhuXian = true
                     else
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
                         touchClick(38, 492) -- 工具
@@ -4210,6 +4216,7 @@ function task()
                             debug("拥有一名舰长")
                             touchClick(511, 572, 0x0c0c0e) -- 关闭
                             touchClick(782, 583, 0xf8efd1) -- 舰长
+                            isKaZhuXian = true
                         else
                             touchClick(511, 572, 0x0c0c0e) -- 关闭
                             touchClick(38, 492) -- 工具
