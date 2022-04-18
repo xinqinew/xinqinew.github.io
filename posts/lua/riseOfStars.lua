@@ -1,4 +1,4 @@
-toast("在线版本0.13.2")
+toast("在线版本0.13.3")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -926,6 +926,7 @@ function zongHe1(...)
         debug("旗舰--升级")
         if isColor(1019, 254, 0x116eb9, 95) then
             touchClick(1019, 254)
+            touchClick(20, 20)
         else
             touchClick(20, 20)
         end
