@@ -1,4 +1,4 @@
-toast("在线版本0.12.3")
+toast("在线版本0.12.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1049,7 +1049,7 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+            if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
                 gaiMuBiaoNew(1, "章节")
             else
                 gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -1080,7 +1080,7 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+            if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
                 gaiMuBiaoNew(1, "章节")
             else
                 gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -2166,7 +2166,7 @@ function zongHe1(...)
                     writePlistNew("卡优化", isKaYouHua)
                     gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
-                    if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                    if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
                         gaiMuBiaoNew(1, "章节")
                     else
                         gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -2397,7 +2397,8 @@ function zongHe1(...)
         end
         if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
             debug("升级界面")
-            if haoLV <= 2 and isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95) then
+            if haoLV <= 2 and ((isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95)) or
+                (isColor(62, 438, 0x44d7ec, 95) and isColor(61, 461, 0x0d609d, 95))) then
                 debug("指挥中心")
                 x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
                 local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
@@ -3102,7 +3103,7 @@ function zongHe1(...)
                 mSleep(1000)
                 getOut()
             elseif muBiao == mb_ZhuXian then
-                if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
                     gaiMuBiaoNew(1, "章节")
                 else
                     gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
