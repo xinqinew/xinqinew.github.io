@@ -1,4 +1,4 @@
-toast("在线版本0.13.4")
+toast("在线版本0.13.5")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -4243,23 +4243,20 @@ function task()
                     debug("展开任务栏")
                     touchClick(107, 213)
                 end
-                touchClick(161, 268)
-                if isColor(962, 576, 0xe59b48, 95) then -- 卡主线
-                    touchClick(47, 187, 0x042121) -- 打开任务栏
-                    mSleep(1000)
-                    if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
-                        debug("拥有一名舰长")
-                        touchClick(511, 572, 0x0c0c0e) -- 关闭
-                        touchClick(782, 583, 0xf8efd1) -- 舰长
-                        isKaZhuXianJianZhang = true
-                    elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
-                        debug("生产20战舰")
-                        isKaShengChan = true
-                        touchClick(170, 510, 0x4784b8) -- 移动
-                    else
-                        touchClick(511, 572, 0x0c0c0e) -- 关闭
-                        touchClick(38, 492) -- 工具
-                    end
+                touchClick(47, 187, 0x042121) -- 打开任务栏
+                mSleep(1000)
+                if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
+                    debug("拥有一名舰长")
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    touchClick(782, 583, 0xf8efd1) -- 舰长
+                    isKaZhuXianJianZhang = true
+                elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) then
+                    debug("生产20战舰")
+                    isKaShengChan = true
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                else
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    touchClick(38, 492) -- 工具
                 end
                 return
             end
