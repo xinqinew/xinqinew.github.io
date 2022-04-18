@@ -1,4 +1,4 @@
-toast("在线版本0.13.6")
+toast("在线版本0.13.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -4245,6 +4245,12 @@ function task()
                 end
                 touchClick(47, 187, 0x042121) -- 打开任务栏
                 mSleep(1000)
+                for i = 1, 10, 1 do
+                    if isColor(91, 155, 0xff6600, 95) then
+                        break
+                    end
+                    mSleep(1000)
+                end
                 if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
                     debug("拥有一名舰长")
                     touchClick(511, 572, 0x0c0c0e) -- 关闭
@@ -4255,8 +4261,10 @@ function task()
                     isKaShengChan = true
                     touchClick(170, 510, 0x4784b8) -- 移动
                 else
-                    touchClick(511, 572, 0x0c0c0e) -- 关闭
-                    touchClick(38, 492) -- 工具
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                        touchClick(38, 492) -- 工具
+                    end
                 end
                 return
             end
@@ -4275,6 +4283,12 @@ function task()
                     end
                     touchClick(47, 187, 0x042121) -- 打开任务栏
                     mSleep(1000)
+                    for i = 1, 10, 1 do
+                        if isColor(91, 155, 0xff6600, 95) then
+                            break
+                        end
+                        mSleep(1000)
+                    end
                     if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
                         debug("拥有一名舰长")
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
@@ -4285,8 +4299,10 @@ function task()
                         isKaShengChan = true
                         touchClick(170, 510, 0x4784b8) -- 移动
                     else
-                        touchClick(511, 572, 0x0c0c0e) -- 关闭
-                        touchClick(38, 492) -- 工具
+                        touchClick(170, 510, 0x4784b8) -- 移动
+                        if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                            touchClick(38, 492) -- 工具
+                        end
                     end
                     return
                 end
