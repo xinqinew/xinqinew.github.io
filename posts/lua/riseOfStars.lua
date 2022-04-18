@@ -1,4 +1,4 @@
-toast("在线版本0.13.8")
+toast("在线版本0.13.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2574,8 +2574,9 @@ function zongHe1(...)
                     mSleep(1000)
                 elseif isKaShengChan == true then
                     debug("T2")
-                    touchClick(283,596,0x455b72                )
+                    touchClick(283, 596, 0x455b72)
                     mSleep(1000)
+                    isKaShengChan = false
                 end
                 if isColor(1090, 527, 0x1d6eba, 95) then -- 可生产
                     if isColor(851, 357, 0x15273f, 95) and isColor(851, 411, 0x15273f, 95) and
@@ -2665,21 +2666,41 @@ function zongHe1(...)
             timeXXX = nowTime
             if isColor(249, 162, 0xa9a9a9, 95) then
                 debug("研究界面")
-                if isYanJiuZiYuan == true then
-                    touchClick(249, 162, 0xa9a9a9)
-                elseif isYanJiuKaiFa == true then
-                    touchClick(750, 162, 0xa9a9a9)
-                elseif isYanJiuFangYu == true then
-                    touchClick(291, 302, 0x151722)
-                elseif isYanJiuShengChan == true then
-                    touchClick(366, 444, 0x08121c)
-                elseif isYanJiuJingRui == true then
-                    touchClick(784, 448, 0x1d9aaa)
-                elseif isYanJiuZhanJian == true then
-                    touchClick(865, 288, 0x2d2f35)
+                if check14 == "研究" then
+                    if isYanJiuZiYuan == true then
+                        touchClick(249, 162, 0xa9a9a9)
+                    elseif isYanJiuKaiFa == true then
+                        touchClick(750, 162, 0xa9a9a9)
+                    elseif isYanJiuFangYu == true then
+                        touchClick(291, 302, 0x151722)
+                    elseif isYanJiuShengChan == true then
+                        touchClick(366, 444, 0x08121c)
+                    elseif isYanJiuJingRui == true then
+                        touchClick(784, 448, 0x1d9aaa)
+                    elseif isYanJiuZhanJian == true then
+                        touchClick(865, 288, 0x2d2f35)
+                    else
+                        isYanJiu = false
+                        writePlistNew("研究", isYanJiu)
+                    end
                 else
-                    isYanJiu = false
-                    writePlistNew("研究", isYanJiu)
+                    if isYanJiuZiYuan == true then
+                        touchClick(249, 162, 0xa9a9a9)
+                        -- elseif isYanJiuKaiFa == true then
+                        --     touchClick(750, 162, 0xa9a9a9)
+                        -- elseif isYanJiuFangYu == true then
+                        --     touchClick(291, 302, 0x151722)
+                        -- elseif isYanJiuShengChan == true then
+                        --     touchClick(366, 444, 0x08121c)
+                        -- elseif isYanJiuJingRui == true then
+                        --     touchClick(784, 448, 0x1d9aaa)
+                        -- elseif isYanJiuZhanJian == true then
+                        --     touchClick(865, 288, 0x2d2f35)
+                    else
+                        touchClick(20, 20)
+                        -- isYanJiu = false
+                        -- writePlistNew("研究", isYanJiu)
+                    end
                 end
             elseif isColor(129, 230, 0xb3b4b5, 95) then
                 debug("研究界面--资源")
