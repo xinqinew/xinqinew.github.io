@@ -1,4 +1,4 @@
-toast("在线版本0.12.6")
+toast("在线版本0.12.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -919,6 +919,11 @@ function zongHe1(...)
             debug("free")
             touchClick(33, 493)
         end
+    end
+    if isColor(337, 11, 0xe0e0e0, 95) and isColor(499, 515, 0x6a3920, 95) and isColor(498, 497, 0x6b4600, 95) and
+        isColor(795, 56, 0x718c9c, 95) then
+        debug("高级VIP点数--金币购买--误开")
+        touchClick(511, 596, 0x0c0c0e)
     end
     if isColor(291, 72, 0xf8a901, 95) and isColor(459, 502, 0x8f4d14, 95) and isColor(664, 542, 0xd87501, 95) then
         debug("布置")
@@ -4170,9 +4175,17 @@ function task()
                     touchClick(107, 213)
                 end
                 touchClick(161, 268)
-                if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
-                    -- if findRed() == true then
-                    touchClick(38, 492)
+                if isColor(962, 576, 0xe59b48, 95) then -- 卡主线
+                    touchClick(47, 187, 0x042121) -- 打开任务栏
+                    mSleep(1000)
+                    if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
+                        debug("拥有一名舰长")
+                        touchClick(511, 572, 0x0c0c0e) -- 关闭
+                        touchClick(782, 583, 0xf8efd1) -- 舰长
+                    else
+                        touchClick(511, 572, 0x0c0c0e) -- 关闭
+                        touchClick(38, 492) -- 工具
+                    end
                 end
                 return
             end
@@ -4190,9 +4203,17 @@ function task()
                         touchClick(107, 213)
                     end
                     touchClick(161, 268)
-                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
-                        -- if findRed() == true then
-                        touchClick(38, 492)
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线
+                        touchClick(47, 187, 0x042121) -- 打开任务栏
+                        mSleep(1000)
+                        if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) then
+                            debug("拥有一名舰长")
+                            touchClick(511, 572, 0x0c0c0e) -- 关闭
+                            touchClick(782, 583, 0xf8efd1) -- 舰长
+                        else
+                            touchClick(511, 572, 0x0c0c0e) -- 关闭
+                            touchClick(38, 492) -- 工具
+                        end
                     end
                 end
                 return
