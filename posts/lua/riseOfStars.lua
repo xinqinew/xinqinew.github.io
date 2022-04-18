@@ -1,4 +1,4 @@
-toast("在线版本0.11.6")
+toast("在线版本0.11.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -417,8 +417,6 @@ function oncePlist()
     end
 
     -----------------------私有部分--------------------------
-<<<<<<< HEAD
-=======
     -- over章节
     isOverLesson = loadPlistNew( "over章节")
     if isOverLesson == nil then
@@ -432,7 +430,6 @@ function oncePlist()
         numLv = 1
         writePlistNew( "指挥中心等级", numLv)
     end
->>>>>>> 7f01f3b857187924fe78e40ee79ce3957138f281
 
     -- 加速生产船型
     numSpeedUp = loadPlistNew( "加速生产船型")
@@ -1641,7 +1638,7 @@ function zongHe1(...)
         elseif isColor(686, 458, 0x9e1111, 95) then
             debug("补给太空船--红点")
             touchClick(624, 495, 0x306090)
-        elseif isColor(1008, 179, 0x0f161f, 95) then
+        elseif isColor(1008, 179, 0x0f161f, 95) and haoLV <= 2 then
             debug("研究所可建")
             touchClick(1008, 179)
             gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
@@ -2349,8 +2346,6 @@ function zongHe1(...)
         end
         if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
             debug("升级界面")
-<<<<<<< HEAD
-=======
             if haoLV <= 2 and isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95) then
                 debug("指挥中心")
                 x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
@@ -2361,7 +2356,6 @@ function zongHe1(...)
                     toast(numLv)
                 end
             end
->>>>>>> 7f01f3b857187924fe78e40ee79ce3957138f281
             if haoLV >= 3 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
                 debug("点击交易所")
                 touchClick(42, 331)
@@ -3225,7 +3219,11 @@ function zongHe1(...)
                 if isPause == true then
                     return
                 end
-                x, y = findMultiColorInRegionFuzzy(0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 162) -- 战舰
+                x, y = findMultiColorInRegionFuzzy(0x1d232f, "-18|-20|0xcbd1d3,23|-21|0xf1f5f6", 90, 169, 75, 249, 162) -- 补给箱
+                useBagThings()
+                x, y = findMultiColorInRegionFuzzy(0xa9a9a9, "12|0|0xa9a9a9", 90, 169, 75, 1052, 76) -- 战舰--灰
+                useBagThings()
+                x, y = findMultiColorInRegionFuzzy(0x34b300, "12|0|0x34b300", 90, 169, 75, 1052, 76) -- 战舰--绿
                 useBagThings()
                 x, y = findMultiColorInRegionFuzzy(0x13c8d4, "12|10|0x1a99b9,89|9|0x2cb6d2", 90, 169, 75, 1052, 162)
                 useBagThings()
