@@ -1,4 +1,4 @@
-toast("在线版本0.12.2")
+toast("在线版本0.12.3")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -123,7 +123,8 @@ function newUi()
     UILabel(2, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
     UICombo(2, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
 
-    UILabel(2, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测", 10, "left", "72,61,139", -1, 0, "center") -- 标签
+    UILabel(2, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节", 10, "left", "72,61,139", -1, 0,
+        "center") -- 标签
     UIEdit(2, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
     UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(2, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
@@ -1048,7 +1049,11 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+            if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                gaiMuBiaoNew(1, "章节")
+            else
+                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+            end
             timeRound = nowTime
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -1075,7 +1080,11 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+            if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                gaiMuBiaoNew(1, "章节")
+            else
+                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+            end
             timeRound = nowTime
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -2157,7 +2166,11 @@ function zongHe1(...)
                     writePlistNew("卡优化", isKaYouHua)
                     gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
-                    gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                    if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                        gaiMuBiaoNew(1, "章节")
+                    else
+                        gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                    end
                     timeRound = nowTime
                 elseif muBiao == mb_WaKuang then
                     isShengChan = false
@@ -3089,7 +3102,11 @@ function zongHe1(...)
                 mSleep(1000)
                 getOut()
             elseif muBiao == mb_ZhuXian then
-                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                if haoLV <= 2 and isOverLesson == false and numLv >= 8then
+                    gaiMuBiaoNew(1, "章节")
+                else
+                    gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                end
                 timeRound = nowTime
                 mSleep(1000)
                 touchClick(511, 603, 0x0c0c0e)
@@ -3167,7 +3184,14 @@ function zongHe1(...)
         elseif isColor(891, 494, 0x1db586, 95) then
             touchClick(891, 494)
         else
-            touchClick(511, 567, 0x0c0c0e)
+            if muBiao == "章节" then
+                x, y = findMultiColorInRegionFuzzy(0x126fbb, "112|22|0x075ea8", 90, 73, 385, 836, 428)
+                if x ~= -1 then
+                    touchClick(x, y)
+                end
+            else
+                touchClick(511, 567, 0x0c0c0e)
+            end
         end
     end
     if isColor(7, 25, 0xff9c00, 95) and isColor(18, 25, 0xffffff, 95) and isColor(101, 166, 0xffb500, 95) and
@@ -3707,10 +3731,38 @@ function doTarget()
         walletWatch()
     elseif muBiao == "登录钱包" then
         loginWallte()
+    elseif muBiao == "章节" then
+        task_Lesson()
     elseif muBiao1 == mb_EveryDay then
         everyDayTask()
     elseif muBiao1 == mb_ShengChan then
         gaiMuBiaoNew(1, mb_Wu, mm_Wu)
+    end
+end
+-- 章节任务
+function task_Lesson()
+    if inside1() == true then
+        mSleep(1000)
+        touchClick(1074, 582) -- 出基地
+    end
+    if outside() then
+        mSleep(1000)
+        touchClick(1103, 68, 0x0d1828) -- 展开右上角
+        touchClick(811, 317, 0x192838)
+    end
+    if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
+        debug("搜索界面--章节")
+        if isColor(519, 437, 0x116eb9, 95) then -- 矿
+            touchClick(519, 437)
+        elseif isColor(661, 435, 0x116eb9, 95) then -- 金属
+            touchClick(661, 435)
+        elseif isColor(803, 432, 0x116eb9, 95) then -- 三氯气
+            touchClick(803, 432)
+        elseif isColor(236, 430, 0x116eb9, 95) then -- 海盗
+            touchClick(236, 430)
+        elseif isColor(375, 435, 0x116eb9, 95) then -- 精英
+            touchClick(375, 435)
+        end
     end
 end
 -- 钱包检测
@@ -3926,7 +3978,7 @@ function task_JiNeng()
     if inside1() then
         debug("主动技能")
         if isColor(1093, 82, 0x577ea6, 95) and isColor(1114, 59, 0x354f6a, 95) then
-            touchClick(1103, 68, 0x0d1828) -- 展开
+            touchClick(1103, 68, 0x0d1828) -- 展开右上角
             touchClick(681, 172, 0x1c2b3b) -- 主动技能
         end
         if isColor(960, 185, 0x835523, 95) and isColor(1119, 186, 0x835523, 95) then
