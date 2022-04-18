@@ -1,4 +1,4 @@
-toast("在线版本0.12.5")
+toast("在线版本0.12.6")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -920,9 +920,9 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(291,72,0xf8a901,95) and isColor(459,502,0x8f4d14,95) and isColor(664,542,0xd87501,95) then
+    if isColor(291, 72, 0xf8a901, 95) and isColor(459, 502, 0x8f4d14, 95) and isColor(664, 542, 0xd87501, 95) then
         debug("布置")
-        touchClick(664,542,0xd87501    )
+        touchClick(664, 542, 0xd87501)
     end
     if isColor(472, 485, 0x114c8a, 95) and isColor(659, 505, 0x1c6fbb, 95) and isColor(772, 228, 0x5a5f65, 95) then
         debug("集结时间")
@@ -3190,9 +3190,14 @@ function zongHe1(...)
             touchClick(891, 494)
         else
             if muBiao == "章节" then
-                x, y = findMultiColorInRegionFuzzy(0x126fbb, "112|22|0x075ea8", 90, 73, 385, 836, 428)
-                if x ~= -1 then
-                    touchClick(x, y)
+                if isColor(81, 106, 0xf26202, 95) and isColor(84, 104, 0xff6600, 95) and isColor(83, 110, 0xf36202, 95) then -- 1-6
+                    gaiMuBiaoNew(1, mb_WaKuang)
+                    touchClick(510, 567, 0x0c0c0e)
+                else
+                    x, y = findMultiColorInRegionFuzzy(0x126fbb, "112|22|0x075ea8", 90, 73, 385, 836, 428)
+                    if x ~= -1 then
+                        touchClick(x, y)
+                    end
                 end
             else
                 touchClick(511, 567, 0x0c0c0e)
@@ -3757,7 +3762,7 @@ function task_Lesson()
             touchClick(811, 317, 0x192838) -- 章节
             isZhengLi = false
         else
-            touchClick(965, 586, 0x373c37)--背包
+            touchClick(965, 586, 0x373c37) -- 背包
         end
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
