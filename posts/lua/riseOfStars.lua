@@ -1,4 +1,4 @@
-toast("在线版本0.12.4")
+toast("在线版本0.12.5")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3748,8 +3748,13 @@ function task_Lesson()
     end
     if outside() then
         mSleep(1000)
-        touchClick(1103, 68, 0x0d1828) -- 展开右上角
-        touchClick(811, 317, 0x192838)
+        if isZhengLi == true then
+            touchClick(1103, 68, 0x0d1828) -- 展开右上角
+            touchClick(811, 317, 0x192838) -- 章节
+            isZhengLi = false
+        else
+            touchClick(965, 586, 0x373c37)--背包
+        end
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         debug("搜索界面--章节")
