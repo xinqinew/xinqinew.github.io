@@ -1,4 +1,4 @@
-toast("在线版本0.15.3")
+toast("在线版本0.15.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -94,6 +94,7 @@ function bianLiang()
 
     timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
     timeBeAttack = nowTime -- 被攻击
+    timeBeAttack2 = 0 -- 被攻击2
     timeOpen = nowTime -- 开服
     timeRed = nowTime - 15 * 60 -- 红点
     timeRound = nowTime - 4 * 60 * 60 -- 成品号循环 优化--主线--挖矿
@@ -109,6 +110,7 @@ function bianLiang()
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
 end
+
 -- 新UI
 function newUi()
     w, h = getScreenSize()
@@ -202,6 +204,7 @@ function gaiMuBiaoNew(cs_num, cs_muBiao, ...)
         muBiaoZhuanHuanNew()
     end
 end
+
 -- 更改配置文件
 function writeConfigNew(id, neirong)
     local f = io.open(luaPath .. "/config/" .. uiconfig, 'r')
@@ -218,13 +221,14 @@ function writeConfigNew(id, neirong)
     -- f:write(str)
     f:close()
 end
+
 -- loadPlistNew
 function loadPlistNew(key)
     ts.config.open(luaMuLu .. xiangMu .. ".plist")
     -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
     -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
-    -- ts.config.save("金币数",999) 
-    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table） 
+    -- ts.config.save("金币数",999)
+    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table）
     -- ps:键值对（key - value）是一种存储格式，一个 key 对应一 个 value
     -- 此处代表"金币数"是 key,999 是 value，将存入此键值对
     local temStr = ts.config.get(key)
@@ -240,15 +244,16 @@ function writePlistNew(key, value)
     -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
     -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
     ts.config.save(key, value)
-    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table） 
+    -- 存储 lua 中的 number string  nil boolean table类型（不允许嵌套 table）
     -- ps:键值对（key - value）是一种存储格式，一个 key 对应一 个 value
     -- 此处代表"金币数"是 key,999 是 value，将存入此键值对
-    -- local temStr = ts.config.get(key)          
+    -- local temStr = ts.config.get(key)
     -- 获取键对应的值, 此处代表获取"金币数"所对应的值 coin = 999
     -- 但是此处暂时获取不到 coin 值，因为操作还没结束，请继续往下阅读
     ts.config.close(true)
 
 end
+
 function expand(s)
     return string.gsub(s, "$(%w+)", _G)
 end
@@ -264,7 +269,7 @@ function main()
             clearCookies() -- 该函数只支持苹果 iOS 系统
             local tb = {
                 tstab = 1,
-                bid = {appXiangMu}
+                bid = { appXiangMu }
             }
             clearAllKeyChains(tb)
             mSleep(1000)
@@ -278,6 +283,7 @@ function main()
         main2()
     end
 end
+
 -- 项目1主函数
 function main1()
     -- nowTime1 = os.time();
@@ -337,6 +343,7 @@ function main1()
     -- dialog(nowTime2 - nowTime1,0)
     -- lua_exit()
 end
+
 -- 项目2主函数
 function main2()
     -- nowTime1 = os.time();
@@ -392,6 +399,7 @@ function main2()
     -- dialog(nowTime2 - nowTime1,0)
     -- lua_exit()
 end
+
 -- oncePlist
 function oncePlist()
     -----------------------公共部分--------------------------
@@ -620,6 +628,7 @@ function oncePlist()
         writePlistNew("研究", isYanJiu)
     end
 end
+
 -- onceOther
 function onceOther()
     -- zhuXiaoNew()
@@ -647,19 +656,18 @@ function onceOther()
     --              "3000e001c007ffffffffffdfff@1$1$67$15$7", "7000e0038007ffffffffffdfff@1$1$68$15$7",
     --              "70007000e000fffefffffffffffe$1$71$16$7"}
     -- index_lizi1 = addTSOcrDictEx(tab_lizi1)
-    tab_lizi2 =
-        {"ffffffffffffffffffffffffffffff3fffc7fff0fffe000fc001f8003fffffffffffffffffffffffffffffffff@1$1$313$19$19",
-         "ffffffffffffffffffffffffffffffffffff87fff8ffff0007f0007f0007fffffffffffffffffffffffffffffffffff$1$334$20$19",
-         "ffffffffffffffffffffffffffffffffffff8ffff0ffff0ffff0007f0007f0007ffffffffffffffffffffffffffffffffffffffff$1$370$20$21",
-         "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
-         "ffffffffffffffffffffffffffffffffffffff8ffff87fffc7fffe000ff0007f8003ffffffffffffffffffffffffffffffffffffffffff@1$1$392$21$21",
-         "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
-         "fffffffffffffffffffffffffffffffffffffffffffff87fffe1ffff0001fc0007f0001fc0007fffffffffffffffffffffffffffffffffffffffffffffffff@11$1$438$22$23",
-         "fffffffffffffffffffffffffffffffffffffffffffffffc3ffff0ffffe1ffffc0007f8000ff0001fe0003ffffffffffffffffffffffffffffffffffffffffffffffffffff$1$480$23$24",
-         "fffffffffffffffffffffffffffffffffffffffffffffffffc3ffffc3ffff87ffff8000ff8000ff8000ff8000fffffffffffffffffffffffffffffffffffffffffffffffffffffff$1$504$24$24",
-         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80007fc0003fe0001ff0000fffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$549$25$25",
-         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80003fc0001fe0000ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$545$25$25",
-         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff87ffffc1fffff0fffffc0001ff00007fc0001ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff@11$1$569$26$25"}
+    tab_lizi2 = { "ffffffffffffffffffffffffffffff3fffc7fff0fffe000fc001f8003fffffffffffffffffffffffffffffffff@1$1$313$19$19",
+        "ffffffffffffffffffffffffffffffffffff87fff8ffff0007f0007f0007fffffffffffffffffffffffffffffffffff$1$334$20$19",
+        "ffffffffffffffffffffffffffffffffffff8ffff0ffff0ffff0007f0007f0007ffffffffffffffffffffffffffffffffffffffff$1$370$20$21",
+        "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
+        "ffffffffffffffffffffffffffffffffffffff8ffff87fffc7fffe000ff0007f8003ffffffffffffffffffffffffffffffffffffffffff@1$1$392$21$21",
+        "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
+        "fffffffffffffffffffffffffffffffffffffffffffff87fffe1ffff0001fc0007f0001fc0007fffffffffffffffffffffffffffffffffffffffffffffffff@11$1$438$22$23",
+        "fffffffffffffffffffffffffffffffffffffffffffffffc3ffff0ffffe1ffffc0007f8000ff0001fe0003ffffffffffffffffffffffffffffffffffffffffffffffffffff$1$480$23$24",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffc3ffffc3ffff87ffff8000ff8000ff8000ff8000fffffffffffffffffffffffffffffffffffffffffffffffffffffff$1$504$24$24",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80007fc0003fe0001ff0000fffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$549$25$25",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80003fc0001fe0000ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$545$25$25",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff87ffffc1fffff0fffffc0001ff00007fc0001ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff@11$1$569$26$25" }
     index_lizi2 = addTSOcrDictEx(tab_lizi2)
     -- tab_cd_num = {"0380781c8708c08ffffff008008$4$44$12$9", "31cfbec63841841fe37be$8$45$12$7",
     --               "603e0781f83bc73fc3383$2$42$12$7", "31cfbec63841841fe37be$8$45$12$7",
@@ -752,6 +760,7 @@ function onceOther()
     -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
 
 end
+
 -- 注销
 function zhuXiaoNew(...)
     if check5 == "注销" then
@@ -766,6 +775,7 @@ function zhuXiaoNew(...)
         end
     end
 end
+
 -- 自动解锁
 function autoUnlockDevice()
     flag = deviceIsLock()
@@ -778,25 +788,27 @@ function autoUnlockDevice()
         pressHomeKey(1)
     end
 end
+
 function debug(tiaoShiNeiRong)
     if check1 == "网络调试" then
         wLog(serverIP,
             iphoneId .. " 目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "    操作:" ..
-                tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]")
+            tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]")
     end
     if check2 == "本地调试" then
         -- dialog(tiaoShiNeiRong,5)
         toast(
             "目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "                操作:" ..
-                tiaoShiNeiRong)
+            tiaoShiNeiRong)
         mSleep(3000)
     end
 end
+
 -- 浮动窗口
 function floatingWindow()
     init(numInit)
     fwShowWnd("window1", 500, 0, 500 + 50 * 2, 30, 1);
-    -- 子窗口视图是以父窗口载体的（100,100）点坐标为（0,0）点坐标显示的  
+    -- 子窗口视图是以父窗口载体的（100,100）点坐标为（0,0）点坐标显示的
     -- fwShowButton("window1", "btn1", "on", "FFFFFF", "025062", "", 12, 0, 0, 50, 30);
     if haoLV == 3 then
         fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
@@ -806,11 +818,12 @@ function floatingWindow()
     -- fwShowButton("window1", "more", "...", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
     mSleep(500)
 end
+
 -- 多功能窗口
 function moreWindow()
     isLuaStart = false
     fwShowWnd("moreWin", 50, 50, wScreen - 50, hScreen - 50, 0);
-    -- 子窗口视图是以父窗口载体的（100,100）点坐标为（0,0）点坐标显示的  
+    -- 子窗口视图是以父窗口载体的（100,100）点坐标为（0,0）点坐标显示的
     fwShowButton("moreWin", "btn_update", "更新", "FFFFFF", "025062", "", 12, 0, 0, 150, 50);
     if check1 == "网络调试" then
         fwShowButton("moreWin", "btn_tiaoShi", "调试ON", "FFFFFF", "306090", "", 12, 1 + 150, 0, 150 * 2, 50);
@@ -830,6 +843,7 @@ function moreWindow()
 
     mSleep(500)
 end
+
 -- 窗口判断
 function windowsDecide()
     vid, kind = fwGetPressedButton();
@@ -916,6 +930,7 @@ function windowsDecide()
         fwCloseWnd("moreWin"); -- 关闭父窗口
     end
 end
+
 -- 检测并打开vpn
 function autoVpn()
     local flag = getVPNStatus()
@@ -1618,7 +1633,7 @@ function zongHe1(...)
     end
     if isColor(48, 44, 0x00ace4, 95) and isColor(72, 119, 0xa17316, 95) and isColor(94, 136, 0xffffff, 95) then
         debug("联盟技术研究界面")
-        if isColor(336, 264, 0x767676, 95) then -- 1-1 
+        if isColor(336, 264, 0x767676, 95) then -- 1-1
             touchClick(280, 193, 0xbc936a)
         elseif isColor(517, 264, 0x767676, 95) then -- 1-2
             touchClick(462, 187, 0x131410)
@@ -1751,7 +1766,7 @@ function zongHe1(...)
             debug("防御舰-休息")
             touchClick(685, 257)
             isJiDiXianKuangIntoProduce = true
-            -- 474,257,0x8a4c17 完毕 
+            -- 474,257,0x8a4c17 完毕
             -- 518,175,0x306090 休息中
         elseif isColor(460, 175, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 1 then
             debug("攻击舰-加速")
@@ -3109,27 +3124,27 @@ function zongHe1(...)
                 return
             end
             if isColor(505, 110, 0x3e6b96, 95) -- 1号航母存在
-            and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
-            and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
-            and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
+                and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
                 debug("1号来充电吧")
                 touchClick(440, 263)
             elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
-            and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
-            and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
-            and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
+                and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
                 debug("2号来充电吧")
                 touchClick(639, 263)
             elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
-            and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
-            and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
-            and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
+                and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
                 debug("3号来充电吧")
                 touchClick(838, 263)
             elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
-            and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
-            and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
-            and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
+                and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
                 debug("4号来充电吧")
                 touchClick(1036, 263)
             else
@@ -3615,11 +3630,11 @@ function zongHe1(...)
         debug("获得道具")
         touchClick(510, 549, 0x0c0c0e)
     end
-    if multiColor({{287, 611, 0x4eabf0}, {844, 451, 0xff8a00}}) then
+    if multiColor({ { 287, 611, 0x4eabf0 }, { 844, 451, 0xff8a00 } }) then
         debug("对话框1")
         touchClick(567, 540)
     end
-    if multiColor({{286, 611, 0x4aa9f1}, {846, 449, 0xde8116}}) then
+    if multiColor({ { 286, 611, 0x4aa9f1 }, { 846, 449, 0xde8116 } }) then
         touchClick(567, 540)
         debug("对话框2")
     end
@@ -3640,6 +3655,7 @@ function zongHe1(...)
         end
     end
 end
+
 -- 综合--多点
 function zongHe_Mult(...)
     if haoLV == 3 then
@@ -3718,12 +3734,14 @@ function zongHe_Mult(...)
     end
     return false
 end
+
 -- 综合--屏幕乱点
 function zongHe_Screen()
     if isColor(18, 24, 0xafafaf, 95) and isColor(7, 24, 0xaf4600, 95) then
         screenClick(18, 24, 0xafafaf)
     end
 end
+
 -- 研究队列
 function numYanJiu()
     if isYanJiuZiYuan == true then
@@ -3766,6 +3784,7 @@ function numYanJiu()
         end
     end
 end
+
 -- 使用背包道具
 function useBagThings()
     if x ~= -1 then
@@ -3788,6 +3807,7 @@ function useBagThings()
         end
     end
 end
+
 -- 检查红点
 function checkRed1()
     -- ocrNumbers()
@@ -3937,6 +3957,7 @@ function checkRed1()
     end
 
 end
+
 -- 执行目标
 function doTarget()
     if muBiao == mb_GuaJi then
@@ -3970,6 +3991,7 @@ function doTarget()
         gaiMuBiaoNew(1, mb_Wu, mm_Wu)
     end
 end
+
 -- 章节任务
 function task_Lesson()
     if inside1() == true then
@@ -4001,6 +4023,7 @@ function task_Lesson()
         end
     end
 end
+
 -- 钱包检测
 function walletWatch()
     if nowTime - timeWalletWatch >= 10 * 60 then
@@ -4019,6 +4042,7 @@ function walletWatch()
         end
     end
 end
+
 -- 登录钱包
 function loginWallte()
     if isColor(828, 529, 0x3b5998, 95) and isColor(940, 530, 0x00bc0d, 95) then
@@ -4118,6 +4142,17 @@ function playMusic()
         playAudio("")
     end
 end
+
+--震动提醒
+function vibratorNotice()
+    if nowDateTime.hour >= 8 then
+        for j = 1, 5, 1 do
+            vibrator(); -- 振动
+            mSleep(1000);
+        end
+    end
+end
+
 -- 开区检测
 function openCheck()
 
@@ -4173,7 +4208,8 @@ function openCheck()
         end
     end
 end
--- 修船 
+
+-- 修船
 function fixShip()
     if inside1() then
         if isColor(528, 253, 0x37664f, 95) then
@@ -4189,6 +4225,7 @@ function fixShip()
         isShipBad = true
     end
 end
+
 -- 日常
 function everyDayTask()
     if muBiao2 == mb_Wu then
@@ -4209,6 +4246,7 @@ function everyDayTask()
         chongZhiJiDiXianKuang()
     end
 end
+
 -- 任务--主动技能
 function task_JiNeng()
     if inside1() then
@@ -4268,6 +4306,7 @@ function task_JiNeng()
     end
 
 end
+
 -- 只做基地
 function task_JiDi()
     if inside1() then
@@ -4287,6 +4326,7 @@ function task_JiDi()
         chongZhiJiDiXianKuang()
     end
 end
+
 -- 收获
 function task_Reward()
     if inside1() then
@@ -4294,6 +4334,7 @@ function task_Reward()
         touchClick(45, 188, 0x060f0f)
     end
 end
+
 -- 采集任务
 function task_CaiJi()
     if inside1() then
@@ -4301,6 +4342,7 @@ function task_CaiJi()
         touchClick(1015, 71, 0x0d1a2c) -- 基地加成
     end
 end
+
 -- 每日5道具
 function everyDay5DaoJu()
     if inside1() then
@@ -4308,6 +4350,7 @@ function everyDay5DaoJu()
         touchClick(963, 591, 0x373b37)
     end
 end
+
 -- 定时检测
 function timeJianCe()
     duiHuanJianCe()
@@ -4327,6 +4370,7 @@ function timeJianCe()
         end
     end
 end
+
 -- 5分钟不见某界面
 function checkXXX(...)
     nowTime = os.time()
@@ -4377,6 +4421,7 @@ function checkXXX(...)
         end
     end
 end
+
 -- 任务
 function task()
     if inside1() == true then
@@ -4427,6 +4472,7 @@ function task()
         end
     end
 end
+
 -- 重置基地现况
 function chongZhiJiDiXianKuang()
     gaiMuBiaoNew(3, mb_Wu, mm_Wu)
@@ -4458,6 +4504,7 @@ function chongZhiJiDiXianKuang()
     end
 
 end
+
 -- 主线
 function zhuXian()
     if outside() then
@@ -4585,7 +4632,7 @@ function zhuXian()
         elseif isColor(634, 157, 0x38b3ca, 95) then -- 普通采集 有船可出
             touchClick(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
-            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
+            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否
                 touchClick(512, 496, 0x0c0c0e)
                 touchClick(20, 20)
             elseif isColor(848, 594, 0xd68b02, 95) then -- 出航失败
@@ -4599,6 +4646,7 @@ function zhuXian()
         end
     end
 end
+
 --- 出航
 function chuHang()
     if inside1() then
@@ -4642,7 +4690,7 @@ function chuHang()
             debug("普通采集 有船可出")
             touchClick(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
-            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
+            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否
                 touchClick(512, 496, 0x0c0c0e)
                 touchClick(20, 20)
             elseif isColor(848, 594, 0xd68b02, 95) then -- 出航失败
@@ -5022,7 +5070,7 @@ function chuHang()
             -- if isColorPlus(210, 79, 0x39bfe1,95) then -- 70体力
             debug("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
-                isKillPirate = true -- 杀海盗  
+                isKillPirate = true -- 杀海盗
                 timeKillPirate = nowTime
             end
         else
@@ -5120,6 +5168,7 @@ function chuHang()
         end
     end
 end
+
 -- 判断是否有队伍在采集粒子
 function isRewardLiZi()
     -- if nowTime - timeLiZi >= 3 * 60 then
@@ -5219,6 +5268,7 @@ function isRewardLiZi()
     -- end
     -- return false
 end
+
 -- 搜索粒子
 function searchLiZi()
     for i = 1, numSearchLiZiSecond, 1 do
@@ -5524,6 +5574,7 @@ function searchLiZi()
         --]]
     end
 end
+
 -- 退出
 function getOut()
     for i = 1, 10, 1 do
@@ -5539,15 +5590,17 @@ function getOut()
     end
     return false
 end
+
 -- 找红图
 function findRed()
-    x, y = findImage("red.bmp", 355, 253, 403, 351); -- 在（0,0）到（w-1,h-1）寻找刚刚截图的图片
+    x, y = findImage("red.bmp", 355, 253, 403, 351);  -- 在（0,0）到（w-1,h-1）寻找刚刚截图的图片
     if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
         return true
     else -- 如果找不到符合条件的图片
         return false
     end
 end
+
 -- 挖矿
 function waKuang()
     if inside1() == true then
@@ -5609,16 +5662,25 @@ function waKuang()
         end
     end
 end
+
 -- 基地内
 function inside1(...)
     isXiaoHao()
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
         -- debug("室内")
-        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) and nowTime - timeBeAttack >= 60 then
+        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
-            timeBeAttack = nowTime
-            touchClick(1074, 582) -- 出基地
-            return false
+            if timeBeAttack2 == 0 then
+                timeBeAttack2 = nowTime
+            elseif nowTime - timeBeAttack2 >= 2*60 then
+                vibratorNotice()
+                timeBeAttack2 = 0
+            end
+            if nowTime - timeBeAttack >= 60 then
+                timeBeAttack = nowTime
+                touchClick(1074, 582) -- 出基地
+                return false
+            end
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
             debug("验证码--红点")
@@ -5647,15 +5709,24 @@ function inside1(...)
         return false
     end
 end
+
 -- 基地外
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
         -- debug("室外")
-        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) and nowTime - timeBeAttack >= 60 then
+        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
-            timeBeAttack = nowTime
-            touchClick(1074, 582) -- 回基地
-            return false
+            if timeBeAttack2 == 0 then
+                timeBeAttack2 = nowTime
+            elseif nowTime - timeBeAttack2 >= 2*60 then
+                vibratorNotice()
+                timeBeAttack2 = 0
+            end
+            if nowTime - timeBeAttack >= 60 then
+                timeBeAttack = nowTime
+                touchClick(1074, 582) -- 回基地
+                return false
+            end
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
             debug("验证码--红点")
@@ -5685,6 +5756,7 @@ function outside(...)
         return false
     end
 end
+
 -- 每日重置
 function everyDayInit(...)
     -- if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 55 then
@@ -5815,6 +5887,7 @@ function everyDayInit(...)
     -- end
     -- end
 end
+
 -- 小号判定
 function isXiaoHao()
     if haoLV == 1 then
@@ -5823,6 +5896,7 @@ function isXiaoHao()
         end
     end
 end
+
 -- 识字--数字
 -- function ocrNumbers()
 
@@ -5863,7 +5937,7 @@ function OCR_num()
 
     -- 百度识字
     -- local pic_name = userPath() .. "/res/baiduAI.jpg"
-    -- snapshot(pic_name, 947, 15, 1015, 30) 
+    -- snapshot(pic_name, 947, 15, 1015, 30)
     -- mSleep(1000)
     -- --tab 参数仅支持 v1.3.3 及其以上版本 TSLib
     -- local tab={
@@ -6019,6 +6093,7 @@ function OCR_num()
         -- toast(numKuang .. " " .. numJinShu .. " " .. numLvQi .. " " .. numLiZi .. " " .. numCoin)
     end
 end
+
 -- 兑换检测
 function duiHuanJianCe()
     if numDuiHuan ~= "0" and isDuiHuan == false then
@@ -6031,6 +6106,7 @@ function duiHuanJianCe()
         end
     end
 end
+
 -- 兑换
 function duiHuan()
 
@@ -6092,6 +6168,7 @@ function inside2()
         return false
     end
 end
+
 -- 检查红点
 function checkRed2()
     if isColor(855, 80, 0xb0080a, 95) then
