@@ -119,8 +119,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -4651,6 +4651,8 @@ function chuHang()
                     numMin = numJinShu
                 elseif check18 == "强制矿物" then
                     numMin = numKuang
+                elseif check19 == "强制氯气" then
+                    numMin = numLvQi
                 end
                 if numMin == numKuang then
                     touchClick(568, 538, 0xef5870) -- 矿物
@@ -4839,6 +4841,8 @@ function chuHang()
                     numMin = numJinShu
                 elseif check18 == "强制矿物" then
                     numMin = numKuang
+                elseif check19 == "强制氯气" then
+                    numMin = numLvQi
                 end
                 if numMin == numKuang then
                     touchClick(500, 545) -- 矿物
