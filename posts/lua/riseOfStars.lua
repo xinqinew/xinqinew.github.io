@@ -1,4 +1,4 @@
-toast("在线版本0.14.2")
+toast("在线版本0.14.3")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2969,6 +2969,11 @@ function zongHe1(...)
             end
         elseif isColor(42, 331, 0x831c89, 95) and isColor(48, 296, 0xffffff, 95) then
             debug("交易界面")
+            if isColor(656,483,0x111111,95) and isColor(785,510,0x0c0c0c,95) then
+                debug("LOCK")
+                touchClick(38,224,0x81ff29            )
+                return
+            end
             for i = 0, 1, 1 do
                 for j = 0, 3, 1 do
                     if isColor(515 + j * 167, 342 + i * 238, 0x051788, 95) or
