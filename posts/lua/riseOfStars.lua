@@ -1,4 +1,4 @@
-toast("在线版本0.14.9")
+toast("在线版本0.14.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2428,6 +2428,12 @@ function zongHe1(...)
                 touchClick(20, 20)
                 mSleep(1000)
                 touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
+                RGB_NoticeBJ = "FFFF00"
+                RGB_NoticeFont = "FF0000"
+                strNotice = "平台"
+                fwCloseView("window1", "more"); -- 关闭文字视图
+                fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                mSleep(500)
             else
                 touchClick(20, 20)
             end
@@ -2437,6 +2443,12 @@ function zongHe1(...)
                 touchClick(20, 20)
                 mSleep(1000)
                 touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
+                RGB_NoticeBJ = "FFFF00"
+                RGB_NoticeFont = "FF0000"
+                strNotice = "平台"
+                fwCloseView("window1", "more"); -- 关闭文字视图
+                fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                mSleep(500)
             else
                 touchClick(20, 20)
             end
