@@ -5670,11 +5670,13 @@ function inside1(...)
         -- debug("室内")
         if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
-            if timeBeAttack2 == 0 then
-                timeBeAttack2 = nowTime
-            elseif nowTime - timeBeAttack2 >= 2*60 then
-                vibratorNotice()
-                timeBeAttack2 = 0
+            if haoLV == 3 and check12 ~= "不挖粒子" then
+                if timeBeAttack2 == 0 then
+                    timeBeAttack2 = nowTime
+                elseif nowTime - timeBeAttack2 >= 2*60 then
+                    vibratorNotice()
+                    timeBeAttack2 = 0
+                end
             end
             if nowTime - timeBeAttack >= 60 then
                 timeBeAttack = nowTime
@@ -5716,11 +5718,13 @@ function outside(...)
         -- debug("室外")
         if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
-            if timeBeAttack2 == 0 then
-                timeBeAttack2 = nowTime
-            elseif nowTime - timeBeAttack2 >= 2*60 then
-                vibratorNotice()
-                timeBeAttack2 = 0
+            if haoLV == 3 and check12 ~= "不挖粒子" then
+                if timeBeAttack2 == 0 then
+                    timeBeAttack2 = nowTime
+                elseif nowTime - timeBeAttack2 >= 2*60 then
+                    vibratorNotice()
+                    timeBeAttack2 = 0
+                end
             end
             if nowTime - timeBeAttack >= 60 then
                 timeBeAttack = nowTime
