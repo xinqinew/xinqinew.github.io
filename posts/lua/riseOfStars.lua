@@ -1,4 +1,4 @@
-toast("在线版本0.14.1")
+toast("在线版本0.14.2")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -119,9 +119,9 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8", "3@5", -1, 0,
-        "", 1, 3) -- 多选1
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物",
+        "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
@@ -4647,13 +4647,18 @@ function chuHang()
             if haoLV == 3 and isKaSearch == false then
                 local numMin = iif(numKuang <= numJinShu, numKuang, numJinShu)
                 numMin = iif(numMin <= numLvQi * 6, numMin, numLvQi)
+                if check17 == "强制金属" then
+                    numMin = numJinShu
+                elseif check18 == "强制矿物" then
+                    numMin = numKuang
+                end
                 if numMin == numKuang then
                     touchClick(568, 538, 0xef5870) -- 矿物
                     mSleep(1000)
                     touchClick(704, 367, 0xffffff) -- 加
                     touchClick(526, 430, 0x116eb9) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(283, 540, 0x211b1d, 95) then
                             touchClick(431, 366, 0xffffff) -- 减
                             touchClick(526, 430, 0x116eb9) -- 搜索
@@ -4661,7 +4666,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 1
                             isKaSearch = true
                         end
@@ -4672,7 +4677,7 @@ function chuHang()
                     touchClick(846, 367, 0xffffff) -- 加
                     touchClick(661, 433, 0x116eb9) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(283, 540, 0x211b1d, 95) then
                             touchClick(571, 366, 0xffffff) -- 减
                             touchClick(661, 433, 0x116eb9) -- 搜索
@@ -4680,7 +4685,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 2
                             isKaSearch = true
                         end
@@ -4691,7 +4696,7 @@ function chuHang()
                     touchClick(988, 366, 0xffffff) -- 加
                     touchClick(807, 431, 0x116eb9) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(283, 540, 0x211b1d, 95) then
                             touchClick(716, 366, 0xffffff) -- 减
                             touchClick(807, 431, 0x116eb9) -- 搜索
@@ -4699,7 +4704,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 3
                             isKaSearch = true
                         end
@@ -4712,7 +4717,7 @@ function chuHang()
                     touchClick(846, 367, 0xffffff) -- 加
                     touchClick(661, 433, 0x116eb9) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(283, 540, 0x211b1d, 95) then
                             touchClick(571, 366, 0xffffff) -- 减
                             touchClick(661, 433, 0x116eb9) -- 搜索
@@ -4721,7 +4726,7 @@ function chuHang()
                             isKaSearch = false
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = numChuHang + 1
                         end
                     end
@@ -4734,7 +4739,7 @@ function chuHang()
                         touchClick(988, 366, 0xffffff) -- 加
                         touchClick(807, 431, 0x116eb9) -- 搜索
                         mSleep(1000)
-                        for i = 1, 2, 1 do
+                        for i = 1, 3, 1 do
                             if isColor(283, 540, 0x211b1d, 95) then
                                 touchClick(716, 366, 0xffffff) -- 减
                                 touchClick(807, 431, 0x116eb9) -- 搜索
@@ -4743,7 +4748,7 @@ function chuHang()
                                 isKaSearch = false
                                 break
                             end
-                            if i == 2 then
+                            if i == 3 then
                                 numChuHang = numChuHang + 1
                             end
                         end
@@ -4754,7 +4759,7 @@ function chuHang()
                     touchClick(704, 367, 0xffffff) -- 加
                     touchClick(526, 430, 0x116eb9) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(283, 540, 0x211b1d, 95) then
                             touchClick(431, 366, 0xffffff) -- 减
                             touchClick(526, 430, 0x116eb9) -- 搜索
@@ -4763,7 +4768,7 @@ function chuHang()
                             isKaSearch = false
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 1
                         end
                     end
@@ -4830,13 +4835,18 @@ function chuHang()
             if haoLV == 3 and isKaSearch == false then
                 local numMin = iif(numKuang <= numJinShu, numKuang, numJinShu)
                 numMin = iif(numMin <= numLvQi * 6, numMin, numLvQi)
+                if check17 == "强制金属" then
+                    numMin = numJinShu
+                elseif check18 == "强制矿物" then
+                    numMin = numKuang
+                end
                 if numMin == numKuang then
                     touchClick(500, 545) -- 矿物
                     mSleep(1000)
                     touchClick(633, 365, 0xffffff) -- 加
                     touchClick(508, 431, 0x075ea8) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(369, 535, 0x39e3f6, 95) then
                             touchClick(359, 367, 0xe2e4e8) -- 减
                             touchClick(508, 431, 0x075ea8) -- 搜索
@@ -4844,7 +4854,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 1
                             isKaSearch = true
                         end
@@ -4855,7 +4865,7 @@ function chuHang()
                     touchClick(776, 365, 0xffffff) -- 加
                     touchClick(639, 434) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(369, 535, 0x39e3f6, 95) then
                             touchClick(501, 367, 0xe2e4e8) -- 减
                             touchClick(639, 434) -- 搜索
@@ -4863,7 +4873,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 2
                             isKaSearch = true
                         end
@@ -4874,7 +4884,7 @@ function chuHang()
                     touchClick(917, 365, 0xffffff) -- 加
                     touchClick(783, 431, 0x075ea8) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(369, 535, 0x39e3f6, 95) then
                             touchClick(644, 367, 0xe2e4e8) -- 减
                             touchClick(783, 431, 0x075ea8) -- 搜索
@@ -4882,7 +4892,7 @@ function chuHang()
                         else
                             break
                         end
-                        if i == 2 then
+                        if i == 3 then
                             numChuHang = 3
                             isKaSearch = true
                         end
@@ -4895,13 +4905,16 @@ function chuHang()
                     touchClick(776, 365, 0xffffff) -- 加
                     touchClick(639, 434) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(369, 535, 0x39e3f6, 95) then
                             touchClick(501, 367, 0xe2e4e8) -- 减
                             touchClick(639, 434) -- 搜索
                             mSleep(1000)
                         else
                             break
+                        end
+                        if i == 3 then
+                            numChuHang = numChuHang + 1
                         end
                     end
                 elseif numChuHang == 2 then
@@ -4913,13 +4926,16 @@ function chuHang()
                         touchClick(917, 365, 0xffffff) -- 加
                         touchClick(783, 431, 0x075ea8) -- 搜索
                         mSleep(1000)
-                        for i = 1, 2, 1 do
+                        for i = 1, 3, 1 do
                             if isColor(369, 535, 0x39e3f6, 95) then
                                 touchClick(644, 367, 0xe2e4e8) -- 减
                                 touchClick(783, 431, 0x075ea8) -- 搜索
                                 mSleep(1000)
                             else
                                 break
+                            end
+                            if i == 3 then
+                                numChuHang = numChuHang + 1
                             end
                         end
                     end
@@ -4929,13 +4945,16 @@ function chuHang()
                     touchClick(633, 365, 0xffffff) -- 加
                     touchClick(508, 431, 0x075ea8) -- 搜索
                     mSleep(1000)
-                    for i = 1, 2, 1 do
+                    for i = 1, 3, 1 do
                         if isColor(369, 535, 0x39e3f6, 95) then
                             touchClick(359, 367, 0xe2e4e8) -- 减
                             touchClick(508, 431, 0x075ea8) -- 搜索
                             mSleep(1000)
                         else
                             break
+                        end
+                        if i == 3 then
+                            numChuHang = 1
                         end
                     end
                 end
