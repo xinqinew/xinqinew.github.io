@@ -1,4 +1,4 @@
-toast("在线版本0.14.10")
+toast("在线版本0.15.1")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3493,20 +3493,26 @@ function zongHe1(...)
     end
     if isColor(4, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(1001, 25, 0x0d9098, 95) then
         debug("邮件界面")
-
         if isColor(119, 346, 0x9d1111, 95) then
             -- 报告
             touchClick(65, 377)
+            mSleep(1000)
+            mSleep(1054, 23, 0x0d9198)
         elseif isColor(119, 98, 0x9d1111, 95) then
             -- 通知
             touchClick(68, 128, 0x233145)
+            mSleep(1000)
+            mSleep(1054, 23, 0x0d9198)
         elseif isColor(119, 222, 0x9d1111, 95) then
             debug("战争")
             touchClick(67, 251, 0x949aa1)
-
+            mSleep(1000)
+            mSleep(1054, 23, 0x0d9198)
         elseif isColor(119, 160, 0x9d1111, 95) then
             debug("活动--红点--未选中")
             touchClick(61, 192, 0x3f4c5c)
+            mSleep(1000)
+            mSleep(1054, 23, 0x0d9198)
         elseif isColor(92, 172, 0x7c4f1e, 95) then
             debug("活动--红点--已选中")
             touchClick(1017, 25)
@@ -3516,6 +3522,8 @@ function zongHe1(...)
             x, y = findMultiColorInRegionFuzzy(0x931012, "-1|0|0x0f2037", 90, 115, 95, 118, 491)
             if x ~= -1 then
                 touchClick(x, y)
+                mSleep(1000)
+                mSleep(1054, 23, 0x0d9198)
             else
                 touchClick(1017, 25)
                 mSleep(1000)
