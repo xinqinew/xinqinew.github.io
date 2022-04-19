@@ -1,4 +1,4 @@
-toast("在线版本0.14.8")
+toast("在线版本0.14.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2423,8 +2423,8 @@ function zongHe1(...)
                 touchClick(36, 252)
                 mSleep(1000)
                 touchClick(317, 596)
-            elseif muBiao == mb_ZhiXian and isColor(53, 337, 0x47702b, 95) then
-                debug("三氯气--选中")
+            elseif muBiao == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
+                debug("三氯气--有了")
                 touchClick(20, 20)
                 mSleep(1000)
                 touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
@@ -2432,8 +2432,8 @@ function zongHe1(...)
                 touchClick(20, 20)
             end
         else
-            if muBiao == mb_ZhiXian and isColor(53, 337, 0x47702b, 95) then
-                debug("三氯气--选中")
+            if muBiao == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
+                debug("三氯气--有了")
                 touchClick(20, 20)
                 mSleep(1000)
                 touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
