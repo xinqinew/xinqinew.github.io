@@ -1,4 +1,4 @@
-toast("在线版本0.14.3")
+toast("在线版本0.14.4")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1873,6 +1873,9 @@ function zongHe1(...)
             elseif isColor(1009, 551, 0x116eb9, 95) then
                 debug("领取4")
                 touchClick(1000, 551)
+            elseif isColor(1006,419,0x116eb9,95) then
+                debug("领取--中间")
+                touchClick(1000, 419)
             end
         elseif isColor(142, 232, 0x9e1111, 95) and isColor(121, 232, 0xa17316, 95) then
             debug("活动中心2--红点--已选")
@@ -1897,6 +1900,9 @@ function zongHe1(...)
             elseif isColor(1009, 551, 0x116eb9, 95) then
                 debug("领取4")
                 touchClick(1000, 551)
+            elseif isColor(1006,419,0x116eb9,95) then
+                debug("领取--中间")
+                touchClick(1000, 419)
             end
         elseif isColor(117, 304, 0xa17316, 95) and isColor(143, 300, 0x9e1111, 95) then
             debug("活动中心3--红点--已选")
@@ -1921,6 +1927,9 @@ function zongHe1(...)
             elseif isColor(1009, 551, 0x116eb9, 95) then
                 debug("领取4")
                 touchClick(1000, 551)
+            elseif isColor(1006,419,0x116eb9,95) then
+                debug("领取--中间")
+                touchClick(1000, 419)
             end
         elseif isColor(135, 362, 0x9d1111, 95) and isColor(134, 362, 0xf09203, 95) then
             debug("活动中心4--红点--已选")
@@ -1945,6 +1954,9 @@ function zongHe1(...)
             elseif isColor(1009, 551, 0x116eb9, 95) then
                 debug("领取4")
                 touchClick(1000, 551)
+            elseif isColor(1006,419,0x116eb9,95) then
+                debug("领取--中间")
+                touchClick(1000, 419)
             end
         elseif isColor(140, 409, 0x9e1111, 95) and isColor(120, 409, 0xa17316, 95) then
             debug("活动中心5--红点--已选")
@@ -1969,6 +1981,9 @@ function zongHe1(...)
             elseif isColor(1009, 551, 0x116eb9, 95) then
                 debug("领取4")
                 touchClick(1000, 551)
+            elseif isColor(1006,419,0x116eb9,95) then
+                debug("领取--中间")
+                touchClick(1000, 419)
             end
         elseif isColor(140, 162, 0x9e1111, 95) and isColor(129, 162, 0x1b2b3f, 95) then
             debug("活动中心1--红点--未选")
