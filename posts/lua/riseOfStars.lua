@@ -1,4 +1,4 @@
-toast("在线版本0.14.6")
+toast("在线版本0.14.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -2426,7 +2426,15 @@ function zongHe1(...)
             elseif muBiao == mb_ZhiXian and isColor(53, 337, 0x47702b, 95) and isColor(55, 296, 0xffffff, 95) then
                 debug("三氯气--选中")
                 touchClick(20, 20)
-                touchClick(346,422,0x47c4dd) -- 第三个平台--点击建造
+                touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
+            else
+                touchClick(20, 20)
+            end
+        else
+            if muBiao == mb_ZhiXian and isColor(53, 337, 0x47702b, 95) and isColor(55, 296, 0xffffff, 95) then
+                debug("三氯气--选中")
+                touchClick(20, 20)
+                touchClick(346, 422, 0x47c4dd) -- 第三个平台--点击建造
             else
                 touchClick(20, 20)
             end
@@ -3507,7 +3515,42 @@ function zongHe1(...)
         if muBiao == mb_Reward then
             touchClick(354, 135, 0xb0b0b0) -- 每日任务
         else
-            if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
+            if haoLV <= 2 and muBiao == mb_ZhuXian then
+                if isColor(957, 226, 0xfaba00, 95) then -- 宝箱
+                    touchClick(985, 213)
+                elseif isColor(288, 502, 0xf18e07, 95) then -- 支线已完
+                    touchClick(282, 502)
+                elseif isColor(115, 513, 0xf18e07, 95) then -- 主线已完
+                    touchClick(115, 513)
+                elseif isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
+                    isColor(114, 511, 0x116eb9, 95) then
+                    debug("拥有一名舰长")
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    touchClick(782, 583, 0xf8efd1) -- 舰长
+                    isKaZhuXianJianZhang = true
+                elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
+                    isColor(114, 511, 0x116eb9, 95) then
+                    debug("生产20战舰")
+                    isKaShengChan = true
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
+                    isColor(223, 501, 0x116eb9, 95) then
+                    debug("提升1次舰长星级")
+                    gaiMuBiaoNew(1, mb_WaKuang)
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    RGB_NoticeBJ = "FFFF00"
+                    RGB_NoticeFont = "FF0000"
+                    strNotice = "升星"
+                    fwCloseView("window1", "more"); -- 关闭文字视图
+                    fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                    mSleep(500)
+                else
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                        touchClick(38, 492) -- 工具
+                    end
+                end
+            elseif isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
                 touchClick(354, 135, 0xb0b0b0)
             elseif isColor(957, 226, 0xfaba00, 95) then -- 宝箱
                 touchClick(985, 213)
@@ -3560,14 +3603,14 @@ function zongHe1(...)
     end
 
     if haoLV == 1 then
-        if isColor(278, 283, 0x03f003, 95) and isColor(337, 287, 0x02ff00, 95) then
-            debug("任务1已完成")
-            touchClick(278, 283)
-        end
-        if isColor(278, 352, 0x02ff00, 95) and isColor(337, 354, 0x02ff00, 95) then
-            debug("任务2已完成")
-            touchClick(278, 352)
-        end
+        -- if isColor(278, 283, 0x03f003, 95) and isColor(337, 287, 0x02ff00, 95) then
+        --     debug("任务1已完成")
+        --     touchClick(278, 283)
+        -- end
+        -- if isColor(278, 352, 0x02ff00, 95) and isColor(337, 354, 0x02ff00, 95) then
+        --     debug("任务2已完成")
+        --     touchClick(278, 352)
+        -- end
         if isColor(109, 501, 0xf09006, 95) and isColor(228, 523, 0xf87808, 95) and isColor(984, 495, 0x106fb9, 95) and
             isColor(967, 494, 0x153557, 85) then
             debug("指引--任务--领取")
@@ -4320,10 +4363,10 @@ function task()
             if haoLV == 1 then
                 -- 主任务
                 debug("主任务")
-                if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
-                    debug("展开任务栏")
-                    touchClick(107, 213)
-                end
+                -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
+                --     debug("展开任务栏")
+                --     touchClick(107, 213)
+                -- end
                 touchClick(47, 187, 0x042121) -- 打开任务栏
                 mSleep(1000)
                 for i = 1, 10, 1 do
@@ -4331,34 +4374,6 @@ function task()
                         break
                     end
                     mSleep(1000)
-                end
-                if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
-                    isColor(114, 511, 0x116eb9, 95) then
-                    debug("拥有一名舰长")
-                    touchClick(511, 572, 0x0c0c0e) -- 关闭
-                    touchClick(782, 583, 0xf8efd1) -- 舰长
-                    isKaZhuXianJianZhang = true
-                elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
-                    isColor(114, 511, 0x116eb9, 95) then
-                    debug("生产20战舰")
-                    isKaShengChan = true
-                    touchClick(170, 510, 0x4784b8) -- 移动
-                elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
-                    isColor(223, 501, 0x116eb9, 95) then
-                    debug("提升1次舰长星级")
-                    gaiMuBiaoNew(1, mb_WaKuang)
-                    touchClick(511, 572, 0x0c0c0e) -- 关闭
-                    RGB_NoticeBJ = "FFFF00"
-                    RGB_NoticeFont = "FF0000"
-                    strNotice = "升星"
-                    fwCloseView("window1", "more"); -- 关闭文字视图
-                    fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
-                    mSleep(500)
-                else
-                    touchClick(170, 510, 0x4784b8) -- 移动
-                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
-                        touchClick(38, 492) -- 工具
-                    end
                 end
                 return
             end
@@ -4371,10 +4386,10 @@ function task()
                     gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
                 else
                     debug("卡优化,做主任务")
-                    if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
-                        debug("展开任务栏")
-                        touchClick(107, 213)
-                    end
+                    -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
+                    --     debug("展开任务栏")
+                    --     touchClick(107, 213)
+                    -- end
                     touchClick(47, 187, 0x042121) -- 打开任务栏
                     mSleep(1000)
                     for i = 1, 10, 1 do
@@ -4383,40 +4398,10 @@ function task()
                         end
                         mSleep(1000)
                     end
-                    if isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
-                        isColor(114, 511, 0x116eb9, 95) then
-                        debug("拥有一名舰长")
-                        touchClick(511, 572, 0x0c0c0e) -- 关闭
-                        touchClick(782, 583, 0xf8efd1) -- 舰长
-                        isKaZhuXianJianZhang = true
-                    elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
-                        isColor(114, 511, 0x116eb9, 95) then
-                        debug("生产20战舰")
-                        isKaShengChan = true
-                        touchClick(170, 510, 0x4784b8) -- 移动
-                    elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
-                        isColor(223, 501, 0x116eb9, 95) then
-                        debug("提升1次舰长星级")
-                        gaiMuBiaoNew(1, mb_WaKuang)
-                        touchClick(511, 572, 0x0c0c0e) -- 关闭
-                        RGB_NoticeBJ = "FFFF00"
-                        RGB_NoticeFont = "FF0000"
-                        strNotice = "升星"
-                        fwCloseView("window1", "more"); -- 关闭文字视图
-                        fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
-                        mSleep(500)
-                    else
-                        touchClick(170, 510, 0x4784b8) -- 移动
-                        if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
-                            touchClick(38, 492) -- 工具
-                        end
-                    end
                     return
                 end
                 return
-
             end
-
         end
     end
 end
@@ -5625,14 +5610,14 @@ function inside1(...)
         if numYunDaMa ~= 0 then
             numYunDaMa = 0
         end
-        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and muBiao == mb_WaKuang then
+        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) then
             debug("收缩任务栏")
             touchClick(335, 213)
         end
-        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
-            debug("展开任务栏")
-            touchClick(107, 213)
-        end
+        -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
+        --     debug("展开任务栏")
+        --     touchClick(107, 213)
+        -- end
         nowTime = os.time()
         timeXXX = nowTime
         return true
@@ -5659,14 +5644,14 @@ function outside(...)
         elseif isColor(1104, 130, 0x369469, 95) and isColor(1125, 106, 0x9e1111, 95) then
             debug("航母--红点")
         end
-        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and muBiao == mb_WaKuang then
+        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) then
             debug("收缩任务栏")
             touchClick(335, 213)
         end
-        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
-            debug("展开任务栏")
-            touchClick(107, 213)
-        end
+        -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
+        --     debug("展开任务栏")
+        --     touchClick(107, 213)
+        -- end
         if isColor(1053, 199, 0xffffff, 95) and isColor(1068, 193, 0xffffff, 95) then
             debug("收缩队伍")
             touchClick(1068, 193, 0xffffff)
