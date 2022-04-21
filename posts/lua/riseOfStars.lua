@@ -1,4 +1,4 @@
-toast("在线版本0.16.6")
+toast("在线版本0.16.7")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -76,6 +76,7 @@ function bianLiang()
     isKaZhuXianJianZhang = false -- 卡主线--舰长
     isKaJianZhangJingYan = 3 -- 卡主线--舰长经验
     isKaShengChan = false -- 卡主线--生产
+    isFalseLiZi2 = false --2级粒子挖掘失败
 
     numZiYuan = 1
     numKaiFa = 1
@@ -121,8 +122,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -3512,9 +3513,9 @@ function zongHe1(...)
                 if isPause == true then
                     return
                 end
-                x,y = findMultiColorInRegionFuzzy( 0xd5c29f, "-9|51|0x9c683e", 90, 169, 75, 1048, 612)--金币
+                x, y = findMultiColorInRegionFuzzy(0xd5c29f, "-9|51|0x9c683e", 90, 169, 75, 1048, 612) --金币
                 useBagThings()
-                x,y = findMultiColorInRegionFuzzy( 0x87807d, "-3|41|0x7a7d79,-26|-12|0x54ac1c", 90, 169, 75, 1048, 612)--钛
+                x, y = findMultiColorInRegionFuzzy(0x87807d, "-3|41|0x7a7d79,-26|-12|0x54ac1c", 90, 169, 75, 1048, 612) --钛
                 useBagThings()
             end
             if isColor(111, 448, 0x182536, 95) then
@@ -4749,6 +4750,7 @@ function chuHang()
         end
         if isColor(559, 122, 0x3e6b96, 95) then -- 航母
             debug("有航母")
+            isFalseLiZi2 = false
             touchClick(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
             isLiZi = true -- 粒子
@@ -4760,6 +4762,7 @@ function chuHang()
             end
         elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
             debug("挖粒子,没航母,航母坏了")
+            isFalseLiZi2 = false
             isShipBad = true
             isLiZi = true -- 粒子
             touchClick(20, 20)
@@ -4969,6 +4972,11 @@ function chuHang()
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 0, 1, 1 do
+                if check20 == "2级粒子" and isFalseLiZi2 == false then
+                    touchClick(860, 366, 0xfade00) --2级
+                elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    touchClick(832, 365, 0xffe000)
+                end
                 if isColor(874, 430, 0x116eb9, 95) then
                     touchClick(925, 431, 0x075ea8) -- 搜索
                 end
@@ -5171,7 +5179,13 @@ function chuHang()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
-                isLiZi = true
+                if check20 == "2级粒子" and isFalseLiZi2 == false then
+                    isFalseLiZi2 = true 
+                elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    isLiZi = true
+                else
+                    isLiZi = true
+                end
                 touchClick(172, 525) -- 搜索
             end
         elseif isColor(733, 377, 0x00ace4, 95) and isColor(798, 378, 0x00798c, 95) and isColor(934, 377, 0xa43b40, 95) then
@@ -5181,7 +5195,13 @@ function chuHang()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
-                isLiZi = true
+                if check20 == "2级粒子" and isFalseLiZi2 == false then
+                    isFalseLiZi2 = true 
+                elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    isLiZi = true
+                else
+                    isLiZi = true
+                end
                 touchClick(172, 525) -- 搜索
             end
         elseif isColor(125, 329, 0x7b43de, 95) and isColor(155, 304, 0x711fdd, 95) then
@@ -5191,7 +5211,13 @@ function chuHang()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
-                isLiZi = true
+                if check20 == "2级粒子" and isFalseLiZi2 == false then
+                    isFalseLiZi2 = true 
+                elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    isLiZi = true
+                else
+                    isLiZi = true
+                end
                 touchClick(172, 525) -- 搜索
             end
             if isColor(522, 433, 0x1d6ebc, 95) then
@@ -5205,7 +5231,13 @@ function chuHang()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
-                isLiZi = true
+                if check20 == "2级粒子" and isFalseLiZi2 == false then
+                    isFalseLiZi2 = true 
+                elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    isLiZi = true
+                else
+                    isLiZi = true
+                end
                 touchClick(172, 525) -- 搜索
             end
             if isColor(522, 433, 0x1d6ebc, 95) then
