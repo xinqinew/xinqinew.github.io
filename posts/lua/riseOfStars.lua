@@ -1,4 +1,4 @@
-toast("在线版本0.16.3")
+toast("在线版本0.16.4")
 
 -- 对比颜色加强
 do
@@ -3509,6 +3509,15 @@ function zongHe1(...)
             gaiMuBiaoNew(2, mb_CaiJi, mm_CaiJi)
             touchClick(20, 20, 449, 0x5c6571)
         elseif isZhengLi == false then
+            for i = 1, 10, 1 do
+                if isPause == true then
+                    return
+                end
+                x,y = findMultiColorInRegionFuzzy( 0xd5c29f, "-9|51|0x9c683e", 90, 169, 75, 1048, 612)--金币
+                useBagThings()
+                x,y = findMultiColorInRegionFuzzy( 0x87807d, "-3|41|0x7a7d79", 90, 169, 75, 1048, 612)--钛
+                useBagThings()
+            end
             if isColor(111, 448, 0x182536, 95) then
                 touchClick(111, 449) -- 其他
                 mSleep(1000)
