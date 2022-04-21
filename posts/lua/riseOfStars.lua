@@ -1,4 +1,4 @@
-toast("在线版本0.16.4")
+toast("在线版本0.16.5")
 
 -- 对比颜色加强
 do
@@ -3515,7 +3515,7 @@ function zongHe1(...)
                 end
                 x,y = findMultiColorInRegionFuzzy( 0xd5c29f, "-9|51|0x9c683e", 90, 169, 75, 1048, 612)--金币
                 useBagThings()
-                x,y = findMultiColorInRegionFuzzy( 0x87807d, "-3|41|0x7a7d79", 90, 169, 75, 1048, 612)--钛
+                x,y = findMultiColorInRegionFuzzy( 0x87807d, "-3|41|0x7a7d79,-26|-12|0x54ac1c", 90, 169, 75, 1048, 612)--钛
                 useBagThings()
             end
             if isColor(111, 448, 0x182536, 95) then
