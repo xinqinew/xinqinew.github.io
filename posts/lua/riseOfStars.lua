@@ -1,4 +1,4 @@
-toast("在线版本0.15.4")
+toast("在线版本0.15.5")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3064,7 +3064,24 @@ function zongHe1(...)
                         if isColor(534, 455, 0xd78b01, 95) then
                             touchClick(534, 455)
                         end
-                    elseif isColor(531 + j * 167, 189 + i * 238, 0x923be7, 95) and isBuyLiZi == true then -- 粒子
+                    elseif isColor(548 + j * 167, 251 + i * 238, 0x6c28d6, 95) and isBuyLiZi == true then -- 粒子
+                        touchClick(515 + j * 167, 342 + i * 238)
+                        mSleep(5000)
+                        if isColor(550, 478, 0xd68b02, 95) then
+                            touchClick(550, 478)
+                        end
+                        if isColor(538, 455, 0xd78b01, 95) then
+                            touchClick(538, 455)
+                        end
+                        if isColor(534, 455, 0xd78b01, 95) then
+                            touchClick(534, 455)
+                        end
+                        if isColor(197, 300, 0xb87609, 95) then -- 金币不足
+                            touchClick(20, 20)
+                            isBuyLiZi = false
+                            return
+                        end
+                    elseif isColor(521 + j * 167, 243 + i * 238, 0x444f4d, 95) and check16 == "vip8" then --钛
                         touchClick(515 + j * 167, 342 + i * 238)
                         mSleep(5000)
                         if isColor(550, 478, 0xd68b02, 95) then
@@ -5673,7 +5690,7 @@ function inside1(...)
             if haoLV == 3 and check12 ~= "不挖粒子" then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
-                elseif nowTime - timeBeAttack2 >= 2*60 then
+                elseif nowTime - timeBeAttack2 >= 2 * 60 then
                     vibratorNotice()
                     timeBeAttack2 = 0
                 end
@@ -5721,7 +5738,7 @@ function outside(...)
             if haoLV == 3 and check12 ~= "不挖粒子" then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
-                elseif nowTime - timeBeAttack2 >= 2*60 then
+                elseif nowTime - timeBeAttack2 >= 2 * 60 then
                     vibratorNotice()
                     timeBeAttack2 = 0
                 end
