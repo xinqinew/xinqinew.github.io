@@ -1,5 +1,4 @@
-toast("在线版本0.15.8")
-
+toast("在线版本0.15.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
