@@ -1,4 +1,4 @@
-toast("在线版本0.15.9")
+toast("在线版本0.15.10")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -433,11 +433,19 @@ function oncePlist()
     end
 
     -----------------------私有部分--------------------------
+
     -- over章节
     isOverLesson = loadPlistNew("over章节")
     if isOverLesson == nil then
         isOverLesson = false
         writePlistNew("over章节", isOverLesson)
+    end
+
+    -- 金币买钛
+    numBuyTaiByCoin = loadPlistNew("金币买钛")
+    if numBuyTaiByCoin == nil then
+        numBuyTaiByCoin = 0
+        writePlistNew("金币买钛", numBuyTaiByCoin)
     end
 
     -- 指挥中心等级
@@ -2115,6 +2123,10 @@ function zongHe1(...)
             end
         elseif isColor(136, 173, 0x9e1111, 95) and isColor(116, 173, 0xa17316, 95) then
             debug("欢迎礼物--红点--已选")
+            if isColor(934, 561, 0x116eb9, 95) then
+                debug("第7天")
+                touchClick(934, 561, 0x116eb9)
+            end
             x, y = findColorInRegionFuzzy(0x116eb9, 100, 196, 338, 664, 602)
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
                 touchClick(x, y)
@@ -2744,6 +2756,17 @@ function zongHe1(...)
                 touchClick(971, 427)
             elseif isColor(971, 322, 0x116eb9, 95) then -- 资源3
                 touchClick(971, 322)
+            elseif check16 == "vip8" and numBuyTaiByCoin <= 10 then
+                touchClick(971, 427)
+                if isColor(359, 431, 0x1c6dba, 95) then
+                    debug("可免费兑换")
+                    touchClick(452, 428, 0x2266ae) --使用
+                    mSleep(1000)
+                    touchClick(678, 437, 0x000000) --全部
+                    touchClick(521, 490, 0x1c6dba)--使用
+                end
+                numBuyTaiByCoin = numBuyTaiByCoin + 1
+                writePlistNew("金币买钛", numBuyTaiByCoin)
             else
                 touchClick(20, 20)
             end
@@ -5849,6 +5872,9 @@ function everyDayInit(...)
 
             numGuangGao = 0
             writePlistNew("广告次数", numGuangGao)
+
+            numBuyTaiByCoin = 0
+            writePlistNew("金币买钛", numBuyTaiByCoin)
 
             numChuanShu = 0
             writePlistNew("传输次数", numChuanShu)
