@@ -1,4 +1,4 @@
-toast("在线版本0.15.7")
+toast("在线版本0.15.8")
 
 -- 对比颜色加强
 do
@@ -3056,12 +3056,12 @@ function zongHe1(...)
                         isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) then
                         touchClick(515 + j * 167, 342 + i * 238)
 
-                        if isColor(549,491,0xd97700,95) then
-                            touchClick(549,491)
+                        if isColor(549, 491, 0xd97700, 95) then
+                            touchClick(549, 491)
                             mSleep(1000)
                         end
-                        if isColor(554,473,0xd87500,95) then
-                            touchClick(554,473)
+                        if isColor(554, 473, 0xd87500, 95) then
+                            touchClick(554, 473)
                             mSleep(1000)
                         end
                         if isColor(550, 478, 0xd68b02, 95) then
@@ -3079,12 +3079,12 @@ function zongHe1(...)
                     elseif isColor(548 + j * 167, 251 + i * 238, 0x6c28d6, 95) and isBuyLiZi == true then -- 粒子
                         touchClick(515 + j * 167, 342 + i * 238)
                         mSleep(5000)
-                        if isColor(549,491,0xd97700,95) then
-                            touchClick(549,491)
+                        if isColor(549, 491, 0xd97700, 95) then
+                            touchClick(549, 491)
                             mSleep(1000)
                         end
-                        if isColor(554,473,0xd87500,95) then
-                            touchClick(554,473)
+                        if isColor(554, 473, 0xd87500, 95) then
+                            touchClick(554, 473)
                             mSleep(1000)
                         end
                         if isColor(550, 478, 0xd68b02, 95) then
@@ -3105,15 +3105,15 @@ function zongHe1(...)
                             isBuyLiZi = false
                             return
                         end
-                    elseif isColor(521 + j * 167, 243 + i * 238, 0x444f4d, 95) and check16 == "vip8" and isBuyLiZi == true then --钛
+                    elseif isColor(521 + j * 167, 243 + i * 238, 0x444f4d, 95) and isColor(510 + j * 167, 336 + i * 238, 0xefe5ce, 95) and check16 == "vip8" and isBuyLiZi == true then --钛
                         touchClick(515 + j * 167, 342 + i * 238)
                         mSleep(5000)
-                        if isColor(549,491,0xd97700,95) then
-                            touchClick(549,491)
+                        if isColor(549, 491, 0xd97700, 95) then
+                            touchClick(549, 491)
                             mSleep(1000)
                         end
-                        if isColor(554,473,0xd87500,95) then
-                            touchClick(554,473)
+                        if isColor(554, 473, 0xd87500, 95) then
+                            touchClick(554, 473)
                             mSleep(1000)
                         end
                         if isColor(550, 478, 0xd68b02, 95) then
