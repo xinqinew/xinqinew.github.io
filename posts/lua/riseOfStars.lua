@@ -960,6 +960,10 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
+    if isColor(16, 23, 0xffffff, 95) and isColor(858, 593, 0xd78b02, 95) and isColor(685, 589, 0x0474d7, 95) and isColor(558, 108, 0x517fad, 95) == false then
+        debug("错误的出航界面")
+        touchClick(20, 20)
+    end
     if isColor(76, 68, 0xff6600, 95) and isColor(387, 68, 0xff2a00, 95) and isColor(629, 607, 0x306090, 95) then
         debug("旗舰--升级")
         if isColor(1019, 254, 0x116eb9, 95) then
@@ -2577,7 +2581,7 @@ function zongHe1(...)
                 (isColor(62, 438, 0x44d7ec, 95) and isColor(61, 461, 0x0d609d, 95))) then
                 debug("指挥中心")
                 -- x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
-                local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
+                local numStr = ocrText(749, 126, 772, 145, 0, "012346789")
                 if tonumber(numStr) >= 0 then
                     numLv = tonumber(numStr) - 1
                     writePlistNew("指挥中心等级", numLv)
