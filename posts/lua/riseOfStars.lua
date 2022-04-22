@@ -3669,6 +3669,23 @@ function zongHe1(...)
                     fwCloseView("window1", "more"); -- 关闭文字视图
                     fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
                     mSleep(500)
+                elseif isColor(185, 333, 0x33ece3, 95) and isColor(119, 506, 0x116eb9, 95) then
+                    debug("研究任务")
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                    isYanJiuZiYuan = true
+                    writePlistNew("研究资源", isYanJiuZiYuan)
+                    isYanJiuKaiFa = true
+                    writePlistNew("研究开发", isYanJiuKaiFa)
+                    isYanJiuFangYu = true
+                    writePlistNew("研究防御", isYanJiuFangYu)
+                    isYanJiuShengChan = true
+                    writePlistNew("研究生产", isYanJiuShengChan)
+                    isYanJiuJingRui = true
+                    writePlistNew("研究精锐", isYanJiuJingRui)
+                    isYanJiuZhanJian = true
+                    writePlistNew("研究战舰", isYanJiuZhanJian)
+                    isYanJiu = true
+                    writePlistNew("研究", isYanJiu)
                 else
                     touchClick(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
@@ -5180,7 +5197,7 @@ function chuHang()
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    isFalseLiZi2 = true 
+                    isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
                     isLiZi = true
                 else
@@ -5196,7 +5213,7 @@ function chuHang()
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    isFalseLiZi2 = true 
+                    isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
                     isLiZi = true
                 else
@@ -5212,7 +5229,7 @@ function chuHang()
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    isFalseLiZi2 = true 
+                    isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
                     isLiZi = true
                 else
@@ -5232,7 +5249,7 @@ function chuHang()
             if isColor(1092, 79, 0x577ea6, 95) then
                 debug("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    isFalseLiZi2 = true 
+                    isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
                     isLiZi = true
                 else

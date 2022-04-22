@@ -50,6 +50,15 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C / C++ 计算程序运行的时间 在学数据结构过程中老师让查看不同算法的运行时间，然后让自己打印运行时间。 想要获取运行时间，计时函数是clock()，]]></description>
 </item><item>
+    <title>C&#43;&#43;实现socket通信(TCP IP)</title>
+    <link>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++:实现socket通信（TCP/IP）实例 ​ 首先声明，博主之前从来没有写过通信方面的东西，这次之所以写这个是因为项目需要，因此本文主要]]></description>
+</item><item>
     <title>CString指南</title>
     <link>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</link>
     <pubDate>Mon, 03 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx CE扫四种编码 ASCI UNIDCOE（不勾选） UNIDCOE UNIDCOE 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 graph 勾选UNIDC]]></description>
-</item><item>
-    <title>在c&#43;&#43;使用and替代&amp;&amp;</title>
-    <link>https://xinqinew.github.io/2021/08/%E5%9C%A8c-%E4%BD%BF%E7%94%A8and%E6%9B%BF%E4%BB%A3/</link>
-    <pubDate>Tue, 24 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E5%9C%A8c-%E4%BD%BF%E7%94%A8and%E6%9B%BF%E4%BB%A3/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>在c++使用and替代&amp;&amp; 背景 ​ 在之前的一个项目中发现使用了 and 替代 &amp;&amp;，当时感觉很奇怪，c++有这样的用法吗]]></description>
 </item></channel>
 </rss>

@@ -59,6 +59,15 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C / C++ 计算程序运行的时间 在学数据结构过程中老师让查看不同算法的运行时间，然后让自己打印运行时间。 想要获取运行时间，计时函数是clock()，]]></description>
 </item><item>
+    <title>C&#43;&#43;实现socket通信(TCP IP)</title>
+    <link>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>C++:实现socket通信（TCP/IP）实例 ​ 首先声明，博主之前从来没有写过通信方面的东西，这次之所以写这个是因为项目需要，因此本文主要]]></description>
+</item><item>
     <title>FPS骨骼,u3d,UE4(二)</title>
     <link>https://xinqinew.github.io/2022/01/fps%E9%AA%A8%E9%AA%BCu3due4%E4%BA%8C/</link>
     <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -83,12 +92,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
-</item><item>
-    <title>FPS游戏绘制(一)</title>
-    <link>https://xinqinew.github.io/2022/01/fps%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E4%B8%80/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/fps%E6%B8%B8%E6%88%8F%E7%BB%98%E5%88%B6%E4%B8%80/</guid>
-    <description><![CDATA[FPS类型游戏的设计研究和游戏安全,反外挂研究 学习这套课程的基础包含少量的汇编知识和编程知识, 一定的数学知识和内存知识 基础建立在 任鸟飞202]]></description>
 </item></channel>
 </rss>
