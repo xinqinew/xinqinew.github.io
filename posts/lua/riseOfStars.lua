@@ -1,4 +1,4 @@
-toast("在线版本0.16.8")
+toast("在线版本0.16.9")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -3061,6 +3061,9 @@ function zongHe1(...)
                 elseif numFangYu == 9 then -- 9
                     touchClick(1051, 281)
                 end
+            elseif isColor(1037,353,0xbef6fc,95) and isColor(796,435,0x4bc4ea,95) then
+                debug("研究--强制--机动技术")
+                touchClick(600,262,0xb8b9d4            )
             end
         elseif isColor(60, 334, 0x52524c, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("充电界面")
