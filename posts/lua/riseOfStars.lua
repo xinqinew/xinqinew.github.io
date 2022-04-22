@@ -94,6 +94,7 @@ function bianLiang()
     numSearch = 0 -- 搜索
     numYunDaMa = 0 -- 云打码
 
+    timeZhengLi = nowTime - 5 * 60 --检测背包
     timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
     timeBeAttack = nowTime -- 被攻击
     timeBeAttack2 = 0 -- 被攻击2
@@ -3062,12 +3063,12 @@ function zongHe1(...)
                 elseif numFangYu == 9 then -- 9
                     touchClick(1051, 281)
                 end
-            elseif isColor(600,157,0x13669a,95) and isColor(726,286,0x13669a,95) and isColor(600,403,0x13669a,95) then
+            elseif isColor(600, 157, 0x13669a, 95) and isColor(726, 286, 0x13669a, 95) and isColor(600, 403, 0x13669a, 95) then
                 debug("研究--强制")
-                touchClick(600,262,0xb8b9d4            )
-            else 
+                touchClick(600, 262, 0xb8b9d4)
+            else
                 debug("啥都不是，关闭")
-                touchClick(20,20)
+                touchClick(20, 20)
             end
         elseif isColor(60, 334, 0x52524c, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("充电界面")
@@ -3693,6 +3694,19 @@ function zongHe1(...)
                     writePlistNew("研究战舰", isYanJiuZhanJian)
                     isYanJiu = true
                     writePlistNew("研究", isYanJiu)
+                elseif isColor(178, 340, 0x5da9db, 95) and isColor(121, 509, 0x116eb9, 95) then
+                    debug("海盗任务")
+                    if nowTime - timeZhengLi >= 5 * 60 then
+                        touchClick(511, 572, 0x0c0c0e) -- 关闭
+                        mSleep(1000)
+                        touchClick(968, 580, 0xa95a2a) --背包
+                        mSleep(1000)
+                        isZhengLi = false
+                        writePlistNew("整理", isZhengLi)
+                        timeZhengLi = nowTime
+                    else
+                        touchClick(170, 510, 0x4784b8) -- 移动
+                    end
                 else
                     touchClick(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
