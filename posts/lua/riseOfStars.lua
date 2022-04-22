@@ -444,6 +444,13 @@ function oncePlist()
         writePlistNew("over章节", isOverLesson)
     end
 
+    -- 资源传输装置兑换次数
+    numZiYuanDuiHuan = loadPlistNew("资源传输装置兑换次数")
+    if numZiYuanDuiHuan == nil then
+        numZiYuanDuiHuan = 0
+        writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+    end
+
     -- 金币买钛
     numBuyTaiByCoin = loadPlistNew("金币买钛")
     if numBuyTaiByCoin == nil then
@@ -2762,9 +2769,13 @@ function zongHe1(...)
             timeXXX = nowTime
             if isColor(971, 427, 0x116eb9, 95) then -- 资源4
                 touchClick(971, 427)
+                numZiYuanDuiHuan = numZiYuanDuiHuan + 1
+                writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
             elseif isColor(971, 322, 0x116eb9, 95) then -- 资源3
                 touchClick(971, 322)
-            elseif check16 == "vip8" and numBuyTaiByCoin <= 10 and isColor(1002, 426, 0xf18e07, 95) then --金币购买
+                numZiYuanDuiHuan = numZiYuanDuiHuan + 1
+                writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+            elseif check16 == "vip8" and numBuyTaiByCoin <= 15 and isColor(1002, 426, 0xf18e07, 95) then --金币购买
                 touchClick(971, 427)
                 if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
                     debug("可免费兑换")
@@ -2774,9 +2785,24 @@ function zongHe1(...)
                     touchClick(521, 490, 0x1c6dba) --使用
                 else
                     touchClick(687, 444, 0xd77501) -- 金币购买
+                    numZiYuanDuiHuan = numZiYuanDuiHuan + 1
+                    writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
                 end
                 numBuyTaiByCoin = numBuyTaiByCoin + 1
                 writePlistNew("金币买钛", numBuyTaiByCoin)
+            elseif numZiYuanDuiHuan <= 5 and haoLV <= 2 then
+                touchClick(1000, 321, 0xf18e07)
+                if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
+                    debug("可免费兑换")
+                    touchClick(452, 428, 0x2266ae) --使用
+                    mSleep(1000)
+                    touchClick(678, 437, 0x000000) --全部
+                    touchClick(521, 490, 0x1c6dba) --使用
+                else
+                    touchClick(687, 444, 0xd77501) -- 金币购买
+                    numZiYuanDuiHuan = numZiYuanDuiHuan + 1
+                    writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+                end
             else
                 touchClick(20, 20)
             end
