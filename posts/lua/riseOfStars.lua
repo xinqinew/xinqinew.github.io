@@ -2576,7 +2576,7 @@ function zongHe1(...)
             if haoLV <= 2 and ((isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95)) or
                 (isColor(62, 438, 0x44d7ec, 95) and isColor(61, 461, 0x0d609d, 95))) then
                 debug("指挥中心")
-                x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
+                -- x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
                 local numStr = ocrText(749, 126, 772, 145, 0, "0123456789")
                 if tonumber(numStr) >= 0 then
                     numLv = tonumber(numStr) - 1
