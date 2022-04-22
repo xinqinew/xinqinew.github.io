@@ -1,4 +1,4 @@
-toast("在线版本0.17.2")
+toast("在线版本0.17.3")
 
 -- 对比颜色加强
 do
@@ -3371,6 +3371,8 @@ function zongHe1(...)
                 gaiMuBiaoNew(3, "无")
                 isYanJiu = false
                 writePlistNew("研究", isYanJiu)
+            elseif muBiao == "主线" then
+                gaiMuBiaoNew(1, mb_WaKuang)
             end
         elseif isColor(620, 500, 0x1a61a3, 95) then
             debug("可使用")
@@ -3707,6 +3709,16 @@ function zongHe1(...)
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
                     end
+                elseif isColor(148, 340, 0x1b87df, 95) and isColor(189, 341, 0x0c67b0, 95) and isColor(124, 507, 0x116eb9, 95) then
+                    debug("卡主线--建资源")
+                    gaiMuBiaoNew(1, mb_WaKuang)
+                    touchClick(511, 572, 0x0c0c0e) -- 关闭
+                    RGB_NoticeBJ = "FFFF00"
+                    RGB_NoticeFont = "FF0000"
+                    strNotice = "资源"
+                    fwCloseView("window1", "more"); -- 关闭文字视图
+                    fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+                    mSleep(500)
                 else
                     touchClick(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
