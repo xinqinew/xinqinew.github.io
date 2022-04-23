@@ -1,4 +1,4 @@
-toast("在线版本0.17.5")
+toast("在线版本0.17.6")
 
 -- 对比颜色加强
 do
@@ -5057,6 +5057,10 @@ function chuHang()
                         touchClick(1059,366) --  +  2级
                     end
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
+                    if isColor(867,366,0xffffff, 95) then--2级
+                        touchClick(785,366) --  -  1级
+                    end
+                else
                     if isColor(867,366,0xffffff, 95) then--2级
                         touchClick(785,366) --  -  1级
                     end
