@@ -1,4 +1,4 @@
-toast("在线版本0.17.3")
+toast("在线版本0.17.5")
 
 -- 对比颜色加强
 do
@@ -5053,9 +5053,13 @@ function chuHang()
             mSleep(1000)
             for i = 0, 1, 1 do
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    touchClick(860, 366, 0xfade00) --2级
+                    if isColor(838,366,0xffffff, 95) then--1级
+                        touchClick(1059,366) --  +  2级
+                    end
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    touchClick(832, 365, 0xffe000)
+                    if isColor(867,366,0xffffff, 95) then--2级
+                        touchClick(785,366) --  -  1级
+                    end
                 end
                 if isColor(874, 430, 0x116eb9, 95) then
                     touchClick(925, 431, 0x075ea8) -- 搜索
