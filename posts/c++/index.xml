@@ -5,6 +5,15 @@
         <description>所有C&#43;&#43; | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;</title>
+    <link>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>socket编程演示 socket() 创建套接字 通过 socket() 函数创建了一个套接字，参数 AF_INET 表示使用 IPv4 地址，SOCK_STREAM 表示使用面向连接的数据传输方式，IP]]></description>
+</item><item>
     <title>流程图 - 循环</title>
     <link>https://xinqinew.github.io/2022/01/%E6%B5%81%E7%A8%8B%E5%9B%BE-%E5%BE%AA%E7%8E%AF/</link>
     <pubDate>Sun, 16 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此]]></description>
-</item><item>
-    <title>内存中的浮点数与CE扫四种编码</title>
-    <link>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/</link>
-    <pubDate>Mon, 27 Sep 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/09/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>内存中的浮点数 3开头 1.xxxx 0.xxxx 4开头 100.xxxx b开头 -0.xxxx c开头 -15.xxxx CE扫四种编码 ASCI UNIDCOE（不勾选） UNIDCOE UNIDCOE 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 graph 勾选UNIDC]]></description>
 </item></channel>
 </rss>

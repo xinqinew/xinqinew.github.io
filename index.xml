@@ -4,9 +4,18 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 10 Mar 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>C&#43;&#43;</title>
+    <link>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>socket编程演示 socket() 创建套接字 通过 socket() 函数创建了一个套接字，参数 AF_INET 表示使用 IPv4 地址，SOCK_STREAM 表示使用面向连接的数据传输方式，IP]]></description>
+</item><item>
     <title>C&#43;&#43;逆向</title>
     <link>https://xinqinew.github.io/2022/02/%E5%A4%9C%E9%A3%8E_%E6%9D%A5%E8%A2%AD-c-%E9%80%86%E5%90%91/</link>
     <pubDate>Thu, 24 Feb 2022 00:00:00 &#43;0000</pubDate><author>
@@ -83,14 +92,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>CButton 详情 Name 描述 CButton：： GetCheck 抓取按钮控制项的检查状态。 CButton：： GetCheck 抓取选项按钮或核取方块的检查状态。 1 int GetCheck() const; 传回值 值 意义 BST_UNCHECKED 按钮状]]></description>
-</item><item>
-    <title>CWnd</title>
-    <link>https://xinqinew.github.io/2022/01/cwnd/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/cwnd/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
 </item></channel>
 </rss>
