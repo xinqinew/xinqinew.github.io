@@ -1,4 +1,4 @@
-toast("在线版本0.17.8")
+toast("在线版本0.17.9")
 
 -- 对比颜色加强
 do
@@ -138,7 +138,7 @@ function newUi()
     UILabel(2, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节", 10, "left", "72,61,139", -1, 0,
         "center") -- 标签
     UIEdit(2, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
-    UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换", 10, "left", "72,61,139", -1, 0, "center")
+    UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(2, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
     UILabel(2, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left",
         "72,61,139", -1, 0, "center")
@@ -603,6 +603,13 @@ function oncePlist()
     if num5DaoJu == nil then
         num5DaoJu = 0
         writePlistNew("每日5道具", num5DaoJu)
+    end
+
+    -- 每日道具合成
+    isMixedThing = loadPlistNew("每日道具合成")
+    if isMixedThing == nil then
+        isMixedThing = false
+        writePlistNew("每日道具合成", isMixedThing)
     end
 
     -- 每日3海盗
@@ -2288,7 +2295,7 @@ function zongHe1(...)
             touchClick(458, 438, 0xf27c00) -- 1个 
             touchClick(511, 504)
             if num5DaoJu >= 5 then
-                gaiMuBiaoNew(2, mb_CaiJi, mm_CaiJi)
+                gaiMuBiaoNew(2, "道具合成")
             end
         else
             if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
@@ -2306,7 +2313,7 @@ function zongHe1(...)
         touchClick(490, 455, 0x1c6ebb)
         if muBiao == mb_5DaoJu then
             if num5DaoJu >= 5 then
-                gaiMuBiaoNew(2, mb_CaiJi, mm_CaiJi)
+                gaiMuBiaoNew(2, "道具合成")
             end
         end
     end
@@ -3612,8 +3619,54 @@ function zongHe1(...)
                 end
             end
         elseif muBiao == mb_5DaoJu and num5DaoJu > 7 then
-            gaiMuBiaoNew(2, mb_CaiJi, mm_CaiJi)
-            touchClick(20, 20, 449, 0x5c6571)
+            gaiMuBiaoNew(2, "道具合成")
+            touchClick(20, 20, 0x5c6571)
+        elseif muBiao == "道具合成" then
+            if isColor(111, 317, 0x182637, 95) then
+                touchClick(111, 317) -- 材料
+                mSleep(1000)
+            end
+            --分解
+            for i = 0, 8, 1 do
+                if isPause == true then
+                    return
+                end
+                if isColor(172 + i * 100, 78, 0x34b200, 95) then
+                    touchClick(172 + i * 100, 78) --物品
+                    touchClick(396, 471, 0x1d6ebb) --分解
+                    touchClick(509, 547, 0x1cb686) --分解
+                    touchClick(488, 429, 0x1c6db9) --确定
+                    mSleep(2000)
+                    break
+                end
+            end
+            for i = 1, 10, 1 do
+                if isPause == true then
+                    return
+                end
+                if isColor(17, 24, 0xffffff, 95) then --没转圈
+                    break
+                end
+                mSleep(1000)
+            end
+            --合成
+            for i = 0, 8, 1 do
+                if isPause == true then
+                    return
+                end
+                touchClick(215 + i * 100, 78) --点击物品
+                touchClick(611, 466, 0xd78b01) --合成
+                if isColor(487, 543, 0x1c6dbb, 95) then --有合成按钮
+                    touchClick(509, 551, 0x1c6eba) --合成
+                    touchClick(497, 433, 0x1c6eba) --确定
+                    isMixedThing = true
+                    writePlistNew("每日道具合成", isMixedThing)
+                    gaiMuBiaoNew(2, mb_CaiJi)
+                    break
+                else
+                    touchClick(511, 551, 0x0c0c0e) --关闭
+                end
+            end
         elseif isZhengLi == false then
             for i = 1, 10, 1 do
                 if isPause == true then
@@ -4466,7 +4519,9 @@ function everyDayTask()
         gaiMuBiaoNew(2, mb_5DaoJu, mm_5DaoJu)
     end
     if muBiao == mb_5DaoJu then
-        everyDay5DaoJu()
+        openBag()
+    elseif muBiao == "道具合成" then
+        openBag()
     elseif muBiao == mb_CaiJi then
         task_CaiJi()
     elseif muBiao == mb_Reward then
@@ -4577,8 +4632,8 @@ function task_CaiJi()
     end
 end
 
--- 每日5道具
-function everyDay5DaoJu()
+-- 打开背包
+function openBag()
     if inside1() then
         debug("打开背包")
         touchClick(963, 591, 0x373b37)
@@ -6131,6 +6186,9 @@ function everyDayInit(...)
 
             num5DaoJu = 0
             writePlistNew("每日5道具", num5DaoJu)
+
+            isMixedThing = false
+            writePlistNew("每日道具合成", isMixedThing)
 
             numAddChanLiang = 0
             writePlistNew("增产", numAddChanLiang)
