@@ -633,12 +633,21 @@ function oncePlist()
         writePlistNew("吃经验", isEatEXP)
     end
 
-    -- 再次收获
-    isAgainReward = loadPlistNew("再次收获")
-    if isAgainReward == nil then
-        isAgainReward = false
-        writePlistNew("再次收获", isAgainReward)
+    -- 再次收获22
+    isAgainReward22 = loadPlistNew("再次收获22")
+    if isAgainReward22 == nil then
+        isAgainReward22 = false
+        writePlistNew("再次收获22", isAgainReward22)
     end
+
+     -- 再次收获6
+     isAgainReward6 = loadPlistNew("再次收获6")
+     if isAgainReward6 == nil then
+        isAgainReward6 = false
+         writePlistNew("再次收获6", isAgainReward6)
+     end
+
+    
 
     -- 卡优化
     isKaYouHua = loadPlistNew("卡优化")
@@ -4709,16 +4718,24 @@ function chongZhiJiDiXianKuang()
     -- numSearchLiZi = 0
     numSearchLiZiSecond = 20
 
-    if isAgainReward == false then
+    if isAgainReward22 == false then
         if nowDateTime.hour >= 22 and nowDateTime.min >= 0 then
             if muBiao == mb_WaKuang then
                 gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
                 gaiMuBiaoNew(2, mb_Reward, mm_Reward)
-
-                isAgainReward = true
-                writePlistNew("再次收获", isAgainReward)
+                isAgainReward22 = true
+                writePlistNew("再次收获22", isAgainReward22)
             end
-
+        end
+    end
+    if isAgainReward6 == false then
+        if nowDateTime.hour >= 6 and nowDateTime.min >= 0 then
+            if muBiao == mb_WaKuang then
+                gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiaoNew(2, mb_Reward, mm_Reward)
+                isAgainReward6 = true
+                writePlistNew("再次收获6", isAgainReward6)
+            end
         end
     end
     if haoLV == 2 then
@@ -6118,8 +6135,11 @@ function everyDayInit(...)
             numAddChanLiang = 0
             writePlistNew("增产", numAddChanLiang)
 
-            isAgainReward = false
-            writePlistNew("再次收获", isAgainReward)
+            isAgainReward22 = false
+            writePlistNew("再次收获22", isAgainReward22)
+
+            isAgainReward6 = false
+            writePlistNew("再次收获6", isAgainReward6)
 
             num3Pirate = 0
             writePlistNew("每日3海盗", num3Pirate)
