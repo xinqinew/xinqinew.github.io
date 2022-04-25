@@ -1,4 +1,4 @@
-toast("在线版本0.17.9")
+toast("在线版本0.18.1")
 
 -- 对比颜色加强
 do
@@ -17,6 +17,7 @@ function bianLiang()
     hScreen, wScreen = getScreenSize()
     uiconfig = "uiconfig.dat"
     json_ts = ts.json
+    plist_ts = ts.plist
     isLuaStart = true -- 脚本启动
     isPause = false
     numInit = 1
@@ -94,6 +95,7 @@ function bianLiang()
     numSearch = 0 -- 搜索
     numYunDaMa = 0 -- 云打码
 
+    timeUpJson = nowTime - 10 * 60 --上传间隔
     timeZhengLi = nowTime - 5 * 60 --检测背包
     timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
     timeBeAttack = nowTime -- 被攻击
@@ -257,6 +259,7 @@ function writePlistNew(key, value)
     -- 获取键对应的值, 此处代表获取"金币数"所对应的值 coin = 999
     -- 但是此处暂时获取不到 coin 值，因为操作还没结束，请继续往下阅读
     ts.config.close(true)
+    ftpUpJson()
 
 end
 
@@ -270,16 +273,7 @@ function main()
     if m_iRunCount == 1 then
         newUi()
         if check4 == "测试" then
-            closeApp(appXiangMu)
-            mSleep(1000)
-            clearCookies() -- 该函数只支持苹果 iOS 系统
-            local tb = {
-                tstab = 1,
-                bid = { appXiangMu }
-            }
-            clearAllKeyChains(tb)
-            mSleep(1000)
-            runApp(appXiangMu)
+
         end
     end
     if checkXiangMu1 == "项目1" then
@@ -1030,6 +1024,19 @@ function autoVpn()
     local flag = getVPNStatus()
     if flag.active == false then
         setVPNEnable(true)
+    end
+end
+
+--上传json
+function ftpUpJson()
+    if nowTime - timeUpJson >= 10 * 60 then
+        timeUpJson = nowTime
+        local tb = plist_ts.read(luaMuLu .. xiangMu .. ".plist") --读取plist至table格式
+        local jsonstring = json_ts.encode(tb);  --将 table 格式数据转成 json 格式数据
+        bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
+        if bool then
+            ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
+        end
     end
 end
 
