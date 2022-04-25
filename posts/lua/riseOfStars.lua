@@ -195,16 +195,19 @@ end
 function gaiMuBiaoNew(cs_num, cs_muBiao, ...)
     if cs_num == 1 then
         muBiao1 = cs_muBiao
-        writeConfigNew("muBiao1", muBiao1)
+        writeConfigNew("muBiao1", cs_muBiao)
         muBiaoZhuanHuanNew()
+        writePlistNew("目标1", cs_muBiao)
     elseif cs_num == 2 then
         muBiao2 = cs_muBiao
-        writeConfigNew("muBiao2", muBiao2)
+        writeConfigNew("muBiao2", cs_muBiao)
         muBiaoZhuanHuanNew()
+        writePlistNew("目标2", cs_muBiao)
     elseif cs_num == 3 then
         muBiao3 = cs_muBiao
-        writeConfigNew("muBiao3", muBiao3)
+        writeConfigNew("muBiao3", cs_muBiao)
         muBiaoZhuanHuanNew()
+        writePlistNew("目标3", cs_muBiao)
     end
 end
 
