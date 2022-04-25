@@ -1,4 +1,4 @@
-toast("在线版本0.17.6")
+toast("在线版本0.17.8")
 
 -- 对比颜色加强
 do
@@ -471,8 +471,8 @@ function oncePlist()
         numDigJinShu = 0
         writePlistNew("金属总次数", numDigJinShu)
     end
-    
-    
+
+
     -- 今日氯气次数
     numTodayDigLvQi = loadPlistNew("今日氯气次数")
     if numTodayDigLvQi == nil then
@@ -486,7 +486,7 @@ function oncePlist()
         numDigLvQi = 0
         writePlistNew("氯气总次数", numDigLvQi)
     end
-    
+
     -- 今日粒子次数
     numTodayDigLiZi = loadPlistNew("今日粒子次数")
     if numTodayDigLiZi == nil then
@@ -640,14 +640,14 @@ function oncePlist()
         writePlistNew("再次收获22", isAgainReward22)
     end
 
-     -- 再次收获6
-     isAgainReward6 = loadPlistNew("再次收获6")
-     if isAgainReward6 == nil then
+    -- 再次收获6
+    isAgainReward6 = loadPlistNew("再次收获6")
+    if isAgainReward6 == nil then
         isAgainReward6 = false
-         writePlistNew("再次收获6", isAgainReward6)
-     end
+        writePlistNew("再次收获6", isAgainReward6)
+    end
 
-    
+
 
     -- 卡优化
     isKaYouHua = loadPlistNew("卡优化")
@@ -3235,7 +3235,7 @@ function zongHe1(...)
                             isBuyLiZi = false
                             return
                         end
-                    elseif isColor(521 + j * 167, 243 + i * 238, 0x444f4d, 95) and isColor(510 + j * 167, 336 + i * 238, 0xefe5ce, 95) and check16 == "vip8" and isBuyLiZi == true then --钛
+                    elseif isColor(521 + j * 167, 243 + i * 238, 0x444f4d, 95) and isColor(515 + j * 167, 182 + i * 238, 0x359e1f, 95) and check16 == "vip8" and isBuyLiZi == true then --钛
                         touchClick(515 + j * 167, 342 + i * 238)
                         mSleep(5000)
                         if isColor(549, 491, 0xd97700, 95) then
@@ -4908,22 +4908,22 @@ function chuHang()
             touchClick(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
             isLiZi = true -- 粒子
-     
-    
-            numTodayDigLiZi = numTodayDigLiZi+1
-            numDigLiZi = numDigLiZi+1
-    
+
+
+            numTodayDigLiZi = numTodayDigLiZi + 1
+            numDigLiZi = numDigLiZi + 1
+
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--是
                 touchClick(504, 432, 0x1c6eba)
             elseif isColor(848, 594, 0xd68b02, 95) then -- 出航失败
                 touchClick(20, 20)
                 isLiZi = false -- 粒子
-                numTodayDigLiZi = numTodayDigLiZi-1
-                numDigLiZi = numDigLiZi-1
+                numTodayDigLiZi = numTodayDigLiZi - 1
+                numDigLiZi = numDigLiZi - 1
             end
             writePlistNew("今日粒子次数", numTodayDigLiZi)
             writePlistNew("粒子总次数", numDigLiZi)
-    
+
         elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
             debug("挖粒子,没航母,航母坏了")
             isFalseLiZi2 = false
@@ -4942,14 +4942,14 @@ function chuHang()
             chongZhiJiDiXianKuang()
         elseif isColor(634, 157, 0x38b3ca, 95) then -- 普通采集 有船可出
             debug("普通采集 有船可出")
-            local temNum=0
-            if isColor(461,595,0x396999, 95) then -- 矿
-                temNum=1
-            elseif isColor(459,593,0x4e4b53, 95) then -- 金属
-                temNum=2
-            elseif isColor(463,596,0xaebd82, 95) then -- 氯气
-                temNum=3
-            end 
+            local temNum = 0
+            if isColor(461, 595, 0x396999, 95) then -- 矿
+                temNum = 1
+            elseif isColor(459, 593, 0x4e4b53, 95) then -- 金属
+                temNum = 2
+            elseif isColor(463, 596, 0xaebd82, 95) then -- 氯气
+                temNum = 3
+            end
             touchClick(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否
@@ -4962,28 +4962,28 @@ function chuHang()
                 if numChuHang >= 4 then
                     numChuHang = 1
                 end
-                if temNum==1 then
-                    numTodayDigKuang = numTodayDigKuang+1
+                if temNum == 1 then
+                    numTodayDigKuang = numTodayDigKuang + 1
                     writePlistNew("今日矿物次数", numTodayDigKuang)
-    
-                    numDigKuang = numDigKuang+1
+
+                    numDigKuang = numDigKuang + 1
                     writePlistNew("矿物总次数", numDigKuang)
-                elseif temNum==2 then
-                
-                    numTodayDigJinShu = numTodayDigJinShu+1
+                elseif temNum == 2 then
+
+                    numTodayDigJinShu = numTodayDigJinShu + 1
                     writePlistNew("今日金属次数", numTodayDigJinShu)
-    
-                    numDigJinShu = numDigJinShu+1
+
+                    numDigJinShu = numDigJinShu + 1
                     writePlistNew("金属总次数", numDigJinShu)
-    
-                elseif temNum==3 then
-                 
-                    numTodayDigLvQi = numTodayDigLvQi+1
+
+                elseif temNum == 3 then
+
+                    numTodayDigLvQi = numTodayDigLvQi + 1
                     writePlistNew("今日氯气次数", numTodayDigLvQi)
-    
-                    numDigLvQi = numDigLvQi+1
+
+                    numDigLvQi = numDigLvQi + 1
                     writePlistNew("氯气总次数", numDigLvQi)
-    
+
                 end
             end
         end
@@ -5168,16 +5168,16 @@ function chuHang()
             mSleep(1000)
             for i = 0, 1, 1 do
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
-                    if isColor(838,366,0xffffff, 95) then--1级
-                        touchClick(1059,366) --  +  2级
+                    if isColor(838, 366, 0xffffff, 95) then --1级
+                        touchClick(1059, 366) --  +  2级
                     end
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    if isColor(867,366,0xffffff, 95) then--2级
-                        touchClick(785,366) --  -  1级
+                    if isColor(867, 366, 0xffffff, 95) then --2级
+                        touchClick(785, 366) --  -  1级
                     end
                 else
-                    if isColor(867,366,0xffffff, 95) then--2级
-                        touchClick(785,366) --  -  1级
+                    if isColor(867, 366, 0xffffff, 95) then --2级
+                        touchClick(785, 366) --  -  1级
                     end
                 end
                 if isColor(874, 430, 0x116eb9, 95) then
@@ -6173,13 +6173,13 @@ function everyDayInit(...)
 
             isYanJiu = true
             writePlistNew("研究", isYanJiu)
-            
+
             numTodayDigKuang = 0
             writePlistNew("今日矿物次数", numTodayDigKuang)
-    
+
             numTodayDigJinShu = 0
             writePlistNew("今日金属次数", numTodayDigJinShu)
-                 
+
             numTodayDigLvQi = 0
             writePlistNew("今日氯气次数", numTodayDigLvQi)
 
