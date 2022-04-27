@@ -3563,7 +3563,13 @@ function zongHe1(...)
                 isYanJiu = false
                 writePlistNew("研究", isYanJiu)
             elseif muBiao == "主线" then
-                gaiMuBiaoNew(1, mb_WaKuang)
+                if haoLV == 3 then
+                    gaiMuBiaoNew(1, mb_WaKuang)
+                else
+                    gaiMuBiaoNew(1, "优化")
+                end
+            elseif muBiao == "优化" then
+                gaiMuBiaoNew(1, "主线")
             end
         elseif isColor(620, 500, 0x1a61a3, 95) then
             debug("可使用")
