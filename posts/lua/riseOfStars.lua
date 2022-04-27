@@ -1144,6 +1144,9 @@ function zongHe1(...)
         isColor(465, 548, 0xd78c00, 95) then
         debug("司令官经验值")
         touchClick(465, 548, 0xd78c00)
+        if isColor(487, 431, 0x1c6eb9, 95) then -- 确定
+            touchClick(487, 431)
+        end
     end
     if isColor(308, 424, 0x167dfb, 95) and isColor(816, 554, 0x167dfb, 95) and isColor(518, 592, 0xa5a5a5, 95) then
         debug("确认年龄")
