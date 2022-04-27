@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">json读写 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="json读写" />
+<meta property="og:description" content="GitHub开源 https://github.com/Nomango/configor configor 一个为 C&#43;&#43;11 量身打造的轻量级 config 库，轻松完成 JSON 解析和序列化功能，并和 C&#43;&#43; 输入输出流交互。 功能 仅头文件，低接入成本 STL-like" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-08T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="json读写"/>
+<meta name="twitter:description" content="GitHub开源 https://github.com/Nomango/configor configor 一个为 C&#43;&#43;11 量身打造的轻量级 config 库，轻松完成 JSON 解析和序列化功能，并和 C&#43;&#43; 输入输出流交互。 功能 仅头文件，低接入成本 STL-like"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/" /><link rel="next" href="https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "json读写",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/json%E8%AF%BB%E5%86%99\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  3326 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/json%E8%AF%BB%E5%86%99\/","datePublished": "2022-01-08T00:00:00+00:00","dateModified": "2022-01-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">json读写</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-08">2022-01-08</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-08">2022-01-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3326 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/2022/01/json%E8%AF%BB%E5%86%99/" class="leancloud_visitors" data-flag-title="json读写">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        data-src="/images/C&#43;&#43;.jpg"
+        data-srcset="/images/C&#43;&#43;.jpg, /images/C&#43;&#43;.jpg 1.5x, /images/C&#43;&#43;.jpg 2x"
+        data-sizes="auto"
+        alt="/images/C&#43;&#43;.jpg"
+        title="/images/C&#43;&#43;.jpg" height="auto" width="auto"
+    /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#github开源">GitHub开源</a></li>
+      </ul>
+    </li>
+    <li><a href="#configor">configor</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#功能">功能</a></li>
+            <li><a href="#关于更名">关于更名！</a></li>
+            <li><a href="#目录">目录</a></li>
+            <li><a href="#快速上手">快速上手</a></li>
+            <li><a href="#取值方式">取值方式</a></li>
+            <li><a href="#常用方法和运算符">常用方法和运算符</a></li>
+            <li><a href="#序列化">序列化</a></li>
+            <li><a href="#反序列化">反序列化</a></li>
+            <li><a href="#unicode与多编码支持">Unicode与多编码支持</a></li>
+            <li><a href="#与自定义类型转换">与自定义类型转换</a></li>
+            <li><a href="#示例代码">示例代码</a></li>
+            <li><a href="#常见问题">常见问题</a>
+              <ul>
+                <li><a href="#q">Q:</a></li>
+                <li><a href="#a">A:</a></li>
+                <li><a href="#q-1">Q:</a></li>
+                <li><a href="#a-1">A:</a></li>
+                <li><a href="#q-2">Q:</a></li>
+                <li><a href="#a-2">A:</a></li>
+              </ul>
+            </li>
+            <li><a href="#更多">更多</a></li>
+            <li><a href="#计划">计划</a></li>
+            <li><a href="#鸣谢">鸣谢</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="github开源">GitHub开源</h2>
+<p><a href="https://github.com/Nomango/configor" target="_blank" rel="noopener noreffer">https://github.com/Nomango/configor</a></p>
+<!-- ![logo](./assets/logo.png) -->
+<h1 id="configor">configor</h1>
+<p>一个为 C++11 量身打造的轻量级 config 库，轻松完成 JSON 解析和序列化功能，并和 C++ 输入输出流交互。</p>
+<h3 id="功能">功能</h3>
+<ul>
+<li>仅头文件，低接入成本</li>
+<li>STL-like，低学习成本</li>
+<li>与标准库 io 交互</li>
+<li>非侵入式的序列化与反序列化</li>
+<li>Unicode与多编码支持（支持<code>char</code>、<code>wchar_t</code>、<code>char16_t</code>和<code>char32_t</code>）</li>
+<li>可扩展的输入输出方式</li>
+</ul>
+<blockquote>
+<p>注意：项目仍处于开发状态，可能有不兼容的修改。</p>
+</blockquote>
+<h3 id="关于更名">关于更名！</h3>
+<p>项目此前叫做 <code>jsonxx</code>，现已更名为 <code>configor</code>！</p>
+<p>在保证原有 API 可用的情况下，将在未来支持包括 JSON 在内的各种常见对象存储格式（如 YAML 等）。</p>
+<p>如果您之前已经在使用 jsonxx，那么升级到 configor 将非常简单，只需要修改头文件的声明如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 替换掉注释中的头文件，改为使用下方的头文件即可
+</span></span></span><span class="line"><span class="cl"><span class="c1">// #include &#34;jsonxx/json.hpp&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// using namespace jsonxx;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;configor/json.hpp&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">configor</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="目录">目录</h3>
+<ul>
+<li><a href="#%e5%bf%ab%e9%80%9f%e4%b8%8a%e6%89%8b" rel="">快速上手</a>
+<ul>
+<li><a href="#%e5%8f%96%e5%80%bc%e6%96%b9%e5%bc%8f" rel="">取值方式</a></li>
+<li><a href="#%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95%e5%92%8c%e8%bf%90%e7%ae%97%e7%ac%a6" rel="">常用方法和运算符</a></li>
+</ul>
+</li>
+<li>序列化与反序列化
+<ul>
+<li><a href="#%e5%ba%8f%e5%88%97%e5%8c%96" rel="">序列化</a></li>
+<li><a href="#%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96" rel="">反序列化</a></li>
+<li><a href="#Unicode%e4%b8%8e%e5%a4%9a%e7%bc%96%e7%a0%81%e6%94%af%e6%8c%81" rel="">Unicode与多编码支持</a></li>
+<li><a href="#%e4%b8%8e%e8%87%aa%e5%ae%9a%e4%b9%89%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2" rel="">与自定义类型转换</a></li>
+</ul>
+</li>
+<li><a href="#%e7%a4%ba%e4%be%8b%e4%bb%a3%e7%a0%81" rel="">示例代码</a></li>
+<li><a href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" rel="">常见问题</a></li>
+<li><a href="#%e6%9b%b4%e5%a4%9a" rel="">更多</a></li>
+<li><a href="#%e8%ae%a1%e5%88%92" rel="">计划</a></li>
+</ul>
+<h3 id="快速上手">快速上手</h3>
+<ul>
+<li>引入 configor 头文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;configor/json.hpp&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">configor</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用 C++ 的方式的创建 JSON 对象</li>
+</ul>
+<p>使用 <code>operator[]</code> 为 JSON 对象赋值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;number&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;float&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;string&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;this is a string&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;boolean&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;user&#34;</span><span class="p">][</span><span class="s">&#34;id&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;user&#34;</span><span class="p">][</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;Nomango&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 <code>std::initializer_list</code> 为 JSON 对象赋值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 使用初始化列表构造数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">json</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用初始化列表构造对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">json</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;user&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="s">&#34;id&#34;</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;Nomango&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 第二个对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">json</span> <span class="n">obj2</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;nul&#34;</span><span class="p">,</span> <span class="k">nullptr</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;number&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;float&#34;</span><span class="p">,</span> <span class="mf">1.3</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;boolean&#34;</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;string&#34;</span><span class="p">,</span> <span class="s">&#34;中文测试&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;array&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="mf">1.4</span> <span class="p">}</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="s">&#34;object&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;value&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="s">&#34;key2&#34;</span><span class="p">,</span> <span class="s">&#34;value2&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用辅助方法构造数组或对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">array</span><span class="p">({</span> <span class="mi">1</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="n">json</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">object</span><span class="p">({</span> <span class="p">{</span> <span class="s">&#34;user&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="p">{</span> <span class="s">&#34;id&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;Nomango&#34;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="取值方式">取值方式</h3>
+<ul>
+<li>判断 JSON 对象的值类型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 判断 JSON 值类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">is_null</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_bool</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_integer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_float</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_number</span><span class="p">();</span> <span class="c1">// is_integer() || is_float()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">is_string</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_array</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">is_object</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>JSON 对象的取值与类型转换</li>
+</ul>
+<p>通过 get 函数可以直接取值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">();</span>         <span class="c1">// 仅当 j.is_bool() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>          <span class="c1">// 仅当 j.is_integer() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">();</span>      <span class="c1">// 仅当 j.is_integer() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span>        <span class="c1">// 仅当 j.is_float() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">d</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>       <span class="c1">// 仅当 j.is_float() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>  <span class="c1">// 仅当 j.is_string() 时可用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 对于实现了 config_bind 的自定义数据类型，也可以直接取值
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 详情请参考下方 `JSON 与任意类型的转换`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">MyObject</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">myObj</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注意：get函数会强校验数据类型（例如整形和浮点数不能自动转换），参数类型与值类型不同时会引发 configor_type_error 异常。</p>
+</blockquote>
+<p>同时 get 支持取出引用和指针类型：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*&gt;</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过有参数的 get 函数，可以传入对象引用来取值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 成功读取到 n 的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 读取 n 值失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过 as 系列函数可以将数据类型尽可能的转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">as_bool</span><span class="p">();</span>           <span class="c1">// 对bool直接返回，对数字类型判断是否非0，对null返回false，对其他类型返回empty()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int64_t</span> <span class="nf">as_integer</span><span class="p">();</span>     <span class="c1">// 对数字类型直接返回，对bool类型强转，对其他类型抛出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">double</span> <span class="nf">as_float</span><span class="p">();</span>        <span class="c1">// 对数字类型直接返回，对bool类型强转，对其他类型抛出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">as_string</span><span class="p">();</span>  <span class="c1">// 对字符串类型直接返回，对数字类型和bool转换为字符串，对null返回空串，对其他类型抛出
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>类型转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 显式转换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">j</span><span class="p">[</span><span class="s">&#34;boolean&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">j</span><span class="p">[</span><span class="s">&#34;number&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">j</span><span class="p">[</span><span class="s">&#34;float&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 对于实现了 config_bind 的自定义数据类型，也可以直接转换
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 详情请参考下方 `JSON 与任意类型的转换`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">MyObject</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyObject</span> <span class="n">myObj</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyObject</span><span class="p">)</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyObject</span> <span class="n">myObj</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="常用方法和运算符">常用方法和运算符</h3>
+<ul>
+<li>size &amp; empty &amp; clear &amp; count &amp; &hellip;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">array</span><span class="p">({</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>    <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">arr</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>   <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">arr</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// 第一个元素被删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">arr</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">object</span><span class="p">({</span> <span class="p">{</span> <span class="s">&#34;one&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&#34;two&#34;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="n">obj</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>            <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obj</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>           <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obj</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#34;one&#34;</span><span class="p">);</span>      <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obj</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#34;missing&#34;</span><span class="p">);</span>  <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obj</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="s">&#34;one&#34;</span><span class="p">);</span>      <span class="c1">// one 被删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obj</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>比较运算符</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;boolean&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;number&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;number&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;number&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">[</span><span class="s">&#34;float&#34;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>JSON 对象类型和数组类型的遍历</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 增强 for 循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">j</span> <span class="p">:</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 使用迭代器遍历
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">obj</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">iter</span> <span class="o">!=</span> <span class="n">obj</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">iter</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">iter</span><span class="p">.</span><span class="n">key</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">iter</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="序列化">序列化</h3>
+<ul>
+<li>序列化为字符串</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 序列化为字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">json_str</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">dump</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 美化输出，使用 4 个空格对输出进行格式化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">pretty_str</span> <span class="o">=</span> <span class="n">j</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>序列化到文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span><span class="p">(</span><span class="s">&#34;output.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ofs</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 将 JSON 内容输出到文件，并美化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span><span class="p">(</span><span class="s">&#34;pretty.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ofs</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>序列化到输出流</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">;</span>    <span class="c1">// 可以使用 std::setw(4) 对输出内容美化
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="反序列化">反序列化</h3>
+<ul>
+<li>从字符串中解析</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="s">&#34;{ </span><span class="se">\&#34;</span><span class="s">happy</span><span class="se">\&#34;</span><span class="s">: true, </span><span class="se">\&#34;</span><span class="s">pi</span><span class="se">\&#34;</span><span class="s">: 3.141 }&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>从文件中读取</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="s">&#34;sample.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ifs</span> <span class="o">&gt;&gt;</span> <span class="n">j</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>从用户输入中读取</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">j</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="unicode与多编码支持">Unicode与多编码支持</h3>
+<p>configor 具有完备的 unicode 支持，同時支持 <code>char</code>、<code>wchar_t</code>、<code>char16_t</code>和<code>char32_t</code>。</p>
+<p>对于 <code>wchar_t</code> 类型，可使用下面的别名来使用宽字符版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span>   <span class="c1">// char
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">wjson</span>  <span class="c1">// wchar_t
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>宽字符版本示例代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">wjson</span> <span class="n">j</span> <span class="o">=</span> <span class="n">wjson</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;{ </span><span class="se">\&#34;</span><span class="s">name</span><span class="se">\&#34;</span><span class="s">: </span><span class="se">\&#34;</span><span class="s">中文测试</span><span class="se">\&#34;</span><span class="s"> }&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">wstring</span> <span class="n">str</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="sa">L</span><span class="s">&#34;name&#34;</span><span class="p">].</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">wstring</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对 char16_t 和 char32_t 字符类型需要使用下面的别名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">u16json_args</span> <span class="o">:</span> <span class="n">json_args</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">char_type</span> <span class="o">=</span> <span class="kt">char16_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">u32json_args</span> <span class="o">:</span> <span class="n">json_args</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">char_type</span> <span class="o">=</span> <span class="kt">char32_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// char16_t
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="n">u16json</span> <span class="o">=</span> <span class="n">configor</span><span class="o">::</span><span class="n">basic_config</span><span class="o">&lt;</span><span class="n">u16json_args</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// char32_t
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="n">u32json</span> <span class="o">=</span> <span class="n">configor</span><span class="o">::</span><span class="n">basic_config</span><span class="o">&lt;</span><span class="n">u32json_args</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>由于C++标准库并不支持 char16_t 和 char32_t 的IO流，在不同的平台和编译器上可能会有不同表现。<br>
+对于 Clang 编译器来说，您可能需要自己实现 std::ctype&lt;char16_t&gt; 和 std::ctype&lt;char32_t&gt; 才能让 configor 正常工作。</p>
+</blockquote>
+<h3 id="与自定义类型转换">与自定义类型转换</h3>
+<ul>
+<li>将自定义类型与 JSON 绑定</li>
+</ul>
+<p>configor 提供了 <code>JSON_BIND</code> 宏，可以用一行代码快速完成 json 绑定：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">User</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">user_id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">user_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">JSON_BIND</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">user_name</span><span class="p">);</span> <span class="c1">// 将 user_id 和 user_name 字段绑定到 json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 对私有成员变量同样适用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">User</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">user_id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">user_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">JSON_BIND</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">user_name</span><span class="p">);</span> <span class="c1">// 将 user_id 和 user_name 字段绑定到 json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>与 JSON 绑定后，可以方便的将自定义类型与 JSON 进行转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">User</span> <span class="n">user</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 将 User 转换为 json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">j</span> <span class="o">=</span> <span class="n">user</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 将 json 转换为 User
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">user</span> <span class="o">=</span> <span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="n">j</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>同时会默认支持 User 的智能指针、std::vector&lt;User&gt;、std::map&lt;std::string, User&gt; 等类型的自动转换。</p>
+<p>例如，下面的代码是正确的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span> <span class="n">user_list</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span> <span class="o">=</span> <span class="n">user_list</span><span class="p">;</span>  <span class="c1">// 可以正确处理复合类型的转换
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于第三方库的类型，由于无法侵入式的在其内部声明 JSON_BIND，可以通过特化实现 config_bind 类，非侵入式的绑定到 JSON。</p>
+<p>特化实现 config_bind 的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 用户类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">User</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">user_id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">user_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 与 json 绑定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">configor</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">config_binder</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">void</span> <span class="nf">to_config</span><span class="p">(</span><span class="n">json</span><span class="o">&amp;</span> <span class="n">j</span><span class="p">,</span> <span class="k">const</span> <span class="n">User</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span> <span class="s">&#34;user_id&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">user_id</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&#34;user_name&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">user_name</span> <span class="p">}</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">void</span> <span class="nf">from_config</span><span class="p">(</span><span class="k">const</span> <span class="n">json</span><span class="o">&amp;</span> <span class="n">j</span><span class="p">,</span> <span class="n">User</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span><span class="p">[</span><span class="s">&#34;user_id&#34;</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">user_id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span><span class="p">[</span><span class="s">&#34;user_name&#34;</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">user_name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>将自定义类型以 JSON 格式与输入输出流交互</li>
+</ul>
+<p>使用 json::wrap 函数可以让任意类型实现序列化与反序列化，并与输入输出流交互</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 把 obj 序列化，并输入到 s 流中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">json</span><span class="o">::</span><span class="n">wrap</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 从 s 流中读取，并把 obj 反序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span> <span class="o">&gt;&gt;</span> <span class="n">json</span><span class="o">::</span><span class="n">wrap</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="示例代码">示例代码</h3>
+<ol>
+<li>实现自定义User类的序列化与反序列化</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;configor/json.hpp&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">configor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 用户类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">User</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">user_id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">user_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">JSON_BIND</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">user_name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">s</span><span class="p">(</span><span class="s">&#34;{</span><span class="se">\&#34;</span><span class="s">user_id</span><span class="se">\&#34;</span><span class="s">: 10001, </span><span class="se">\&#34;</span><span class="s">user_name</span><span class="se">\&#34;</span><span class="s">: </span><span class="se">\&#34;</span><span class="s">John</span><span class="se">\&#34;</span><span class="s">}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 解析json内容，并反序列化到user对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">User</span> <span class="n">user</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">&gt;&gt;</span> <span class="n">json</span><span class="o">::</span><span class="n">wrap</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 序列化user对象并输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">json</span><span class="o">::</span><span class="n">wrap</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// {&#34;user_id&#34;:10001,&#34;user_name&#34;:&#34;John&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>一个HTTP接口的伪代码</li>
+</ol>
+<p>![example](/Users/xinqi/Library/Mobile Documents/iCloud~md~obsidian/Documents/content/posts/C++/assets/example.png)</p>
+<h3 id="常见问题">常见问题</h3>
+<h4 id="q">Q:</h4>
+<p>抛出异常 config deserialization error: unexpected token &rsquo;end_of_input'</p>
+<h4 id="a">A:</h4>
+<p>往往是读取文件失败导致的，请检查文件路径是否正确。</p>
+<h4 id="q-1">Q:</h4>
+<p>Windows 下中文乱码</p>
+<h4 id="a-1">A:</h4>
+<p>这是由于在中文环境下，Visual Studio 和 Windows 终端使用的编码都是 gb2312，而 configor 仅支持 unicode。</p>
+<p>Visual Studio 使用 utf-8 非常困难，建议直接忽略编码，对中文不做处理：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">configor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用 encoding::ignore 忽略编码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">json</span> <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">parse</span><span class="o">&lt;</span><span class="n">encoding</span><span class="o">::</span><span class="n">ignore</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&#34;{</span><span class="se">\&#34;</span><span class="s">chinese</span><span class="se">\&#34;</span><span class="s">:</span><span class="se">\&#34;</span><span class="s">一些带有中文的JSON字符串</span><span class="se">\&#34;</span><span class="s">}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">.</span><span class="n">dump</span><span class="o">&lt;</span><span class="n">encoding</span><span class="o">::</span><span class="n">ignore</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或使用自定义的json类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">my_json_args</span> <span class="o">:</span> <span class="n">configor</span><span class="o">::</span><span class="n">json_args</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 encoding::ignore 忽略编码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">_CharTy</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">default_encoding</span> <span class="o">=</span> <span class="n">configor</span><span class="o">::</span><span class="n">encoding</span><span class="o">::</span><span class="n">ignore</span><span class="o">&lt;</span><span class="n">_CharTy</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">json</span> <span class="o">=</span> <span class="n">configor</span><span class="o">::</span><span class="n">basic_config</span><span class="o">&lt;</span><span class="n">my_json_args</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="q-2">Q:</h4>
+<p>如何保证 JSON 序列化时按 key 的插入顺序输出？</p>
+<h4 id="a-2">A:</h4>
+<p>configor 内部使用 std::map 存储 kv 对象，默认是按 key 的字符串大小排序的。</p>
+<p>建议用第三方库替换 std::map，比如 <a href="https://github.com/nlohmann/fifo_map" target="_blank" rel="noopener noreffer">nlohmann/fifo_map</a>，然后声明 fifo_json 替换 json 来保证插入序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">fifo_json_args</span> <span class="o">:</span> <span class="n">json_args</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Kty</span><span class="p">,</span> <span class="k">class</span> <span class="nc">_Ty</span><span class="p">,</span> <span class="k">class</span><span class="err">... </span><span class="nc">_Args</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">object_type</span> <span class="o">=</span> <span class="n">nlohmann</span><span class="o">::</span><span class="n">fifo_map</span><span class="o">&lt;</span><span class="n">_Kty</span><span class="p">,</span> <span class="n">_Ty</span><span class="p">,</span> <span class="n">_Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// fifo_json 是按插入序排列的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="n">fifo_json</span> <span class="o">=</span> <span class="n">configor</span><span class="o">::</span><span class="n">basic_config</span><span class="o">&lt;</span><span class="n">fifo_json_args</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="更多">更多</h3>
+<p>若你需要将 JSON 解析和序列化应用到非 std::basic_stream 流中，可以通过实现自定义 <code>oadapter</code> 和 <code>iadapter</code> 的方式。</p>
+<p>一个 oadapter 的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">myadapter</span> <span class="o">:</span> <span class="k">public</span> <span class="n">oadapter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实现 write 接口，写入一个字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">write</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">ch</span><span class="p">)</span> <span class="k">override</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 直接输出到屏幕
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ch</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用方式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">myadapter</span> <span class="n">ma</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">oadapterstream</span> <span class="n">os</span><span class="p">{</span> <span class="n">ma</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>  <span class="c1">// 将 json j 序列化输出到屏幕上
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个 iadapter 的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">myadapter</span> <span class="o">:</span> <span class="k">public</span> <span class="n">iadapter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实现 read 接口，读取一个字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">char</span> <span class="nf">read</span><span class="p">()</span> <span class="k">override</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 直接从用户输入读取字符，读到换行符结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">eof</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用方式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">myadapter</span> <span class="n">ma</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">iadapterstream</span> <span class="n">is</span><span class="p">{</span> <span class="n">ma</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">json</span> <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">is</span><span class="p">);</span>  <span class="c1">// 读取用户输入，并反序列化
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>详细内容请参考 json_stream.hpp</p>
+<h3 id="计划">计划</h3>
+<ul>
+<li><i class="far fa-check-square fa-fw"></i> 完全的 unicode 支持</li>
+<li><i class="far fa-check-square fa-fw"></i> 单测覆盖率达到 85% 以上</li>
+<li><i class="far fa-check-square fa-fw"></i> 支持注释</li>
+<li><i class="far fa-check-square fa-fw"></i> 支持 json 和自定义类型的隐式转换（has_to_json限定）</li>
+<li><i class="far fa-square fa-fw"></i> optional 返回值的支持（作为模板参数并允许替换）</li>
+<li><i class="far fa-check-square fa-fw"></i> 错误信息完善</li>
+<li><i class="far fa-square fa-fw"></i> SAX工具</li>
+</ul>
+<h3 id="鸣谢">鸣谢</h3>
+<p>感谢 <a href="https://github.com/nlohmann/json" target="_blank" rel="noopener noreffer">nlohmann</a> 的 <code>JSON for Modern C++</code> 项目，本仓库的许多概念和灵感都来源于此。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" data-title="json读写" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" data-title="json读写"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" data-title="json读写"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/" data-title="json读写" data-image="/images/C&#43;&#43;.jpg"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/" class="prev" rel="prev" title="std::array容器用法"><i class="fas fa-angle-left fa-fw"></i>std::array容器用法</a>
+            <a href="/2022/01/c-%E5%AE%9E%E7%8E%B0socket%E9%80%9A%E4%BF%A1tcp-ip/" class="next" rel="next" title="C&#43;&#43;实现socket通信(TCP IP)">C&#43;&#43;实现socket通信(TCP IP)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

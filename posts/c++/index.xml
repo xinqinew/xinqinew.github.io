@@ -68,31 +68,31 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++:实现socket通信（TCP/IP）实例 ​ 首先声明，博主之前从来没有写过通信方面的东西，这次之所以写这个是因为项目需要，因此本文主要]]></description>
 </item><item>
-    <title>CString指南</title>
-    <link>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</link>
-    <pubDate>Mon, 03 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+    <title>json读写</title>
+    <link>https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/cstring%E6%8C%87%E5%8D%97/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/json%E8%AF%BB%E5%86%99/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>我用#CSDN#这个app发现了有技术含量的博客，小伙伴们求同去《CString 应用操作指南【转】》, 一起来围观吧 https://blog.csdn.net/wallwind/article/details/6599125?utm_source=app&app_version=4.21.1 这篇文章包括以下内容： CString]]></description>
+            </div>GitHub开源 https://github.com/Nomango/configor configor 一个为 C++11 量身打造的轻量级 config 库，轻松完成 JSON 解析和序列化功能，并和 C++ 输入输出流交互。 功能 仅头文件，低接入成本 STL-like]]></description>
 </item><item>
-    <title>C&#43;&#43; 调用cmd的几种方法</title>
-    <link>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
-    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+    <title>std::array容器用法</title>
+    <link>https://xinqinew.github.io/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/c-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>调用cmd来执行响应的命令，windows实际上也给了一些接口，但是有些在执行某些命令的时候，却不能够执行，比如 winsat。 system 这个命令使用]]></description>
+            </div>C++ array(STL array)容器用法详解 http://c.biancheng.net/view/6688.html 引用 在使用该容器之前，代码中需引入 &lt;array&gt; 头文件，并默认使用 std 命令空间，如下所示： 1 2 #include &lt;array&gt;using namespace std; 创建 array 容器的方式 创建具]]></description>
 </item><item>
-    <title>非常用API函数</title>
-    <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Fri, 17 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+    <title>std::map用法</title>
+    <link>https://xinqinew.github.io/2022/01/stdmap%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/stdmap%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此]]></description>
+            </div>更详细的教程 https://www.nhooo.com/cpp/cpp-map.html 本篇將介紹如何使用 C++ std map 以及用法，C++ std::map 是一個關聯式容器，關聯式容器把鍵值和一個元素連繫起來，並使用該鍵值來尋找元素、插入元]]></description>
 </item></channel>
 </rss>

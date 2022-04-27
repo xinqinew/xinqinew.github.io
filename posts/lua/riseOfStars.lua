@@ -1,4 +1,4 @@
-toast("在线版本0.18.1")
+toast("在线版本0.18.3")
 
 -- 对比颜色加强
 do
@@ -621,6 +621,13 @@ function oncePlist()
     if numAddChanLiang == nil then
         numAddChanLiang = 0
         writePlistNew("增产", numAddChanLiang)
+    end
+
+    -- 增产粒子
+    isAddChanLiangLiZi = loadPlistNew("增产粒子")
+    if isAddChanLiangLiZi == nil then
+        isAddChanLiangLiZi = false
+        writePlistNew("增产粒子", isAddChanLiangLiZi)
     end
 
     -- 整理背包
@@ -2686,6 +2693,10 @@ function zongHe1(...)
                 debug("点击增产")
                 touchClick(42, 331)
                 return
+            elseif haoLV >= 3 and isAddChanLiangLiZi == false and isColor(30, 336, 0x01f520, 95) and check16 == "vip8" then
+                debug("点击粒子增产")
+                touchClick(42, 331)
+                return
             end
             if isKaShengChan == true then
                 touchClick(45, 338, 0x28242b) -- 生产战舰
@@ -3295,19 +3306,31 @@ function zongHe1(...)
         elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
             if numAddChanLiang <= 2 then
-                if isColor(1047, 396, 0xea080f, 95) then
-                    numAddChanLiang = 3
-                    touchClick(20, 20)
-                    writePlistNew("增产", numAddChanLiang)
-                    isJustBack = false
-                else
+                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) then
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
                     writePlistNew("增产", numAddChanLiang)
                     isJustBack = false
+                else
+                    touchClick(20, 20)
+                    numAddChanLiang = numAddChanLiang + 1
+                    writePlistNew("增产", numAddChanLiang)
+                    isJustBack = false
                 end
-
+            elseif isAddChanLiangLiZi == false and check16 == "vip8" then
+                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(693,389,0xa13bd6,95) then
+                    touchClick(1004, 385, 0x1c6dba)
+                    touchClick(20, 20)
+                    isAddChanLiangLiZi = true
+                    writePlistNew("增产粒子", isAddChanLiangLiZi)
+                    isJustBack = false
+                else
+                    touchClick(20, 20)
+                    isAddChanLiangLiZi = true
+                    writePlistNew("增产粒子", isAddChanLiangLiZi)
+                    isJustBack = false
+                end
             else
                 touchClick(20, 20)
                 isJustBack = false
@@ -4174,6 +4197,10 @@ function checkRed1()
         debug("准备增产3")
         touchClick(37, 321, 0x257700)
         return true
+    elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isAddChanLiangLiZi == false and haoLV >= 2 and check16 == "vip8" then
+        debug("准备粒子增产")
+        touchClick(183, 259, 0x40414d)
+        return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isTrade == false and haoLV >= 2 then
         debug("准备交易行")
         touchClick(320, 468, 0x6e1313)
@@ -4790,6 +4817,12 @@ function chongZhiJiDiXianKuang()
                 gaiMuBiaoNew(2, mb_Reward, mm_Reward)
                 isAgainReward22 = true
                 writePlistNew("再次收获22", isAgainReward22)
+
+                numAddChanLiang = 0
+                writePlistNew("增产", numAddChanLiang)
+
+                isAddChanLiangLiZi = false
+                writePlistNew("增产粒子", isAddChanLiangLiZi)
             end
         end
     end
@@ -6163,8 +6196,8 @@ function everyDayInit(...)
     -- local tmpXuanXiang = string.find(duoXuan1, "1")
     -- if tmpXuanXiang ~= nil then
     if nowDateTime.day ~= nowDay then
-        if nowDateTime.hour >= 8 and nowDateTime.min >= 0 then
-            debug("8点0分重置")
+        if nowDateTime.hour >= 9 and nowDateTime.min >= 0 then
+            debug("9点0分重置")
 
             -- closeApp(appXiangMu)
 
@@ -6202,6 +6235,9 @@ function everyDayInit(...)
 
             numAddChanLiang = 0
             writePlistNew("增产", numAddChanLiang)
+
+            isAddChanLiangLiZi = false
+            writePlistNew("增产粒子", isAddChanLiangLiZi)
 
             isAgainReward22 = false
             writePlistNew("再次收获22", isAgainReward22)
