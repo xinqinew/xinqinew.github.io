@@ -328,8 +328,8 @@ function main1()
 
     autoVpn()
     autoUnlockDevice()
-    
-        zongHe1()
+
+    zongHe1()
     if bid == apps1 then
         zongHe_Mult()
         zongHe_Screen()
@@ -3663,7 +3663,11 @@ function zongHe1(...)
         else
             if muBiao == "章节" then
                 if isColor(81, 106, 0xf26202, 95) and isColor(84, 104, 0xff6600, 95) and isColor(83, 110, 0xf36202, 95) then -- 1-6
-                    gaiMuBiaoNew(1, mb_WaKuang)
+                    if haoLV <= 2 then
+                        gaiMuBiaoNew(1, "优化")
+                    else
+                        gaiMuBiaoNew(1, mb_WaKuang)
+                    end
                     touchClick(510, 567, 0x0c0c0e)
                 else
                     x, y = findMultiColorInRegionFuzzy(0x126fbb, "112|22|0x075ea8", 90, 73, 385, 836, 428)
