@@ -2549,19 +2549,19 @@ function zongHe1(...)
         end
     end
 
-    if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
-        debug("请手动加入联盟")
-        -- fwCloseView("window1", "btn1"); -- 关闭文字视图
-        -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
-        -- mSleep(500)
-        isLuaStart = false
-        dialog("请手动加入联盟", 0);
-        -- lua_exit();
-        -- mSleep(10)
-        -- mSleep(10)
-        -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
-        -- mSleep(10)
-    end
+    -- if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
+    --     debug("请手动加入联盟")
+    --     -- fwCloseView("window1", "btn1"); -- 关闭文字视图
+    --     -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
+    --     -- mSleep(500)
+    --     isLuaStart = false
+    --     dialog("请手动加入联盟", 0);
+    --     -- lua_exit();
+    --     -- mSleep(10)
+    --     -- mSleep(10)
+    --     -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
+    --     -- mSleep(10)
+    -- end
     if isColor(17, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(48, 208, 0x9d96a8, 95) then
         debug("平台界面")
         if haoLV == 3 then
