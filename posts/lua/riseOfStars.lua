@@ -3873,6 +3873,19 @@ function zongHe1(...)
                     touchClick(282, 502)
                 elseif isColor(115, 513, 0xf18e07, 95) then -- 主线已完
                     touchClick(115, 513)
+                elseif isColor(163,353,0x2c507f,95) and isColor(152,324,0xb9ced4,95) and isColor(129,511,0x116eb9,95) then
+                    debug("使用100艘战舰")
+                    if nowTime - timeZhengLi >= 5 * 60 then
+                        touchClick(511, 572, 0x0c0c0e) -- 关闭
+                        mSleep(1000)
+                        touchClick(968, 580, 0xa95a2a) --背包
+                        mSleep(1000)
+                        isZhengLi = false
+                        writePlistNew("整理", isZhengLi)
+                        timeZhengLi = nowTime
+                    else
+                        touchClick(170, 510, 0x4784b8) -- 移动
+                    end
                 elseif isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
                     isColor(114, 511, 0x116eb9, 95) then
                     debug("拥有一名舰长")
