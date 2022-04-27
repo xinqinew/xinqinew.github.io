@@ -1826,7 +1826,7 @@ function zongHe1(...)
             touchClick(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
-        elseif isColor(543, 51, 0x3e8fee, 95) then -- 缺少条件3
+        elseif isColor(543, 251, 0x3e8fee, 95) then -- 缺少条件3
             -- touchClick(543, 251)
             debug("缺少条件3")
             touchClick(512, 598, 0x0c0c0e)
@@ -3227,6 +3227,19 @@ function zongHe1(...)
             elseif isColor(600, 157, 0x13669a, 95) and isColor(726, 286, 0x13669a, 95) and isColor(600, 403, 0x13669a, 95) then
                 debug("研究--强制")
                 touchClick(600, 262, 0xb8b9d4)
+                if isColor(543, 207, 0x3e8fee, 95) or isColor(995, 181, 0x1d426f, 95) then -- 缺少条件1
+                    debug("缺少条件1--继续")
+                    touchClick(543, 207)
+                    mSleep(1000)
+                elseif isColor(543, 242, 0x3e8fee, 95) then -- 缺少条件2
+                    debug("缺少条件2--继续")
+                    touchClick(543, 242)
+                    mSleep(1000)
+                elseif isColor(543, 251, 0x3e8fee, 95) then -- 缺少条件3
+                    debug("缺少条件3--继续")
+                    touchClick(543, 251)
+                    mSleep(1000)
+                end
             else
                 debug("啥都不是，关闭")
                 touchClick(20, 20)
