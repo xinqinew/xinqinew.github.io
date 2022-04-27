@@ -1076,9 +1076,9 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(20,440,0x8ab9f2,95) and isColor(1103,93,0x444545,95) and isColor(1057,30,0x808080,95) and isColor(1071,31,0xffffff,95) then
+    if isColor(20, 440, 0x8ab9f2, 95) and isColor(1103, 93, 0x444545, 95) and isColor(1057, 30, 0x808080, 95) and isColor(1071, 31, 0xffffff, 95) then
         debug("提示")
-        touchClick(1071,31)
+        touchClick(1071, 31)
     end
     if isColor(279, 286, 0x02ff00, 95) and isColor(319, 350, 0x02ff00, 95) and isColor(23, 249, 0xff8a00, 95) then
         debug("新号--任务3绿")
@@ -3873,7 +3873,7 @@ function zongHe1(...)
                     touchClick(282, 502)
                 elseif isColor(115, 513, 0xf18e07, 95) then -- 主线已完
                     touchClick(115, 513)
-                elseif isColor(163,353,0x2c507f,95) and isColor(152,324,0xb9ced4,95) and isColor(129,511,0x116eb9,95) then
+                elseif isColor(163, 353, 0x2c507f, 95) and isColor(152, 324, 0xb9ced4, 95) and isColor(129, 511, 0x116eb9, 95) then
                     debug("使用100艘战舰")
                     if nowTime - timeZhengLi >= 5 * 60 then
                         touchClick(511, 572, 0x0c0c0e) -- 关闭
@@ -3897,7 +3897,7 @@ function zongHe1(...)
                     debug("生产20战舰")
                     isKaShengChan = true
                     touchClick(170, 510, 0x4784b8) -- 移动
-                elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
+                elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and isColor(182, 366, 0xffe59f, 95) and
                     isColor(223, 501, 0x116eb9, 95) then
                     debug("提升1次舰长星级")
                     gaiMuBiaoNew(1, mb_WaKuang)
