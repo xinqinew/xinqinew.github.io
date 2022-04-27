@@ -1240,7 +1240,7 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
+            if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
                 gaiMuBiaoNew(1, "章节")
             else
                 gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -1271,7 +1271,7 @@ function zongHe1(...)
             mSleep(1000)
             getOut()
         elseif muBiao == mb_ZhuXian then
-            if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
+            if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
                 gaiMuBiaoNew(1, "章节")
             else
                 gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -2391,7 +2391,7 @@ function zongHe1(...)
                     writePlistNew("卡优化", isKaYouHua)
                     gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
-                    if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
+                    if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
                         gaiMuBiaoNew(1, "章节")
                     else
                         gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
@@ -3574,7 +3574,7 @@ function zongHe1(...)
                 mSleep(1000)
                 getOut()
             elseif muBiao == mb_ZhuXian then
-                if haoLV <= 2 and isOverLesson == false and numLv >= 8 then
+                if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
                     gaiMuBiaoNew(1, "章节")
                 else
                     gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
