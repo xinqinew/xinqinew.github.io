@@ -1076,6 +1076,10 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
+    if isColor(20,440,0x8ab9f2,95) and isColor(1103,93,0x444545,95) and isColor(1057,30,0x808080,95) and isColor(1071,31,0xffffff,95) then
+        debug("提示")
+        touchClick(1071,31)
+    end
     if isColor(279, 286, 0x02ff00, 95) and isColor(319, 350, 0x02ff00, 95) and isColor(23, 249, 0xff8a00, 95) then
         debug("新号--任务3绿")
         touchClick(279, 286)
