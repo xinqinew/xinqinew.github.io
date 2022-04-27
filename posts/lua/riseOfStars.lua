@@ -751,7 +751,7 @@ function onceOther()
     --              "3000e001c007ffffffffffdfff@1$1$67$15$7", "7000e0038007ffffffffffdfff@1$1$68$15$7",
     --              "70007000e000fffefffffffffffe$1$71$16$7"}
     -- index_lizi1 = addTSOcrDictEx(tab_lizi1)
-    tab_lizi2 = { "ffffffffffffffffffffffffffffff3fffc7fff0fffe000fc001f8003fffffffffffffffffffffffffffffffff@1$1$313$19$19",
+    tab_lizi1 = { "ffffffffffffffffffffffffffffff3fffc7fff0fffe000fc001f8003fffffffffffffffffffffffffffffffff@1$1$313$19$19",
         "ffffffffffffffffffffffffffffffffffff87fff8ffff0007f0007f0007fffffffffffffffffffffffffffffffffff$1$334$20$19",
         "ffffffffffffffffffffffffffffffffffff8ffff0ffff0ffff0007f0007f0007ffffffffffffffffffffffffffffffffffffffff$1$370$20$21",
         "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
@@ -763,7 +763,25 @@ function onceOther()
         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80007fc0003fe0001ff0000fffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$549$25$25",
         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80003fc0001fe0000ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$545$25$25",
         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff87ffffc1fffff0fffffc0001ff00007fc0001ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff@11$1$569$26$25" }
+    index_lizi1 = addTSOcrDictEx(tab_lizi1)
+
+    --内容已复制到剪贴板!
+    tab_lizi2 = {
+        "fffffffffffffffffffffffff1f9fc3e3f8787f1c0fe781fc013f8067f01cff0f9fffffffffffffffffffffffffffff$2$307$19$20",
+        "fffffffffffffffffffffffffffffff87c7f0707f0707f1e07f1827f0027f80e7f81e7ffff7fffffffffffffffffffffffff$2$324$20$20",
+        "fffffffffffffffffffffffffffffffff0fcff07c7f8383fc1c1fe780ff1807f8033fc019fe03cffc3e7fffffffffffffffffffffffffffffff@11$2$371$21$22",
+        "fffffffffffffffffffffffffffffffff0fcff07c7f8383fc1c1fe780ff1807f8033fc019fe03cffc3e7fffffffffffffffffffffffffffffff@11$2$371$21$22",
+        "fffffffffffffffffffffffffffffffffffffffffe1f87f83e0fe0781fc0e03f8f807f1e00fe0011fc0063fc01c7f80f8fffffbfffffffffffffffffffffffffffffffffff$2$434$23$24",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffc1f87fc0f83fe0781ff0f80ff8f807fc3803fe0011ff0018ffc01c7ff03e3fffff9ffffffffffffffffffffffffffffffffffffff@1$2$506$25$25",
+        "fffffffffffffffffffffffffffffffffffffffffffffc3f8ffc1f87fc0f83fe0701ff0f80ff8f807fc2023fe0011ff0018ffc03c7ff03e3fffff9ffffffffffffffffffffffffffffffffffffffffffff@11$2$523$25$26",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffe0fe1ff03e07fc0f01ff03807fc3e01ff1f047fc2011ff000c7fc0071ff003c7ff03f1fffffcffffffffffffffffffffffffffffffffffffffffffffff@11$2$563$26$27",
+        "fffffffffffffffffffffffffffffff87c7f0787f0707f1e07f3807f0027f0067f01e7fc3e7ffffffffffffffffffffffffffffff$2$337$20$21",
+        "ffffffffffffffffffffffffffffffffe1f8ff0f87f0783f8381fc780fe3807f0023f8031fe078ff87c7fffffffffffffffffffffffffffffff@11$2$364$21$22",
+        "ffffffffffffffffffffffffffffffffffff0fe7fc1f0ff03c1fe0703fc3c07f8f00ff0009fe0033fe00e7fc07cfffff9fffffffffffffffffffffffffffffffffff@1$2$420$23$23"
+    }
     index_lizi2 = addTSOcrDictEx(tab_lizi2)
+
+
     -- tab_cd_num = {"0380781c8708c08ffffff008008$4$44$12$9", "31cfbec63841841fe37be$8$45$12$7",
     --               "603e0781f83bc73fc3383$2$42$12$7", "31cfbec63841841fe37be$8$45$12$7",
     --               "ffffff0400f03b870cc07803001$K$49$12$9", "603e0f81f83bc637c3383$2$41$12$7",
@@ -3319,7 +3337,7 @@ function zongHe1(...)
                     isJustBack = false
                 end
             elseif isAddChanLiangLiZi == false and check16 == "vip8" then
-                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(693,389,0xa13bd6,95) then
+                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(693, 389, 0xa13bd6, 95) then
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     isAddChanLiangLiZi = true
@@ -5738,7 +5756,11 @@ function searchLiZi()
             x0, y0 = findColorInRegionFuzzy(0xf8c328, 95, intX1, 100, 1020, 540) -- 黄色图标
             -- debug("x0,y0 :"..x0..","..y0)
             if x0 ~= -1 then
-                x, y = tsFindText(index_lizi2, "1", x0 - 1, y0 - 1, x0 + 25, y0 + 25, "FAC52A , 030303", 94) -- 竖着从左至右全屏扫
+                if check20 == "2级粒子" then
+                    x, y = tsFindText(index_lizi2, "2", x0 - 1, y0 - 1, x0 + 25, y0 + 25, "FAC52A , 030303", 94) -- 竖着从左至右全屏扫
+                else
+                    x, y = tsFindText(index_lizi1, "1", x0 - 1, y0 - 1, x0 + 25, y0 + 25, "FAC52A , 030303", 94) -- 竖着从左至右全屏扫
+                end
                 if x ~= -1 then
                     touchClick(x + 48, y - 23)
                     mSleep(500)
