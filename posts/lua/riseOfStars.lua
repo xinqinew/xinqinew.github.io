@@ -3229,7 +3229,7 @@ function zongHe1(...)
                 touchClick(600, 262, 0xb8b9d4)
                 if isColor(543, 207, 0x3e8fee, 95) or isColor(995, 181, 0x1d426f, 95) then -- 缺少条件1
                     debug("缺少条件1--继续")
-                    touchClick(761,, 192)
+                    touchClick(761,192)
                     mSleep(1000)
                 elseif isColor(543, 242, 0x3e8fee, 95) then -- 缺少条件2
                     debug("缺少条件2--继续")
