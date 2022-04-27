@@ -328,8 +328,9 @@ function main1()
 
     autoVpn()
     autoUnlockDevice()
-    if bid == apps1 then
+    
         zongHe1()
+    if bid == apps1 then
         zongHe_Mult()
         zongHe_Screen()
         timeJianCe()
@@ -2673,6 +2674,9 @@ function zongHe1(...)
         debug("海盗--出航")
         if isColor(813, 65, 0xfbfbfb, 95) or isColor(810, 66, 0xff9999, 95) or isColor(793, 63, 0xc80305, 95) then -- 不利
             touchClick(20, 20)
+            if haoLV <= 2 and muBiao == "主线" then
+                gaiMuBiaoNew(1, "章节")
+            end
         elseif isColor(242, 150, 0xffffff, 95) or isColor(226, 149, 0xffffff, 95) then
             debug("无人物")
             touchClick(20, 20)
@@ -2773,7 +2777,7 @@ function zongHe1(...)
                     if muBiao ~= mb_YouHua then
                         isAutoNext = false
                     end
-                elseif isColor(652, 403, 0x3e8fee, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10) then
+                elseif isColor(652, 403, 0x3e8fee, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
                     debug("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2781,7 +2785,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(1104, 390, 0x1a406b, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10) then
+                elseif isColor(1104, 390, 0x1a406b, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
                     debug("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2789,7 +2793,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(652, 368, 0x3e8fee, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10)  then
+                elseif isColor(652, 368, 0x3e8fee, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
                     debug("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2797,7 +2801,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(1104, 356, 0x1a406b, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10)  then
+                elseif isColor(1104, 356, 0x1a406b, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
                     debug("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -3230,7 +3234,7 @@ function zongHe1(...)
                 touchClick(600, 262, 0xb8b9d4)
                 if isColor(543, 207, 0x3e8fee, 95) or isColor(995, 181, 0x1d426f, 95) then -- 缺少条件1
                     debug("缺少条件1--继续")
-                    touchClick(761,192)
+                    touchClick(761, 192)
                     mSleep(1000)
                 elseif isColor(543, 242, 0x3e8fee, 95) then -- 缺少条件2
                     debug("缺少条件2--继续")
@@ -3640,6 +3644,7 @@ function zongHe1(...)
     if isColor(430, 206, 0xf87808, 95) and isColor(439, 206, 0x583818, 95) and isColor(567, 269, 0x59271b, 95) then
         debug("完成章节")
         touchClick(556, 614, 0x262b33)
+        touchClick(556, 614, 0x262b33)
     end
     if isColor(69, 95, 0xf5a801, 95) and isColor(60, 119, 0xff6600, 95) and isColor(66, 157, 0xff6600, 95) then
         debug("第N章第N节")
@@ -3890,7 +3895,7 @@ function zongHe1(...)
                     touchClick(282, 502)
                 elseif isColor(115, 513, 0xf18e07, 95) then -- 主线已完
                     touchClick(115, 513)
-                elseif isColor(138,347,0x65ee01,95) and isColor(156,340,0x61f001,95) and isColor(183,329,0x52f001,95) and isColor(115,507,0x116eb9,95) then
+                elseif isColor(138, 347, 0x65ee01, 95) and isColor(156, 340, 0x61f001, 95) and isColor(183, 329, 0x52f001, 95) and isColor(115, 507, 0x116eb9, 95) then
                     debug("升级任务")
                     timeShengJiTongXingZheng = nowTime
                     touchClick(170, 510, 0x4784b8) -- 移动
@@ -4406,7 +4411,11 @@ function task_Lesson()
         mSleep(1000)
         if isZhengLi == true then
             touchClick(1103, 68, 0x0d1828) -- 展开右上角
-            touchClick(811, 317, 0x192838) -- 章节
+            if isColor(790, 276, 0xc7d4e1, 95) then
+                touchClick(811, 317, 0x192838) -- 章节
+            else
+                touchClick(672, 310, 0x223141)
+            end
             isZhengLi = false
         else
             touchClick(965, 586, 0x373c37) -- 背包
