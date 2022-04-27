@@ -3324,7 +3324,7 @@ function zongHe1(...)
         elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
             if numAddChanLiang <= 2 then
-                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) then
+                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(1046, 397, 0xff0000, 95) == false then
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
@@ -3337,7 +3337,7 @@ function zongHe1(...)
                     isJustBack = false
                 end
             elseif isAddChanLiangLiZi == false and check16 == "vip8" then
-                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(693, 389, 0xa13bd6, 95) then
+                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(1046, 397, 0xff0000, 95) == false and isColor(693, 389, 0xa13bd6, 95) then
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     isAddChanLiangLiZi = true
