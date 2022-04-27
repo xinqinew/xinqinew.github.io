@@ -80,6 +80,7 @@ function bianLiang()
     isKaShengChan = false -- 卡主线--生产
     isFalseLiZi2 = false --2级粒子挖掘失败
 
+    numShengJiCengShu = 0 --建筑升级条件层数
     numZiYuan = 1
     numKaiFa = 1
     numFangYu = 1
@@ -1074,6 +1075,10 @@ function zongHe1(...)
             debug("free")
             touchClick(33, 493)
         end
+    end
+    if isColor(279, 286, 0x02ff00, 95) and isColor(319, 350, 0x02ff00, 95) and isColor(23, 249, 0xff8a00, 95) then
+        debug("新号--任务3绿")
+        touchClick(279, 286)
     end
     if isColor(16, 23, 0xffffff, 95) and isColor(858, 593, 0xd78b02, 95) and isColor(685, 589, 0x0474d7, 95) and isColor(558, 108, 0x517fad, 95) == false then
         debug("错误的出航界面")
@@ -2733,6 +2738,7 @@ function zongHe1(...)
                     isJiaSuProduce = true
                 elseif isColor(431, 589, 0x1c6eba, 95) then
                     debug("可升级")
+                    numShengJiCengShu = 0
                     if haoLV <= 2 then
                         if isColor(246, 604, 0xfddb81, 95) and isColor(269, 612, 0xfad275, 95) then
                             debug("免费")
@@ -2745,6 +2751,7 @@ function zongHe1(...)
                         getOut()
                     end
                 elseif isColor(246, 604, 0xfddb81, 95) and isColor(270, 612, 0xf5c566, 95) then
+                    numShengJiCengShu = 0
                     if haoLV <= 2 then
                         debug("免费")
                         touchClick(246, 604)
@@ -2752,6 +2759,7 @@ function zongHe1(...)
                         getOut()
                     end
                 elseif isColor(421, 598, 0x1eb686, 95) then
+                    numShengJiCengShu = 0
                     debug("建设--加速")
                     touchClick(421, 598)
                     if muBiao ~= mb_YouHua then
@@ -2760,6 +2768,7 @@ function zongHe1(...)
                 elseif isColor(652, 403, 0x3e8fee, 95) and isAutoNext == true then
                     debug("2蓝")
                     if haoLV <= 2 then
+                        checkShengJiCengShu()
                         touchClick(843, 390)
                     else
                         getOut()
@@ -2767,6 +2776,7 @@ function zongHe1(...)
                 elseif isColor(1104, 390, 0x1a406b, 95) and isAutoNext == true then
                     debug("2蓝")
                     if haoLV <= 2 then
+                        checkShengJiCengShu()
                         touchClick(843, 390)
                     else
                         getOut()
@@ -2774,6 +2784,7 @@ function zongHe1(...)
                 elseif isColor(652, 368, 0x3e8fee, 95) and isAutoNext == true then
                     debug("1蓝")
                     if haoLV <= 2 then
+                        checkShengJiCengShu()
                         touchClick(1089, 356)
                     else
                         getOut()
@@ -2781,6 +2792,7 @@ function zongHe1(...)
                 elseif isColor(1104, 356, 0x1a406b, 95) and isAutoNext == true then
                     debug("1蓝")
                     if haoLV <= 2 then
+                        checkShengJiCengShu()
                         touchClick(1089, 356)
                     else
                         getOut()
@@ -6561,6 +6573,26 @@ function OCR_num()
             end
         end
         -- toast(numKuang .. " " .. numJinShu .. " " .. numLvQi .. " " .. numLiZi .. " " .. numCoin)
+    end
+end
+
+--建筑升级条件层数
+function checkShengJiCengShu()
+    numShengJiCengShu = numShengJiCengShu + 1
+    if numShengJiCengShu >= 10 then
+        if muBiao == "优化" then
+            gaiMuBiaoNew(1, "主线")
+        elseif muBiao == "主线" then
+            gaiMuBiaoNew(1, "挖矿")
+        end
+        RGB_NoticeBJ = "FFFF00"
+        RGB_NoticeFont = "FF0000"
+        strNotice = "金属"
+        fwCloseView("window1", "more"); -- 关闭文字视图
+        fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
+        mSleep(500)
+        getOut()
+        numShengJiCengShu = 0
     end
 end
 
