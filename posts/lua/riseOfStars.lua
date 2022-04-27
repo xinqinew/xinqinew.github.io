@@ -96,6 +96,7 @@ function bianLiang()
     numSearch = 0 -- 搜索
     numYunDaMa = 0 -- 云打码
 
+    timeShengJiTongXingZheng = nowTime --升级通行证
     timeUpJson = nowTime - 10 * 60 --上传间隔
     timeZhengLi = nowTime - 5 * 60 --检测背包
     timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
@@ -2772,7 +2773,7 @@ function zongHe1(...)
                     if muBiao ~= mb_YouHua then
                         isAutoNext = false
                     end
-                elseif isColor(652, 403, 0x3e8fee, 95) and isAutoNext == true then
+                elseif isColor(652, 403, 0x3e8fee, 95) and (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10) then
                     debug("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2780,7 +2781,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(1104, 390, 0x1a406b, 95) and isAutoNext == true then
+                elseif isColor(1104, 390, 0x1a406b, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10) then
                     debug("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2788,7 +2789,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(652, 368, 0x3e8fee, 95) and isAutoNext == true then
+                elseif isColor(652, 368, 0x3e8fee, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10)  then
                     debug("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -2796,7 +2797,7 @@ function zongHe1(...)
                     else
                         getOut()
                     end
-                elseif isColor(1104, 356, 0x1a406b, 95) and isAutoNext == true then
+                elseif isColor(1104, 356, 0x1a406b, 95) and  (isAutoNext == true or nowTime - timeShengJiTongXingZheng>= 10)  then
                     debug("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
@@ -3889,6 +3890,13 @@ function zongHe1(...)
                     touchClick(282, 502)
                 elseif isColor(115, 513, 0xf18e07, 95) then -- 主线已完
                     touchClick(115, 513)
+                elseif isColor(138,347,0x65ee01,95) and isColor(156,340,0x61f001,95) and isColor(183,329,0x52f001,95) and isColor(115,507,0x116eb9,95) then
+                    debug("升级任务")
+                    timeShengJiTongXingZheng = nowTime
+                    touchClick(170, 510, 0x4784b8) -- 移动
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                        touchClick(38, 492) -- 工具
+                    end
                 elseif isColor(163, 353, 0x2c507f, 95) and isColor(152, 324, 0xb9ced4, 95) and isColor(129, 511, 0x116eb9, 95) then
                     debug("使用100艘战舰")
                     if nowTime - timeZhengLi >= 5 * 60 then
@@ -3901,6 +3909,9 @@ function zongHe1(...)
                         timeZhengLi = nowTime
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
+                        if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                            touchClick(38, 492) -- 工具
+                        end
                     end
                 elseif isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
                     isColor(114, 511, 0x116eb9, 95) then
@@ -3913,6 +3924,9 @@ function zongHe1(...)
                     debug("生产20战舰")
                     isKaShengChan = true
                     touchClick(170, 510, 0x4784b8) -- 移动
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                        touchClick(38, 492) -- 工具
+                    end
                 elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and isColor(182, 366, 0xffe59f, 95) and
                     isColor(223, 501, 0x116eb9, 95) then
                     debug("提升1次舰长星级")
@@ -3953,6 +3967,9 @@ function zongHe1(...)
                         timeZhengLi = nowTime
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
+                        if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
+                            touchClick(38, 492) -- 工具
+                        end
                     end
                 elseif isColor(148, 340, 0x1b87df, 95) and isColor(189, 341, 0x0c67b0, 95) and isColor(124, 507, 0x116eb9, 95) then
                     debug("卡主线--建资源")
