@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  742 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  541 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/","datePublished": "2022-02-15T00:00:00+00:00","dateModified": "2022-02-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 742 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 541 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/02/imgui%E8%A1%A8%E6%A0%BC/" class="leancloud_visitors" data-flag-title="ImGui表格">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -161,51 +161,20 @@
 <li>可选择调用TableHeadersRow()提交标题行。名称从TableSetupColumn()数据中提取。</li>
 <li>填充内容：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">典型的呼叫流程是：</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// - 1。调用BeginTable（）。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 2。可选择调用TableSetupColumn()提交列名/标志/默认值。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 3。可选地调用TableSetupScrollFreeze()来请求对列/行进行滚动冻结。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 4。可选择调用TableHeadersRow()提交标题行。名称从TableSetupColumn()数据中提取。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 5。填充内容：
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 在大多数情况下，您可以使用TableNextRow() + TableSetColumnIndex(N)开始附加到列中。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 如果您使用表格作为一种网格，其中每列都包含相同类型的内容，
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 您可能更喜欢使用 TableNextColumn() 而不是 TableNextRow() + TableSetColumnIndex()。
-</span></span></span><span class="line"><span class="cl"><span class="c1">//如果需要，TableNextColumn()将自动包裹到下一行中。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 重要信息：与旧的Colums() API相比，我们需要为第一列调用TableNextColumn()！
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 可能的呼叫流程摘要：
-</span></span></span><span class="line"><span class="cl"><span class="c1">// --------------------------------------------------------------------------------------------------------
-</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; TableSetColumnIndex(0) -&gt; Text(&#34;Hello 0&#34;) -&gt; TableSetColumnIndex(1) -&gt; Text(&#34;Hello 1&#34;) // OK
-</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; TableNextColumn() -&gt; Text(&#34;Hello 0&#34;) -&gt; TableNextColumn() -&gt; Text(&#34;Hello 1&#34;) // OK
-</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextColumn() -&gt; Text(&#34;Hello 0&#34;) -&gt; TableNextColumn() -&gt; Text(&#34;Hello 1&#34;) // OK：TableNextColumn()会自动进入下一行！
-</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; Text(&#34;Hello 0&#34;) // 不行！缺少TableSetColumnIndex（）或TableNextColumn（）！文本不会出现！
-</span></span></span><span class="line"><span class="cl"><span class="c1">// --------------------------------------------------------------------------------------------------------
-</span></span></span><span class="line"><span class="cl"><span class="c1">// - 5。呼叫EndTable（）
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+<p>// - 在大多数情况下，您可以使用TableNextRow() + TableSetColumnIndex(N)开始附加到列中。
+// - 如果您使用表格作为一种网格，其中每列都包含相同类型的内容，
+// 您可能更喜欢使用 TableNextColumn() 而不是 TableNextRow() + TableSetColumnIndex()。
+//如果需要，TableNextColumn()将自动包裹到下一行中。
+// - 重要信息：与旧的Colums() API相比，我们需要为第一列调用TableNextColumn()！
+// - 可能的呼叫流程摘要：
+// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+// TableNextRow() -&gt; TableSetColumnIndex(0) -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableSetColumnIndex(1) -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
+// TableNextRow() -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
+// TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK：TableNextColumn()会自动进入下一行！
+// TableNextRow() -&gt; Text(&ldquo;Hello 0&rdquo;) // 不行！缺少TableSetColumnIndex（）或TableNextColumn（）！文本不会出现！
+// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+// - 5。呼叫EndTable（）</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

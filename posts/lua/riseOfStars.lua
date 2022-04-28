@@ -444,6 +444,21 @@ function oncePlist()
         writePlistNew("over章节", isOverLesson)
     end
 
+    -- 今日闪退次数
+    numTodayExit = loadPlistNew("今日闪退次数")
+    if numTodayExit == nil then
+        numTodayExit = 0
+        writePlistNew("今日闪退次数", numTodayExit)
+    end
+
+    -- 闪退总次数
+    numExit = loadPlistNew("闪退总次数")
+    if numExit == nil then
+        numExit = 0
+        writePlistNew("闪退总次数", numExit)
+    end
+
+
     -- 今日矿物次数
     numTodayDigKuang = loadPlistNew("今日矿物次数")
     if numTodayDigKuang == nil then
@@ -879,6 +894,10 @@ end
 
 -- 注销
 function zhuXiaoNew(...)
+    numTodayExit = numTodayExit + 1
+    writePlistNew("今日闪退次数", numTodayExit)
+    numExit = numExit + 1
+    writePlistNew("闪退总次数", numExit)
     if check5 == "注销" then
         flag = deviceIsLock();
         if flag == 0 then
@@ -6311,6 +6330,9 @@ function everyDayInit(...)
             numShengChan = 1
             numJingRui = 1
             numZhanJian = 1
+
+            numTodayExit = 0
+            writePlistNew("今日闪退次数", numTodayExit)
 
             nowDay = nowDateTime.day
             writePlistNew("日期", nowDay)
