@@ -588,6 +588,13 @@ function oncePlist()
         writePlistNew("金币", numCoin)
     end
 
+    -- 钛
+    numTai = loadPlistNew("钛")
+    if numTai == nil then
+        numTai = 0
+        writePlistNew("钛", numTai)
+    end
+
     -- 加速生产船型
     numSpeedUp = loadPlistNew("加速生产船型")
     if numSpeedUp == nil then
@@ -2939,6 +2946,31 @@ function zongHe1(...)
         elseif isColor(42, 357, 0xffe75f, 95) and isColor(43, 322, 0x0e5dd7, 95) and isColor(57, 296, 0xffffff, 95) then
             debug("资源传输装置--兑换")
             timeXXX = nowTime
+            if haoLV == 3 then
+                local temStr = ocrText(477, 334, 601, 360, 0, "0123456789.KM")
+                local temNum = 0
+                local num1 = string.find(temStr, "K")
+                local num2 = string.find(temStr, "M")
+                if num1 ~= nil then
+                    temStr = string.gsub(temStr, "K", "")
+                    temNum = tonumber(temStr)
+                    if temNum ~= nil then
+                        temNum = temNum * 1000
+                    end
+                elseif num2 ~= nil then
+                    temStr = string.gsub(temStr, "M", "")
+                    temNum = tonumber(temStr)
+                    if temNum ~= nil then
+                        temNum = temNum * 1000 * 1000
+                    end
+                else
+                    temNum = 1
+                end
+                if temNum ~= nil then
+                    numTai = temNum
+                    writePlistNew("钛", numTai)
+                end
+            end
             if isColor(971, 427, 0x116eb9, 95) then -- 资源4
                 touchClick(971, 427)
                 numZiYuanDuiHuan = numZiYuanDuiHuan + 1
@@ -2953,8 +2985,12 @@ function zongHe1(...)
                     debug("可免费兑换")
                     touchClick(452, 428, 0x2266ae) --使用
                     mSleep(1000)
-                    touchClick(678, 437, 0x000000) --全部
-                    touchClick(521, 490, 0x1c6dba) --使用
+                    if isColor(643, 515, 0x165da9, 95) then
+                        touchClick(678, 437, 0x000000) --全部
+                        touchClick(521, 490, 0x1c6dba) --使用
+                    else
+                        touchClick(642, 470, 0x145ca9)
+                    end
                 else
                     touchClick(687, 444, 0xd77501) -- 金币购买
                     numZiYuanDuiHuan = numZiYuanDuiHuan + 1
@@ -3812,6 +3848,10 @@ function zongHe1(...)
                 end
             end
         elseif isZhengLi == false then
+            if isColor(122,128,0x182536,95) then
+                touchClick(122, 128) -- 资源
+                mSleep(1000)
+            end
             for i = 1, 10, 1 do
                 if isPause == true then
                     return
@@ -6371,6 +6411,9 @@ function everyDayInit(...)
 
             numBuyTaiByCoin = 0
             writePlistNew("金币买钛", numBuyTaiByCoin)
+
+            numZiYuanDuiHuan = 0
+            writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
 
             numChuanShu = 0
             writePlistNew("传输次数", numChuanShu)
