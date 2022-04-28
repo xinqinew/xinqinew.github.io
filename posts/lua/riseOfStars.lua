@@ -444,6 +444,18 @@ function oncePlist()
         writePlistNew("over章节", isOverLesson)
     end
 
+    -- 机器名
+    strIphoneName = loadPlistNew("机器名")
+    if strIphoneName == nil then
+        strIphoneName = iphoneId
+        writePlistNew("机器名", strIphoneName)
+    end
+
+    -- 机器IP
+    strIphoneIP = json_ts.encode(getNetInterfaces()).en0.ip
+    writePlistNew("机器IP", strIphoneIP)
+
+
     -- 今日闪退次数
     numTodayExit = loadPlistNew("今日闪退次数")
     if numTodayExit == nil then
@@ -3773,7 +3785,7 @@ function zongHe1(...)
                     return
                 end
                 touchClick(215 + i * 100, 78) --点击物品
-                if isColor(604,471,0xd78b01,95) then--有合成按钮
+                if isColor(604, 471, 0xd78b01, 95) then --有合成按钮
                     touchClick(611, 466, 0xd78b01) --合成
                     if isColor(487, 543, 0x1c6dbb, 95) then --有合成按钮
                         touchClick(509, 551, 0x1c6eba) --合成
@@ -3786,7 +3798,7 @@ function zongHe1(...)
                         touchClick(511, 551, 0x0c0c0e) --关闭
                     end
                 else
-                    touchClick(511,521,0x0c0c0e                )
+                    touchClick(511, 521, 0x0c0c0e)
                 end
                 if i == 8 then
                     isMixedThing = true
@@ -6648,29 +6660,30 @@ function OCR_num()
         end
 
         do
-            local temStr = ocrText(1050, 14, 1119, 30, 0, "0123456789.KM")
-            local temNum = 0
-            local num1 = string.find(temStr, "K")
-            local num2 = string.find(temStr, "M")
-            if num1 ~= nil then
-                temStr = string.gsub(temStr, "K", "")
-                temNum = tonumber(temStr)
-                if temNum ~= nil then
-                    temNum = temNum * 1000
-                end
-            elseif num2 ~= nil then
-                temStr = string.gsub(temStr, "M", "")
-                temNum = tonumber(temStr)
-                if temNum ~= nil then
-                    temNum = temNum * 1000 * 1000
-                end
-            else
-                temNum = 1
-            end
-            if temNum ~= nil then
-                numCoin = temNum
-                writePlistNew("金币", numCoin)
-            end
+            local temStr = ocrText(1050, 14, 1119, 30, 0, "0123456789")
+            -- local temNum = 0
+            -- local num1 = string.find(temStr, "K")
+            -- local num2 = string.find(temStr, "M")
+            -- if num1 ~= nil then
+            --     temStr = string.gsub(temStr, "K", "")
+            --     temNum = tonumber(temStr)
+            --     if temNum ~= nil then
+            --         temNum = temNum * 1000
+            --     end
+            -- elseif num2 ~= nil then
+            --     temStr = string.gsub(temStr, "M", "")
+            --     temNum = tonumber(temStr)
+            --     if temNum ~= nil then
+            --         temNum = temNum * 1000 * 1000
+            --     end
+            -- else
+            --     temNum = 1
+            -- end
+            -- if temNum ~= nil then
+            --     numCoin = temNum
+            --     writePlistNew("金币", numCoin)
+            -- end
+            writePlistNew("金币", temStr)
         end
         -- toast(numKuang .. " " .. numJinShu .. " " .. numLvQi .. " " .. numLiZi .. " " .. numCoin)
     end
