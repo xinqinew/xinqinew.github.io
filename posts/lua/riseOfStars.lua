@@ -2601,8 +2601,8 @@ function zongHe1(...)
         end
     end
 
-    -- if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
-    --     debug("请手动加入联盟")
+    if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
+        debug("请手动加入联盟")
     --     -- fwCloseView("window1", "btn1"); -- 关闭文字视图
     --     -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
     --     -- mSleep(500)
@@ -2613,7 +2613,8 @@ function zongHe1(...)
     --     -- mSleep(10)
     --     -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
     --     -- mSleep(10)
-    -- end
+        touchClick(512,567,0x0c0c0e    )
+    end
     if isColor(17, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(48, 208, 0x9d96a8, 95) then
         debug("平台界面")
         if haoLV == 3 then
@@ -2721,7 +2722,7 @@ function zongHe1(...)
         debug("海盗--出航")
         if isColor(813, 65, 0xfbfbfb, 95) or isColor(810, 66, 0xff9999, 95) or isColor(793, 63, 0xc80305, 95) then -- 不利
             touchClick(20, 20)
-            if haoLV <= 2 and muBiao == "主线" then
+            if haoLV <= 2 and muBiao == "主线" and numLv >= 6 then
                 gaiMuBiaoNew(1, "章节")
             end
         elseif isColor(242, 150, 0xffffff, 95) or isColor(226, 149, 0xffffff, 95) then
