@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">ImGui流程 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="ImGui流程" />
-<meta property="og:description" content="配置环境 下载ImGui源码 ​ https://github.com/ocornut/imgui VS创建项目,新建cpp文件,再导入imgui内的cpp和h文件 导入backends目录下以下文件 半个人 imgui_impl_opengl3.h imgui_impl_opengl3.cpp imgui_impl_opengl3_loader.h" />
+    <title class="pjax-title">ImGui表格 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="ImGui表格" />
+<meta property="og:description" content="ImGui表格用法 https://github.com/ocornut/imgui/issues/3740 典型流程： 调用BeginTable（）。 可选择调用TableSetupColumn()提交列名/标志/默认值。 可选地调用" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-02-15T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="ImGui流程"/>
-<meta name="twitter:description" content="配置环境 下载ImGui源码 ​ https://github.com/ocornut/imgui VS创建项目,新建cpp文件,再导入imgui内的cpp和h文件 导入backends目录下以下文件 半个人 imgui_impl_opengl3.h imgui_impl_opengl3.cpp imgui_impl_opengl3_loader.h"/>
+<meta name="twitter:title" content="ImGui表格"/>
+<meta name="twitter:description" content="ImGui表格用法 https://github.com/ocornut/imgui/issues/3740 典型流程： 调用BeginTable（）。 可选择调用TableSetupColumn()提交列名/标志/默认值。 可选地调用"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" /><link rel="prev" href="https://xinqinew.github.io/2022/02/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A81/" /><link rel="next" href="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" /><link rel="prev" href="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" /><link rel="next" href="https://xinqinew.github.io/2022/02/imgui%E5%87%BD%E6%95%B0/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "ImGui流程",
+        "headline": "ImGui表格",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E6%B5%81%E7%A8%8B\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  155 ,
-        "url": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E6%B5%81%E7%A8%8B\/","datePublished": "2022-02-15T00:00:00+00:00","dateModified": "2022-02-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  742 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/","datePublished": "2022-02-15T00:00:00+00:00","dateModified": "2022-02-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ImGui流程</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ImGui表格</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 155 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/02/imgui%E6%B5%81%E7%A8%8B/" class="leancloud_visitors" data-flag-title="ImGui流程">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 742 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/02/imgui%E8%A1%A8%E6%A0%BC/" class="leancloud_visitors" data-flag-title="ImGui表格">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -145,101 +145,67 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#配置环境">配置环境</a></li>
+        <li><a href="#imgui表格用法">ImGui表格用法</a></li>
+        <li><a href="#典型流程">典型流程：</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="配置环境">配置环境</h2>
+            </div><div class="content" id="content"><h2 id="imgui表格用法">ImGui表格用法</h2>
+<p><a href="https://github.com/ocornut/imgui/issues/3740" target="_blank" rel="noopener noreffer">https://github.com/ocornut/imgui/issues/3740</a></p>
+<h2 id="典型流程">典型流程：</h2>
 <ol>
-<li>下载ImGui源码</li>
+<li>调用BeginTable（）。</li>
+<li>可选择调用TableSetupColumn()提交列名/标志/默认值。</li>
+<li>可选地调用TableSetupScrollFreeze()来请求对列/行进行滚动冻结。</li>
+<li>可选择调用TableHeadersRow()提交标题行。名称从TableSetupColumn()数据中提取。</li>
+<li>填充内容：</li>
 </ol>
-<p>​	https://github.com/ocornut/imgui</p>
-<ol start="2">
-<li>VS创建项目,新建cpp文件,再导入imgui内的cpp和h文件</li>
-</ol>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213037211.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213037211.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213037211.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213037211.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213037211.png"
-        title="image-20220215213037211"
-    /></p>
-<ol start="3">
-<li>
-<p>导入backends目录下以下文件</p>
-<p><a href="https://www.bilibili.com/video/BV1CM4y1u7MY?from=search&amp;seid=8099507727132987718&amp;spm_id_from=333.337.0.0" target="_blank" rel="noopener noreffer">半个人</a></p>
-<p>imgui_impl_opengl3.h</p>
-<p>imgui_impl_opengl3.cpp</p>
-<p>imgui_impl_opengl3_loader.h</p>
-<p>imgui_impl_glfw.h</p>
-<p>imgui_impl_glfw.cpp</p>
-<p>郁金香</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213431634.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213431634.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213431634.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213431634.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215213431634.png"
-        title="image-20220215213431634"
-    /></p>
-</li>
-<li>
-<p>项目内创建API目录,下载<a href="https://glfw.org" target="_blank" rel="noopener noreffer">32位glfw</a>并导入API目录</p>
-</li>
-</ol>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214028146.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214028146.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214028146.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214028146.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214028146.png"
-        title="image-20220215214028146"
-    /></p>
-<ol start="5">
-<li>
-<p>下载<a href="http://glew.sourceforge.net" target="_blank" rel="noopener noreffer">glew</a>并导入API目录</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214456243.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214456243.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214456243.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214456243.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215214456243.png"
-        title="image-20220215214456243"
-    /></p>
-</li>
-<li>
-<p>属性  C++ &raquo; 附加包含目录</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223812457.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223812457.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223812457.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223812457.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223812457.png"
-        title="image-20220215223812457"
-    /></p>
-</li>
-<li>
-<p>链接器 &raquo; 常规 &raquo; 附加库目录</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223325228.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223325228.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223325228.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223325228.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220215223325228.png"
-        title="image-20220215223325228"
-    /></p>
-</li>
-<li>
-<p>链接器 &raquo; 输入 &raquo; 附加依赖项</p>
-<p>opengl32.lib
-glfw3.lib
-glew32s.lib
-<del>glut32.lib</del></p>
-</li>
-</ol>
-</div><div class="post-footer" id="post-footer">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">典型的呼叫流程是：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// - 1。调用BeginTable（）。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 2。可选择调用TableSetupColumn()提交列名/标志/默认值。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 3。可选地调用TableSetupScrollFreeze()来请求对列/行进行滚动冻结。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 4。可选择调用TableHeadersRow()提交标题行。名称从TableSetupColumn()数据中提取。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 5。填充内容：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 在大多数情况下，您可以使用TableNextRow() + TableSetColumnIndex(N)开始附加到列中。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 如果您使用表格作为一种网格，其中每列都包含相同类型的内容，
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 您可能更喜欢使用 TableNextColumn() 而不是 TableNextRow() + TableSetColumnIndex()。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//如果需要，TableNextColumn()将自动包裹到下一行中。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 重要信息：与旧的Colums() API相比，我们需要为第一列调用TableNextColumn()！
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 可能的呼叫流程摘要：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// --------------------------------------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; TableSetColumnIndex(0) -&gt; Text(&#34;Hello 0&#34;) -&gt; TableSetColumnIndex(1) -&gt; Text(&#34;Hello 1&#34;) // OK
+</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; TableNextColumn() -&gt; Text(&#34;Hello 0&#34;) -&gt; TableNextColumn() -&gt; Text(&#34;Hello 1&#34;) // OK
+</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextColumn() -&gt; Text(&#34;Hello 0&#34;) -&gt; TableNextColumn() -&gt; Text(&#34;Hello 1&#34;) // OK：TableNextColumn()会自动进入下一行！
+</span></span></span><span class="line"><span class="cl"><span class="c1">// TableNextRow() -&gt; Text(&#34;Hello 0&#34;) // 不行！缺少TableSetColumnIndex（）或TableNextColumn（）！文本不会出现！
+</span></span></span><span class="line"><span class="cl"><span class="c1">// --------------------------------------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 5。呼叫EndTable（）
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -250,7 +216,7 @@ glew32s.lib
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" data-title="ImGui流程" data-hashtags="ImGui"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" data-hashtag="ImGui"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" data-title="ImGui流程"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" data-title="ImGui流程"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/02/imgui%E6%B5%81%E7%A8%8B/" data-title="ImGui流程"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" data-title="ImGui表格" data-hashtags="ImGui"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" data-hashtag="ImGui"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" data-title="ImGui表格"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" data-title="ImGui表格"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/02/imgui%E8%A1%A8%E6%A0%BC/" data-title="ImGui表格"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -262,8 +228,8 @@ glew32s.lib
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2022/02/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A81/" class="prev" rel="prev" title="OpenGL和Imgui整合入门1"><i class="fas fa-angle-left fa-fw"></i>OpenGL和Imgui整合入门1</a>
-            <a href="/2022/02/imgui%E8%A1%A8%E6%A0%BC/" class="next" rel="next" title="ImGui表格">ImGui表格<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2022/02/imgui%E6%B5%81%E7%A8%8B/" class="prev" rel="prev" title="ImGui流程"><i class="fas fa-angle-left fa-fw"></i>ImGui流程</a>
+            <a href="/2022/02/imgui%E5%87%BD%E6%95%B0/" class="next" rel="next" title="ImGui">ImGui<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
