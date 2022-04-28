@@ -452,7 +452,8 @@ function oncePlist()
     end
 
     -- 机器IP
-    strIphoneIP = json_ts.encode(getNetInterfaces()).en0.ip
+    local strIp = getNetInterfaces()
+    strIphoneIP = strIp.en0.ip
     writePlistNew("机器IP", strIphoneIP)
 
 
@@ -985,7 +986,7 @@ function moreWindow()
         "目标1 : " .. muBiao1 .. "  目标2 : " .. muBiao2 .. "  目标3 : " .. muBiao3, "left", "FFFFFF", "0C2037",
         12, 0, 0, 51, wScreen - 100, 100, 1);
     fwShowTextView("moreWin", "text_info",
-        "机器名 : " .. iphoneId .. "  IP : " .. json_ts.encode(getNetInterfaces()), "left", "FFFFFF", "025062", 12,
+        "机器名 : " .. iphoneId .. "  IP : " .. strIphoneIP, "left", "FFFFFF", "025062", 12,
         0, 0, 101, wScreen - 100, 150, 1);
 
     mSleep(500)
