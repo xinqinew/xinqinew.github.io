@@ -1121,6 +1121,10 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
+    if isColor(17,24,0xafafaf,95) and isColor(381,588,0x00769c,95) and isColor(561,425,0x9f6800,95) and isColor(881,585,0x1d6dba,95) then
+        debug("卡指引--编队--整编")
+        touchClick(881,585,0x1d6dba    )
+    end
     if isColor(20, 440, 0x8ab9f2, 95) and isColor(1103, 93, 0x444545, 95) and isColor(1057, 30, 0x808080, 95) and isColor(1071, 31, 0xffffff, 95) then
         debug("提示")
         touchClick(1071, 31)
