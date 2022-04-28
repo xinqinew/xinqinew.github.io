@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  541 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ImGui","wordcount":  5039 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/02\/imgui%E8%A1%A8%E6%A0%BC\/","datePublished": "2022-02-15T00:00:00+00:00","dateModified": "2022-02-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 541 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2022/02/imgui%E8%A1%A8%E6%A0%BC/" class="leancloud_visitors" data-flag-title="ImGui表格">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5039 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/2022/02/imgui%E8%A1%A8%E6%A0%BC/" class="leancloud_visitors" data-flag-title="ImGui表格">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -147,6 +147,11 @@
       <ul>
         <li><a href="#imgui表格用法">ImGui表格用法</a></li>
         <li><a href="#典型流程">典型流程：</a></li>
+        <li><a href="#简易实例">简易实例</a></li>
+        <li><a href="#api-as-of-january-2021">API (as of January 2021)</a></li>
+        <li><a href="#imguitableflags">ImGuiTableFlags</a></li>
+        <li><a href="#imguitablecolumnflags">ImGuiTableColumnFlags</a></li>
+        <li><a href="#imguitablerowflags">ImGuiTableRowFlags</a></li>
       </ul>
     </li>
   </ul>
@@ -161,20 +166,459 @@
 <li>可选择调用TableHeadersRow()提交标题行。名称从TableSetupColumn()数据中提取。</li>
 <li>填充内容：</li>
 </ol>
-<p>// - 在大多数情况下，您可以使用TableNextRow() + TableSetColumnIndex(N)开始附加到列中。
-// - 如果您使用表格作为一种网格，其中每列都包含相同类型的内容，
-// 您可能更喜欢使用 TableNextColumn() 而不是 TableNextRow() + TableSetColumnIndex()。
-//如果需要，TableNextColumn()将自动包裹到下一行中。
-// - 重要信息：与旧的Colums() API相比，我们需要为第一列调用TableNextColumn()！
-// - 可能的呼叫流程摘要：
-// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
-// TableNextRow() -&gt; TableSetColumnIndex(0) -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableSetColumnIndex(1) -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
-// TableNextRow() -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
-// TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK：TableNextColumn()会自动进入下一行！
-// TableNextRow() -&gt; Text(&ldquo;Hello 0&rdquo;) // 不行！缺少TableSetColumnIndex（）或TableNextColumn（）！文本不会出现！
-// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
-// - 5。呼叫EndTable（）</p>
-</div><div class="post-footer" id="post-footer">
+<ul>
+<li>在大多数情况下，您可以使用TableNextRow() + TableSetColumnIndex(N)开始附加到列中。</li>
+<li>如果您使用表格作为一种网格，其中每列都包含相同类型的内容，
+您可能更喜欢使用 TableNextColumn() 而不是 TableNextRow() + TableSetColumnIndex()。
+如果需要，TableNextColumn()将自动包裹到下一行中。</li>
+<li>重要信息：与旧的Colums() API相比，我们需要为第一列调用TableNextColumn()！</li>
+<li>可能的呼叫流程摘要：</li>
+</ul>
+<blockquote>
+<p>TableNextRow() -&gt; TableSetColumnIndex(0) -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableSetColumnIndex(1) -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
+TableNextRow() -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK
+TableNextColumn() -&gt; Text(&ldquo;Hello 0&rdquo;) -&gt; TableNextColumn() -&gt; Text(&ldquo;Hello 1&rdquo;) // OK：TableNextColumn()会自动进入下一行！</p>
+<p>TableNextRow() -&gt; Text(&ldquo;Hello 0&rdquo;) // 不行！缺少TableSetColumnIndex（）或TableNextColumn（）！文本不会出现！</p>
+</blockquote>
+<ol start="6">
+<li>呼叫EndTable（）</li>
+</ol>
+<h2 id="简易实例">简易实例</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">				<span class="c1">//在这里，我们将展示三种不同的输出表的方法。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">//它们是同样事物的非常简单的变体！
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// [方法1]使用TableNextRow()创建新行，使用TableSetColumnIndex()选择列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 在许多情况下，这是最灵活、最易于使用的模式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTable</span><span class="p">(</span><span class="s">&#34;table1&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextRow</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">column</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">column</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="p">{</span>
+</span></span><span class="line"><span class="cl">							<span class="n">ImGui</span><span class="o">::</span><span class="n">TableSetColumnIndex</span><span class="p">(</span><span class="n">column</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">							<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Row %d Column %d&#34;</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ImGui</span><span class="o">::</span><span class="n">EndTable</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// [方法2]使用多次调用的TableNextColumn()，而不是使用for循环+ TableSetColumnIndex()。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 当您有代码手动提交每列的内容时，这通常更方便。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTable</span><span class="p">(</span><span class="s">&#34;table2&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextRow</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextColumn</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Row %d&#34;</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextColumn</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Some contents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextColumn</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;123.456&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ImGui</span><span class="o">::</span><span class="n">EndTable</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// [方法3]我们调用TableNextColumn() _before_每个单元格。我们从不调用TableNextRow()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 因为TableNextColumn()将自动包裹并根据需要创建新的鱼子。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 当您的单元格都包含相同类型的数据时，这通常更方便。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="p">(</span><span class="n">ImGui</span><span class="o">::</span><span class="n">BeginTable</span><span class="p">(</span><span class="s">&#34;table3&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">item</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">;</span> <span class="n">item</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">TableNextColumn</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ImGui</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Item %d&#34;</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ImGui</span><span class="o">::</span><span class="n">EndTable</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="api-as-of-january-2021">API (as of January 2021)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 开始附加到表格中。仅当BeginTable（）返回true时调用EndTable()！
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">BeginTable</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">columns</span><span class="p">,</span> <span class="n">ImGuiTableFlags</span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">const</span> <span class="n">ImVec2</span><span class="o">&amp;</span> <span class="n">outer_size</span> <span class="o">=</span> <span class="n">ImVec2</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">),</span> <span class="kt">float</span> <span class="n">inner_width</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">EndTable</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="c1">// 附加到新行的第一个单元格中。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TableNextRow</span><span class="p">(</span><span class="n">ImGuiTableRowFlags</span> <span class="n">row_flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">min_row_height</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 附加到下一列（如果当前在最后一列，则附加到下一行的第一列）。当
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">TableNextColumn</span><span class="p">();</span><span class="c1">//列可见。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"><span class="c1">// 附加到指定的列中。当列可见时返回true。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">TableSetColumnIndex</span><span class="p">(</span><span class="kt">int</span> <span class="n">column_n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//表格：标题和列声明
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 使用TableSetupColumn()指定标签、调整大小策略、默认宽度/重量、ID、各种其他标志等。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 使用 TableHeadersRow() 创建一个标题行，并自动为每列提交 TableHeader()。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 需要标头才能执行：重新排序、排序和打开上下文菜单。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 上下文菜单也可以使用ImGuiTableFlags_ContextMenuInBody在列正文中提供。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 您可以使用TableNextRow() + TableHeader()调用手动提交标头，但这仅在
+</span></span></span><span class="line"><span class="cl"><span class="c1">//一些高级用例（例如，在标题行中添加自定义小部件）。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 使用TableSetupScrollFreeze()锁定列/行，以便它们在滚动时保持可见。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TableSetupColumn</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">label</span><span class="p">,</span> <span class="n">ImGuiTableColumnFlags</span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">init_width_or_weight</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="n">ImU32</span> <span class="n">user_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">TableSetupScrollFreeze</span><span class="p">(</span><span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">);</span> <span class="c1">//锁定列/行，以便它们在滚动时保持可见。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TableHeadersRow</span><span class="p">();</span> <span class="c1">// 根据提供给 TableSetupColumn() + 提交上下文菜单的数据提交所有标头单元格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TableHeader</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">label</span><span class="p">);</span> <span class="c1">//手动提交一个标题单元格（很少使用）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//表格：排序
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 调用TableGetSortSpecs()来检索表的最新排序规范。不排序时为空。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 当&#39;SpecsDirty == true&#39;时，您应该对数据进行排序。当分类规格发生变化时，情况确实如此
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 自上次通话以来，或第一次。排序后，请务必设置“SpecsDirty = false”，否则您可以
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 浪费地对每一帧的数据进行排序！
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 终身：不要在多个帧上按住此指针，也不要超过对BeginTable()的任何后续调用。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ImGuiTableSortSpecs</span><span class="o">*</span> <span class="nf">TableGetSortSpecs</span><span class="p">();</span> <span class="c1">// 获取表的最新排序规范（如果不排序，则为NULL）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//表格：杂项函数
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 函数args &#39;int column_n&#39;将-1的默认值视为传递当前列索引。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">TableGetColumnCount</span><span class="p">();</span> <span class="c1">// 返回列数（值传递给 BeginTable）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">TableGetColumnIndex</span><span class="p">();</span> <span class="c1">// 返回当前列索引。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">TableGetRowIndex</span><span class="p">();</span> <span class="c1">// 返回当前行索引。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">TableGetColumnName</span><span class="p">(</span><span class="kt">int</span> <span class="n">column_n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 如果列没有TableSetupColumn()声明的名称，则返回&#34;。通过-1使用当前列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ImGuiTableColumnFlags</span> <span class="nf">TableGetColumnFlags</span><span class="p">(</span><span class="kt">int</span> <span class="n">column_n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 返回列标志，以便您可以查询其启用/可见/排序/悬停状态标志。通过-1使用当前列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TableSetBgColor</span><span class="p">(</span><span class="n">ImGuiTableBgTarget</span> <span class="n">target</span><span class="p">,</span> <span class="n">ImU32</span> <span class="n">color</span><span class="p">,</span> <span class="kt">int</span> <span class="n">column_n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 更改单元格、行或列的颜色。有关详细信息，请参阅ImGuiTableBgTarget_标志。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="imguitableflags">ImGuiTableFlags</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// ImGui::BeginTable()的标志
+</span></span></span><span class="line"><span class="cl"><span class="c1">// [BETA API] API可能会略有演变！如果您使用此功能，请在发布时更新到下一个版本！
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 重要！尺寸政策具有复杂而微妙的副作用，比你想象的要多。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//仔细阅读评论/演示+尝试现场演示以熟悉它们。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 默认大小策略是：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 如果 ScrollX 已打开，或者主机窗口具有 ImGuiWindowFlags_AlwaysAutoResize，则默认为 ImGuiTableFlags_SizingFixedFit。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 如果 ScrollX 关闭，则默认为 ImGuiTableFlags_SizingStretchSame。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 当ScrollX关闭时：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 表默认为ImGuiTableFlags_SizingStretchSame -&gt;所有列默认为相同重量的ImGuiTableColumnFlags_WidthStretch。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 允许列大小策略：拉伸（默认），固定/自动。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 固定列通常会获得其要求的宽度（除非表不能全部匹配）。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 拉伸列将共享剩余宽度。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 混合固定/拉伸列是可能的，但对调整大小行为有各种副作用。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//混合大小策略的典型用途是：任意数量的领先固定列，后跟一两个跟踪拉伸列。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//（这是因为列的可见顺序对它们对手动调整大小的反应有微妙但必要的影响）。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 当ScrollX打开时：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 表默认为ImGuiTableFlags_SizingFixedFit -&gt;所有列默认为ImGuiTableColumnFlags_WidthFixed
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 允许列大小策略：主要修复/自动。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 固定列可以根据需要放大。如果需要，表格将显示水平滚动条。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 使用自动调整大小（不可调整大小）固定列时，查询内容宽度以使用项目对齐，例如SetNextItemWidth（-FLT_MIN）没有意义，会创建一个反馈循环。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 如果 ScrollX 处于打开，使用拉伸列通常没有意义，除非您在 BeginTable() 中指定了“inner_width”的值。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 如果您为“inner_width”指定一个值，那么实际上，滚动空间是已知的，拉伸或混合固定/拉伸列再次变得有意义。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// - 有关详细信息，请阅读imgui_tables.cpp顶部的文档。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">enum</span> <span class="nc">ImGuiTableFlags_</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 特征
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ImGuiTableFlags_Resizable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// 启用调整列大小。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_Reorderable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// 在标题行中启用重新排序列（需要调用 TableSetupColumn() + TableHeadersRow() 来显示标题）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_Hideable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// 在上下文菜单中启用隐藏/禁用列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_Sortable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// 启用排序。调用 TableGetSortSpecs() 以获取排序规范。另请参阅 ImGuiTableFlags_SortMulti 和 ImGuiTableFlags_SortTristate。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoSavedSettings</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// 禁用 .ini 文件中的持久列顺序、宽度和排序设置。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_ContextMenuInBody</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// 右键单击​​列 body/contents 将显示表上下文菜单。默认情况下，它在 TableHeadersRow() 中可用。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 装饰
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_RowBg</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">,</span> <span class="c1">// 使用 ImGuiCol_TableRowBg 或 ImGuiCol_TableRowBgAlt 设置每个 RowBg 颜色（相当于手动在每行上使用 ImGuiTableBgFlags_RowBg0 调用 TableSetBgColor）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersInnerH</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span><span class="p">,</span> <span class="c1">// 在行之间绘制水平边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersOuterH</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">,</span> <span class="c1">// 在顶部和底部绘制水平边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersInnerV</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">,</span> <span class="c1">// 在列之间绘制垂直边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersOuterV</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">// 在左右两侧绘制垂直边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersH</span> <span class="o">=</span> <span class="n">ImGuiTableFlags_BordersInnerH</span> <span class="o">|</span> <span class="n">ImGuiTableFlags_BordersOuterH</span><span class="p">,</span> <span class="c1">// 绘制水平边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersV</span> <span class="o">=</span> <span class="n">ImGuiTableFlags_BordersInnerV</span> <span class="o">|</span> <span class="n">ImGuiTableFlags_BordersOuterV</span><span class="p">,</span> <span class="c1">// 绘制垂直边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersInner</span> <span class="o">=</span> <span class="n">ImGuiTableFlags_BordersInnerV</span> <span class="o">|</span> <span class="n">ImGuiTableFlags_BordersInnerH</span><span class="p">,</span> <span class="c1">// 绘制内边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_BordersOuter</span> <span class="o">=</span> <span class="n">ImGuiTableFlags_BordersOuterV</span> <span class="o">|</span> <span class="n">ImGuiTableFlags_BordersOuterH</span><span class="p">,</span> <span class="c1">// 绘制外边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_Borders</span> <span class="o">=</span> <span class="n">ImGuiTableFlags_BordersInner</span> <span class="o">|</span> <span class="n">ImGuiTableFlags_BordersOuter</span><span class="p">,</span> <span class="c1">// 绘制所有边框。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoBordersInBody</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">11</span><span class="p">,</span> <span class="c1">// [ALPHA] 在列 Body 中禁用垂直边框（边框将始终出现在 Headers 中）。 -&gt; 可能会转向风格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoBordersInBodyUntilResize</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// [ALPHA] 禁用列 Body 中的垂直边框，直到悬停以调整大小（边框将始终出现在标题中）。 -&gt; 可能会转向风格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 大小调整策略（阅读上面的默认值）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SizingFixedFit</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span><span class="p">,</span> <span class="c1">// 列默认为 _WidthFixed 或 _WidthAuto（如果可调整大小或不可调整大小），匹配内容宽度。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SizingFixedSame</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span><span class="p">,</span> <span class="c1">// 列默认为 _WidthFixed 或 _WidthAuto（如果可调整大小或不可调整大小），匹配所有列的最大内容宽度。隐式启用 ImGuiTableFlags_NoKeepColumnsVisible。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SizingStretchProp</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span><span class="p">,</span> <span class="c1">// 列默认为 _WidthStretch，默认权重与每列内容宽度成比例。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SizingStretchSame</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span><span class="p">,</span> <span class="c1">// 列默认为 _WidthStretch，默认权重都相等，除非被 TableSetupColumn() 覆盖。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 调整额外选项的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoHostExtendX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">,</span> <span class="c1">// 使外部宽度自动适应列，覆盖 outer_size.x 值。仅在禁用 ScrollX/ScrollY 且未使用 Stretch 列时可用。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoHostExtendY</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">17</span><span class="p">,</span> <span class="c1">// 使外部高度正好停在 outer_size.y 处（防止自动扩展表超出限制）。仅在禁用 ScrollX/ScrollY 时可用。低于限制的数据将被剪裁且不可见。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoKeepColumnsVisible</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">18</span><span class="p">,</span> <span class="c1">// 当 ScrollX 关闭且表格变得太小时时，禁用保持列始终最低限度可见。如果列可调整大小，则不推荐。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_PreciseWidths</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">19</span><span class="p">,</span> <span class="c1">// 禁用将剩余宽度分配给拉伸列（在具有 3 列的 100 宽表上分配宽度：没有此标志：33,33,34。使用此标志：33,33,33）。随着列数的增加，调整大小会显得不那么平滑。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 剪裁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoClip</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// 为每个单独的列禁用剪切矩形（减少绘制命令计数，项目将能够溢出到其他列）。通常与 TableSetupScrollFreeze() 不兼容。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 填充
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_PadOuterX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">21</span><span class="p">,</span> <span class="c1">// 如果 BordersOuterV 开启则默认。启用最外边距。如果您有标题，通常是可取的。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoPadOuterX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">22</span><span class="p">,</span> <span class="c1">//如果 BordersOuterV 关闭，则为默认值。禁用最外面的填充。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_NoPadInnerX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">,</span> <span class="c1">// 禁用列之间的内部填充（如果 BordersOuterV 开启，则双内部填充，如果 BordersOuterV 关闭，则单内部填充）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 滚动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_ScrollX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">,</span> <span class="c1">// 启用水平滚动。需要 BeginTable() 的“outer_size”参数来指定容器大小。更改默认大小调整策略。因为这样会创建一个子窗口，所以目前使用 ScrollX 时一般推荐使用 ScrollY。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_ScrollY</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">25</span><span class="p">,</span> <span class="c1">// 启用垂直滚动。需要 BeginTable() 的“outer_size”参数来指定容器大小。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SortMulti</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">26</span><span class="p">,</span> <span class="c1">// 单击标题以对多列进行排序时按住 shift。 TableGetSortSpecs() 可能会返回规范，其中 (SpecsCount &gt; 1)。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableFlags_SortTristate</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">27</span><span class="p">,</span> <span class="c1">// 不允许排序，禁用默认排序。 TableGetSortSpecs() 可能会返回规范，其中 (SpecsCount == 0)。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="imguitablecolumnflags">ImGuiTableColumnFlags</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// ImGui::TableSetupColumn() 的标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">enum</span> <span class="nc">ImGuiTableColumnFlags_</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 输入配置标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ImGuiTableColumnFlags_DefaultHide</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// 默认为隐藏/禁用列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_DefaultSort</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// 默认为排序列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_WidthStretch</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// 列将拉伸。最好禁用水平滚动（如果表大小调整策略为 _SizingStretchSame 或 _SizingStretchProp，则为默认值）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_WidthFixed</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// 列不会拉伸。最好启用水平滚动（如果表大小策略为 _SizingFixedFit 并且表可调整大小，则默认为）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoResize</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// 禁用手动调整大小。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoReorder</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// 禁用手动重新排序此列，这也将防止其他列跨越此列。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoHide</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">,</span> <span class="c1">// 禁用隐藏/禁用此列的功能。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoClip</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span><span class="p">,</span> <span class="c1">// 禁用此列的剪辑（所有 NoClip 列将在同一个绘制命令中呈现）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoSort</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">,</span> <span class="c1">// 禁用对该字段进行排序的能力（即使在表上设置了 ImGuiTableFlags_Sortable）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoSortAscending</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">,</span> <span class="c1">// 禁用升序排序功能。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoSortDescending</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">// 禁用降序排序功能。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_NoHeaderWidth</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">11</span><span class="p">,</span> <span class="c1">// 禁用标题文本宽度对自动列宽的贡献。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_PreferSortAscending</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// 首次对该列排序时使初始排序方向为升序（默认）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_PreferSortDescending</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span><span class="p">,</span> <span class="c1">// 首次对该列排序时，初始排序方向为降序。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IndentEnable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">14</span><span class="p">,</span> <span class="c1">// 输入单元格时使用当前缩进值（默认为第 0 列）。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IndentDisable</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">15</span><span class="p">,</span> <span class="c1">// 输入单元格时忽略当前缩进值（列 &gt; 0 的默认值）。 _within_ 单元格内的缩进变化仍将得到尊重。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 输出状态标志，通过 TableGetColumnFlags() 只读
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IsEnabled</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// 状态：已启用 == 未被用户/api 隐藏（在 _DefaultHide 和 _NoHide 中称为“隐藏”）标志。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IsVisible</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">21</span><span class="p">,</span> <span class="c1">// 状态：可见 == 已启用且未被滚动剪切。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IsSorted</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">22</span><span class="p">,</span> <span class="c1">// 状态：当前是排序规范的一部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ImGuiTableColumnFlags_IsHovered</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">,</span> <span class="c1">// 状态：被鼠标悬停
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="imguitablerowflags">ImGuiTableRowFlags</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// ImGui::TableNextRow() 的标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">enum</span> <span class="nc">ImGuiTableRowFlags_</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">ImGuiTableRowFlags_None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="n">ImGuiTableRowFlags_Headers</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span> <span class="c1">// 识别标题行（设置默认背景颜色 + 其内容的宽度占自动列宽不同）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
