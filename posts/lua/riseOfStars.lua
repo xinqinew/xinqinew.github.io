@@ -1,4 +1,4 @@
-toast("在线版本0.18.3")
+toast("在线版本0.18.4")
 
 -- 对比颜色加强
 do
@@ -453,7 +453,11 @@ function oncePlist()
 
     -- 机器IP
     local strIp = getNetInterfaces()
-    strIphoneIP = strIp.en0.ip
+    if strIp.en0 then
+        strIphoneIP = strIp.en0.ip
+    else
+        strIphoneIP = getNetIP()
+    end
     writePlistNew("机器IP", strIphoneIP)
 
 
