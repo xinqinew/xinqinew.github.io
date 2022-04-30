@@ -79,7 +79,8 @@ function bianLiang()
     isKaJianZhangJingYan = 3 -- 卡主线--舰长经验
     isKaShengChan = false -- 卡主线--生产
     isFalseLiZi2 = false --2级粒子挖掘失败
-
+    
+    strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
     numZiYuan = 1
     numKaiFa = 1
@@ -128,8 +129,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -320,6 +321,7 @@ function main1()
     elseif bid == "" then
         -- debug("哪个都没开")
         APP.isYiDengLu = 0
+        autoChangeVPN("配置")
         runApp(apps1)
         APP = APP1
         mSleep(5000)
@@ -460,7 +462,6 @@ function oncePlist()
     end
     writePlistNew("机器IP", strIphoneIP)
 
-
     -- 今日闪退次数
     numTodayExit = loadPlistNew("今日闪退次数")
     if numTodayExit == nil then
@@ -474,7 +475,6 @@ function oncePlist()
         numExit = 0
         writePlistNew("闪退总次数", numExit)
     end
-
 
     -- 今日矿物次数
     numTodayDigKuang = loadPlistNew("今日矿物次数")
@@ -503,7 +503,6 @@ function oncePlist()
         numDigJinShu = 0
         writePlistNew("金属总次数", numDigJinShu)
     end
-
 
     -- 今日氯气次数
     numTodayDigLvQi = loadPlistNew("今日氯气次数")
@@ -699,8 +698,6 @@ function oncePlist()
         isAgainReward6 = false
         writePlistNew("再次收获6", isAgainReward6)
     end
-
-
 
     -- 卡优化
     isKaYouHua = loadPlistNew("卡优化")
@@ -1121,9 +1118,9 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(17,24,0xafafaf,95) and isColor(381,588,0x00769c,95) and isColor(561,425,0x9f6800,95) and isColor(881,585,0x1d6dba,95) then
+    if isColor(17, 24, 0xafafaf, 95) and isColor(381, 588, 0x00769c, 95) and isColor(561, 425, 0x9f6800, 95) and isColor(881, 585, 0x1d6dba, 95) then
         debug("卡指引--编队--整编")
-        touchClick(881,585,0x1d6dba    )
+        touchClick(881, 585, 0x1d6dba)
     end
     if isColor(20, 440, 0x8ab9f2, 95) and isColor(1103, 93, 0x444545, 95) and isColor(1057, 30, 0x808080, 95) and isColor(1071, 31, 0xffffff, 95) then
         debug("提示")
@@ -2603,17 +2600,17 @@ function zongHe1(...)
 
     if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
         debug("请手动加入联盟")
-    --     -- fwCloseView("window1", "btn1"); -- 关闭文字视图
-    --     -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
-    --     -- mSleep(500)
-    --     isLuaStart = false
-    --     dialog("请手动加入联盟", 0);
-    --     -- lua_exit();
-    --     -- mSleep(10)
-    --     -- mSleep(10)
-    --     -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
-    --     -- mSleep(10)
-        touchClick(512,567,0x0c0c0e    )
+        --     -- fwCloseView("window1", "btn1"); -- 关闭文字视图
+        --     -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
+        --     -- mSleep(500)
+        --     isLuaStart = false
+        --     dialog("请手动加入联盟", 0);
+        --     -- lua_exit();
+        --     -- mSleep(10)
+        --     -- mSleep(10)
+        --     -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
+        --     -- mSleep(10)
+        touchClick(512, 567, 0x0c0c0e)
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(48, 208, 0x9d96a8, 95) then
         debug("平台界面")
@@ -3853,7 +3850,7 @@ function zongHe1(...)
                 end
             end
         elseif isZhengLi == false then
-            if isColor(122,128,0x182536,95) then
+            if isColor(122, 128, 0x182536, 95) then
                 touchClick(122, 128) -- 资源
                 mSleep(1000)
             end
@@ -4615,6 +4612,28 @@ function ShadowrocketToConfigure()
         end
         if i == 30 then
             toast("翻墙失败")
+        end
+        mSleep(1000)
+    end
+end
+
+-- Shadowrocket 切换至场景
+function ShadowrocketToScenes()
+    runApp(appShadowrocket)
+    repeat
+        mSleep(1000)
+    until isColor(1096, 569, 0x2473bd, 95) and isColor(1096, 581, 0xf5f5f5, 95) -- 首页
+    touchClick(293, 116, 0x8a8a8a) -- 全局路由
+    mSleep(1000)
+    touchClick(721,474    , 0xffffff) -- 场景
+    mSleep(1000)
+    for i = 1, 30, 1 do
+        webdata = httpGet("https://www.baidu.com/") -- 获取百度首页网页数据
+        if webdata and webdata ~= "" then
+            break
+        end
+        if i == 30 then
+            toast("境内失败")
         end
         mSleep(1000)
     end
@@ -6281,6 +6300,12 @@ function inside1(...)
     isXiaoHao()
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
         -- debug("室内")
+        if check21 == "自动切换梯子" and strVpnModel == "配置" then
+            autoChangeVPN("场景")
+            strVpnModel = "场景" 
+            runApp(appXiangMu)
+            mSleep(1000)
+        end
         if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
             if haoLV == 3 and check12 ~= "不挖粒子" then
@@ -6329,6 +6354,12 @@ end
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
         -- debug("室外")
+        if check21 == "自动切换梯子" and strVpnModel == "配置" then
+            autoChangeVPN("场景")
+            strVpnModel = "场景" 
+            runApp(appXiangMu)
+            mSleep(1000)
+        end
         if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
             debug("被攻击")
             if haoLV == 3 and check12 ~= "不挖粒子" then
@@ -6778,6 +6809,21 @@ end
 -- 兑换
 function duiHuan()
 
+end
+
+--自动切换梯子
+function autoChangeVPN(model)
+    if check21 == "自动切换梯子" then
+        if model == "配置" then
+            ShadowrocketToConfigure()
+            strVpnModel = "配置"
+            timeXXX = nowTime
+        elseif model == "场景" then
+            ShadowrocketToScenes()
+            strVpnModel = "场景"
+            timeXXX = nowTime
+        end
+    end
 end
 
 -----------------------私有部分--------------------------
