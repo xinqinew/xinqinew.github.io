@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/04\/c-socket%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, Socket","wordcount":  6889 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "C\u002b\u002b, Socket","wordcount":  7179 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/04\/c-socket%E7%AC%94%E8%AE%B0\/","datePublished": "2022-04-23T00:00:00+00:00","dateModified": "2022-04-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,8 +132,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-23">2022-04-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-04-23">2022-04-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6889 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 14 分钟&nbsp;<span id="/2022/04/c-socket%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="C&#43;&#43;">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-23">2022-04-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-04-23">2022-04-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7179 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id="/2022/04/c-socket%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="C&#43;&#43;">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -339,8 +339,14 @@ connect() 函数用来建立连接，它的原型为：</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>各参数和send类似</li>
+<li>sock 为要接收数据的套接字</li>
+<li>buf 为要接收的数据的缓冲区地址</li>
+<li>len 为要接收的数据的字节数</li>
+<li>flags 为接收数据时的选项。</li>
 </ul>
+<blockquote>
+<p>flags 参数一般设置为 0 或 NULL，初学者不必深究。</p>
+</blockquote>
 <h2 id="closesocket-关闭套接字">closesocket() 关闭套接字</h2>
 <p>close() / closesocket() 用来关闭套接字，将套接字描述符（或句柄）从内存清除，之后再也不能使用该套接字，与C语言中的 fclose() 类似。</p>
 <h2 id="shutdown断开连接">shutdown()断开连接</h2>
@@ -741,10 +747,21 @@ IP addr 2: 61.135.169.125</p>
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">select</span><span class="p">(</span><span class="kt">int</span> <span class="n">maxfdp</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">readset</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">writeset</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">exceptset</span><span class="p">,</span><span class="k">struct</span> <span class="nc">timeval</span> <span class="o">*</span><span class="n">timeout</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>maxfdp：被监听的文件描述符的最大值大1，因为文件描述符是从0开始计数的；</li>
-<li>readfds、writefds、exceptset：分别指向可读、可写和异常等事件对应的描述符集合。</li>
+</div><p><strong>参数含义</strong>:</p>
+<ul>
+<li>maxfdp：是一个整数值，是指集合中所有文件描述符的范围，即所有文件描述符的最大值加1，不能错！在Windows中这个参数的值无所谓，可以设置不正确。</li>
+<li>readfds：（可选）指针，指向一组等待可读性检查的套接口。</li>
+<li>writefds：（可选）指针，指向一组等待可写性检查的套接口。</li>
+<li>exceptfds：（可选）指针，指向一组等待错误检查的套接口。</li>
 <li>timeout:用于设置select函数的超时时间，即告诉内核select等待多长时间之后就放弃等待。timeout == NULL 表示等待无限长的时间</li>
+</ul>
+<p><strong>返回值</strong>：</p>
+<ul>
+<li>当返回为-1时，所有描述符集清0。</li>
+<li>当返回为0时，表示超时。</li>
+<li>当返回为正数时，表示已经准备好的描述符数。
+select（）返回后，在3个描述符集里，依旧是1的位就是准备好的描述符。这也就是为什么，每次用select后都要用FD_ISSET的原因。
+select函数实现I/O多路复用，可以用来监视多个描述符，之后我们调用FD_ISSET函数确定具体是哪一个描述符准备好了。</li>
 </ul>
 <p>timeval结构体定义如下：</p>
 <div class="highlight"><div class="chroma">
@@ -763,10 +780,7 @@ IP addr 2: 61.135.169.125</p>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>返回值：超时返回0;失败返回-1；成功返回大于0的整数，这个整数表示就绪描述符的数目。</li>
-</ul>
-<p><strong>fd_set</strong> 相关:</p>
+</div><p><strong>fd_set</strong> 相关:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
