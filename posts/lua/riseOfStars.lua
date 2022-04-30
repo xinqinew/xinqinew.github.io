@@ -235,7 +235,7 @@ end
 
 -- loadPlistNew
 function loadPlistNew(key)
-    ts.config.open(luaMuLu .. xiangMu .. ".plist")
+    ts.config.open(userPath() .. "/lua/" .. xiangMu .. ".plist")
     -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
     -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
     -- ts.config.save("金币数",999)
@@ -251,7 +251,7 @@ end
 
 -- writePlistNew(key,value)
 function writePlistNew(key, value)
-    ts.config.open(luaMuLu .. xiangMu .. ".plist")
+    ts.config.open(userPath() .. "/lua/" .. xiangMu .. ".plist")
     -- 打开一个 plist 文件,如果文件不存在，将自动创建该文件，同时只允许打开一个
     -- 此函数为初始化函数，所有 config 操作第一步必须以 open 开始并且以 close 结尾
     ts.config.save(key, value)
@@ -1099,11 +1099,15 @@ end
 function ftpUpJson()
     if nowTime - timeUpJson >= 10 * 60 then
         timeUpJson = nowTime
-        local tb = plist_ts.read(luaMuLu .. xiangMu .. ".plist") --读取plist至table格式
-        local jsonstring = json_ts.encode(tb);  --将 table 格式数据转成 json 格式数据
-        bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
-        if bool then
-            ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
+        local tb = plist_ts.read(userPath() .. "/lua/" .. xiangMu .. ".plist") --读取plist至table格式
+        if tb ~= "" and tb ~= nil then
+            local jsonstring = json_ts.encode(tb);  --将 table 格式数据转成 json 格式数据
+            if jsonstring ~= "" and jsonstring ~= nil then
+                bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
+                if bool then
+                    ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
+                end
+            end
         end
     end
 end
@@ -1120,22 +1124,22 @@ function zongHe1(...)
     end
     if isColor(17, 23, 0xffffff, 95) and isColor(7, 23, 0xff9c00, 95) and isColor(1073, 598, 0x233a62, 95) and isColor(1063, 596, 0xd1ffff, 95) then
         debug("区域档案")
-        if isColor(1089,572,0x9e1111,95) then--红点
-            touchClick(1073,598)
+        if isColor(1089, 572, 0x9e1111, 95) then --红点
+            touchClick(1073, 598)
         else
-            touchClick(20,20)
+            touchClick(20, 20)
         end
     end
-    if isColor(18,24,0xffffff,95) and isColor(9,24,0xff9c00,95) and isColor(185,100,0x4a9ce9,95) and isColor(186,622,0x728a9d,95) then
+    if isColor(18, 24, 0xffffff, 95) and isColor(9, 24, 0xff9c00, 95) and isColor(185, 100, 0x4a9ce9, 95) and isColor(186, 622, 0x728a9d, 95) then
         debug("未确认记录")
-        if isColor(263,582,0x116eb9,95) then
-            touchClick(263,582)
+        if isColor(263, 582, 0x116eb9, 95) then
+            touchClick(263, 582)
         end
-        x,y = findColorInRegionFuzzy( 0x931012, 90, 130, 85, 130, 495)
+        x, y = findColorInRegionFuzzy(0x931012, 90, 130, 85, 130, 495)
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
-            touchClick(x,y+10)
+            touchClick(x, y + 10)
         else
-            touchClick(20,20)
+            touchClick(20, 20)
         end
     end
     if isColor(17, 24, 0xafafaf, 95) and isColor(381, 588, 0x00769c, 95) and isColor(561, 425, 0x9f6800, 95) and isColor(881, 585, 0x1d6dba, 95) then
@@ -6554,19 +6558,19 @@ function everyDayInit(...)
             -- if today == 1 then --如果是星期一
             --         if APP1.isZhuZhan == 2 then
             --                 APP1.isZhuZhan = 1
-            --                 writePlist(luaMuLu..xiangMu..".plist","助战1",APP1.isZhuZhan)
+            --                 writePlist(userPath() .. "/lua/"..xiangMu..".plist","助战1",APP1.isZhuZhan)
             --         end
             --         if APP2.isZhuZhan == 2 then
             --                 APP2.isZhuZhan = 1
-            --                 writePlist(luaMuLu..xiangMu..".plist","助战2",APP2.isZhuZhan)
+            --                 writePlist(userPath() .. "/lua/"..xiangMu..".plist","助战2",APP2.isZhuZhan)
             --         end
             --         if APP1.isJiFenDuiHuan == 1 then
             --                 APP1.isJiFenDuiHuan = 0
-            --                 writePlist(luaMuLu..xiangMu..".plist","积分兑换1",APP1.isJiFenDuiHuan)
+            --                 writePlist(userPath() .. "/lua/"..xiangMu..".plist","积分兑换1",APP1.isJiFenDuiHuan)
             --         end
             --         if APP2.isJiFenDuiHuan == 1 then
             --                 APP2.isJiFenDuiHuan = 0
-            --                 writePlist(luaMuLu..xiangMu..".plist","积分兑换2",APP2.isJiFenDuiHuan)
+            --                 writePlist(userPath() .. "/lua/"..xiangMu..".plist","积分兑换2",APP2.isJiFenDuiHuan)
             --         end
             -- end
             -- closeApp(appXiangMu)
