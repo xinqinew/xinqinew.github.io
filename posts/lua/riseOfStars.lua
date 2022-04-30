@@ -4634,6 +4634,9 @@ function ShadowrocketToConfigure()
     touchClick(465, 378, 0xffffff) -- 配置
     mSleep(1000)
     for i = 1, 30, 1 do
+        if isColor(206,131,0xffffff,95) then--未连接
+            touchClick(206,131)
+        end
         webdata = httpGet("https://www.google.com.hk/") -- 获取百度首页网页数据
         if webdata and webdata ~= "" then
             break
@@ -4656,6 +4659,9 @@ function ShadowrocketToScenes()
     touchClick(721, 474, 0xffffff) -- 场景
     mSleep(1000)
     for i = 1, 30, 1 do
+        if isColor(206,131,0xffffff,95) then--未连接
+            touchClick(206,131)
+        end
         webdata = httpGet("https://www.baidu.com/") -- 获取百度首页网页数据
         if webdata and webdata ~= "" then
             break
