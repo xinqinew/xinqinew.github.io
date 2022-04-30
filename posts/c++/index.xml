@@ -77,6 +77,15 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>GitHub开源 https://github.com/Nomango/configor configor 一个为 C++11 量身打造的轻量级 config 库，轻松完成 JSON 解析和序列化功能，并和 C++ 输入输出流交互。 功能 仅头文件，低接入成本 STL-like]]></description>
 </item><item>
+    <title>select通信</title>
+    <link>https://xinqinew.github.io/2022/01/select%E9%80%9A%E4%BF%A1/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/select%E9%80%9A%E4%BF%A1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>目录 服务端升级为select模型 Socket的select模型 客户端转为Select模型 服务端升级为select模型 Socket的selec]]></description>
+</item><item>
     <title>std::array容器用法</title>
     <link>https://xinqinew.github.io/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</link>
     <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +94,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ array(STL array)容器用法详解 http://c.biancheng.net/view/6688.html 引用 在使用该容器之前，代码中需引入 &lt;array&gt; 头文件，并默认使用 std 命令空间，如下所示： 1 2 #include &lt;array&gt;using namespace std; 创建 array 容器的方式 创建具]]></description>
-</item><item>
-    <title>std::map用法</title>
-    <link>https://xinqinew.github.io/2022/01/stdmap%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</link>
-    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/stdmap%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>更详细的教程 https://www.nhooo.com/cpp/cpp-map.html 本篇將介紹如何使用 C++ std map 以及用法，C++ std::map 是一個關聯式容器，關聯式容器把鍵值和一個元素連繫起來，並使用該鍵值來尋找元素、插入元]]></description>
 </item></channel>
 </rss>
