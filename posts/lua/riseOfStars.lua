@@ -79,7 +79,7 @@ function bianLiang()
     isKaJianZhangJingYan = 3 -- 卡主线--舰长经验
     isKaShengChan = false -- 卡主线--生产
     isFalseLiZi2 = false --2级粒子挖掘失败
-    
+
     strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
     numZiYuan = 1
@@ -1116,6 +1116,26 @@ function zongHe1(...)
         if isColor(33, 493, 0xffffff, 95) and isColor(21, 474, 0x5ea7e8, 95) then
             debug("free")
             touchClick(33, 493)
+        end
+    end
+    if isColor(17, 23, 0xffffff, 95) and isColor(7, 23, 0xff9c00, 95) and isColor(1073, 598, 0x233a62, 95) and isColor(1063, 596, 0xd1ffff, 95) then
+        debug("区域档案")
+        if isColor(1089,572,0x9e1111,95) then--红点
+            touchClick(1073,598)
+        else
+            touchClick(20,20)
+        end
+    end
+    if isColor(18,24,0xffffff,95) and isColor(9,24,0xff9c00,95) and isColor(185,100,0x4a9ce9,95) and isColor(186,622,0x728a9d,95) then
+        debug("未确认记录")
+        if isColor(263,582,0x116eb9,95) then
+            touchClick(263,582)
+        end
+        x,y = findColorInRegionFuzzy( 0x931012, 90, 130, 85, 130, 495)
+        if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
+            touchClick(x,y+10)
+        else
+            touchClick(20,20)
         end
     end
     if isColor(17, 24, 0xafafaf, 95) and isColor(381, 588, 0x00769c, 95) and isColor(561, 425, 0x9f6800, 95) and isColor(881, 585, 0x1d6dba, 95) then
@@ -4363,6 +4383,10 @@ function checkRed1()
         -- touchClick(20, 20)
         isEatEXP = true
         writePlistNew("吃经验", isEatEXP)
+    elseif isColor(844, 379, 0xffffff, 95) and isColor(857, 380, 0xffffff, 95) then
+        debug("档案")
+        touchClick(844, 379, 0xffffff)
+        return true
     elseif isZhengLi == false and haoLV >= 2 then
         debug("整理")
         touchClick(967, 586, 0x2d2f2b)
@@ -4625,7 +4649,7 @@ function ShadowrocketToScenes()
     until isColor(1096, 569, 0x2473bd, 95) and isColor(1096, 581, 0xf5f5f5, 95) -- 首页
     touchClick(293, 116, 0x8a8a8a) -- 全局路由
     mSleep(1000)
-    touchClick(721,474    , 0xffffff) -- 场景
+    touchClick(721, 474, 0xffffff) -- 场景
     mSleep(1000)
     for i = 1, 30, 1 do
         webdata = httpGet("https://www.baidu.com/") -- 获取百度首页网页数据
@@ -6302,7 +6326,7 @@ function inside1(...)
         -- debug("室内")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
-            strVpnModel = "场景" 
+            strVpnModel = "场景"
             runApp(appXiangMu)
             mSleep(1000)
         end
@@ -6356,7 +6380,7 @@ function outside(...)
         -- debug("室外")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
-            strVpnModel = "场景" 
+            strVpnModel = "场景"
             runApp(appXiangMu)
             mSleep(1000)
         end
