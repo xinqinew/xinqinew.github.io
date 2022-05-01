@@ -86,11 +86,13 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++:实现socket通信（TCP/IP）实例 ​ 首先声明，博主之前从来没有写过通信方面的东西，这次之所以写这个是因为项目需要，因此本文主要]]></description>
 </item><item>
-    <title>FPS骨骼,u3d,UE4(二)</title>
-    <link>https://xinqinew.github.io/2022/01/fps%E9%AA%A8%E9%AA%BCu3due4%E4%BA%8C/</link>
+    <title>C&#43;&#43;知识点(三)</title>
+    <link>https://xinqinew.github.io/2022/01/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</link>
     <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/fps%E9%AA%A8%E9%AA%BCu3due4%E4%BA%8C/</guid>
-    <description><![CDATA[我们接着上文继续,如果没有看上文基础的同学建议先看完上文再继续本文章 本文章中均以单机游戏为例,每一种功能仅提供给网络安全工作者反外挂建议和安]]></description>
+    </author><guid>https://xinqinew.github.io/2022/01/c-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>函数 bzero()函数 bzero() 会将内存块（字符串）的前n个字节清零;在网络编程中会经常用到; 1 2 3 4 5 #include &lt;string.h&gt; void bzero( void *s, //s为内存（字符串）指针 int n //n]]></description>
 </item></channel>
 </rss>
