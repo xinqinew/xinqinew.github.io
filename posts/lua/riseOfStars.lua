@@ -441,6 +441,7 @@ function oncePlist()
     -----------------------私有部分--------------------------
 
     writePlistNew("脚本版本", numLua)
+    writePlistNew("系统版本", getOSVer())
 
     -- over章节
     isOverLesson = loadPlistNew("over章节")
