@@ -1,5 +1,5 @@
 numLua = 18.6
-toast("在线版本:"..numLua)
+toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
 do
@@ -1125,10 +1125,10 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(338,45,0xe0e0e0,95) and isColor(575,219,0xbaab81,95) and isColor(482,485,0x1c6db9,95) and isColor(688,397,0x0d3a70,95) then
+    if isColor(338, 45, 0xe0e0e0, 95) and isColor(575, 219, 0xbaab81, 95) and isColor(482, 485, 0x1c6db9, 95) and isColor(688, 397, 0x0d3a70, 95) then
         debug("使用道具--遗物")
-        touchClick(690,397,0x0d3a70    )--最多
-        touchClick(507,482,0x1c6eba    )--使用
+        touchClick(690, 397, 0x0d3a70) --最多
+        touchClick(507, 482, 0x1c6eba) --使用
     end
     if isColor(17, 23, 0xffffff, 95) and isColor(7, 23, 0xff9c00, 95) and isColor(1073, 598, 0x233a62, 95) and isColor(1063, 596, 0xd1ffff, 95) then
         debug("区域档案")
@@ -1158,7 +1158,7 @@ function zongHe1(...)
         debug("提示1")
         touchClick(1071, 31)
     end
-    if isColor(1071,31,0xffffff,95) and isColor(1057,31,0x808080,95) and isColor(28,130,0x444545,95) and isColor(24,504,0x8ab9f2,95) then
+    if isColor(1071, 31, 0xffffff, 95) and isColor(1057, 31, 0x808080, 95) and isColor(28, 130, 0x444545, 95) and isColor(24, 504, 0x8ab9f2, 95) then
         debug("提示2")
         touchClick(1071, 31)
     end
@@ -2089,219 +2089,9 @@ function zongHe1(...)
     if isColor(7, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(73, 15, 0xe2e8ef, 95) and
         isColor(161, 29, 0xe1e7ed, 95) then
         debug("活动中心")
-        if isColor(142, 164, 0x9e1111, 95) and isColor(121, 164, 0xa17316, 95) then
-            debug("活动中心1--红点--已选")
-            if isColor(1084, 83, 0x9e1111, 95) then
-                debug("规则")
-                touchClick(1032, 103, 0x0b7148)
-            elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-                debug("STAKING")
-                touchClick(944, 558, 0x1a77f3)
-            elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-                debug("预定活动")
-                touchClick(88, 182, 0x182637)
-            elseif isColor(996, 281, 0xf18e07, 95) then
-                debug("领取1--新")
-                touchClick(1000, 281)
-            elseif isColor(1000, 258, 0x116eb9, 95) then
-                debug("领取1")
-                touchClick(1000, 267)
-            elseif isColor(1000, 353, 0x116eb9, 95) then
-                debug("领取2")
-                touchClick(1000, 360)
-            elseif isColor(1000, 449, 0x116eb9, 95) then
-                debug("领取3")
-                touchClick(1000, 456)
-            elseif isColor(1000, 544, 0x126fba, 95) then
-                debug("领取4")
-                touchClick(1000, 551)
-            elseif isColor(1006, 419, 0x116eb9, 95) then
-                debug("领取--中间")
-                touchClick(1000, 419)
-            elseif isColor(905, 158, 0x931012, 95) then
-                debug("战斗力--红点")
-                touchClick(836, 173, 0x12253a)
-            elseif isColor(329,492,0x1c6ebb,95) then
-                debug("使用--遗物")
-                touchClick(329,492)
-            elseif isColor(297,497,0xd68b01,95        )then
-                debug("领取--黄色")
-                touchClick(297,497)
-            end
-        elseif isColor(142, 232, 0x9e1111, 95) and isColor(121, 232, 0xa17316, 95) then
-            debug("活动中心2--红点--已选")
-            if isColor(1084, 83, 0x9e1111, 95) then
-                debug("规则")
-                touchClick(1032, 103, 0x0b7148)
-            elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-                debug("STAKING")
-                touchClick(944, 558, 0x1a77f3)
-            elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-                debug("预定活动")
-                touchClick(88, 182, 0x182637)
-            elseif isColor(996, 281, 0xf18e07, 95) then
-                debug("领取1--新")
-                touchClick(1000, 281)
-            elseif isColor(1000, 258, 0x116eb9, 95) then
-                debug("领取1")
-                touchClick(1000, 267)
-            elseif isColor(1000, 353, 0x116eb9, 95) then
-                debug("领取2")
-                touchClick(1000, 360)
-            elseif isColor(1000, 449, 0x116eb9, 95) then
-                debug("领取3")
-                touchClick(1000, 456)
-            elseif isColor(1000, 544, 0x126fba, 95) then
-                debug("领取4")
-                touchClick(1000, 551)
-            elseif isColor(1006, 419, 0x116eb9, 95) then
-                debug("领取--中间")
-                touchClick(1000, 419)
-            elseif isColor(905, 158, 0x931012, 95) then
-                debug("战斗力--红点")
-                touchClick(836, 173, 0x12253a)
-            elseif isColor(329,492,0x1c6ebb,95) then
-                debug("使用--遗物")
-                touchClick(329,492)
-            elseif isColor(297,497,0xd68b01,95        )then
-                debug("领取--黄色")
-                touchClick(297,497)
-            end
-        elseif isColor(117, 304, 0xa17316, 95) and isColor(143, 300, 0x9e1111, 95) then
-            debug("活动中心3--红点--已选")
-            if isColor(1084, 83, 0x9e1111, 95) then
-                debug("规则")
-                touchClick(1032, 103, 0x0b7148)
-            elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-                debug("STAKING")
-                touchClick(944, 558, 0x1a77f3)
-            elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-                debug("预定活动")
-                touchClick(88, 182, 0x182637)
-            elseif isColor(996, 281, 0xf18e07, 95) then
-                debug("领取1--新")
-                touchClick(1000, 281)
-            elseif isColor(1000, 258, 0x116eb9, 95) then
-                debug("领取1")
-                touchClick(1000, 267)
-            elseif isColor(1000, 353, 0x116eb9, 95) then
-                debug("领取2")
-                touchClick(1000, 360)
-            elseif isColor(1000, 449, 0x116eb9, 95) then
-                debug("领取3")
-                touchClick(1000, 456)
-            elseif isColor(1000, 544, 0x126fba, 95) then
-                debug("领取4")
-                touchClick(1000, 551)
-            elseif isColor(1006, 419, 0x116eb9, 95) then
-                debug("领取--中间")
-                touchClick(1000, 419)
-            elseif isColor(905, 158, 0x931012, 95) then
-                debug("战斗力--红点")
-                touchClick(836, 173, 0x12253a)
-            elseif isColor(329,492,0x1c6ebb,95) then
-                debug("使用--遗物")
-                touchClick(329,492)
-            elseif isColor(297,497,0xd68b01,95        )then
-                debug("领取--黄色")
-                touchClick(297,497)
-            end
-        elseif isColor(135, 362, 0x9d1111, 95) and isColor(134, 362, 0xf09203, 95) then
-            debug("活动中心4--红点--已选")
-            if isColor(1084, 83, 0x9e1111, 95) then
-                debug("规则")
-                touchClick(1032, 103, 0x0b7148)
-            elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-                debug("STAKING")
-                touchClick(944, 558, 0x1a77f3)
-            elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-                debug("预定活动")
-                touchClick(88, 182, 0x182637)
-            elseif isColor(996, 281, 0xf18e07, 95) then
-                debug("领取1--新")
-                touchClick(1000, 281)
-            elseif isColor(1000, 258, 0x116eb9, 95) then
-                debug("领取1")
-                touchClick(1000, 267)
-            elseif isColor(1000, 353, 0x116eb9, 95) then
-                debug("领取2")
-                touchClick(1000, 360)
-            elseif isColor(1000, 449, 0x116eb9, 95) then
-                debug("领取3")
-                touchClick(1000, 456)
-            elseif isColor(1000, 544, 0x126fba, 95) then
-                debug("领取4")
-                touchClick(1000, 551)
-            elseif isColor(1006, 419, 0x116eb9, 95) then
-                debug("领取--中间")
-                touchClick(1000, 419)
-            elseif isColor(905, 158, 0x931012, 95) then
-                debug("战斗力--红点")
-                touchClick(836, 173, 0x12253a)
-            elseif isColor(329,492,0x1c6ebb,95) then
-                debug("使用--遗物")
-                touchClick(329,492)
-            elseif isColor(297,497,0xd68b01,95        )then
-                debug("领取--黄色")
-                touchClick(297,497)
-            end
-        elseif isColor(140, 409, 0x9e1111, 95) and isColor(120, 409, 0xa17316, 95) then
-            debug("活动中心5--红点--已选")
-            if isColor(1084, 83, 0x9e1111, 95) then
-                debug("规则")
-                touchClick(1032, 103, 0x0b7148)
-            elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-                debug("STAKING")
-                touchClick(944, 558, 0x1a77f3)
-            elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-                debug("预定活动")
-                touchClick(88, 182, 0x182637)
-            elseif isColor(996, 281, 0xf18e07, 95) then
-                debug("领取1--新")
-                touchClick(1000, 281)
-            elseif isColor(1000, 258, 0x116eb9, 95) then
-                debug("领取1")
-                touchClick(1000, 267)
-            elseif isColor(1000, 353, 0x116eb9, 95) then
-                debug("领取2")
-                touchClick(1000, 360)
-            elseif isColor(1000, 449, 0x116eb9, 95) then
-                debug("领取3")
-                touchClick(1000, 456)
-            elseif isColor(1000, 544, 0x126fba, 95) then
-                debug("领取4")
-                touchClick(1000, 551)
-            elseif isColor(1006, 419, 0x116eb9, 95) then
-                debug("领取--中间")
-                touchClick(1000, 419)
-            elseif isColor(905, 158, 0x931012, 95) then
-                debug("战斗力--红点")
-                touchClick(836, 173, 0x12253a)
-            elseif isColor(329,492,0x1c6ebb,95) then
-                debug("使用--遗物")
-                touchClick(329,492)
-            elseif isColor(297,497,0xd68b01,95        )then
-                debug("领取--黄色")
-                touchClick(297,497)
-            end
-        elseif isColor(140, 162, 0x9e1111, 95) and isColor(129, 162, 0x1b2b3f, 95) then
-            debug("活动中心1--红点--未选")
-            touchClick(129, 162)
-        elseif isColor(142, 231, 0x9e1111, 95) and isColor(127, 231, 0x1b2b3f, 95) then
-            debug("活动中心2--红点--未选")
-            touchClick(127, 231)
-        elseif isColor(142, 301, 0x9e1111, 95) and isColor(128, 301, 0x1b2b3e, 95) then
-            debug("活动中心3--红点--未选")
-            touchClick(128, 301)
-        elseif isColor(142, 409, 0x9e1111, 95) and isColor(130, 409, 0x1c2b3f, 95) then
-            debug("活动中心4--红点--未选")
-            touchClick(130, 409)
-        elseif isColor(135, 471, 0x9d1111, 95) and isColor(130, 482, 0x1b2a3d, 95) then
-            debug("活动中心5--红点--未选")
-            touchClick(94, 500, 0xc6c9cd)
-        elseif isColor(926, 130, 0xff9c00, 95) and isColor(903, 174, 0x116eb9, 95) and isColor(1013, 176, 0x168961, 95) then
-            debug("预定活动")
-            touchClick(20, 20)
+        x, y = findMultiColorInRegionFuzzy(0x9d1111, "-1|0|0xf29203", 90, 134, 120, 135, 603)
+        if x ~= -1 then
+            huoDongDetail()
         else
             x, y = findColorInRegionFuzzy(0x931012, 95, 135, 75, 135, 612)
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
@@ -2316,7 +2106,6 @@ function zongHe1(...)
                     touchClick(20, 20)
                 end
             end
-
         end
     end
     if isColor(207, 23, 0xff6600, 95) and isColor(221, 105, 0x34618e, 95) and isColor(612, 24, 0xff6600, 95) then
@@ -6917,6 +6706,47 @@ function autoChangeVPN(model)
             strVpnModel = "场景"
             timeXXX = nowTime
         end
+    end
+end
+
+--活动中心--细节
+function huoDongDetail()
+    if isColor(1084, 83, 0x9e1111, 95) then
+        debug("规则")
+        touchClick(1032, 103, 0x0b7148)
+    elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
+        debug("STAKING")
+        touchClick(944, 558, 0x1a77f3)
+    elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
+        debug("预定活动")
+        touchClick(88, 182, 0x182637)
+    elseif isColor(996, 281, 0xf18e07, 95) then
+        debug("领取1--新")
+        touchClick(1000, 281)
+    elseif isColor(1000, 258, 0x116eb9, 95) then
+        debug("领取1")
+        touchClick(1000, 267)
+    elseif isColor(1000, 353, 0x116eb9, 95) then
+        debug("领取2")
+        touchClick(1000, 360)
+    elseif isColor(1000, 449, 0x116eb9, 95) then
+        debug("领取3")
+        touchClick(1000, 456)
+    elseif isColor(1000, 544, 0x126fba, 95) then
+        debug("领取4")
+        touchClick(1000, 551)
+    elseif isColor(1006, 419, 0x116eb9, 95) then
+        debug("领取--中间")
+        touchClick(1000, 419)
+    elseif isColor(905, 158, 0x931012, 95) then
+        debug("战斗力--红点")
+        touchClick(836, 173, 0x12253a)
+    elseif isColor(329, 492, 0x1c6ebb, 95) then
+        debug("使用--遗物")
+        touchClick(329, 492)
+    elseif isColor(297, 497, 0xd68b01, 95) then
+        debug("领取--黄色")
+        touchClick(297, 497)
     end
 end
 
