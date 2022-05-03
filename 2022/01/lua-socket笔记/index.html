@@ -5,36 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">Lua Socket with VSCode in Win10 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Lua Socket with VSCode in Win10" />
-<meta property="og:description" content="使用Lua 在VsCode 环境下 开发 需要使用到 Socket 、Http、Udp、Tcp 开发 都可以使用 C库 LuaSocket 先下载VSCode 插件以及 Lua 的Windows 运行" />
+    <title class="pjax-title">Lua Socket笔记 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Lua Socket笔记" />
+<meta property="og:description" content="完整说明，见引用 https://lunarmodules.github.io/luasocket/reference.html select用法 等待多个套接字更改状态 1 socket.select(recvt, sendt [, timeout]) 参数： Recvt是一个带有套接字的数组，用于测试可供读取(接收)的字符 se" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Lua Socket with VSCode in Win10"/>
-<meta name="twitter:description" content="使用Lua 在VsCode 环境下 开发 需要使用到 Socket 、Http、Udp、Tcp 开发 都可以使用 C库 LuaSocket 先下载VSCode 插件以及 Lua 的Windows 运行"/>
+<meta name="twitter:title" content="Lua Socket笔记"/>
+<meta name="twitter:description" content="完整说明，见引用 https://lunarmodules.github.io/luasocket/reference.html select用法 等待多个套接字更改状态 1 socket.select(recvt, sendt [, timeout]) 参数： Recvt是一个带有套接字的数组，用于测试可供读取(接收)的字符 se"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" /><link rel="next" href="https://xinqinew.github.io/2022/01/lua-socket-in-win/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/lua-socket%E5%88%86%E6%9E%901/" /><link rel="next" href="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Lua Socket with VSCode in Win10",
+        "headline": "Lua Socket笔记",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/lua-socket-with-vscode-in-win10\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Socket","wordcount":  383 ,
-        "url": "https:\/\/xinqinew.github.io\/2022\/01\/lua-socket-with-vscode-in-win10\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/lua-socket%E7%AC%94%E8%AE%B0\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Socket","wordcount":  334 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/lua-socket%E7%AC%94%E8%AE%B0\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -128,12 +128,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lua Socket with VSCode in Win10</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lua Socket笔记</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 383 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/01/lua-socket-with-vscode-in-win10/" class="leancloud_visitors" data-flag-title="Lua Socket with VSCode in Win10">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-28">2022-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 334 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="Lua Socket笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -145,162 +145,57 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#先下载vscode-插件以及-lua-的windows-运行环境"><strong>先下载VSCode 插件以及 Lua 的Windows 运行环境：</strong></a></li>
-        <li><a href="#lua运行环境"><strong>Lua运行环境：</strong></a></li>
-        <li><a href="#下载-luasocket"><strong>下载 LuaSocket</strong></a></li>
+        <li><a href="#select用法">select用法</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><strong>使用Lua 在VsCode 环境下 开发</strong></p>
-<p><strong>需要使用到 Socket 、Http、Udp、Tcp 开发 都可以使用 C库 LuaSocket</strong></p>
-<h2 id="先下载vscode-插件以及-lua-的windows-运行环境"><strong>先下载VSCode 插件以及 Lua 的Windows 运行环境：</strong></h2>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141308778-263316725.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141308778-263316725.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141308778-263316725.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141308778-263316725.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141308778-263316725.png"
-        title="img"
-    /></p>
-<h2 id="lua运行环境"><strong>Lua运行环境：</strong></h2>
-<p><a href="https://www.runoob.com/lua/lua-environment.html" target="_blank" rel="noopener noreffer">https://www.runoob.com/lua/lua-environment.html</a></p>
-<p><strong>安装 一路Next ，放到 ，会自己放到 ：C:\Program Files (x86)\Lua\5.1 目录下</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142529761-107566035-20220502002013343.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142529761-107566035-20220502002013343.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142529761-107566035-20220502002013343.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142529761-107566035-20220502002013343.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142529761-107566035-20220502002013343.png"
-        title="img"
-    /></p>
-<h2 id="下载-luasocket"><strong>下载 LuaSocket</strong></h2>
-<p><a href="http://files.luaforge.net/releases/luasocket/luasocket/luasocket-2.0.2" target="_blank" rel="noopener noreffer">http://files.luaforge.net/releases/luasocket/luasocket/luasocket-2.0.2</a></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141506725-1272848071-20220502002009707.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141506725-1272848071-20220502002009707.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141506725-1272848071-20220502002009707.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141506725-1272848071-20220502002009707.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324141506725-1272848071-20220502002009707.png"
-        title="img"
-    /></p>
-<p>在自己的项目中创建个文件夹，然后将下载好的 luasocket-2.0.2 解压文件 全都放到 这个文件夹下。</p>
-<p>以 创建 LuaSockts2007 文件夹 为例子：</p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142329087-1902929694-20220502002005023.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142329087-1902929694-20220502002005023.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142329087-1902929694-20220502002005023.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142329087-1902929694-20220502002005023.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142329087-1902929694-20220502002005023.png"
-        title="img"
-    /></p>
-<p><strong>然后再 点击，在我们建立的 VsCode 项目中 加入 Lua Debug 插件的调试 launch.json 配置文件</strong></p>
-<p><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142756110-682347939.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142756110-682347939.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142756110-682347939.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142756110-682347939.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324142756110-682347939.png"
-        title="img"
-    /></p>
-<p><strong>在 launch.json 文件中录入:</strong></p>
-<p><strong><img
-        class="lazyload"
-        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324143423143-888848508-20220502001957132.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324143423143-888848508-20220502001957132.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324143423143-888848508-20220502001957132.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324143423143-888848508-20220502001957132.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/341502-20200324143423143-888848508-20220502001957132.png"
-        title="img"
-    /></strong></p>
+            </div><div class="content" id="content"><p>完整说明，见引用 <a href="https://lunarmodules.github.io/luasocket/reference.html" target="_blank" rel="noopener noreffer">https://lunarmodules.github.io/luasocket/reference.html</a></p>
+<h2 id="select用法">select用法</h2>
+<p>等待多个套接字更改状态</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1">// 使用 IntelliSense 了解相关属性。 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// 悬停以查看现有属性的描述。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;lua&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Launch&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}/LuaSockts2007/lua/?.lua;C:/Program Files (x86)/Lua/5.1/lua/?.lua;&#34;</span><span class="p">,</span> <span class="c1">//LuaSockts2007+系统Lua运行环境
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;cpath&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}/LuaSockts2007/?.dll;C:/Program Files (x86)/Lua/5.1/clibs/?.dll;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="c1">// &#34;path&#34;: &#34;C:/Program Files (x86)/Lua/5.1/lua/?.lua&#34;,                     //系统Lua运行环境
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">      <span class="c1">// &#34;cpath&#34;: &#34;C:/Program Files (x86)/Lua/5.1/clibs/?.dll&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;luaexe&#34;</span><span class="p">:</span> <span class="s2">&#34;C:/Program Files (x86)/Lua/5.1/lua.exe&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="c1">// &#34;luaexe&#34;: &#34;${workspaceFolder}/LuaSockts2007/lua5.1.exe;&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">      <span class="c1">// &#34;program&#34;: &#34;${workspaceFolder}/socketMain.lua&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}/socketHttpMain.lua&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="n">socket.select</span><span class="p">(</span><span class="n">recvt</span><span class="p">,</span> <span class="n">sendt</span> <span class="p">[,</span> <span class="n">timeout</span><span class="p">])</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>此时便 可以使用 Luasocket 进行开发或者 调试了</strong></p>
+</div><p>参数：</p>
+<ul>
+<li>
+<p><code>Recvt</code>是一个带有套接字的数组，用于测试可供读取(接收)的字符</p>
+</li>
+<li>
+<p><code>sendt</code>是一个带有套接字的数组，用于测试可供写入(发送)的字符</p>
+</li>
+<li>
+<p><code>timeout</code>是等待状态更改的最大时间（以秒为单位）。<code>nil</code>、负或省略的<code>timeout</code>允许函数无限期阻止。</p>
+<blockquote>
+<p><code>Recvt</code>和<code>sendt</code>也可以是空<code>tables</code>或<code>nil</code>。数组中的非套接字值（或具有非数字索引的值）将被默默忽略。</p>
+</blockquote>
+</li>
+</ul>
+<p>三个返回值：</p>
+<ul>
+<li>
+<p>一个套接字准备读取(接收)的列表</p>
+</li>
+<li>
+<p>一个套接字准备写入(发送)的列表</p>
+</li>
+<li>
+<p>一个错误消息:</p>
+<ul>
+<li>如果超时，则错误消息为“<code>timeout</code>”.</li>
+<li>如果调用失败，则错误消息为“<code>select failed</code>”.</li>
+<li>其它情况为<code>nil</code>。</li>
+</ul>
+</li>
+<li>
+<p>返回的tables,键为整数,值为套接字本身。</p>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -312,7 +207,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" data-title="Lua Socket with VSCode in Win10" data-hashtags="Socket"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" data-hashtag="Socket"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" data-title="Lua Socket with VSCode in Win10"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" data-title="Lua Socket with VSCode in Win10"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/" data-title="Lua Socket with VSCode in Win10"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" data-title="Lua Socket笔记" data-hashtags="Socket"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" data-hashtag="Socket"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" data-title="Lua Socket笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" data-title="Lua Socket笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" data-title="Lua Socket笔记"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -324,8 +219,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2022/01/lua-socket%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="Lua Socket笔记"><i class="fas fa-angle-left fa-fw"></i>Lua Socket笔记</a>
-            <a href="/2022/01/lua-socket-in-win/" class="next" rel="next" title="Lua Socket in Win">Lua Socket in Win<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2022/01/lua-socket%E5%88%86%E6%9E%901/" class="prev" rel="prev" title="Lua Socket分析1"><i class="fas fa-angle-left fa-fw"></i>Lua Socket分析1</a>
+            <a href="/2022/01/lua-socket-with-vscode-in-win10/" class="next" rel="next" title="Lua Socket with VSCode in Win10">Lua Socket with VSCode in Win10<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

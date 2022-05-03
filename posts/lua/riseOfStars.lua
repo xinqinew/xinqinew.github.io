@@ -267,6 +267,40 @@ function writePlistNew(key, value)
 
 end
 
+function threadClinet()
+    if whoAmI() ~= 3 then
+        os.execute("chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
+    end
+    local bool, msg = os.remove(userPath() .. "/lua/clientiPhone.lua")
+    -- local bool = delFile(userPath() .. "/lua/clientiPhone.lua")
+    if bool then
+        -- dialog("删除成功",5)
+    else
+        dialog("删除失败，失败原因：" .. msg, 5)
+    end
+    ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
+    local temRet = ftpDownOnce(ftpMuLu .. "Lua/clientiPhone.lua", userPath() .. "/lua/clientiPhone.lua")
+    if temRet then
+        toast("FTP下载clientiPhone成功", 1)
+        mSleep(1000)
+    else
+        for i = 1, 10, 1 do
+            code, msg = ts.tsDownload(userPath() .. "/lua/clientiPhone.lua", luaFile, {
+                ["tstab"] = 1,
+                ["mode"] = true
+            })
+            -- httpDown("https://cdn.jsdelivr.net/gh/xinqinew/rise-of-stars@main/clientiPhone.lua", "/var/mobile/Media/TouchSprite/lua/clientiPhone.lua")
+            if code == 200 then
+                toast("Github下载clientiPhone成功", 1)
+                mSleep(1000)
+                break
+            else
+                tiaoShi("下载clientiPhone失败：" .. msg)
+                mSleep(1000)
+            end
+        end
+    end
+end
 function expand(s)
     return string.gsub(s, "$(%w+)", _G)
 end
@@ -277,10 +311,13 @@ function main()
     if m_iRunCount == 1 then
         newUi()
         if check4 == "测试" then
-
+            threadClinet()
+            package.loaded["clientiPhone"] = nil
+            runThread("clientiPhone")
+            mSleep(1000)
         end
     end
-    if checkXiangMu1 == "项目1" then
+    if checkXiangMu1 == "项目1" then       
         main1()
     end
     if checkXiangMu2 == "项目2" then

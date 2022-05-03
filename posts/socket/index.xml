@@ -53,6 +53,13 @@
     </author><guid>https://xinqinew.github.io/2022/01/lua-socket-with-vscode-in-win10/</guid>
     <description><![CDATA[使用Lua 在VsCode 环境下 开发 需要使用到 Socket 、Http、Udp、Tcp 开发 都可以使用 C库 LuaSocket 先下载VSCode 插件以及 Lua 的Windows 运行]]></description>
 </item><item>
+    <title>Lua Socket笔记</title>
+    <link>https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/lua-socket%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[完整说明，见引用 https://lunarmodules.github.io/luasocket/reference.html select用法 等待多个套接字更改状态 1 socket.select(recvt, sendt [, timeout]) 参数： Recvt是一个带有套接字的数组，用于测试可供读取(接收)的字符 se]]></description>
+</item><item>
     <title>Lua Socket分析1</title>
     <link>https://xinqinew.github.io/2022/01/lua-socket%E5%88%86%E6%9E%901/</link>
     <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -73,12 +80,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/01/setsockopt%E7%94%A8%E6%B3%95/</guid>
     <description><![CDATA[setsockopt用法详解 在TCP连接中，recv等函数默认为阻塞模式(block)，即直到有数据到来之前函数不会返回，而我们有时则需要一]]></description>
-</item><item>
-    <title>单路实例</title>
-    <link>https://xinqinew.github.io/2022/01/%E5%8D%95%E8%B7%AF%E5%AE%9E%E4%BE%8B/</link>
-    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/%E5%8D%95%E8%B7%AF%E5%AE%9E%E4%BE%8B/</guid>
-    <description><![CDATA[TCP 服务端 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66]]></description>
 </item></channel>
 </rss>
