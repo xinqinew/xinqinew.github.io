@@ -33,6 +33,13 @@
     </author><guid>https://xinqinew.github.io/2022/01/lua%E4%B8%AD%E6%8E%A7/</guid>
     <description><![CDATA[基础 搭建服务器 Linux or Windows 掌握html 掌握css 掌握js 搜索后台模版 数据库 网络通信 服务器端 server.lua]]></description>
 </item><item>
+    <title>macOS lua debug 环境搭建避坑指南</title>
+    <link>https://xinqinew.github.io/2022/01/macos-lua-debug-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/macos-lua-debug-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/</guid>
+    <description><![CDATA[安装LuaRocks brew install luarocks -v 删除用brew uninstall luarocks 安装LuaSocket luarocks install luasocket 删除用luarocks remove luasocket 安装Homebrew /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; 安装 wget brew install]]></description>
+</item><item>
     <title>小精灵</title>
     <link>https://xinqinew.github.io/2022/01/%E5%B0%8F%E7%B2%BE%E7%81%B5/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
