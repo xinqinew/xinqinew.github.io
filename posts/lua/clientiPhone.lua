@@ -8,7 +8,19 @@ sock:settimeout(0)--超时时间
 -- 译:输入想要传输的数据
 toast("多线程")
 assert(sock:send("Hello world!"))--发送
-mSleep(3000)
+-- mSleep(3000)
+recvt, sendt, status = socket.select({sock}, nil, 1)
+while #recvt > 0 do
+    local response, receive_status = sock:receive()
+    if receive_status ~= "closed" then
+        if response then
+            toast(response)
+            recvt, sendt, status = socket.select({sock}, nil, 1)
+        end
+    else
+        break
+    end
+end
 sock:close()
 local input, recvt, sendt, status
 for i = 1, 60, 1 do
