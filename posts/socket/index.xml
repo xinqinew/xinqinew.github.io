@@ -74,11 +74,11 @@
     </author><guid>https://xinqinew.github.io/2022/01/lua-socket%E5%88%86%E6%9E%902/</guid>
     <description><![CDATA[实例解析lua中的socket（TCP，UDP） 首先，安装lua下的socket库。我在ubuntu下安装测试的。安装完成后会有 /usr/local/lib/lua/5.1/socket/core.so 直接上例子]]></description>
 </item><item>
-    <title>setsockopt用法</title>
-    <link>https://xinqinew.github.io/2022/01/setsockopt%E7%94%A8%E6%B3%95/</link>
+    <title>Mac Socket</title>
+    <link>https://xinqinew.github.io/2022/01/mac-socket/</link>
     <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/setsockopt%E7%94%A8%E6%B3%95/</guid>
-    <description><![CDATA[setsockopt用法详解 在TCP连接中，recv等函数默认为阻塞模式(block)，即直到有数据到来之前函数不会返回，而我们有时则需要一]]></description>
+    </author><guid>https://xinqinew.github.io/2022/01/mac-socket/</guid>
+    <description><![CDATA[macos下简单的socket服务器+客户端 TCP客户端服务器编程模型： 服务器： 调用socket函数创建套接字 调用bind绑定本地IP和端口]]></description>
 </item></channel>
 </rss>
