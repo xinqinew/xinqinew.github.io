@@ -1163,6 +1163,23 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
+    if isColor(842,101,0x80171a,95) and isColor(80,66,0xff6600,95) and isColor(91,59,0xf8a901,95) then
+        debug("点数商店--精锐怪物旗帜")
+        if isColor(967,371,0xffe087,95) then--5
+            touchClick(967,371)
+        elseif isColor(394,371,0xffe087,95) then--2
+            touchClick(394,371)
+        elseif isColor(197,371,0xffe087,95) then--1
+            touchClick(197,371)
+        else
+            touchClick(511,603,0x0c0c0e        )
+        end
+    end
+    if isColor(480,471,0x6b4500,95) and isColor(489,470,0xa31c1e,95) and isColor(527,483,0xd77e00,95) and isColor(681,385,0x0e3d74,95) then
+        debug("购买道具--精锐怪物旗帜")
+        touchClick(681,385,0x0e3d74    )--最多
+        touchClick(527,483,0xd77e00    )--购买
+    end
     if isColor(338, 45, 0xe0e0e0, 95) and isColor(575, 219, 0xbaab81, 95) and isColor(482, 485, 0x1c6db9, 95) and isColor(688, 397, 0x0d3a70, 95) then
         debug("使用道具--遗物")
         touchClick(690, 397, 0x0d3a70) --最多
@@ -4236,7 +4253,7 @@ function checkRed1()
         debug("验证码--红点")
         touchClick(1033, 137)
         return true
-    elseif isColor(448, 78, 0x33d6ff, 95) then
+    elseif isColor(448, 78, 0x33d6ff, 95) or isColor(448,78,0x814d27,95) then
         debug("收资源1")
         touchClick(448, 78)
         return true
@@ -6752,6 +6769,9 @@ function huoDongDetail()
     if isColor(1084, 83, 0x9e1111, 95) then
         debug("规则")
         touchClick(1032, 103, 0x0b7148)
+    elseif isColor(250,420,0x18407f,95) and isColor(307,401,0x9e1111,95) then
+        debug("og精锐怪物狂欢")
+        touchClick(250,420)
     elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
         debug("STAKING")
         touchClick(944, 558, 0x1a77f3)
