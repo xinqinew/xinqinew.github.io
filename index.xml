@@ -77,14 +77,14 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C / C++ 计算程序运行的时间 在学数据结构过程中老师让查看不同算法的运行时间，然后让自己打印运行时间。 想要获取运行时间，计时函数是clock()，]]></description>
 </item><item>
-    <title>C&#43;&#43;获取URL内容</title>
-    <link>https://xinqinew.github.io/2022/01/c-%E8%8E%B7%E5%8F%96url%E5%86%85%E5%AE%B9/</link>
+    <title>C&#43;&#43; 实现HTTP GET和POST</title>
+    <link>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0http-get%E5%92%8Cpost/</link>
     <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/c-%E8%8E%B7%E5%8F%96url%E5%86%85%E5%AE%B9/</guid>
+    </author><guid>https://xinqinew.github.io/2022/01/c-%E5%AE%9E%E7%8E%B0http-get%E5%92%8Cpost/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>HttpUtil.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69]]></description>
+            </div>C++ 一个简单的实现HTTP GET和POST请求的类 最近有个项目需要用到HTTP GET和POST请求，但是网上没有找到特别好用的类，就自己写了一]]></description>
 </item><item>
     <title>C&#43;&#43;实现socket通信(TCP IP)</title>
     <link>https://xinqinew.github.io/2022/01/c-socket%E7%94%A8%E6%B3%951/</link>
