@@ -1644,11 +1644,11 @@ function zongHe1(...)
         nowTime = os.time()
         timeXXX = nowTime
         -- snapshot("yudama.png", 222, 12, 596, 157)
-        -- current_time = os.date("%m-%d_%H.%M", os.time());
-        -- snapshot(iphoneId .. "-" .. current_time .. ".png", 222, 12, 596, 157); -- 以时间戳命名进行截图
+        current_time = os.date("%m-%d_%H.%M", os.time());
+        snapshot(iphoneId .. "-" .. current_time .. ".png", 222, 12, 596, 157); -- 以时间戳命名进行截图
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "YDM/")
-        -- mSleep(2000)
-        -- delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+        mSleep(2000)
+        delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             closeFw() -- 关闭所有视图
             mSleep(500)
