@@ -79,6 +79,7 @@ local controls = {label, nameInput, positionPicker, developerSwitch, btn1, btn2,
 -- 弹出对话框。 弹出后，脚本将暂停等待用户输入，直到点击任何按钮，然后返回点击按钮的标志。
 -- 对话框的方向是什么，它是可选的
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
+-- local orientations = { ORIENTATION_TYPE.PORTRAIT};
 
 local result = dialog(controls, orientations);
 
