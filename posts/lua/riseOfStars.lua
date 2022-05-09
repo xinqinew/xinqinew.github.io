@@ -254,14 +254,17 @@ end
 -- writeJson
 function writeJson(key, value)
     if type(value) == "boolean" then
-        tableFromJson[key][1] = "luabool"
         if value == true then
-            tableFromJson[key][2] = 1
+            tableFromJson[key] = { "luabool", 1 }
         else
-            tableFromJson[key][2] = 0
+            tableFromJson[key] = { "luabool", 0 }
         end
     else
         tableFromJson[key] = value
+    end
+    local jsonstring = json_ts.encode(tableFromJson);  --将 table 格式数据转成 json 格式数据
+    if jsonstring ~= "" and jsonstring ~= nil then
+        bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
     end
     ftpUpJson2()
 end
@@ -1215,13 +1218,7 @@ end
 function ftpUpJson2()
     if nowTime - timeUpJson >= 10 * 60 then
         timeUpJson = nowTime
-        local jsonstring = json_ts.encode(tableFromJson);  --将 table 格式数据转成 json 格式数据
-        if jsonstring ~= "" and jsonstring ~= nil then
-            bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
-            if bool then
-                ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
-            end
-        end
+        ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
     end
 end
 
