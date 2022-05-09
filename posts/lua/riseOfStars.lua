@@ -1,4 +1,4 @@
-numLua = 18.6
+numLua = 18.7
 toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
@@ -24,24 +24,29 @@ function bianLiang()
     numInit = 1
     appShadowrocket = "com.liguangming.Shadowrocket"
     appWallet = "com.wemadetree.wemixwallet"
+    tableFromJson = json_ts.decode(readFileString(userPath() .. "/res/" .. iphoneId .. ".json")) --将 json 格式数据转成 table 格式数据
 
+    -- debug0( type(tableFromJson["增产粒子"]))
+    -- if tableFromJson["增产粒子"] ~= nil  then
+    -- debug0(tableFromJson["增产粒子"][2])
+    -- end
     -- 项目ID
-    appXiangMu = loadPlistNew("项目ID")
+    appXiangMu = loadJson("项目ID")
     if appXiangMu == nil then
         appXiangMu = dialogInput("请输入项目ID", "在这里输入项目ID", "确认");
-        writePlistNew("项目ID", appXiangMu)
+        writeJson("项目ID", appXiangMu)
     end
     apps1 = appXiangMu
 
     -- 云打码
-    YDM_username = loadPlistNew("YDM_username")
+    YDM_username = loadJson("YDM_username")
     if YDM_username == nil then
         YDM_username, YDM_password = dialogInput("请输入云打码帐号和密钥",
             "在这里输入YDM_username #在这里输入YDM_password", "确认");
-        writePlistNew("YDM_username", YDM_username)
-        writePlistNew("YDM_password", YDM_password)
+        writeJson("YDM_username", YDM_username)
+        writeJson("YDM_password", YDM_password)
     end
-    YDM_password = loadPlistNew("YDM_password")
+    YDM_password = loadJson("YDM_password")
 
     op = {
         -- 必填参数
@@ -203,17 +208,17 @@ function gaiMuBiaoNew(cs_num, cs_muBiao, ...)
         muBiao1 = cs_muBiao
         writeConfigNew("muBiao1", cs_muBiao)
         muBiaoZhuanHuanNew()
-        writePlistNew("目标1", cs_muBiao)
+        writeJson("目标1", cs_muBiao)
     elseif cs_num == 2 then
         muBiao2 = cs_muBiao
         writeConfigNew("muBiao2", cs_muBiao)
         muBiaoZhuanHuanNew()
-        writePlistNew("目标2", cs_muBiao)
+        writeJson("目标2", cs_muBiao)
     elseif cs_num == 3 then
         muBiao3 = cs_muBiao
         writeConfigNew("muBiao3", cs_muBiao)
         muBiaoZhuanHuanNew()
-        writePlistNew("目标3", cs_muBiao)
+        writeJson("目标3", cs_muBiao)
     end
 end
 
@@ -232,6 +237,33 @@ function writeConfigNew(id, neirong)
     -- str, num = string.gsub(tmpString, id .. "$$$" .. old .. "$$$", id .. "$$$" .. new .. "$$$")
     -- f:write(str)
     f:close()
+end
+
+-- loadJson
+function loadJson(key)
+    local valueJson = tableFromJson[key]
+    if type(valueJson) == "table" then
+        return valueJson[2]
+    elseif valueJson ~= nil then
+        return valueJson
+    else
+        return nil
+    end
+end
+
+-- writeJson
+function writeJson(key, value)
+    if type(value) == "boolean" then
+        tableFromJson[key][1] = "luabool"
+        if value == true then
+            tableFromJson[key][2] = 1
+        else
+            tableFromJson[key][2] = 0
+        end
+    else
+        tableFromJson[key] = value
+    end
+    ftpUpJson2()
 end
 
 -- loadPlistNew
@@ -301,6 +333,7 @@ function threadClinet()
         end
     end
 end
+
 function expand(s)
     return string.gsub(s, "$(%w+)", _G)
 end
@@ -311,13 +344,27 @@ function main()
     if m_iRunCount == 1 then
         newUi()
         if check4 == "测试" then
-            threadClinet()
-            package.loaded["clientiPhone"] = nil
-            runThread("clientiPhone")
-            mSleep(1000)
+            -- threadClinet()
+            -- package.loaded["clientiPhone"] = nil
+            -- runThread("clientiPhone")
+            -- mSleep(1000)
+
+            plistToJson()
+            local file = userPath() .. "/res/" .. iphoneId .. ".json"
+            local txt = readFileString(file) --读取文件内容，返回全部内容的 string
+            if txt then
+                tableFromJson = json_ts.decode(txt) --将 json 格式数据转成 table 格式数据
+            end
+            -- debug(tableFromJson["粒子总次数"])
+            -- toast(tableFromJson["粒子总次数"])
+        end
+        if check4 == "测试" then
+            baidu_APItest = tableFromJson["baidu_API"]
+            debug(baidu_APItest)
+
         end
     end
-    if checkXiangMu1 == "项目1" then       
+    if checkXiangMu1 == "项目1" then
         main1()
     end
     if checkXiangMu2 == "项目2" then
@@ -448,50 +495,55 @@ function oncePlist()
     -----------------------公共部分--------------------------
 
     -- 百度识字
-    baidu_API = loadPlistNew("baidu_API")
+    -- if check4 == "测试" then
+    --     baidu_API = tableFromJson["baidu_API"]
+    --     debug(baidu_API)
+    -- else
+    baidu_API = loadJson("baidu_API")
+    -- end
     if baidu_API == nil then
         -- baidu_API, baidu_Secret = dialogInput("请输入百度API和密钥",
         --     "在这里输入百度API #在这里输入百度密钥", "确认");
         baidu_API = "SywchAAQBy5TFu9X4r4xUy0S"
         baidu_Secret = "WcZ92Nm4Wmst30Wl4t7bjCoNlOZh4z42"
-        writePlistNew("baidu_API", baidu_API)
-        writePlistNew("baidu_Secret", baidu_Secret)
+        writeJson("baidu_API", baidu_API)
+        writeJson("baidu_Secret", baidu_Secret)
     end
-    baidu_Secret = loadPlistNew("baidu_Secret")
+    baidu_Secret = loadJson("baidu_Secret")
 
     -- 服务器IP
-    serverIP = loadPlistNew("服务器IP")
+    serverIP = loadJson("服务器IP")
     if serverIP == nil then
         -- serverIP = dialogInput("请输入服务器IP", "在这里输入服务器IP", "确认");
         serverIP = "192.168.1.34"
-        writePlistNew("服务器IP", serverIP)
+        writeJson("服务器IP", serverIP)
     end
 
     -- FTP
-    ftpMuLu = loadPlistNew("FTP目录")
+    ftpMuLu = loadJson("FTP目录")
     if ftpMuLu == nil then
         -- ftpMuLu = dialogInput("请输入FTP目录", "在这里输入FTP目录", "确认");
         ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
-        writePlistNew("FTP目录", ftpMuLu)
+        writeJson("FTP目录", ftpMuLu)
     end
 
     -----------------------私有部分--------------------------
 
-    writePlistNew("脚本版本", numLua)
-    writePlistNew("系统版本", getOSVer())
+    writeJson("脚本版本", numLua)
+    writeJson("系统版本", getOSVer())
 
     -- over章节
-    isOverLesson = loadPlistNew("over章节")
+    isOverLesson = loadJson("over章节")
     if isOverLesson == nil then
         isOverLesson = false
-        writePlistNew("over章节", isOverLesson)
+        writeJson("over章节", isOverLesson)
     end
 
     -- 机器名
-    strIphoneName = loadPlistNew("机器名")
+    strIphoneName = loadJson("机器名")
     if strIphoneName == nil then
         strIphoneName = iphoneId
-        writePlistNew("机器名", strIphoneName)
+        writeJson("机器名", strIphoneName)
     end
 
     -- 机器IP
@@ -501,306 +553,306 @@ function oncePlist()
     else
         strIphoneIP = getNetIP()
     end
-    writePlistNew("机器IP", strIphoneIP)
+    writeJson("机器IP", strIphoneIP)
 
     -- 今日闪退次数
-    numTodayExit = loadPlistNew("今日闪退次数")
+    numTodayExit = loadJson("今日闪退次数")
     if numTodayExit == nil then
         numTodayExit = 0
-        writePlistNew("今日闪退次数", numTodayExit)
+        writeJson("今日闪退次数", numTodayExit)
     end
 
     -- 闪退总次数
-    numExit = loadPlistNew("闪退总次数")
+    numExit = loadJson("闪退总次数")
     if numExit == nil then
         numExit = 0
-        writePlistNew("闪退总次数", numExit)
+        writeJson("闪退总次数", numExit)
     end
 
     -- 今日矿物次数
-    numTodayDigKuang = loadPlistNew("今日矿物次数")
+    numTodayDigKuang = loadJson("今日矿物次数")
     if numTodayDigKuang == nil then
         numTodayDigKuang = 0
-        writePlistNew("今日矿物次数", numTodayDigKuang)
+        writeJson("今日矿物次数", numTodayDigKuang)
     end
 
     -- 矿物总次数
-    numDigKuang = loadPlistNew("矿物总次数")
+    numDigKuang = loadJson("矿物总次数")
     if numDigKuang == nil then
         numDigKuang = 0
-        writePlistNew("矿物总次数", numDigKuang)
+        writeJson("矿物总次数", numDigKuang)
     end
 
     -- 今日金属次数
-    numTodayDigJinShu = loadPlistNew("今日金属次数")
+    numTodayDigJinShu = loadJson("今日金属次数")
     if numTodayDigJinShu == nil then
         numTodayDigJinShu = 0
-        writePlistNew("今日金属次数", numTodayDigJinShu)
+        writeJson("今日金属次数", numTodayDigJinShu)
     end
 
     -- 金属总次数
-    numDigJinShu = loadPlistNew("金属总次数")
+    numDigJinShu = loadJson("金属总次数")
     if numDigJinShu == nil then
         numDigJinShu = 0
-        writePlistNew("金属总次数", numDigJinShu)
+        writeJson("金属总次数", numDigJinShu)
     end
 
     -- 今日氯气次数
-    numTodayDigLvQi = loadPlistNew("今日氯气次数")
+    numTodayDigLvQi = loadJson("今日氯气次数")
     if numTodayDigLvQi == nil then
         numTodayDigLvQi = 0
-        writePlistNew("今日氯气次数", numTodayDigLvQi)
+        writeJson("今日氯气次数", numTodayDigLvQi)
     end
 
     -- 氯气次数
-    numDigLvQi = loadPlistNew("氯气总次数")
+    numDigLvQi = loadJson("氯气总次数")
     if numDigLvQi == nil then
         numDigLvQi = 0
-        writePlistNew("氯气总次数", numDigLvQi)
+        writeJson("氯气总次数", numDigLvQi)
     end
 
     -- 今日粒子次数
-    numTodayDigLiZi = loadPlistNew("今日粒子次数")
+    numTodayDigLiZi = loadJson("今日粒子次数")
     if numTodayDigLiZi == nil then
         numTodayDigLiZi = 0
-        writePlistNew("今日粒子次数", numTodayDigLiZi)
+        writeJson("今日粒子次数", numTodayDigLiZi)
     end
 
     -- 粒子总次数
-    numDigLiZi = loadPlistNew("粒子总次数")
+    numDigLiZi = loadJson("粒子总次数")
     if numDigLiZi == nil then
         numDigLiZi = 0
-        writePlistNew("粒子总次数", numDigLiZi)
+        writeJson("粒子总次数", numDigLiZi)
     end
 
     -- 资源传输装置兑换次数
-    numZiYuanDuiHuan = loadPlistNew("资源传输装置兑换次数")
+    numZiYuanDuiHuan = loadJson("资源传输装置兑换次数")
     if numZiYuanDuiHuan == nil then
         numZiYuanDuiHuan = 0
-        writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+        writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
     end
 
     -- 金币买钛
-    numBuyTaiByCoin = loadPlistNew("金币买钛")
+    numBuyTaiByCoin = loadJson("金币买钛")
     if numBuyTaiByCoin == nil then
         numBuyTaiByCoin = 0
-        writePlistNew("金币买钛", numBuyTaiByCoin)
+        writeJson("金币买钛", numBuyTaiByCoin)
     end
 
     -- 指挥中心等级
-    numLv = loadPlistNew("指挥中心等级")
+    numLv = loadJson("指挥中心等级")
     if numLv == nil then
         numLv = 1
-        writePlistNew("指挥中心等级", numLv)
+        writeJson("指挥中心等级", numLv)
     end
 
     -- 矿物
-    numKuang = loadPlistNew("矿物")
+    numKuang = loadJson("矿物")
     if numKuang == nil then
         numKuang = 0
-        writePlistNew("矿物", numKuang)
+        writeJson("矿物", numKuang)
     end
 
     -- 金属
-    numJinShu = loadPlistNew("金属")
+    numJinShu = loadJson("金属")
     if numJinShu == nil then
         numJinShu = 0
-        writePlistNew("金属", numJinShu)
+        writeJson("金属", numJinShu)
     end
 
     -- 氯气
-    numLvQi = loadPlistNew("氯气")
+    numLvQi = loadJson("氯气")
     if numLvQi == nil then
         numLvQi = 0
-        writePlistNew("氯气", numLvQi)
+        writeJson("氯气", numLvQi)
     end
     -- 粒子
-    numLiZi = loadPlistNew("粒子")
+    numLiZi = loadJson("粒子")
     if numLiZi == nil then
         numLiZi = 0
-        writePlistNew("粒子", numLiZi)
+        writeJson("粒子", numLiZi)
     end
 
     -- 金币
-    numCoin = loadPlistNew("金币")
+    numCoin = loadJson("金币")
     if numCoin == nil then
         numCoin = 0
-        writePlistNew("金币", numCoin)
+        writeJson("金币", numCoin)
     end
 
     -- 钛
-    numTai = loadPlistNew("钛")
+    numTai = loadJson("钛")
     if numTai == nil then
         numTai = 0
-        writePlistNew("钛", numTai)
+        writeJson("钛", numTai)
     end
 
     -- 加速生产船型
-    numSpeedUp = loadPlistNew("加速生产船型")
+    numSpeedUp = loadJson("加速生产船型")
     if numSpeedUp == nil then
         numSpeedUp = 1
-        writePlistNew("加速生产船型", numSpeedUp)
+        writeJson("加速生产船型", numSpeedUp)
     end
 
     -- 已兑换
-    isDuiHuan = loadPlistNew("已兑换")
+    isDuiHuan = loadJson("已兑换")
     if isDuiHuan == nil then
         isDuiHuan = false
-        writePlistNew("已兑换", isDuiHuan)
+        writeJson("已兑换", isDuiHuan)
     end
 
     -- 粒子方向
-    numSearchLiZi = loadPlistNew("粒子方向")
+    numSearchLiZi = loadJson("粒子方向")
     if numSearchLiZi == nil then
         numSearchLiZi = 0
-        writePlistNew("粒子方向", numSearchLiZi)
+        writeJson("粒子方向", numSearchLiZi)
     end
 
     -- 广告次数
-    numGuangGao = loadPlistNew("广告次数")
+    numGuangGao = loadJson("广告次数")
     if numGuangGao == nil then
         numGuangGao = 0
-        writePlistNew("广告次数", numGuangGao)
+        writeJson("广告次数", numGuangGao)
     end
 
     -- 传输次数
-    numChuanShu = loadPlistNew("传输次数")
+    numChuanShu = loadJson("传输次数")
     if numChuanShu == nil then
         numChuanShu = 0
-        writePlistNew("传输次数", numChuanShu)
+        writeJson("传输次数", numChuanShu)
     end
 
     -- 交易行
-    isTrade = loadPlistNew("交易行")
+    isTrade = loadJson("交易行")
     if isTrade == nil then
         isTrade = false
-        writePlistNew("交易行", isTrade)
+        writeJson("交易行", isTrade)
     end
 
     -- 每日5道具
-    num5DaoJu = loadPlistNew("每日5道具")
+    num5DaoJu = loadJson("每日5道具")
     if num5DaoJu == nil then
         num5DaoJu = 0
-        writePlistNew("每日5道具", num5DaoJu)
+        writeJson("每日5道具", num5DaoJu)
     end
 
     -- 每日道具合成
-    isMixedThing = loadPlistNew("每日道具合成")
+    isMixedThing = loadJson("每日道具合成")
     if isMixedThing == nil then
         isMixedThing = false
-        writePlistNew("每日道具合成", isMixedThing)
+        writeJson("每日道具合成", isMixedThing)
     end
 
     -- 每日3海盗
-    num3Pirate = loadPlistNew("每日3海盗")
+    num3Pirate = loadJson("每日3海盗")
     if num3Pirate == nil then
         num3Pirate = 0
-        writePlistNew("每日3海盗", num3Pirate)
+        writeJson("每日3海盗", num3Pirate)
     end
 
     -- 增产
-    numAddChanLiang = loadPlistNew("增产")
+    numAddChanLiang = loadJson("增产")
     if numAddChanLiang == nil then
         numAddChanLiang = 0
-        writePlistNew("增产", numAddChanLiang)
+        writeJson("增产", numAddChanLiang)
     end
 
     -- 增产粒子
-    isAddChanLiangLiZi = loadPlistNew("增产粒子")
+    isAddChanLiangLiZi = loadJson("增产粒子")
     if isAddChanLiangLiZi == nil then
         isAddChanLiangLiZi = false
-        writePlistNew("增产粒子", isAddChanLiangLiZi)
+        writeJson("增产粒子", isAddChanLiangLiZi)
     end
 
     -- 整理背包
-    isZhengLi = loadPlistNew("整理")
+    isZhengLi = loadJson("整理")
     if isZhengLi == nil then
         isZhengLi = false
-        writePlistNew("整理", isZhengLi)
+        writeJson("整理", isZhengLi)
     end
 
     -- 吃经验
-    isEatEXP = loadPlistNew("吃经验")
+    isEatEXP = loadJson("吃经验")
     if isEatEXP == nil then
         isEatEXP = false
-        writePlistNew("吃经验", isEatEXP)
+        writeJson("吃经验", isEatEXP)
     end
 
     -- 再次收获22
-    isAgainReward22 = loadPlistNew("再次收获22")
+    isAgainReward22 = loadJson("再次收获22")
     if isAgainReward22 == nil then
         isAgainReward22 = false
-        writePlistNew("再次收获22", isAgainReward22)
+        writeJson("再次收获22", isAgainReward22)
     end
 
     -- 再次收获6
-    isAgainReward6 = loadPlistNew("再次收获6")
+    isAgainReward6 = loadJson("再次收获6")
     if isAgainReward6 == nil then
         isAgainReward6 = false
-        writePlistNew("再次收获6", isAgainReward6)
+        writeJson("再次收获6", isAgainReward6)
     end
 
     -- 卡优化
-    isKaYouHua = loadPlistNew("卡优化")
+    isKaYouHua = loadJson("卡优化")
     if isKaYouHua == nil then
         isKaYouHua = false
-        writePlistNew("卡优化", isKaYouHua)
+        writeJson("卡优化", isKaYouHua)
     end
 
     -- 材料编号
-    numCaiLiao = loadPlistNew("材料编号")
+    numCaiLiao = loadJson("材料编号")
     if numCaiLiao == nil then
         numCaiLiao = 1
-        writePlistNew("材料编号", numCaiLiao)
+        writeJson("材料编号", numCaiLiao)
     end
 
     -- 研究资源
-    isYanJiuZiYuan = loadPlistNew("研究资源")
+    isYanJiuZiYuan = loadJson("研究资源")
     if isYanJiuZiYuan == nil then
         isYanJiuZiYuan = true
-        writePlistNew("研究资源", isYanJiuZiYuan)
+        writeJson("研究资源", isYanJiuZiYuan)
     end
 
     -- 研究开发
-    isYanJiuKaiFa = loadPlistNew("研究开发")
+    isYanJiuKaiFa = loadJson("研究开发")
     if isYanJiuKaiFa == nil then
         isYanJiuKaiFa = true
-        writePlistNew("研究开发", isYanJiuKaiFa)
+        writeJson("研究开发", isYanJiuKaiFa)
     end
 
     -- 研究防御
-    isYanJiuFangYu = loadPlistNew("研究防御")
+    isYanJiuFangYu = loadJson("研究防御")
     if isYanJiuFangYu == nil then
         isYanJiuFangYu = true
-        writePlistNew("研究防御", isYanJiuFangYu)
+        writeJson("研究防御", isYanJiuFangYu)
     end
 
     -- 研究生产
-    isYanJiuShengChan = loadPlistNew("研究生产")
+    isYanJiuShengChan = loadJson("研究生产")
     if isYanJiuShengChan == nil then
         isYanJiuShengChan = true
-        writePlistNew("研究生产", isYanJiuShengChan)
+        writeJson("研究生产", isYanJiuShengChan)
     end
 
     -- 研究精锐
-    isYanJiuJingRui = loadPlistNew("研究精锐")
+    isYanJiuJingRui = loadJson("研究精锐")
     if isYanJiuJingRui == nil then
         isYanJiuJingRui = true
-        writePlistNew("研究精锐", isYanJiuJingRui)
+        writeJson("研究精锐", isYanJiuJingRui)
     end
 
     -- 研究战舰
-    isYanJiuZhanJian = loadPlistNew("研究战舰")
+    isYanJiuZhanJian = loadJson("研究战舰")
     if isYanJiuZhanJian == nil then
         isYanJiuZhanJian = true
-        writePlistNew("研究战舰", isYanJiuZhanJian)
+        writeJson("研究战舰", isYanJiuZhanJian)
     end
 
     -- 研究
-    isYanJiu = loadPlistNew("研究")
+    isYanJiu = loadJson("研究")
     if isYanJiu == nil then
         isYanJiu = true
-        writePlistNew("研究", isYanJiu)
+        writeJson("研究", isYanJiu)
     end
 end
 
@@ -957,9 +1009,9 @@ end
 -- 注销
 function zhuXiaoNew(...)
     numTodayExit = numTodayExit + 1
-    writePlistNew("今日闪退次数", numTodayExit)
+    writeJson("今日闪退次数", numTodayExit)
     numExit = numExit + 1
-    writePlistNew("闪退总次数", numExit)
+    writeJson("闪退总次数", numExit)
     if check5 == "注销" then
         flag = deviceIsLock();
         if flag == 0 then
@@ -991,14 +1043,20 @@ function debug(tiaoShiNeiRong)
         wLog(serverIP,
             iphoneId .. " 目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "    操作:" ..
             tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]")
-    end
-    if check2 == "本地调试" then
+    elseif check2 == "本地调试" then
         -- dialog(tiaoShiNeiRong,5)
         toast(
             "目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "                操作:" ..
             tiaoShiNeiRong)
         mSleep(3000)
     end
+end
+
+function debug0(tiaoShiNeiRong)
+    local temIP = "192.168.1.34"
+    initLog(temIP, 2);
+    wLog(temIP, "    内容:" .. tiaoShiNeiRong)
+    closeLog(temIP);
 end
 
 -- 浮动窗口
@@ -1153,6 +1211,20 @@ function ftpUpJson()
     end
 end
 
+--上传json 2
+function ftpUpJson2()
+    if nowTime - timeUpJson >= 10 * 60 then
+        timeUpJson = nowTime
+        local jsonstring = json_ts.encode(tableFromJson);  --将 table 格式数据转成 json 格式数据
+        if jsonstring ~= "" and jsonstring ~= nil then
+            bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
+            if bool then
+                ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
+            end
+        end
+    end
+end
+
 -----------------------私有部分--------------------------
 
 -- 综合
@@ -1163,22 +1235,22 @@ function zongHe1(...)
             touchClick(33, 493)
         end
     end
-    if isColor(842,101,0x80171a,95) and isColor(80,66,0xff6600,95) and isColor(91,59,0xf8a901,95) then
+    if isColor(842, 101, 0x80171a, 95) and isColor(80, 66, 0xff6600, 95) and isColor(91, 59, 0xf8a901, 95) then
         debug("点数商店--精锐怪物旗帜")
-        if isColor(967,371,0xffe087,95) then--5
-            touchClick(967,371)
-        elseif isColor(394,371,0xffe087,95) then--2
-            touchClick(394,371)
-        elseif isColor(197,371,0xffe087,95) then--1
-            touchClick(197,371)
+        if isColor(967, 371, 0xffe087, 95) then --5
+            touchClick(967, 371)
+        elseif isColor(394, 371, 0xffe087, 95) then --2
+            touchClick(394, 371)
+        elseif isColor(197, 371, 0xffe087, 95) then --1
+            touchClick(197, 371)
         else
-            touchClick(511,603,0x0c0c0e        )
+            touchClick(511, 603, 0x0c0c0e)
         end
     end
-    if isColor(480,471,0x6b4500,95) and isColor(489,470,0xa31c1e,95) and isColor(527,483,0xd77e00,95) and isColor(681,385,0x0e3d74,95) then
+    if isColor(480, 471, 0x6b4500, 95) and isColor(489, 470, 0xa31c1e, 95) and isColor(527, 483, 0xd77e00, 95) and isColor(681, 385, 0x0e3d74, 95) then
         debug("购买道具--精锐怪物旗帜")
-        touchClick(681,385,0x0e3d74    )--最多
-        touchClick(527,483,0xd77e00    )--购买
+        touchClick(681, 385, 0x0e3d74) --最多
+        touchClick(527, 483, 0xd77e00) --购买
     end
     if isColor(338, 45, 0xe0e0e0, 95) and isColor(575, 219, 0xbaab81, 95) and isColor(482, 485, 0x1c6db9, 95) and isColor(688, 397, 0x0d3a70, 95) then
         debug("使用道具--遗物")
@@ -1373,7 +1445,7 @@ function zongHe1(...)
         touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
             isKaYouHua = true
-            writePlistNew("卡优化", isKaYouHua)
+            writeJson("卡优化", isKaYouHua)
             gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -1404,7 +1476,7 @@ function zongHe1(...)
         touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
             isKaYouHua = true
-            writePlistNew("卡优化", isKaYouHua)
+            writeJson("卡优化", isKaYouHua)
             gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             touchClick(511, 603, 0x0c0c0e)
@@ -1557,7 +1629,7 @@ function zongHe1(...)
             touchClick(x, y)
             -- 广告次数
             numGuangGao = numGuangGao + 1
-            writePlistNew("广告次数", numGuangGao)
+            writeJson("广告次数", numGuangGao)
             mSleep(5 * 1000)
             if isColor(98, 272, 0x2d5996, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xeccfc0, 95) then
                 debug("已观看视频2")
@@ -2055,22 +2127,22 @@ function zongHe1(...)
             debug("攻击舰-加速")
             touchClick(466, 175)
             numSpeedUp = numSpeedUp + 1
-            writePlistNew("加速生产船型", numSpeedUp)
+            writeJson("加速生产船型", numSpeedUp)
         elseif isColor(655, 174, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 2 then
             debug("高速舰-加速")
             touchClick(685, 175)
             numSpeedUp = numSpeedUp + 1
-            writePlistNew("加速生产船型", numSpeedUp)
+            writeJson("加速生产船型", numSpeedUp)
         elseif isColor(469, 258, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 3 then
             debug("运输舰-加速")
             touchClick(471, 253)
             numSpeedUp = numSpeedUp + 1
-            writePlistNew("加速生产船型", numSpeedUp)
+            writeJson("加速生产船型", numSpeedUp)
         elseif isColor(659, 255, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 4 then
             debug("防御舰-加速")
             touchClick(685, 257)
             numSpeedUp = 1
-            writePlistNew("加速生产船型", numSpeedUp)
+            writeJson("加速生产船型", numSpeedUp)
         elseif muBiao == mb_ChuHang then
             debug("出航")
             touchClick(513, 611)
@@ -2358,7 +2430,7 @@ function zongHe1(...)
                 getOut()
                 if muBiao == mb_YouHua then
                     isKaYouHua = true
-                    writePlistNew("卡优化", isKaYouHua)
+                    writeJson("卡优化", isKaYouHua)
                     gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
                     if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
@@ -2612,7 +2684,7 @@ function zongHe1(...)
             touchClick(20, 20)
             isJustBack = false
             numChuanShu = numChuanShu + 1
-            writePlistNew("传输次数", numChuanShu)
+            writeJson("传输次数", numChuanShu)
         end
 
     end
@@ -2686,7 +2758,7 @@ function zongHe1(...)
                 local numStr = ocrText(749, 126, 772, 145, 0, "012346789")
                 if tonumber(numStr) >= 0 then
                     numLv = tonumber(numStr) - 1
-                    writePlistNew("指挥中心等级", numLv)
+                    writeJson("指挥中心等级", numLv)
                     toast(numLv)
                 end
             end
@@ -2895,17 +2967,17 @@ function zongHe1(...)
                 end
                 if temNum ~= nil then
                     numTai = temNum
-                    writePlistNew("钛", numTai)
+                    writeJson("钛", numTai)
                 end
             end
             if isColor(971, 427, 0x116eb9, 95) then -- 资源4
                 touchClick(971, 427)
                 numZiYuanDuiHuan = numZiYuanDuiHuan + 1
-                writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+                writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
             elseif isColor(971, 322, 0x116eb9, 95) then -- 资源3
                 touchClick(971, 322)
                 numZiYuanDuiHuan = numZiYuanDuiHuan + 1
-                writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+                writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
             elseif check16 == "vip8" and numBuyTaiByCoin <= 15 and isColor(1002, 426, 0xf18e07, 95) then --金币购买
                 touchClick(971, 427)
                 if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
@@ -2921,10 +2993,10 @@ function zongHe1(...)
                 else
                     touchClick(687, 444, 0xd77501) -- 金币购买
                     numZiYuanDuiHuan = numZiYuanDuiHuan + 1
-                    writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+                    writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
                 end
                 numBuyTaiByCoin = numBuyTaiByCoin + 1
-                writePlistNew("金币买钛", numBuyTaiByCoin)
+                writeJson("金币买钛", numBuyTaiByCoin)
             elseif numZiYuanDuiHuan <= 5 and haoLV <= 2 then
                 touchClick(1000, 321, 0xf18e07)
                 if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
@@ -2936,7 +3008,7 @@ function zongHe1(...)
                 else
                     touchClick(687, 444, 0xd77501) -- 金币购买
                     numZiYuanDuiHuan = numZiYuanDuiHuan + 1
-                    writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+                    writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
                 end
             else
                 touchClick(20, 20)
@@ -2961,7 +3033,7 @@ function zongHe1(...)
                         touchClick(865, 288, 0x2d2f35)
                     else
                         isYanJiu = false
-                        writePlistNew("研究", isYanJiu)
+                        writeJson("研究", isYanJiu)
                     end
                 else
                     if isYanJiuZiYuan == true then
@@ -2979,7 +3051,7 @@ function zongHe1(...)
                     else
                         touchClick(20, 20)
                         -- isYanJiu = false
-                        -- writePlistNew("研究", isYanJiu)
+                        -- writeJson("研究", isYanJiu)
                     end
                 end
             elseif isColor(129, 230, 0xb3b4b5, 95) then
@@ -3020,7 +3092,7 @@ function zongHe1(...)
                 end
                 if isColor(1082, 234, 0xffffff, 95) then -- 7
                     isYanJiuZiYuan = false
-                    writePlistNew("研究资源", isYanJiuZiYuan)
+                    writeJson("研究资源", isYanJiuZiYuan)
                     touchClick(75, 608, 0x1db687)
                     return
                 end
@@ -3077,7 +3149,7 @@ function zongHe1(...)
                 end
                 if isColor(1082, 234, 0xffffff, 95) then -- 7
                     isYanJiuKaiFa = false
-                    writePlistNew("研究开发", isYanJiuKaiFa)
+                    writeJson("研究开发", isYanJiuKaiFa)
                     touchClick(75, 608, 0x1db687)
                     return
                 end
@@ -3355,7 +3427,7 @@ function zongHe1(...)
             elseif isColor(16, 24, 0xffffff, 95) then
                 touchClick(20, 20)
                 isTrade = true
-                writePlistNew("交易行", isTrade)
+                writeJson("交易行", isTrade)
             end
         elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
@@ -3364,12 +3436,12 @@ function zongHe1(...)
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
-                    writePlistNew("增产", numAddChanLiang)
+                    writeJson("增产", numAddChanLiang)
                     isJustBack = false
                 else
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
-                    writePlistNew("增产", numAddChanLiang)
+                    writeJson("增产", numAddChanLiang)
                     isJustBack = false
                 end
             elseif isAddChanLiangLiZi == false and check16 == "vip8" then
@@ -3377,12 +3449,12 @@ function zongHe1(...)
                     touchClick(1004, 385, 0x1c6dba)
                     touchClick(20, 20)
                     isAddChanLiangLiZi = true
-                    writePlistNew("增产粒子", isAddChanLiangLiZi)
+                    writeJson("增产粒子", isAddChanLiangLiZi)
                     isJustBack = false
                 else
                     touchClick(20, 20)
                     isAddChanLiangLiZi = true
-                    writePlistNew("增产粒子", isAddChanLiangLiZi)
+                    writeJson("增产粒子", isAddChanLiangLiZi)
                     isJustBack = false
                 end
             else
@@ -3485,7 +3557,7 @@ function zongHe1(...)
             if numCaiLiao >= 13 then
                 numCaiLiao = 1
             end
-            writePlistNew("材料编号", numCaiLiao)
+            writeJson("材料编号", numCaiLiao)
         else
             touchClick(516, 523, 0x604411)
         end
@@ -3560,7 +3632,7 @@ function zongHe1(...)
             if muBiao == "研究" then
                 gaiMuBiaoNew(3, "无")
                 isYanJiu = false
-                writePlistNew("研究", isYanJiu)
+                writeJson("研究", isYanJiu)
             elseif muBiao == "主线" then
                 if haoLV == 3 then
                     gaiMuBiaoNew(1, mb_WaKuang)
@@ -3576,7 +3648,7 @@ function zongHe1(...)
         else
             if muBiao == mb_YouHua then
                 isKaYouHua = true
-                writePlistNew("卡优化", isKaYouHua)
+                writeJson("卡优化", isKaYouHua)
                 gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
                 mSleep(1000)
                 touchClick(511, 603, 0x0c0c0e)
@@ -3711,7 +3783,7 @@ function zongHe1(...)
                 if isColor(215 + i * 100, 78, 0xa0a0a0, 95) or isColor(215 + i * 100, 78, 0x33a904, 95) then
                     touchClick(215 + i * 100, 117)
                     num5DaoJu = num5DaoJu + 1
-                    writePlistNew("每日5道具", num5DaoJu)
+                    writeJson("每日5道具", num5DaoJu)
 
                     break
                 end
@@ -3759,7 +3831,7 @@ function zongHe1(...)
                         touchClick(509, 551, 0x1c6eba) --合成
                         touchClick(497, 433, 0x1c6eba) --确定
                         isMixedThing = true
-                        writePlistNew("每日道具合成", isMixedThing)
+                        writeJson("每日道具合成", isMixedThing)
                         gaiMuBiaoNew(2, mb_CaiJi)
                         break
                     else
@@ -3770,7 +3842,7 @@ function zongHe1(...)
                 end
                 if i == 8 then
                     isMixedThing = true
-                    writePlistNew("每日道具合成", isMixedThing)
+                    writeJson("每日道具合成", isMixedThing)
                     gaiMuBiaoNew(2, mb_CaiJi)
                 end
             end
@@ -3840,7 +3912,7 @@ function zongHe1(...)
                 useBagThings()
             end
             isZhengLi = true
-            writePlistNew("整理", isZhengLi)
+            writeJson("整理", isZhengLi)
         else
 
             -- if isColorPlus(137, 105, 0x9e1111, 95) then -- 资源
@@ -3932,7 +4004,7 @@ function zongHe1(...)
                         touchClick(968, 580, 0xa95a2a) --背包
                         mSleep(1000)
                         isZhengLi = false
-                        writePlistNew("整理", isZhengLi)
+                        writeJson("整理", isZhengLi)
                         timeZhengLi = nowTime
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
@@ -3969,19 +4041,19 @@ function zongHe1(...)
                     debug("研究任务")
                     touchClick(170, 510, 0x4784b8) -- 移动
                     isYanJiuZiYuan = true
-                    writePlistNew("研究资源", isYanJiuZiYuan)
+                    writeJson("研究资源", isYanJiuZiYuan)
                     isYanJiuKaiFa = true
-                    writePlistNew("研究开发", isYanJiuKaiFa)
+                    writeJson("研究开发", isYanJiuKaiFa)
                     isYanJiuFangYu = true
-                    writePlistNew("研究防御", isYanJiuFangYu)
+                    writeJson("研究防御", isYanJiuFangYu)
                     isYanJiuShengChan = true
-                    writePlistNew("研究生产", isYanJiuShengChan)
+                    writeJson("研究生产", isYanJiuShengChan)
                     isYanJiuJingRui = true
-                    writePlistNew("研究精锐", isYanJiuJingRui)
+                    writeJson("研究精锐", isYanJiuJingRui)
                     isYanJiuZhanJian = true
-                    writePlistNew("研究战舰", isYanJiuZhanJian)
+                    writeJson("研究战舰", isYanJiuZhanJian)
                     isYanJiu = true
-                    writePlistNew("研究", isYanJiu)
+                    writeJson("研究", isYanJiu)
                 elseif isColor(178, 340, 0x5da9db, 95) and isColor(121, 509, 0x116eb9, 95) then
                     debug("海盗任务")
                     if nowTime - timeZhengLi >= 5 * 60 then
@@ -3990,7 +4062,7 @@ function zongHe1(...)
                         touchClick(968, 580, 0xa95a2a) --背包
                         mSleep(1000)
                         isZhengLi = false
-                        writePlistNew("整理", isZhengLi)
+                        writeJson("整理", isZhengLi)
                         timeZhengLi = nowTime
                     else
                         touchClick(170, 510, 0x4784b8) -- 移动
@@ -4175,39 +4247,39 @@ function numYanJiu()
         numZiYuan = numZiYuan + 1
         if numZiYuan == 8 then
             isYanJiuZiYuan = false
-            writePlistNew("研究资源", isYanJiuZiYuan)
+            writeJson("研究资源", isYanJiuZiYuan)
         end
     elseif isYanJiuKaiFa == true then
         numKaiFa = numKaiFa + 1
         if numKaiFa == 8 then
             isYanJiuKaiFa = false
-            writePlistNew("研究开发", isYanJiuKaiFa)
+            writeJson("研究开发", isYanJiuKaiFa)
         end
     elseif isYanJiuFangYu == true then
         numFangYu = numFangYu + 1
         if numFangYu == 10 then
             isYanJiuFangYu = false
-            writePlistNew("研究防御", isYanJiuFangYu)
+            writeJson("研究防御", isYanJiuFangYu)
         end
     elseif isYanJiuShengChan == true then
         numShengChan = numShengChan + 1
         if numShengChan == 9 then
             isYanJiuShengChan = false
-            writePlistNew("研究生产", isYanJiuShengChan)
+            writeJson("研究生产", isYanJiuShengChan)
         end
     elseif isYanJiuJingRui == true then
         numJingRui = numJingRui + 1
         if numJingRui == 8 then
             isYanJiuJingRui = false
-            writePlistNew("研究精锐", isYanJiuJingRui)
+            writeJson("研究精锐", isYanJiuJingRui)
         end
     elseif isYanJiuZhanJian == true then
         numZhanJian = numZhanJian + 1
         if numZhanJian == 9 then
             isYanJiuZhanJian = false
-            writePlistNew("研究战舰", isYanJiuZhanJian)
+            writeJson("研究战舰", isYanJiuZhanJian)
             isYanJiu = false
-            writePlistNew("研究", isYanJiu)
+            writeJson("研究", isYanJiu)
         end
     end
 end
@@ -4253,7 +4325,7 @@ function checkRed1()
         debug("验证码--红点")
         touchClick(1033, 137)
         return true
-    elseif isColor(448, 78, 0x33d6ff, 95) or isColor(448,78,0x814d27,95) then
+    elseif isColor(448, 78, 0x33d6ff, 95) or isColor(448, 78, 0x814d27, 95) then
         debug("收资源1")
         touchClick(448, 78)
         return true
@@ -4287,7 +4359,7 @@ function checkRed1()
         end
         -- touchClick(20, 20)
         isEatEXP = true
-        writePlistNew("吃经验", isEatEXP)
+        writeJson("吃经验", isEatEXP)
     elseif isColor(844, 379, 0xffffff, 95) and isColor(857, 380, 0xffffff, 95) then
         debug("档案")
         touchClick(844, 379, 0xffffff)
@@ -4867,12 +4939,12 @@ function checkXXX(...)
             end
 
             -- numDiaoXian = numDiaoXian + 1
-            -- writePlistNew( "numDiaoXian", numDiaoXian)
+            -- writeJson( "numDiaoXian", numDiaoXian)
             -- if numDiaoXian >= 6 then
             --     numDiaoXian = 0
-            --     writePlistNew( "numDiaoXian", numDiaoXian)
+            --     writeJson( "numDiaoXian", numDiaoXian)
             --     numDiaoXianDengDai = numDiaoXianDengDai + 1
-            --     writePlistNew( "numDiaoXianDengDai", numDiaoXianDengDai)
+            --     writeJson( "numDiaoXianDengDai", numDiaoXianDengDai)
             --     -- dialog("掉线6次,等一小时",60*60)
             -- end
 
@@ -4962,13 +5034,13 @@ function chongZhiJiDiXianKuang()
                 gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
                 gaiMuBiaoNew(2, mb_Reward, mm_Reward)
                 isAgainReward22 = true
-                writePlistNew("再次收获22", isAgainReward22)
+                writeJson("再次收获22", isAgainReward22)
 
                 numAddChanLiang = 0
-                writePlistNew("增产", numAddChanLiang)
+                writeJson("增产", numAddChanLiang)
 
                 isAddChanLiangLiZi = false
-                writePlistNew("增产粒子", isAddChanLiangLiZi)
+                writeJson("增产粒子", isAddChanLiangLiZi)
             end
         end
     end
@@ -4978,7 +5050,7 @@ function chongZhiJiDiXianKuang()
                 gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
                 gaiMuBiaoNew(2, mb_Reward, mm_Reward)
                 isAgainReward6 = true
-                writePlistNew("再次收获6", isAgainReward6)
+                writeJson("再次收获6", isAgainReward6)
             end
         end
     end
@@ -5165,8 +5237,8 @@ function chuHang()
                 numTodayDigLiZi = numTodayDigLiZi - 1
                 numDigLiZi = numDigLiZi - 1
             end
-            writePlistNew("今日粒子次数", numTodayDigLiZi)
-            writePlistNew("粒子总次数", numDigLiZi)
+            writeJson("今日粒子次数", numTodayDigLiZi)
+            writeJson("粒子总次数", numDigLiZi)
 
         elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
             debug("挖粒子,没航母,航母坏了")
@@ -5208,25 +5280,25 @@ function chuHang()
                 end
                 if temNum == 1 then
                     numTodayDigKuang = numTodayDigKuang + 1
-                    writePlistNew("今日矿物次数", numTodayDigKuang)
+                    writeJson("今日矿物次数", numTodayDigKuang)
 
                     numDigKuang = numDigKuang + 1
-                    writePlistNew("矿物总次数", numDigKuang)
+                    writeJson("矿物总次数", numDigKuang)
                 elseif temNum == 2 then
 
                     numTodayDigJinShu = numTodayDigJinShu + 1
-                    writePlistNew("今日金属次数", numTodayDigJinShu)
+                    writeJson("今日金属次数", numTodayDigJinShu)
 
                     numDigJinShu = numDigJinShu + 1
-                    writePlistNew("金属总次数", numDigJinShu)
+                    writeJson("金属总次数", numDigJinShu)
 
                 elseif temNum == 3 then
 
                     numTodayDigLvQi = numTodayDigLvQi + 1
-                    writePlistNew("今日氯气次数", numTodayDigLvQi)
+                    writeJson("今日氯气次数", numTodayDigLvQi)
 
                     numDigLvQi = numDigLvQi + 1
-                    writePlistNew("氯气总次数", numDigLvQi)
+                    writeJson("氯气总次数", numDigLvQi)
 
                 end
             end
@@ -5239,7 +5311,7 @@ function chuHang()
             debug("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
-                writePlistNew("每日3海盗", num3Pirate)
+                writeJson("每日3海盗", num3Pirate)
                 touchClick(284, 539, 0x6d5c5d) -- 海盗
                 mSleep(1000)
                 for i = 1, 3, 1 do
@@ -5442,7 +5514,7 @@ function chuHang()
             debug("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
-                writePlistNew("每日3海盗", num3Pirate)
+                writeJson("每日3海盗", num3Pirate)
                 touchClick(209, 541, 0xc0b7bf) -- 海盗
                 mSleep(1000)
                 for i = 1, 3, 1 do
@@ -5908,7 +5980,7 @@ function searchLiZi()
                             if numSearchLiZi == 7 then
                                 numSearchLiZi = 0
                             end
-                            writePlistNew("粒子方向", numSearchLiZi)
+                            writeJson("粒子方向", numSearchLiZi)
                             isLiZi = true
                             if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                 touchClick(490, 431)
@@ -5934,7 +6006,7 @@ function searchLiZi()
                                 if numSearchLiZi == 7 then
                                     numSearchLiZi = 0
                                 end
-                                writePlistNew("粒子方向", numSearchLiZi)
+                                writeJson("粒子方向", numSearchLiZi)
                                 isLiZi = true
                                 if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                     touchClick(490, 431)
@@ -5951,7 +6023,7 @@ function searchLiZi()
                         if numSearchLiZi == 7 then
                             numSearchLiZi = 0
                         end
-                        writePlistNew("粒子方向", numSearchLiZi)
+                        writeJson("粒子方向", numSearchLiZi)
                         isLiZi = true
                         return
                     elseif isColor(1106, 574, 0xd88b00, 95) then
@@ -6001,7 +6073,7 @@ function searchLiZi()
                         isLiZi = true
                         isBug_LiZi = false
                     end
-                    writePlistNew("粒子方向", numSearchLiZi)
+                    writeJson("粒子方向", numSearchLiZi)
                 end
                 break
             end
@@ -6046,7 +6118,7 @@ function searchLiZi()
                         if numSearchLiZi == 7 then
                             numSearchLiZi = 0
                         end
-                        writePlistNew( "粒子方向", numSearchLiZi)
+                        writeJson( "粒子方向", numSearchLiZi)
                         isLiZi = true
                         if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                             touchClick(490, 431)
@@ -6072,7 +6144,7 @@ function searchLiZi()
                             if numSearchLiZi == 7 then
                                 numSearchLiZi = 0
                             end
-                            writePlistNew( "粒子方向", numSearchLiZi)
+                            writeJson( "粒子方向", numSearchLiZi)
                             isLiZi = true
                             if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                 touchClick(490, 431)
@@ -6089,7 +6161,7 @@ function searchLiZi()
                     if numSearchLiZi == 7 then
                         numSearchLiZi = 0
                     end
-                    writePlistNew( "粒子方向", numSearchLiZi)
+                    writeJson( "粒子方向", numSearchLiZi)
                     isLiZi = true
                     return
                 elseif isColor(1106, 574, 0xd88b00, 95) then
@@ -6136,7 +6208,7 @@ function searchLiZi()
                         isLiZi = true
                         isBug_LiZi = false
                     end
-                    writePlistNew( "粒子方向", numSearchLiZi)
+                    writeJson( "粒子方向", numSearchLiZi)
                 end
                 break
             end
@@ -6348,11 +6420,11 @@ function everyDayInit(...)
     -- if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 55 then
     --     debug("晚重置")
     --     nowDayNight = nowDateTime.day
-    --     writePlistNew( "日期晚", nowDayNight)
+    --     writeJson( "日期晚", nowDayNight)
     --     numJiaoYi = 0
-    --     writePlistNew( "交易次数", numJiaoYi)
+    --     writeJson( "交易次数", numJiaoYi)
     --     numJiaoYiChaoShi = 0
-    --     writePlistNew( "交易超时", numJiaoYiChaoShi)
+    --     writeJson( "交易超时", numJiaoYiChaoShi)
     -- end
     -- if numQuanShu ~= 0 then
     -- local tmpXuanXiang = string.find(duoXuan1, "1")
@@ -6372,91 +6444,91 @@ function everyDayInit(...)
             numZhanJian = 1
 
             numTodayExit = 0
-            writePlistNew("今日闪退次数", numTodayExit)
+            writeJson("今日闪退次数", numTodayExit)
 
             nowDay = nowDateTime.day
-            writePlistNew("日期", nowDay)
+            writeJson("日期", nowDay)
 
             numDay = numDay + 1
-            writePlistNew("第几天", numDay)
+            writeJson("第几天", numDay)
 
             numGuangGao = 0
-            writePlistNew("广告次数", numGuangGao)
+            writeJson("广告次数", numGuangGao)
 
             numBuyTaiByCoin = 0
-            writePlistNew("金币买钛", numBuyTaiByCoin)
+            writeJson("金币买钛", numBuyTaiByCoin)
 
             numZiYuanDuiHuan = 0
-            writePlistNew("资源传输装置兑换次数", numZiYuanDuiHuan)
+            writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
 
             numChuanShu = 0
-            writePlistNew("传输次数", numChuanShu)
+            writeJson("传输次数", numChuanShu)
 
             isTrade = false
-            writePlistNew("交易行", isTrade)
+            writeJson("交易行", isTrade)
 
             num5DaoJu = 0
-            writePlistNew("每日5道具", num5DaoJu)
+            writeJson("每日5道具", num5DaoJu)
 
             isMixedThing = false
-            writePlistNew("每日道具合成", isMixedThing)
+            writeJson("每日道具合成", isMixedThing)
 
             numAddChanLiang = 0
-            writePlistNew("增产", numAddChanLiang)
+            writeJson("增产", numAddChanLiang)
 
             isAddChanLiangLiZi = false
-            writePlistNew("增产粒子", isAddChanLiangLiZi)
+            writeJson("增产粒子", isAddChanLiangLiZi)
 
             isAgainReward22 = false
-            writePlistNew("再次收获22", isAgainReward22)
+            writeJson("再次收获22", isAgainReward22)
 
             isAgainReward6 = false
-            writePlistNew("再次收获6", isAgainReward6)
+            writeJson("再次收获6", isAgainReward6)
 
             num3Pirate = 0
-            writePlistNew("每日3海盗", num3Pirate)
+            writeJson("每日3海盗", num3Pirate)
 
             isKaYouHua = false
-            writePlistNew("卡优化", isKaYouHua)
+            writeJson("卡优化", isKaYouHua)
 
             isZhengLi = false
-            writePlistNew("整理", isZhengLi)
+            writeJson("整理", isZhengLi)
 
             isEatEXP = false
-            writePlistNew("吃经验", isEatEXP)
+            writeJson("吃经验", isEatEXP)
 
             isYanJiuZiYuan = true
-            writePlistNew("研究资源", isYanJiuZiYuan)
+            writeJson("研究资源", isYanJiuZiYuan)
 
             isYanJiuKaiFa = true
-            writePlistNew("研究开发", isYanJiuKaiFa)
+            writeJson("研究开发", isYanJiuKaiFa)
 
             isYanJiuFangYu = true
-            writePlistNew("研究防御", isYanJiuFangYu)
+            writeJson("研究防御", isYanJiuFangYu)
 
             isYanJiuShengChan = true
-            writePlistNew("研究生产", isYanJiuShengChan)
+            writeJson("研究生产", isYanJiuShengChan)
 
             isYanJiuJingRui = true
-            writePlistNew("研究精锐", isYanJiuJingRui)
+            writeJson("研究精锐", isYanJiuJingRui)
 
             isYanJiuZhanJian = true
-            writePlistNew("研究战舰", isYanJiuZhanJian)
+            writeJson("研究战舰", isYanJiuZhanJian)
 
             isYanJiu = true
-            writePlistNew("研究", isYanJiu)
+            writeJson("研究", isYanJiu)
 
             numTodayDigKuang = 0
-            writePlistNew("今日矿物次数", numTodayDigKuang)
+            writeJson("今日矿物次数", numTodayDigKuang)
 
             numTodayDigJinShu = 0
-            writePlistNew("今日金属次数", numTodayDigJinShu)
+            writeJson("今日金属次数", numTodayDigJinShu)
 
             numTodayDigLvQi = 0
-            writePlistNew("今日氯气次数", numTodayDigLvQi)
+            writeJson("今日氯气次数", numTodayDigLvQi)
 
             numTodayDigLiZi = 0
-            writePlistNew("今日粒子次数", numTodayDigLiZi)
+            writeJson("今日粒子次数", numTodayDigLiZi)
 
             if haoLV == 3 then
                 gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
@@ -6485,17 +6557,17 @@ function everyDayInit(...)
             -- end
             -- closeApp(appXiangMu)
             -- numJiaoSe = 0
-            -- writePlistNew( "角色", numJiaoSe)
+            -- writeJson( "角色", numJiaoSe)
             -- huanJiaoSeChongZhi()
             -- timeMaiLan = nowTime
-            -- writePlistNew( "timeMaiLan", timeMaiLan)
+            -- writeJson( "timeMaiLan", timeMaiLan)
 
             -- isWeiXinWeiHu = false
-            -- writePlistNew( "微信维护", isWeiXinWeiHu)
+            -- writeJson( "微信维护", isWeiXinWeiHu)
             -- hourWeiXin = random(10, 22)
             -- minWeiXin = random(1, 50)
-            -- writePlistNew( "时", hourWeiXin)
-            -- writePlistNew( "分", minWeiXin)
+            -- writeJson( "时", hourWeiXin)
+            -- writeJson( "分", minWeiXin)
 
             -- gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
         end
@@ -6599,7 +6671,7 @@ function OCR_num()
             end
             if temNum ~= nil then
                 numKuang = temNum
-                writePlistNew("矿物", numKuang)
+                writeJson("矿物", numKuang)
             end
         end
 
@@ -6625,7 +6697,7 @@ function OCR_num()
             end
             if temNum ~= nil then
                 numJinShu = temNum
-                writePlistNew("金属", numJinShu)
+                writeJson("金属", numJinShu)
             end
         end
 
@@ -6651,7 +6723,7 @@ function OCR_num()
             end
             if temNum ~= nil then
                 numLvQi = temNum
-                writePlistNew("氯气", numLvQi)
+                writeJson("氯气", numLvQi)
             end
         end
 
@@ -6677,7 +6749,7 @@ function OCR_num()
             end
             if temNum ~= nil then
                 numLiZi = temNum
-                writePlistNew("粒子", numLiZi)
+                writeJson("粒子", numLiZi)
             end
         end
 
@@ -6703,9 +6775,9 @@ function OCR_num()
             -- end
             -- if temNum ~= nil then
             --     numCoin = temNum
-            --     writePlistNew("金币", numCoin)
+            --     writeJson("金币", numCoin)
             -- end
-            writePlistNew("金币", temStr)
+            writeJson("金币", temStr)
         end
         -- toast(numKuang .. " " .. numJinShu .. " " .. numLvQi .. " " .. numLiZi .. " " .. numCoin)
     end
@@ -6769,9 +6841,9 @@ function huoDongDetail()
     if isColor(1084, 83, 0x9e1111, 95) then
         debug("规则")
         touchClick(1032, 103, 0x0b7148)
-    elseif isColor(250,420,0x18407f,95) and isColor(307,401,0x9e1111,95) then
+    elseif isColor(250, 420, 0x18407f, 95) and isColor(307, 401, 0x9e1111, 95) then
         debug("og精锐怪物狂欢")
-        touchClick(250,420)
+        touchClick(250, 420)
     elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
         debug("STAKING")
         touchClick(944, 558, 0x1a77f3)
@@ -6805,6 +6877,16 @@ function huoDongDetail()
     elseif isColor(297, 497, 0xd68b01, 95) then
         debug("领取--黄色")
         touchClick(297, 497)
+    end
+end
+
+function plistToJson()
+    local tb = plist_ts.read(userPath() .. "/lua/" .. xiangMu .. ".plist") --读取plist至table格式
+    if tb ~= "" and tb ~= nil then
+        local jsonstring = json_ts.encode(tb);  --将 table 格式数据转成 json 格式数据
+        if jsonstring ~= "" and jsonstring ~= nil then
+            bool = writeFileString(userPath() .. "/res/" .. iphoneId .. ".json", jsonstring) --写入文件
+        end
     end
 end
 
