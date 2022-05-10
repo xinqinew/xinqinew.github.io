@@ -243,7 +243,11 @@ end
 function loadJson(key)
     local valueJson = tableFromJson[key]
     if type(valueJson) == "table" then
-        return valueJson[2]
+        if valueJson[2] == 1 then
+            return true
+        else
+            return false
+        end
     elseif valueJson ~= nil then
         return valueJson
     else
@@ -4417,7 +4421,8 @@ function checkRed1()
             touchClick(49, 187)
             return true
         end
-    elseif isColor(728, 548, 0x9e1111, 95) and haoLV == 1 then -- 邮件红点
+    elseif isColor(728, 548, 0x9e1111, 95) then -- 邮件红点
+    -- elseif isColor(728, 548, 0x9e1111, 95) and haoLV == 1 then -- 邮件红点
         touchClick(693, 587)
         return true
         -- elseif isColorPlus(999, 548, 0x9e1111, 95) then -- 背包红点
