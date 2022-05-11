@@ -2078,6 +2078,8 @@ function zongHe1(...)
         -- debug("基地现况界面--综合函数")
         if isColor(814, 458, 0x9e1111, 95) then
             debug("资源--免费兑换--红点")
+            numBuyTaiByCoin = 0
+            writeJson(”金币买钛“, numBuyTaiByCoin)
             touchClick(752, 488, 0x82a0c1)
         elseif isColor(557, 459, 0x9e1111, 95) then
             debug("签到奖励--红点")
@@ -6456,9 +6458,6 @@ function everyDayInit(...)
 
             numGuangGao = 0
             writeJson("广告次数", numGuangGao)
-
-            numBuyTaiByCoin = 0
-            writeJson("金币买钛", numBuyTaiByCoin)
 
             numZiYuanDuiHuan = 0
             writeJson("资源传输装置兑换次数", numZiYuanDuiHuan)
