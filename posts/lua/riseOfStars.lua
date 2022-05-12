@@ -2079,7 +2079,7 @@ function zongHe1(...)
         if isColor(814, 458, 0x9e1111, 95) then
             debug("资源--免费兑换--红点")
             numBuyTaiByCoin = 0
-            writeJson(”金币买钛“, numBuyTaiByCoin)
+            writeJson("金币买钛", numBuyTaiByCoin)
             touchClick(752, 488, 0x82a0c1)
         elseif isColor(557, 459, 0x9e1111, 95) then
             debug("签到奖励--红点")
@@ -4424,7 +4424,7 @@ function checkRed1()
             return true
         end
     elseif isColor(728, 548, 0x9e1111, 95) then -- 邮件红点
-    -- elseif isColor(728, 548, 0x9e1111, 95) and haoLV == 1 then -- 邮件红点
+        -- elseif isColor(728, 548, 0x9e1111, 95) and haoLV == 1 then -- 邮件红点
         touchClick(693, 587)
         return true
         -- elseif isColorPlus(999, 548, 0x9e1111, 95) then -- 背包红点
