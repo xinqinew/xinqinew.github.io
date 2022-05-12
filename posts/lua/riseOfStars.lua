@@ -1,4 +1,4 @@
-numLua = 18.9
+numLua = 19.0
 toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
@@ -519,12 +519,12 @@ function oncePlist()
     baidu_Secret = loadJson("baidu_Secret")
 
     -- 服务器IP
-    serverIP = loadJson("服务器IP")
-    if serverIP == nil then
-        -- serverIP = dialogInput("请输入服务器IP", "在这里输入服务器IP", "确认");
-        serverIP = "192.168.1.34"
-        writeJson("服务器IP", serverIP)
-    end
+    -- serverIP = loadJson("服务器IP")
+    -- if serverIP == nil then
+    --     -- serverIP = dialogInput("请输入服务器IP", "在这里输入服务器IP", "确认");
+    --     serverIP = "192.168.1.34"
+    --     writeJson("服务器IP", serverIP)
+    -- end
 
     -- FTP
     ftpMuLu = loadJson("FTP目录")
