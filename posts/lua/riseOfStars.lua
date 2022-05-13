@@ -1241,6 +1241,7 @@ end
 function ftpUpTSnet2(localFile, ftpFile)
     ftp.setTimeout(5)
     ftp.init(serverIP, ftpName, ftpPassword)
+    mSleep(200)
     ret, msg = ftp.upload(localFile, ftpFile)
     if ret == 1 then
         toast("FTP上传完成", 1)
@@ -1260,6 +1261,7 @@ function ftpUpTsTxt(localFile, ftpFile)
     --脚本仅供参考不可直接使用
     -- local ts = require("ts") --使用官方库前一定要在开头插入这一句
     local status = ts.ftp.connect(serverIP, ftpName, ftpPassword)
+    mSleep(200)
     if status then
         toast("连接FTP成功--上传", 1)
         local upStatus = ts.ftp.upload(localFile, ftpFile, 1)
@@ -1286,6 +1288,7 @@ function ftpUpTsPNG(localFile, ftpFile)
     --脚本仅供参考不可直接使用
     -- local ts = require("ts") --使用官方库前一定要在开头插入这一句
     local status = ts.ftp.connect(serverIP, ftpName, ftpPassword)
+    mSleep(200)
     if status then
         toast("连接FTP成功--上传", 1)
         local upStatus = ts.ftp.upload(localFile, ftpFile, 0)
