@@ -1,4 +1,4 @@
-numLua = 19.0
+numLua = 19.1
 toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
@@ -1047,7 +1047,7 @@ end
 
 function debug(tiaoShiNeiRong)
     if check1 == "网络调试" then
-        wLog(serverIP,
+        wLog("192.168.1.34",
             iphoneId .. " 目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "    操作:" ..
             tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]")
     elseif check2 == "本地调试" then
@@ -1182,8 +1182,8 @@ function windowsDecide()
         --     "/private/var/mobile/Library/Mobile%20Documents/com~apple~CloudDocs/" .. iphoneId ..
         --         ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
         snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
-        ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
-        -- ftpUpTS(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
+        ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
         delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         moreWindow()
@@ -1223,8 +1223,8 @@ end
 function ftpUpJson2()
     if nowTime - timeUpJson >= 10 * 60 then
         timeUpJson = nowTime
-        ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
-        -- ftpUpTS(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
+        -- ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
+        ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
     end
 end
 
@@ -1721,8 +1721,8 @@ function zongHe1(...)
         -- snapshot("yudama.png", 222, 12, 596, 157)
         current_time = os.date("%m-%d_%H.%M", os.time());
         snapshot(iphoneId .. "-" .. current_time .. ".png", 222, 12, 596, 157); -- 以时间戳命名进行截图
-        -- ftpUpTS(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/YDM/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "YDM/")
+        -- ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/YDM/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
         delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
@@ -4936,8 +4936,8 @@ function checkXXX(...)
             if getOut() then
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
-                ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                -- ftpUpTS(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
+                ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
@@ -4962,8 +4962,8 @@ function checkXXX(...)
             if getOut() then
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
-                ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                -- ftpUpTS(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
+                ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
