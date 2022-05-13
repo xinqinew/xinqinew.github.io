@@ -1190,7 +1190,8 @@ function windowsDecide()
         --         ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
         snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
-        ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
         delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         moreWindow()
@@ -1231,7 +1232,8 @@ function ftpUpJson2()
     if nowTime - timeUpJson >= 10 * 60 then
         timeUpJson = nowTime
         -- ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
-        ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
+        -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
+        ftpUpTsTxt(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
     end
 end
 
@@ -1250,6 +1252,59 @@ function ftpUpTSnet2(localFile, ftpFile)
         return false
     end
     ftp.clean()
+    return false
+end
+
+-- FTP上传文本
+function ftpUpTsTxt(localFile, ftpFile)
+    --脚本仅供参考不可直接使用
+    -- local ts = require("ts") --使用官方库前一定要在开头插入这一句
+    local status = ts.ftp.connect(serverIP, ftpName, ftpPassword)
+    if status then
+        toast("连接FTP成功--上传", 1)
+        local upStatus = ts.ftp.upload(localFile, ftpFile, 1)
+        --下载服务器上的 love.png 文件到本地 res 文件夹
+        if upStatus then
+            toast("FTP上传完成", 1)
+            ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+            return true
+        else
+            toast("FTP上传失败", 1)
+            ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+            return false
+        end
+    else
+        toast("连接FTP失败", 1)
+        ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+        return false
+    end
+    ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+    return false
+end
+
+function ftpUpTsPNG(localFile, ftpFile)
+    --脚本仅供参考不可直接使用
+    -- local ts = require("ts") --使用官方库前一定要在开头插入这一句
+    local status = ts.ftp.connect(serverIP, ftpName, ftpPassword)
+    if status then
+        toast("连接FTP成功--上传", 1)
+        local upStatus = ts.ftp.upload(localFile, ftpFile, 0)
+        --下载服务器上的 love.png 文件到本地 res 文件夹
+        if upStatus then
+            toast("FTP上传完成", 1)
+            ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+            return true
+        else
+            toast("FTP上传失败", 1)
+            ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+            return false
+        end
+    else
+        toast("连接FTP失败", 1)
+        ts.ftp.close() --操作完成后，断开 FTP 服务器连接
+        return false
+    end
+    ts.ftp.close() --操作完成后，断开 FTP 服务器连接
     return false
 end
 
@@ -4962,7 +5017,8 @@ function checkXXX(...)
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
                 -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
@@ -4988,7 +5044,8 @@ function checkXXX(...)
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
                 -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
