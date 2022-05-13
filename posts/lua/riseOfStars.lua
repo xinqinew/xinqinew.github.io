@@ -1,4 +1,4 @@
-numLua = 19.1
+numLua = 19.2
 toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
@@ -135,8 +135,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -544,6 +544,13 @@ function oncePlist()
     if isOverLesson == nil then
         isOverLesson = false
         writeJson("over章节", isOverLesson)
+    end
+
+    -- 60海盗
+    num60Pirate = loadJson("60海盗")
+    if num60Pirate == nil then
+        num60Pirate = 0
+        writeJson("60海盗", num60Pirate)
     end
 
     -- 机器名
@@ -1183,7 +1190,7 @@ function windowsDecide()
         --         ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
         snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
-        ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
         delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         moreWindow()
@@ -1224,8 +1231,26 @@ function ftpUpJson2()
     if nowTime - timeUpJson >= 10 * 60 then
         timeUpJson = nowTime
         -- ftpUpPNG(iphoneId .. ".json", "JSON/") --上传
-        ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
+        ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. ".json", "/JSON/" .. iphoneId .. ".json") --上传
     end
+end
+
+-- FTP从本地上传图片到服务器
+function ftpUpTSnet2(localFile, ftpFile)
+    ftp.setTimeout(5)
+    ftp.init(serverIP, ftpName, ftpPassword)
+    ret, msg = ftp.upload(localFile, ftpFile)
+    if ret == 1 then
+        toast("FTP上传完成", 1)
+        ftp.clean()
+        return true
+    else
+        toast("FTP上传失败", 1)
+        ftp.clean()
+        return false
+    end
+    ftp.clean()
+    return false
 end
 
 -----------------------私有部分--------------------------
@@ -1722,7 +1747,7 @@ function zongHe1(...)
         current_time = os.date("%m-%d_%H.%M", os.time());
         snapshot(iphoneId .. "-" .. current_time .. ".png", 222, 12, 596, 157); -- 以时间戳命名进行截图
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "YDM/")
-        -- ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/YDM/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/YDM/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
         delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
@@ -4937,7 +4962,7 @@ function checkXXX(...)
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
                 -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
@@ -4963,7 +4988,7 @@ function checkXXX(...)
                 current_time = os.date("%m-%d_%H.%M", os.time());
                 snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
                 -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
-                ftpUpTSnet(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+                ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
@@ -5318,7 +5343,24 @@ function chuHang()
         debug("搜索界面--出航--无粒子")
         if isKillPirate == true then
             debug("有体力,杀海盗")
-            if num3Pirate <= 4 or haoLV <= 2 then
+            if check23 == "60海盗" and num60Pirate <= 60 then
+                num60Pirate = num60Pirate + 1
+                writeJson("60海盗", num60Pirate)
+                touchClick(284, 539, 0x6d5c5d) -- 海盗
+                mSleep(1000)
+                for i = 1, 3, 1 do
+                    if isColor(235, 427, 0x116eb9, 95) then
+                        touchClick(235, 427, 0x116eb9) -- 搜索
+                    end
+                    mSleep(1000)
+                    if isColor(235, 427, 0x116eb9, 95) == false then
+                        break
+                    end
+                    if i == 3 then
+                        isKillPirate = false
+                    end
+                end
+            elseif num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
                 writeJson("每日3海盗", num3Pirate)
                 touchClick(284, 539, 0x6d5c5d) -- 海盗
@@ -5488,7 +5530,24 @@ function chuHang()
     end
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debug("搜索界面--出航--有粒子")
-        if isLiZi == false then
+        if check23 == "60海盗" and num60Pirate <= 60 then
+            num60Pirate = num60Pirate + 1
+            writeJson("60海盗", num60Pirate)
+            touchClick(209, 541, 0xc0b7bf) -- 海盗
+            mSleep(1000)
+            for i = 1, 3, 1 do
+                if isColor(167, 427, 0x116eb9, 95) then
+                    touchClick(217, 429, 0x377ab4) -- 搜索
+                end
+                mSleep(1000)
+                if isColor(303, 431, 0x116eb9, 95) == false then
+                    break
+                end
+                if i == 3 then
+                    isKillPirate = false
+                end
+            end
+        elseif isLiZi == false then
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 0, 1, 1 do
@@ -5688,8 +5747,9 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        -- if isColor(147, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 20体力
-        if isColor(185, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 60体力
+        if isColor(144, 72, 0x41d9ff, 95) and haoLV >= 3 then -- 30体力
+            -- if isColor(147, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 20体力
+            -- if isColor(185, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 60体力
             -- if isColorPlus(210, 79, 0x39bfe1,95) then -- 70体力
             debug("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
@@ -5801,7 +5861,11 @@ function chuHang()
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isBug_LiZi == true then
-            searchLiZi()
+            if check23 == "60海盗" and num60Pirate <= 60 and isKillPirate == true then
+                touchClick(199, 522) -- 搜索
+            else
+                searchLiZi()
+            end
         else
             if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
                 isRewardLiZi()
@@ -6490,6 +6554,9 @@ function everyDayInit(...)
 
             isAgainReward6 = false
             writeJson("再次收获6", isAgainReward6)
+
+            num60Pirate = 0
+            writeJson("60海盗", num60Pirate)
 
             num3Pirate = 0
             writeJson("每日3海盗", num3Pirate)
