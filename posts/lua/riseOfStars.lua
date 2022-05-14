@@ -4532,7 +4532,7 @@ function checkRed1()
         touchClick(1106, 71, 0x111e2e)
         if isColor(730, 106, 0x9d1111, 95) then -- 1-1红点
             touchClick(684, 182, 0x445569)
-        elseif isColor(993, 115, 0x9e1111, 95) then -- 1-3 红点
+        elseif isColor(993, 115, 0x9e1111, 95) and haoLV < 3 then -- 1-3 红点
             touchClick(937, 187, 0x263649)
         elseif isColor(858, 247, 0x9d1111, 95) then -- 2-2红点
             touchClick(816, 321, 0x1e2635)
