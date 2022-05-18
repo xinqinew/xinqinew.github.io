@@ -1,4 +1,4 @@
-numLua = 19.3
+numLua = 19.4
 toast("在线版本:" .. numLua)
 
 -- 对比颜色加强
@@ -9,7 +9,312 @@ do
         return oldIsColor(intX, intY, color, sim)
     end
 end
+-----------------------TT图鉴--------------------------
+
+http = require "szocket.http"
+ltn12 = require "ltn12"
+-- local json = require("ttjson");
+
+local username, password, yzmId;
+
+ZZBase64 = {}
+local string = string
+
+ZZBase64.__code = {
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+    'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/',
+};
+ZZBase64.__decode = {}
+for k, v in pairs(ZZBase64.__code) do
+    ZZBase64.__decode[string.byte(v, 1)] = k - 1
+end
+
+function ZZBase64.encode(text)
+    local len   = string.len(text)
+    local left  = len % 3
+    len         = len - left
+    local res   = {}
+    local index = 1
+    for i = 1, len, 3 do
+        local a = string.byte(text, i)
+        local b = string.byte(text, i + 1)
+        local c = string.byte(text, i + 2)
+        -- num = a<<16 + b<<8 + c
+        local num = a * 65536 + b * 256 + c
+        for j = 1, 4 do
+            --tmp = num >> ((4 -j) * 6)
+            local tmp = math.floor(num / (2 ^ ((4 - j) * 6)))
+            --curPos = tmp&0x3f
+            local curPos = tmp % 64 + 1
+            res[index] = ZZBase64.__code[curPos]
+            index = index + 1
+        end
+    end
+
+    if left == 1 then
+        ZZBase64.__left1(res, index, text, len)
+    elseif left == 2 then
+        ZZBase64.__left2(res, index, text, len)
+    end
+    return table.concat(res)
+end
+
+function ZZBase64.__left2(res, index, text, len)
+    local num1 = string.byte(text, len + 1)
+    num1 = num1 * 1024 --lshift 10
+    local num2 = string.byte(text, len + 2)
+    num2 = num2 * 4 --lshift 2
+    local num = num1 + num2
+
+    local tmp1 = math.floor(num / 4096) --rShift 12
+    local curPos = tmp1 % 64 + 1
+    res[index] = ZZBase64.__code[curPos]
+
+    local tmp2 = math.floor(num / 64)
+    curPos = tmp2 % 64 + 1
+    res[index + 1] = ZZBase64.__code[curPos]
+
+    curPos = num % 64 + 1
+    res[index + 2] = ZZBase64.__code[curPos]
+
+    res[index + 3] = "="
+end
+
+function ZZBase64.__left1(res, index, text, len)
+    local num = string.byte(text, len + 1)
+    num = num * 16
+
+    tmp = math.floor(num / 64)
+    local curPos = tmp % 64 + 1
+    res[index] = ZZBase64.__code[curPos]
+
+    curPos = num % 64 + 1
+    res[index + 1] = ZZBase64.__code[curPos]
+
+    res[index + 2] = "="
+    res[index + 3] = "="
+end
+
+function ZZBase64.decode(text)
+    local len = string.len(text)
+    local left = 0
+    if string.sub(text, len - 1) == "==" then
+        left = 2
+        len = len - 4
+    elseif string.sub(text, len) == "=" then
+        left = 1
+        len = len - 4
+    end
+
+    local res = {}
+    local index = 1
+    local decode = ZZBase64.__decode
+    for i = 1, len, 4 do
+        local a = decode[string.byte(text, i)]
+        local b = decode[string.byte(text, i + 1)]
+        local c = decode[string.byte(text, i + 2)]
+        local d = decode[string.byte(text, i + 3)]
+
+        --num = a<<18 + b<<12 + c<<6 + d
+        local num = a * 262144 + b * 4096 + c * 64 + d
+
+        local e = string.char(num % 256)
+        num = math.floor(num / 256)
+        local f = string.char(num % 256)
+        num = math.floor(num / 256)
+        res[index] = string.char(num % 256)
+        res[index + 1] = f
+        res[index + 2] = e
+        index = index + 3
+    end
+
+    if left == 1 then
+        ZZBase64.__decodeLeft1(res, index, text, len)
+    elseif left == 2 then
+        ZZBase64.__decodeLeft2(res, index, text, len)
+    end
+    return table.concat(res)
+end
+
+function ZZBase64.__decodeLeft1(res, index, text, len)
+    local decode = ZZBase64.__decode
+    local a = decode[string.byte(text, len + 1)]
+    local b = decode[string.byte(text, len + 2)]
+    local c = decode[string.byte(text, len + 3)]
+    local num = a * 4096 + b * 64 + c
+
+    local num1 = math.floor(num / 1024) % 256
+    local num2 = math.floor(num / 4) % 256
+    res[index] = string.char(num1)
+    res[index + 1] = string.char(num2)
+end
+
+function ZZBase64.__decodeLeft2(res, index, text, len)
+    local decode = ZZBase64.__decode
+    local a = decode[string.byte(text, len + 1)]
+    local b = decode[string.byte(text, len + 2)]
+    local num = a * 64 + b
+    num = math.floor(num / 16)
+    res[index] = string.char(num)
+end
+
+local function ttImagebase64(file)
+    local f = io.open(file, "rb")
+    if f then
+        local retbyte = f:read("*all")
+        f:close()
+        return ZZBase64.encode(retbyte)
+    else
+        print "image not found please check"
+    end
+end
+
+local function ttRecoginze(user, pwd, imagefile, typeid)
+    local request_body = {
+        username = user, --填写账户名
+        password = pwd, --填写密码
+        typeid = typeid, --验证码类型(默认 3 数英混合)：16:汉字 14:图片旋转 11:计算题 7:无感学习，4:闪动GIF，3:数英混合， 2:纯英文，1:纯数字
+        --返回坐标类型(默认 19 一个坐标)。 19: 1个坐标， 20: 1 ~ 4个坐标， 21: 3 ~ 5个坐标， 22: 5 ~ 8个坐标。
+        image = ttImagebase64(imagefile)
+    }
+    request_body = json_ts.encode(request_body)
+    local url = "http://api.ttshitu.com/predict";
+
+    local response_body = {}
+    local res, code, response_headers = http.request {
+        url = url,
+        method = "POST",
+        headers = {
+            ["Content-Type"] = "application/json";
+            ["Content-Length"] = #request_body;
+        },
+        source = ltn12.source.string(request_body),
+        sink = ltn12.sink.table(response_body),
+    }
+    if type(response_body) == "table" then
+        --解析返回结果
+        local strBody = table.concat(response_body);
+        local bl, tbody = pcall(json_ts.decode, strBody)
+        if bl then
+            if tbody.success == true then
+                local id, vcode = tbody.data.id, tbody.data.result
+                print("id:", id); --识别结果的id
+                print("suceess:", vcode); --识别的结果
+                return true, id, vcode
+            else
+                print("error:", tbody.message);
+                return false, nil, nil, tbody.message
+
+            end
+        else
+            print(strBody)
+            print("json error:");
+            return bl, nil, nil, "json error"
+
+        end
+
+    else
+        print("Not a table:", type(response_body))
+    end
+end
+
+--识别报错
+local function ttReportError(yzmid)
+    local response_body = {}
+    local post_data = "id=" .. yzmid;
+    local res, code = http.request {
+        url = "http://api.ttshitu.com/reporterror.json",
+        method = "POST",
+        headers = {
+            ["Content-Type"] = "application/x-www-form-urlencoded",
+            ["Content-Length"] = #post_data,
+        },
+        source = ltn12.source.string(post_data),
+        sink = ltn12.sink.table(response_body)
+    }
+    --解析返回结果
+    local strExp = "success\":true";
+    local strBody = table.concat(response_body);
+    local strResult = string.match(strBody, strExp);
+    if (strResult ~= nil) then
+        return "report success";
+    else
+        return "report failed";
+    end
+end
+
+local function ocrImage(path, typeid)
+    http.TIMEOUT = 120
+    local lzRe, yzmid, jieguo, err = ttRecoginze(username, password, path, typeid)
+    if lzRe then yzmId = yzmid return jieguo, yzmid else return nil, err end
+end
+
+local function info(user, pwd)
+    username = user;
+    password = pwd;
+end
+
+local function ttReportError2(yzmid)
+    yzmid = yzmid or yzmId
+    return ttReportError(yzmid)
+end
+
+tt = {}
+tt.Info = info
+tt.Image = ocrImage
+tt.ReportError2 = ttReportError2
+-- do return tt end
+
+
+
 -----------------------公共部分--------------------------
+
+function ttScreen(x1,y1,x2,y2,scale) --此处为触动截图方法 开发者请根据实际脚本工具自己编写
+	scale=scale or 1
+	local path=userPath().."/res/ttshu.png"
+	snapshot("ttshu.png",x1,y1,x2,y2,scale)
+	return path
+end
+
+-- 云打码
+function yunDaMaNew(str)
+    -- ocrInfo("qqchaoren", "username", "password") -- 初始化打码平台
+    -- bool, bal = ocrBalance() -- 查询用户余额
+    -- tiaoShi("云打码余额:" .. bal)
+    -- YDMtext, YDMtid = ocrScreen(222, 12, 596, 157, 103, 60, 1)
+    -- return YDMtext
+    if check24 == "TT图鉴" then
+        tt.Info(TT_username, TT_password)
+        local picPath = ttScreen(222,12,596,157) --图片的路径完整路径此处为截图获取的路径
+        local res, id = tt.Image(picPath, 7) --开始识别
+        if res then
+            return res
+        else
+            debug("识别失败")
+            return false
+        end
+        print("result", res, id) --识别结果,识别id
+    else
+        local ret1 = ocr.cloudOcrText(str);
+        if ret1.success then
+            tiaoShi(ret1.text)
+            return ret1.text
+        else
+            tiaoShi(ret1.message)
+            return false
+        end
+    end
+    -- 自动纠错
+    -- local ocr = require "cloudOcr"; -- 载入扩展库
+    -- local ret = ocr.cloudOcrText(op); -- 进行远程识别
+    -- if ret.success then
+    --     ret_1 = ocr.cloudOcrReportError(ret.id); -- 自动纠错，ret.id 从 ocr.cloudOcrText 返回值中获取
+    -- end
+    -- local ocr = require "cloudOcr";
+    -- local ver = ocr.version(); -- 获取扩展库版本号
+end
 
 -- 变量及常量
 function bianLiang()
@@ -38,15 +343,29 @@ function bianLiang()
     end
     apps1 = appXiangMu
 
-    -- 云打码
-    YDM_username = loadJson("YDM_username")
-    if YDM_username == nil then
-        YDM_username, YDM_password = dialogInput("请输入云打码帐号和密钥",
+    -- 火眼云打码
+    HuoYan_username = loadJson("YDM_username")
+    if HuoYan_username == nil then
+        HuoYan_username, HuoYan_password = dialogInput("请输入云打码帐号和密钥",
             "在这里输入YDM_username #在这里输入YDM_password", "确认");
-        writeJson("YDM_username", YDM_username)
-        writeJson("YDM_password", YDM_password)
+        writeJson("YDM_username", HuoYan_username)
+        writeJson("YDM_password", HuoYan_password)
     end
-    YDM_password = loadJson("YDM_password")
+    HuoYan_password = loadJson("YDM_password")
+
+    -- TT云打码
+    TT_username = loadJson("TT_username")
+    if TT_username == nil then
+        TT_username = dialogInput("请输入TT云打码帐号",
+            "在这里输入TT_username", "确认");
+        writeJson("TT_username", TT_username)
+    end
+    TT_password = loadJson("TT_password")
+    if TT_password == nil then
+        TT_password = dialogInput("请输入TT云打码密钥",
+            "在这里输入TT_password", "确认");
+        writeJson("TT_password", TT_password)
+    end
 
     op = {
         -- 必填参数
@@ -56,8 +375,8 @@ function bianLiang()
         ["x2"] = 596, -- 需要识别区域右下角坐标
         ["y2"] = 157,
         ["type"] = "4016", -- 打码类型，可在对应平台官网查询
-        ["username"] = YDM_username, -- 打码平台账号
-        ["password"] = YDM_password, -- 打码平台密码
+        ["username"] = HuoYan_username, -- 打码平台账号
+        ["password"] = HuoYan_password, -- 打码平台密码
         -- 选填参数
         ["length"] = 8, -- 打码长度
         ["timeout"] = 30, -- 超时时间
@@ -103,6 +422,7 @@ function bianLiang()
     numSearch = 0 -- 搜索
     numYunDaMa = 0 -- 云打码
 
+    nowTime = os.time();
     timeShengJiTongXingZheng = nowTime --升级通行证
     timeUpJson = nowTime - 10 * 60 --上传间隔
     timeZhengLi = nowTime - 5 * 60 --检测背包
@@ -135,8 +455,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,TT图鉴",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -561,13 +881,18 @@ function oncePlist()
     end
 
     -- 机器IP
-    local strIp = getNetInterfaces()
-    if strIp.en0 then
-        strIphoneIP = strIp.en0.ip
-    else
+    if whoAmI() == 3 then
         strIphoneIP = getNetIP()
+        writeJson("机器IP", strIphoneIP)
+    else
+        local strIp = getNetInterfaces()
+        if strIp.en0 then
+            strIphoneIP = strIp.en0.ip
+        else
+            strIphoneIP = getNetIP()
+        end
+        writeJson("机器IP", strIphoneIP)
     end
-    writeJson("机器IP", strIphoneIP)
 
     -- 今日闪退次数
     numTodayExit = loadJson("今日闪退次数")
@@ -1811,7 +2136,7 @@ function zongHe1(...)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             closeFw() -- 关闭所有视图
             mSleep(500)
-            local strDaMa = yunDaMa(op)
+            local strDaMa = yunDaMaNew(op)
             if strDaMa ~= false then
                 for i = 1, 10, 1 do
                     if isPause == true then
