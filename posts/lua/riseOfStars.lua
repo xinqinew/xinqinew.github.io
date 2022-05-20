@@ -271,11 +271,11 @@ tt.ReportError2 = ttReportError2
 
 -----------------------公共部分--------------------------
 
-function ttScreen(x1,y1,x2,y2,scale) --此处为触动截图方法 开发者请根据实际脚本工具自己编写
-	scale=scale or 1
-	local path=userPath().."/res/ttshu.png"
-	snapshot("ttshu.png",x1,y1,x2,y2,scale)
-	return path
+function ttScreen(x1, y1, x2, y2, scale) --此处为触动截图方法 开发者请根据实际脚本工具自己编写
+    scale = scale or 1
+    local path = userPath() .. "/res/ttshu.png"
+    snapshot("ttshu.png", x1, y1, x2, y2, scale)
+    return path
 end
 
 -- 云打码
@@ -287,7 +287,7 @@ function yunDaMaNew(str)
     -- return YDMtext
     if check24 == "TT图鉴" then
         tt.Info(TT_username, TT_password)
-        local picPath = ttScreen(222,12,596,157) --图片的路径完整路径此处为截图获取的路径
+        local picPath = ttScreen(222, 12, 596, 157) --图片的路径完整路径此处为截图获取的路径
         local res, id = tt.Image(picPath, 7) --开始识别
         if res then
             return res
@@ -404,6 +404,7 @@ function bianLiang()
     isKaJianZhangJingYan = 3 -- 卡主线--舰长经验
     isKaShengChan = false -- 卡主线--生产
     isFalseLiZi2 = false --2级粒子挖掘失败
+    isOverHelp = false --协助已完成
 
     strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
@@ -2274,7 +2275,7 @@ function zongHe1(...)
     if isColor(89, 35, 0x00ace4, 95) and isColor(91, 71, 0x215da6, 95) and isColor(125, 30, 0xc3bebe, 95) and
         isColor(231, 47, 0xafb1b4, 95) then
         debug("联盟任务")
-        if isColor(218, 105, 0x9d1111, 95) and isColor(113, 143, 0x956b1a, 95) then
+        if isColor(228, 105, 0x931012, 95) and isColor(113, 143, 0x956b1a, 95) then
             debug("任务--红点--已选中")
             mSleep(100)
             if isColor(842, 524, 0x116eb9, 95) then
@@ -2365,20 +2366,20 @@ function zongHe1(...)
             elseif isColor(558, 443, 0x1db586, 95) then
                 touchClick(558, 443)
             end
-        elseif isColor(218, 241, 0x931012, 95) and isColor(204, 241, 0xa17316, 95) then
+        elseif isColor(227, 233, 0x931012, 95) and isColor(199, 250, 0xa07316, 95) then
             debug("协助--红点--已选中")
             if isColor(303, 449, 0x1c6dba, 95) then
                 touchClick(303, 449, 0x1c6dba)
             else
                 touchClick(513, 606, 0x395679)
             end
-        elseif isColor(225, 113, 0x9e1111, 95) and isColor(213, 113, 0x1b2b3e, 95) then
+        elseif isColor(228, 105, 0x931012, 95) and isColor(213, 114, 0x1b2b3e, 95) then
             debug("任务--红点--未选中")
             touchClick(171, 140, 0x283544)
         elseif isColor(218, 169, 0x9d1111, 95) and isColor(212, 178, 0x1b2b3e, 95) then
             debug("进行--红点--未选中")
             touchClick(171, 211, 0x283544)
-        elseif isColor(218, 247, 0x931012, 95) and isColor(212, 247, 0x1a293c, 95) then
+        elseif isColor(227, 233, 0x931012, 95) and isColor(210, 244, 0x1b2a3d, 95) then
             debug("协助--红点--未选中")
             touchClick(166, 263, 0x855f15)
 
@@ -2388,6 +2389,9 @@ function zongHe1(...)
         elseif isColor(186, 262, 0x876115, 95) and isColor(323, 448, 0x1d6ebb, 95) then
             debug("协助")
             touchClick(323, 448, 0x1d6ebb)
+            isOverHelp = true
+            mSleep(2000)
+            touchClick(510, 606, 0x0c0c0e)
         else
             touchClick(176, 198, 0x886115)
             if isColor(313, 445, 0x1db687, 95) then
@@ -2563,7 +2567,7 @@ function zongHe1(...)
         elseif isColor(410, 490, 0x9d1111, 95) then
             debug("防卫工程--红点")
             touchClick(331, 537, 0x306090)
-        elseif isColor(808, 314, 0x9d1111, 95) then
+        elseif isColor(808, 314, 0x9d1111, 95) and isOverHelp == false then
             debug("联盟协助--红点")
             touchClick(758, 362, 0x0c2037)
         elseif isColor(558, 321, 0x9e1111, 95) then
@@ -2821,7 +2825,7 @@ function zongHe1(...)
             end
         end
     end
-    if isColor(89, 59, 0xf5a801, 90) and isColor(192, 250, 0x325270, 95) and isColor(300, 407, 0x8f4d14, 95) then
+    if isColor(89, 59, 0xf8a901, 95) and isColor(192, 250, 0x2d4b69, 95) and isColor(300, 421, 0x8f4d14, 95) then
         debug("补充资源")
         if isColor(1028, 113, 0xffffff, 95) then
             debug("资源充足")
@@ -2836,11 +2840,17 @@ function zongHe1(...)
             -- mSleep(10)
             -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
             -- mSleep(10)
-            touchClick(313, 420)
-            if isColor(484, 432, 0x1c6eba, 95) then
-                debug("金币不足")
-                touchClick(513, 493, 0x566d7c)
-                touchClick(20, 20)
+            if isColor(313, 437, 0xd78b02, 95) then
+                touchClick(313, 437)
+            elseif isColor(512, 437, 0xd78b02, 95) then
+                touchClick(512, 437)
+            elseif isColor(702, 437, 0xd68b02, 95) then
+                touchClick(702, 437)
+            elseif isColor(890, 437, 0xd78b02, 95) then
+                touchClick(890, 437)
+            else
+                touchClick(511,603,0x0c0c0e)
+                mSleep(1000)
                 getOut()
                 if muBiao == mb_YouHua then
                     isKaYouHua = true
@@ -2858,6 +2868,28 @@ function zongHe1(...)
                     timeShengChan = nowTime
                 end
             end
+            -- touchClick(313, 420)
+            -- if isColor(484, 432, 0x1c6eba, 95) then
+            --     debug("金币不足")
+            --     touchClick(513, 493, 0x566d7c)
+            --     touchClick(20, 20)
+            --     getOut()
+            --     if muBiao == mb_YouHua then
+            --         isKaYouHua = true
+            --         writeJson("卡优化", isKaYouHua)
+            --         gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
+            --     elseif muBiao == mb_ZhuXian then
+            --         if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
+            --             gaiMuBiaoNew(1, "章节")
+            --         else
+            --             gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+            --         end
+            --         timeRound = nowTime
+            --     elseif muBiao == mb_WaKuang then
+            --         isShengChan = false
+            --         timeShengChan = nowTime
+            --     end
+            -- end
 
         end
     end
@@ -3152,7 +3184,7 @@ function zongHe1(...)
     end
     if isColor(16, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(56, 217, 0x5dfe09, 95) then
         debug("建设界面")
-        if isColor(44, 57, 0xffb500, 95) == false then -- 无黄色条
+        if isColor(46, 57, 0xffb500, 95) == false then -- 无黄色条
             touchClick(20, 20)
             return
         end
@@ -3163,7 +3195,7 @@ function zongHe1(...)
             end
             mSleep(100)
         end
-        if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
+        if isColor(57, 216, 0x64ff15, 95) and isColor(53, 190, 0xffffff, 95) then
             debug("升级界面")
             if haoLV <= 2 and ((isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95)) or
                 (isColor(62, 438, 0x44d7ec, 95) and isColor(61, 461, 0x0d609d, 95))) then
@@ -3195,7 +3227,7 @@ function zongHe1(...)
             end
             if bMultiColor == false then
                 -- if (m_pOp->isColorPlus(365, 504, 0x1c6dbb, 0.95))//可升级
-                if isShipBad == true and isColor(40, 343, 0x918a98, 95) and isColor(38, 190, 0xffffff, 95) then
+                if isShipBad == true and isColor(41, 343, 0x938d99, 95) and isColor(38, 190, 0xffffff, 95) then
                     debug("航母开发室--升级")
                     touchClick(45, 336, 0x6f6979)
                 elseif isColor(91, 625, 0xf27d12, 95) then
@@ -3269,7 +3301,7 @@ function zongHe1(...)
                     getOut()
                 end
             end
-        elseif isColor(61, 346, 0x0aacc4, 95) and isColor(60, 296, 0xffffff, 95) then
+        elseif isColor(62, 341, 0x0ec0d2, 95) and isColor(60, 296, 0xffffff, 95) then
             debug("生产界面")
             if bMultiColor == false then
                 if isColor(579, 617, 0x9f7249, 95) then
@@ -3336,7 +3368,7 @@ function zongHe1(...)
 
                 end
             end
-        elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) and isColor(111, 108, 0x4c87ba, 95) then
+        elseif isColor(41, 296, 0xffffff, 95) and isColor(34, 321, 0xbf9721, 95) and isColor(111, 108, 0x4c87ba, 95) then
             debug("维修界面")
             if isColor(1077, 527, 0x1eb686, 95) and isColor(993, 574, 0x237bc8, 95) then -- 重置
                 debug("可修理--不缺少资源")
@@ -3349,14 +3381,14 @@ function zongHe1(...)
             else
                 touchClick(20, 20)
             end
-        elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) and isColor(341, 601, 0xd77500, 95) then
+        elseif isColor(41, 296, 0xffffff, 95) and isColor(38, 320, 0xdeb748, 95) and isColor(341, 601, 0xd77500, 95) then
             debug("指挥中心--维修界面")
             if isColor(793, 584, 0x155daa, 95) then
                 touchClick(793, 584)
             else
                 touchClick(48, 233, 0x325240)
             end
-        elseif isColor(42, 357, 0xffe75f, 95) and isColor(43, 322, 0x0e5dd7, 95) and isColor(57, 296, 0xffffff, 95) then
+        elseif isColor(57, 296, 0xffffff, 95) and isColor(44, 357, 0xffe75f, 95) and isColor(45, 322, 0x0e5dd7, 95) then
             debug("资源传输装置--兑换")
             timeXXX = nowTime
             if haoLV == 3 then
@@ -3427,7 +3459,7 @@ function zongHe1(...)
             else
                 touchClick(20, 20)
             end
-        elseif isColor(63, 340, 0x4d9e9c, 95) and isColor(49, 296, 0xffffff, 95) then
+        elseif isColor(59, 331, 0x25f1ea, 95) and isColor(49, 296, 0xffffff, 95) then
             nowTime = os.time()
             timeXXX = nowTime
             if isColor(249, 162, 0xa9a9a9, 95) then
@@ -3734,14 +3766,14 @@ function zongHe1(...)
                 debug("啥都不是，关闭")
                 touchClick(20, 20)
             end
-        elseif isColor(60, 334, 0x52524c, 95) and isColor(41, 296, 0xffffff, 95) then
+        elseif isColor(49, 329, 0x767676, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("充电界面")
             if isColor(287, 514, 0x1f2d46, 95) then
                 touchClick(543, 597)
             else
                 touchClick(20, 20)
             end
-        elseif isColor(42, 331, 0x831c89, 95) and isColor(48, 296, 0xffffff, 95) then
+        elseif isColor(42, 331, 0xd769c2, 95) and isColor(48, 296, 0xffffff, 95) then
             debug("交易界面")
             if isColor(656, 483, 0x111111, 95) and isColor(785, 510, 0x0c0c0c, 95) then
                 debug("LOCK")
@@ -3843,7 +3875,7 @@ function zongHe1(...)
                 isTrade = true
                 writeJson("交易行", isTrade)
             end
-        elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
+        elseif isColor(30, 336, 0x043f05, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
             if numAddChanLiang <= 2 then
                 if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(1046, 397, 0xff0000, 95) == false then
@@ -3875,7 +3907,7 @@ function zongHe1(...)
                 touchClick(20, 20)
                 isJustBack = false
             end
-        elseif isColor(35, 348, 0xaba2b0, 95) and isColor(43, 296, 0xffffff, 95) then
+        elseif isColor(43, 343, 0x847b84, 95) and isColor(43, 296, 0xffffff, 95) then
             debug("航母开发室--航母")
             -- if isShipBad == true then
             if isColor(505, 110, 0x3e6b96, 95) == false then
@@ -3917,7 +3949,7 @@ function zongHe1(...)
                     gaiMuBiaoNew(3, mb_Wu, mm_Wu)
                 end
             end
-        elseif isColor(45, 418, 0xecb445, 95) and isColor(44, 403, 0xffffff, 95) then
+        elseif isColor(45, 418, 0xe9b042, 95) and isColor(44, 403, 0xffffff, 95) then
             debug("加工站界面")
             if isColor(184, 345, 0x4e6374, 95) then
                 debug("位置1空着")
@@ -4171,8 +4203,7 @@ function zongHe1(...)
             end
         end
     end
-    if isColor(7, 25, 0xff9c00, 95) and isColor(18, 25, 0xffffff, 95) and isColor(101, 166, 0xffb500, 95) and
-        isColor(117, 166, 0x718d9f, 85) then
+    if isColor(7, 25, 0xff9c00, 95) and isColor(18, 25, 0xffffff, 95) and isColor(103, 166, 0xffb500, 95) and isColor(119, 166, 0x718d9f, 95) then
         debug("高级商店")
         if isColor(102, 77, 0x9e1111, 95) then -- 免费补给箱子
             touchClick(102, 77)
@@ -4183,8 +4214,8 @@ function zongHe1(...)
             timeRed = nowTime
         end
     end
-    if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(101, 75, 0xffb500, 95) then
-        debug("背包界面")
+    if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95) then
+        debug(”背包界面“)
         if muBiao == mb_5DaoJu and num5DaoJu <= 7 then
             if isColor(111, 127, 0x182536, 95) then
                 touchClick(111, 127) -- 资源
@@ -4352,33 +4383,7 @@ function zongHe1(...)
     end
     if isColor(4, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(1001, 25, 0x0d9098, 95) then
         debug("邮件界面")
-        -- if isColor(119, 346, 0x9d1111, 95) then
-        --     -- 报告
-        --     touchClick(65, 377)
-        --     mSleep(1000)
-        --     touchClick(1054, 23, 0x0d9198)
-        -- elseif isColor(119, 98, 0x9d1111, 95) then
-        --     -- 通知
-        --     touchClick(68, 128, 0x233145)
-        --     mSleep(1000)
-        --     touchClick(1054, 23, 0x0d9198)
-        -- elseif isColor(119, 222, 0x9d1111, 95) then
-        --     debug("战争")
-        --     touchClick(67, 251, 0x949aa1)
-        --     mSleep(1000)
-        --     touchClick(1054, 23, 0x0d9198)
-        -- elseif isColor(119, 160, 0x9d1111, 95) then
-        --     debug("活动--红点--未选中")
-        --     touchClick(61, 192, 0x3f4c5c)
-        --     mSleep(1000)
-        --     touchClick(1054, 23, 0x0d9198)
-        -- elseif isColor(92, 172, 0x7c4f1e, 95) then
-        --     debug("活动--红点--已选中")
-        --     touchClick(1017, 25)
-        --     mSleep(1000)
-        --     touchClick(6, 23)
-        -- else
-        x, y = findMultiColorInRegionFuzzy(0x931012, "-1|0|0x0f2037", 90, 115, 98, 118, 491)
+        x, y = findMultiColorInRegionFuzzy(0x931012, "-1|0|0x1c2c40", 90, 112, 98, 115, 491)
         if x ~= -1 then
             touchClick(x, y)
             mSleep(1000)
@@ -6177,7 +6182,7 @@ function chuHang()
                 end
                 touchClick(172, 525) -- 搜索
             end
-        elseif isColor(125, 329, 0x7b43de, 95) and isColor(155, 304, 0x711fdd, 95) then
+        elseif isColor(125, 322, 0x6416c3, 95) and isColor(151, 305, 0x6918d9, 95) then
             debug("粒子--左")
             numSearch = numSearch + 1
             touchClick(387, 372)
@@ -6197,7 +6202,7 @@ function chuHang()
                 debug("其他司令官")
                 touchClick(522, 433)
             end
-        elseif isColor(661, 327, 0x712ed9, 95) and isColor(689, 305, 0x751ad6, 95) then
+        elseif isColor(662, 320, 0x783ede, 95) and isColor(684, 302, 0x6f1bdf, 95) then
             debug("粒子--右")
             numSearch = numSearch + 1
             touchClick(919, 372)
@@ -6283,7 +6288,7 @@ function isRewardLiZi()
             touchClick(1058, 244, 0xdaa395)
             mSleep(3000)
             debug("1队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 touchClick(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
@@ -6294,8 +6299,10 @@ function isRewardLiZi()
                 numLiZiTeam = numLiZiTeam + 1
                 if numLiZiTeam >= tonumber(numShip) then
                     if check16 ~= "vip8" then
+                        debug("isBug_LiZi = false")
                         isBug_LiZi = false -- bug 粒子
                     end
+                    debug("isLiZi = true")
                     isLiZi = true
                     return true
                 end
@@ -6305,7 +6312,7 @@ function isRewardLiZi()
             touchClick(1058, 300, 0xdaa395)
             mSleep(3000)
             debug("2队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 touchClick(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
@@ -6327,7 +6334,7 @@ function isRewardLiZi()
             touchClick(1058, 364, 0xdaa395)
             mSleep(3000)
             debug("3队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 touchClick(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
@@ -6900,6 +6907,8 @@ function everyDayInit(...)
             numShengChan = 1
             numJingRui = 1
             numZhanJian = 1
+            isOverHelp = false --协助已完成
+
 
             numTodayExit = 0
             writeJson("今日闪退次数", numTodayExit)
