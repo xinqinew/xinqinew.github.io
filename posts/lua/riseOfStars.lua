@@ -1,5 +1,8 @@
 numLua = 19.4
 toast("在线版本:" .. numLua)
+local image_tsing = require("tsimg")
+
+
 
 -- 对比颜色加强
 do
@@ -405,6 +408,7 @@ function bianLiang()
     isKaShengChan = false -- 卡主线--生产
     isFalseLiZi2 = false --2级粒子挖掘失败
     isOverHelp = false --协助已完成
+    isCheckLiZiNum = false --检查粒子数量
 
     strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
@@ -424,6 +428,7 @@ function bianLiang()
     numYunDaMa = 0 -- 云打码
 
     nowTime = os.time();
+    timeCheckLiZiNum = nowTime - 60 * 60 * 1 --定时检查粒子数量
     timeShengJiTongXingZheng = nowTime --升级通行证
     timeUpJson = nowTime - 10 * 60 --上传间隔
     timeZhengLi = nowTime - 5 * 60 --检测背包
@@ -632,7 +637,7 @@ function threadClinet()
         os.execute("chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
     end
     local bool, msg = os.remove(userPath() .. "/lua/clientiPhone.lua")
-    -- local bool = delFile(userPath() .. "/lua/clientiPhone.lua")
+    -- local bool = os.remove(userPath() .. "/lua/clientiPhone.lua")
     if bool then
         -- dialog("删除成功",5)
     else
@@ -1519,7 +1524,7 @@ function windowsDecide()
         -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         -- ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/PNG/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
-        delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+        os.remove(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         moreWindow()
     elseif vid == "btn_restart" then
         lua_restart()
@@ -2133,7 +2138,7 @@ function zongHe1(...)
         -- ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "YDM/")
         -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/YDM/" .. iphoneId .. "-" .. current_time .. ".png") --上传
         mSleep(2000)
-        delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+        os.remove(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             closeFw() -- 关闭所有视图
             mSleep(500)
@@ -2849,7 +2854,7 @@ function zongHe1(...)
             elseif isColor(890, 437, 0xd78b02, 95) then
                 touchClick(890, 437)
             else
-                touchClick(511,603,0x0c0c0e)
+                touchClick(511, 603, 0x0c0c0e)
                 mSleep(1000)
                 getOut()
                 if muBiao == mb_YouHua then
@@ -3197,8 +3202,8 @@ function zongHe1(...)
         end
         if isColor(57, 216, 0x64ff15, 95) and isColor(53, 190, 0xffffff, 95) then
             debug("升级界面")
-            if haoLV <= 2 and ((isColor(63, 548, 0x32bed9, 95) and isColor(42, 440, 0xb72700, 95)) or
-                (isColor(62, 438, 0x44d7ec, 95) and isColor(61, 461, 0x0d609d, 95))) then
+            if haoLV <= 2 and ((isColor(63, 548, 0x31bcd8, 95) and isColor(42, 440, 0xa82400, 95)) or
+                (isColor(64, 545 - 107, 0x40d1e8, 95) and isColor(53, 571 - 107, 0x5daa9f, 95))) then
                 debug("指挥中心")
                 -- x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
                 local numStr = ocrText(749, 126, 772, 145, 0, "012346789")
@@ -3208,15 +3213,20 @@ function zongHe1(...)
                     toast(numLv)
                 end
             end
-            if haoLV >= 3 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
+            if haoLV >= 3 and isTrade == false and isColor(42, 331, 0xd769c2, 95) then
                 debug("点击交易所")
                 touchClick(42, 331)
                 return
-            elseif haoLV >= 3 and numAddChanLiang <= 2 and isColor(30, 336, 0x01f520, 95) then
+            elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42, 331, 0xd769c2, 95) then
+                debug("交易所--点击兑换")
+                touchClick(51, 434)
+                isCheckLiZiNum = true
+                return
+            elseif haoLV >= 3 and numAddChanLiang <= 2 and isColor(32, 336, 0x00fc21, 95) then
                 debug("点击增产")
                 touchClick(42, 331)
                 return
-            elseif haoLV >= 3 and isAddChanLiangLiZi == false and isColor(30, 336, 0x01f520, 95) and check16 == "vip8" then
+            elseif haoLV >= 3 and isAddChanLiangLiZi == false and isColor(32, 336, 0x00fc21, 95) and check16 == "vip8" then
                 debug("点击粒子增产")
                 touchClick(42, 331)
                 return
@@ -3878,8 +3888,8 @@ function zongHe1(...)
         elseif isColor(30, 336, 0x043f05, 95) and isColor(41, 296, 0xffffff, 95) then
             debug("金属资源地界面--增产")
             if numAddChanLiang <= 2 then
-                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(1046, 397, 0xff0000, 95) == false then
-                    touchClick(1004, 385, 0x1c6dba)
+                if isColor(811, 589, 0x89898c, 95) and isColor(826, 589, 0x89898c, 95) and isColor(833, 589, 0x89898c, 95) and isColor(848, 589, 0x89898c, 95) and isColor(1057, 353, 0xff0000, 95) == false then
+                    touchClick(1057, 353, 0xff0000)
                     touchClick(20, 20)
                     numAddChanLiang = numAddChanLiang + 1
                     writeJson("增产", numAddChanLiang)
@@ -3891,8 +3901,8 @@ function zongHe1(...)
                     isJustBack = false
                 end
             elseif isAddChanLiangLiZi == false and check16 == "vip8" then
-                if isColor(804, 617, 0x66676c, 95) and isColor(812, 617, 0x4b4f54, 95) and isColor(826, 617, 0x484c51, 95) and isColor(838, 617, 0x75767a, 95) and isColor(1046, 397, 0xff0000, 95) == false and isColor(693, 389, 0xa13bd6, 95) then
-                    touchClick(1004, 385, 0x1c6dba)
+                if isColor(811, 589, 0x89898c, 95) and isColor(826, 589, 0x89898c, 95) and isColor(833, 589, 0x89898c, 95) and isColor(848, 589, 0x89898c, 95) and isColor(1057, 353, 0xff0000, 95) == false then
+                    touchClick(1057, 353, 0xff0000)
                     touchClick(20, 20)
                     isAddChanLiangLiZi = true
                     writeJson("增产粒子", isAddChanLiangLiZi)
@@ -3963,6 +3973,28 @@ function zongHe1(...)
             else
                 touchClick(20, 20)
             end
+        elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
+            debug("兑换界面")
+            do
+                local temStr = ocrText(323, 298, 385, 310, 0, "0123456789")
+                if temStr ~= nil then
+                    numLiZi = temStr
+                    writeJson("粒子", numLiZi)
+                end
+            end
+
+            snapshot("lizi1.jpg", 323, 298, 385, 310, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
+            snapshot("lizi2.jpg", 323, 368, 385, 381, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
+            local tab = { userPath() .. "/res/lizi1.jpg", userPath() .. "/res/lizi2.jpg" }
+            local path = userPath() .. "/res/lizi.jpg"
+            local dir = 1
+            local quality = 1
+            local bool, msg = image_tsing.operMerge(tab, path, dir, quality) --合并图片
+
+            fwCloseView("window1", "more"); -- 关闭文字视图
+            fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
+            mSleep(500)
+            touchClick(16, 24, 0xffffff)
         else
             touchClick(20, 20)
 
@@ -4730,7 +4762,7 @@ end
 function checkRed1()
     -- ocrNumbers()
     if haoLV == 3 then
-        snapshot("lizi.jpg", 956, 16, 1016, 29, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
+        -- snapshot("lizi.jpg", 956, 16, 1016, 29, 0.5); -- 使用 jpg 格式截图，并设置图片质量为 0.5
         fwCloseView("window1", "more"); -- 关闭文字视图
         fwShowButton("window1", "more", "", "FFFFFF", "306090", "lizi.jpg", 12, 0, 0, 50, 30);
         mSleep(500)
@@ -4805,6 +4837,10 @@ function checkRed1()
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isTrade == false and haoLV >= 2 then
         debug("准备交易行")
+        touchClick(320, 468, 0x6e1313)
+        return true
+    elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isCheckLiZiNum == false and haoLV >= 3 then
+        debug("准备交易行--检查粒子数量")
         touchClick(320, 468, 0x6e1313)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numGuangGao <= 9 and haoLV >= 2 then
@@ -5333,6 +5369,12 @@ function timeJianCe()
             isChongDianKaZiYuan = false
         end
     end
+    if isCheckLiZiNum == true then
+        if nowTime - timeCheckLiZiNum >= 1 * 60 * 60 then
+            timeCheckLiZiNum = nowTime
+            isCheckLiZiNum = false
+        end
+    end
 end
 
 -- 5分钟不见某界面
@@ -5352,7 +5394,7 @@ function checkXXX(...)
                 ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
                 -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 -- ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
-                delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+                os.remove(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
                 timeXXX = nowTime
@@ -5379,7 +5421,7 @@ function checkXXX(...)
                 ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
                 -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
                 -- ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
-                delFile(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+                os.remove(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
                 closeApp(appXiangMu)
                 nowTime = os.time()
                 timeXXX = nowTime
@@ -7194,31 +7236,31 @@ function OCR_num()
             end
         end
 
-        do
-            local temStr = ocrText(947, 14, 1016, 30, 0, "0123456789.KM")
-            local temNum = 0
-            local num1 = string.find(temStr, "K")
-            local num2 = string.find(temStr, "M")
-            if num1 ~= nil then
-                temStr = string.gsub(temStr, "K", "")
-                temNum = tonumber(temStr)
-                if temNum ~= nil then
-                    temNum = temNum * 1000
-                end
-            elseif num2 ~= nil then
-                temStr = string.gsub(temStr, "M", "")
-                temNum = tonumber(temStr)
-                if temNum ~= nil then
-                    temNum = temNum * 1000 * 1000
-                end
-            else
-                temNum = 1
-            end
-            if temNum ~= nil then
-                numLiZi = temNum
-                writeJson("粒子", numLiZi)
-            end
-        end
+        -- do
+        --     local temStr = ocrText(947, 14, 1016, 30, 0, "0123456789.KM")
+        --     local temNum = 0
+        --     local num1 = string.find(temStr, "K")
+        --     local num2 = string.find(temStr, "M")
+        --     if num1 ~= nil then
+        --         temStr = string.gsub(temStr, "K", "")
+        --         temNum = tonumber(temStr)
+        --         if temNum ~= nil then
+        --             temNum = temNum * 1000
+        --         end
+        --     elseif num2 ~= nil then
+        --         temStr = string.gsub(temStr, "M", "")
+        --         temNum = tonumber(temStr)
+        --         if temNum ~= nil then
+        --             temNum = temNum * 1000 * 1000
+        --         end
+        --     else
+        --         temNum = 1
+        --     end
+        --     if temNum ~= nil then
+        --         numLiZi = temNum
+        --         writeJson("粒子", numLiZi)
+        --     end
+        -- end
 
         do
             local temStr = ocrText(1050, 14, 1119, 30, 0, "0123456789")
