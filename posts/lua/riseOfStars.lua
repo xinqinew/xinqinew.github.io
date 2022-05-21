@@ -1,4 +1,4 @@
-numLua = 19.4
+numLua = 19.5
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -282,7 +282,7 @@ function ttScreen(x1, y1, x2, y2, scale) --此处为触动截图方法 开发者
 end
 
 -- 云打码
-function yunDaMaNew(str)
+function yunDaMaNew(str, x1, y1, x2, y2)
     -- ocrInfo("qqchaoren", "username", "password") -- 初始化打码平台
     -- bool, bal = ocrBalance() -- 查询用户余额
     -- tiaoShi("云打码余额:" .. bal)
@@ -290,15 +290,16 @@ function yunDaMaNew(str)
     -- return YDMtext
     if check24 == "TT图鉴" then
         tt.Info(TT_username, TT_password)
-        local picPath = ttScreen(222, 12, 596, 157) --图片的路径完整路径此处为截图获取的路径
+        local picPath = ttScreen(x1, y1, x2, y2) --图片的路径完整路径此处为截图获取的路径
         local res, id = tt.Image(picPath, 7) --开始识别
+        -- debug(res)
         if res then
             return res
         else
             debug("识别失败")
             return false
         end
-        print("result", res, id) --识别结果,识别id
+        -- print("result", res, id) --识别结果,识别id
     else
         local ret1 = ocr.cloudOcrText(str);
         if ret1.success then
@@ -501,7 +502,8 @@ function newUi()
     if checkXiangMu1 == "项目1" then
         numInit = 1
     elseif checkXiangMu2 == "项目2" then
-        numInit = 2
+        numInit = 1
+
     end
     init(numInit)
     floatingWindow()
@@ -701,6 +703,12 @@ function main()
         main1()
     end
     if checkXiangMu2 == "项目2" then
+        if m_iRunCount == 1 then
+            apps1 = "com.stormgames.fourgodsonwemix.ios"
+            zhaojunlua()
+            package.loaded["zhaojun"] = nil
+            require("zhaojun")
+        end
         main2()
     end
 end
@@ -810,6 +818,7 @@ function main2()
     -- autoVpn()
     autoUnlockDevice()
     zongHe2()
+    zongHe_zj()
     -- zongHe_Mult()
     -- zongHe_Screen()
     -- doTarget()
@@ -2142,7 +2151,7 @@ function zongHe1(...)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             closeFw() -- 关闭所有视图
             mSleep(500)
-            local strDaMa = yunDaMaNew(op)
+            local strDaMa = yunDaMaNew(op, 222, 12, 596, 157)
             if strDaMa ~= false then
                 for i = 1, 10, 1 do
                     if isPause == true then
@@ -7406,60 +7415,68 @@ function zongHe2()
     if inside2() then
         checkRed2()
     end
-    if isColor(459, 80, 0xd28425, 95) and isColor(533, 73, 0xa07953, 95) and isColor(986, 100, 0x804037, 95) and
-        isColor(810, 528, 0xfeaa22, 95) then
-        debug("邮件界面")
-        if isColor(1051, 156, 0xaf070c, 95) then -- 系统红点
-            debug("系统红点")
-            touchClick(759, 536, 0xb96c2f)
-        else
-            -- tap(988, 101)
-            touchClick(988, 101, 0x864137)
+    if isColor(778,576,0xe78600,95) and isColor(885,582,0x00cde9,95) and isColor(925,578,0x00293d,95) then
+        debug("角色选择")
+        touchClick(925,578,0x00293d    )
+    end
+    if isColor(926, 341, 0xa3ea30, 95) and isColor(948, 353, 0x74db22, 95) and isColor(789, 540, 0x162f2e, 95) then
+        debug("云打码")
+        mSleep(5000)
+        local strDaMa = yunDaMaNew(op, 234, 207, 855, 485)
+        if strDaMa ~= false then
+            debug("识别成功")
+            touchClick(456, 539, 0x0e1118)
+            mSleep(1000)
+            inputText(strDaMa)
+            mSleep(2000)
+            touchClick(1027, 603, 0x000000)
+            mSleep(2000)
+            touchClick(760, 540, 0x253d3c)
         end
-    end
-    if isColor(97, 223, 0x2d231d, 95) and isColor(267, 222, 0xf6e6bd, 95) and isColor(267, 304, 0xe9daaf, 95) then
-        debug("进入江湖")
-        touchClick(966, 569, 0xee916b)
-    end
-    if isColor(506, 384, 0x25b99c, 95) and isColor(632, 410, 0xf8c748, 95) then
-        debug("排队")
-        timeXXX = nowTime
-    end
-    if isColor(1098, 64, 0x81453b, 95) and isColor(1099, 75, 0xe9bf81, 95) and isColor(691, 50, 0xebdea3, 95) then
-        debug("note")
-        -- setVPNEnable(false)
-        touchClick(1098, 64)
-    end
-    if isColor(1018, 29, 0xffffff, 95) and isColor(1028, 29, 0x070707, 95) and isColor(1090, 267, 0x7f7041, 95) then
-        debug("please check the notice")
-        -- setVPNEnable(false)
-        touchClick(1018, 29)
-    end
-    if isColor(412, 176, 0xe9bc41, 95) and isColor(490, 162, 0x000000, 95) and isColor(1089, 365, 0xffe881, 95) then
-        debug("进入游戏")
-        local flag = getVPNStatus()
-        if flag.active then
-            setVPNEnable(false)
-        end
-        touchMoveXY(79, 573, 79, 190)
-        touchClick(560, 510)
-        timeXXX = nowTime
     end
 end
 
 -- 城内
 function inside2()
-    if isColor(1091, 62, 0xa71f13, 95) and isColor(1103, 39, 0xc99565, 95) then
-        return true
-    else
-        return false
-    end
+
 end
 
 -- 检查红点
 function checkRed2()
-    if isColor(855, 80, 0xb0080a, 95) then
-        debug("邮件红点")
-        touchClick(829, 100, 0xd8caad)
+
+end
+
+-- 在线脚本
+function zhaojunlua()
+    if whoAmI() ~= 3 then
+        os.execute("chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
+    end
+    local bool, msg = os.remove(userPath() .. "/lua/zhaojun.lua")
+    if bool then
+        -- dialog("删除成功",5)
+    else
+        toast("删除失败，失败原因：" .. msg, 1)
+    end
+    ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
+    local temRet = ftpDownTSnet("/Lua/zhaojun.lua", userPath() .. "/lua/zhaojun.lua")
+    if temRet then
+        toast("FTP下载成功", 1)
+        mSleep(1000)
+    else
+        for i = 1, 10, 1 do
+            code, msg = ts.tsDownload(userPath() .. "/lua/zhaojun.lua", luaFile, {
+                ["tstab"] = 1,
+                ["mode"] = true
+            })
+            -- httpDown("https://cdn.jsdelivr.net/gh/xinqinew/rise-of-stars@main/riseOfStars.lua", "/var/mobile/Media/TouchSprite/lua/riseOfStars.lua")
+            if code == 200 then
+                toast("Github下载成功", 1)
+                mSleep(1000)
+                break
+            else
+                tiaoShi("下载失败：" .. msg)
+                mSleep(1000)
+            end
+        end
     end
 end
