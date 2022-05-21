@@ -4256,7 +4256,7 @@ function zongHe1(...)
         end
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95) then
-        debug(”背包界面“)
+        debug("背包界面")
         if muBiao == mb_5DaoJu and num5DaoJu <= 7 then
             if isColor(111, 127, 0x182536, 95) then
                 touchClick(111, 127) -- 资源
