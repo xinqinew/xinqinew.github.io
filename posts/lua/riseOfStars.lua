@@ -273,6 +273,9 @@ tt.ReportError2 = ttReportError2
 
 
 -----------------------公共部分--------------------------
+function tap(x, y, ...)
+    touchClick(x, y)
+end
 
 function ttScreen(x1, y1, x2, y2, scale) --此处为触动截图方法 开发者请根据实际脚本工具自己编写
     scale = scale or 1
@@ -450,12 +453,18 @@ function bianLiang()
     timeLianMeng = nowTime - 60 * 60 * 2 -- 联盟
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
+    ---------------项目2---------------
+    isDead = false
+    numDead = 0
+    isCollectBug = false
+    timeCollectBug = nowTime
+
 end
 
 -- 新UI
 function newUi()
     w, h = getScreenSize()
-    UINew(2, "Page1,Page2", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245", "175,238,238", "", "dot", 1, 15,
+    UINew(3, "Page1,Page2,Page3", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245", "175,238,238", "", "dot", 1, 15,
         "left")
 
     UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
@@ -465,22 +474,24 @@ function newUi()
     UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24",
         "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,TT图鉴",
         "3@5", -1, 0, "", 1, 3) -- 多选1
-    UILabel("---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UILabel(2,"---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICheck(2,"Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UILabel(2, "采集点", 12, "left", "46,139,87", -1, 1, "center")
+    UICombo(2, "numCollect", "1,2,3,4", "0", -1, 1, true) -- 下拉框
 
-    UILabel(2, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
-    UICombo(2, "numShip", "0,1,2,3,4", "0", -1, 1, true) -- 下拉框
-    UILabel(2, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
-    UICombo(2, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
+    UILabel(3, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
+    UICombo(3, "numShip", "0,1,2,3,4", "0", -1, 1, true) -- 下拉框
+    UILabel(3, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
+    UICombo(3, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
 
-    UILabel(2, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节", 10, "left", "72,61,139", -1, 0,
+    UILabel(3, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节,采集,去采集点", 10, "left", "72,61,139", -1, 0,
         "center") -- 标签
-    UIEdit(2, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
-    UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
-    UIEdit(2, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(2, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left",
+    UIEdit(3, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(3, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(3, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(3, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left",
         "72,61,139", -1, 0, "center")
-    UIEdit(2, "muBiao3", "目标3", "无", 15, "left", "95,158,160", "default", 0, 0)
+    UIEdit(3, "muBiao3", "目标3", "无", 15, "left", "95,158,160", "default", 0, 0)
 
     UIShow()
 
@@ -819,9 +830,10 @@ function main2()
     autoUnlockDevice()
     zongHe2()
     zongHe_zj()
+
     -- zongHe_Mult()
     -- zongHe_Screen()
-    -- doTarget()
+    doTarget2()
     -- timeChongZhi()
     -- checkXXX()
     -- everyDayInit()
@@ -7412,9 +7424,40 @@ end
 
 -- 综合2
 function zongHe2()
-    if inside2() then
-        checkRed2()
+    if isColor(465,543,0x960000,95) and isColor(681,543,0x007ea9,95) then
+        debug("受到攻击")
+        tap(461,562,0xc4a391    )--不审判
     end
+    if isColor(430,328,0x966500,95) and isColor(713,329,0x0080b2,95) then
+        debug("复活")
+        tap(714,352,0x808b6e    )
+        isDead = true
+        numDead = numDead + 1
+        if numDead >= 5 then
+            if numCollect == "1" then
+                numCollect = "3" 
+            elseif numCollect == "3" then
+                numCollect = "2" 
+            elseif numCollect == "2" then
+                numCollect = "4" 
+            elseif numCollect == "4" then
+                numCollect = "1" 
+            end
+            numDead = 0
+        end
+        if muBiao == "采集" then
+            gaiMuBiaoNew(1,"去采集点")
+        elseif muBiao == "挂机" then
+            gaiMuBiaoNew(1,"去挂机点")
+        end
+    end
+    if isColor(437,436,0x0078a4,95) and isColor(698,431,0x0078a4,95) and isColor(447,417,0x00243a,95) and isColor(687,451,0x002740,95) then
+        debug("增强")
+        tap(574,432,0x90a0aa    )
+    end
+    -- if inside2() then
+    --     checkRed2()
+    -- end
     if isColor(778,576,0xe78600,95) and isColor(885,582,0x00cde9,95) and isColor(925,578,0x00293d,95) then
         debug("角色选择")
         touchClick(925,578,0x00293d    )
@@ -7479,4 +7522,104 @@ function zhaojunlua()
             end
         end
     end
+end
+--doTarget2
+function doTarget2()
+    if muBiao == "采集" then
+        collect()
+    elseif muBiao == "去采集点" then
+        goCollectPlace()
+    end
+    -- debug("目标："..muBiao)
+end
+--采集
+function collect()
+    if isInside() then
+        if isColor(605,583,0xfcfdfe,95)==false and isColor(621,583,0xf6fcfd,95)==false then
+            -- debug("采集")
+            tap(605,583)
+        end
+        if isColor(653,450,0x144309,90) then
+            -- debug("采集中")
+            mSleep(2000)
+            if isColor(653,450,0x144309,90) then
+                debug("采集--卡bug")
+                tap(612,572,0xd1d5d9            )
+                isCollectBug = true
+                gaiMuBiaoNew(1,"去采集点")
+            end
+        end
+        if isColor(502,447,0x31e605,95) then--采集条--绿色
+            timeCollectBug = nowTime
+        end
+        if nowTime - timeCollectBug >= 60 then
+            timeCollectBug = nowTime
+            debug("采集--卡bug")
+            tap(612,572,0xd1d5d9            )
+            isCollectBug = true
+            gaiMuBiaoNew(1,"去采集点")
+        end
+    end
+end
+--去采集点
+function goCollectPlace()
+    if isInside() then
+        tap(1061,95,0x37cd12    )--打开地图
+        mSleep(1000)
+        if numCollect == "1" then
+            tap(714,255,0x3e454c        )--采集点1
+            tap(1028,255,0x3f4550        )--移动
+            numGoCollectPlace = 20
+        elseif numCollect == "2" then
+            tap(714,307,0x3e454c        )
+            tap(1028,307,0x3f4550        )
+            numGoCollectPlace = 15
+        elseif numCollect == "3" then
+            tap(714,360,0x3e454c        )
+            tap(1028,360,0x3f4550        )
+            numGoCollectPlace = 35
+        elseif numCollect == "4" then
+            tap(714,411,0x3e454c        )
+            tap(1028,411,0x3f4550        )
+            numGoCollectPlace = 15
+        end
+        tap(438,384,0x322709    )--普通移动
+        if isCollectBug == true then
+            mSleep(3*1000)
+            isCollectBug = false
+        else
+            mSleep(numGoCollectPlace*1000)
+        end
+        gaiMuBiaoNew(1,"采集")
+
+    end
+end
+--战斗界面
+function isWar()
+    if isColor(177,67,0xc8c8c8    ,95) and isColor(774,31,0xf7f7f7,95) then
+        -- debug("战斗界面")
+        return true
+    else
+        return false
+    end
+end
+--副本内
+function isInside()
+    if isWar() then
+        if isColor(767,142,0xf9f9f9,95) and isColor(769,154,0xf1f2f1,95) then
+            -- debug("副本内")
+            return true
+        end
+    end
+end
+
+--副本外
+function isOutside()
+    if isWar() then
+        if isColor(767,142,0xf9f9f9,95)==false and isColor(769,154,0xf1f2f1,95)==false then
+            -- debug("副本外")
+            return true
+        end
+    end
+
 end
