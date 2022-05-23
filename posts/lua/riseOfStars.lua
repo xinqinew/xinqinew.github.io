@@ -277,6 +277,22 @@ function tap(x, y, ...)
     touchClick(x, y)
 end
 
+--全屏乱点
+function screenClickNew(intX, intY, color)
+    for x = 1, 113, 1 do
+        for y = 1, 63, 1 do
+            if isColor(intX, intY, color, 90) == false then
+                return
+            end
+            if math.abs(intX - x * 10) <= 40 and math.abs(intY - y * 10) <= 40 then
+
+            else
+                touchSuper(x * 10, y * 10)
+            end
+        end
+    end
+end
+
 function ttScreen(x1, y1, x2, y2, scale) --此处为触动截图方法 开发者请根据实际脚本工具自己编写
     scale = scale or 1
     local path = userPath() .. "/res/ttshu.png"
@@ -454,9 +470,15 @@ function bianLiang()
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
     ---------------项目2---------------
-    isDead = false
     numDead = 0
+    numUpLeft = 0
+    numUpRight = 0
+    numDownLeft = 0
+    numDownRight = 0
+
+    isDead = false
     isCollectBug = false
+
     timeCollectBug = nowTime
     timeTask_ZhuXian = nowTime - 10
 
@@ -7430,6 +7452,10 @@ end
 -- 综合2
 function zongHe2()
     changePkMode()
+    if isColor(8,153,0xe3d4bb,95) and isColor(260,204,0xf0e3cb,95) and isColor(27,25,0xffffff,95) then
+        debug("指引--退出")
+        tap(27,25,0xffffff    )
+    end
     if isColor(1090,605,0xb07705,95) and isColor(1098,608,0xa26e07,95) and isColor(1017,614,0xedd293,95) then
         debug("跳过对话")
         tap(1042,418,0x807e70    )
@@ -7569,23 +7595,44 @@ function zhiYin()
     if numHaoLV == "小号" then
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-57|-65|0xf1e5cf,198|-11|0xe2d2b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--左")
-            tap(x+20, y + 30)
+            debug("指引在上--左"..numUpLeft)
+            tap(x+5, y + 30)
+            numUpLeft = numUpLeft +1
+            if numUpLeft >= 5 then
+                screenClickNew(x, y, 0xdecfb5)
+                numUpLeft = 0
+            end
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-198|-64|0xefe2ca,58|-12|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--右")
-            tap(x-20, y + 30)
+            debug("指引在上--右"..numUpRight)
+            tap(x-5, y + 30)
+            numUpRight = numUpRight +1
+            if numUpRight >= 5 then
+                screenClickNew(x, y, 0xdecfb5)
+                numUpRight = 0
+            end
+        end
+        
+        x, y = findMultiColorInRegionFuzzy(0xdeceb5, "-58|10|0xe2d2b9,198|64|0xefe2ca", 90, 0, 0, 1135, 639)
+        if x > 0 then
+            debug("指引在下--左"..numDownLeft)
+            tap(x+5, y - 30)
+            numDownLeft = numDownLeft +1
+            if numDownLeft >= 5 then
+                screenClickNew(x, y, 0xdeceb5)
+                numDownLeft = 0
+            end
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "58|63|0xefe2ca,-197|11|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在下--右")
-            tap(x-20, y - 30)
-        end
-        x, y = findMultiColorInRegionFuzzy(0xdeceb5, "-58|10|0xe2d2b9,198|64|0xefe2ca", 90, 0, 0, 1135, 639)
-        if x > 0 then
-            debug("指引在下--左")
-            tap(x+20, y - 30)
+            debug("指引在下--右"..numDownRight)
+            tap(x-5, y - 30)
+            numDownRight = numDownRight +1
+            if numDownRight >= 5 then
+                screenClickNew(x, y, 0xdecfb5)
+                numDownRight = 0
+            end
         end
         if isColor(1000, 6, 0x528ba5, 95) and isColor(1131, 52, 0x64a0bf, 95) and isColor(1058, 22, 0xc0c0c0, 95) then
             debug("跳过任务")
