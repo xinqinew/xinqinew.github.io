@@ -291,7 +291,7 @@ function yunDaMaNew(str, x1, y1, x2, y2)
     -- tiaoShi("云打码余额:" .. bal)
     -- YDMtext, YDMtid = ocrScreen(222, 12, 596, 157, 103, 60, 1)
     -- return YDMtext
-    if check24 == "TT图鉴" then
+    if TTtuJian == "TT图鉴" then
         tt.Info(TT_username, TT_password)
         local picPath = ttScreen(x1, y1, x2, y2) --图片的路径完整路径此处为截图获取的路径
         local res, id = tt.Image(picPath, 7) --开始识别
@@ -458,6 +458,7 @@ function bianLiang()
     numDead = 0
     isCollectBug = false
     timeCollectBug = nowTime
+    timeTask_ZhuXian = nowTime - 10
 
 end
 
@@ -468,16 +469,18 @@ function newUi()
         "left")
 
     UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2",
-        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2", "4@6", -1, 0, "", 1, 3) -- 多选1
+    UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian",
+        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,TT图鉴",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗",
         "3@5", -1, 0, "", 1, 3) -- 多选1
-    UILabel(2,"---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(2,"Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UILabel(2, "---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICheck(2, "Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
     UILabel(2, "采集点", 12, "left", "46,139,87", -1, 1, "center")
     UICombo(2, "numCollect", "1,2,3,4", "0", -1, 1, true) -- 下拉框
+    UICombo(2, "numHaoLV", "小号,成品号,大号", "0", -1, 1, true) -- 下拉框
+
 
     UILabel(3, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
     UICombo(3, "numShip", "0,1,2,3,4", "0", -1, 1, true) -- 下拉框
@@ -830,6 +833,8 @@ function main2()
     autoUnlockDevice()
     zongHe2()
     zongHe_zj()
+    checkDropline()
+    zhiYin()
 
     -- zongHe_Mult()
     -- zongHe_Screen()
@@ -7424,43 +7429,48 @@ end
 
 -- 综合2
 function zongHe2()
-    if isColor(465,543,0x960000,95) and isColor(681,543,0x007ea9,95) then
-        debug("受到攻击")
-        tap(461,562,0xc4a391    )--不审判
+    changePkMode()
+    if isColor(1090,605,0xb07705,95) and isColor(1098,608,0xa26e07,95) and isColor(1017,614,0xedd293,95) then
+        debug("跳过对话")
+        tap(1042,418,0x807e70    )
     end
-    if isColor(430,328,0x966500,95) and isColor(713,329,0x0080b2,95) then
+    if isColor(465, 543, 0x960000, 95) and isColor(681, 543, 0x007ea9, 95) then
+        debug("受到攻击")
+        tap(461, 562, 0xc4a391) --不审判
+    end
+    if isColor(430, 328, 0x966500, 95) and isColor(713, 329, 0x0080b2, 95) then
         debug("复活")
-        tap(714,352,0x808b6e    )
+        tap(714, 352, 0x808b6e)
         isDead = true
         numDead = numDead + 1
         if numDead >= 5 then
             if numCollect == "1" then
-                numCollect = "3" 
+                numCollect = "3"
             elseif numCollect == "3" then
-                numCollect = "2" 
+                numCollect = "2"
             elseif numCollect == "2" then
-                numCollect = "4" 
+                numCollect = "4"
             elseif numCollect == "4" then
-                numCollect = "1" 
+                numCollect = "1"
             end
             numDead = 0
         end
         if muBiao == "采集" then
-            gaiMuBiaoNew(1,"去采集点")
+            gaiMuBiaoNew(1, "去采集点")
         elseif muBiao == "挂机" then
-            gaiMuBiaoNew(1,"去挂机点")
+            gaiMuBiaoNew(1, "去挂机点")
         end
     end
-    if isColor(437,436,0x0078a4,95) and isColor(698,431,0x0078a4,95) and isColor(447,417,0x00243a,95) and isColor(687,451,0x002740,95) then
+    if isColor(437, 436, 0x0078a4, 95) and isColor(698, 431, 0x0078a4, 95) and isColor(447, 417, 0x00243a, 95) and isColor(687, 451, 0x002740, 95) then
         debug("增强")
-        tap(574,432,0x90a0aa    )
+        tap(574, 432, 0x90a0aa)
     end
     -- if inside2() then
     --     checkRed2()
     -- end
-    if isColor(778,576,0xe78600,95) and isColor(885,582,0x00cde9,95) and isColor(925,578,0x00293d,95) then
+    if isColor(778, 576, 0x8c5900, 95) and isColor(885, 582, 0x0087a4, 95) and isColor(926, 585, 0x002a3e, 95) then
         debug("角色选择")
-        touchClick(925,578,0x00293d    )
+        touchClick(925, 578, 0x00293d)
     end
     if isColor(926, 341, 0xa3ea30, 95) and isColor(948, 353, 0x74db22, 95) and isColor(789, 540, 0x162f2e, 95) then
         debug("云打码")
@@ -7523,90 +7533,145 @@ function zhaojunlua()
         end
     end
 end
+
 --doTarget2
 function doTarget2()
-    if muBiao == "采集" then
+    if muBiao == "挂机" or muBiao == "无" then
+        if numHaoLV == "小号" then
+            gaiMuBiaoNew(1, "主线")
+        elseif numHaoLV == "成品号" then
+            gaiMuBiaoNew(1, "主线")
+        elseif numHaoLV == "大号" then
+            gaiMuBiaoNew(1, "主线")
+        end
+    elseif muBiao == "主线" then
+        task_zhuXian()
+    elseif muBiao == "采集" then
         collect()
     elseif muBiao == "去采集点" then
         goCollectPlace()
     end
     -- debug("目标："..muBiao)
 end
+
+--主线
+function task_zhuXian()
+    if isOutside() then
+        if nowTime - timeTask_ZhuXian >= 10 then
+            timeTask_ZhuXian = nowTime
+            tap(41, 170, 0x326532)
+        end
+    end
+end
+
+--指引
+function zhiYin()
+    if numHaoLV == "小号" then
+        x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-57|-65|0xf1e5cf,198|-11|0xe2d2b9", 90, 0, 0, 1135, 639)
+        if x > 0 then
+            debug("指引在上--左")
+            tap(x+20, y + 30)
+        end
+        x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-198|-64|0xefe2ca,58|-12|0xe1d1b9", 90, 0, 0, 1135, 639)
+        if x > 0 then
+            debug("指引在上--右")
+            tap(x-20, y + 30)
+        end
+        x, y = findMultiColorInRegionFuzzy(0xdecfb5, "58|63|0xefe2ca,-197|11|0xe1d1b9", 90, 0, 0, 1135, 639)
+        if x > 0 then
+            debug("指引在下--右")
+            tap(x-20, y - 30)
+        end
+        x, y = findMultiColorInRegionFuzzy(0xdeceb5, "-58|10|0xe2d2b9,198|64|0xefe2ca", 90, 0, 0, 1135, 639)
+        if x > 0 then
+            debug("指引在下--左")
+            tap(x+20, y - 30)
+        end
+        if isColor(1000, 6, 0x528ba5, 95) and isColor(1131, 52, 0x64a0bf, 95) and isColor(1058, 22, 0xc0c0c0, 95) then
+            debug("跳过任务")
+            tap(1058, 22)
+        end
+    end
+end
+
 --采集
 function collect()
     if isInside() then
-        if isColor(605,583,0xfcfdfe,95)==false and isColor(621,583,0xf6fcfd,95)==false then
+        if isColor(605, 583, 0xfcfdfe, 95) == false and isColor(621, 583, 0xf6fcfd, 95) == false then
             -- debug("采集")
-            tap(605,583)
+            tap(605, 583)
         end
-        if isColor(653,450,0x144309,90) then
+        if isColor(653, 450, 0x144309, 90) then
             -- debug("采集中")
             mSleep(2000)
-            if isColor(653,450,0x144309,90) then
+            if isColor(653, 450, 0x144309, 90) then
                 debug("采集--卡bug")
-                tap(612,572,0xd1d5d9            )
+                tap(612, 572, 0xd1d5d9)
                 isCollectBug = true
-                gaiMuBiaoNew(1,"去采集点")
+                gaiMuBiaoNew(1, "去采集点")
             end
         end
-        if isColor(502,447,0x31e605,95) then--采集条--绿色
+        if isColor(502, 447, 0x31e605, 95) then --采集条--绿色
             timeCollectBug = nowTime
         end
         if nowTime - timeCollectBug >= 60 then
             timeCollectBug = nowTime
             debug("采集--卡bug")
-            tap(612,572,0xd1d5d9            )
+            tap(612, 572, 0xd1d5d9)
             isCollectBug = true
-            gaiMuBiaoNew(1,"去采集点")
+            gaiMuBiaoNew(1, "去采集点")
         end
     end
 end
+
 --去采集点
 function goCollectPlace()
     if isInside() then
-        tap(1061,95,0x37cd12    )--打开地图
+        tap(1061, 95, 0x37cd12) --打开地图
         mSleep(1000)
         if numCollect == "1" then
-            tap(714,255,0x3e454c        )--采集点1
-            tap(1028,255,0x3f4550        )--移动
+            tap(714, 255, 0x3e454c) --采集点1
+            tap(1028, 255, 0x3f4550) --移动
             numGoCollectPlace = 20
         elseif numCollect == "2" then
-            tap(714,307,0x3e454c        )
-            tap(1028,307,0x3f4550        )
+            tap(714, 307, 0x3e454c)
+            tap(1028, 307, 0x3f4550)
             numGoCollectPlace = 15
         elseif numCollect == "3" then
-            tap(714,360,0x3e454c        )
-            tap(1028,360,0x3f4550        )
+            tap(714, 360, 0x3e454c)
+            tap(1028, 360, 0x3f4550)
             numGoCollectPlace = 35
         elseif numCollect == "4" then
-            tap(714,411,0x3e454c        )
-            tap(1028,411,0x3f4550        )
+            tap(714, 411, 0x3e454c)
+            tap(1028, 411, 0x3f4550)
             numGoCollectPlace = 15
         end
-        tap(438,384,0x322709    )--普通移动
+        tap(438, 384, 0x322709) --普通移动
         if isCollectBug == true then
-            mSleep(3*1000)
+            mSleep(3 * 1000)
             isCollectBug = false
         else
-            mSleep(numGoCollectPlace*1000)
+            mSleep(numGoCollectPlace * 1000)
         end
-        gaiMuBiaoNew(1,"采集")
+        gaiMuBiaoNew(1, "采集")
 
     end
 end
+
 --战斗界面
 function isWar()
-    if isColor(177,67,0xc8c8c8    ,95) and isColor(774,31,0xf7f7f7,95) then
+    if isColor(177, 67, 0xc8c8c8, 95) and isColor(774, 31, 0xf7f7f7, 95) then
         -- debug("战斗界面")
         return true
     else
         return false
     end
 end
+
 --副本内
 function isInside()
     if isWar() then
-        if isColor(767,142,0xf9f9f9,95) and isColor(769,154,0xf1f2f1,95) then
+        if isColor(767, 142, 0xf9f9f9, 95) and isColor(769, 154, 0xf1f2f1, 95) then
             -- debug("副本内")
             return true
         end
@@ -7616,10 +7681,55 @@ end
 --副本外
 function isOutside()
     if isWar() then
-        if isColor(767,142,0xf9f9f9,95)==false and isColor(769,154,0xf1f2f1,95)==false then
+        if isColor(767, 142, 0xf9f9f9, 95) == false and isColor(769, 154, 0xf1f2f1, 95) == false then
             -- debug("副本外")
             return true
         end
     end
+end
 
+--PK模式
+function pkMode()
+    if isWar() then
+        if isColor(39, 48, 0xdae0e0, 95) then
+            return "和平模式"
+        elseif isColor(43, 41, 0xbbd8e8, 95) then
+            return "审判模式"
+        elseif isColor(44, 42, 0xc3b695, 95) then
+            return "结义模式"
+        elseif isColor(44, 16, 0xf69c81, 95) then
+            return "杀戮模式"
+        end
+    end
+end
+
+-- 改变pk模式
+function changePkMode()
+    if pkMode() == "审判模式" or pkMode() == "结义模式" or pkMode() == "杀戮模式" then
+        tap(40, 47) --PK模式
+        mSleep(1000)
+        if isColor(25, 103, 0xa25f2f, 95) == false then
+            tap(40, 47) --PK模式
+            mSleep(1000)
+        end
+        tap(130, 228, 0x6d6e75) --和平
+        mSleep(1000)
+        tap(40, 47) --PK模式
+    end
+end
+
+--掉线检测
+function checkDropline()
+    if isColor(582, 261, 0x696969, 95) and isColor(920, 222, 0x500e04, 95) then
+        for i = 1, 10, 1 do
+            if isColor(582, 261, 0x696969, 95) == false and isColor(920, 222, 0x500e04, 95) == false then
+                break
+            end
+            if i == 10 then
+                debug("掉线")
+                closeApp(appXiangMu)
+            end
+            mSleep(3000)
+        end
+    end
 end
