@@ -742,9 +742,11 @@ function main()
     if checkXiangMu2 == "项目2" then
         if m_iRunCount == 1 then
             apps1 = "com.stormgames.fourgodsonwemix.ios"
-            zhaojunlua()
-            package.loaded["zhaojun"] = nil
-            require("zhaojun")
+            if whoAmI() ~= 3 then
+                zhaojunlua()
+                package.loaded["zhaojun"] = nil
+                require("zhaojun")
+            end
         end
         main2()
     end
@@ -4033,11 +4035,12 @@ function zongHe1(...)
         elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
             debug("兑换界面")
             do
-                local temStr = ocrText(323, 298, 385, 310, 0, "0123456789")
+                local temStr = ocrText(323, 298, 385, 310, 0, "0123456789,")
                 if temStr ~= nil then
-                    numLiZi = temStr
+                    temStr=string.gsub(temStr,",","")
+                    numLiZi = tonumber(temStr)
                     writeJson("粒子", numLiZi)
-                    if tonumber(numLiZi) >=  350000 then
+                    if numLiZi >=  350000 then
                         vibratorNotice()
                     end
                 end
@@ -7465,6 +7468,14 @@ end
 -- 综合2
 function zongHe2()
     changePkMode()
+    -- if isColor(584, 265, 0xffffff, 95) and isColor(921, 220, 0xbd1f0a, 95) then
+    --     debug("登录界面")
+    --     tap(558, 404)
+    -- end
+    -- if isColor(465,381,0x00b9f0,95) and isColor(668,427,0x00a2d1,95) and isColor(603,407,0x00263f,95) then
+    --     debug("无法连接服务器")
+    --     tap(551,404)
+    -- end
     if isColor(166, 396, 0x0090bf, 95) and isColor(370, 403, 0xd3b301, 95) and isColor(575, 408, 0x36c400, 95) then
         debug("误开告知")
         tap(967, 213, 0xffffff)
@@ -7761,7 +7772,7 @@ end
 
 -- 检查红点
 function checkRed2()
-    if isOutside() then
+    if isOutside() and muBiao ~= "采集" then
         if nowTime - timeXuanDanRed >= 60 * 10 and isColor(794, 13, 0xc04131, 95) then
             debug("选单--红点")
             tap(777, 31, 0xffffff)
@@ -7839,7 +7850,7 @@ end
 
 --指引
 function zhiYin()
-    if numHaoLV == "小号" then
+    if numHaoLV == "小号" and muBiao ~= "采集" then
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-57|-65|0xf1e5cf,198|-11|0xe2d2b9", 90, 0, 0, 1135, 639)
         if x > 0 then
             debug("指引在上--左" .. numUpLeft)
