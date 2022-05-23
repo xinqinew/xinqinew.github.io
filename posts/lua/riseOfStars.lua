@@ -479,6 +479,7 @@ function bianLiang()
     isDead = false
     isCollectBug = false
 
+    timeXuanDanRed = nowTime - 60 * 10 --选单红点
     timeCollectBug = nowTime
     timeTask_ZhuXian = nowTime - 10
 
@@ -855,6 +856,7 @@ function main2()
     autoUnlockDevice()
     zongHe2()
     zongHe_zj()
+    checkRed2()
     checkDropline()
     zhiYin()
 
@@ -864,6 +866,7 @@ function main2()
     -- timeChongZhi()
     -- checkXXX()
     -- everyDayInit()
+    checkXXX2()
     resetIDLETimer();
     -- timeJianGe(debug.getinfo(1).currentline)
     -- nowTime2 = os.time();
@@ -7452,13 +7455,141 @@ end
 -- 综合2
 function zongHe2()
     changePkMode()
-    if isColor(8,153,0xe3d4bb,95) and isColor(260,204,0xf0e3cb,95) and isColor(27,25,0xffffff,95) then
-        debug("指引--退出")
-        tap(27,25,0xffffff    )
+    if isColor(47, 257, 0xf7f6f7, 95) and isColor(91, 290, 0x4592c2, 95) then
+        debug("菜单界面")
+        if isColor(17, 426, 0xbf3f2f, 95) and isColor(38, 443, 0xf7f7f7, 95) then
+            debug("称号--红点")
+            tap(36, 442, 0xf7f8f7)
+        elseif isColor(1113, 238, 0xbe3e2e, 95) and isColor(1097, 259, 0x1b1d28, 95) then
+            debug("图鉴--红点")
+            tap(1097, 259)
+        elseif isColor(17, 177, 0xbe3e2e, 95) and isColor(46, 178, 0xfdfdfd, 95) then
+            debug("活动--红点")
+            tap(38, 196, 0xcecfd1)
+            if isColor(186, 178, 0xbe3e2e, 95) then
+                debug("进行中活动--红点")
+                tap(214, 196, 0x66686e)
+            end
+        elseif isColor(17, 240, 0xbe3e2e, 95) and isColor(29, 244, 0xfcfcfc, 95) then
+            debug("任务--红点")
+            tap(29, 244, 0xfcfcfc)
+            if isColor(186,115,0xbe3e2e,95) then
+                debug("目标与成就--红点")
+                tap(214,130,0x40414a            )
+            end
+        end
     end
-    if isColor(1090,605,0xb07705,95) and isColor(1098,608,0xa26e07,95) and isColor(1017,614,0xedd293,95) then
+    if isColor(25, 55, 0x72cb04, 95) and isColor(150, 51, 0x71c903, 95) and isColor(98, 41, 0xe5e6e4, 95) then
+        debug("优惠界面")
+        if isColor(141, 37, 0xbe3e2e, 95) then
+            debug("优惠--红点")
+            if isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) then
+                debug("在线礼包--选中")
+                x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
+                if x > 0 then -- 如果在指定区域找到某点符合条件
+                    touchQuickly(x, y + 10)
+                    mSleep(2000)
+                    tap(x, y - 78)
+                else
+                    moveTo(1096, 483, 387, 100)
+                    x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
+                    if x > 0 then -- 如果在指定区域找到某点符合条件
+                        touchQuickly(x, y + 10)
+                        mSleep(2000)
+                        tap(x, y - 78)
+                    end
+                end
+            elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) then
+                debug("story--选中")
+                x, y = findColorInRegionFuzzy(0x7ed703, 90, 930, 338, 930, 612)
+                if x > 0 then -- 如果在指定区域找到某点符合条件
+                    touchQuickly(x+10, y)
+                end
+            elseif isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) == false then
+                debug("在线礼包--未选中")
+                tap(176, 479, 0x06243d)
+            elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) == false then
+                debug("story--未选中")
+                tap(224, 196, 0x06253e)
+
+            end
+        else
+            tap(1092, 45, 0xffffff)
+        end
+    end
+    if isColor(161,237,0x95a4ad,95) and isColor(1003,49,0xffffff,95) and isColor(141,43,0xe6e8e9,95) then
+        debug("目标与成就界面")
+        if isColor(863,178,0xbe7d00,95) then
+            debug("全部领取")
+            tap(922,176,0x706955        )
+        else
+            x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 333, 89, 1011, 89)
+            if x > 0 then -- 如果在指定区域找到某点符合条件
+                touchQuickly(x, y+10)
+            else
+                tap(1002,49,0xffffff            )
+            end
+        end
+    end
+    if isColor(440, 543, 0x5b6577, 95) and isColor(683, 590, 0x535b6d, 95) and isColor(398, 51, 0xf1e4c3, 95) then
+        debug("召唤成功")
+        tap(571, 571, 0x777e8d)
+    end
+    if isColor(28, 25, 0xfdfefe, 95) and isColor(992, 495, 0x696969, 95) and isColor(993, 355, 0x727272, 95) then
+        debug("坐骑界面")
+        if isColor(791, 563, 0xbe3e2e, 95) then
+            debug("召唤--红点")
+            tap(922, 589, 0x728693)
+        else
+            tap(20, 20)
+        end
+    end
+    if isColor(525, 546, 0xac190b, 95) and isColor(637, 527, 0x3c4752, 95) then
+        debug("任务详情--bug")
+        tap(801, 85)
+    end
+    if isColor(524, 548, 0x451b1a, 95) and isColor(537, 548, 0x463e2f, 95) then
+        debug("任务详情")
+        if isColor(642, 528, 0x3c4753, 95) then
+            -- debug("进行中--灰色")
+            local temStr = ocrText(366, 71, 548, 92, 0, "0123456789.")
+            if temStr ~= nil then
+                debug("temStr:" .. temStr)
+                if temStr == "48." then
+                    debug("任务48.")
+                    tap(800, 84, 0xffffff)
+                    tap(968, 575, 0xd6c0a5)
+                elseif temStr == "52." then
+                    debug("任务52.")
+                    tap(800, 84, 0xffffff)
+                    tap(1095, 446, 0xc23730)
+                end
+            end
+        elseif isColor(688, 527, 0x007ea9, 95) then
+            debug("完成")
+            tap(683, 544, 0x26455a)
+        end
+    end
+    if isColor(274, 240, 0x8e3ab0, 95) and isColor(274, 331, 0x953ab6, 95) and isColor(273, 422, 0x9238b0, 95) then
+        debug("技能管理强化")
+        if isColor(615, 562, 0xdb2b05, 95) then
+            tap(565, 587, 0x110300)
+            tap(640, 404, 0x00203d)
+        else
+            tap(20, 20)
+        end
+    end
+    if isColor(621, 135, 0xf24833, 95) and isColor(723, 199, 0xf9efb1, 95) and isColor(516, 583, 0x913227, 95) and isColor(608, 579, 0x2b435a, 95) then
+        debug("老练的隐忍银蟾")
+        tap(608, 579, 0x2b435a)
+    end
+    if isColor(8, 153, 0xe3d4bb, 95) and isColor(260, 204, 0xf0e3cb, 95) and isColor(27, 25, 0xffffff, 95) then
+        debug("指引--退出")
+        tap(27, 25, 0xffffff)
+    end
+    if isColor(1090, 605, 0xb07705, 95) and isColor(1098, 608, 0xa26e07, 95) and isColor(1017, 614, 0xedd293, 95) then
         debug("跳过对话")
-        tap(1042,418,0x807e70    )
+        tap(1042, 418, 0x807e70)
     end
     if isColor(465, 543, 0x960000, 95) and isColor(681, 543, 0x007ea9, 95) then
         debug("受到攻击")
@@ -7491,9 +7622,7 @@ function zongHe2()
         debug("增强")
         tap(574, 432, 0x90a0aa)
     end
-    -- if inside2() then
-    --     checkRed2()
-    -- end
+
     if isColor(778, 576, 0x8c5900, 95) and isColor(885, 582, 0x0087a4, 95) and isColor(926, 585, 0x002a3e, 95) then
         debug("角色选择")
         touchClick(925, 578, 0x00293d)
@@ -7522,7 +7651,12 @@ end
 
 -- 检查红点
 function checkRed2()
-
+    if isOutside() then
+        if nowTime - timeXuanDanRed >= 60 * 10 and isColor(794, 13, 0xc04131, 95) then
+            debug("选单--红点")
+            tap(777, 31, 0xffffff)
+        end
+    end
 end
 
 -- 在线脚本
@@ -7595,9 +7729,9 @@ function zhiYin()
     if numHaoLV == "小号" then
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-57|-65|0xf1e5cf,198|-11|0xe2d2b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--左"..numUpLeft)
-            tap(x+5, y + 30)
-            numUpLeft = numUpLeft +1
+            debug("指引在上--左" .. numUpLeft)
+            tap(x + 5, y + 30)
+            numUpLeft = numUpLeft + 1
             if numUpLeft >= 5 then
                 screenClickNew(x, y, 0xdecfb5)
                 numUpLeft = 0
@@ -7605,20 +7739,20 @@ function zhiYin()
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-198|-64|0xefe2ca,58|-12|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--右"..numUpRight)
-            tap(x-5, y + 30)
-            numUpRight = numUpRight +1
+            debug("指引在上--右" .. numUpRight)
+            tap(x - 5, y + 30)
+            numUpRight = numUpRight + 1
             if numUpRight >= 5 then
                 screenClickNew(x, y, 0xdecfb5)
                 numUpRight = 0
             end
         end
-        
+
         x, y = findMultiColorInRegionFuzzy(0xdeceb5, "-58|10|0xe2d2b9,198|64|0xefe2ca", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在下--左"..numDownLeft)
-            tap(x+5, y - 30)
-            numDownLeft = numDownLeft +1
+            debug("指引在下--左" .. numDownLeft)
+            tap(x + 5, y - 30)
+            numDownLeft = numDownLeft + 1
             if numDownLeft >= 5 then
                 screenClickNew(x, y, 0xdeceb5)
                 numDownLeft = 0
@@ -7626,9 +7760,9 @@ function zhiYin()
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "58|63|0xefe2ca,-197|11|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在下--右"..numDownRight)
-            tap(x-5, y - 30)
-            numDownRight = numDownRight +1
+            debug("指引在下--右" .. numDownRight)
+            tap(x - 5, y - 30)
+            numDownRight = numDownRight + 1
             if numDownRight >= 5 then
                 screenClickNew(x, y, 0xdecfb5)
                 numDownRight = 0
@@ -7778,5 +7912,28 @@ function checkDropline()
             end
             mSleep(3000)
         end
+    end
+end
+
+-- 5分钟不见某界面
+function checkXXX2(...)
+    nowTime = os.time()
+    if isWar() then
+        timeXXX = nowTime
+        return
+    end
+    if nowTime - timeXXX >= 5 * 60 then
+        -- if nowTime - timeXXX >= 20 then
+        current_time = os.date("%m-%d_%H.%M", os.time());
+        snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
+        ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "OVER/")
+        -- ftpUpTSnet2(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        -- ftpUpTsPNG(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png", "/OVER/" .. iphoneId .. "-" .. current_time .. ".png") --上传
+        os.remove(userPath() .. "/res/" .. iphoneId .. "-" .. current_time .. ".png")
+        closeApp(appXiangMu)
+        nowTime = os.time()
+        timeXXX = nowTime
+        -- zhuXiaoNew()
+        return
     end
 end
