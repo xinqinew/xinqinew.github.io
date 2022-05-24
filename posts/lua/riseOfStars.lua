@@ -480,6 +480,7 @@ function bianLiang()
     isDead = false
     isCollectBug = false
 
+    timeOcrLevel = nowTime - 60 --定时认别等级
     timeXuanDanRed = nowTime - 60 * 10 --选单红点
     timeCollectBug = nowTime
     timeTask_ZhuXian = nowTime - 10
@@ -868,6 +869,8 @@ function main2()
         runApp(apps1)
         APP = APP1
         mSleep(5000)
+        isTapTask = false
+        writeJson("点任务", isTapTask)
     end
     m_iRunCount = m_iRunCount + 1
 
@@ -878,6 +881,7 @@ function main2()
     checkRed2()
     checkDropline()
     zhiYin()
+    timeJianCe2()
 
     -- zongHe_Mult()
     -- zongHe_Screen()
@@ -1268,6 +1272,22 @@ function oncePlist()
     if isYanJiu == nil then
         isYanJiu = true
         writeJson("研究", isYanJiu)
+    end
+
+
+    -----------------------------项目2---------------------
+    -- 点任务
+    isTapTask = loadJson("点任务")
+    if isTapTask == nil then
+        isTapTask = false
+        writeJson("点任务", isTapTask)
+    end
+
+    -- 等级
+    numLevel = loadJson("等级")
+    if numLevel == nil then
+        numLevel = 0
+        writeJson("等级", numLevel)
     end
 end
 
@@ -7762,14 +7782,14 @@ function zongHe2()
                 if x > 0 then -- 如果在指定区域找到某点符合条件
                     touchQuickly(x, y + 10)
                     mSleep(2000)
-                    tap(x, y - 78)
+                    -- tap(x, y - 78)--广告
                 else
                     moveTo(1096, 483, 387, 100)
                     x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
                     if x > 0 then -- 如果在指定区域找到某点符合条件
                         touchQuickly(x, y + 10)
                         mSleep(2000)
-                        tap(x, y - 78)
+                        -- tap(x, y - 78)--广告
                     end
                 end
             elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) then
@@ -7880,6 +7900,8 @@ function zongHe2()
     end
     if isColor(430, 328, 0x966500, 95) and isColor(713, 329, 0x0080b2, 95) then
         debug("复活")
+        isTapTask = false
+        writeJson("点任务", isTapTask)
         tap(714, 352, 0x808b6e)
         isDead = true
         numDead = numDead + 1
@@ -8003,10 +8025,15 @@ end
 --主线
 function task_zhuXian()
     if isOutside() then
-        if nowTime - timeTask_ZhuXian >= 10 then
-            timeTask_ZhuXian = nowTime
+        if isTapTask == false then
             tap(41, 170, 0x326532)
+            isTapTask = true
+            writeJson("点任务", isTapTask)
         end
+        -- if nowTime - timeTask_ZhuXian >= 10 then
+        --     timeTask_ZhuXian = nowTime
+        --     tap(41, 170, 0x326532)
+        -- end
     end
 end
 
@@ -8221,5 +8248,23 @@ function checkXXX2(...)
         timeXXX = nowTime
         -- zhuXiaoNew()
         return
+    end
+end
+
+--定时检测
+function timeJianCe2()
+    if nowTime - timeOcrLevel >= 60 and isWar() then
+        do
+            local temStr = ocrText(122, 52, 148, 70, 0, "0123465789")
+            if temStr ~= nil then
+                temStr = tonumber(temStr)
+                if type(temStr) == "number" then
+                    toast(temStr)
+                    numLevel = temStr
+                    writeJson("等级", numLevel)
+                end
+            end
+        end
+        timeOcrLevel = nowTime
     end
 end
