@@ -4051,7 +4051,7 @@ function zongHe1(...)
         elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
             debug("兑换界面")
             do
-                local temStr = ocrText(323, 298, 385, 312, 0, "0123456789,")
+                local temStr = ocrText(323, 298, 385, 312, 0, "0123465789,")
                 toast(temStr)
                 if temStr ~= nil then
                     temStr = string.gsub(temStr, ",", "")
