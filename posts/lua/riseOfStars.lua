@@ -4052,13 +4052,18 @@ function zongHe1(...)
             debug("兑换界面")
             do
                 local temStr = ocrText(323, 298, 385, 312, 0, "0123465789,")
-                toast(temStr)
                 if temStr ~= nil then
                     temStr = string.gsub(temStr, ",", "")
                     numLiZi = tonumber(temStr)
-                    writeJson("粒子", numLiZi)
-                    if numLiZi >= 350000 then
-                        vibratorNotice()
+                    if type(numLiZi) == "number" then
+                        if numLiZi > 1000000 then
+                            numLiZi = numLiZi / 10
+                        end
+                        toast(numLiZi)
+                        writeJson("粒子", numLiZi)
+                        if numLiZi >= 350000 then
+                            vibratorNotice()
+                        end
                     end
                 end
             end
@@ -6941,7 +6946,7 @@ function warReady()
             debug("瞭望塔")
             tap(887, 68, 0x21324c)
             mSleep(5000)
-            if isColor(161,569,0xf6e1e1,95) then
+            if isColor(161, 569, 0xf6e1e1, 95) then
                 debug("攻击2")
                 tap(20, 20)
                 gaiMuBiaoNew(4, "战备跑路")
@@ -6951,7 +6956,7 @@ function warReady()
                 mSleep(1000)
                 tap(20, 20)
                 gaiMuBiaoNew(4, "")
-            elseif isColor(452,247,0xdec9c6,95) then
+            elseif isColor(452, 247, 0xdec9c6, 95) then
                 debug("矿被打")
                 tap(486, 82, 0xfcf6f6)
                 mSleep(1000)
