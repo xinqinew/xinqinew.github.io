@@ -6894,10 +6894,10 @@ function waKuang()
 end
 
 function BeAttack()
-    if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 0 then
+    if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 150000 then
         if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or isColor(0, 0, 0xb00101, 95) then
             debug("被攻击,秒数:" .. nowTime - timeBeAttack2)
-            if nowDateTime.hour >= 22 then
+            if nowDateTime.hour >= 8 then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
                 elseif nowTime - timeBeAttack2 >= 60 then
