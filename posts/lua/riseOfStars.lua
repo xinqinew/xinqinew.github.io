@@ -1,4 +1,4 @@
-numLua = 19.5
+numLua = 19.6
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -511,15 +511,14 @@ function newUi()
     UILabel(3, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
     UICombo(3, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
 
-    UILabel(3, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节,采集,去采集点", 10, "left", "72,61,139", -1, 0,
-        "center") -- 标签
-    UIEdit(3, "muBiao1", "目标1", "无", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(3, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节,采集,去采集点", 10, "left", "72,61,139", -1, 0, "center") -- 标签
+    UIEdit(3, "muBiao1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
     UILabel(3, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
-    UIEdit(3, "muBiao2", "目标2", "无", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(3, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left",
-        "72,61,139", -1, 0, "center")
-    UIEdit(3, "muBiao3", "目标3", "无", 15, "left", "95,158,160", "default", 0, 0)
-
+    UIEdit(3, "muBiao2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(3, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(3, "muBiao3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(3, "目标4 无,战备,战备跑路,战备开盾 ", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(3, "muBiao4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UIShow()
 
     if check12 == "不挖粒子" then
@@ -549,7 +548,10 @@ end
 
 -- 目标转换--新
 function muBiaoZhuanHuanNew(...)
-    if muBiao3 ~= ""  and muBiao3 ~= "无" then
+    if muBiao4 ~= "" and muBiao4 ~= "无" then
+        muBiao = muBiao4
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiao3 ~= "" and muBiao3 ~= "无" then
         muBiao = muBiao3
         timeDingShiDianRenWu = nowTime - 60 * 60
     elseif muBiao2 ~= "" and muBiao2 ~= "无" then
@@ -584,6 +586,11 @@ function gaiMuBiaoNew(cs_num, cs_muBiao, ...)
         writeConfigNew("muBiao3", cs_muBiao)
         muBiaoZhuanHuanNew()
         writeJson("目标3", cs_muBiao)
+    elseif cs_num == 4 then
+        muBiao4 = cs_muBiao
+        writeConfigNew("muBiao4", cs_muBiao)
+        muBiaoZhuanHuanNew()
+        writeJson("目标4", cs_muBiao)
     end
 end
 
@@ -716,23 +723,24 @@ function main()
     if m_iRunCount == 1 then
         newUi()
         if check4 == "测试" then
+            vibratorNotice()
+
             -- threadClinet()
             -- package.loaded["clientiPhone"] = nil
             -- runThread("clientiPhone")
             -- mSleep(1000)
 
-            plistToJson()
-            local file = userPath() .. "/res/" .. iphoneId .. ".json"
-            local txt = readFileString(file) --读取文件内容，返回全部内容的 string
-            if txt then
-                tableFromJson = json_ts.decode(txt) --将 json 格式数据转成 table 格式数据
-            end
+            -- plistToJson()
+            -- local file = userPath() .. "/res/" .. iphoneId .. ".json"
+            -- local txt = readFileString(file) --读取文件内容，返回全部内容的 string
+            -- if txt then
+            --     tableFromJson = json_ts.decode(txt) --将 json 格式数据转成 table 格式数据
+            -- end
             -- debug(tableFromJson["粒子总次数"])
             -- toast(tableFromJson["粒子总次数"])
-        end
-        if check4 == "测试" then
-            baidu_APItest = tableFromJson["baidu_API"]
-            debug(baidu_APItest)
+
+            -- baidu_APItest = tableFromJson["baidu_API"]
+            -- debug(baidu_APItest)
 
         end
     end
@@ -783,6 +791,9 @@ function main1()
     elseif bid == "com.apple.DocumentsApp" then
         setRotationLockEnable(false);
         init(1)
+    elseif bid == "com.readdle.ReaddleDocsIPad" then
+        setRotationLockEnable(false);
+        init(1)
     elseif bid == "" then
         -- debug("哪个都没开")
         APP.isYiDengLu = 0
@@ -801,6 +812,7 @@ function main1()
         zongHe_Mult()
         zongHe_Screen()
         timeJianCe()
+        BeAttack()
     end
     doTarget()
     if bid == apps1 then
@@ -843,6 +855,9 @@ function main2()
         -- elseif bid == appWeiXin and tmpWeiXinWeiHu ~= nil and isWeiXinWeiHu == false and nowDateTime.hour >= hourWeiXin and
         --     nowDateTime.min >= minWeiXin then
     elseif bid == "com.apple.DocumentsApp" then
+        setRotationLockEnable(false);
+        init(1)
+    elseif bid == "com.readdle.ReaddleDocsIPad" then
         setRotationLockEnable(false);
         init(1)
     else
@@ -1441,12 +1456,12 @@ function debug(tiaoShiNeiRong)
     -- wLog("192.168.1.34","#    [LINE]"..
     if check1 == "网络调试" then
         wLog("192.168.1.34",
-            iphoneId .. " 目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "    操作:" ..
-            tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]".."#    [LINE]")
+            iphoneId .. " 目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. " 目标4: " .. muBiao4 .. "    操作:" ..
+            tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]" .. "#    [LINE]")
     elseif check2 == "本地调试" then
         -- dialog(tiaoShiNeiRong,5)
         toast(
-            "目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. "                操作:" ..
+            "目标1: " .. muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. " 目标4: " .. muBiao4 .. "                操作:" ..
             tiaoShiNeiRong)
         mSleep(3000)
     end
@@ -1490,7 +1505,7 @@ function moreWindow()
     fwShowButton("moreWin", "btn_hide", "X", "FFFFFF", "9e393d", "", 12, 1 + 150 * 4, 0, 150 * 5, 50);
 
     fwShowTextView("moreWin", "text_MuBiao",
-        "目标1 : " .. muBiao1 .. "  目标2 : " .. muBiao2 .. "  目标3 : " .. muBiao3, "left", "FFFFFF", "0C2037",
+        "目标1 : " .. muBiao1 .. "  目标2 : " .. muBiao2 .. "  目标3 : " .. muBiao3 .. " 目标4: " .. muBiao4, "left", "FFFFFF", "0C2037",
         12, 0, 0, 51, wScreen - 100, 100, 1);
     fwShowTextView("moreWin", "text_info",
         "机器名 : " .. iphoneId .. "  IP : " .. strIphoneIP, "left", "FFFFFF", "025062", 12,
@@ -1707,9 +1722,9 @@ function zongHe1(...)
             tap(33, 493)
         end
     end
-    if isColor(471,527,0x114c8a,95) and isColor(659,561,0x145da9,95) and isColor(271,65,0x0096ff,95) and isColor(269,49,0xf8a901,95) then
+    if isColor(471, 527, 0x114c8a, 95) and isColor(659, 561, 0x145da9, 95) and isColor(271, 65, 0x0096ff, 95) and isColor(269, 49, 0xf8a901, 95) then
         debug("合成")
-        tap(511,612,0x0c0c0e    )
+        tap(511, 612, 0x0c0c0e)
     end
     if isColor(842, 101, 0x80171a, 95) and isColor(80, 66, 0xff6600, 95) and isColor(91, 59, 0xf8a901, 95) then
         debug("点数商店--精锐怪物旗帜")
@@ -2554,7 +2569,7 @@ function zongHe1(...)
     end
 
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
-        -- debug("基地现况界面--综合函数")
+        debug("基地现况界面--综合函数")
         if isColor(814, 458, 0x9e1111, 95) then
             debug("资源--免费兑换--红点")
             numBuyTaiByCoin = 0
@@ -2658,7 +2673,7 @@ function zongHe1(...)
         elseif muBiao1 == mb_WaKuang then
 
         else
-            tap(510,608,0x0c0c0e        )
+            tap(510, 608, 0x0c0c0e)
         end
     end
     if isColor(553, 205, 0x345214, 90) and isColor(581, 188, 0x2a72ba, 90) then
@@ -4037,10 +4052,10 @@ function zongHe1(...)
             do
                 local temStr = ocrText(323, 298, 385, 310, 0, "0123456789,")
                 if temStr ~= nil then
-                    temStr=string.gsub(temStr,",","")
+                    temStr = string.gsub(temStr, ",", "")
                     numLiZi = tonumber(temStr)
                     writeJson("粒子", numLiZi)
-                    if numLiZi >=  350000 then
+                    if numLiZi >= 350000 then
                         vibratorNotice()
                     end
                 end
@@ -4996,6 +5011,8 @@ function doTarget()
         elseif haoLV == 3 then
             gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
         end
+    elseif string.find(muBiao, "战备") then
+        warReady()
     elseif muBiao == mb_YouHua then
         task_JiDi()
     elseif muBiao == mb_ZhuXian then
@@ -6834,7 +6851,7 @@ function waKuang()
         end
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
-        -- debug("基地现况界面--函数挖矿")
+        debug("基地现况界面--函数挖矿")
         if isColor(94, 325, 0x306090, 95) then -- 4号休息中
             debug("4号休息中,出航")
             tap(94, 325)
@@ -6876,32 +6893,186 @@ function waKuang()
     end
 end
 
+function BeAttack()
+    if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 0 then
+        if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or isColor(0, 0, 0xb00101, 95) then
+            debug("被攻击,秒数:" .. nowTime - timeBeAttack2)
+            if nowDateTime.hour >= 22 then
+                if timeBeAttack2 == 0 then
+                    timeBeAttack2 = nowTime
+                elseif nowTime - timeBeAttack2 >= 60 then
+                    vibratorNotice()
+                    timeBeAttack2 = 0
+                end
+            elseif string.find(muBiao, "战备") == nil then
+                if isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1058, 581, 0xf5dddd, 95) then
+                    debug("基地内--被攻击")
+                    gaiMuBiaoNew(4, "战备")
+                elseif isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1039, 574, 0xece0e0, 95) then
+                    debug("基地外--被攻击")
+                    gaiMuBiaoNew(4, "战备")
+                    tap(1077, 579, 0xf6e2e2)
+                elseif isColor(69, 23, 0xf05300, 95) and isColor(92, 37, 0xb3a0ac, 95) and isColor(173, 44, 0xa093a1, 95) then
+                    debug("基地现况--被攻击")
+                    gaiMuBiaoNew(4, "战备")
+                    tap(509, 608, 0x1c0e11)
+                else
+                    closeApp(appXiangMu)
+                    mSleep(2000)
+                    gaiMuBiaoNew(4, "战备")
+                end
+            end
+        end
+    end
+end
+
+--战备
+function warReady()
+    if isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1039, 574, 0xece0e0, 95) then
+        debug("基地外--战备")
+        tap(1077, 579, 0xf6e2e2)
+    end
+    if isColor(964, 581, 0xa74f22, 95) and isColor(1018, 543, 0x7b3b15, 95) and isColor(1058, 581, 0xf5dddd, 95) then
+        debug("基地内--战备")
+        mSleep(3000)
+        if muBiao == "战备" and isColor(928, 51, 0x960f11, 95) then
+            debug("瞭望塔")
+            tap(887, 68, 0x21324c)
+            mSleep(5000)
+            if isColor(161,569,0xf6e1e1,95) then
+                debug("攻击2")
+                tap(20, 20)
+                gaiMuBiaoNew(4, "战备跑路")
+            elseif isColor(151, 261, 0xfcf7f7, 80) then
+                debug("侦察")
+                tap(486, 82, 0xfcf6f6)
+                mSleep(1000)
+                tap(20, 20)
+                gaiMuBiaoNew(4, "")
+            elseif isColor(452,247,0xdec9c6,95) then
+                debug("矿被打")
+                tap(486, 82, 0xfcf6f6)
+                mSleep(1000)
+                tap(20, 20)
+                gaiMuBiaoNew(4, "")
+            elseif isColor(160, 276, 0xfbf1f1, 80) then
+                debug("攻击")
+                tap(20, 20)
+                gaiMuBiaoNew(4, "战备跑路")
+            else
+                tap(20, 20)
+                gaiMuBiaoNew(4, "")
+            end
+
+            --对调
+            -- if isColor(160, 276, 0xfbf1f1, 80) then
+            --     debug("侦察")
+            --     tap(486, 82, 0xfcf6f6)
+            --     mSleep(1000)
+            --     tap(20, 20)
+            --     gaiMuBiaoNew(4, "")
+            -- elseif isColor(151, 261, 0xfcf7f7, 80) then
+            --     debug("攻击")
+            --     tap(20, 20)
+            --     gaiMuBiaoNew(4, "战备跑路")
+            -- else
+            --     tap(20, 20)
+            --     gaiMuBiaoNew(4, "")
+            -- end
+        elseif muBiao == "战备跑路" then
+            debug("展开菜单栏")
+            tap(1094, 80, 0x626e91) --展开
+            tap(687, 180, 0x6c7582) --主动技能
+            if isColor(578, 278, 0x165aab, 95) then
+                debug("冷却中")
+                gaiMuBiaoNew(4, "战备开盾")
+                tap(1103, 67, 0x1e1826) --收缩
+                tap(964, 581, 0xa74f22) --背包
+            elseif isColor(578, 278, 0x4f5d60, 95) then
+                debug("可使用")
+                tap(573, 258, 0xd2a414) --使用技能--召回
+                tap(420, 474, 0xf39b18) --使用
+                tap(1103, 67, 0x1e1826) --收缩
+                tap(1103, 67, 0x1e1826) --收缩
+                tap(964, 581, 0xa74f22) --背包
+            else
+                debug("技能不对")
+                gaiMuBiaoNew(4, "战备开盾")
+                tap(1103, 67, 0x1e1826) --收缩
+                tap(964, 581, 0xa74f22) --背包
+            end
+            --对调
+            -- if isColor(578, 278, 0x4f5d60, 95) then
+            --     debug("冷却中")
+            --     gaiMuBiaoNew(4, "战备开盾")
+            --     tap(1103, 67, 0x1e1826) --收缩
+            --     tap(964, 581, 0xa74f22) --背包
+            -- elseif isColor(578, 278, 0x165aab, 95) then
+            --     debug("可使用")
+            --     tap(573, 258, 0xd2a414) --使用技能--召回
+            --     tap(420, 474, 0xf39b18) --使用
+            --     tap(1103, 67, 0x1e1826) --收缩
+            --     tap(1103, 67, 0x1e1826) --收缩
+            --     tap(964, 581, 0xa74f22) --背包
+            -- else
+            --     debug("技能不对")
+            --     gaiMuBiaoNew(4, "战备开盾")
+            --     tap(1103, 67, 0x1e1826) --收缩
+            --     tap(964, 581, 0xa74f22) --背包
+            -- end
+
+        elseif muBiao == "战备开盾" then
+            tap(964, 581, 0xa74f22) --背包
+        end
+    end
+    if muBiao == "战备开盾" then
+        if isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95) then
+            debug("背包界面--战备")
+            if isColor(119, 253, 0x1e2434, 95) then
+                tap(119, 253, 0x1e2434) --战争
+            end
+            if isColor(294, 104, 0x3081aa, 95) then
+                tap(294, 104) --2
+                tap(518, 456, 0x1c6cb9)
+            elseif isColor(394, 104, 0x2f82ac, 95) then
+                tap(394, 104) --3
+                tap(518, 456, 0x1c6cb9)
+            elseif isColor(493, 104, 0x2e83ad, 95) then
+                tap(493, 104) --4
+                tap(518, 456, 0x1c6cb9)
+            end
+            tap(20, 20)
+            gaiMuBiaoNew(4, "")
+        end
+    end
+    if muBiao == "战备跑路" then
+        if isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95) then
+            debug("背包界面--战备")
+            if isColor(119, 253, 0x1e2434, 95) then
+                tap(119, 253, 0x1e2434) --战争
+            end
+            x, y = findMultiColorInRegionFuzzy(0x2ed6f1, "16|-8|0x14b2f3,10|33|0xebbe77,53|24|0xadb3b9", 90, 173, 79, 1049, 356)
+            if x > 0 then
+                tap(x, y)
+                tap(516, 454, 0x1c6db9)
+                -- tap(20, 20)
+            end
+            tap(20, 20)
+            gaiMuBiaoNew(4, "")
+        end
+    end
+end
+
 -- 基地内
 function inside1(...)
     isXiaoHao()
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
-        -- debug("室内")
+        debug("室内")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
             strVpnModel = "场景"
             runApp(appXiangMu)
             mSleep(1000)
-        end
-        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
-            debug("被攻击")
-            if haoLV == 3 and check12 ~= "不挖粒子" then
-                if timeBeAttack2 == 0 then
-                    timeBeAttack2 = nowTime
-                elseif nowTime - timeBeAttack2 >= 2 * 60 then
-                    vibratorNotice()
-                    timeBeAttack2 = 0
-                end
-            end
-            if nowTime - timeBeAttack >= 60 then
-                timeBeAttack = nowTime
-                tap(1074, 582) -- 出基地
-                return false
-            end
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
             debug("验证码--红点")
@@ -6934,28 +7105,12 @@ end
 -- 基地外
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
-        -- debug("室外")
+        debug("室外")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
             strVpnModel = "场景"
             runApp(appXiangMu)
             mSleep(1000)
-        end
-        if isColor(0, 0, 0x9f2d3d, 80) and isColor(1135, 639, 0x991517, 80) then
-            debug("被攻击")
-            if haoLV == 3 and check12 ~= "不挖粒子" then
-                if timeBeAttack2 == 0 then
-                    timeBeAttack2 = nowTime
-                elseif nowTime - timeBeAttack2 >= 2 * 60 then
-                    vibratorNotice()
-                    timeBeAttack2 = 0
-                end
-            end
-            if nowTime - timeBeAttack >= 60 then
-                timeBeAttack = nowTime
-                tap(1074, 582) -- 回基地
-                return false
-            end
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
             debug("验证码--红点")
@@ -7493,18 +7648,18 @@ function zongHe2()
         if isColor(17, 426, 0xbf3f2f, 95) and isColor(38, 443, 0xf7f7f7, 95) then
             debug("称号--红点")
             tap(36, 442, 0xf7f8f7)
-        -- elseif isColor(1113, 238, 0xbe3e2e, 95) and isColor(1097, 259, 0x1b1d28, 95) then
-        --     debug("图鉴--红点")
-        --     tap(1097, 259)
-        --     if isColor(945, 114, 0xbe3e2e, 95) then
-        --         debug("怪物图鉴")
-        --         tap(930, 130, 0x2d313a)
-        --     -- elseif isColor(944, 238, 0xbe3e2e, 95) then
-        --     --     debug("道具图鉴")
-        --     --     tap(926, 252, 0x636468)
-        --     else
+            -- elseif isColor(1113, 238, 0xbe3e2e, 95) and isColor(1097, 259, 0x1b1d28, 95) then
+            --     debug("图鉴--红点")
+            --     tap(1097, 259)
+            --     if isColor(945, 114, 0xbe3e2e, 95) then
+            --         debug("怪物图鉴")
+            --         tap(930, 130, 0x2d313a)
+            --     -- elseif isColor(944, 238, 0xbe3e2e, 95) then
+            --     --     debug("道具图鉴")
+            --     --     tap(926, 252, 0x636468)
+            --     else
 
-        --     end
+            --     end
         elseif isColor(17, 177, 0xbe3e2e, 95) and isColor(46, 178, 0xfdfdfd, 95) then
             debug("活动--红点")
             tap(38, 196, 0xcecfd1)
@@ -7519,19 +7674,19 @@ function zongHe2()
                 debug("目标与成就--红点")
                 tap(214, 130, 0x40414a)
             end
-        -- elseif isColor(17, 115, 0xbe3e2e, 95) then
-        --     debug("英雄管理--红点")
-        --     tap(43, 136, 0x7e8189)
-        --     if isColor(186, 240, 0xbe3e2e, 95) then
-        --         debug("技能--红点")
-        --         tap(186, 240)
-        --     elseif isColor(186, 177, 0xbe3e2e, 95) then
-        --         debug("装备--红点")
-        --         tap(207, 192, 0xd6d6d8)
-        --     end
-        -- elseif isColor(1114, 175, 0xbe3e2e, 95) and isColor(1100, 186, 0xfcfcfc, 95) then
-        --     debug("好友--红点")
-        --     tap(1100, 186, 0xfcfcfc)
+            -- elseif isColor(17, 115, 0xbe3e2e, 95) then
+            --     debug("英雄管理--红点")
+            --     tap(43, 136, 0x7e8189)
+            --     if isColor(186, 240, 0xbe3e2e, 95) then
+            --         debug("技能--红点")
+            --         tap(186, 240)
+            --     elseif isColor(186, 177, 0xbe3e2e, 95) then
+            --         debug("装备--红点")
+            --         tap(207, 192, 0xd6d6d8)
+            --     end
+            -- elseif isColor(1114, 175, 0xbe3e2e, 95) and isColor(1100, 186, 0xfcfcfc, 95) then
+            --     debug("好友--红点")
+            --     tap(1100, 186, 0xfcfcfc)
         else
             timeXuanDanRed = nowTime
             tap(558, 578, 0x454e56)
