@@ -7658,6 +7658,10 @@ function zongHe2()
     --     debug("无法连接服务器")
     --     tap(551,404)
     -- end
+    if isColor(413,381,0xeb0000,95) and isColor(627,381,0x00a0ef,95) and isColor(557,208,0xb7bcc1,95) and isColor(582,226,0x7e848c,95) and (muBiao == "采集" or muBiao == "去采集点") then
+        debug("误开离开")
+        tap(451,406,0x734d45    )
+    end
     if isColor(166, 396, 0x0090bf, 95) and isColor(370, 403, 0xd3b301, 95) and isColor(575, 408, 0x36c400, 95) then
         debug("误开告知")
         tap(967, 213, 0xffffff)
