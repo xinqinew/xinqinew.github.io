@@ -430,6 +430,7 @@ function bianLiang()
     isFalseLiZi2 = false --2级粒子挖掘失败
     isOverHelp = false --协助已完成
     isCheckLiZiNum = false --检查粒子数量
+    isAttacked = false --被攻击
 
     strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
@@ -454,7 +455,7 @@ function bianLiang()
     timeUpJson = nowTime - 10 * 60 --上传间隔
     timeZhengLi = nowTime - 5 * 60 --检测背包
     timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
-    timeBeAttack = nowTime -- 被攻击
+    timeAttacked = nowTime -- 被攻击
     timeBeAttack2 = 0 -- 被攻击2
     timeOpen = nowTime -- 开服
     timeRed = nowTime - 15 * 60 -- 红点
@@ -6921,9 +6922,18 @@ function waKuang()
 end
 
 function BeAttack()
+    if isAttacked == true and nowTime - timeAttacked >= 30 * 60 and muBiao == "战备" then
+        isAttacked = false
+        timeAttacked = nowTime
+        gaiMuBiaoNew(4, "")
+    end
     if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 150000 then
         if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or isColor(0, 0, 0xb00101, 95) then
             debug("被攻击,秒数:" .. nowTime - timeBeAttack2)
+            if isAttacked == false then
+                isAttacked = true
+                timeAttacked = nowTime
+            end
             if nowDateTime.hour >= 8 then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
@@ -6970,6 +6980,8 @@ function warReady()
                 debug("攻击2")
                 tap(20, 20)
                 gaiMuBiaoNew(4, "战备跑路")
+                isAttacked = false
+                timeAttacked = nowTime
             elseif isColor(151, 261, 0xfcf7f7, 80) then
                 debug("侦察")
                 tap(486, 82, 0xfcf6f6)
@@ -6986,6 +6998,8 @@ function warReady()
                 debug("攻击")
                 tap(20, 20)
                 gaiMuBiaoNew(4, "战备跑路")
+                isAttacked = false
+                timeAttacked = nowTime
             else
                 tap(20, 20)
                 gaiMuBiaoNew(4, "")
@@ -7013,6 +7027,8 @@ function warReady()
             if isColor(578, 278, 0x165aab, 95) then
                 debug("冷却中")
                 gaiMuBiaoNew(4, "战备开盾")
+                isAttacked = false
+                timeAttacked = nowTime
                 tap(1103, 67, 0x1e1826) --收缩
                 tap(964, 581, 0xa74f22) --背包
             elseif isColor(578, 278, 0x4f5d60, 95) then
@@ -7025,6 +7041,8 @@ function warReady()
             else
                 debug("技能不对")
                 gaiMuBiaoNew(4, "战备开盾")
+                isAttacked = false
+                timeAttacked = nowTime
                 tap(1103, 67, 0x1e1826) --收缩
                 tap(964, 581, 0xa74f22) --背包
             end
@@ -7658,9 +7676,9 @@ function zongHe2()
     --     debug("无法连接服务器")
     --     tap(551,404)
     -- end
-    if isColor(413,381,0xeb0000,95) and isColor(627,381,0x00a0ef,95) and isColor(557,208,0xb7bcc1,95) and isColor(582,226,0x7e848c,95) and (muBiao == "采集" or muBiao == "去采集点") then
+    if isColor(413, 381, 0xeb0000, 95) and isColor(627, 381, 0x00a0ef, 95) and isColor(557, 208, 0xb7bcc1, 95) and isColor(582, 226, 0x7e848c, 95) and (muBiao == "采集" or muBiao == "去采集点") then
         debug("误开离开")
-        tap(451,406,0x734d45    )
+        tap(451, 406, 0x734d45)
     end
     if isColor(166, 396, 0x0090bf, 95) and isColor(370, 403, 0xd3b301, 95) and isColor(575, 408, 0x36c400, 95) then
         debug("误开告知")
