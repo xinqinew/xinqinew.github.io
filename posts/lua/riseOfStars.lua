@@ -1,4 +1,4 @@
-numLua = 19.6
+numLua = 19.7
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -1783,7 +1783,7 @@ function zongHe1(...)
         if isColor(263, 582, 0x116eb9, 95) then
             tap(263, 582)
         end
-        x, y = findColorInRegionFuzzy(0x931012, 90, 130, 85, 130, 495)
+        x, y = findColorInRegionFuzzy(0x931012, 90, 131, 85, 131, 495)
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             tap(x, y + 10)
         else
