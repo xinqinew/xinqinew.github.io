@@ -1,4 +1,4 @@
-numLua = 20.2
+numLua = 20.4
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -554,7 +554,12 @@ function newUi()
         numInit = 1
     elseif checkXiangMu3 == "项目3" then
         numInit = 1
+        rangeX1 = tonumber(rangeX1)
+        rangeY1 = tonumber(rangeY1)
+        rangeX2 = tonumber(rangeX2)
+        rangeY2 = tonumber(rangeY2)
     end
+
     init(numInit)
     floatingWindow()
 end
@@ -2386,7 +2391,8 @@ function zongHe1(...)
         tap1(877, 542)
         tap1(511, 609, 0x3a597d)
     end
-    if isColor(111, 106, 0x215da6, 95) and isColor(140, 71, 0xa9a9aa, 95) and isColor(345, 67, 0xd4d4d5, 95) then
+    if isColor(111, 106, 0x215da6, 95) and isColor(137, 70, 0x757677, 95) and isColor(345, 65, 0xd4d4d5, 95) then
+        -- if isColor(111, 106, 0x215da6, 95) and isColor(140, 71, 0xa9a9aa, 95) and isColor(345, 67, 0xd4d4d5, 95) then
         debug("援助联盟成员工作")
         if isColor(916, 82, 0x0d9098, 95) then
             tap1(916, 82)
@@ -2417,8 +2423,7 @@ function zongHe1(...)
             tap1(511, 589, 0x0c0c0e)
         end
     end
-    if isColor(89, 35, 0x00ace4, 95) and isColor(91, 71, 0x215da6, 95) and isColor(125, 30, 0xc3bebe, 95) and
-        isColor(231, 47, 0xafb1b4, 95) then
+    if isColor(89, 35, 0x00ace4, 95) and isColor(91, 71, 0x215da6, 95) and isColor(125, 28, 0xc4bfbe, 95) and isColor(231, 42, 0xdbdcdc, 95) then
         debug("联盟任务")
         if isColor(228, 105, 0x931012, 95) and isColor(113, 143, 0x956b1a, 95) then
             debug("任务--红点--已选中")
@@ -2633,8 +2638,7 @@ function zongHe1(...)
         tap1(511, 528, 0x0c0c0e) -- 关闭
         tap1(510, 602, 0x0c0c0e) -- 关闭
     end
-
-    if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
+    if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
         debug("基地现况界面--综合函数")
         if isColor(814, 458, 0x9e1111, 95) then
             debug("资源--免费兑换--红点")
@@ -2806,8 +2810,7 @@ function zongHe1(...)
         debug("每日报告2")
         tap1(510, 609)
     end
-    if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(73, 17, 0xe2e8ef, 95) and
-        isColor(159, 24, 0x97a9be, 95) then
+    if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(73, 16, 0xe2e8ef, 95) and isColor(159, 23, 0x97a9be, 95) then
         debug("奖励中心")
         if isColor(253, 219, 0xf90703, 95) and isColor(281, 314, 0xd6a691, 95) then
             debug("司令官界面")
@@ -2941,8 +2944,7 @@ function zongHe1(...)
             end
         end
     end
-    if isColor(312, 76, 0xf5a802, 95) and isColor(308, 98, 0x0b4992, 95) and isColor(457, 438, 0xf27c00, 95) and
-        isColor(511, 504, 0x1c6db9, 95) then
+    if isColor(312, 77, 0xf5a801, 95) and isColor(308, 98, 0x0b4992, 95) and isColor(457, 438, 0xf27d00, 95) and isColor(511, 504, 0x1d6dba, 95) then
         debug("道具信息--复数--使用")
         if muBiao == mb_5DaoJu then
             tap1(458, 438, 0xf27c00) -- 1个 
@@ -2970,7 +2972,7 @@ function zongHe1(...)
             end
         end
     end
-    if isColor(89, 59, 0xf8a901, 95) and isColor(192, 250, 0x2d4b69, 95) and isColor(300, 421, 0x8f4d14, 95) then
+    if isColor(89, 59, 0xf5a801, 95) and isColor(208, 252, 0x2c4968, 95) and isColor(300, 430, 0x8f4d14, 95) then
         debug("补充资源")
         if isColor(1028, 113, 0xffffff, 95) then
             debug("资源充足")
@@ -4116,9 +4118,10 @@ function zongHe1(...)
         elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
             debug("兑换界面")
             do
-                local temStr = ocrText(323, 298, 385, 312, 0, "0123465789,")
+                local temStr = ocrText(323, 297, 385, 312, 0, "0123465789,")
                 if temStr ~= nil then
                     temStr = string.gsub(temStr, ",", "")
+                    temStr = string.gsub(temStr, " ", "")
                     numLiZi = tonumber(temStr)
                     if type(numLiZi) == "number" then
                         if numLiZi > 1000000 then
@@ -4152,7 +4155,7 @@ function zongHe1(...)
     end
     if isColor(215, 189, 0xb283ca, 95) and isColor(344, 191, 0xf7eb5e, 95) and isColor(494, 210, 0x113199, 95) then
         debug("制作材料")
-        if isColor(500, 518, 0x604411, 95) then
+        if isColor(500, 518, 0x604411, 95) or isColor(529, 524, 0x081525, 95) then
             debug("没选材料")
             if numCaiLiao == 1 then
                 tap1(210, 205, 0x5669ba)
@@ -6922,7 +6925,7 @@ function waKuang()
             chongZhiJiDiXianKuang()
         end
     end
-    if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
+    if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
         debug("基地现况界面--函数挖矿")
         if isColor(94, 325, 0x306090, 95) then -- 4号休息中
             debug("4号休息中,出航")
@@ -8492,15 +8495,88 @@ function findFarm()
     if x > 0 then
         farmLong = tonumber(farmLong)
         -- farmLong0 = 634/farmLong
-        farmX = 567/farmLong
-        farmY= 284/farmLong
+        farmX = 567 / farmLong
+        farmY = 284 / farmLong
+        mSleep(100)
+        for l = 1, 5, 1 do
+            k = 0
+            for j = rangeY1, rangeY2, 2 do
+                for i = rangeX1, rangeX2, 2 do
+                    realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                    realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                    k = k + 1
+                    debug(realX1 .. "," .. realY1 .. "," .. k)
+                    if k == 1 then
+                        tap1(realX1, realY1)
+                        for m = 1, 50, 1 do
+                            x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
+                            if x0 > 0 then
+                                local numStr = ocrText(x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, 1, "012346789小时分秒")
+                                temStr = string.gsub(temStr, " ", "")
+                                -- if tonumber(numStr) >= 0 then
+                                --     numLv = tonumber(numStr) - 1
+                                --     writeJson("指挥中心等级", numLv)
+                                --     toast(numLv)
+                                -- end
+                                toast(numStr)
+                                luaExit()
+                                tap1(x0 - 292, y0)
+                                break
+                            else
+                                moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                mSleep(1000)
+                            end
+                        end
+                        -- tap1(452, 398, 0x65ae49) --卷心菜
+                    end
+                    tap(realX1, realY1)
+                end
+            end
+            tap1(738, 612, 0xffffff)
+            mSleep(2000)
+            for j = rangeY1, rangeY2, 2 do
+                for i = rangeX1, rangeX2, 2 do
+                    if i == rangeX1 then
+                        realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                        realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                    end
+                    if i == rangeX2 then
+                        realX2 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                        realY2 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                        moveTo(realX1, realY1, realX2, realY2)
+                    end
+                    -- realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                    -- realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                    -- tap1(realX1, realY1)
+                end
+            end
+            mSleep(1000 * 31)
+            for j = rangeY1, rangeY2, 2 do
+                for i = rangeX1, rangeX2, 2 do
+                    if i == rangeX1 then
+                        realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                        realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                    end
+                    if i == rangeX2 then
+                        realX2 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                        realY2 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                        moveTo(realX1, realY1, realX2, realY2)
+                    end
+                    -- realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
+                    -- realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
+                    -- tap1(realX1, realY1)
+                end
+            end
+            mSleep(3000)
+        end
+        luaExit()
 
-        realX1 = x + (tonumber(rangeX1)-1)*farmX- (tonumber(rangeY1)-1)*farmX
-        realY1 = y + (tonumber(rangeY1)-1)*farmY+ (tonumber(rangeX1)-1)*farmY+24
-        realX2 = x + (tonumber(rangeX2)-1)*farmX- (tonumber(rangeY2)-1)*farmX
-        realY2 = y + (tonumber(rangeY2)-1)*farmY+ (tonumber(rangeX2)-1)*farmY+24
-        debug(realX1..","..realY1..","..realX2..","..realY2)
-        mSleep(1000)
+        -- realX1 = x + (rangeX1 - 1) * farmX - (rangeY1 - 1) * farmX
+        -- realY1 = y + (rangeY1 - 1) * farmY + (rangeX1 - 1) * farmY + 12
+        -- realX2 = x + (rangeX2 - 1) * farmX - (rangeY2 - 1) * farmX
+        -- realY2 = y + (rangeY2 - 1) * farmY + (rangeX2 - 1) * farmY + 12
+        -- debug(realX1 .. "," .. realY1 .. "," .. realX2 .. "," .. realY2)
+        -- mSleep(1000)
     end
 
 end
