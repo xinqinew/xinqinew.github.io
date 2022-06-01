@@ -59,7 +59,7 @@
     <pubDate>Sun, 22 Aug 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/clash%E9%98%B2%E6%9B%B4%E6%96%B0/</guid>
-    <description><![CDATA[配置文件追加hosts 1 2 3 4 5 hosts:&#39;folivora.ai&#39;:127.0.0.1&#39;www.folivora.ai&#39;:127.0.0.1&#39;updates.boastr.net&#39;:127.0.0.1&#39;updates.folivora.ai&#39;:127.0.0.1]]></description>
+    <description><![CDATA[配置文件追加hosts 1 2 3 4 5 hosts: &#39;folivora.ai&#39;: 127.0.0.1 &#39;www.folivora.ai&#39;: 127.0.0.1 &#39;updates.boastr.net&#39;: 127.0.0.1 &#39;updates.folivora.ai&#39;: 127.0.0.1]]></description>
 </item><item>
     <title>Java-环境搭建Mac版</title>
     <link>https://xinqinew.github.io/2021/08/java-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAmac%E7%89%88/</link>

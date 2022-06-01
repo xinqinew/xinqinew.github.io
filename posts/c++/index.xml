@@ -84,7 +84,7 @@
     </author><guid>https://xinqinew.github.io/2022/01/stdarray%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++ array(STL array)容器用法详解 http://c.biancheng.net/view/6688.html 引用 在使用该容器之前，代码中需引入 &lt;array&gt; 头文件，并默认使用 std 命令空间，如下所示： 1 2 #include &lt;array&gt;using namespace std; 创建 array 容器的方式 创建具]]></description>
+            </div>C++ array(STL array)容器用法详解 http://c.biancheng.net/view/6688.html 引用 在使用该容器之前，代码中需引入 &lt;array&gt; 头文件，并默认使用 std 命令空间，如下所示： 1 2 #include &lt;array&gt; using namespace std; 创建 array 容器的方式 创建]]></description>
 </item><item>
     <title>std::map用法</title>
     <link>https://xinqinew.github.io/2022/01/stdmap%E5%AE%B9%E5%99%A8%E7%94%A8%E6%B3%95/</link>
