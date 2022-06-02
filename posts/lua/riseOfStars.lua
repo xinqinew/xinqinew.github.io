@@ -8768,7 +8768,7 @@ function task3_guaJi()
         -- tap1(numOriginX - x0, numOriginY + y0 + 10)
         -- tap1(452, 398, 0x65ae49) --卷心菜
         -- timeCollectInterval = 35
-        if isColor(610, 35, 0xb93056, 95) == false then
+        if isColor(610, 35, 0xb93056, 95) == false then--面板
             tap1(610, 35, 0xb93056)
         end
         k = 0
@@ -8780,7 +8780,12 @@ function task3_guaJi()
                 debug(realX1 .. "," .. realY1 .. "," .. k)
                 if k == 1 then
                     tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
-                    mSleep(1000)
+                    for l = 1,10,1 do
+                        if isColor(1088,46,0xffffff,95) then
+                            break
+                        end
+                        mSleep(1000)
+                    end
                     --     for m = 1, 50, 1 do
                     --         x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
                     --         if x0 > 0 then
@@ -8794,7 +8799,8 @@ function task3_guaJi()
                     --             mSleep(1000)
                     --         end
                     --     end
-                    tap1(452, 398, 0x65ae49) --卷心菜
+                    tap(452, 398, {["ms"]=100}) --卷心菜
+
                     timeCollectInterval = 35
                 end
                 tap(realX1, realY1, { ["ms"] = 200, ["pic"] = "click_point_4_2.png" })
@@ -8804,19 +8810,19 @@ function task3_guaJi()
         tap1(738, 612, 0xffffff)
         mSleep(2000)
         ------------------洒水------------------
-
-        for j = 5, 3, -2 do
-            for i = 1, farmLong - 1, 2 do
-                realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
-                realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
-                if i == 1 then
-                    tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
-                end
-                tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
-                -- tap(realX1, realY1)
-            end
-            mSleep(2000)
-        end
+        moveTowards(numOriginX - farmX*2, numOriginY + farmY*2,-26.56,635)
+        -- for j = 5, 3, -2 do
+        --     for i = 1, farmLong - 1, 2 do
+        --         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
+        --         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
+        --         if i == 1 then
+        --             tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
+        --         end
+        --         tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
+        --         -- tap(realX1, realY1)
+        --     end
+        --     mSleep(2000)
+        -- end
         -- moveTo(numOriginX - x0, numOriginY + y0 + 10, numOriginX + 568 - x0 - 20, numOriginY + 284 + y0 + 10, { ["stop"] = 1 })
         -- moveTo(numOriginX - x0 * 2, numOriginY + y0 * 2 + 10, numOriginX + 568 - x0 * 2 - 20, numOriginY + 284 + y0 * 2 + 10, { ["stop"] = 1 })
         gaiMuBiaoNew(2, "等待收割")
