@@ -3504,6 +3504,32 @@ function zongHe1(...)
                 --     debug("T5 => T4")
                 --     tap1(483, 603, 0x1e3248)
                 --     mSleep(1000)
+                if isColor(181, 575, 0xffd89e, 95) then
+                    debug("TX => T1")
+                    tap1(181, 597, 0x1b2e44)
+                    mSleep(1000)
+                elseif isColor(281, 575, 0xffd89e, 95) then
+                    debug("TX => T2")
+                    tap1(281, 597, 0x1b2e44)
+                    mSleep(1000)
+                elseif isColor(380, 575, 0xffd89e, 95) then
+                    debug("TX => T3")
+                    tap1(380, 597, 0x1b2e44)
+                    mSleep(1000)
+                elseif isColor(480, 575, 0xffd89e, 95) then
+                    debug("TX => T4")
+                    tap1(480, 597, 0x1b2e44)
+                    mSleep(1000)
+                elseif isColor(579, 575, 0xffd89e, 95) then
+                    debug("TX => T5")
+                    tap1(580, 597, 0x1b2e44)
+                    mSleep(1000)
+                end
+                if isColor(600,518,0xaa5f00,95) then
+                    debug("tx => tx")
+                    tap1(600,518,0xaa5f00                )
+                    mSleep(1000)
+                end
                 if isKaShengChan == true then
                     debug("T2")
                     tap1(283, 596, 0x455b72)
@@ -8742,8 +8768,8 @@ function task3_guaJi()
         -- tap1(numOriginX - x0, numOriginY + y0 + 10)
         -- tap1(452, 398, 0x65ae49) --卷心菜
         -- timeCollectInterval = 35
-        if isColor(610,35,0xb93056,95)==false then
-            tap1(610,35,0xb93056        )
+        if isColor(610, 35, 0xb93056, 95) == false then
+            tap1(610, 35, 0xb93056)
         end
         k = 0
         for j = 3, 5, 2 do
@@ -8753,7 +8779,7 @@ function task3_guaJi()
                 k = k + 1
                 debug(realX1 .. "," .. realY1 .. "," .. k)
                 if k == 1 then
-                tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
+                    tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
                     mSleep(1000)
                     --     for m = 1, 50, 1 do
                     --         x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
@@ -8784,7 +8810,7 @@ function task3_guaJi()
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                 realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                 if i == 1 then
-                tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
+                    tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
                 end
                 tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
                 -- tap(realX1, realY1)
