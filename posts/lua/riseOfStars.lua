@@ -1,4 +1,4 @@
-numLua = 20.5
+numLua = 20.6
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -4228,7 +4228,7 @@ function zongHe1(...)
     end
     if isColor(215, 189, 0xb283ca, 95) and isColor(344, 191, 0xf7eb5e, 95) and isColor(494, 210, 0x113199, 95) then
         debug("制作材料")
-        if isColor(500, 518, 0x604411, 95) or isColor(529, 524, 0x081525, 95) then
+        if isColor(500, 518, 0x604411, 95) or isColor(529, 524, 0x081525, 95) or isColor(529, 524, 0x151e2b, 95) then
             debug("没选材料")
             if numCaiLiao == 1 then
                 tap1(210, 205, 0x5669ba)
@@ -8794,28 +8794,60 @@ function task3_guaJi()
                             end
                             mSleep(1000)
                         end
-                        --     for m = 1, 50, 1 do
-                        --         x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
-                        --         if x0 > 0 then
-                        --             local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
-                        --             toast(numStr)
-                        --             -- luaExit()
-                        --             tap1(x0 - 292, y0)
-                        --             break
-                        --         else
-                        --             moveTo(801, 321, 499, 321, { ["stop"] = 1 })
-                        --             mSleep(1000)
-                        --         end
-                        --     end
-                        for l = 1, 10, 1 do
-                            tap(452, 398, { ["ms"] = 300 }) --卷心菜
-                            mSleep(1000)
-                            if isColor(1089, 47, 0xffffff, 95) == false then
+                        
+
+                        for m = 1, 50, 1 do
+                            x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
+                            if x0 > 0 then
+                                local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
+                                debug("读取结果:" .. numStr)
+                                mSleep(200)
+                                local num1, num2 = string.find(numStr, "秒")
+                                local num3, num4 = string.find(numStr, "小")
+                                local num5, num6 = string.find(numStr, "分")
+
+                                if num1 ~= nil then --有秒
+                                    numStr, num = string.gsub(numStr, "秒", "")
+                                    numStr = tonumber(numStr)
+                                    debug("转换结果" .. numStr)
+                                elseif num5 ~= nil and num3 == nil then --只有分
+                                    numStr, num = string.gsub(numStr, "分", "")
+                                    numStr = tonumber(numStr) * 60
+                                    debug("转换结果" .. numStr)
+                                elseif num5 == nil and num3 ~= nil then --只有小时
+                                    numStr, num = string.gsub(numStr, "小时", "")
+                                    numStr = tonumber(numStr) * 3600
+                                    debug("转换结果" .. numStr)
+                                elseif num5 ~= nil and num3 ~= nil then --有小时和分
+                                    numStr, num = string.gsub(numStr, "分", "")
+                                    local data = strSplit(numStr, "小时")
+                                    numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
+                                    debug("转换结果" .. numStr)
+                                end
+                                timeCollectInterval = numStr
+                                -- luaExit()
+                                for l = 1, 10, 1 do
+                                    tap(x0 - 292, y0, { ["ms"] = 300 }) --卷心菜
+                                    mSleep(1000)
+                                    if isColor(1089, 47, 0xffffff, 95) == false then
+                                        break
+                                    end
+                                end
                                 break
+                            else
+                                moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                mSleep(1000)
                             end
                         end
-                        mSleep(1000)
-                        timeCollectInterval = 33
+                        -- for l = 1, 10, 1 do
+                        --     tap(452, 398, { ["ms"] = 300 }) --卷心菜
+                        --     mSleep(1000)
+                        --     if isColor(1089, 47, 0xffffff, 95) == false then
+                        --         break
+                        --     end
+                        -- end
+                        -- mSleep(1000)
+                        -- timeCollectInterval = 33
                     end
                     tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                     mSleep(100)
