@@ -431,7 +431,20 @@ function bianLiang()
     isOverHelp = false --协助已完成
     isCheckLiZiNum = false --检查粒子数量
     isAttacked = false --被攻击
+    bRedOut1 = false
+    bRedOut2 = false
+    bRedOut3 = false
+    bRedOut4 = false
+    bRedOut5 = false
+    bRedOut6 = false
+    bRedOut7 = false
+    bRedOut8 = false
+    bRedOut9 = false
+    bRedOut10 = false
+    bRedOut11 = false
+    bRedOut12 = false
 
+    numRed = 0
     strVpnModel = ""
     numShengJiCengShu = 0 --建筑升级条件层数
     numZiYuan = 1
@@ -501,8 +514,8 @@ function newUi()
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian,checkXiangMu3",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3", "4@6", -1, 0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24",
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛",
+    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25",
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存",
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel(2, "---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck(2, "Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
@@ -1840,6 +1853,17 @@ function zongHe1(...)
             tap1(33, 493)
         end
     end
+    if isColor(94, 87, 0xa5b6ca, 95) and isColor(118, 81, 0x4e78aa, 95) and isColor(108, 542, 0xd78b01, 95) then
+        debug("库存战舰")
+        if isColor(897, 539, 0x2a394c, 95) then --未库存
+            tap1(112, 543, 0xd68b01) --快速
+            tap1(749, 538, 0x616a76) --12小时
+            tap1(897, 539, 0x2a394c) --库存
+            tap1(484, 429, 0x1c6db9) --确定
+        else
+            tap1(506, 603, 0x3b577b)
+        end
+    end
     if isColor(471, 527, 0x114c8a, 95) and isColor(659, 561, 0x145da9, 95) and isColor(271, 65, 0x0096ff, 95) and isColor(269, 49, 0xf8a901, 95) then
         debug("合成")
         tap1(511, 612, 0x0c0c0e)
@@ -2787,6 +2811,9 @@ function zongHe1(...)
             debug("技术研究--休息中")
             tap1(996, 177)
             gaiMuBiaoNew(3, "研究")
+        elseif check25 == "库存" and isColor(953, 303, 0x306090, 95) then
+            debug("机库--休息中")
+            tap1(982, 276, 0x306090)
         elseif muBiao1 == mb_WaKuang then
 
         else
@@ -2827,6 +2854,11 @@ function zongHe1(...)
         tap1(471, 590)
         tap1(907, 590)
     end
+    if isColor(16, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(75, 13, 0xb1c2d5, 95) and isColor(160, 32, 0x9aacc0, 95) then
+        debug("探险关门")
+        tap1(20, 20)
+        redJudge()
+    end
     if isColor(7, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(73, 15, 0xe2e8ef, 95) and
         isColor(161, 29, 0xe1e7ed, 95) then
         debug("活动中心")
@@ -2845,6 +2877,7 @@ function zongHe1(...)
                     tap1(78, y1 + 19)
                 else
                     tap1(20, 20)
+                    redJudge()
                 end
             end
         end
@@ -2901,6 +2934,7 @@ function zongHe1(...)
                 debug("第5天")
                 tap1(429, 454, 0xf0dfd3)
             else
+                redJudge()
                 tap1(20, 20)
             end
         elseif isColor(137, 103, 0x9e1111, 95) and isColor(117, 103, 0xa17316, 95) then
@@ -2971,7 +3005,7 @@ function zongHe1(...)
             --     tap1(20, 20)
             -- end
             tap1(20, 20)
-            timeRed = nowTime
+            -- timeRed = nowTime
         elseif isColor(396, 339, 0x1b7b55, 95) and isColor(247, 400, 0x7d8a96, 95) then
             debug("航母活动--向上移位置了--红点--已选")
             -- x, y = findColorInRegionFuzzy(0x116eb9, 100, 202, 349, 663, 599)
@@ -2981,7 +3015,7 @@ function zongHe1(...)
             --     tap1(20, 20)
             -- end
             tap1(20, 20)
-            timeRed = nowTime
+            -- timeRed = nowTime
         else
             x, y = findMultiColorInRegionFuzzy(0x9d1111, "-1|0|0x1a293c", 90, 128, 95, 131, 590)
             if x ~= -1 then
@@ -4188,6 +4222,14 @@ function zongHe1(...)
             else
                 tap1(20, 20)
             end
+        elseif isColor(49, 296, 0xffffff, 95) and isColor(45, 320, 0x91b5be, 95) then
+            debug("机库--库存界面")
+            if isColor(184, 328, 0x122642, 95) then
+                debug("有船在库存")
+                tap1(20, 20)
+            else
+                tap1(934, 609, 0x1c6eba) --库存
+            end
         elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
             debug("兑换界面")
             do
@@ -4458,8 +4500,14 @@ function zongHe1(...)
                 end
             else
                 tap1(511, 567, 0x0c0c0e)
+                redJudge()
             end
         end
+    end
+    if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(111, 15, 0xdde4eb, 95) and isColor(149, 33, 0xa2b3c6, 95) then
+        debug("议会界面")
+        tap1(20, 20)
+        redJudge()
     end
     if isColor(7, 25, 0xff9c00, 95) and isColor(18, 25, 0xffffff, 95) and isColor(103, 166, 0xffb500, 95) and isColor(119, 166, 0x718d9f, 95) then
         debug("高级商店")
@@ -4468,8 +4516,9 @@ function zongHe1(...)
             mSleep(1000)
             tap1(20, 20)
         else
+            redJudge()
             tap1(20, 20)
-            timeRed = nowTime
+            -- timeRed = nowTime
         end
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95) then
@@ -5122,27 +5171,68 @@ function checkRed1()
     elseif isColor(1124, 51, 0x9e1111, 95) and nowTime - timeRed >= 15 * 60 then -- 右上角红点
         debug("右上角红点")
         tap1(1106, 71, 0x111e2e)
-        if isColor(730, 106, 0x9d1111, 95) then -- 1-1红点
+        -- if isColor(730, 106, 0x9d1111, 95) and bRedOut1 == false then -- 1-1红点
+        --     tap1(684, 182, 0x445569)
+        -- elseif isColor(993, 115, 0x9e1111, 95) and haoLV < 3 then -- 1-3 红点
+        --     tap1(937, 187, 0x263649)
+        -- elseif isColor(858, 247, 0x9d1111, 95) then -- 2-2红点
+        --     tap1(816, 321, 0x1e2635)
+        --     -- elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
+        --     --     tap1(946, 299, 0x182738)
+        -- elseif isColor(730, 396, 0x931012, 95) then --3-1红点
+        --     tap1(676, 473, 0x202f3e)
+        -- elseif isColor(1114, 262, 0x9d1111, 95) then --2-4红点
+        --     tap1(1070, 321, 0x546272)
+        -- elseif isColor(858, 106, 0x9d1111, 95) and check22 == "活动" then -- 1-2红点
+        --     tap1(810, 169, 0x1c2b3d)
+        -- elseif isColor(1120, 115, 0x9e1111, 95) then -- 1-4红点
+        --     tap1(1068, 182)
+        -- elseif isColor(730, 247, 0x9d1111, 95) then -- 2-1红点
+        --     tap1(737, 254)
+        -- elseif isColor(858, 106, 0x9d1111, 95) and check22 ~= "活动" then -- 1-2红点
+        --     -- tap1(810, 169, 0x1c2b3d)
+        --     timeRed = nowTime
+        -- end
+        if isColor(730, 106, 0x9d1111, 95) and bRedOut1 == false then -- 1-1红点
             tap1(684, 182, 0x445569)
-        elseif isColor(993, 115, 0x9e1111, 95) and haoLV < 3 then -- 1-3 红点
-            tap1(937, 187, 0x263649)
-        elseif isColor(858, 247, 0x9d1111, 95) then -- 2-2红点
-            tap1(816, 321, 0x1e2635)
-            -- elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
-            --     tap1(946, 299, 0x182738)
-        elseif isColor(730, 396, 0x931012, 95) then --3-1红点
-            tap1(676, 473, 0x202f3e)
-        elseif isColor(1114, 262, 0x9d1111, 95) then --2-4红点
-            tap1(1070, 321, 0x546272)
-        elseif isColor(858, 106, 0x9d1111, 95) and check22 == "活动" then -- 1-2红点
+            numRed = 1
+        elseif isColor(858, 106, 0x9d1111, 95) and check22 == "活动" and bRedOut2 == false then -- 1-2红点
             tap1(810, 169, 0x1c2b3d)
-        elseif isColor(1120, 115, 0x9e1111, 95) then -- 1-4红点
+            numRed = 2
+        elseif isColor(993, 115, 0x9e1111, 95) and bRedOut3 == false then -- 1-3 红点
+            tap1(937, 187, 0x263649)
+            numRed = 3
+        elseif isColor(1120, 115, 0x9e1111, 95) and bRedOut4 == false then -- 1-4红点
             tap1(1068, 182)
-        elseif isColor(730, 247, 0x9d1111, 95) then -- 2-1红点
+            numRed = 4
+        elseif isColor(730, 247, 0x9d1111, 95) and bRedOut5 == false then -- 2-1红点
             tap1(737, 254)
-        elseif isColor(858, 106, 0x9d1111, 95) and check22 ~= "活动" then -- 1-2红点
-            -- tap1(810, 169, 0x1c2b3d)
+            numRed = 5
+        elseif isColor(858, 247, 0x9d1111, 95) and bRedOut6 == false then -- 2-2红点
+            numRed = 6
+            tap1(816, 321, 0x1e2635)
+        elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
+            numRed = 7
+            tap1(946, 299, 0x182738)
+        elseif isColor(1114, 262, 0x9d1111, 95) and bRedOut8 == false then --2-4红点
+            numRed = 8
+            tap1(1070, 321, 0x546272)
+        elseif isColor(730, 396, 0x931012, 95) and bRedOut9 == false then --3-1红点
+            numRed = 9
+            tap1(676, 473, 0x202f3e)
+        else
+            tap1(1106, 71, 0x111e2e)
             timeRed = nowTime
+            numRed = 0
+            bRedOut1 = false
+            bRedOut2 = false
+            bRedOut3 = false
+            bRedOut4 = false
+            bRedOut5 = false
+            bRedOut6 = false
+            bRedOut7 = false
+            bRedOut8 = false
+            bRedOut9 = false
         end
         return true
 
@@ -5150,6 +5240,29 @@ function checkRed1()
         return false
     end
 
+end
+
+--红点判断
+function redJudge()
+    if numRed == 1 then
+        bRedOut1 = true
+    elseif numRed == 2 then
+        bRedOut2 = true
+    elseif numRed == 3 then
+        bRedOut3 = true
+    elseif numRed == 4 then
+        bRedOut4 = true
+    elseif numRed == 5 then
+        bRedOut5 = true
+    elseif numRed == 6 then
+        bRedOut6 = true
+    elseif numRed == 7 then
+        bRedOut7 = true
+    elseif numRed == 8 then
+        bRedOut8 = true
+    elseif numRed == 9 then
+        bRedOut9 = true
+    end
 end
 
 -- 执行目标
@@ -8794,7 +8907,7 @@ function task3_guaJi()
                             end
                             mSleep(1000)
                         end
-                        
+
 
                         for m = 1, 50, 1 do
                             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
