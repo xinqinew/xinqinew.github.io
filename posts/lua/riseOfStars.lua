@@ -501,6 +501,7 @@ function bianLiang()
 
     ---------------项目3---------------
     timeTap = nowTime
+    timeTree = nowTime - 5 * 60 --果树5分钟
 
 end
 
@@ -1368,6 +1369,7 @@ function oncePlist()
     -----------------------------项目3---------------------
     -- 原点
     numOriginX = loadJson("原点X")
+    numOriginY = loadJson("原点Y")
     if numOriginX == nil then
         numOriginX = 0
         numOriginY = 0
@@ -8722,6 +8724,25 @@ function zongHe3()
         debug("搬迁画面")
         tap1(658, 633, 0x60a13f)
     end
+    if isColor(584, 90, 0xbd3935, 95) and isColor(860, 200, 0x6fae50, 95) and isColor(843, 200, 0xe4d9c3, 95) then
+        debug("云打码")
+        if isColor(626, 624, 0xffffff, 95) == false then
+            tap1(766, 142, 0xffffff)
+        end
+        local strDaMa = yunDaMaNew(op, 156, 45, 539, 217)
+        if strDaMa ~= false then
+            debug("识别成功")
+            inputText(strDaMa)
+            mSleep(2000)
+            tap1(875, 199, 0x6fae50)
+            mSleep(2000)
+        end
+
+    end
+    if isColor(592, 451, 0x85bb5f, 95) and isColor(905, 476, 0x6dac4f, 95) and isColor(784, 468, 0xffffff, 95) then
+        debug("对话")
+        tap1(784, 468, 0xffffff)
+    end
 end
 
 --农场判断
@@ -8733,16 +8754,50 @@ end
 
 --找原点
 function findHouse()
-    -- x, y = findMultiColorInRegionFuzzy(0xee4b48, "-3|2|0xe94941,4|2|0xed4b48,-2|-1|0x80b781,3|-1|0x80b67d", 90, 286, 44, 1130, 528, { orient = 2 })--房子
-    x, y = findMultiColorInRegionFuzzy(0x50ff1e, "-1|1|0x51ff20,1|1|0x4fff20,0|-1|0x000000", 90, 286, 44, 1130, 528, { orient = 2 }) --树
-    if x > 0 then
-        debug(x .. "," .. y)
-        -- mSleep(1000)
-        numOriginX = x
-        numOriginY = y
-        return x, y
+    if isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then
+        debug("初始画面")
+        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    end
+    if numOriginX == 0 then
+        -- x, y = findMultiColorInRegionFuzzy(0xee4b48, "-3|2|0xe94941,4|2|0xed4b48,-2|-1|0x80b781,3|-1|0x80b67d", 90, 286, 44, 1130, 528, { orient = 2 })--房子
+        x, y = findMultiColorInRegionFuzzy(0x50ff1e, "-1|1|0x51ff20,1|1|0x4fff20,0|-1|0x000000", 90, 286, 44, 1130, 528, { orient = 2 }) --树
+        if x > 0 then
+            debug("原点1" .. x .. "," .. y)
+            -- mSleep(1000)
+            numOriginX = x
+            numOriginY = y
+            writeJson("原点X", numOriginX)
+            writeJson("原点Y", numOriginY)
+            -- if math.abs(x - 484) >= 70 or math.abs(y - 148) >= 70 then
+            --     -- touchDown(x - 30, y - 30)
+            --     -- for i = 0, 500, 50 do
+            --     --     touchMove(200, 1000 - i)
+            --     --     mSleep(10)
+            --     -- end
+            --     -- --只要 90 度滑动 1 像素就可以精准滑动
+            --     -- --横向滑动 1 像素
+            --     -- touchUp(484 - 30+1, 148 - 30)
+            --     -- mSleep(10)
+            --     moveTo(x - 10, y - 10, 484 - 10, 148 - 10, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+            --     mSleep(1000)
+            -- end
+            -- x, y = findMultiColorInRegionFuzzy(0x50ff1e, "-1|1|0x51ff20,1|1|0x4fff20,0|-1|0x000000", 90, 286, 44, 1130, 528, { orient = 2 }) --树
+            -- if x > 0 then
+            --     debug("原点2" .. x .. "," .. y)
+            return x, y
+            -- else
+            -- return 0, 0
+            -- end
+        else
+            closeApp(appXiangMu)
+            return 0, 0
+        end
     else
-        return 0, 0
+        return numOriginX, numOriginY
     end
 end
 
@@ -8900,15 +8955,21 @@ function task3_guaJi()
                     k = k + 1
                     debug(realX1 .. "," .. realY1 .. "," .. k)
                     if k == 1 then
-                        tap(realX1, realY1, { ["ms"] = 100, ["pic"] = "click_point_4_2.png" })
+                        tap1(902, 587, 0xce4f37) --shop
+                        tap1(895, 457, 0xe3806c) --shop
+                        -- tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                         for l = 1, 10, 1 do
                             if isColor(1088, 46, 0xffffff, 95) then
                                 break
+                            else
+                                tap1(902, 587, 0xce4f37) --shop
+                                tap1(895, 457, 0xe3806c) --shop
                             end
                             mSleep(1000)
                         end
-
-
+                        if isColor(262, 128, 0xf0404a, 95) == false then
+                            tap1(262, 128) --种植选项
+                        end
                         for m = 1, 50, 1 do
                             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
                             if x0 > 0 then
@@ -8963,7 +9024,10 @@ function task3_guaJi()
                         -- timeCollectInterval = 33
                     end
                     tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
-                    mSleep(100)
+                    mSleep(1000)
+                    if isColor(724, 107, 0xffffff, 95) then
+                        tap1(724, 107) --误开
+                    end
                     -- tap(realX1, realY1)
                 end
             end
@@ -8991,7 +9055,8 @@ function task3_guaJi()
             gaiMuBiaoNew(2, "等待收割")
             debug("改目标为等待收割")
             nowTime = os.time();
-            timeCollect = nowTime + timeCollectInterval
+            timeCollectInterval = timeCollectInterval or 0
+            timeCollect = nowTime + timeCollectInterval + 30
             writeJson("收割时间", timeCollect)
         end
     elseif muBiao == "等待收割" then
@@ -9004,7 +9069,7 @@ function task3_guaJi()
                 y0 = math.floor(284 / farmLong * 2)
                 -- moveTowards(numOriginX - math.floor(farmX * 4), numOriginY + math.floor(farmY * 4), -26.56, 635)
 
-                for j = 3, 5, 2 do
+                for j = 5, 3, 2 do
                     for i = 1, farmLong - 1, 2 do
                         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
@@ -9030,9 +9095,6 @@ function task3_guaJi()
             if x > 0 then
                 debug("浇水")
                 tap(x, y)
-                nowTime = os.time();
-                timeCollect = nowTime + timeCollectInterval
-                writeJson("收割时间", timeCollect)
             end
             x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
             if x > 0 then
@@ -9048,5 +9110,34 @@ function time_task()
     if nowTime - timeTap >= 5 then
         tap(1135, 0)
         timeTap = nowTime
+    end
+    if nowTime - timeTree >= 5.2 * 60 then
+        tapTrees()
+    end
+end
+
+--点击果树
+function tapTrees()
+    x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
+    if x > 0 then
+        debug("浇水")
+        tap(x, y)
+    else
+        if findHouse() > 0 then
+            farmX = 567 / farmLong
+            farmY = 284 / farmLong
+            x0 = math.floor(568 / farmLong * 2)
+            y0 = math.floor(284 / farmLong * 2)
+            for i = 1, farmLong - 1, 2 do
+                realX1 = math.floor(numOriginX + (i - 1) * farmX - (1 - 1) * farmX)
+                realY1 = math.floor(numOriginY + (1 - 1) * farmY + (i - 1) * farmY + 12)
+                tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                mSleep(1000)
+                if isColor(724, 106, 0xffffff, 95) then
+                    tap1(724, 106)
+                end
+            end
+            timeTree = nowTime
+        end
     end
 end
