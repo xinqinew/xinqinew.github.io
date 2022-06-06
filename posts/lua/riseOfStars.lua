@@ -501,7 +501,7 @@ function bianLiang()
 
     ---------------项目3---------------
     timeTap = nowTime
-    timeTree = nowTime - 5 * 60 --果树5分钟
+    timeTree = nowTime --果树收割间隔
 
 end
 
@@ -8688,10 +8688,11 @@ function main3()
         APP.isYiDengLu = 0
         runApp(apps1)
         APP = APP1
-        mSleep(5000)
+        mSleep(1000 * 15)
     end
     m_iRunCount = m_iRunCount + 1
 
+    isFarm()
     zongHe3()
     time_task()
     -- findFarm()
@@ -8720,6 +8721,14 @@ function zongHe3()
             tap1(522, 593)
         end
     end
+    if isColor(655, 626, 0x64a442, 95) and isColor(479, 629, 0xcaa07e, 95) then
+        debug("误开种植界面")
+        tap1(655, 626)
+    end
+    if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
+        debug("误开剩余时间")
+        tap1(724, 106)
+    end
     if isColor(658, 633, 0x60a13f, 95) and isColor(482, 632, 0x689ad3, 95) then
         debug("搬迁画面")
         tap1(658, 633, 0x60a13f)
@@ -8743,11 +8752,38 @@ function zongHe3()
         debug("对话")
         tap1(784, 468, 0xffffff)
     end
+    if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
+        debug("邮箱红点")
+        tap1(1080, 263, 0xe26060)
+    end
+    if isColor(109, 66, 0xd94344, 95) and isColor(167, 61, 0x5b3c47, 95) then
+        debug("邮箱界面")
+        if isColor(957, 166, 0x73b052, 95) then
+            debug("OK")
+            tap1(957, 166)
+        elseif isColor(945, 18, 0xda450c, 95) then
+            debug("公告红点")
+            tap1(911, 44, 0xbbbcbd)
+        else
+            debug("关闭")
+            tap1(1036, 67, 0xffffff)
+        end
+    end
 end
 
 --农场判断
 function isFarm()
     if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
+        debug("isFarm判断")
+        if isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
+        elseif isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
+        else
+            debug("移动位置了")
+            pressHomeKey(0); --按下抬起 Home 键一次
+            mSleep(1000)
+            return false
+        end
+
         return true
     end
 end
@@ -8933,9 +8969,13 @@ end
 function task3_guaJi()
     if muBiao == "挂机" then
         gaiMuBiaoNew(2, "种植")
-        debug("改目标为种植")
+        debug("改目标为种植2")
     elseif muBiao == "种植" then
         if findHouse() > 0 then
+            if isFarm() then
+            else
+                return
+            end
             farmX = 567 / farmLong
             farmY = 284 / farmLong
             x0 = math.floor(568 / farmLong * 2)
@@ -8947,93 +8987,112 @@ function task3_guaJi()
             if isColor(610, 35, 0xb93056, 95) == false then --面板
                 tap1(610, 35, 0xb93056)
             end
+            if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
+                debug("误开剩余时间")
+                tap1(724, 106)
+            end
             k = 0
-            for j = 3, 5, 2 do
-                for i = 1, farmLong - 1, 2 do
-                    realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
-                    realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
-                    k = k + 1
-                    debug(realX1 .. "," .. realY1 .. "," .. k)
-                    if k == 1 then
-                        tap1(902, 587, 0xce4f37) --shop
-                        tap1(895, 457, 0xe3806c) --shop
-                        -- tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
-                        for l = 1, 10, 1 do
-                            if isColor(1088, 46, 0xffffff, 95) then
-                                break
-                            else
-                                tap1(902, 587, 0xce4f37) --shop
-                                tap1(895, 457, 0xe3806c) --shop
-                            end
-                            mSleep(1000)
+            local n = 0
+            repeat
+                n = n + 1
+                for j = 3, 5, 2 do
+                    for i = 1, farmLong - 1, 2 do
+                        realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
+                        realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
+                        k = k + 1
+                        if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
+                            debug("误开剩余时间")
+                            tap1(724, 106)
                         end
-                        if isColor(262, 128, 0xf0404a, 95) == false then
-                            tap1(262, 128) --种植选项
-                        end
-                        for m = 1, 50, 1 do
-                            x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
-                            if x0 > 0 then
-                                local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
-                                debug("读取结果:" .. numStr)
-                                mSleep(200)
-                                local num1, num2 = string.find(numStr, "秒")
-                                local num3, num4 = string.find(numStr, "小")
-                                local num5, num6 = string.find(numStr, "分")
-
-                                if num1 ~= nil then --有秒
-                                    numStr, num = string.gsub(numStr, "秒", "")
-                                    numStr = tonumber(numStr)
-                                    debug("转换结果" .. numStr)
-                                elseif num5 ~= nil and num3 == nil then --只有分
-                                    numStr, num = string.gsub(numStr, "分", "")
-                                    numStr = tonumber(numStr) * 60
-                                    debug("转换结果" .. numStr)
-                                elseif num5 == nil and num3 ~= nil then --只有小时
-                                    numStr, num = string.gsub(numStr, "小时", "")
-                                    numStr = tonumber(numStr) * 3600
-                                    debug("转换结果" .. numStr)
-                                elseif num5 ~= nil and num3 ~= nil then --有小时和分
-                                    numStr, num = string.gsub(numStr, "分", "")
-                                    local data = strSplit(numStr, "小时")
-                                    numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
-                                    debug("转换结果" .. numStr)
+                        debug(realX1 .. "," .. realY1 .. "," .. k)
+                        if k == 1 then
+                            tap1(902, 587, 0xce4f37) --shop
+                            tap1(895, 457, 0xe3806c) --shop
+                            -- tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                            for l = 1, 10, 1 do
+                                if isColor(1088, 46, 0xffffff, 95) then
+                                    break
+                                else
+                                    tap1(902, 587, 0xce4f37) --shop
+                                    tap1(895, 457, 0xe3806c) --shop
                                 end
-                                timeCollectInterval = numStr
-                                -- luaExit()
+                                mSleep(1000)
+                            end
+                            if isColor(262, 128, 0xf0404a, 95) == false then
+                                tap1(262, 128) --种植选项
+                            end
+                            if check4 ~= "测试" then
+
+                                for m = 1, 50, 1 do
+                                    x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
+                                    if x0 > 0 then
+                                        local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
+                                        debug("读取结果:" .. numStr)
+                                        mSleep(200)
+                                        local num1, num2 = string.find(numStr, "秒")
+                                        local num3, num4 = string.find(numStr, "小")
+                                        local num5, num6 = string.find(numStr, "分")
+
+                                        if num1 ~= nil then --有秒
+                                            numStr, num = string.gsub(numStr, "秒", "")
+                                            numStr = tonumber(numStr)
+                                            debug("转换结果" .. numStr)
+                                        elseif num5 ~= nil and num3 == nil then --只有分
+                                            numStr, num = string.gsub(numStr, "分", "")
+                                            numStr = tonumber(numStr) * 60
+                                            debug("转换结果" .. numStr)
+                                        elseif num5 == nil and num3 ~= nil then --只有小时
+                                            numStr, num = string.gsub(numStr, "小时", "")
+                                            numStr = tonumber(numStr) * 3600
+                                            debug("转换结果" .. numStr)
+                                        elseif num5 ~= nil and num3 ~= nil then --有小时和分
+                                            numStr, num = string.gsub(numStr, "分", "")
+                                            local data = strSplit(numStr, "小时")
+                                            numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
+                                            debug("转换结果" .. numStr)
+                                        end
+                                        timeCollectInterval = numStr
+                                        -- luaExit()
+                                        for l = 1, 10, 1 do
+                                            tap(x0 - 292, y0, { ["ms"] = 300 })
+                                            mSleep(1000)
+                                            if isColor(1089, 47, 0xffffff, 95) == false then
+                                                break
+                                            end
+                                        end
+                                        break
+                                    else
+                                        moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                        mSleep(1000)
+                                    end
+                                end
+                            else
                                 for l = 1, 10, 1 do
-                                    tap(x0 - 292, y0, { ["ms"] = 300 }) --卷心菜
+                                    tap(452, 398, { ["ms"] = 300 }) --卷心菜
                                     mSleep(1000)
                                     if isColor(1089, 47, 0xffffff, 95) == false then
                                         break
                                     end
                                 end
-                                break
-                            else
-                                moveTo(801, 321, 499, 321, { ["stop"] = 1 })
                                 mSleep(1000)
+                                timeCollectInterval = 33
                             end
                         end
-                        -- for l = 1, 10, 1 do
-                        --     tap(452, 398, { ["ms"] = 300 }) --卷心菜
-                        --     mSleep(1000)
-                        --     if isColor(1089, 47, 0xffffff, 95) == false then
-                        --         break
-                        --     end
-                        -- end
-                        -- mSleep(1000)
-                        -- timeCollectInterval = 33
+                        tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                        mSleep(1000)
+                        if isColor(663, 621, 0x66a744, 95) == false then --已种完
+                            break
+                        end
+                        if isColor(724, 107, 0xffffff, 95) then
+                            tap1(724, 107) --误开
+                        end
+                        -- tap(realX1, realY1)
                     end
-                    tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
-                    mSleep(1000)
-                    if isColor(724, 107, 0xffffff, 95) then
-                        tap1(724, 107) --误开
-                    end
-                    -- tap(realX1, realY1)
                 end
-            end
-            if isColor(664, 619, 0x68a844, 95) then
-                tap1(738, 612, 0xffffff)
-            end
+            until isColor(664, 619, 0x68a844, 95) == false or n == 2 --已种完
+            -- if isColor(664, 619, 0x68a844, 95) then
+            --     tap1(738, 612, 0xffffff)
+            -- end
             mSleep(2000)
             -- ------------------洒水------------------
             -- moveTowards(numOriginX - math.floor(farmX * 4), numOriginY + math.floor(farmY * 4), -26.56, 635)
@@ -9060,7 +9119,23 @@ function task3_guaJi()
             writeJson("收割时间", timeCollect)
         end
     elseif muBiao == "等待收割" then
+        if isFarm() then
+        else
+            return
+        end
         if findHouse() > 0 then
+            x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
+            if x > 0 then
+                debug("浇水1")
+                tap(x, y)
+                return
+            end
+            x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
+            if x > 0 then
+                debug("气泡")
+                tap(x, y)
+                return
+            end
             if nowTime - timeCollect > 0 then
                 findHouse()
                 farmX = 567 / farmLong
@@ -9068,20 +9143,33 @@ function task3_guaJi()
                 x0 = math.floor(568 / farmLong * 2)
                 y0 = math.floor(284 / farmLong * 2)
                 -- moveTowards(numOriginX - math.floor(farmX * 4), numOriginY + math.floor(farmY * 4), -26.56, 635)
+                -- debug("farmX farmY x0 y0:" .. farmX .. "," .. farmY .. "," .. x0 .. "," .. y0)
 
-                for j = 5, 3, 2 do
+                for j = 5, 3, -2 do
                     for i = 1, farmLong - 1, 2 do
+                        x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
+                        if x > 0 then
+                            debug("浇水")
+                            tap(x, y)
+                        end
                         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
-                        if isColor(1088, 46, 0xffffff, 95) then --误开种植栏
+                        -- debug("realX1 realY1:" .. realX1 .. "," .. realY1)
+
+                        if isColor(1088, 46, 0xffffff, 95) then --误开种植界面
                             tap(1088, 46, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                             mSleep(300)
                         end
                         tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                         -- tap(realX1, realY1)
+                        -- debug("收割:" .. realX1 .. "," .. realY1)
                         mSleep(300)
-                        if isColor(1088, 46, 0xffffff, 95) then --误开种植栏
+                        if isColor(1088, 46, 0xffffff, 95) then --误开种界面
                             tap(1088, 46, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                            mSleep(300)
+                        end
+                        if isColor(724, 106, 0xffffff, 95) then --误开剩余时间，有产品没成熟
+                            tap(724, 106, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                             mSleep(300)
                         end
                     end
@@ -9089,17 +9177,7 @@ function task3_guaJi()
                 -- moveTo(numOriginX - x0, numOriginY + y0 + 10, numOriginX + 568 - x0 - 20, numOriginY + 284 + y0 + 10, { ["stop"] = 1 })
                 -- moveTo(numOriginX - x0 * 2, numOriginY + y0 * 2 + 10, numOriginX + 568 - x0 * 2 - 20, numOriginY + 284 + y0 * 2 + 10, { ["stop"] = 1 })
                 gaiMuBiaoNew(2, "种植")
-                debug("改目标为种植")
-            end
-            x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
-            if x > 0 then
-                debug("浇水")
-                tap(x, y)
-            end
-            x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
-            if x > 0 then
-                debug("气泡")
-                tap(x, y)
+                debug("改目标为种植1")
             end
         end
     end
@@ -9111,13 +9189,17 @@ function time_task()
         tap(1135, 0)
         timeTap = nowTime
     end
-    if nowTime - timeTree >= 5.2 * 60 then
+    if nowTime - timeTree >= 60 then
         tapTrees()
     end
 end
 
 --点击果树
 function tapTrees()
+    if isFarm() then
+    else
+        return
+    end
     x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
     if x > 0 then
         debug("浇水")
@@ -9129,11 +9211,38 @@ function tapTrees()
             x0 = math.floor(568 / farmLong * 2)
             y0 = math.floor(284 / farmLong * 2)
             for i = 1, farmLong - 1, 2 do
+                x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
+                if x > 0 then
+                    debug("浇水")
+                    tap(x, y)
+                end
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (1 - 1) * farmX)
                 realY1 = math.floor(numOriginY + (1 - 1) * farmY + (i - 1) * farmY + 12)
-                tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
-                mSleep(1000)
-                if isColor(724, 106, 0xffffff, 95) then
+                if isColor(realX1, realY1, 0x55ff25, 95) then --地为绿色
+                    tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                    mSleep(1000)
+                end
+                if isColor(724, 106, 0xffffff, 95) then --果树信息
+                    tap1(724, 106)
+                end
+            end
+            -- for j = 5, 3, -2 do
+            --     for i = 1, farmLong - 1, 2 do
+            --         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
+            --         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
+            for i = 1, farmLong - 1, 2 do
+                x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
+                if x > 0 then
+                    debug("浇水")
+                    tap(x, y)
+                end
+                realX1 = math.floor(numOriginX + (i - 1) * farmX - (5 - 1) * farmX)
+                realY1 = math.floor(numOriginY + (5 - 1) * farmY + (i - 1) * farmY + 12)
+                if isColor(realX1, realY1, 0x55ff25, 95) then --地为绿色
+                    tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                    mSleep(1000)
+                end
+                if isColor(724, 106, 0xffffff, 95) then --果树信息
                     tap1(724, 106)
                 end
             end
