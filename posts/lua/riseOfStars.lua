@@ -500,8 +500,13 @@ function bianLiang()
     timeTask_ZhuXian = nowTime - 10
 
     ---------------项目3---------------
+    isZhiDingFruit = false --指定种植水果
+
+    strZhiDingFruit = ""
+
     timeTap = nowTime
     timeTree = nowTime --果树收割间隔
+
 
 end
 
@@ -526,7 +531,7 @@ function newUi()
     UICombo(2, "numGuaJiDian", "挂机点1,挂机点2,挂机点3,挂机点4,挂机点5,挂机点6,挂机点7,挂机点8", "0", -1, 1, true) -- 下拉框
 
     UILabel(3, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(3, "Ccheck1,Ccheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei", "检查果实,番茄,草莓", "0", -1, 0, "", 1, 3) -- 多选1
     UIEdit(3, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -1527,7 +1532,7 @@ function onceOther()
     --            "3807eefefc63863c63fffffe3fc$9$71$12$9"}
     -- index_num = addTSOcrDictEx(tab_num)
 
-    tab_dm_num = { "03E3FCFFBFD701C03803807E07FC7F83F$0$0.0.127$19",
+    tab_dm_numTime = { "03E3FCFFBFD701C03803807E07FC7F83F$0$0.0.127$19",
         "700E03C07FFFFFFFC$1$1.4.89$18",
         "100701E0380601C03C1BEF7FE7FC7E0$2$0.1.119$19",
         "300E01C3707E0FE3DFFBFF7F23E0$3$1.1.114$19",
@@ -1542,7 +1547,22 @@ function onceOther()
         "1FE7FCFF9C738670CFF9FF3FE0003C87B0F61E03C0780F1FFFFFBFF0F00C0$时$0.0.254$22",
         "31C738C73FF7FEFFDCFB0E21E01C1F87F070003FFFFFFFE0003807F07E03C$秒$0.0.261$23"
     }
-    index_dm_num = addDmOcrDictEx(tab_dm_num)
+    index_dm_numTime = addDmOcrDictEx(tab_dm_numTime)
+
+    tab_dm_numNumber = {
+        "C07C1FEF9FC1F03F1FFF8FE07000$x$1.0.68$12",
+        "03C3FDFFF8CE318630C61CE3FC3C038$6$0.0.94$16",
+        "C0180300600C0F87F3FFF8F81E03000$7$0.0.63$16",
+        "400C0380600C0381F87FFE7F87C0$2$0.1.84$16",
+        "002F8FFBFFCC398730773EFEEF8C008$8$0.0.100$16",
+        "600C01807FFFFFFFC$1$0.4.74$16",
+        "400C038060CC398739E7FF7EE78C$3$0.1.83$16",
+        "3E0FF3FE70EC1D81B0679C7FE7FC1F0$9$0.0.96$16",
+        "00E07C1F8FB3C7E0F9FFFFFFE00C018$4$0.0.91$16",
+        "FF1FE3FC618C318630F61FC1E004$5$1.0.87$16",
+        "0FE7FDFFF80C01803007807FE7FC3F8$0$0.0.97$16"
+    }
+    index_dm_numNumber = addDmOcrDictEx(tab_dm_numNumber)
 
 
     haoLV = 0
@@ -8692,6 +8712,13 @@ function main3()
     end
     m_iRunCount = m_iRunCount + 1
 
+    -- local numStr1 = dmOcrText(index_dm_numNumber, 61, 405, 1049, 426, "DCD7D9,232826", 95)
+    -- local numStr2 = dmOcrText(index_dm_numNumber, 61, 520, 1049, 544, "DCD7D9,232826", 95)
+    -- debug(numStr1)
+    -- mSleep(100)
+    -- debug(numStr2)
+    -- lua_exit()
+
     isFarm()
     zongHe3()
     time_task()
@@ -8720,6 +8747,18 @@ function zongHe3()
             debug("误开实景界面")
             tap1(522, 593)
         end
+        if isColor(592, 585, 0xbd3724, 95) then
+            debug("误开请求支援")
+            tap1(592, 585, 0xbd3724)
+        end
+    end
+    if isColor(794, 530, 0x69a94b, 95) and isColor(868, 540, 0xc4956f, 95) then
+        debug("Hot sale")
+        tap1(868, 540, 0xc4956f)
+    end
+    if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
+        debug("Notice")
+        tap1(1034, 62)
     end
     if isColor(655, 626, 0x64a442, 95) and isColor(479, 629, 0xcaa07e, 95) then
         debug("误开种植界面")
@@ -8860,7 +8899,7 @@ function findFarm()
                         for m = 1, 50, 1 do
                             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
                             if x0 > 0 then
-                                local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
+                                local numStr = dmOcrText(index_dm_numTime, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
                                 -- local numStr = ocrText(x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, 1, "012346789小时分秒")
                                 -- temStr = string.gsub(temStr, " ", "")
                                 -- if tonumber(numStr) >= 0 then
@@ -9006,6 +9045,43 @@ function task3_guaJi()
                         end
                         debug(realX1 .. "," .. realY1 .. "," .. k)
                         if k == 1 then
+                            if checkGuoShi == "检查果实" then
+                                tap1(1077, 592, 0xd6915e) --Tool Box
+                                mSleep(1000)
+                                tap1(559, 572, 0xc47b5c) --sell
+                                mSleep(1000)
+                                if isColor(138, 350, 0x6fb644, 95) == false then --不为蔬菜
+                                    tap1(176, 358, 0xcfaf8b) --all
+                                    tap1(333, 328, 0x6fb644) --crop
+                                end
+                                isZhiDingFruit = false
+                                if checkTomato == "番茄" and isZhiDingFruit == false then
+                                    x, y = findMultiColorInRegionFuzzy(0x68a646, "16|-10|0xef5138,43|7|0xf87b5b,46|27|0xef5138", 90, 3, 389, 1127, 614)
+                                    if x > 0 then
+                                        local numStr = dmOcrText(index_dm_numNumber, x + 3, y - 36, x + 65, y - 13, "DCD7D9,232826", 95)
+                                        numStr, num = string.gsub(numStr, "x", "")
+                                        numStr = tonumber(numStr)
+                                        if numStr <= 20 then
+                                            isZhiDingFruit = true
+                                            strZhiDingFruit = "番茄"
+                                        end
+                                    end
+                                end
+                                if checkCaoMei == "草莓" and isZhiDingFruit == false then
+                                    x, y = findMultiColorInRegionFuzzy(0x307c2d, "-10|33|0xebb956,38|34|0xf0404a,44|51|0xb81f2a", 90, 3, 389, 1127, 614)
+                                    if x > 0 then
+                                        local numStr = dmOcrText(index_dm_numNumber, x + 4, y - 14, x + 68, y + 10, "DCD7D9,232826", 95)
+                                        numStr, num = string.gsub(numStr, "x", "")
+                                        numStr = tonumber(numStr)
+                                        if numStr <= 20 then
+                                            isZhiDingFruit = true
+                                            strZhiDingFruit = "草莓"
+                                        end
+                                    end
+                                end
+                                tap1(1088, 303, 0xbebebd) --关闭
+                            end
+
                             tap1(902, 587, 0xce4f37) --shop
                             tap1(895, 457, 0xe3806c) --shop
                             -- tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
@@ -9022,48 +9098,77 @@ function task3_guaJi()
                                 tap1(262, 128) --种植选项
                             end
                             if check4 ~= "测试" then
+                                if isZhiDingFruit == false then
+                                    for m = 1, 50, 1 do
+                                        x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
+                                        if x0 > 0 then
+                                            local numStr = dmOcrText(index_dm_numTime, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
+                                            debug("读取结果:" .. numStr)
+                                            mSleep(200)
+                                            local num1, num2 = string.find(numStr, "秒")
+                                            local num3, num4 = string.find(numStr, "小")
+                                            local num5, num6 = string.find(numStr, "分")
 
-                                for m = 1, 50, 1 do
-                                    x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
-                                    if x0 > 0 then
-                                        local numStr = dmOcrText(index_dm_num, x0 - 500, y0 + 206, x0 - 500 + 118, y0 + 206 + 29, "785F5D,25281C", 90)
-                                        debug("读取结果:" .. numStr)
-                                        mSleep(200)
-                                        local num1, num2 = string.find(numStr, "秒")
-                                        local num3, num4 = string.find(numStr, "小")
-                                        local num5, num6 = string.find(numStr, "分")
-
-                                        if num1 ~= nil then --有秒
-                                            numStr, num = string.gsub(numStr, "秒", "")
-                                            numStr = tonumber(numStr)
-                                            debug("转换结果" .. numStr)
-                                        elseif num5 ~= nil and num3 == nil then --只有分
-                                            numStr, num = string.gsub(numStr, "分", "")
-                                            numStr = tonumber(numStr) * 60
-                                            debug("转换结果" .. numStr)
-                                        elseif num5 == nil and num3 ~= nil then --只有小时
-                                            numStr, num = string.gsub(numStr, "小时", "")
-                                            numStr = tonumber(numStr) * 3600
-                                            debug("转换结果" .. numStr)
-                                        elseif num5 ~= nil and num3 ~= nil then --有小时和分
-                                            numStr, num = string.gsub(numStr, "分", "")
-                                            local data = strSplit(numStr, "小时")
-                                            numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
-                                            debug("转换结果" .. numStr)
-                                        end
-                                        timeCollectInterval = numStr
-                                        -- luaExit()
-                                        for l = 1, 10, 1 do
-                                            tap(x0 - 292, y0, { ["ms"] = 300 })
-                                            mSleep(1000)
-                                            if isColor(1089, 47, 0xffffff, 95) == false then
-                                                break
+                                            if num1 ~= nil then --有秒
+                                                numStr, num = string.gsub(numStr, "秒", "")
+                                                numStr = tonumber(numStr)
+                                                debug("转换结果" .. numStr)
+                                            elseif num5 ~= nil and num3 == nil then --只有分
+                                                numStr, num = string.gsub(numStr, "分", "")
+                                                numStr = tonumber(numStr) * 60
+                                                debug("转换结果" .. numStr)
+                                            elseif num5 == nil and num3 ~= nil then --只有小时
+                                                numStr, num = string.gsub(numStr, "小时", "")
+                                                numStr = tonumber(numStr) * 3600
+                                                debug("转换结果" .. numStr)
+                                            elseif num5 ~= nil and num3 ~= nil then --有小时和分
+                                                numStr, num = string.gsub(numStr, "分", "")
+                                                local data = strSplit(numStr, "小时")
+                                                numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
+                                                debug("转换结果" .. numStr)
                                             end
+                                            timeCollectInterval = numStr
+                                            -- luaExit()
+                                            for l = 1, 10, 1 do
+                                                tap(x0 - 292, y0, { ["ms"] = 300 })
+                                                mSleep(1000)
+                                                if isColor(1089, 47, 0xffffff, 95) == false then
+                                                    break
+                                                end
+                                            end
+                                            break
+                                        else
+                                            moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                            mSleep(1000)
                                         end
-                                        break
-                                    else
-                                        moveTo(801, 321, 499, 321, { ["stop"] = 1 })
-                                        mSleep(1000)
+                                    end
+                                else
+                                    if isColor(1, 629, 0x5f5a51, 95) == false then --滚动条不在左边
+                                        tap1(1050, 204, 0x89663e) --sort
+                                        tap1(944, 174, 0x4c94ff) --等级排序
+                                    end
+                                    for m = 1, 50, 1 do
+                                        if strZhiDingFruit == "番茄" then
+                                            x0, y0 = findMultiColorInRegionFuzzy(0x68a646, "-1|15|0xf8b87b,34|19|0xef5138,34|-12|0x75ae4f", 90, 200, 493, 1122, 544)
+                                            timeCollectInterval = 60
+                                        elseif strZhiDingFruit == "草莓" then
+                                            x0, y0 = findMultiColorInRegionFuzzy(0x307c2d, "-9|21|0xe29d4e,36|20|0x3a8636,29|33|0xb81f2a", 90, 200, 500, 1122, 540)
+                                            timeCollectInterval = 90
+                                        end
+                                        if x0 > 0 then
+                                            -- luaExit()
+                                            for l = 1, 10, 1 do
+                                                tap(x0, y0, { ["ms"] = 300 })
+                                                mSleep(1000)
+                                                if isColor(1089, 47, 0xffffff, 95) == false then
+                                                    break
+                                                end
+                                            end
+                                            break
+                                        else
+                                            moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                            mSleep(1000)
+                                        end
                                     end
                                 end
                             else
