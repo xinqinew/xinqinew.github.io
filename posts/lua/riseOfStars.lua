@@ -2014,7 +2014,7 @@ function zongHe1(...)
         isColor(719, 462, 0x116eb9, 95) then
         if isColor(714, 311, 0x116eb9, 95) then
             debug("移动至高级商店")
-            tap1(510,592,0x0c0c0e        )--关闭
+            tap1(510, 592, 0x0c0c0e) --关闭
             isLiZi = true -- 粒子
             tap1(172, 525) -- 搜索
         else
@@ -8766,6 +8766,10 @@ function zongHe3()
             tap1(592, 585, 0xbd3724)
         end
     end
+    if isColor(438, 507, 0x62a547, 95) and isColor(724, 107, 0xffffff, 95) and isColor(725, 94, 0x78595f, 95) then
+        debug("误开地块详细信息")
+        tap1(724, 107)
+    end
     if isColor(794, 530, 0x69a94b, 95) and isColor(868, 540, 0xc4956f, 95) then
         debug("Hot sale")
         tap1(868, 540, 0xc4956f)
@@ -8827,7 +8831,7 @@ end
 --农场判断
 function isFarm()
     if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
-        debug("isFarm判断")
+        -- debug("isFarm判断")
         if isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
         elseif isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
         else
@@ -9057,7 +9061,7 @@ function task3_guaJi()
                             debug("误开剩余时间")
                             tap1(724, 106)
                         end
-                        debug(realX1 .. "," .. realY1 .. "," .. k)
+                        -- debug(realX1 .. "," .. realY1 .. "," .. k)
                         if k == 1 then
                             if checkGuoShi == "检查果实" then
                                 tap1(1077, 592, 0xd6915e) --Tool Box
@@ -9072,9 +9076,10 @@ function task3_guaJi()
                                 if checkTomato == "番茄" and isZhiDingFruit == false then
                                     x, y = findMultiColorInRegionFuzzy(0x68a646, "16|-10|0xef5138,43|7|0xf87b5b,46|27|0xef5138", 90, 3, 389, 1127, 614)
                                     if x > 0 then
-                                        local numStr = dmOcrText(index_dm_numNumber, x + 3, y - 36, x + 65, y - 13, "DCD7D9,232826", 95)
+                                        local numStr = dmOcrText(index_dm_numNumber, x + 3, y - 36, x + 75, y - 13, "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
+                                        debug("番茄:" .. numStr)
                                         if numStr <= 20 then
                                             isZhiDingFruit = true
                                             strZhiDingFruit = "番茄"
@@ -9084,9 +9089,10 @@ function task3_guaJi()
                                 if checkCaoMei == "草莓" and isZhiDingFruit == false then
                                     x, y = findMultiColorInRegionFuzzy(0x307c2d, "-10|33|0xebb956,38|34|0xf0404a,44|51|0xb81f2a", 90, 3, 389, 1127, 614)
                                     if x > 0 then
-                                        local numStr = dmOcrText(index_dm_numNumber, x + 4, y - 14, x + 68, y + 10, "DCD7D9,232826", 95)
+                                        local numStr = dmOcrText(index_dm_numNumber, x + 4, y - 14, x + 78, y + 10, "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
+                                        debug("草莓:" .. numStr)
                                         if numStr <= 20 then
                                             isZhiDingFruit = true
                                             strZhiDingFruit = "草莓"
@@ -9245,13 +9251,13 @@ function task3_guaJi()
         if findHouse() > 0 then
             x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
             if x > 0 then
-                debug("浇水1")
+                -- debug("浇水1")
                 tap(x, y)
                 return
             end
             x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
             if x > 0 then
-                debug("气泡")
+                -- debug("气泡")
                 tap(x, y)
                 return
             end
@@ -9268,7 +9274,7 @@ function task3_guaJi()
                     for i = 1, farmLong - 1, 2 do
                         x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
                         if x > 0 then
-                            debug("浇水")
+                            -- debug("浇水")
                             tap(x, y)
                         end
                         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
@@ -9297,6 +9303,7 @@ function task3_guaJi()
                 -- moveTo(numOriginX - x0 * 2, numOriginY + y0 * 2 + 10, numOriginX + 568 - x0 * 2 - 20, numOriginY + 284 + y0 * 2 + 10, { ["stop"] = 1 })
                 gaiMuBiaoNew(2, "种植")
                 debug("改目标为种植1")
+                timeTree = nowTime
             end
         end
     end
@@ -9321,7 +9328,7 @@ function tapTrees()
     end
     x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
     if x > 0 then
-        debug("浇水")
+        -- debug("浇水")
         tap(x, y)
     else
         if findHouse() > 0 then
@@ -9332,7 +9339,7 @@ function tapTrees()
             for i = 1, farmLong - 1, 2 do
                 x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
                 if x > 0 then
-                    debug("浇水")
+                    -- debug("浇水")
                     tap(x, y)
                 end
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (1 - 1) * farmX)
