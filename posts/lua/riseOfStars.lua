@@ -841,6 +841,9 @@ function main1()
     elseif bid == "com.readdle.ReaddleDocsIPad" then
         setRotationLockEnable(false);
         init(1)
+    elseif bid == "com.apple.mobileslideshow" then
+        setRotationLockEnable(false);
+        init(1)
     elseif bid == "" then
         -- debug("哪个都没开")
         APP.isYiDengLu = 0
@@ -1875,6 +1878,10 @@ function zongHe1(...)
             tap1(33, 493)
         end
     end
+    if isColor(454, 585, 0x284b73, 95) and isColor(477, 607, 0x284b73, 95) and isColor(911, 589, 0x3e5c7f, 95) then
+        debug("今天不再观看")
+        tap1(911, 589, 0x3e5c7f)
+    end
     if isColor(94, 87, 0xa5b6ca, 95) and isColor(118, 81, 0x4e78aa, 95) and isColor(108, 542, 0xd78b01, 95) then
         debug("库存战舰")
         if isColor(897, 539, 0x2a394c, 95) then --未库存
@@ -2005,8 +2012,15 @@ function zongHe1(...)
     end
     if isColor(310, 314, 0xffffff, 95) and isColor(712, 309, 0x116eb9, 95) and isColor(310, 466, 0xffffff, 95) and
         isColor(719, 462, 0x116eb9, 95) then
-        debug("通过以下途径获得以下道具")
-        tap1(512, 594, 0x0c0c0e)
+        if isColor(714, 311, 0x116eb9, 95) then
+            debug("移动至高级商店")
+            tap1(510,592,0x0c0c0e        )--关闭
+            isLiZi = true -- 粒子
+            tap1(172, 525) -- 搜索
+        else
+            debug("通过以下途径获得以下道具")
+            tap1(512, 594, 0x0c0c0e)
+        end
     end
     if isColor(696, 250, 0x116eb9, 95) and isColor(823, 255, 0x126fba, 95) and isColor(460, 509, 0x8f4d14, 95) and
         isColor(465, 548, 0xd78c00, 95) then
