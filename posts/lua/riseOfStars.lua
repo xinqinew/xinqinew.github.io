@@ -8783,12 +8783,84 @@ function main3()
         APP.isYiDengLu = 0
         runApp(apps1)
         APP = APP1
-        mSleep(1000 * 15)
-        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
-        numOriginX = 0
-        numOriginY = 0
-        writeJson("原点X", numOriginX)
-        writeJson("原点Y", numOriginY)
+        local numLoading = 0
+        for i = 1, 600, 1 do
+            if isColor(395, 156, 0xa4ee4e, 95) and isColor(383, 229, 0xffe06b, 95) then --loading
+                numLoading = 1
+                break
+            else
+                mSleep(100)
+            end
+        end
+        if numLoading~= 0 then
+            for i = 1, 600*2, 1 do
+                if isColor(477, 319, 0xf8b841, 95) and isColor(499, 430, 0x686868, 95) and isColor(665, 320, 0xf8b841, 95)
+                    and
+                    isColor(640, 427, 0x6a6a6a, 95) then
+                    debug("Server")
+                    tap1(486, 321, 0xf8b740)
+                end
+                if isColor(472, 317, 0x9b775a, 95) and isColor(498, 426, 0x73b153, 95) and isColor(650, 316, 0x9d785a, 95)
+                    and
+                    isColor(646, 440, 0x66a749, 95) then
+                    debug("Server--OK")
+                    tap1(646, 440, 0x66a749)
+                end
+                if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
+                    debug("Notice")
+                    tap1(1034, 62)
+                end
+                if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
+                    break
+                else
+                    mSleep(100)
+                end
+            end
+            moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+            numOriginX = 0
+            numOriginY = 0
+            writeJson("原点X", numOriginX)
+            writeJson("原点Y", numOriginY)
+            for i = 1, 50, 1 do
+                if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
+                    mSleep(100)
+                else
+                    for i = 1, 600, 1 do
+                        if isColor(395, 156, 0xa4ee4e, 95) and isColor(383, 229, 0xffe06b, 95) then --loading
+                            numLoading = 2
+                            break
+                        else
+                            mSleep(100)
+                        end
+                    end
+                    for i = 1, 600*2, 1 do
+                        if isColor(477, 319, 0xf8b841, 95) and isColor(499, 430, 0x686868, 95) and isColor(665, 320, 0xf8b841, 95)
+                            and
+                            isColor(640, 427, 0x6a6a6a, 95) then
+                            debug("Server")
+                            tap1(486, 321, 0xf8b740)
+                        end
+                        if isColor(472, 317, 0x9b775a, 95) and isColor(498, 426, 0x73b153, 95) and isColor(650, 316, 0x9d785a, 95)
+                            and
+                            isColor(646, 440, 0x66a749, 95) then
+                            debug("Server--OK")
+                            tap1(646, 440, 0x66a749)
+                        end
+                        if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
+                            debug("Notice")
+                            tap1(1034, 62)
+                        end
+                        if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
+                            break
+                        else
+                            mSleep(100)
+                        end
+                    end
+                    moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+                    break
+                end
+            end
+        end
     end
     m_iRunCount = m_iRunCount + 1
 
@@ -9417,7 +9489,8 @@ function task3_guaJi()
                 tap1(x + 98, y - 32)
                 return
             end
-            x,y = findMultiColorInRegionFuzzy( 0xd64428, "23|-2|0xbf8b5c,23|-14|0xc08e5c,0|13|0xddb883", 90,  86, 96, 1045, 547) --援助
+            x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-2|0xbf8b5c,23|-14|0xc08e5c,0|13|0xddb883", 90, 86, 96, 1045
+                , 547) --援助
             if x > 0 then
                 -- debug("援助")
                 tap1(x, y)
@@ -9548,7 +9621,7 @@ function watering()
     x, y = findMultiColorInRegionFuzzy(0xffffff, "6|-21|0x63b7ed,14|2|0x66b8e7,22|3|0xffffff", 90, 1, 91, 1031, 550) --浇水
     if x > 0 then
         -- debug("浇水1")
-        tap(x, y,{ ["ms"] = 300 })
+        tap(x, y, { ["ms"] = 300 })
         return true
     else
         return false
@@ -9644,7 +9717,7 @@ function sell()
                             debug("数量为" .. numStr)
                             if numStr >= 1 then
                                 tap1(38 + i * 118, 405 + j * 116) --选中要卖的
-                                tap1(703,434,0xd0d0d0) --全部
+                                tap1(703, 434, 0xd0d0d0) --全部
                                 tap1(566, 525, 0x75b154) --sell
                                 mSleep(2000)
                             end
