@@ -1,4 +1,4 @@
-numLua = 20.6
+numLua = 20.7
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -2925,20 +2925,20 @@ function zongHe1(...)
         tap1(20, 20)
         redJudge()
     end
-    if isColor(7, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(73, 15, 0xe2e8ef, 95) and
-        isColor(161, 29, 0xe1e7ed, 95) then
+    if isColor(7, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(73, 14, 0xe2e8ef, 95) and
+        isColor(161, 29, 0xa8b8c9, 95) then
         debug("活动中心")
-        x, y = findMultiColorInRegionFuzzy(0x9d1111, "-1|0|0xf29203", 90, 134, 120, 135, 603)
+        x, y = findMultiColorInRegionFuzzy(0x9d1111, "-1|0|0xf29203", 90, 133, 120, 134, 603)
         if x ~= -1 then
             huoDongDetail()
         else
-            x, y = findColorInRegionFuzzy(0x931012, 95, 135, 75, 135, 612)
+            x, y = findColorInRegionFuzzy(0x931012, 95, 134, 75, 134, 612)
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
                 tap1(78, y + 19)
             else
                 touchMoveXY(79, 573, 79, 190)
                 mSleep(1000)
-                x1, y1 = findColorInRegionFuzzy(0x931012, 95, 135, 75, 135, 612)
+                x1, y1 = findColorInRegionFuzzy(0x931012, 95, 134, 75, 134, 612)
                 if x1 ~= -1 and y1 ~= -1 then -- 如果在指定区域找到某点符合条件
                     tap1(78, y1 + 19)
                 else
@@ -7322,24 +7322,32 @@ function BeAttack()
             if nowDateTime.hour >= 8 then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
-                elseif nowTime - timeBeAttack2 >= 60 then
+                elseif nowTime - timeBeAttack2 >= 5 then
                     vibratorNotice()
                     timeBeAttack2 = 0
                 end
             elseif string.find(muBiao, "战备") == nil then
-                if isColor(1019, 544, 0x7b3b15, 95) and isColor(1124, 618, 0x803513, 90) and
-                    isColor(1058, 581, 0xf5dede, 90) then
+                if isColor(1019, 544, 0x793d16, 95) and isColor(1124, 618, 0x7d3915, 95) and
+                    isColor(1058, 581, 0xf8e6e6, 95) then
                     debug("基地内--被攻击")
                     gaiMuBiaoNew(4, "战备")
-                elseif isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and
-                    isColor(1039, 574, 0xece0e0, 95) then
+                elseif isColor(1019, 544, 0x7b3b15, 95) and isColor(1124, 618, 0x803513, 95) and
+                    isColor(1039, 574, 0xe8d3d3, 95) then
                     debug("基地外--被攻击")
                     gaiMuBiaoNew(4, "战备")
-                    tap1(1077, 579, 0xf6e2e2)
-                elseif isColor(69, 23, 0xf05300, 95) and isColor(92, 37, 0xb3a0ac, 95) and isColor(173, 44, 0xa093a1, 95) then
+                    tap(1077, 579)
+                elseif isColor(69, 23, 0xf35600, 95) and isColor(92, 36, 0xb4a5b1, 95) and isColor(173, 43, 0xa098a6, 95) then
                     debug("基地现况--被攻击")
                     gaiMuBiaoNew(4, "战备")
-                    tap1(509, 608, 0x1c0e11)
+                    tap(509, 608)
+                elseif isColor(54, 58, 0xf29600, 95) then
+                    debug("建筑界面--被攻击")
+                    gaiMuBiaoNew(4, "战备")
+                    tap(20, 20)
+                elseif isColor(93, 64, 0xf6a000, 95) then
+                    debug("邮箱界面--被攻击")
+                    gaiMuBiaoNew(4, "战备")
+                    tap(20, 20)
                 else
                     closeApp(appXiangMu)
                     mSleep(2000)
@@ -7352,17 +7360,19 @@ end
 
 --战备
 function warReady()
-    if isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1039, 574, 0xece0e0, 95) then
+    if (isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95)) or
+        (isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1039, 574, 0xece0e0, 95)) then
         debug("基地外--战备")
-        tap1(1077, 579, 0xf6e2e2)
+        tap(1077, 579)
     end
-    if isColor(964, 581, 0xa74f22, 95) and isColor(1018, 543, 0x7b3b15, 95) and isColor(1058, 581, 0xf5dddd, 95) then
+    if (isColor(964, 581, 0xa55927, 95) and isColor(1018, 543, 0x744218, 95) and isColor(1058, 581, 0xffffff, 95)) or
+        (isColor(964, 581, 0xa74f22, 95) and isColor(1018, 543, 0x7b3b15, 95) and isColor(1058, 581, 0xf5dddd, 95)) then
         debug("基地内--战备")
-        mSleep(3000)
+        -- mSleep(3000)
         if muBiao == "战备" and isColor(928, 51, 0x960f11, 95) then
             debug("瞭望塔")
-            tap1(887, 68, 0x21324c)
-            mSleep(5000)
+            tap(887, 68)
+            mSleep(2000)
             if isColor(161, 569, 0xf6e1e1, 95) then
                 debug("攻击2")
                 tap1(20, 20)
@@ -7458,7 +7468,7 @@ function warReady()
                 tap1(964, 581, 0xa74f22) --背包
                 tap1(964, 581, 0xa74f22) --背包
                 tap1(964, 581, 0xa74f22) --背包
-            elseif isColor(578, 278, 0x4f5d60, 95) then
+            elseif isColor(578, 278, 0x4f5d60, 90) then
                 -- elseif isColor(578, 278, 0x165aab, 95) then
                 debug("可使用")
                 tap1(573, 258, 0xd2a414) --使用技能--召回
@@ -7506,18 +7516,19 @@ function warReady()
         end
     end
     if muBiao == "战备开盾" then
-        if isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95) then
+        if (isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95)) or
+            (isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95)) then
             debug("背包界面--战备")
-            if isColor(119, 253, 0x1e2434, 95) then
+            if isColor(119, 253, 0x1e2434, 90) then
                 tap1(119, 253, 0x1e2434) --战争
             end
-            if isColor(294, 104, 0x3081aa, 95) then
+            if isColor(294, 104, 0x3081aa, 95) or isColor(294, 104, 0x2988b3, 95) then
                 tap1(294, 104) --2
                 tap1(518, 456, 0x1c6cb9)
-            elseif isColor(394, 104, 0x2f82ac, 95) then
+            elseif isColor(394, 104, 0x2f82ac, 95) or isColor(394, 104, 0x2988b3, 95) then
                 tap1(394, 104) --3
                 tap1(518, 456, 0x1c6cb9)
-            elseif isColor(493, 104, 0x2e83ad, 95) then
+            elseif isColor(493, 104, 0x2e83ad, 95) or isColor(493, 104, 0x2988b3, 95) then
                 tap1(493, 104) --4
                 tap1(518, 456, 0x1c6cb9)
             end
@@ -7530,9 +7541,10 @@ function warReady()
         end
     end
     if muBiao == "战备跑路" then
-        if isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95) then
+        if (isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95)) or
+            (isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95)) then
             debug("背包界面--战备")
-            if isColor(119, 253, 0x1e2434, 95) then
+            if isColor(119, 253, 0x1e2434, 90) then
                 tap1(119, 253, 0x1e2434) --战争
             end
             x, y = findMultiColorInRegionFuzzy(0x2ed6f1, "16|-8|0x14b2f3,10|33|0xebbe77,53|24|0xadb3b9", 90, 173, 79,
@@ -8783,84 +8795,7 @@ function main3()
         APP.isYiDengLu = 0
         runApp(apps1)
         APP = APP1
-        local numLoading = 0
-        for i = 1, 600, 1 do
-            if isColor(395, 156, 0xa4ee4e, 95) and isColor(383, 229, 0xffe06b, 95) then --loading
-                numLoading = 1
-                break
-            else
-                mSleep(100)
-            end
-        end
-        if numLoading~= 0 then
-            for i = 1, 600*2, 1 do
-                if isColor(477, 319, 0xf8b841, 95) and isColor(499, 430, 0x686868, 95) and isColor(665, 320, 0xf8b841, 95)
-                    and
-                    isColor(640, 427, 0x6a6a6a, 95) then
-                    debug("Server")
-                    tap1(486, 321, 0xf8b740)
-                end
-                if isColor(472, 317, 0x9b775a, 95) and isColor(498, 426, 0x73b153, 95) and isColor(650, 316, 0x9d785a, 95)
-                    and
-                    isColor(646, 440, 0x66a749, 95) then
-                    debug("Server--OK")
-                    tap1(646, 440, 0x66a749)
-                end
-                if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
-                    debug("Notice")
-                    tap1(1034, 62)
-                end
-                if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
-                    break
-                else
-                    mSleep(100)
-                end
-            end
-            moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
-            numOriginX = 0
-            numOriginY = 0
-            writeJson("原点X", numOriginX)
-            writeJson("原点Y", numOriginY)
-            for i = 1, 50, 1 do
-                if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
-                    mSleep(100)
-                else
-                    for i = 1, 600, 1 do
-                        if isColor(395, 156, 0xa4ee4e, 95) and isColor(383, 229, 0xffe06b, 95) then --loading
-                            numLoading = 2
-                            break
-                        else
-                            mSleep(100)
-                        end
-                    end
-                    for i = 1, 600*2, 1 do
-                        if isColor(477, 319, 0xf8b841, 95) and isColor(499, 430, 0x686868, 95) and isColor(665, 320, 0xf8b841, 95)
-                            and
-                            isColor(640, 427, 0x6a6a6a, 95) then
-                            debug("Server")
-                            tap1(486, 321, 0xf8b740)
-                        end
-                        if isColor(472, 317, 0x9b775a, 95) and isColor(498, 426, 0x73b153, 95) and isColor(650, 316, 0x9d785a, 95)
-                            and
-                            isColor(646, 440, 0x66a749, 95) then
-                            debug("Server--OK")
-                            tap1(646, 440, 0x66a749)
-                        end
-                        if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
-                            debug("Notice")
-                            tap1(1034, 62)
-                        end
-                        if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then --农场判断
-                            break
-                        else
-                            mSleep(100)
-                        end
-                    end
-                    moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
-                    break
-                end
-            end
-        end
+        mSleep(1000 * 15)
     end
     m_iRunCount = m_iRunCount + 1
 
@@ -8904,6 +8839,10 @@ function zongHe3()
             debug("误开请求支援")
             tap1(592, 585, 0xbd3724)
         end
+    end
+    if isColor(413,372,0xe65340,95) and isColor(638,375,0x78bf1b,95) and isColor(417,306,0x38ad19,95) and isColor(434,293,0x80dcdf,95) then
+        debug("拒绝支援")
+        tap1(638,375,0x78bf1b    )
     end
     if isColor(425, 272, 0xcc483a, 95) and isColor(494, 358, 0x83ba5d, 95) and isColor(645, 388, 0x63a547, 95) then
         debug("无法购买该商品")
@@ -9042,14 +8981,17 @@ end
 function isFarm()
     if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
         -- debug("isFarm判断")
-        -- if isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
-        -- elseif isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
-        -- else
-        --     debug("移动位置了")
-        --     pressHomeKey(0); --按下抬起 Home 键一次
-        --     mSleep(1000)
-        --     return false
-        -- end
+        if farmLong == 30 and isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
+        elseif farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
+        elseif farmLong == 28 and isColor(1070,514,0x8cb960,95) and isColor(1124,530,0xa1d081,95) then--主动移动后
+        elseif farmLong == 28 and isColor(1124,633,0x8ec06d,95) and isColor(1134,628,0xa4d282,95) then--主动移动前
+        else
+            debug("移动位置了")
+            mSleep(1000*10)
+            pressHomeKey(0); --按下抬起 Home 键一次
+            mSleep(1000)
+            return false
+        end
 
         return true
     end
@@ -9057,6 +8999,21 @@ end
 
 --找原点
 function findHouse()
+    if farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then
+        debug("30x30初始画面")
+        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    elseif farmLong == 28 and isColor(1124,633,0x8ec06d,95) and isColor(1134,628,0xa4d282,95) then
+        debug("28x28初始画面")
+        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    end
     if numOriginX == 0 then
         -- x, y = findMultiColorInRegionFuzzy(0xee4b48, "-3|2|0xe94941,4|2|0xed4b48,-2|-1|0x80b781,3|-1|0x80b67d", 90, 286, 44, 1130, 528, { orient = 2 })--房子
         x, y = findMultiColorInRegionFuzzy(0x50ff1e, "-1|1|0x51ff20,1|1|0x4fff20,0|-1|0x000000", 90, 286, 44, 1130, 528,
