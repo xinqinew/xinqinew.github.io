@@ -412,6 +412,7 @@ function bianLiang()
     RGB_NoticeFont = "FFFFFF" -- "FF0000"
     strNotice = "..."
 
+    isPirateSub = true --海盗减号
     isKaSearch = false -- 卡搜索
     isBuyLiZi = true -- 买粒子
     isLiZi = false -- 粒子
@@ -536,7 +537,7 @@ function newUi()
         , "0", -1, 1, true) -- 下拉框
 
     UILabel(3, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei", "检查果实,番茄,草莓", "0", -1, 0, "", 1, 3) -- 多选1
+    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0, "", 1, 3) -- 多选1
     UIEdit(3, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -1935,8 +1936,10 @@ function zongHe1(...)
         tap1(681, 385, 0x0e3d74) --最多
         tap1(527, 483, 0xd77e00) --购买
     end
-    if isColor(338, 45, 0xe0e0e0, 95) and isColor(575, 219, 0xbaab81, 95) and isColor(482, 485, 0x1c6db9, 95) and
-        isColor(688, 397, 0x0d3a70, 95) then
+    if (isColor(338, 45, 0xe0e0e0, 95) and isColor(575, 219, 0xbaab81, 95) and isColor(482, 485, 0x1c6db9, 95) and
+        isColor(688, 397, 0x0d3a70, 95)) or
+        (isColor(337, 46, 0xe0e0e0, 95) and isColor(575, 219, 0xc1b78e, 95) and isColor(482, 485, 0x1c6eba, 95) and
+            isColor(688, 397, 0x0c376b, 95)) then
         debug("使用道具--遗物")
         tap1(690, 397, 0x0d3a70) --最多
         tap1(507, 482, 0x1c6eba) --使用
@@ -3709,6 +3712,9 @@ function zongHe1(...)
                 isReceiveEmail = true
                 tap1(20, 20)
                 tap1(698, 586, 0xb4cdf3) -- 打开邮件
+            elseif isColor(946,586,0x1db587,95) and isColor(984,586,0xffffff,95) then
+                debug("援助请求")
+                tap1(946,586)
             else
                 tap1(20, 20)
             end
@@ -6206,11 +6212,18 @@ function chuHang()
         debug("搜索界面--出航--无粒子")
         if isKillPirate == true then
             debug("有体力,杀海盗")
-            if check23 == "60海盗" and num60Pirate <= 60 then
+            if check23 == "60海盗" and num60Pirate <= 80 then
                 num60Pirate = num60Pirate + 1
                 writeJson("60海盗", num60Pirate)
                 tap1(284, 539, 0x6d5c5d) -- 海盗
                 mSleep(1000)
+                if isPirateSub == true then
+                    tap1(147,366,0xffffff            )-- 减号
+                    isPirateSub = false
+                else
+                    tap1(420,366,0xffffff            )--加号
+                    isPirateSub = true
+                end
                 for i = 1, 3, 1 do
                     if isColor(235, 427, 0x116eb9, 95) then
                         tap1(235, 427, 0x116eb9) -- 搜索
@@ -6393,11 +6406,18 @@ function chuHang()
     end
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debug("搜索界面--出航--有粒子")
-        if check23 == "60海盗" and num60Pirate <= 60 then
+        if check23 == "60海盗" and num60Pirate <= 80 then
             num60Pirate = num60Pirate + 1
             writeJson("60海盗", num60Pirate)
             tap1(209, 541, 0xc0b7bf) -- 海盗
             mSleep(1000)
+            if isPirateSub == true then
+                tap1(76,366,0xffffff            )-- 减号
+                isPirateSub = false
+            else
+                tap1(349,366,0xffffff            )--加号
+                isPirateSub = true
+            end
             for i = 1, 3, 1 do
                 if isColor(167, 427, 0x116eb9, 95) then
                     tap1(217, 429, 0x377ab4) -- 搜索
@@ -6745,7 +6765,7 @@ function chuHang()
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isBug_LiZi == true then
-            if check23 == "60海盗" and num60Pirate <= 60 and isKillPirate == true then
+            if check23 == "60海盗" and num60Pirate <= 80 and isKillPirate == true then
                 tap1(199, 522) -- 搜索
             else
                 searchLiZi()
@@ -8840,9 +8860,10 @@ function zongHe3()
             tap1(592, 585, 0xbd3724)
         end
     end
-    if isColor(413,372,0xe65340,95) and isColor(638,375,0x78bf1b,95) and isColor(417,306,0x38ad19,95) and isColor(434,293,0x80dcdf,95) then
+    if isColor(413, 372, 0xe65340, 95) and isColor(638, 375, 0x78bf1b, 95) and isColor(417, 306, 0x38ad19, 95) and
+        isColor(434, 293, 0x80dcdf, 95) then
         debug("拒绝支援")
-        tap1(638,375,0x78bf1b    )
+        tap1(638, 375, 0x78bf1b)
     end
     if isColor(425, 272, 0xcc483a, 95) and isColor(494, 358, 0x83ba5d, 95) and isColor(645, 388, 0x63a547, 95) then
         debug("无法购买该商品")
@@ -8983,11 +9004,11 @@ function isFarm()
         -- debug("isFarm判断")
         if farmLong == 30 and isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
         elseif farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
-        elseif farmLong == 28 and isColor(1070,514,0x8cb960,95) and isColor(1124,530,0xa1d081,95) then--主动移动后
-        elseif farmLong == 28 and isColor(1124,633,0x8ec06d,95) and isColor(1134,628,0xa4d282,95) then--主动移动前
+        elseif farmLong == 28 and isColor(1070, 514, 0x8cb960, 95) and isColor(1124, 530, 0xa1d081, 95) then --主动移动后
+        elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then --主动移动前
         else
             debug("移动位置了")
-            mSleep(1000*10)
+            mSleep(1000 * 10)
             pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return false
@@ -9006,7 +9027,7 @@ function findHouse()
         numOriginY = 0
         writeJson("原点X", numOriginX)
         writeJson("原点Y", numOriginY)
-    elseif farmLong == 28 and isColor(1124,633,0x8ec06d,95) and isColor(1134,628,0xa4d282,95) then
+    elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then
         debug("28x28初始画面")
         moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
         numOriginX = 0
@@ -9270,6 +9291,20 @@ function task3_guaJi()
                                         end
                                     end
                                 end
+                                if checkSunflower == "向日葵" and isZhiDingFruit == false then
+                                    x,y = findMultiColorInRegionFuzzy( 0x99502a, "-20|-15|0xf8e780,24|25|0x589a29", 90, 3, 389, 1127, 614)
+                                    if x > 0 then
+                                        local numStr = dmOcrText(index_dm_numNumber, x - 21, y - 29, x + 49, y -6,
+                                            "DCD7D9,232826", 95)
+                                        numStr, num = string.gsub(numStr, "x", "")
+                                        numStr = tonumber(numStr)
+                                        debug("向日葵:" .. numStr)
+                                        if numStr <= 40 then
+                                            isZhiDingFruit = true
+                                            strZhiDingFruit = "向日葵"
+                                        end
+                                    end
+                                end
                                 tap1(1088, 303, 0xbebebd) --关闭
                             end
 
@@ -9348,6 +9383,9 @@ function task3_guaJi()
                                         elseif strZhiDingFruit == "草莓" then
                                             x0, y0 = findMultiColorInRegionFuzzy(0x307c2d,
                                                 "-9|21|0xe29d4e,36|20|0x3a8636,29|33|0xb81f2a", 90, 200, 500, 1122, 540)
+                                            timeCollectInterval = 90
+                                        elseif strZhiDingFruit == "向日葵" then
+                                            x0,y0 = findMultiColorInRegionFuzzy( 0x99502a, "-8|-17|0xf7e683,-1|35|0x4b7e2f", 90, 200, 492, 1122, 546)
                                             timeCollectInterval = 90
                                         end
                                         if x0 > 0 then
