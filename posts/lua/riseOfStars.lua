@@ -1,4 +1,4 @@
-numLua = 20.7
+numLua = 20.8
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 
@@ -359,13 +359,13 @@ function bianLiang()
     -- if tableFromJson["增产粒子"] ~= nil  then
     -- debug0(tableFromJson["增产粒子"][2])
     -- end
+
     -- 项目ID
-    appXiangMu = loadJson("项目ID")
-    if appXiangMu == nil then
-        appXiangMu = dialogInput("请输入项目ID", "在这里输入项目ID", "确认");
-        writeJson("项目ID", appXiangMu)
-    end
-    apps1 = appXiangMu
+    -- appXiangMu = loadJson("项目ID")
+    -- if appXiangMu == nil then
+    --     appXiangMu = dialogInput("请输入项目ID", "在这里输入项目ID", "确认");
+    --     writeJson("项目ID", appXiangMu)
+    -- end
 
     -- 火眼云打码
     HuoYan_username = loadJson("YDM_username")
@@ -406,6 +406,8 @@ function bianLiang()
         ["timeout"] = 30, -- 超时时间
         ["scale"] = 100 -- 缩放比例，范围 10 - 200，在某些待识别区域过大的时候可设置此参数
     };
+
+    numXiangMu = 0
 
     -----------------------私有部分--------------------------
     RGB_NoticeBJ = "306090" -- "FFFF00"
@@ -464,6 +466,7 @@ function bianLiang()
     numYunDaMa = 0 -- 云打码
 
     nowTime = os.time();
+    timeXiangMu1 = nowTime + 60 * 60 * 24 --项目1已闲置时间
     timeCheckLiZiNum = nowTime - 60 * 60 * 1 --定时检查粒子数量
     timeShengJiTongXingZheng = nowTime --升级通行证
     timeUpJson = nowTime - 10 * 60 --上传间隔
@@ -506,8 +509,10 @@ function bianLiang()
     strZhiDingFruit = ""
 
     timeTap = nowTime
+    timeXiangMu3 = nowTime + 60 * 60 * 24 --项目1已闲置时间
     timeTree = nowTime --果树收割间隔
     timeDesk = nowTime --返回桌面
+
 
 end
 
@@ -520,7 +525,8 @@ function newUi()
 
     UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian,checkXiangMu3",
-        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3", "4@6", -1,
+        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3"
+        , "4@6", -1,
         0, "", 1, 3) -- 多选1
     UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25"
@@ -537,7 +543,8 @@ function newUi()
         , "0", -1, 1, true) -- 下拉框
 
     UILabel(3, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0, "", 1, 3) -- 多选1
+    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0,
+        "", 1, 3) -- 多选1
     UIEdit(3, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     UIEdit(3, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -580,9 +587,11 @@ function newUi()
     end
     if checkXiangMu1 == "项目1" then
         numInit = 1
-    elseif checkXiangMu2 == "项目2" then
+    end
+    if checkXiangMu2 == "项目2" then
         numInit = 1
-    elseif checkXiangMu3 == "项目3" then
+    end
+    if checkXiangMu3 == "项目3" then
         numInit = 1
         rangeX1 = tonumber(rangeX1)
         rangeY1 = tonumber(rangeY1)
@@ -794,11 +803,19 @@ function main()
 
         end
     end
-    if checkXiangMu1 == "项目1" then
-        main1()
-    elseif checkXiangMu2 == "项目2" then
+    if checkXiangMu1 == "项目1" and checkXiangMu3 == "项目3" then
+        if numXiangMu == 0 then
+            numXiangMu = 1
+        end
+    end
+    if checkXiangMu1 == "项目1" and (numXiangMu == 0 or numXiangMu == 1) then
         if m_iRunCount == 1 then
-            apps1 = "com.stormgames.fourgodsonwemix.ios"
+            appXiangMu = "com.wemademax.riseofstars"
+        end
+        main1()
+    elseif checkXiangMu2 == "项目2" and (numXiangMu == 0 or numXiangMu == 2) then
+        if m_iRunCount == 1 then
+            appXiangMu = "com.stormgames.fourgodsonwemix.ios"
             if whoAmI() ~= 3 then
                 zhaojunlua()
                 package.loaded["zhaojun"] = nil
@@ -806,12 +823,11 @@ function main()
             end
         end
         main2()
-    elseif checkXiangMu3 == "项目3" then
+    elseif checkXiangMu3 == "项目3" and (numXiangMu == 0 or numXiangMu == 3) then
         if m_iRunCount == 1 then
-            apps1 = "com.wemadeconnect.etgnft.everytown"
+            appXiangMu = "com.wemadeconnect.etgnft.everytown"
         end
         main3()
-
     end
 end
 
@@ -835,7 +851,7 @@ function main1()
     -- end
     bid = frontAppBid()
     -- debug(bid)
-    if bid == apps1 then
+    if bid == appXiangMu then
         -- debug("apps1")
         APP = APP1
     elseif bid == apps2 then
@@ -852,11 +868,11 @@ function main1()
     elseif bid == "com.apple.mobileslideshow" then
         setRotationLockEnable(false);
         init(1)
-    elseif bid == "" then
+    else
         -- debug("哪个都没开")
         APP.isYiDengLu = 0
         autoChangeVPN("配置")
-        runApp(apps1)
+        runApp(appXiangMu)
         APP = APP1
         mSleep(5000)
     end
@@ -866,14 +882,14 @@ function main1()
     autoUnlockDevice()
 
     zongHe1()
-    if bid == apps1 then
+    if bid == appXiangMu then
         zongHe_Mult()
         zongHe_Screen()
         timeJianCe()
         BeAttack()
     end
     doTarget()
-    if bid == apps1 then
+    if bid == appXiangMu then
         checkXXX()
         everyDayInit()
     end
@@ -904,7 +920,7 @@ function main2()
     -- end
     bid = frontAppBid()
     -- debug("bid"..bid)
-    if bid == apps1 then
+    if bid == appXiangMu then
         -- debug("apps1"..apps1)
         APP = APP1
     elseif bid == apps2 then
@@ -922,7 +938,7 @@ function main2()
         -- elseif bid == "" then
         debug("哪个都没开")
         APP.isYiDengLu = 0
-        runApp(apps1)
+        runApp(appXiangMu)
         APP = APP1
         mSleep(5000)
         isTapTask = false
@@ -989,6 +1005,49 @@ function oncePlist()
         ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
         writeJson("FTP目录", ftpMuLu)
     end
+
+    -- -- 项目1等待时间
+    -- timeXiangMu1 = loadJson("项目1等待时间")
+    -- if timeXiangMu1 == nil then
+    --     timeXiangMu1 = 0
+    --     writeJson("项目1等待时间", timeXiangMu1)
+    -- end
+
+    -- -- 项目2等待时间
+    -- timeXiangMu2 = loadJson("项目2等待时间")
+    -- if timeXiangMu2 == nil then
+    --     timeXiangMu2 = 0
+    --     writeJson("项目2等待时间", timeXiangMu2)
+    -- end
+
+    -- -- 目标1暂存
+    -- strMuBiao1 = loadJson("目标1暂存")
+    -- if strMuBiao1 == nil then
+    --     strMuBiao1 = ""
+    --     writeJson("目标1暂存", strMuBiao1)
+    -- end
+
+    -- -- 目标2暂存
+    -- strMuBiao2 = loadJson("目标2暂存")
+    -- if strMuBiao2 == nil then
+    --     strMuBiao2 = ""
+    --     writeJson("目标2暂存", strMuBiao2)
+    -- end
+
+    -- -- 目标3暂存
+    -- strMuBiao3 = loadJson("目标3暂存")
+    -- if strMuBiao3 == nil then
+    --     strMuBiao3 = ""
+    --     writeJson("目标3暂存", strMuBiao3)
+    -- end
+
+    strMuBiao1 = ""
+    writeJson("目标1暂存", strMuBiao1)
+    strMuBiao2 = ""
+    writeJson("目标2暂存", strMuBiao2)
+    strMuBiao3 = ""
+    writeJson("目标3暂存", strMuBiao3)
+
 
     -----------------------私有部分--------------------------
 
@@ -2778,7 +2837,7 @@ function zongHe1(...)
         tap1(510, 602, 0x0c0c0e) -- 关闭
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
-        debug("基地现况界面--综合函数")
+        -- debug("基地现况界面--综合函数")
         if isColor(814, 458, 0x9e1111, 95) then
             debug("资源--免费兑换--红点")
             numBuyTaiByCoin = 0
@@ -3712,9 +3771,9 @@ function zongHe1(...)
                 isReceiveEmail = true
                 tap1(20, 20)
                 tap1(698, 586, 0xb4cdf3) -- 打开邮件
-            elseif isColor(946,586,0x1db587,95) and isColor(984,586,0xffffff,95) then
+            elseif isColor(946, 586, 0x1db587, 95) and isColor(984, 586, 0xffffff, 95) then
                 debug("援助请求")
-                tap1(946,586)
+                tap1(946, 586)
             else
                 tap1(20, 20)
             end
@@ -5359,6 +5418,9 @@ end
 
 -- 执行目标
 function doTarget()
+    if numXiangMu ~= 1 and numXiangMu ~= 0 then
+        return
+    end
     -- if muBiao == mb_GuaJi then
     if muBiao == "" then
         if haoLV <= 2 then
@@ -5467,7 +5529,7 @@ function loginWallte()
         for i = 1, 30, 1 do
             if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
                 gaiMuBiaoNew(3, "兑换粒子")
-                runApp(apps1)
+                runApp(appXiangMu)
                 mSleep(1000)
                 break
             end
@@ -6218,10 +6280,10 @@ function chuHang()
                 tap1(284, 539, 0x6d5c5d) -- 海盗
                 mSleep(1000)
                 if isPirateSub == true then
-                    tap1(147,366,0xffffff            )-- 减号
+                    tap1(147, 366, 0xffffff) -- 减号
                     isPirateSub = false
                 else
-                    tap1(420,366,0xffffff            )--加号
+                    tap1(420, 366, 0xffffff) --加号
                     isPirateSub = true
                 end
                 for i = 1, 3, 1 do
@@ -6412,10 +6474,10 @@ function chuHang()
             tap1(209, 541, 0xc0b7bf) -- 海盗
             mSleep(1000)
             if isPirateSub == true then
-                tap1(76,366,0xffffff            )-- 减号
+                tap1(76, 366, 0xffffff) -- 减号
                 isPirateSub = false
             else
-                tap1(349,366,0xffffff            )--加号
+                tap1(349, 366, 0xffffff) --加号
                 isPirateSub = true
             end
             for i = 1, 3, 1 do
@@ -7264,7 +7326,7 @@ function waKuang()
         end
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
-        debug("基地现况界面--函数挖矿")
+        -- debug("基地现况界面--函数挖矿")
         if isColor(217, 321, 0x306090, 95) then -- 5号休息中
             debug("5号休息中,出航")
             numQueue = 5
@@ -7320,6 +7382,26 @@ function waKuang()
         elseif nowTime - timeInside >= 5 * 60 then
             tap1(510, 608, 0x0c0c0e)
             timeInside = nowTime
+        elseif checkXiangMu1 == "项目1" and checkXiangMu3 == "项目3" then
+            if timeXiangMu1 > nowTime then
+                debug("timeXiangMu1 = nowTime")
+                timeXiangMu1 = nowTime
+            elseif numXiangMu == 1 and nowTime - timeXiangMu1 >= 20 then
+                debug("项目1 => 项目3")
+                numXiangMu = 3
+                appXiangMu = "com.wemadeconnect.etgnft.everytown"
+
+                local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
+                strMuBiao1, strMuBiao2, strMuBiao3 = muBiao1, muBiao2, muBiao3
+                writeJson("目标1暂存", strMuBiao1)
+                writeJson("目标2暂存", strMuBiao2)
+                writeJson("目标3暂存", strMuBiao3)
+
+                gaiMuBiaoNew(1, tempStrMuBiao1)
+                gaiMuBiaoNew(2, tempStrMuBiao2)
+                gaiMuBiaoNew(3, tempStrMuBiao3)
+                timeXiangMu1 = nowTime + 60 * 60 * 24 --项目1已闲置时间
+            end
         end
     end
 end
@@ -8794,8 +8876,8 @@ function main3()
     --     end
     -- end
     bid = frontAppBid()
-    -- debug("bid"..bid)
-    if bid == apps1 then
+    -- debug("bid:"..bid)
+    if bid == appXiangMu then
         -- debug("apps1"..apps1)
         APP = APP1
     elseif bid == apps2 then
@@ -8813,7 +8895,7 @@ function main3()
         -- elseif bid == "" then
         debug("哪个都没开")
         APP.isYiDengLu = 0
-        runApp(apps1)
+        runApp(appXiangMu)
         APP = APP1
         mSleep(1000 * 15)
     end
@@ -9067,7 +9149,7 @@ function findHouse()
             -- return 0, 0
             -- end
         else
-            closeApp(appXiangMu)
+            -- closeApp(appXiangMu)
             return 0, 0
         end
     else
@@ -9176,6 +9258,9 @@ end
 
 --doTarget3
 function doTarget3()
+    if numXiangMu ~= 3 and numXiangMu ~= 0 then
+        return
+    end
     if muBiao == "" then
         if numHaoLV == "小号" then
             gaiMuBiaoNew(1, "主线")
@@ -9292,9 +9377,10 @@ function task3_guaJi()
                                     end
                                 end
                                 if checkSunflower == "向日葵" and isZhiDingFruit == false then
-                                    x,y = findMultiColorInRegionFuzzy( 0x99502a, "-20|-15|0xf8e780,24|25|0x589a29", 90, 3, 389, 1127, 614)
+                                    x, y = findMultiColorInRegionFuzzy(0x99502a, "-20|-15|0xf8e780,24|25|0x589a29", 90, 3
+                                        , 389, 1127, 614)
                                     if x > 0 then
-                                        local numStr = dmOcrText(index_dm_numNumber, x - 21, y - 29, x + 49, y -6,
+                                        local numStr = dmOcrText(index_dm_numNumber, x - 21, y - 29, x + 49, y - 6,
                                             "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
@@ -9385,7 +9471,8 @@ function task3_guaJi()
                                                 "-9|21|0xe29d4e,36|20|0x3a8636,29|33|0xb81f2a", 90, 200, 500, 1122, 540)
                                             timeCollectInterval = 90
                                         elseif strZhiDingFruit == "向日葵" then
-                                            x0,y0 = findMultiColorInRegionFuzzy( 0x99502a, "-8|-17|0xf7e683,-1|35|0x4b7e2f", 90, 200, 492, 1122, 546)
+                                            x0, y0 = findMultiColorInRegionFuzzy(0x99502a,
+                                                "-8|-17|0xf7e683,-1|35|0x4b7e2f", 90, 200, 492, 1122, 546)
                                             timeCollectInterval = 90
                                         end
                                         if x0 > 0 then
@@ -9531,6 +9618,28 @@ function task3_guaJi()
                 gaiMuBiaoNew(2, "种植")
                 debug("改目标为种植1")
                 timeTree = nowTime
+            elseif checkXiangMu1 == "项目1" and checkXiangMu3 == "项目3" then
+                if timeXiangMu3 > nowTime then
+                    debug("timeXiangMu3 = nowTime")
+                    timeXiangMu3 = nowTime
+                elseif numXiangMu == 3 and nowTime - timeXiangMu3 >= 20 then
+                    debug("项目3 => 项目1")
+                    numXiangMu = 1
+                    appXiangMu = "com.wemademax.riseofstars"
+
+                    local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
+                    strMuBiao1, strMuBiao2, strMuBiao3 = muBiao1, muBiao2, muBiao3
+                    writeJson("目标1暂存", strMuBiao1)
+                    writeJson("目标2暂存", strMuBiao2)
+                    writeJson("目标3暂存", strMuBiao3)
+
+                    gaiMuBiaoNew(1, tempStrMuBiao1)
+                    gaiMuBiaoNew(2, tempStrMuBiao2)
+                    gaiMuBiaoNew(3, tempStrMuBiao3)
+                    timeXiangMu3 = nowTime + 60 * 60 * 24 --项目1已闲置时间
+                    nowTime = os.time()
+                    timeXXX = nowTime
+                end
             end
         end
     end
