@@ -1979,12 +1979,10 @@ function zongHe1(...)
     end
     if isColor(842, 101, 0x80171a, 95) and isColor(80, 66, 0xff6600, 95) and isColor(91, 59, 0xf8a901, 95) then
         debug("点数商店--精锐怪物旗帜")
-        if isColor(967, 371, 0xffe087, 95) then --5
-            tap1(967, 371)
-        elseif isColor(394, 371, 0xffe087, 95) then --2
-            tap1(394, 371)
-        elseif isColor(197, 371, 0xffe087, 95) then --1
-            tap1(197, 371)
+        if isColor(389, 389, 0xffe087, 95) then --2
+            tap1(389,389)
+        elseif isColor(197,388,0xf4c463        , 95) then --1
+            tap1(197, 388)
         else
             tap1(511, 603, 0x0c0c0e)
         end
@@ -4354,15 +4352,41 @@ function zongHe1(...)
             end
         elseif isColor(45, 418, 0xe9b042, 95) and isColor(44, 403, 0xffffff, 95) then
             debug("加工站界面")
-            if isColor(184, 345, 0x4e6374, 95) then
-                debug("位置1空着")
-                tap1(184, 345)
-            elseif isColor(357, 346, 0x4e6374, 95) then
-                debug("位置2空着")
-                tap1(357, 345)
-            elseif isColor(536, 341, 0x4e6374, 95) then
-                debug("位置3空着")
-                tap1(536, 345)
+            if isColor(327, 181, 0x4e6374, 95) or isColor(328, 337, 0x4e6374, 95) or isColor(327, 495, 0x4e6374, 95) then
+                debug("有位置空着")
+                if numCaiLiao == 1 then
+                    tap1(633, 183, 0x8a70ad)
+                elseif numCaiLiao == 2 then
+                    tap1(769, 183, 0x4c4144)
+                elseif numCaiLiao == 3 then
+                    tap1(900, 179, 0x2554bb)
+                elseif numCaiLiao == 4 then
+                    tap1(1035, 184, 0x524f2b)
+                elseif numCaiLiao == 5 then
+                    tap1(629, 316, 0x4c4f82)
+                elseif numCaiLiao == 6 then
+                    tap1(763, 321, 0xfaf3fa)
+                elseif numCaiLiao == 7 then
+                    tap1(897, 312, 0x598dd5)
+                elseif numCaiLiao == 8 then
+                    tap1(1039, 319, 0x11130b)
+                elseif numCaiLiao == 9 then
+                    tap1(633, 449, 0x171a1a)
+                elseif numCaiLiao == 10 then
+                    tap1(767, 445, 0xb9f2f9)
+                elseif numCaiLiao == 11 then
+                    tap1(900, 447, 0x3a4255)
+                elseif numCaiLiao == 12 then
+                    tap1(1037, 450, 0x76748c)
+                else
+                    tap1(20, 20)
+                end
+                numCaiLiao = numCaiLiao + 1
+                if numCaiLiao >= 13 then
+                    numCaiLiao = 1
+                end
+                writeJson("材料编号", numCaiLiao)
+
             else
                 tap1(20, 20)
             end
@@ -4702,7 +4726,7 @@ function zongHe1(...)
                 if isColor(172 + i * 100, 78, 0x34b200, 95) then
                     tap1(172 + i * 100, 78) --物品
                     tap1(396, 471, 0x1d6ebb) --分解
-                    tap1(509, 547, 0x1cb686) --分解
+                    tap1(689, 543, 0x1c6eba) --分解
                     tap1(488, 429, 0x1c6db9) --确定
                     mSleep(2000)
                     break
@@ -4725,18 +4749,19 @@ function zongHe1(...)
                 tap1(215 + i * 100, 78) --点击物品
                 if isColor(604, 471, 0xd78b01, 95) then --有合成按钮
                     tap1(611, 466, 0xd78b01) --合成
-                    if isColor(487, 543, 0x1c6dbb, 95) then --有合成按钮
-                        tap1(509, 551, 0x1c6eba) --合成
+                    if isColor(681,545,0x1c6dba                    , 95) then --有合成按钮
+                        tap1(331,546,0xf27c00                    )--1个
+                        tap1(681,545, 0x1c6eba) --合成
                         tap1(497, 433, 0x1c6eba) --确定
                         isMixedThing = true
                         writeJson("每日道具合成", isMixedThing)
                         gaiMuBiaoNew(2, mb_CaiJi)
                         break
                     else
-                        tap1(511, 551, 0x0c0c0e) --关闭
+                        tap1(511, 611, 0x0c0c0e) --关闭
                     end
                 else
-                    tap1(511, 521, 0x0c0c0e)
+                    tap1(511, 551, 0x0c0c0e)
                 end
                 if i == 8 then
                     isMixedThing = true
