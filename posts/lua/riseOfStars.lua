@@ -316,7 +316,7 @@ function yunDaMaNew(str, x1, y1, x2, y2)
         if res then
             return res
         else
-            debug("识别失败")
+            debugA("识别失败")
             return false
         end
         -- print("result", res, id) --识别结果,识别id
@@ -519,55 +519,65 @@ end
 -- 新UI
 function newUi()
     w, h = getScreenSize()
-    UINew(4, "Page1,Page2,Page3,Page4", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245", "175,238,238", "", "dot"
+    UINew(4, "公共设置,项目1,项目2,项目3", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245",
+        "175,238,238", "", "dot"
         , 1, 15,
         "left")
 
-    UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
+    -- UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian,checkXiangMu3",
         "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3"
         , "4@6", -1,
         0, "", 1, 3) -- 多选1
-    UILabel("---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25"
+    -- UILabel(2, "---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICheck(2,
+        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25"
         ,
         "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存"
         ,
         "3@5", -1, 0, "", 1, 3) -- 多选1
-    UILabel(2, "---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(2, "Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
-    UICombo(2, "numCollect", "采集点1,采集点2,采集点3,采集点4", "0", -1, 1, true) -- 下拉框
-    UICombo(2, "numHaoLV", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
-    UICombo(2, "numMap", "锐角路,虚空摇篮,干涸之湖,最前线,幻象之路,月影废墟", "0", -1, 1, true) -- 下拉框
-    UICombo(2, "numGuaJiDian", "挂机点1,挂机点2,挂机点3,挂机点4,挂机点5,挂机点6,挂机点7,挂机点8"
+    UILabel(2, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
+    UICombo(2, "numShip", "0,1,2,3,4", "0", -1, 1, true) -- 下拉框
+    UILabel(2, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
+    UICombo(2, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
+    UILabel(2, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节,采集,去采集点", 10, "left",
+        "72,61,139", -1, 0, "center") -- 标签
+    UIEdit(2, "muBiaoA1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(2, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(2, "muBiaoA2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(2, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子", 10, "left", "72,61,139"
+        , -1, 0, "center")
+    UIEdit(2, "muBiaoA3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(2, "目标4 无,战备,战备跑路,战备开盾", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(2, "muBiaoA4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
+
+    -- UILabel(3, "---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICheck(3, "Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UICombo(3, "numCollect", "采集点1,采集点2,采集点3,采集点4", "0", -1, 1, true) -- 下拉框
+    UICombo(3, "numMap", "锐角路,虚空摇篮,干涸之湖,最前线,幻象之路,月影废墟", "0", -1, 1, true) -- 下拉框
+    UICombo(3, "numGuaJiDian", "挂机点1,挂机点2,挂机点3,挂机点4,挂机点5,挂机点6,挂机点7,挂机点8"
         , "0", -1, 1, true) -- 下拉框
 
-    UILabel(3, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck(3, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0,
-        "", 1, 3) -- 多选1
-    UIEdit(3, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
-    UIEdit(3, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
-    UIEdit(3, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
-    UIEdit(3, "rangeY2", "Y2", "", 15, "left", "95,158,160", "number", 120, 0) -- 编辑框
-    UIEdit(3, "farmLong", "边", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
-
-
-    UILabel(4, "---------------------目标---------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UILabel(4, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
-    UICombo(4, "numShip", "0,1,2,3,4", "0", -1, 1, true) -- 下拉框
-    UILabel(4, "兑换批次", 12, "left", "46,139,87", -1, 1, "center")
-    UICombo(4, "numDuiHuan", "0,1,2,3,4,5,6,7,8", "0", -1, 0, true) -- 下拉框
-
-    UILabel(4, "目标1 无,优化,主线,挖矿,日常,挂机,开区检测,章节,采集,去采集点", 10, "left",
+    -- UILabel(4, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICombo(4, "numHaoLV", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
+    UICheck(4, "Ccheck1,Ccheck2", "4排为树,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UICheck(4, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0,
+        "", 0, 3) -- 多选1
+    -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
+    -- UIEdit(4, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
+    -- UIEdit(4, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
+    -- UIEdit(4, "rangeY2", "Y2", "", 15, "left", "95,158,160", "number", 120, 0) -- 编辑框
+    UIEdit(4, "farmLong", "边", "", 15, "left", "95,158,160", "number", 120, 0) -- 编辑框
+    UILabel(4, "目标1 无,挂机", 10, "left",
         "72,61,139", -1, 0, "center") -- 标签
-    UIEdit(4, "muBiao1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
-    UILabel(4, "目标2 无,5道具,采集,收获,技能,兑换,道具合成", 10, "left", "72,61,139", -1, 0, "center")
-    UIEdit(4, "muBiao2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(4, "目标3 无,整理,出航,修船,研究,钱包检测,登录钱包,兑换粒子 ", 10, "left", "72,61,139"
+    UIEdit(4, "muBiaoC1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(4, "目标2 无,种植,等待收割", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(4, "muBiaoC2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(4, "目标3 无", 10, "left", "72,61,139"
         , -1, 0, "center")
-    UIEdit(4, "muBiao3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(4, "目标4 无,战备,战备跑路,战备开盾 ", 10, "left", "72,61,139", -1, 0, "center")
-    UIEdit(4, "muBiao4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
+    UIEdit(4, "muBiaoC3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(4, "目标4 无", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(4, "muBiaoC4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UIShow()
 
     if check12 == "不挖粒子" then
@@ -593,10 +603,10 @@ function newUi()
     end
     if checkXiangMu3 == "项目3" then
         numInit = 1
-        rangeX1 = tonumber(rangeX1)
-        rangeY1 = tonumber(rangeY1)
-        rangeX2 = tonumber(rangeX2)
-        rangeY2 = tonumber(rangeY2)
+        -- rangeX1 = tonumber(rangeX1)
+        -- rangeY1 = tonumber(rangeY1)
+        -- rangeX2 = tonumber(rangeX2)
+        -- rangeY2 = tonumber(rangeY2)
         farmLong = tonumber(farmLong)
     end
 
@@ -604,51 +614,51 @@ function newUi()
     floatingWindow()
 end
 
--- 目标转换--新
-function muBiaoZhuanHuanNew(...)
-    if muBiao4 ~= "" and muBiao4 ~= "无" then
-        muBiao = muBiao4
+-- 目标转换--新A
+function muBiaoZhuanHuanNewA(...)
+    if muBiaoA4 ~= "" and muBiaoA4 ~= "无" then
+        muBiaoA = muBiaoA4
         timeDingShiDianRenWu = nowTime - 60 * 60
-    elseif muBiao3 ~= "" and muBiao3 ~= "无" then
-        muBiao = muBiao3
+    elseif muBiaoA3 ~= "" and muBiaoA3 ~= "无" then
+        muBiaoA = muBiaoA3
         timeDingShiDianRenWu = nowTime - 60 * 60
-    elseif muBiao2 ~= "" and muBiao2 ~= "无" then
-        muBiao = muBiao2
+    elseif muBiaoA2 ~= "" and muBiaoA2 ~= "无" then
+        muBiaoA = muBiaoA2
         timeDingShiDianRenWu = nowTime - 60 * 60
-    elseif muBiao1 ~= "" and muBiao1 ~= "无" then
-        muBiao = muBiao1
+    elseif muBiaoA1 ~= "" and muBiaoA1 ~= "无" then
+        muBiaoA = muBiaoA1
         -- timeDingShiDianRenWu = nowTime - 60 * 60
     else
-        muBiao1 = ""
-        muBiao = muBiao1
-        writeConfigNew("muBiao1", muBiao1)
+        muBiaoA1 = ""
+        muBiaoA = muBiaoA1
+        writeConfigNew("muBiaoA1", muBiaoA1)
         timeDingShiDianRenWu = nowTime - 60 * 60
     end
 
 end
 
--- 改目标--新
-function gaiMuBiaoNew(cs_num, cs_muBiao, ...)
+-- 改目标--新A
+function gaiMuBiaoNewA(cs_num, cs_muBiao, ...)
     if cs_num == 1 then
-        muBiao1 = cs_muBiao
-        writeConfigNew("muBiao1", cs_muBiao)
-        muBiaoZhuanHuanNew()
-        writeJson("目标1", cs_muBiao)
+        muBiaoA1 = cs_muBiao
+        writeConfigNew("muBiaoA1", cs_muBiao)
+        muBiaoZhuanHuanNewA()
+        writeJson("目标A1", cs_muBiao)
     elseif cs_num == 2 then
-        muBiao2 = cs_muBiao
-        writeConfigNew("muBiao2", cs_muBiao)
-        muBiaoZhuanHuanNew()
-        writeJson("目标2", cs_muBiao)
+        muBiaoA2 = cs_muBiao
+        writeConfigNew("muBiaoA2", cs_muBiao)
+        muBiaoZhuanHuanNewA()
+        writeJson("目标A2", cs_muBiao)
     elseif cs_num == 3 then
-        muBiao3 = cs_muBiao
-        writeConfigNew("muBiao3", cs_muBiao)
-        muBiaoZhuanHuanNew()
-        writeJson("目标3", cs_muBiao)
+        muBiaoA3 = cs_muBiao
+        writeConfigNew("muBiaoA3", cs_muBiao)
+        muBiaoZhuanHuanNewA()
+        writeJson("目标A3", cs_muBiao)
     elseif cs_num == 4 then
-        muBiao4 = cs_muBiao
-        writeConfigNew("muBiao4", cs_muBiao)
-        muBiaoZhuanHuanNew()
-        writeJson("目标4", cs_muBiao)
+        muBiaoA4 = cs_muBiao
+        writeConfigNew("muBiaoA4", cs_muBiao)
+        muBiaoZhuanHuanNewA()
+        writeJson("目标A4", cs_muBiao)
     end
 end
 
@@ -658,8 +668,8 @@ function writeConfigNew(id, neirong)
     local tmpString = f:read("*all")
     local tmpWeiZhi1 = string.find(tmpString, id);
     -- debug("tmpWeiZhi1:"..tmpWeiZhi1)
-    local tmpWeiZhi2 = string.find(tmpString, "Edit", tmpWeiZhi1 + 9)
-    local tmpQianDuan = string.sub(tmpString, 1, tmpWeiZhi1 + 9)
+    local tmpWeiZhi2 = string.find(tmpString, "Edit", tmpWeiZhi1 + 10)
+    local tmpQianDuan = string.sub(tmpString, 1, tmpWeiZhi1 + 10)
     local tmpHouDuan = string.sub(tmpString, tmpWeiZhi2, -1)
     f:close()
     f = io.open(luaPath .. "/config/" .. uiconfig, 'w')
@@ -781,7 +791,9 @@ function main()
     if m_iRunCount == 1 then
         newUi()
         if check4 == "测试" then
-            debug("日志测试")
+            debugA("日志测试")
+            writeConfigNew("muBiaoA1", "天下")
+            lua_exit()
             -- vibratorNotice()
 
             -- threadClinet()
@@ -843,7 +855,7 @@ function main1()
     end
     nowDateTime = os.date("*t")
     today = tonumber(os.date("%w", os.time()))
-    muBiaoZhuanHuanNew() -- 公用 必须最优先
+    muBiaoZhuanHuanNewA() -- 公用 必须最优先
     -- if version ~= "2.2.4" then
     --     if getBacklightLevel() ~= 0.5 then
     --         setBacklightLevel(0.5);
@@ -912,7 +924,7 @@ function main2()
     end
     nowDateTime = os.date("*t")
     today = tonumber(os.date("%w", os.time()))
-    muBiaoZhuanHuanNew() -- 公用 必须最优先
+    muBiaoZhuanHuanNewA() -- 公用 必须最优先
     -- if version ~= "2.2.4" then
     --     if getBacklightLevel() ~= 0.5 then
     --         setBacklightLevel(0.5);
@@ -936,7 +948,7 @@ function main2()
         init(1)
     else
         -- elseif bid == "" then
-        debug("哪个都没开")
+        debugA("哪个都没开")
         APP.isYiDengLu = 0
         runApp(appXiangMu)
         APP = APP1
@@ -1041,12 +1053,12 @@ function oncePlist()
     --     writeJson("目标3暂存", strMuBiao3)
     -- end
 
-    strMuBiao1 = ""
-    writeJson("目标1暂存", strMuBiao1)
-    strMuBiao2 = ""
-    writeJson("目标2暂存", strMuBiao2)
-    strMuBiao3 = ""
-    writeJson("目标3暂存", strMuBiao3)
+    -- strMuBiao1 = ""
+    -- writeJson("目标1暂存", strMuBiao1)
+    -- strMuBiao2 = ""
+    -- writeJson("目标2暂存", strMuBiao2)
+    -- strMuBiao3 = ""
+    -- writeJson("目标3暂存", strMuBiao3)
 
 
     -----------------------私有部分--------------------------
@@ -1682,20 +1694,21 @@ function autoUnlockDevice()
     end
 end
 
-function debug(tiaoShiNeiRong)
+function debugA(tiaoShiNeiRong)
     -- wLog("192.168.1.34","#    [LINE]")
     if check1 == "网络调试" then
         wLog("192.168.1.34",
             iphoneId ..
             " 目标1: " ..
-            muBiao1 .. " 目标2: " .. muBiao2 .. " 目标3: " .. muBiao3 .. " 目标4: " .. muBiao4 .. "    操作:" ..
+            muBiaoA1 .. " 目标2: " .. muBiaoA2 .. " 目标3: " .. muBiaoA3 .. " 目标4: " ..
+            muBiaoA4 .. "    操作:" ..
             tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]" .. "#    [LINE]")
     elseif check2 == "本地调试" then
         -- dialog(tiaoShiNeiRong,5)
         toast(
             "目标1: " ..
-            muBiao1 .. " 目标2: " ..
-            muBiao2 .. " 目标3: " .. muBiao3 .. " 目标4: " .. muBiao4 .. "                操作:" ..
+            muBiaoA1 .. " 目标2: " ..
+            muBiaoA2 .. " 目标3: " .. muBiaoA3 .. " 目标4: " .. muBiaoA4 .. "                操作:" ..
             tiaoShiNeiRong)
         mSleep(3000)
     end
@@ -1739,7 +1752,8 @@ function moreWindow()
     fwShowButton("moreWin", "btn_hide", "X", "FFFFFF", "9e393d", "", 12, 1 + 150 * 4, 0, 150 * 5, 50);
 
     fwShowTextView("moreWin", "text_MuBiao",
-        "目标1 : " .. muBiao1 .. "  目标2 : " .. muBiao2 .. "  目标3 : " .. muBiao3 .. " 目标4: " .. muBiao4,
+        "目标1 : " .. muBiaoA1 .. "  目标2 : " .. muBiaoA2 .. "  目标3 : " .. muBiaoA3 .. " 目标4: " .. muBiaoA4
+        ,
         "left", "FFFFFF", "0C2037",
         12, 0, 0, 51, wScreen - 100, 100, 1);
     fwShowTextView("moreWin", "text_info",
@@ -1953,16 +1967,16 @@ end
 function zongHe1(...)
     if inside1() then
         if isColor(33, 493, 0xffffff, 95) and isColor(21, 474, 0x5ea7e8, 95) then
-            debug("free")
+            debugA("free")
             tap1(33, 493)
         end
     end
     if isColor(454, 585, 0x284b73, 95) and isColor(477, 607, 0x284b73, 95) and isColor(911, 589, 0x3e5c7f, 95) then
-        debug("今天不再观看")
+        debugA("今天不再观看")
         tap1(911, 589, 0x3e5c7f)
     end
     if isColor(94, 87, 0xa5b6ca, 95) and isColor(118, 81, 0x4e78aa, 95) and isColor(108, 542, 0xd78b01, 95) then
-        debug("库存战舰")
+        debugA("库存战舰")
         if isColor(897, 539, 0x2a394c, 95) then --未库存
             tap1(112, 543, 0xd68b01) --快速
             tap1(749, 538, 0x616a76) --12小时
@@ -1974,14 +1988,14 @@ function zongHe1(...)
     end
     if isColor(471, 527, 0x114c8a, 95) and isColor(659, 561, 0x145da9, 95) and isColor(271, 65, 0x0096ff, 95) and
         isColor(269, 49, 0xf8a901, 95) then
-        debug("合成")
+        debugA("合成")
         tap1(511, 612, 0x0c0c0e)
     end
     if isColor(842, 101, 0x80171a, 95) and isColor(80, 66, 0xff6600, 95) and isColor(91, 59, 0xf8a901, 95) then
-        debug("点数商店--精锐怪物旗帜")
+        debugA("点数商店--精锐怪物旗帜")
         if isColor(389, 389, 0xffe087, 95) then --2
-            tap1(389,389)
-        elseif isColor(197,388,0xf4c463        , 95) then --1
+            tap1(389, 389)
+        elseif isColor(197, 388, 0xf4c463, 95) then --1
             tap1(197, 388)
         else
             tap1(511, 603, 0x0c0c0e)
@@ -1989,7 +2003,7 @@ function zongHe1(...)
     end
     if isColor(480, 471, 0x6b4500, 95) and isColor(489, 470, 0xa31c1e, 95) and isColor(527, 483, 0xd77e00, 95) and
         isColor(681, 385, 0x0e3d74, 95) then
-        debug("购买道具--精锐怪物旗帜")
+        debugA("购买道具--精锐怪物旗帜")
         tap1(681, 385, 0x0e3d74) --最多
         tap1(527, 483, 0xd77e00) --购买
     end
@@ -1997,13 +2011,13 @@ function zongHe1(...)
         isColor(688, 397, 0x0d3a70, 95)) or
         (isColor(337, 46, 0xe0e0e0, 95) and isColor(575, 219, 0xc1b78e, 95) and isColor(482, 485, 0x1c6eba, 95) and
             isColor(688, 397, 0x0c376b, 95)) then
-        debug("使用道具--遗物")
+        debugA("使用道具--遗物")
         tap1(690, 397, 0x0d3a70) --最多
         tap1(507, 482, 0x1c6eba) --使用
     end
     if isColor(17, 23, 0xffffff, 95) and isColor(7, 23, 0xff9c00, 95) and isColor(1073, 598, 0x233a62, 95) and
         isColor(1063, 596, 0xd1ffff, 95) then
-        debug("区域档案")
+        debugA("区域档案")
         if isColor(1089, 572, 0x9e1111, 95) then --红点
             tap1(1073, 598)
         else
@@ -2012,7 +2026,7 @@ function zongHe1(...)
     end
     if isColor(18, 24, 0xffffff, 95) and isColor(9, 24, 0xff9c00, 95) and isColor(185, 100, 0x4a9ce9, 95) and
         isColor(186, 622, 0x728a9d, 95) then
-        debug("未确认记录")
+        debugA("未确认记录")
         if isColor(263, 582, 0x116eb9, 95) then
             tap1(263, 582)
         end
@@ -2025,34 +2039,34 @@ function zongHe1(...)
     end
     if isColor(17, 24, 0xafafaf, 95) and isColor(381, 588, 0x00769c, 95) and isColor(561, 425, 0x9f6800, 95) and
         isColor(881, 585, 0x1d6dba, 95) then
-        debug("卡指引--编队--整编")
+        debugA("卡指引--编队--整编")
         tap1(881, 585, 0x1d6dba)
     end
     if isColor(20, 440, 0x8ab9f2, 95) and isColor(1103, 93, 0x444545, 95) and isColor(1057, 30, 0x808080, 95) and
         isColor(1071, 31, 0xffffff, 95) then
-        debug("提示1")
+        debugA("提示1")
         tap1(1071, 31)
     end
     if isColor(1071, 31, 0xffffff, 95) and isColor(1057, 31, 0x808080, 95) and isColor(28, 130, 0x444545, 95) and
         isColor(24, 504, 0x8ab9f2, 95) then
-        debug("提示2")
+        debugA("提示2")
         tap1(1071, 31)
     end
     if isColor(1073, 32, 0xffffff, 95) and isColor(1058, 32, 0x808080, 95) and isColor(14, 625, 0x000000, 95) then
-        debug("提示3")
+        debugA("提示3")
         tap1(1073, 32)
     end
     if isColor(279, 286, 0x02ff00, 95) and isColor(319, 350, 0x02ff00, 95) and isColor(23, 249, 0xff8a00, 95) then
-        debug("新号--任务3绿")
+        debugA("新号--任务3绿")
         tap1(279, 286)
     end
     if isColor(16, 23, 0xffffff, 95) and isColor(858, 593, 0xd78b02, 95) and isColor(685, 589, 0x0474d7, 95) and
         isColor(558, 108, 0x517fad, 95) == false then
-        debug("错误的出航界面")
+        debugA("错误的出航界面")
         tap1(20, 20)
     end
     if isColor(76, 68, 0xff6600, 95) and isColor(387, 68, 0xff2a00, 95) and isColor(629, 607, 0x306090, 95) then
-        debug("旗舰--升级")
+        debugA("旗舰--升级")
         if isColor(1019, 254, 0x116eb9, 95) then
             tap1(1019, 254)
             tap1(20, 20)
@@ -2062,102 +2076,102 @@ function zongHe1(...)
     end
     if isColor(337, 11, 0xe0e0e0, 95) and isColor(499, 515, 0x6a3920, 95) and isColor(498, 497, 0x6b4600, 95) and
         isColor(795, 56, 0x718c9c, 95) then
-        debug("高级VIP点数--金币购买--误开")
+        debugA("高级VIP点数--金币购买--误开")
         tap1(511, 596, 0x0c0c0e)
     end
     if isColor(291, 72, 0xf8a901, 95) and isColor(459, 502, 0x8f4d14, 95) and isColor(664, 542, 0xd87501, 95) then
-        debug("布置")
+        debugA("布置")
         tap1(664, 542, 0xd87501)
     end
     if isColor(472, 485, 0x114c8a, 95) and isColor(659, 505, 0x1c6fbb, 95) and isColor(772, 228, 0x5a5f65, 95) then
-        debug("集结时间")
+        debugA("集结时间")
         tap1(510, 570, 0x0c0c0e)
     end
     if isColor(834, 163, 0xff6600, 95) and isColor(667, 433, 0xd78b00, 95) and isColor(489, 421, 0x6b4600, 95) then
-        debug("误开加工缩短时间")
+        debugA("误开加工缩短时间")
         tap1(510, 526, 0x0c0c0e)
     end
     if isColor(377, 211, 0xa353c5, 95) and isColor(495, 203, 0xf8ec61, 95) and isColor(632, 210, 0x4080cb, 95) then
-        debug("中级装备材料选择箱子--误开")
+        debugA("中级装备材料选择箱子--误开")
         tap1(515, 569, 0x3d5879)
     end
     if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
-        debug("未知信号")
+        debugA("未知信号")
         tap1(511, 605, 0x0c0c0e)
     end
     if isColor(1049, 607, 0x1c68af, 95) and isColor(1045, 554, 0x1c68af, 95) and isColor(1, 1, 0xff9000, 95) then
-        debug("宇宙地图")
+        debugA("宇宙地图")
         tap1(511, 611, 0x0c0c0e)
     end
     if isColor(507, 519, 0x135eaa, 95) and isColor(646, 523, 0x121a22, 95) and isColor(782, 523, 0x121a22, 95) then
-        debug("司令官信息")
+        debugA("司令官信息")
         tap1(511, 600, 0x0c0c0e)
     end
     if isColor(460, 430, 0x8f4d14, 95) and isColor(487, 448, 0xd3a363, 95) and isColor(291, 146, 0xf9aa01, 95) and
         isColor(781, 210, 0x85baf9, 95) then
-        debug("消耗积分币完成工作")
+        debugA("消耗积分币完成工作")
         tap1(511, 516, 0x0c0c0e)
     end
     if isColor(310, 314, 0xffffff, 95) and isColor(712, 309, 0x116eb9, 95) and isColor(310, 466, 0xffffff, 95) and
         isColor(719, 462, 0x116eb9, 95) then
         if isColor(714, 311, 0x116eb9, 95) then
-            debug("移动至高级商店")
+            debugA("移动至高级商店")
             tap1(510, 592, 0x0c0c0e) --关闭
             isLiZi = true -- 粒子
             tap1(172, 525) -- 搜索
         else
-            debug("通过以下途径获得以下道具")
+            debugA("通过以下途径获得以下道具")
             tap1(512, 594, 0x0c0c0e)
         end
     end
     if isColor(696, 250, 0x116eb9, 95) and isColor(823, 255, 0x126fba, 95) and isColor(460, 509, 0x8f4d14, 95) and
         isColor(465, 548, 0xd78c00, 95) then
-        debug("司令官经验值")
+        debugA("司令官经验值")
         tap1(465, 548, 0xd78c00)
         if isColor(487, 431, 0x1c6eb9, 95) then -- 确定
             tap1(487, 431)
         end
     end
     if isColor(308, 424, 0x167dfb, 95) and isColor(816, 554, 0x167dfb, 95) and isColor(518, 592, 0xa5a5a5, 95) then
-        debug("确认年龄")
+        debugA("确认年龄")
         tap1(308, 424, 0x167dfb)
     end
     if isColor(242, 533, 0x167dfb, 95) and isColor(717, 586, 0x167dfb, 95) and isColor(145, 42, 0x333333, 95) and
         isColor(772, 579, 0xffffff, 95) then
-        debug("全部同意")
+        debugA("全部同意")
         tap1(242, 533)
     end
     if isColor(16, 24, 0xffffff, 95) and isColor(6, 24, 0xff9c00, 95) and isColor(56, 108, 0x75ff2d, 95) and
         isColor(243, 574, 0x114c8a, 95) and isColor(447, 618, 0x115dad, 95) then
-        debug("只有个建设按钮")
+        debugA("只有个建设按钮")
         tap1(447, 618, 0x115dad)
     end
     if isColor(515, 499, 0xd77500, 95) and isColor(291, 108, 0xf8ad01, 95) and isColor(469, 479, 0x6b4500, 95) and
         isColor(329, 180, 0x787b81, 95) then
-        debug("变更口号")
+        debugA("变更口号")
         tap1(511, 554, 0x0c0c0e)
     end
     if isColor(16, 25, 0xffffff, 95) and isColor(4, 25, 0xff9c00, 95) and isColor(48, 83, 0xffffff, 95) and
         isColor(61, 103, 0x4b4a54, 95) and isColor(346, 578, 0x227bc8, 95) then
-        debug("金属1/2")
+        debugA("金属1/2")
         tap1(346, 578, 0x227bc8)
     end
     if isColor(282, 66, 0xff6600, 95) and isColor(458, 513, 0x114c8a, 95) and isColor(318, 205, 0xff6600, 95) then
-        debug("联盟推荐")
+        debugA("联盟推荐")
         -- tap1(458, 513, 0x114c8a)
         tap1(511, 603, 0x0c0c0e)
     end
     if isColor(773, 278, 0x5b7f98, 95) and isColor(772, 352, 0x5b7f98, 95) and isColor(1112, 314, 0x4a9ce9, 95) then
-        debug("合成人物--关闭")
+        debugA("合成人物--关闭")
         tap1(563, 595, 0x0a1829)
     end
     if isColor(504, 489, 0x1c6eba, 95) and isColor(305, 111, 0xff6600, 95) and isColor(827, 529, 0xff6600, 95) then
-        debug("人物--获得")
+        debugA("人物--获得")
         tap1(504, 489, 0x1c6eba)
     end
     if isColor(849, 548, 0x8f4d14, 95) and isColor(1066, 596, 0xde7500, 95) and isColor(165, 599, 0x0c0c0e, 95) and
         isColor(157, 599, 0x3c587d, 95) then
-        debug("抽奖人物")
+        debugA("抽奖人物")
         tap1(885, 569, 0xd68b02)
     end
     -- if isColor(0, 0, 0xa80404, 95) and isColor(1135, 0, 0xa60101, 95) and isColor(0, 639, 0xa90304, 95) and
@@ -2168,58 +2182,58 @@ function zongHe1(...)
     -- end
     if isColor(725, 435, 0x117955, 95) and isColor(845, 460, 0x14a977, 95) and isColor(505, 614, 0x3a5475, 95) and
         isColor(272, 467, 0xffa900, 95) then
-        debug("升阶--关闭")
+        debugA("升阶--关闭")
         tap1(510, 615, 0x0c0c0e)
     end
 
     if isColor(282, 186, 0xff6600, 95) and isColor(377, 462, 0xff6600, 95) and isColor(851, 177, 0x718d9f, 95) then
-        debug("排队")
+        debugA("排队")
         nowTime = os.time()
         timeXXX = nowTime
         if isColor(503, 423, 0x1c6eba, 95) then
-            debug("有蓝色的确认按钮")
+            debugA("有蓝色的确认按钮")
             tap1(503, 423)
         elseif isColor(511, 500, 0x597181, 95) then
-            debug("有灰色关闭按钮")
+            debugA("有灰色关闭按钮")
             tap1(511, 500)
         end
     end
     if isColor(271, 196, 0xf7a901, 95) and isColor(690, 355, 0x114c8a, 95) and isColor(860, 412, 0xb8b7b8, 95) then
         -- if isColor(273, 149, 0xf7a901, 95) and isColor(260, 490, 0x658090, 95) and isColor(694, 318, 0x4693cf, 95) and
         -- isColor(844, 462, 0x052b57, 95) then
-        debug("认证和观看视频")
+        debugA("认证和观看视频")
         -- tap1(726, 433, 0x1c6dba) -- 观看视频
         tap1(769, 381, 0xffffff) -- 认证
     end
     if isColor(310, 103, 0xf5a801, 95) and isColor(311, 159, 0x264569, 95) and isColor(691, 202, 0x116eb9, 95) and
         isColor(813, 201, 0x116eb9, 95) then
-        debug("expire notice")
+        debugA("expire notice")
         tap1(511, 540, 0x0c0c0e)
     end
     if isColor(605, 474, 0xc9a571, 95) and isColor(645, 492, 0xd77500, 95) and isColor(682, 387, 0x0b3365, 95) and
         isColor(616, 392, 0x4a5e9b, 95) then
-        debug("购买道具--金币")
+        debugA("购买道具--金币")
         tap1(511, 551, 0x0c0c0e)
-        if muBiao == mb_YouHua then
+        if muBiaoA == mb_YouHua then
             isKaYouHua = true
             writeJson("卡优化", isKaYouHua)
-            gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
+            gaiMuBiaoNewA(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
             mSleep(1000)
             getOut()
-        elseif muBiao == mb_ZhuXian then
+        elseif muBiaoA == mb_ZhuXian then
             if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
-                gaiMuBiaoNew(1, "章节")
+                gaiMuBiaoNewA(1, "章节")
             else
-                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
             end
             timeRound = nowTime
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
             mSleep(1000)
             getOut()
-        elseif muBiao == mb_WaKuang then
+        elseif muBiaoA == mb_WaKuang then
             timeRound = nowTime
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
@@ -2229,28 +2243,28 @@ function zongHe1(...)
     end
     if isColor(639, 468, 0xd68b01, 95) and isColor(624, 473, 0x6b4500, 95) and isColor(685, 397, 0x0b305f, 95) and
         isColor(629, 392, 0xffffff, 95) then
-        debug("购买道具--金币2")
+        debugA("购买道具--金币2")
         tap1(511, 551, 0x0c0c0e)
-        if muBiao == mb_YouHua then
+        if muBiaoA == mb_YouHua then
             isKaYouHua = true
             writeJson("卡优化", isKaYouHua)
-            gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
+            gaiMuBiaoNewA(1, mb_ZhuXian, mm_ZhuXian)
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
             mSleep(1000)
             getOut()
-        elseif muBiao == mb_ZhuXian then
+        elseif muBiaoA == mb_ZhuXian then
             if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
-                gaiMuBiaoNew(1, "章节")
+                gaiMuBiaoNewA(1, "章节")
             else
-                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
             end
             timeRound = nowTime
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
             mSleep(1000)
             getOut()
-        elseif muBiao == mb_WaKuang then
+        elseif muBiaoA == mb_WaKuang then
             timeRound = nowTime
             mSleep(1000)
             tap1(511, 603, 0x0c0c0e)
@@ -2261,124 +2275,124 @@ function zongHe1(...)
     if isColor(123, 125, 0xff6600, 95) and isColor(776, 515, 0xce890e, 95) and isColor(123, 268, 0x5798dc, 95) and
         isColor(999, 431, 0x413013, 95) then
         -- if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
-        debug("骗你充一次钱")
+        debugA("骗你充一次钱")
         tap1(510, 607, 0x375070)
         if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
-            debug("关闭礼包")
+            debugA("关闭礼包")
             tap1(339, 429, 0x1c6fbb)
         end
     end
 
     if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
         isColor(741, 516, 0x2f2a33, 95) then
-        debug("外太空玩家2")
+        debugA("外太空玩家2")
         tap1(511, 600, 0x0c0c0e)
         tap1(571, 467, 0x05305c)
     end
     if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
-        debug("基地加成")
-        if muBiao == mb_CaiJi then
+        debugA("基地加成")
+        if muBiaoA == mb_CaiJi then
             tap1(561, 439)
         else
             tap1(20, 20)
         end
     end
     if isColor(143, 57, 0xe0e0e0, 95) and isColor(500, 164, 0xd4dc39, 95) and isColor(833, 184, 0x116eb9, 95) then
-        debug("加成信息--采集道具--使用")
-        if muBiao == mb_CaiJi then
+        debugA("加成信息--采集道具--使用")
+        if muBiaoA == mb_CaiJi then
             tap1(833, 184, 0x116eb9)
             if isColor(502, 437, 0x1c6dba, 95) then
                 tap1(511, 496, 0x566e7d)
             end
-            gaiMuBiaoNew(2, mb_JiNeng, mm_JiNeng)
+            gaiMuBiaoNewA(2, mb_JiNeng, mm_JiNeng)
         else
             tap1(511, 585, 0x0c0c0e)
         end
     end
     if isColor(474, 421, 0x1d6fbb, 95) and isColor(391, 306, 0x556c82, 95) and isColor(569, 304, 0x556c82, 95) then
-        debug("移动坐标")
+        debugA("移动坐标")
         tap1(508, 464, 0x0c0c0e)
     end
     if isColor(24, 594, 0xe8e8e8, 95) and isColor(1078, 591, 0xc7ccd1, 95) then
-        debug("广告")
+        debugA("广告")
         if isColor(568, 321, 0xffffff, 95) then
             tap1(568, 321)
             mSleep(50 * 5000)
         end
     end
     if isColor(50, 598, 0x071011, 95) and isColor(50, 601, 0x666666, 95) and isColor(571, 308, 0xffffff, 95) then
-        debug("广告,白色小手--点击")
+        debugA("广告,白色小手--点击")
         tap1(571, 308)
     end
     if isColor(850, 434, 0x05c237, 95) and isColor(913, 207, 0x05c237, 95) and isColor(990, 336, 0xb0b5b5, 95) then
-        debug("广告,绿色--继续")
+        debugA("广告,绿色--继续")
         tap1(850, 434, 0x05c237)
         mSleep(45 * 1000)
     end
     if isColor(60, 55, 0xffffff, 95) and isColor(71, 44, 0xffffff, 95) and isColor(1069, 593, 0x9f95b5, 95) then
-        debug("关广告--X,白--左上")
+        debugA("关广告--X,白--左上")
         tap1(60, 55)
     end
     if isColor(48, 51, 0xe8e8e8, 95) and isColor(37, 40, 0xe8e8e8, 95) and isColor(1076, 591, 0xbabec1, 95) then
-        debug("关广告--X,白--左上2")
+        debugA("关广告--X,白--左上2")
         tap1(48, 51)
     end
     if isColor(59, 56, 0xffffff, 95) and isColor(50, 597, 0x13282b, 95) and isColor(1069, 593, 0x586c9a, 95) then
-        debug("关广告--X,白--左上3")
+        debugA("关广告--X,白--左上3")
         tap1(59, 56)
     end
     if isColor(563, 314, 0xffffff, 95) and isColor(1103, 39, 0x666666, 95) and isColor(1059, 584, 0xb3b3b3, 95) then
-        debug("关广告--X,白--小手")
+        debugA("关广告--X,白--小手")
         tap1(562, 308)
         mSleep(60 * 1000)
     end
     if isColor(59, 56, 0xffffff, 95) and isColor(48, 44, 0xffffff, 95) and isColor(1104, 40, 0xffffff, 95) then
-        debug("关广告--X,白--左上4")
+        debugA("关广告--X,白--左上4")
         tap1(59, 55, 0xffffff)
     end
     if isColor(49, 52, 0xe8e8e8, 95) and isColor(36, 39, 0xe8e8e8, 95) and isColor(31, 53, 0x567274, 95) then
-        debug("关广告--X,白")
+        debugA("关广告--X,白")
         tap1(49, 52)
     end
     if isColor(1099, 35, 0x7c7c7c, 95) and isColor(1100, 41, 0xfafafa, 95) then
-        debug("关广告--X,灰白色")
+        debugA("关广告--X,灰白色")
         tap1(1099, 35, 0x7c7c7c)
     end
     if isColor(1088, 47, 0x202124, 95) and isColor(1088, 58, 0xfafafa, 95) and isColor(929, 50, 0x868686, 95) then
-        debug("关广告--X,黑色")
+        debugA("关广告--X,黑色")
         tap1(1088, 47, 0x202124)
     end
     if isColor(1088, 48, 0x202124, 95) and isColor(1088, 58, 0xfafafa, 95) and isColor(930, 50, 0x000000, 95) then
-        debug("关广告--X,黑色2")
+        debugA("关广告--X,黑色2")
         tap1(1088, 47, 0x202124)
     end
     if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(30, 599, 0xffffff, 95) == false then
-        debug("关广告--X,白色")
+        debugA("关广告--X,白色")
         tap1(1088, 47, 0x202124)
     end
     if isColor(1078, 57, 0xffffff, 95) and isColor(1087, 57, 0x101010, 95) and isColor(28, 604, 0xe6e6e6, 95) then
-        debug("关广告--X,白色2")
+        debugA("关广告--X,白色2")
         tap1(1078, 57, 0x202124)
     end
     if isColor(1088, 52, 0xffffff, 95) and isColor(1095, 52, 0xc4c4c4, 95) then
-        debug("关广告--X,白色3")
+        debugA("关广告--X,白色3")
         tap1(1088, 52)
     end
     if isColor(1078, 57, 0xffffff, 95) and isColor(30, 603, 0xe6e6e6, 95) then
-        debug("关广告--X,白色4")
+        debugA("关广告--X,白色4")
         tap1(1078, 57)
     end
     if isColor(1088, 52, 0xffffff, 95) and isColor(1098, 41, 0xffffff, 95) and isColor(33, 17, 0xe6e6e6, 95) then
-        debug("关广告--X,白色1--左上角")
+        debugA("关广告--X,白色1--左上角")
         tap1(1088, 52)
     end
     if isColor(1088, 47, 0xfafafa, 95) and isColor(1088, 58, 0x505050, 95) and isColor(981, 57, 0xadafb2, 95) then
-        debug("广告--奖励已发放--灰底白字")
+        debugA("广告--奖励已发放--灰底白字")
         tap1(1088, 47, 0xfafafa)
     end
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
         isColor(836, 102, 0xfab1cb, 95) then
-        debug("奖励积分币")
+        debugA("奖励积分币")
         mSleep(1000)
         isJustBack = false
         x, y = findColorInRegionFuzzy(0xd78b01, 95, 71, 87, 1121, 587);
@@ -2389,12 +2403,12 @@ function zongHe1(...)
             writeJson("广告次数", numGuangGao)
             mSleep(5 * 1000)
             if isColor(98, 272, 0x2d5996, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xeccfc0, 95) then
-                debug("已观看视频2")
+                debugA("已观看视频2")
                 tap1(512, 606, 0x0d0d10)
                 return
             end
             if isColor(98, 272, 0x2c5995, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xedcfc1, 95) then
-                debug("已观看视频")
+                debugA("已观看视频")
                 tap1(512, 606, 0x0d0d10)
                 return
             end
@@ -2451,25 +2465,25 @@ function zongHe1(...)
         end
     end
     if isColor(98, 272, 0x2d5996, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xeccfc0, 95) then
-        debug("已观看视频2")
+        debugA("已观看视频2")
         tap1(512, 606, 0x0d0d10)
     end
     if isColor(98, 272, 0x2c5995, 95) and isColor(1030, 563, 0x2d5a98, 95) and isColor(566, 195, 0xedcfc1, 95) then
-        debug("已观看视频")
+        debugA("已观看视频")
         tap1(512, 606, 0x0d0d10)
     end
     if isColor(155, 144, 0xff6600, 95) and isColor(171, 137, 0xf8a901, 95) and isColor(345, 467, 0x1d6eba, 95) and
         isColor(600, 470, 0xd78b00, 95) then
-        debug("掌握--达成满级")
+        debugA("掌握--达成满级")
         tap1(514, 530, 0x0e0f12)
     end
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(1094, 39, 0xe8d9a3, 95) and
         isColor(1077, 19, 0xc07f20, 95) then
-        debug("司令官技能--误开")
+        debugA("司令官技能--误开")
         tap1(20, 20)
     end
     if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
-        debug("云打码")
+        debugA("云打码")
         nowTime = os.time()
         timeXXX = nowTime
         -- snapshot("yudama.png", 222, 12, 596, 157)
@@ -2540,15 +2554,15 @@ function zongHe1(...)
         -- mSleep(10)
     end
     if isColor(269, 510, 0xc3841e, 95) and isColor(281, 128, 0xffffff, 95) and isColor(300, 121, 0x0c345b, 95) then
-        debug("vip界面")
+        debugA("vip界面")
         if isColor(271, 394, 0x116eb9, 95) then
-            debug("领取奖励--可领")
+            debugA("领取奖励--可领")
             tap1(271, 394)
         elseif isColor(942, 120, 0x9e1111, 95) then
-            debug("使用VIP点数--红点")
+            debugA("使用VIP点数--红点")
             tap1(821, 135, 0x268465)
         elseif isColor(807, 264, 0x1c6dba, 95) then
-            debug("可使用")
+            debugA("可使用")
             tap1(807, 264)
         else
             tap1(510, 591, 0x0c0c0e)
@@ -2556,17 +2570,17 @@ function zongHe1(...)
     end
     if isColor(457, 454, 0xf27c00, 95) and isColor(677, 453, 0xf2d600, 95) and isColor(513, 508, 0x1c6eba, 95) and
         isColor(308, 80, 0x0b4991, 95) then
-        debug("100 vip点数")
+        debugA("100 vip点数")
         tap1(556, 509, 0x1c6eba)
     end
     if isColor(498, 469, 0x1d6ebb, 95) and isColor(646, 470, 0x1d6fbc, 95) and isColor(574, 247, 0x7c4c3c, 95) then
-        debug("100 vip点数 单数")
+        debugA("100 vip点数 单数")
         tap1(539, 475, 0x1c6ebb)
     end
 
     if isColor(273, 72, 0xf5a801, 95) and isColor(270, 85, 0xe0e0e0, 95) and isColor(506, 590, 0x3f5d81, 95) and
         isColor(275, 146, 0x436c9e, 95) then
-        debug("奖励目录")
+        debugA("奖励目录")
         if isColor(469, 517, 0x1eb585, 95) then
             tap1(477, 507)
         else
@@ -2574,7 +2588,7 @@ function zongHe1(...)
         end
     end
     if isColor(170, 165, 0xa99280, 95) and isColor(214, 315, 0x56596a, 95) and isColor(354, 228, 0x246594, 95) then
-        debug("每日联盟任务")
+        debugA("每日联盟任务")
         if isColor(146, 511, 0x1d6eb9, 95) then
             tap1(146, 511)
         else
@@ -2582,13 +2596,13 @@ function zongHe1(...)
         end
     end
     if isColor(921, 44, 0x116eb9, 95) and isColor(330, 533, 0x49d9ec, 95) and isColor(83, 36, 0x30e4ff, 95) then
-        debug("联盟星球")
+        debugA("联盟星球")
         tap1(877, 542)
         tap1(511, 609, 0x3a597d)
     end
     if isColor(111, 106, 0x215da6, 95) and isColor(137, 70, 0x757677, 95) and isColor(345, 65, 0xd4d4d5, 95) then
         -- if isColor(111, 106, 0x215da6, 95) and isColor(140, 71, 0xa9a9aa, 95) and isColor(345, 67, 0xd4d4d5, 95) then
-        debug("援助联盟成员工作")
+        debugA("援助联盟成员工作")
         if isColor(916, 82, 0x0d9098, 95) then
             tap1(916, 82)
         else
@@ -2596,7 +2610,7 @@ function zongHe1(...)
         end
     end
     if isColor(126, 118, 0x00ace4, 95) and isColor(150, 109, 0xc0c0c0, 95) and isColor(313, 130, 0xe1e2e2, 95) then
-        debug("联盟成员礼物")
+        debugA("联盟成员礼物")
         if isColor(902, 128, 0x0d9098, 95) then
             tap1(902, 128)
         else
@@ -2604,7 +2618,7 @@ function zongHe1(...)
         end
     end
     if isColor(126, 59, 0x00ace4, 95) and isColor(116, 85, 0x215da6, 95) and isColor(519, 617, 0x3a597d, 95) then
-        debug("联盟成员礼物--新")
+        debugA("联盟成员礼物--新")
         if isColor(900, 125, 0x0d9098, 95) then
             tap1(900, 125)
         elseif isColor(205, 460, 0x1c6eba, 95) then
@@ -2612,7 +2626,7 @@ function zongHe1(...)
         elseif isColor(455, 458, 0x1c6dba, 95) then
             tap1(455, 458)
         elseif isColor(430, 98, 0x9d1111, 95) then
-            debug("高级红点")
+            debugA("高级红点")
             tap1(317, 116, 0x5a3f1e)
         else
             tap1(511, 589, 0x0c0c0e)
@@ -2620,12 +2634,12 @@ function zongHe1(...)
     end
     if isColor(89, 35, 0x00ace4, 95) and isColor(91, 71, 0x215da6, 95) and isColor(125, 28, 0xc4bfbe, 95) and
         isColor(231, 42, 0xdbdcdc, 95) then
-        debug("联盟任务")
+        debugA("联盟任务")
         if isColor(228, 105, 0x931012, 95) and isColor(113, 143, 0x956b1a, 95) then
-            debug("任务--红点--已选中")
+            debugA("任务--红点--已选中")
             mSleep(100)
             if isColor(842, 524, 0x116eb9, 95) then
-                debug("可更新")
+                debugA("可更新")
                 -- 红 0xb61d2c
                 -- 橙 0xc56600
                 -- 紫 0x7d079b
@@ -2665,7 +2679,7 @@ function zongHe1(...)
                     tap1(825, 532, 0x116eb9) -- 更新
                 end
             else
-                debug("不可更新")
+                debugA("不可更新")
                 -- 红 0xb61d2c
                 -- 橙 0xc56600
                 -- 紫 0x7d079b
@@ -2706,34 +2720,34 @@ function zongHe1(...)
                 end
             end
         elseif isColor(218, 169, 0x9d1111, 95) and isColor(199, 182, 0xa17316, 95) then
-            debug("进行--红点--已选中")
+            debugA("进行--红点--已选中")
             if isColor(311, 445, 0x1db687, 95) then
                 tap1(311, 445)
             elseif isColor(558, 443, 0x1db586, 95) then
                 tap1(558, 443)
             end
         elseif isColor(227, 233, 0x931012, 95) and isColor(199, 250, 0xa07316, 95) then
-            debug("协助--红点--已选中")
+            debugA("协助--红点--已选中")
             if isColor(303, 449, 0x1c6dba, 95) then
                 tap1(303, 449, 0x1c6dba)
             else
                 tap1(513, 606, 0x395679)
             end
         elseif isColor(228, 105, 0x931012, 95) and isColor(213, 114, 0x1b2b3e, 95) then
-            debug("任务--红点--未选中")
+            debugA("任务--红点--未选中")
             tap1(171, 140, 0x283544)
         elseif isColor(218, 169, 0x9d1111, 95) and isColor(212, 178, 0x1b2b3e, 95) then
-            debug("进行--红点--未选中")
+            debugA("进行--红点--未选中")
             tap1(171, 211, 0x283544)
         elseif isColor(227, 233, 0x931012, 95) and isColor(210, 244, 0x1b2a3d, 95) then
-            debug("协助--红点--未选中")
+            debugA("协助--红点--未选中")
             tap1(166, 263, 0x855f15)
 
         elseif isColor(315, 448, 0x1db587, 95) then
-            debug("分享")
+            debugA("分享")
             tap1(315, 448)
         elseif isColor(186, 262, 0x876115, 95) and isColor(323, 448, 0x1d6ebb, 95) then
-            debug("协助")
+            debugA("协助")
             tap1(323, 448, 0x1d6ebb)
             isOverHelp = true
             mSleep(2000)
@@ -2741,7 +2755,7 @@ function zongHe1(...)
         else
             tap1(176, 198, 0x886115)
             if isColor(313, 445, 0x1db687, 95) then
-                debug("分享")
+                debugA("分享")
                 tap1(313, 445)
             else
                 tap1(510, 608)
@@ -2749,7 +2763,7 @@ function zongHe1(...)
         end
     end
     if isColor(48, 44, 0x00ace4, 95) and isColor(72, 119, 0xa17316, 95) and isColor(94, 136, 0xffffff, 95) then
-        debug("联盟技术研究界面")
+        debugA("联盟技术研究界面")
         if isColor(336, 264, 0x767676, 95) then -- 1-1
             tap1(280, 193, 0xbc936a)
         elseif isColor(517, 264, 0x767676, 95) then -- 1-2
@@ -2771,7 +2785,7 @@ function zongHe1(...)
         end
     end
     if isColor(129, 66, 0xf5a801, 95) and isColor(146, 170, 0x30e5ff, 95) and isColor(159, 366, 0xac6c27, 95) then
-        debug("研究")
+        debugA("研究")
         if isColor(858, 498, 0x1c6eba, 95) then -- 可研究
             -- if nowTime - timeYanJiu >= 60 then
             tap1(858, 498, 0x1c6eba) -- 研究
@@ -2781,54 +2795,54 @@ function zongHe1(...)
             --     tap1(514, 597, 0x405b7c) -- 关闭
             -- end
         elseif isColor(806, 529, 0x1cb587, 95) then -- 可加速
-            debug("可加速")
+            debugA("可加速")
             tap1(806, 529, 0x1cb587) -- 加速
             timeYanJiu = nowTime - 60 -- 研究
         elseif isColor(963, 428, 0xff8f00, 95) then
-            debug("研究--需要粒子--放弃")
+            debugA("研究--需要粒子--放弃")
             tap1(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
         elseif isColor(543, 207, 0x3e8fee, 95) or isColor(995, 181, 0x1d426f, 95) then -- 缺少条件1
             -- tap1(543, 207)
-            debug("缺少条件1")
+            debugA("缺少条件1")
             tap1(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
         elseif isColor(543, 242, 0x3e8fee, 95) then -- 缺少条件2
             -- tap1(543, 242)
-            debug("缺少条件2")
+            debugA("缺少条件2")
             tap1(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
         elseif isColor(543, 251, 0x3e8fee, 95) then -- 缺少条件3
             -- tap1(543, 251)
-            debug("缺少条件3")
+            debugA("缺少条件3")
             tap1(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
         elseif isColor(691, 351, 0xff9900, 95) then -- 已完成
-            debug("已完成")
+            debugA("已完成")
             tap1(512, 598, 0x0c0c0e)
             mSleep(1000)
             numYanJiu()
         else
-            debug("研究--啥也不是--关闭")
+            debugA("研究--啥也不是--关闭")
             tap1(512, 598, 0x0c0c0e)
         end
     end
     if isColor(679, 457, 0xd78b00, 95) and isColor(912, 177, 0x1c6eba, 95) and isColor(562, 198, 0x68defb, 95) then
-        debug("招募公告")
+        debugA("招募公告")
         tap1(679, 457, 0xd78b00)
 
     end
     if isColor(370, 469, 0x1c6db9, 95) and isColor(660, 477, 0xd78b00, 95) and isColor(368, 213, 0xabf4f7, 95) then
-        debug("立即捐款")
+        debugA("立即捐款")
         tap1(370, 469, 0x1c6db9)
     end
     if isColor(380, 420, 0x1c6dba, 95) and isColor(651, 420, 0xd78b00, 95) and isColor(282, 175, 0xff6600, 95) and
         isColor(613, 409, 0x6b4500, 95) then
-        debug("捐完了")
+        debugA("捐完了")
         tap1(380, 420, 0x1c6dba) -- 取消
         tap1(512, 541, 0x0c0c0e) -- 关闭
         tap1(511, 528, 0x0c0c0e) -- 关闭
@@ -2837,120 +2851,120 @@ function zongHe1(...)
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
         -- debug("基地现况界面--综合函数")
         if isColor(814, 458, 0x9e1111, 95) then
-            debug("资源--免费兑换--红点")
+            debugA("资源--免费兑换--红点")
             numBuyTaiByCoin = 0
             writeJson("金币买钛", numBuyTaiByCoin)
             tap1(752, 488, 0x82a0c1)
         elseif isColor(557, 459, 0x9e1111, 95) then
-            debug("签到奖励--红点")
+            debugA("签到奖励--红点")
             tap1(519, 496, 0x306090)
         elseif isColor(686, 458, 0x9e1111, 95) then
-            debug("补给太空船--红点")
+            debugA("补给太空船--红点")
             tap1(624, 495, 0x306090)
         elseif isColor(1008, 179, 0x0f161f, 95) and haoLV <= 2 then
-            debug("研究所可建")
+            debugA("研究所可建")
             tap1(1008, 179)
-            gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
-            gaiMuBiaoNew(2, "", mm_Wu)
-            gaiMuBiaoNew(3, "", mm_Wu)
+            gaiMuBiaoNewA(1, mb_YouHua, mm_YouHua)
+            gaiMuBiaoNewA(2, "", mm_Wu)
+            gaiMuBiaoNewA(3, "", mm_Wu)
         elseif isColor(1049, 364, 0x9e1111, 95) then
-            debug("维修站--红点")
+            debugA("维修站--红点")
             tap1(954, 398, 0x306090)
         elseif isColor(466, 175, 0x8a4c17, 95) then
-            debug("攻击舰-完毕")
+            debugA("攻击舰-完毕")
             tap1(466, 175)
         elseif isColor(685, 174, 0x8a4c17, 95) then
-            debug("高速舰-完毕")
+            debugA("高速舰-完毕")
             tap1(685, 175)
         elseif isColor(471, 253, 0x8a4c17, 95) then
-            debug("运输舰-完毕")
+            debugA("运输舰-完毕")
             tap1(471, 253)
         elseif isColor(681, 257, 0x8a4c17, 95) then
-            debug("防御舰-完毕")
+            debugA("防御舰-完毕")
             tap1(685, 257)
         elseif isColor(466, 175, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("攻击舰-休息")
+            debugA("攻击舰-休息")
             tap1(466, 175)
             isJiDiXianKuangIntoProduce = true
         elseif isColor(685, 174, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("高速舰-休息")
+            debugA("高速舰-休息")
             tap1(685, 175)
             isJiDiXianKuangIntoProduce = true
         elseif isColor(471, 253, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("运输舰-休息")
+            debugA("运输舰-休息")
             tap1(471, 253)
             isJiDiXianKuangIntoProduce = true
         elseif isColor(681, 257, 0x306090, 95) and isShengChan == true and check11 ~= "不生产" then
-            debug("防御舰-休息")
+            debugA("防御舰-休息")
             tap1(685, 257)
             isJiDiXianKuangIntoProduce = true
             -- 474,257,0x8a4c17 完毕
             -- 518,175,0x306090 休息中
         elseif isColor(460, 175, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 1 then
-            debug("攻击舰-加速")
+            debugA("攻击舰-加速")
             tap1(466, 175)
             numSpeedUp = numSpeedUp + 1
             writeJson("加速生产船型", numSpeedUp)
         elseif isColor(655, 174, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 2 then
-            debug("高速舰-加速")
+            debugA("高速舰-加速")
             tap1(685, 175)
             numSpeedUp = numSpeedUp + 1
             writeJson("加速生产船型", numSpeedUp)
         elseif isColor(469, 258, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 3 then
-            debug("运输舰-加速")
+            debugA("运输舰-加速")
             tap1(471, 253)
             numSpeedUp = numSpeedUp + 1
             writeJson("加速生产船型", numSpeedUp)
         elseif isColor(659, 255, 0x064f61, 95) and check15 == "生产加速" and numSpeedUp == 4 then
-            debug("防御舰-加速")
+            debugA("防御舰-加速")
             tap1(685, 257)
             numSpeedUp = 1
             writeJson("加速生产船型", numSpeedUp)
-        elseif muBiao == mb_ChuHang then
-            debug("出航")
+        elseif muBiaoA == mb_ChuHang then
+            debugA("出航")
             tap1(513, 611)
         elseif isColor(410, 490, 0x9d1111, 95) then
-            debug("防卫工程--红点")
+            debugA("防卫工程--红点")
             tap1(331, 537, 0x306090)
         elseif isColor(808, 314, 0x9d1111, 95) and isOverHelp == false then
-            debug("联盟协助--红点")
+            debugA("联盟协助--红点")
             tap1(758, 362, 0x0c2037)
         elseif isColor(558, 321, 0x9e1111, 95) then
-            debug("联盟研究--红点")
+            debugA("联盟研究--红点")
             tap1(510, 357, 0x0c2037)
         elseif isColor(686, 321, 0x9e1111, 95) and nowTime - timeLianMengRenWu >= 60 * 60 then
-            debug("联盟任务--红点")
+            debugA("联盟任务--红点")
             tap1(638, 366, 0x0c2037)
             if isColor(1020, 546, 0x744218, 95) then
-                debug("联盟任务不能做")
+                debugA("联盟任务不能做")
                 timeLianMengRenWu = nowTime
                 timeJiDi = nowTime
             end
         elseif isColor(224, 511, 0x183453, 95) and isChongDianKaZiYuan == false then
-            debug("防卫工程,电不满")
+            debugA("防卫工程,电不满")
             tap1(347, 538, 0x306090)
         elseif isColor(993, 542, 0x306090, 95) then
-            debug("加工站")
+            debugA("加工站")
             tap1(993, 542)
         elseif isColor(996, 177, 0x306090, 95) and isYanJiu == true and check14 == "研究" then
-            debug("技术研究--休息中")
+            debugA("技术研究--休息中")
             tap1(996, 177)
-            gaiMuBiaoNew(3, "研究")
+            gaiMuBiaoNewA(3, "研究")
         elseif check25 == "库存" and isColor(953, 303, 0x306090, 95) then
-            debug("机库--休息中")
+            debugA("机库--休息中")
             tap1(982, 276, 0x306090)
-        elseif muBiao1 == mb_WaKuang then
+        elseif muBiaoA1 == mb_WaKuang then
 
         else
             tap1(510, 608, 0x0c0c0e)
         end
     end
     if isColor(553, 205, 0x345214, 90) and isColor(581, 188, 0x2a72ba, 90) then
-        debug("个人活动--点数奖励")
+        debugA("个人活动--点数奖励")
         tap1(512, 577, 0x0c0c0e)
     end
     if isColor(274, 160, 0xcda099, 95) and isColor(292, 81, 0x9badde, 95) and isColor(366, 330, 0x78551a, 95) then
-        debug("签到奖励")
+        debugA("签到奖励")
         x, y = findColorInRegionFuzzy(0x145e99, 100, 857, 133, 857, 539);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             tap1(x, y)
@@ -2959,35 +2973,35 @@ function zongHe1(...)
         end
     end
     if isColor(141, 75, 0x406898, 95) and isColor(170, 67, 0xff6600, 95) and isColor(738, 504, 0xd78b01, 95) then
-        debug("推荐礼包--广告")
+        debugA("推荐礼包--广告")
         tap1(471, 590)
         tap1(907, 590)
     end
     if isColor(366, 363, 0x423113, 95) and isColor(672, 365, 0x453313, 95) and isColor(472, 527, 0xd88b00, 95) then
-        debug("推荐礼包--广告2")
+        debugA("推荐礼包--广告2")
         tap1(471, 590)
         tap1(907, 590)
     end
     if isColor(110, 63, 0xff6600, 95) and isColor(449, 500, 0x8f4d14, 95) and isColor(1055, 557, 0x406898, 95) then
-        debug("推荐礼包--广告3")
+        debugA("推荐礼包--广告3")
         tap1(471, 590)
         tap1(907, 590)
     end
     if isColor(98, 288, 0xffffff, 95) and isColor(1036, 286, 0xffffff, 95) and isColor(493, 522, 0xd78b00, 95) and
         isColor(897, 587, 0x425f82, 95) then
-        debug("广告画廊")
+        debugA("广告画廊")
         tap1(471, 590)
         tap1(907, 590)
     end
     if isColor(16, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(75, 13, 0xb1c2d5, 95) and
         isColor(160, 32, 0x9aacc0, 95) then
-        debug("探险关门")
+        debugA("探险关门")
         tap1(20, 20)
         redJudge()
     end
     if isColor(7, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(73, 14, 0xe2e8ef, 95) and
         isColor(161, 29, 0xa8b8c9, 95) then
-        debug("活动中心")
+        debugA("活动中心")
         x, y = findMultiColorInRegionFuzzy(0x9d1111, "-1|0|0xf29203", 90, 133, 120, 134, 603)
         if x ~= -1 then
             huoDongDetail()
@@ -3009,63 +3023,63 @@ function zongHe1(...)
         end
     end
     if isColor(207, 23, 0xff6600, 95) and isColor(221, 105, 0x34618e, 95) and isColor(612, 24, 0xff6600, 95) then
-        debug("每日报告1")
+        debugA("每日报告1")
         tap1(510, 609)
     end
     if isColor(207, 23, 0xff6600, 95) and isColor(221, 105, 0x356290, 95) and isColor(618, 24, 0xff6600, 95) then
-        debug("每日报告2")
+        debugA("每日报告2")
         tap1(510, 609)
     end
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(73, 16, 0xe2e8ef, 95) and
         isColor(159, 23, 0x97a9be, 95) then
-        debug("奖励中心")
+        debugA("奖励中心")
         if isColor(253, 219, 0xf90703, 95) and isColor(281, 314, 0xd6a691, 95) then
-            debug("司令官界面")
+            debugA("司令官界面")
             if isColor(1001, 197, 0xf18e07, 95) then
-                debug("领取")
+                debugA("领取")
                 tap1(1001, 197)
             elseif isColor(321, 549, 0x4157b0, 90) then
-                debug("40")
+                debugA("40")
                 tap1(463 - 141, 549, 0x465bb2)
             elseif isColor(464, 548, 0xf0ffff, 90) then
-                debug("80")
+                debugA("80")
                 tap1(463, 549, 0x465bb2)
             elseif isColor(605, 548, 0xcfffff, 90) then
-                debug("120")
+                debugA("120")
                 tap1(605, 550)
             elseif isColor(745, 550, 0xe2ffff, 90) then
-                debug("160")
+                debugA("160")
                 tap1(745, 550)
                 -- elseif isColorPlus(455 + 141 * 3, 564, 0xffd973, 95) then
                 --     debug("200")
                 --     tap1(463 + 141 * 3, 549, 0x465bb2)
             elseif isColor(714, 95, 0x9e1111, 95) then
-                debug("新任司令官--红点")
+                debugA("新任司令官--红点")
                 tap1(714, 95)
             elseif isColor(905, 94, 0x9e1111, 95) then
-                debug("成长基地--红点")
+                debugA("成长基地--红点")
                 tap1(905, 94)
             elseif isColor(1095, 94, 0x9e1111, 95) then
-                debug("内政强化")
+                debugA("内政强化")
                 tap1(1095, 94)
             elseif isColor(396, 154, 0x9e1111, 95) then
-                debug("第1天")
+                debugA("第1天")
                 tap1(428, 177)
             elseif isColor(437, 221, 0x9e1111, 95) then
-                debug("第2天")
+                debugA("第2天")
                 tap1(476, 248)
             elseif isColor(437, 358, 0x9e1111, 95) then
-                debug("第4天")
+                debugA("第4天")
                 tap1(471, 381)
             elseif isColor(396, 427, 0x9e1111, 95) then
-                debug("第5天")
+                debugA("第5天")
                 tap1(429, 454, 0xf0dfd3)
             else
                 redJudge()
                 tap1(20, 20)
             end
         elseif isColor(137, 103, 0x9e1111, 95) and isColor(117, 103, 0xa17316, 95) then
-            debug("签到奖励--红点--已选")
+            debugA("签到奖励--红点--已选")
             x, y = findColorInRegionFuzzy(0x145e99, 100, 972, 145, 972, 587);
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
                 tap1(x, y)
@@ -3073,9 +3087,9 @@ function zongHe1(...)
                 tap1(20, 20)
             end
         elseif isColor(136, 173, 0x9e1111, 95) and isColor(116, 173, 0xa17316, 95) then
-            debug("欢迎礼物--红点--已选")
+            debugA("欢迎礼物--红点--已选")
             if isColor(934, 561, 0x116eb9, 95) then
-                debug("第7天")
+                debugA("第7天")
                 tap1(934, 561, 0x116eb9)
             end
             x, y = findColorInRegionFuzzy(0x116eb9, 100, 196, 338, 664, 602)
@@ -3112,19 +3126,19 @@ function zongHe1(...)
             --         tap1(20, 20)
             --     end
         elseif isColor(137, 103, 0x9e1111, 95) and isColor(122, 107, 0x1b2a3d, 95) then
-            debug("签到奖励--红点--未选")
+            debugA("签到奖励--红点--未选")
             tap1(137, 104)
         elseif isColor(137, 172, 0x9e1111, 95) and isColor(127, 189, 0x192738, 95) then
-            debug("欢迎礼物--红点--未选")
+            debugA("欢迎礼物--红点--未选")
             tap1(137, 172)
         elseif isColor(137, 311, 0x9e1111, 95) and isColor(122, 311, 0x1b2b3f, 95) then
-            debug("航母活动--红点--未选")
+            debugA("航母活动--红点--未选")
             tap1(137, 311)
         elseif isColor(137, 380, 0x9e1111, 95) and isColor(124, 380, 0x1b2b3f, 95) then
-            debug("司令官任务--红点--未选")
+            debugA("司令官任务--红点--未选")
             tap1(137, 380)
         elseif isColor(137, 311, 0x9e1111, 95) and isColor(114, 311, 0xa17316, 95) then
-            debug("航母活动--红点--已选")
+            debugA("航母活动--红点--已选")
             -- x, y = findColorInRegionFuzzy(0x116eb9, 100, 202, 349, 663, 599)
             -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             --     tap1(x, y)
@@ -3134,7 +3148,7 @@ function zongHe1(...)
             tap1(20, 20)
             -- timeRed = nowTime
         elseif isColor(396, 339, 0x1b7b55, 95) and isColor(247, 400, 0x7d8a96, 95) then
-            debug("航母活动--向上移位置了--红点--已选")
+            debugA("航母活动--向上移位置了--红点--已选")
             -- x, y = findColorInRegionFuzzy(0x116eb9, 100, 202, 349, 663, 599)
             -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             --     tap1(x, y)
@@ -3154,12 +3168,12 @@ function zongHe1(...)
     end
     if isColor(312, 77, 0xf5a801, 95) and isColor(308, 98, 0x0b4992, 95) and isColor(457, 438, 0xf27d00, 95) and
         isColor(511, 504, 0x1d6dba, 95) then
-        debug("道具信息--复数--使用")
-        if muBiao == mb_5DaoJu then
+        debugA("道具信息--复数--使用")
+        if muBiaoA == mb_5DaoJu then
             tap1(458, 438, 0xf27c00) -- 1个 
             tap1(511, 504)
             if num5DaoJu >= 5 then
-                gaiMuBiaoNew(2, "道具合成")
+                gaiMuBiaoNewA(2, "道具合成")
             end
         else
             if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
@@ -3173,22 +3187,22 @@ function zongHe1(...)
     end
     if isColor(312, 116, 0xf5a801, 95) and isColor(307, 127, 0xe0e0e0, 95) and isColor(486, 436, 0x114c8a, 95) and
         isColor(490, 455, 0x1c6ebb, 95) then
-        debug("道具信息--单数--使用")
+        debugA("道具信息--单数--使用")
         tap1(490, 455, 0x1c6ebb)
-        if muBiao == mb_5DaoJu then
+        if muBiaoA == mb_5DaoJu then
             if num5DaoJu >= 5 then
-                gaiMuBiaoNew(2, "道具合成")
+                gaiMuBiaoNewA(2, "道具合成")
             end
         end
     end
     if isColor(89, 59, 0xf5a801, 95) and isColor(208, 252, 0x2c4968, 95) and isColor(300, 430, 0x8f4d14, 95) then
-        debug("补充资源")
+        debugA("补充资源")
         if isColor(1028, 113, 0xffffff, 95) then
-            debug("资源充足")
+            debugA("资源充足")
             tap1(20, 20)
             -- elseif isColor(1028, 113, 0x081b33, 95) then
         else
-            debug("资源不足")
+            debugA("资源不足")
             -- ret = dmOcrText(dm_white, 836, 81, 1029, 93, "D8DADC,272523", 80)
             -- debug(ret)
             -- lua_exit();
@@ -3208,18 +3222,18 @@ function zongHe1(...)
                 tap1(511, 603, 0x0c0c0e)
                 mSleep(1000)
                 getOut()
-                if muBiao == mb_YouHua then
+                if muBiaoA == mb_YouHua then
                     isKaYouHua = true
                     writeJson("卡优化", isKaYouHua)
-                    gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
-                elseif muBiao == mb_ZhuXian then
+                    gaiMuBiaoNewA(1, mb_ZhuXian, mm_ZhuXian)
+                elseif muBiaoA == mb_ZhuXian then
                     if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
-                        gaiMuBiaoNew(1, "章节")
+                        gaiMuBiaoNewA(1, "章节")
                     else
-                        gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                        gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
                     end
                     timeRound = nowTime
-                elseif muBiao == mb_WaKuang then
+                elseif muBiaoA == mb_WaKuang then
                     isShengChan = false
                     timeShengChan = nowTime
                 end
@@ -3251,14 +3265,14 @@ function zongHe1(...)
     end
 
     if isColor(5, 25, 0xff6600, 95) and isColor(17, 25, 0xffffff, 95) and isColor(467, 518, 0x448db2, 95) then
-        debug("舰长")
+        debugA("舰长")
         if isColor(137, 102, 0x9e1111, 95) then
-            debug("舰长--升级--左上角--红点--内")
+            debugA("舰长--升级--左上角--红点--内")
             if isColor(1022, 547, 0x9e1111, 95) then
-                debug("舰长--升级--右下角--红点--内")
+                debugA("舰长--升级--右下角--红点--内")
                 tap1(1022, 547)
             elseif isColor(1023, 254, 0x116eb9, 95) then
-                debug("舰长--使用")
+                debugA("舰长--使用")
                 local maxKaJianZhangJingYan = 0
                 if isColor(1019, 464, 0x116eb9, 95) then
                     maxKaJianZhangJingYan = 3
@@ -3271,7 +3285,7 @@ function zongHe1(...)
                     isKaJianZhangJingYan = maxKaJianZhangJingYan
                 end
                 if isColor(819, 459, 0x00ace4, 95) and isKaJianZhangJingYan == 3 then
-                    debug("3满")
+                    debugA("3满")
                     tap1(860, 465)
                     if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
                         isKaJianZhangJingYan = 2
@@ -3284,7 +3298,7 @@ function zongHe1(...)
                         tap1(510, 494, 0x0c0c0e)
                     end
                 elseif isColor(819, 357, 0x00ace4, 95) and isKaJianZhangJingYan == 2 then
-                    debug("2满")
+                    debugA("2满")
                     tap1(860, 357)
                     if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
                         isKaJianZhangJingYan = 1
@@ -3297,7 +3311,7 @@ function zongHe1(...)
                         tap1(510, 494, 0x0c0c0e)
                     end
                 elseif isColor(819, 239, 0x00ace4, 95) and isKaJianZhangJingYan == 1 then
-                    debug("1满")
+                    debugA("1满")
                     tap1(860, 261)
                     if isColor(494, 426, 0x1c6dba, 95) then -- 超过上限
                         tap1(514, 419, 0x1c6dba)
@@ -3313,7 +3327,7 @@ function zongHe1(...)
                 tap1(20, 20)
             end
         elseif isColor(135, 167, 0x9e1111, 95) then
-            debug("舰长--提升星级--红点")
+            debugA("舰长--提升星级--红点")
             tap1(99, 179, 0x9b6f15)
             if isColor(823, 572, 0xd88b00, 95) then
                 tap1(823, 572)
@@ -3327,7 +3341,7 @@ function zongHe1(...)
         end
     end
     if isColor(7, 24, 0xff9c00, 95) and isColor(626, 62, 0x005c8b, 95) and isColor(712, 387, 0x5798dc, 95) then
-        debug("舰长列表")
+        debugA("舰长列表")
         local bMultiColor = false
         for i = 0, 5, 1 do
             if zongHe_Mult() == true then
@@ -3337,7 +3351,7 @@ function zongHe1(...)
         end
         if bMultiColor == false then
             if isColor(1123, 95, 0x9e1111, 95) then
-                debug("舰长--升级--红点--外") -- 暂时不升
+                debugA("舰长--升级--红点--外") -- 暂时不升
                 if isKaZhuXianJianZhang == true then
                     tap1(1077, 116)
                     isKaZhuXianJianZhang = false
@@ -3345,7 +3359,7 @@ function zongHe1(...)
                     getOut()
                 end
             elseif isColor(1123, 95, 0xf18e07, 95) then
-                debug("舰长--获得")
+                debugA("舰长--获得")
                 tap1(1123, 95, 0xf18e071123, 95, 0xf18e07)
             else
                 if isKaZhuXianJianZhang == true then
@@ -3358,18 +3372,18 @@ function zongHe1(...)
         end
     end
     if isColor(250, 135, 0xf5a801, 95) and isColor(247, 148, 0xe0e0e0, 95) and isColor(896, 504, 0x647e8f, 95) then
-        debug("主专长")
+        debugA("主专长")
         tap1(512, 572)
     end
     if isColor(307, 126, 0xe0e0e0, 95) and isColor(312, 116, 0xf5a801, 95) and isColor(514, 457, 0x1c6db9, 95) and
         isColor(583, 291, 0x22d5c9, 95) then
-        debug("租用无人机8小时")
+        debugA("租用无人机8小时")
         tap1(514, 457)
     end
     if isColor(8, 24, 0xff9c00, 95) and isColor(63, 333, 0xffffff, 95) and isColor(323, 447, 0x0078fe, 95) then
-        debug("联盟界面")
+        debugA("联盟界面")
         if check7 == "联盟任务" then
-            debug("选中联盟任务")
+            debugA("选中联盟任务")
             if isColor(781, 94, 0x931012, 95) then -- 1
                 tap1(735, 154)
             elseif isColor(937, 94, 0x931012, 95) then -- 2
@@ -3398,7 +3412,7 @@ function zongHe1(...)
     end
 
     if isColor(450, 467, 0xd68b01, 95) and isColor(687, 477, 0x1d6ebb, 95) and isColor(339, 117, 0xff6600, 95) then
-        debug("请手动加入联盟")
+        debugA("请手动加入联盟")
         --     -- fwCloseView("window1", "btn1"); -- 关闭文字视图
         --     -- fwShowButton("window1", "btn2", "off", "FFFFFF", "8a4c17", "", 12, 0, 0, 50, 30);
         --     -- mSleep(500)
@@ -3412,7 +3426,7 @@ function zongHe1(...)
         tap1(512, 567, 0x0c0c0e)
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(48, 208, 0x9d96a8, 95) then
-        debug("平台界面")
+        debugA("平台界面")
         if haoLV == 3 then
             tap1(20, 20)
             return
@@ -3426,12 +3440,12 @@ function zongHe1(...)
         end
         if bMultiColor == false then
             if isColor(29, 252, 0xffffff, 95) and isColor(36, 252, 0x8a8a8f, 95) then
-                debug("金属平台为0")
+                debugA("金属平台为0")
                 tap1(36, 252)
                 mSleep(1000)
                 tap1(317, 596)
-            elseif muBiao == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
-                debug("三氯气--有了")
+            elseif muBiaoA == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
+                debugA("三氯气--有了")
                 tap1(20, 20)
                 mSleep(1000)
                 tap1(346, 422, 0x47c4dd) -- 第三个平台--点击建造
@@ -3445,8 +3459,8 @@ function zongHe1(...)
                 tap1(20, 20)
             end
         else
-            if muBiao == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
-                debug("三氯气--有了")
+            if muBiaoA == mb_ZhuXian and isColor(53, 337, 0x47702b, 95) then
+                debugA("三氯气--有了")
                 tap1(20, 20)
                 mSleep(1000)
                 tap1(346, 422, 0x47c4dd) -- 第三个平台--点击建造
@@ -3462,7 +3476,7 @@ function zongHe1(...)
         end
     end
     if isColor(288, 173, 0x0b4992, 95) and isColor(291, 161, 0xf5a801, 95) and isColor(491, 414, 0x45586c, 95) then
-        debug("变更名称")
+        debugA("变更名称")
         tap1(565, 272)
         mSleep(2000)
         inputText(randomString(8, 3))
@@ -3473,7 +3487,7 @@ function zongHe1(...)
         mSleep(1000)
     end
     if isColor(5, 25, 0xff9c00, 95) and isColor(104, 85, 0x30e3fe, 95) and isColor(618, 537, 0xbf7702, 95) then
-        debug("传输室")
+        debugA("传输室")
         if isColor(930, 141, 0xff6600, 95) then -- ad 0/1
             tap1(903, 138, 0xff9900)
         elseif isColor(922, 570, 0xff0101, 95) == false then -- 有特殊传输
@@ -3492,37 +3506,37 @@ function zongHe1(...)
     end
 
     if isColor(1100, 35, 0x7c7c7c, 95) and isColor(611, 599, 0xcecece, 95) then
-        debug("广告--关闭")
+        debugA("广告--关闭")
         tap1(1100, 35)
     end
     if isColor(1088, 51, 0xffffff, 95) and isColor(1135, 639, 0xd8366a, 95) then
-        debug("广告--关闭")
+        debugA("广告--关闭")
         tap1(1088, 51)
     end
     if isColor(435, 30, 0x1b68c8, 95) and isColor(515, 54, 0x0f1c2b, 95) and isColor(626, 75, 0xffffff, 95) and
         isColor(510, 617, 0x0c0c0e, 95) then
-        debug("传输结果")
+        debugA("传输结果")
         tap1(510, 623)
     end
     if isColor(48, 74, 0xff4545, 95) and isColor(993, 595, 0xd77400, 95) and isColor(962, 579, 0x0780fe, 95) then
-        debug("海盗界面")
+        debugA("海盗界面")
         tap1(993, 595)
         isKillPirate = false -- 杀海盗
         timeKillPirate = nowTime
     end
     if isColor(48, 74, 0xff4545, 95) and isColor(936, 558, 0x114c8a, 95) and isColor(942, 591, 0x1c6eba, 95) then
-        debug("海盗--移动")
+        debugA("海盗--移动")
         tap1(942, 591, 0x1c6eba)
     end
     if isColor(6, 24, 0xff9c00, 95) and isColor(76, 113, 0xaa3d3d, 95) and isColor(866, 594, 0xd68b02, 95) then
-        debug("海盗--出航")
+        debugA("海盗--出航")
         if isColor(813, 65, 0xfbfbfb, 95) or isColor(810, 66, 0xff9999, 95) or isColor(793, 63, 0xc80305, 95) then -- 不利
             tap1(20, 20)
-            if haoLV <= 2 and muBiao == "主线" and numLv >= 6 then
-                gaiMuBiaoNew(1, "章节")
+            if haoLV <= 2 and muBiaoA == "主线" and numLv >= 6 then
+                gaiMuBiaoNewA(1, "章节")
             end
         elseif isColor(242, 150, 0xffffff, 95) or isColor(226, 149, 0xffffff, 95) then
-            debug("无人物")
+            debugA("无人物")
             tap1(20, 20)
         else
             tap1(866, 594)
@@ -3531,15 +3545,15 @@ function zongHe1(...)
         end
     end
     if isColor(282, 64, 0xff6600, 95) and isColor(476, 383, 0x116eb9, 95) and isColor(475, 539, 0xf18e07, 95) then
-        debug("领取奖励")
+        debugA("领取奖励")
         tap1(476, 383)
     end
     if isColor(282, 64, 0xff6600, 95) and isColor(503, 386, 0x124067, 95) and isColor(475, 539, 0xf18e07, 95) then
-        debug("领取奖励--未到时")
+        debugA("领取奖励--未到时")
         tap1(20, 20)
     end
     if isColor(16, 24, 0xffffff, 95) and isColor(4, 24, 0xff9c00, 95) and isColor(56, 217, 0x5dfe09, 95) then
-        debug("建设界面")
+        debugA("建设界面")
         if isColor(46, 57, 0xffb500, 95) == false then -- 无黄色条
             tap1(20, 20)
             return
@@ -3552,10 +3566,10 @@ function zongHe1(...)
             mSleep(100)
         end
         if isColor(57, 216, 0x64ff15, 95) and isColor(53, 190, 0xffffff, 95) then
-            debug("升级界面")
+            debugA("升级界面")
             if haoLV <= 2 and ((isColor(63, 548, 0x31bcd8, 95) and isColor(42, 440, 0xa82400, 95)) or
                 (isColor(64, 545 - 107, 0x40d1e8, 95) and isColor(53, 571 - 107, 0x5daa9f, 95))) then
-                debug("指挥中心")
+                debugA("指挥中心")
                 -- x, y = findMultiColorInRegionFuzzy(0x32bed9, "-21|-108|0xb72700", 90, 749, 126, 772, 145)
                 local numStr = ocrText(749, 126, 772, 145, 0, "012346789")
                 if tonumber(numStr) >= 0 then
@@ -3565,20 +3579,20 @@ function zongHe1(...)
                 end
             end
             if haoLV >= 3 and isTrade == false and isColor(42, 331, 0xd769c2, 95) then
-                debug("点击交易所")
+                debugA("点击交易所")
                 tap1(42, 331)
                 return
             elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42, 331, 0xd769c2, 95) then
-                debug("交易所--点击兑换")
+                debugA("交易所--点击兑换")
                 tap1(51, 434)
                 isCheckLiZiNum = true
                 return
             elseif haoLV >= 3 and numAddChanLiang <= 2 and isColor(32, 336, 0x00fc21, 95) then
-                debug("点击增产")
+                debugA("点击增产")
                 tap1(42, 331)
                 return
             elseif haoLV >= 3 and isAddChanLiangLiZi == false and isColor(32, 336, 0x00fc21, 95) and check16 == "vip8" then
-                debug("点击粒子增产")
+                debugA("点击粒子增产")
                 tap1(42, 331)
                 return
             end
@@ -3589,23 +3603,23 @@ function zongHe1(...)
             if bMultiColor == false then
                 -- if (m_pOp->isColorPlus(365, 504, 0x1c6dbb, 0.95))//可升级
                 if isShipBad == true and isColor(41, 343, 0x938d99, 95) and isColor(38, 190, 0xffffff, 95) then
-                    debug("航母开发室--升级")
+                    debugA("航母开发室--升级")
                     tap1(45, 336, 0x6f6979)
                 elseif isColor(91, 625, 0xf27d12, 95) then
-                    debug("正在生产战舰")
+                    debugA("正在生产战舰")
                     isShengChan = false
                     timeShengChan = nowTime
                     tap1(48, 339, 0x060c27) -- 生产
                     isJiaSuProduce = true
                 elseif isColor(431, 589, 0x1c6eba, 95) then
-                    debug("可升级")
+                    debugA("可升级")
                     numShengJiCengShu = 0
                     if haoLV <= 2 then
                         if isColor(246, 604, 0xfddb81, 95) and isColor(269, 612, 0xfad275, 95) then
-                            debug("免费")
+                            debugA("免费")
                             tap1(246, 604)
                         else
-                            debug("花钱升级")
+                            debugA("花钱升级")
                             tap1(442, 592)
                         end
                     else
@@ -3614,21 +3628,21 @@ function zongHe1(...)
                 elseif isColor(246, 604, 0xfddb81, 95) and isColor(270, 612, 0xf5c566, 95) then
                     numShengJiCengShu = 0
                     if haoLV <= 2 then
-                        debug("免费")
+                        debugA("免费")
                         tap1(246, 604)
                     else
                         getOut()
                     end
                 elseif isColor(421, 598, 0x1eb686, 95) then
                     numShengJiCengShu = 0
-                    debug("建设--加速")
+                    debugA("建设--加速")
                     tap1(421, 598)
-                    if muBiao ~= mb_YouHua then
+                    if muBiaoA ~= mb_YouHua then
                         isAutoNext = false
                     end
                 elseif isColor(652, 403, 0x3e8fee, 95) and
                     (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
-                    debug("2蓝")
+                    debugA("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
                         tap1(843, 390)
@@ -3637,7 +3651,7 @@ function zongHe1(...)
                     end
                 elseif isColor(1104, 390, 0x1a406b, 95) and
                     (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
-                    debug("2蓝")
+                    debugA("2蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
                         tap1(843, 390)
@@ -3646,7 +3660,7 @@ function zongHe1(...)
                     end
                 elseif isColor(652, 368, 0x3e8fee, 95) and
                     (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
-                    debug("1蓝")
+                    debugA("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
                         tap1(1089, 356)
@@ -3655,7 +3669,7 @@ function zongHe1(...)
                     end
                 elseif isColor(1104, 356, 0x1a406b, 95) and
                     (isAutoNext == true or nowTime - timeShengJiTongXingZheng >= 10) then
-                    debug("1蓝")
+                    debugA("1蓝")
                     if haoLV <= 2 then
                         checkShengJiCengShu()
                         tap1(1089, 356)
@@ -3667,40 +3681,40 @@ function zongHe1(...)
                 end
             end
         elseif isColor(62, 341, 0x0ec0d2, 95) and isColor(60, 296, 0xffffff, 95) then
-            debug("生产界面")
+            debugA("生产界面")
             if bMultiColor == false then
                 -- if isColor(579, 617, 0x9f7249, 95) then
                 --     debug("T5 => T4")
                 --     tap1(483, 603, 0x1e3248)
                 --     mSleep(1000)
                 if isColor(181, 575, 0xffd89e, 95) then
-                    debug("TX => T1")
+                    debugA("TX => T1")
                     tap1(181, 597, 0x1b2e44)
                     mSleep(1000)
                 elseif isColor(281, 575, 0xffd89e, 95) then
-                    debug("TX => T2")
+                    debugA("TX => T2")
                     tap1(281, 597, 0x1b2e44)
                     mSleep(1000)
                 elseif isColor(380, 575, 0xffd89e, 95) then
-                    debug("TX => T3")
+                    debugA("TX => T3")
                     tap1(380, 597, 0x1b2e44)
                     mSleep(1000)
                 elseif isColor(480, 575, 0xffd89e, 95) then
-                    debug("TX => T4")
+                    debugA("TX => T4")
                     tap1(480, 597, 0x1b2e44)
                     mSleep(1000)
                 elseif isColor(579, 575, 0xffd89e, 95) then
-                    debug("TX => T5")
+                    debugA("TX => T5")
                     tap1(580, 597, 0x1b2e44)
                     mSleep(1000)
                 end
                 if isColor(600, 518, 0xaa5f00, 95) then
-                    debug("tx => tx")
+                    debugA("tx => tx")
                     tap1(600, 518, 0xaa5f00)
                     mSleep(1000)
                 end
                 if isKaShengChan == true then
-                    debug("T2")
+                    debugA("T2")
                     tap1(283, 596, 0x455b72)
                     mSleep(1000)
                     isKaShengChan = false
@@ -3709,11 +3723,11 @@ function zongHe1(...)
                     if isColor(851, 357, 0x15273f, 95) and isColor(851, 411, 0x15273f, 95) and
                         isColor(1087, 357, 0x15273f, 95) and isColor(1087, 411, 0x15273f, 95) then
                         -- 不缺材料
-                        debug("不缺材料")
+                        debugA("不缺材料")
                         tap1(1090, 527)
                     else
                         -- 缺材料
-                        debug("缺少材料")
+                        debugA("缺少材料")
                         if haoLV == 3 then -- 大号
                             isShengChan = false
                             timeShengChan = nowTime
@@ -3725,30 +3739,30 @@ function zongHe1(...)
                         end
                     end
                 elseif isColor(913, 532, 0x15a567, 95) then
-                    debug("可加速")
+                    debugA("可加速")
                     if haoLV == 1 then -- 小号加速
-                        debug("小号加速")
+                        debugA("小号加速")
                         tap1(913, 532)
                     elseif isJiaSuProduce == true then -- 临时加速
-                        debug("临时加速")
+                        debugA("临时加速")
                         tap1(913, 532)
                         isJiaSuProduce = false
                     elseif isJiDiXianKuangIntoProduce == true then
-                        debug("正常进入,退出")
+                        debugA("正常进入,退出")
                         getOut()
                         isJiDiXianKuangIntoProduce = false
                     elseif isJiDiXianKuangIntoProduce == false then
-                        debug("任务进入,加速")
+                        debugA("任务进入,加速")
                         tap1(913, 532)
                     end
                 elseif isColor(647, 548, 0xf27d12, 95) then
-                    debug("升级中")
+                    debugA("升级中")
                     if haoLV == 3 then -- 大号
                         isShengChan = false
                         timeShengChan = nowTime
                         getOut()
                     elseif haoLV == 2 then -- 成品号
-                        if muBiao ~= mb_YouHua then
+                        if muBiaoA ~= mb_YouHua then
                             isAutoNext = false
                             tap1(47, 230, 0x7b4c2e) -- 升级
                         end
@@ -3760,30 +3774,30 @@ function zongHe1(...)
                 end
             end
         elseif isColor(41, 296, 0xffffff, 95) and isColor(34, 321, 0xbf9721, 95) and isColor(111, 108, 0x4c87ba, 95) then
-            debug("维修界面")
+            debugA("维修界面")
             if isColor(1077, 527, 0x1eb686, 95) and isColor(993, 574, 0x237bc8, 95) then -- 重置
-                debug("可修理--不缺少资源")
+                debugA("可修理--不缺少资源")
                 tap1(984, 589, 0x1d6ebb)
             elseif isColor(988, 525, 0x15a976, 95) and isColor(989, 588, 0x1f2830, 95) then
-                debug("可修理--缺少资源")
+                debugA("可修理--缺少资源")
                 isReceiveEmail = true
                 tap1(20, 20)
                 tap1(698, 586, 0xb4cdf3) -- 打开邮件
             elseif isColor(946, 586, 0x1db587, 95) and isColor(984, 586, 0xffffff, 95) then
-                debug("援助请求")
+                debugA("援助请求")
                 tap1(946, 586)
             else
                 tap1(20, 20)
             end
         elseif isColor(41, 296, 0xffffff, 95) and isColor(38, 320, 0xdeb748, 95) and isColor(341, 601, 0xd77500, 95) then
-            debug("指挥中心--维修界面")
+            debugA("指挥中心--维修界面")
             if isColor(793, 584, 0x155daa, 95) then
                 tap1(793, 584)
             else
                 tap1(48, 233, 0x325240)
             end
         elseif isColor(57, 296, 0xffffff, 95) and isColor(44, 357, 0xffe75f, 95) and isColor(45, 322, 0x0e5dd7, 95) then
-            debug("资源传输装置--兑换")
+            debugA("资源传输装置--兑换")
             timeXXX = nowTime
             if haoLV == 3 then
                 local temStr = ocrText(477, 334, 601, 360, 0, "0123456789.KM")
@@ -3821,7 +3835,7 @@ function zongHe1(...)
             elseif check16 == "vip8" and numBuyTaiByCoin <= 15 and isColor(1002, 426, 0xf18e07, 95) and check24 == "买钛" then --金币购买
                 tap1(971, 427)
                 if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
-                    debug("可免费兑换")
+                    debugA("可免费兑换")
                     tap1(452, 428, 0x2266ae) --使用
                     mSleep(1000)
                     if isColor(643, 515, 0x165da9, 95) then
@@ -3840,7 +3854,7 @@ function zongHe1(...)
             elseif numZiYuanDuiHuan <= 5 and haoLV <= 2 then
                 tap1(1000, 321, 0xf18e07)
                 if isColor(359, 431, 0x1c6dba, 95) and isColor(429, 427, 0xeff5fa, 95) then
-                    debug("可免费兑换")
+                    debugA("可免费兑换")
                     tap1(452, 428, 0x2266ae) --使用
                     mSleep(1000)
                     tap1(678, 437, 0x000000) --全部
@@ -3857,7 +3871,7 @@ function zongHe1(...)
             nowTime = os.time()
             timeXXX = nowTime
             if isColor(249, 162, 0xa9a9a9, 95) then
-                debug("研究界面")
+                debugA("研究界面")
                 if check14 == "研究" then
                     if isYanJiuZiYuan == true then
                         tap1(249, 162, 0xa9a9a9)
@@ -3895,7 +3909,7 @@ function zongHe1(...)
                     end
                 end
             elseif isColor(129, 230, 0xb3b4b5, 95) then
-                debug("研究界面--资源")
+                debugA("研究界面--资源")
                 if isYanJiuZiYuan == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -3952,7 +3966,7 @@ function zongHe1(...)
                     tap1(1082, 234)
                 end
             elseif isColor(137, 328, 0xc2c3c4, 95) then
-                debug("研究界面--开发")
+                debugA("研究界面--开发")
                 if isYanJiuKaiFa == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -4009,7 +4023,7 @@ function zongHe1(...)
                     tap1(1082, 234)
                 end
             elseif isColor(129, 317, 0xdadbdb, 95) then
-                debug("研究界面--战舰")
+                debugA("研究界面--战舰")
                 if isYanJiuZhanJian == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -4032,7 +4046,7 @@ function zongHe1(...)
                     tap1(1056, 451)
                 end
             elseif isColor(138, 328, 0x9a9b9d, 95) then
-                debug("研究界面--精锐怪物")
+                debugA("研究界面--精锐怪物")
                 if isYanJiuJingRui == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -4053,7 +4067,7 @@ function zongHe1(...)
                     tap1(1058, 278)
                 end
             elseif isColor(128, 323, 0x9c9d9d, 95) then
-                debug("研究界面--生产")
+                debugA("研究界面--生产")
                 if isYanJiuShengChan == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -4076,7 +4090,7 @@ function zongHe1(...)
                     tap1(1056, 451)
                 end
             elseif isColor(123, 324, 0xc6c6c7, 95) then
-                debug("研究界面--防御")
+                debugA("研究界面--防御")
                 if isYanJiuFangYu == false then
                     tap1(76, 607, 0x1eb685)
                     return
@@ -4142,36 +4156,36 @@ function zongHe1(...)
                 end
             elseif isColor(600, 157, 0x13669a, 95) and isColor(726, 286, 0x13669a, 95) and
                 isColor(600, 403, 0x13669a, 95) then
-                debug("研究--强制")
+                debugA("研究--强制")
                 tap1(600, 262, 0xb8b9d4)
                 if isColor(543, 207, 0x3e8fee, 95) or isColor(995, 181, 0x1d426f, 95) then -- 缺少条件1
-                    debug("缺少条件1--继续")
+                    debugA("缺少条件1--继续")
                     tap1(761, 192)
                     mSleep(1000)
                 elseif isColor(543, 242, 0x3e8fee, 95) then -- 缺少条件2
-                    debug("缺少条件2--继续")
+                    debugA("缺少条件2--继续")
                     tap1(760, 227)
                     mSleep(1000)
                 elseif isColor(543, 251, 0x3e8fee, 95) then -- 缺少条件3
-                    debug("缺少条件3--继续")
+                    debugA("缺少条件3--继续")
                     tap1(762, 260)
                     mSleep(1000)
                 end
             else
-                debug("啥都不是，关闭")
+                debugA("啥都不是，关闭")
                 tap1(20, 20)
             end
         elseif isColor(49, 329, 0x767676, 95) and isColor(41, 296, 0xffffff, 95) then
-            debug("充电界面")
+            debugA("充电界面")
             if isColor(287, 514, 0x1f2d46, 95) then
                 tap1(543, 597)
             else
                 tap1(20, 20)
             end
         elseif isColor(42, 331, 0xd769c2, 95) and isColor(48, 296, 0xffffff, 95) then
-            debug("交易界面")
+            debugA("交易界面")
             if isColor(656, 483, 0x111111, 95) and isColor(785, 510, 0x0c0c0c, 95) then
-                debug("LOCK")
+                debugA("LOCK")
                 tap1(38, 224, 0x81ff29)
                 return
             end
@@ -4273,7 +4287,7 @@ function zongHe1(...)
                 writeJson("交易行", isTrade)
             end
         elseif isColor(30, 336, 0x043f05, 95) and isColor(41, 296, 0xffffff, 95) then
-            debug("金属资源地界面--增产")
+            debugA("金属资源地界面--增产")
             if numAddChanLiang <= 2 then
                 if isColor(811, 589, 0x89898c, 95) and isColor(826, 589, 0x89898c, 95) and
                     isColor(833, 589, 0x89898c, 95) and isColor(848, 589, 0x89898c, 95) and
@@ -4309,13 +4323,13 @@ function zongHe1(...)
                 isJustBack = false
             end
         elseif isColor(43, 343, 0x847b84, 95) and isColor(43, 296, 0xffffff, 95) then
-            debug("航母开发室--航母")
+            debugA("航母开发室--航母")
             -- if isShipBad == true then
             if isColor(505, 110, 0x3e6b96, 95) == false then
-                debug("无航母")
+                debugA("无航母")
                 tap1(20, 20)
-                if muBiao == mb_FixShip then
-                    gaiMuBiaoNew(3, "", mm_Wu)
+                if muBiaoA == mb_FixShip then
+                    gaiMuBiaoNewA(3, "", mm_Wu)
                 end
                 return
             end
@@ -4323,37 +4337,37 @@ function zongHe1(...)
                 and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
                 and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
-                debug("1号来充电吧")
+                debugA("1号来充电吧")
                 tap1(440, 263)
             elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
                 and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
-                debug("2号来充电吧")
+                debugA("2号来充电吧")
                 tap1(639, 263)
             elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
                 and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
-                debug("3号来充电吧")
+                debugA("3号来充电吧")
                 tap1(838, 263)
             elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
                 and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
-                debug("4号来充电吧")
+                debugA("4号来充电吧")
                 tap1(1036, 263)
             else
                 tap1(20, 20)
                 isShipBad = false
-                if muBiao == mb_FixShip then
-                    gaiMuBiaoNew(3, "", mm_Wu)
+                if muBiaoA == mb_FixShip then
+                    gaiMuBiaoNewA(3, "", mm_Wu)
                 end
             end
         elseif isColor(45, 418, 0xe9b042, 95) and isColor(44, 403, 0xffffff, 95) then
-            debug("加工站界面")
+            debugA("加工站界面")
             if isColor(327, 181, 0x4e6374, 95) or isColor(328, 337, 0x4e6374, 95) or isColor(327, 495, 0x4e6374, 95) then
-                debug("有位置空着")
+                debugA("有位置空着")
                 if numCaiLiao == 1 then
                     tap1(633, 183, 0x8a70ad)
                 elseif numCaiLiao == 2 then
@@ -4391,15 +4405,15 @@ function zongHe1(...)
                 tap1(20, 20)
             end
         elseif isColor(49, 296, 0xffffff, 95) and isColor(45, 320, 0x91b5be, 95) then
-            debug("机库--库存界面")
+            debugA("机库--库存界面")
             if isColor(184, 328, 0x122642, 95) then
-                debug("有船在库存")
+                debugA("有船在库存")
                 tap1(20, 20)
             else
                 tap1(934, 609, 0x1c6eba) --库存
             end
         elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
-            debug("兑换界面")
+            debugA("兑换界面")
             do
                 local temStr = ocrText(323, 297, 385, 312, 0, "0123465789,")
                 if temStr ~= nil then
@@ -4437,9 +4451,9 @@ function zongHe1(...)
         end
     end
     if isColor(215, 189, 0xb283ca, 95) and isColor(344, 191, 0xf7eb5e, 95) and isColor(494, 210, 0x113199, 95) then
-        debug("制作材料")
+        debugA("制作材料")
         if isColor(500, 518, 0x604411, 95) or isColor(529, 524, 0x081525, 95) or isColor(529, 524, 0x151e2b, 95) then
-            debug("没选材料")
+            debugA("没选材料")
             if numCaiLiao == 1 then
                 tap1(210, 205, 0x5669ba)
             elseif numCaiLiao == 2 then
@@ -4478,47 +4492,47 @@ function zongHe1(...)
     end
     if isColor(34, 111, 0xff6600, 95) and isColor(59, 106, 0xff8400, 95) and isColor(526, 84, 0x01ace4, 95) and
         isColor(905, 134, 0x116eb9, 95) then
-        debug("航母充电")
+        debugA("航母充电")
         if isColor(996, 182, 0x116eb9, 95) and isColor(1022, 181, 0xced6dd, 95) then
-            debug("充电--未满")
+            debugA("充电--未满")
             tap1(996, 182)
             mSleep(1000)
-            if isColor(991, 181, 0x116eb9, 95) and muBiao == mb_FixShip then -- 船没坏
+            if isColor(991, 181, 0x116eb9, 95) and muBiaoA == mb_FixShip then -- 船没坏
                 isShipBad = false
-                gaiMuBiaoNew(3, "", mm_Wu)
+                gaiMuBiaoNewA(3, "", mm_Wu)
             end
             tap1(495, 451, 0x1c6db9)
 
         else
             tap1(511, 593, 0x0c0c0e)
-            debug("muBiao  :  " .. muBiao)
-            if muBiao == mb_FixShip then
+            debugA("muBiaoA  :  " .. muBiaoA)
+            if muBiaoA == mb_FixShip then
                 isShipBad = false
-                gaiMuBiaoNew(3, "", mm_Wu)
+                gaiMuBiaoNewA(3, "", mm_Wu)
             end
         end
     end
 
     if isColor(476, 459, 0xd68b00, 95) and isColor(496, 470, 0x279fd5, 95) and isColor(469, 447, 0x8f4d14, 95) then
-        debug("购买道具--矿物")
+        debugA("购买道具--矿物")
         tap1(496, 470, 0x279fd5)
         mSleep(4000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(494, 474, 0x9a95a3, 95) and isColor(469, 447, 0x8f4d14, 95) then
-        debug("购买道具--金属")
+        debugA("购买道具--金属")
         tap1(496, 470, 0x279fd5)
         mSleep(4000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(499, 476, 0x8644ed, 95) and isColor(469, 447, 0x8f4d14, 95) then
-        debug("购买道具--粒子")
+        debugA("购买道具--粒子")
         tap1(513, 552, 0x0c0c0e)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(494, 464, 0xf8eea7, 95) and isColor(469, 447, 0x8f4d14, 95) then
-        debug("购买道具--金币")
+        debugA("购买道具--金币")
         tap1(513, 552, 0x0c0c0e)
     end
     if isColor(217, 437, 0x67e5f5, 95) and isColor(399, 444, 0x837e8b, 95) and isColor(597, 444, 0xb1d272, 95) then
-        debug("充电--第二步")
+        debugA("充电--第二步")
         tap1(884, 187, 0x0b3466)
         tap1(884, 271, 0x0b3466)
         tap1(882, 349, 0x8b9fb7)
@@ -4526,16 +4540,16 @@ function zongHe1(...)
     end
     if isColor(586, 189, 0x6375a7, 95) and isColor(776, 270, 0xffffff, 95) and isColor(587, 354, 0x5b6ea3, 95) and
         isColor(719, 507, 0x1c6eba, 95) then
-        debug("充电缺少资源")
+        debugA("充电缺少资源")
         tap1(511, 586, 0x0c0c0e)
         isChongDianKaZiYuan = true
         getOut()
     end
     if isColor(275, 58, 0xf5a801, 95) and isColor(737, 130, 0x0d9098, 95) and isColor(290, 225, 0xffffff, 95) and
         isColor(538, 488, 0xba7b00, 95) then
-        debug("使用道具界面")
+        debugA("使用道具界面")
         if isColor(322, 196, 0xffb30a, 95) and isColor(386, 198, 0xcdcdcd, 95) then
-            debug("观看视频,缩短20分钟--灰色不可选")
+            debugA("观看视频,缩短20分钟--灰色不可选")
             tap1(510, 580, 0x0c0c0e)
             mSleep(1000)
             if isColor(510, 590, 0x3a587b, 95) then
@@ -4543,43 +4557,43 @@ function zongHe1(...)
                 mSleep(1000)
             end
             getOut()
-            if muBiao == "研究" then
-                gaiMuBiaoNew(3, "")
+            if muBiaoA == "研究" then
+                gaiMuBiaoNewA(3, "")
                 isYanJiu = false
                 writeJson("研究", isYanJiu)
-            elseif muBiao == "主线" then
+            elseif muBiaoA == "主线" then
                 if haoLV == 3 then
-                    gaiMuBiaoNew(1, mb_WaKuang)
+                    gaiMuBiaoNewA(1, mb_WaKuang)
                 else
-                    gaiMuBiaoNew(1, "优化")
+                    gaiMuBiaoNewA(1, "优化")
                 end
-            elseif muBiao == "优化" then
-                gaiMuBiaoNew(1, "主线")
+            elseif muBiaoA == "优化" then
+                gaiMuBiaoNewA(1, "主线")
             end
         elseif isColor(620, 500, 0x1a61a3, 95) then
-            debug("可使用")
+            debugA("可使用")
             tap1(599, 501)
         else
-            if muBiao == mb_YouHua then
+            if muBiaoA == mb_YouHua then
                 isKaYouHua = true
                 writeJson("卡优化", isKaYouHua)
-                gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
+                gaiMuBiaoNewA(1, mb_ZhuXian, mm_ZhuXian)
                 mSleep(1000)
                 tap1(511, 603, 0x0c0c0e)
                 mSleep(1000)
                 getOut()
-            elseif muBiao == mb_ZhuXian then
+            elseif muBiaoA == mb_ZhuXian then
                 if haoLV <= 2 and isOverLesson == false and numLv >= 6 then
-                    gaiMuBiaoNew(1, "章节")
+                    gaiMuBiaoNewA(1, "章节")
                 else
-                    gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                    gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
                 end
                 timeRound = nowTime
                 mSleep(1000)
                 tap1(511, 603, 0x0c0c0e)
                 mSleep(1000)
                 getOut()
-            elseif muBiao == mb_WaKuang then
+            elseif muBiaoA == mb_WaKuang then
                 timeRound = nowTime
                 mSleep(1000)
                 tap1(511, 603, 0x0c0c0e)
@@ -4589,7 +4603,7 @@ function zongHe1(...)
         end
     end
     if isColor(6, 24, 0xf59600, 95) and isColor(18, 24, 0xffffff, 95) and isColor(355, 86, 0x5195db, 95) then
-        debug("司令官界面")
+        debugA("司令官界面")
         if isColor(1113, 84, 0x9e1111, 95) then -- 战绩红点
             tap1(1113, 84)
         else
@@ -4597,7 +4611,7 @@ function zongHe1(...)
         end
     end
     if isColor(33, 45, 0xff6600, 95) and isColor(77, 149, 0x55aeff, 95) and isColor(1094, 559, 0x6e899b, 95) then
-        debug("战绩")
+        debugA("战绩")
         if isColor(141, 490, 0xf49a16, 95) then
             tap1(141, 490)
         else
@@ -4605,11 +4619,11 @@ function zongHe1(...)
         end
     end
     if isColor(291, 168, 0xf5a801, 95) and isColor(282, 175, 0xff6600, 95) and isColor(783, 235, 0x85baf9, 95) then
-        debug("谷歌APP重置失败")
+        debugA("谷歌APP重置失败")
         if isColor(494, 420, 0x3efac6, 95) or isColor(481, 420, 0x4a9981, 95) then
-            debug("加速时间比剩余的长")
-            if muBiao == mb_YouHua then
-                gaiMuBiaoNew(1, mb_ZhuXian, mm_ZhuXian)
+            debugA("加速时间比剩余的长")
+            if muBiaoA == mb_YouHua then
+                gaiMuBiaoNewA(1, mb_ZhuXian, mm_ZhuXian)
                 tap1(511, 497)
                 tap1(511, 579, 0x0c0c0e)
                 getOut()
@@ -4619,26 +4633,26 @@ function zongHe1(...)
                 getOut()
             end
         elseif isColor(474, 300, 0xdfe0e2, 95) and isColor(476, 430, 0x1c6eb9, 95) then
-            debug("清除残迹")
+            debugA("清除残迹")
             tap1(474, 430)
         elseif isColor(587, 344, 0xff0099, 95) and isColor(486, 433, 0x1c6eba, 95) then
-            debug("升级,解除护盾")
+            debugA("升级,解除护盾")
             tap1(486, 433, 0x1c6eba)
         else
             tap1(511, 497)
         end
     end
     if isColor(567, 80, 0x99b5cb, 95) and isColor(567, 558, 0x99b5cb, 95) and isColor(567, 572, 0x536270, 95) then
-        debug("剧情图片")
+        debugA("剧情图片")
         tap1(567, 308, 0x7b726d)
     end
     if isColor(430, 206, 0xf87808, 95) and isColor(439, 206, 0x583818, 95) and isColor(567, 269, 0x59271b, 95) then
-        debug("完成章节")
+        debugA("完成章节")
         tap1(556, 614, 0x262b33)
         tap1(556, 614, 0x262b33)
     end
     if isColor(69, 95, 0xf5a801, 95) and isColor(60, 119, 0xff6600, 95) and isColor(66, 157, 0xff6600, 95) then
-        debug("第N章第N节")
+        debugA("第N章第N节")
         if isColor(103, 403, 0x0d9098, 95) then
             tap1(97, 402)
         elseif isColor(256, 403, 0x0d9098, 95) then
@@ -4652,12 +4666,12 @@ function zongHe1(...)
         elseif isColor(891, 494, 0x1db586, 95) then
             tap1(891, 494)
         else
-            if muBiao == "章节" then
+            if muBiaoA == "章节" then
                 if isColor(81, 106, 0xf26202, 95) and isColor(84, 104, 0xff6600, 95) and isColor(83, 110, 0xf36202, 95) then -- 1-6
                     if haoLV <= 2 then
-                        gaiMuBiaoNew(1, "优化")
+                        gaiMuBiaoNewA(1, "优化")
                     else
-                        gaiMuBiaoNew(1, mb_WaKuang)
+                        gaiMuBiaoNewA(1, mb_WaKuang)
                     end
                     tap1(510, 567, 0x0c0c0e)
                 else
@@ -4674,13 +4688,13 @@ function zongHe1(...)
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(111, 15, 0xdde4eb, 95) and
         isColor(149, 33, 0xa2b3c6, 95) then
-        debug("议会界面")
+        debugA("议会界面")
         tap1(20, 20)
         redJudge()
     end
     if isColor(7, 25, 0xff9c00, 95) and isColor(18, 25, 0xffffff, 95) and isColor(103, 166, 0xffb500, 95) and
         isColor(119, 166, 0x718d9f, 95) then
-        debug("高级商店")
+        debugA("高级商店")
         if isColor(102, 77, 0x9e1111, 95) then -- 免费补给箱子
             tap1(102, 77)
             mSleep(1000)
@@ -4692,8 +4706,8 @@ function zongHe1(...)
         end
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95) then
-        debug("背包界面")
-        if muBiao == mb_5DaoJu and num5DaoJu <= 7 then
+        debugA("背包界面")
+        if muBiaoA == mb_5DaoJu and num5DaoJu <= 7 then
             if isColor(111, 127, 0x182536, 95) then
                 tap1(111, 127) -- 资源
                 mSleep(1000)
@@ -4710,10 +4724,10 @@ function zongHe1(...)
                     break
                 end
             end
-        elseif muBiao == mb_5DaoJu and num5DaoJu > 7 then
-            gaiMuBiaoNew(2, "道具合成")
+        elseif muBiaoA == mb_5DaoJu and num5DaoJu > 7 then
+            gaiMuBiaoNewA(2, "道具合成")
             tap1(20, 20, 0x5c6571)
-        elseif muBiao == "道具合成" then
+        elseif muBiaoA == "道具合成" then
             if isColor(111, 317, 0x182637, 95) then
                 tap1(111, 317) -- 材料
                 mSleep(1000)
@@ -4749,13 +4763,13 @@ function zongHe1(...)
                 tap1(215 + i * 100, 78) --点击物品
                 if isColor(604, 471, 0xd78b01, 95) then --有合成按钮
                     tap1(611, 466, 0xd78b01) --合成
-                    if isColor(681,545,0x1c6dba                    , 95) then --有合成按钮
-                        tap1(331,546,0xf27c00                    )--1个
-                        tap1(681,545, 0x1c6eba) --合成
+                    if isColor(681, 545, 0x1c6dba, 95) then --有合成按钮
+                        tap1(331, 546, 0xf27c00) --1个
+                        tap1(681, 545, 0x1c6eba) --合成
                         tap1(497, 433, 0x1c6eba) --确定
                         isMixedThing = true
                         writeJson("每日道具合成", isMixedThing)
-                        gaiMuBiaoNew(2, mb_CaiJi)
+                        gaiMuBiaoNewA(2, mb_CaiJi)
                         break
                     else
                         tap1(511, 611, 0x0c0c0e) --关闭
@@ -4766,7 +4780,7 @@ function zongHe1(...)
                 if i == 8 then
                     isMixedThing = true
                     writeJson("每日道具合成", isMixedThing)
-                    gaiMuBiaoNew(2, mb_CaiJi)
+                    gaiMuBiaoNewA(2, mb_CaiJi)
                 end
             end
         elseif isZhengLi == false then
@@ -4860,7 +4874,7 @@ function zongHe1(...)
         end
     end
     if isColor(4, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(1001, 25, 0x0d9098, 95) then
-        debug("邮件界面")
+        debugA("邮件界面")
         x, y = findMultiColorInRegionFuzzy(0x931012, "-1|0|0x1c2c40", 90, 112, 98, 115, 491)
         if x ~= -1 then
             tap1(x, y)
@@ -4875,11 +4889,11 @@ function zongHe1(...)
     end
 
     if isColor(91, 156, 0xff6600, 95) and isColor(272, 156, 0x863f13, 95) then
-        debug("任务界面")
-        if muBiao == mb_Reward then
+        debugA("任务界面")
+        if muBiaoA == mb_Reward then
             tap1(354, 135, 0xb0b0b0) -- 每日任务
         else
-            if haoLV <= 2 and muBiao == mb_ZhuXian then
+            if haoLV <= 2 and muBiaoA == mb_ZhuXian then
                 if isColor(957, 226, 0xfaba00, 95) then -- 宝箱
                     tap1(985, 213)
                 elseif isColor(288, 502, 0xf18e07, 95) then -- 支线已完
@@ -4888,7 +4902,7 @@ function zongHe1(...)
                     tap1(115, 513)
                 elseif isColor(138, 347, 0x65ee01, 95) and isColor(156, 340, 0x61f001, 95) and
                     isColor(183, 329, 0x52f001, 95) and isColor(115, 507, 0x116eb9, 95) then
-                    debug("升级任务")
+                    debugA("升级任务")
                     timeShengJiTongXingZheng = nowTime
                     tap1(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
@@ -4896,7 +4910,7 @@ function zongHe1(...)
                     end
                 elseif isColor(163, 353, 0x2c507f, 95) and isColor(152, 324, 0xb9ced4, 95) and
                     isColor(129, 511, 0x116eb9, 95) then
-                    debug("使用100艘战舰")
+                    debugA("使用100艘战舰")
                     if nowTime - timeZhengLi >= 5 * 60 then
                         tap1(511, 572, 0x0c0c0e) -- 关闭
                         mSleep(1000)
@@ -4913,13 +4927,13 @@ function zongHe1(...)
                     end
                 elseif isColor(198, 336, 0xbfffd8, 95) and isColor(197, 364, 0x9dffc3, 95) and
                     isColor(114, 511, 0x116eb9, 95) then
-                    debug("拥有一名舰长")
+                    debugA("拥有一名舰长")
                     tap1(511, 572, 0x0c0c0e) -- 关闭
                     tap1(782, 583, 0xf8efd1) -- 舰长
                     isKaZhuXianJianZhang = true
                 elseif isColor(191, 366, 0x08507e, 95) and isColor(191, 345, 0x16c3d2, 95) and
                     isColor(114, 511, 0x116eb9, 95) then
-                    debug("生产20战舰")
+                    debugA("生产20战舰")
                     isKaShengChan = true
                     tap1(170, 510, 0x4784b8) -- 移动
                     if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
@@ -4928,8 +4942,8 @@ function zongHe1(...)
                 elseif isColor(197, 336, 0xffe3bf, 95) and isColor(197, 367, 0xffd39b, 95) and
                     isColor(182, 366, 0xffe59f, 95) and
                     isColor(223, 501, 0x116eb9, 95) then
-                    debug("提升1次舰长星级")
-                    gaiMuBiaoNew(1, mb_WaKuang)
+                    debugA("提升1次舰长星级")
+                    gaiMuBiaoNewA(1, mb_WaKuang)
                     tap1(511, 572, 0x0c0c0e) -- 关闭
                     RGB_NoticeBJ = "FFFF00"
                     RGB_NoticeFont = "FF0000"
@@ -4938,7 +4952,7 @@ function zongHe1(...)
                     fwShowButton("window1", "more", strNotice, RGB_NoticeFont, RGB_NoticeBJ, "", 12, 0, 0, 50, 30);
                     mSleep(500)
                 elseif isColor(185, 333, 0x33ece3, 95) and isColor(119, 506, 0x116eb9, 95) then
-                    debug("研究任务")
+                    debugA("研究任务")
                     tap1(170, 510, 0x4784b8) -- 移动
                     isYanJiuZiYuan = true
                     writeJson("研究资源", isYanJiuZiYuan)
@@ -4955,7 +4969,7 @@ function zongHe1(...)
                     isYanJiu = true
                     writeJson("研究", isYanJiu)
                 elseif isColor(178, 340, 0x5da9db, 95) and isColor(121, 509, 0x116eb9, 95) then
-                    debug("海盗任务")
+                    debugA("海盗任务")
                     if nowTime - timeZhengLi >= 5 * 60 then
                         tap1(511, 572, 0x0c0c0e) -- 关闭
                         mSleep(1000)
@@ -4972,8 +4986,8 @@ function zongHe1(...)
                     end
                 elseif isColor(148, 340, 0x1b87df, 95) and isColor(189, 341, 0x0c67b0, 95) and
                     isColor(124, 507, 0x116eb9, 95) then
-                    debug("卡主线--建资源")
-                    gaiMuBiaoNew(1, mb_WaKuang)
+                    debugA("卡主线--建资源")
+                    gaiMuBiaoNewA(1, mb_WaKuang)
                     tap1(511, 572, 0x0c0c0e) -- 关闭
                     RGB_NoticeBJ = "FFFF00"
                     RGB_NoticeFont = "FF0000"
@@ -4997,8 +5011,8 @@ function zongHe1(...)
         end
     end
     if isColor(272, 156, 0xff6600, 95) and isColor(267, 156, 0x843c10, 95) then
-        debug("每日任务界面")
-        if muBiao == mb_Reward then
+        debugA("每日任务界面")
+        if muBiaoA == mb_Reward then
             if isColor(124, 507, 0xf18e07, 95) then
                 tap1(124, 507)
             elseif isColor(299, 197, 0xc5f3f9, 95) then
@@ -5014,8 +5028,8 @@ function zongHe1(...)
                 mSleep(2000)
             else
                 tap1(513, 574)
-                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
-                gaiMuBiaoNew(2, "", mm_Wu)
+                gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
+                gaiMuBiaoNewA(2, "", mm_Wu)
             end
         else
 
@@ -5027,16 +5041,16 @@ function zongHe1(...)
         end
     end
     if isColor(314, 113, 0xf6a801, 95) and isColor(311, 143, 0xe0e0e0, 95) and isColor(311, 142, 0x0b4992, 95) then
-        debug("获得道具")
+        debugA("获得道具")
         tap1(510, 549, 0x0c0c0e)
     end
     if multiColor({ { 287, 611, 0x4eabf0 }, { 844, 451, 0xff8a00 } }) then
-        debug("对话框1")
+        debugA("对话框1")
         tap1(567, 540)
     end
     if multiColor({ { 286, 611, 0x4aa9f1 }, { 846, 449, 0xde8116 } }) then
         tap1(567, 540)
-        debug("对话框2")
+        debugA("对话框2")
     end
 
     if haoLV == 1 then
@@ -5050,7 +5064,7 @@ function zongHe1(...)
         -- end
         if isColor(109, 501, 0xf09006, 95) and isColor(228, 523, 0xf87808, 95) and isColor(984, 495, 0x106fb9, 95) and
             isColor(967, 494, 0x153557, 85) then
-            debug("指引--任务--领取")
+            debugA("指引--任务--领取")
             tap1(109, 501)
         end
     end
@@ -5066,7 +5080,7 @@ function zongHe_Mult(...)
     })
     if x ~= -1 then
         -- 右下
-        debug("右下")
+        debugA("右下")
         tap1(x + 20, y + 20)
         return true
     end
@@ -5074,7 +5088,7 @@ function zongHe_Mult(...)
         orient = 5
     })
     if x ~= -1 then
-        debug("右下2")
+        debugA("右下2")
         tap1(x + 20, y + 20)
         return true
 
@@ -5084,7 +5098,7 @@ function zongHe_Mult(...)
     })
     if x ~= -1 then
         -- 左下
-        debug("左下")
+        debugA("左下")
         tap1(x - 20, y + 20)
         return true
     end
@@ -5093,7 +5107,7 @@ function zongHe_Mult(...)
     })
     if x ~= -1 then
         -- 左下
-        debug("左下2")
+        debugA("左下2")
         tap1(x - 20, y + 20)
         return true
     end
@@ -5111,7 +5125,7 @@ function zongHe_Mult(...)
     })
     if x ~= -1 then
         -- 左上
-        debug("左上")
+        debugA("左上")
         tap1(x - 20, y - 20)
         return true
     end
@@ -5120,7 +5134,7 @@ function zongHe_Mult(...)
     })
     if x ~= -1 then
         -- 左上
-        debug("左上2")
+        debugA("左上2")
         tap1(x - 20, y - 20)
         return true
     end
@@ -5128,7 +5142,7 @@ function zongHe_Mult(...)
         orient = 4
     })
     if x ~= -1 then
-        debug("右上")
+        debugA("右上")
         tap1(x + 20, y - 20)
         return true
     end
@@ -5202,7 +5216,7 @@ function useBagThings()
             tap1(511, 542)
         end
         if isColor(314, 113, 0xf6a801, 95) and isColor(311, 143, 0xe0e0e0, 95) and isColor(311, 142, 0x0b4992, 95) then
-            debug("获得道具")
+            debugA("获得道具")
             tap1(510, 549, 0x0c0c0e)
         end
     end
@@ -5219,35 +5233,35 @@ function checkRed1()
     end
     OCR_num()
     if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
-        debug("验证码--红点")
+        debugA("验证码--红点")
         tap1(1096, 137, 0x191d1b)
         return true
     elseif isColor(1050, 106, 0x9e1111, 95) and isColor(1033, 115, 0x3f9fd8, 95) then
-        debug("验证码--红点")
+        debugA("验证码--红点")
         tap1(1033, 137)
         return true
     elseif isColor(448, 78, 0x33d6ff, 95) or isColor(448, 78, 0x814d27, 95) then
-        debug("收资源1")
+        debugA("收资源1")
         tap1(448, 78)
         return true
     elseif isColor(385, 129, 0x2ed4fc, 95) then
-        debug("收资源2")
+        debugA("收资源2")
         tap1(385, 129)
         return true
     elseif isColor(266, 171, 0x28cdf2, 95) then
-        debug("收资源3")
+        debugA("收资源3")
         tap1(266, 171)
         return true
     elseif isColor(175, 238, 0x25c9eb, 95) then
-        debug("收资源4")
+        debugA("收资源4")
         tap1(175, 238)
         return true
     elseif isColor(20, 297, 0x24c8e9, 95) or isColor(20, 295, 0x703a0d, 95) then
-        debug("收资源5")
+        debugA("收资源5")
         tap1(20, 297)
         return true
     elseif isEatEXP == false and haoLV >= 2 then
-        debug("吃经验")
+        debugA("吃经验")
         tap1(20, 20)
         mSleep(1000)
         tap1(615, 198, 0x497aac) -- 加号
@@ -5262,57 +5276,57 @@ function checkRed1()
         isEatEXP = true
         writeJson("吃经验", isEatEXP)
     elseif isColor(844, 379, 0xffffff, 95) and isColor(857, 380, 0xffffff, 95) then
-        debug("档案")
+        debugA("档案")
         tap1(844, 379, 0xffffff)
         return true
     elseif isZhengLi == false and haoLV >= 2 then
-        debug("整理")
+        debugA("整理")
         tap1(967, 586, 0x2d2f2b)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numAddChanLiang == 0 and haoLV >= 2 then
-        debug("准备增产1")
+        debugA("准备增产1")
         tap1(449, 105, 0x28171d)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numAddChanLiang == 1 and haoLV >= 2 then
-        debug("准备增产2")
+        debugA("准备增产2")
         tap1(387, 153, 0x203d5a)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numAddChanLiang == 2 and haoLV >= 2 then
-        debug("准备增产3")
+        debugA("准备增产3")
         tap1(37, 321, 0x257700)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isAddChanLiangLiZi == false and haoLV >= 2 and
         check16 == "vip8" then
-        debug("准备粒子增产")
+        debugA("准备粒子增产")
         tap1(183, 259, 0x40414d)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isTrade == false and haoLV >= 2 then
-        debug("准备交易行")
+        debugA("准备交易行")
         tap1(320, 468, 0x6e1313)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and isCheckLiZiNum == false and haoLV >= 3 then
-        debug("准备交易行--检查粒子数量")
+        debugA("准备交易行--检查粒子数量")
         tap1(320, 468, 0x6e1313)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numGuangGao <= 9 and haoLV >= 2 then
-        debug("看广告")
+        debugA("看广告")
         tap1(809, 221, 0x7aa0d8)
         return true
     elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and numChuanShu <= 4 and haoLV >= 2 then
-        debug("点传输")
+        debugA("点传输")
         tap1(623, 497, 0xffd4a1)
         return true
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
-        debug("基地现况--红点")
+        debugA("基地现况--红点")
         tap1(209, 111, 0x61d5e9)
         return true
 
     elseif isColor(295, 9, 0x9d1111, 95) and isColor(310, 24, 0x9d1111, 95) then
-        debug("VIP--红点")
+        debugA("VIP--红点")
         tap1(285, 42, 0x68401a)
         return true
     elseif isColor(75, 213, 0x961112, 95) and isColor(90, 228, 0x9d1111, 95) and haoLV == 1 then
-        debug("任务红点")
+        debugA("任务红点")
         if isColor(278, 286, 0x02ff00, 95) then -- 任务1完成
             tap1(278, 286)
             return true
@@ -5338,14 +5352,14 @@ function checkRed1()
         tap1(869, 582)
         return true
     elseif isColor(712, 43, 0x9d1111, 95) and isColor(643, 74, 0x7b5aa3, 95) then
-        debug("联盟帮忙红点")
+        debugA("联盟帮忙红点")
         tap1(662, 68)
         -- elseif isColorPlus(902,541,0x9d1111,95) then
         --     debug("联盟红点")
         --     tap1(881,594    )
         return true
     elseif isColor(1124, 51, 0x9e1111, 95) and nowTime - timeRed >= 15 * 60 then -- 右上角红点
-        debug("右上角红点")
+        debugA("右上角红点")
         tap1(1106, 71, 0x111e2e)
         -- if isColor(730, 106, 0x9d1111, 95) and bRedOut1 == false then -- 1-1红点
         --     tap1(684, 182, 0x445569)
@@ -5447,37 +5461,37 @@ function doTarget()
         return
     end
     -- if muBiao == mb_GuaJi then
-    if muBiao == "" then
+    if muBiaoA == "" then
         if haoLV <= 2 then
-            gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
+            gaiMuBiaoNewA(1, mb_YouHua, mm_YouHua)
         elseif haoLV == 3 then
-            gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
+            gaiMuBiaoNewA(1, mb_EveryDay, mm_EveryDay)
         end
-    elseif string.find(muBiao, "战备") then
+    elseif string.find(muBiaoA, "战备") then
         warReady()
-    elseif muBiao == mb_YouHua then
+    elseif muBiaoA == mb_YouHua then
         task_JiDi()
-    elseif muBiao == mb_ZhuXian then
+    elseif muBiaoA == mb_ZhuXian then
         task()
         zhuXian()
-    elseif muBiao == mb_WaKuang then
+    elseif muBiaoA == mb_WaKuang then
         waKuang()
-    elseif muBiao == mb_ChuHang then
+    elseif muBiaoA == mb_ChuHang then
         chuHang()
-    elseif muBiao == mb_FixShip then
+    elseif muBiaoA == mb_FixShip then
         fixShip()
-    elseif muBiao == "开区检测" then
+    elseif muBiaoA == "开区检测" then
         openCheck()
-    elseif muBiao == "钱包检测" then
+    elseif muBiaoA == "钱包检测" then
         walletWatch()
-    elseif muBiao == "登录钱包" then
+    elseif muBiaoA == "登录钱包" then
         loginWallte()
-    elseif muBiao == "章节" then
+    elseif muBiaoA == "章节" then
         task_Lesson()
-    elseif muBiao1 == mb_EveryDay then
+    elseif muBiaoA1 == mb_EveryDay then
         everyDayTask()
-    elseif muBiao1 == mb_ShengChan then
-        gaiMuBiaoNew(1, "", mm_Wu)
+    elseif muBiaoA1 == mb_ShengChan then
+        gaiMuBiaoNewA(1, "", mm_Wu)
     end
 end
 
@@ -5502,7 +5516,7 @@ function task_Lesson()
         end
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
-        debug("搜索界面--章节")
+        debugA("搜索界面--章节")
         if isColor(519, 437, 0x116eb9, 95) then -- 矿
             tap1(519, 437)
         elseif isColor(661, 435, 0x116eb9, 95) then -- 金属
@@ -5520,15 +5534,15 @@ end
 -- 钱包检测
 function walletWatch()
     if nowTime - timeWalletWatch >= 10 * 60 then
-        debug("钱包检测10分钟一次")
+        debugA("钱包检测10分钟一次")
         runApp(appWallet)
         mSleep(1000)
         while true do
             if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
-                gaiMuBiaoNew(3, "兑换粒子")
+                gaiMuBiaoNewA(3, "兑换粒子")
                 return true
             elseif isColor(999, 139, 0x00bc0d, 95) then -- 微信图标
-                gaiMuBiaoNew(3, "登录钱包")
+                gaiMuBiaoNewA(3, "登录钱包")
                 return false
             end
             mSleep(1000)
@@ -5539,7 +5553,7 @@ end
 -- 登录钱包
 function loginWallte()
     if isColor(828, 529, 0x3b5998, 95) and isColor(940, 530, 0x00bc0d, 95) then
-        debug("钱包登录界面")
+        debugA("钱包登录界面")
         ShadowrocketToConfigure() -- 切换至配置
         runApp(appWallet)
         mSleep(1000)
@@ -5553,15 +5567,15 @@ function loginWallte()
         tap1(563, 432, 0xffffff)
         for i = 1, 30, 1 do
             if isColor(1066, 78, 0xb2b2b2, 95) then -- 钱包齿轮
-                gaiMuBiaoNew(3, "兑换粒子")
+                gaiMuBiaoNewA(3, "兑换粒子")
                 runApp(appXiangMu)
                 mSleep(1000)
                 break
             end
             if isColor(477, 447, 0xa6a6a6, 95) and isColor(697, 293, 0x949494, 95) and isColor(477, 442, 0x000000, 95) then
-                debug("Error")
+                debugA("Error")
                 closeApp(appWallet)
-                gaiMuBiaoNew(3, "钱包检测")
+                gaiMuBiaoNewA(3, "钱包检测")
                 runApp(appWallet)
                 mSleep(1000)
                 timeWalletWatch = nowTime - 10 * 60 -- 钱包检测
@@ -5570,7 +5584,7 @@ function loginWallte()
             if isColor(122, 605, 0x007aff, 95) and isColor(1092, 589, 0xcccccc, 95) and
                 isColor(142, 490, 0x000000, 95) ==
                 false then
-                debug("登录失败-取消")
+                debugA("登录失败-取消")
                 tap1(122, 605)
                 break
             end
@@ -5645,10 +5659,10 @@ function playMusic()
                 ["mode"] = true
             })
             if code == 200 then
-                debug("下载成功：" .. msg)
+                debugA("下载成功：" .. msg)
                 break
             else
-                debug("下载失败：" .. msg)
+                debugA("下载失败：" .. msg)
             end
         end
     end
@@ -5680,7 +5694,7 @@ function openCheck()
 
     if isColor(62, 42, 0x215da6, 95) and isColor(62, 47, 0x0b58b2, 95) and nowDateTime.hour >= 8 then
         timeXXX = nowTime
-        debug("选择宇宙")
+        debugA("选择宇宙")
         for i = 1, 7, 1 do
             if isPause == true then
                 return
@@ -5735,14 +5749,14 @@ end
 function fixShip()
     if inside1() then
         if isColor(528, 253, 0x37664f, 95) then
-            debug("进航母")
+            debugA("进航母")
             tap1(1057, 215, 0x86929d)
         else
             tap1(1074, 582) -- 出基地
         end
     end
     if outside() then
-        debug("回基地--修船")
+        debugA("回基地--修船")
         tap1(1074, 582) -- 回基地
         isShipBad = true
     end
@@ -5750,22 +5764,22 @@ end
 
 -- 日常
 function everyDayTask()
-    if muBiao2 == "" then
-        gaiMuBiaoNew(2, mb_5DaoJu, mm_5DaoJu)
+    if muBiaoA2 == "" then
+        gaiMuBiaoNewA(2, mb_5DaoJu, mm_5DaoJu)
     end
-    if muBiao == mb_5DaoJu then
+    if muBiaoA == mb_5DaoJu then
         openBag()
-    elseif muBiao == "道具合成" then
+    elseif muBiaoA == "道具合成" then
         openBag()
-    elseif muBiao == mb_CaiJi then
+    elseif muBiaoA == mb_CaiJi then
         task_CaiJi()
-    elseif muBiao == mb_Reward then
+    elseif muBiaoA == mb_Reward then
         task_Reward()
-    elseif muBiao == mb_JiNeng then
+    elseif muBiaoA == mb_JiNeng then
         task_JiNeng()
     end
     if outside() then
-        debug("回基地--日常")
+        debugA("回基地--日常")
         tap1(1074, 582) -- 回基地
         chongZhiJiDiXianKuang()
     end
@@ -5774,13 +5788,13 @@ end
 -- 任务--主动技能
 function task_JiNeng()
     if inside1() then
-        debug("主动技能")
+        debugA("主动技能")
         if isColor(1093, 82, 0x577ea6, 95) and isColor(1114, 59, 0x354f6a, 95) then
             tap1(1103, 68, 0x0d1828) -- 展开右上角
             tap1(681, 172, 0x1c2b3b) -- 主动技能
         end
         if isColor(960, 185, 0x835523, 95) and isColor(1119, 186, 0x835523, 95) then
-            debug("技能目录")
+            debugA("技能目录")
             x, y = findMultiColorInRegionFuzzy(0x375297, "14|-4|0x7c5758,14|10|0xa48e9d", 90, 533, 219, 1117, 418)
             if x ~= -1 then
                 tap1(x, y)
@@ -5825,7 +5839,7 @@ function task_JiNeng()
                 end
             end
             tap1(1105, 72, 0x0b1625)
-            gaiMuBiaoNew(2, mb_Reward, mm_Reward)
+            gaiMuBiaoNewA(2, mb_Reward, mm_Reward)
         end
     end
 
@@ -5845,7 +5859,7 @@ function task_JiDi()
         end
     end
     if outside() then
-        debug("回基地--只做基地")
+        debugA("回基地--只做基地")
         tap1(1074, 582) -- 回基地
         chongZhiJiDiXianKuang()
     end
@@ -5854,7 +5868,7 @@ end
 -- 收获
 function task_Reward()
     if inside1() then
-        debug("收获")
+        debugA("收获")
         tap1(45, 188, 0x060f0f)
     end
 end
@@ -5862,7 +5876,7 @@ end
 -- 采集任务
 function task_CaiJi()
     if inside1() then
-        debug("采集任务")
+        debugA("采集任务")
         tap1(1015, 71, 0x0d1a2c) -- 基地加成
     end
 end
@@ -5870,7 +5884,7 @@ end
 -- 打开背包
 function openBag()
     if inside1() then
-        debug("打开背包")
+        debugA("打开背包")
         tap1(963, 591, 0x373b37)
     end
 end
@@ -5963,7 +5977,7 @@ function task()
         if checkRed1() == false then
             if haoLV == 1 then
                 -- 主任务
-                debug("主任务")
+                debugA("主任务")
                 -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
                 --     debug("展开任务栏")
                 --     tap1(107, 213)
@@ -5979,14 +5993,14 @@ function task()
                 return
             end
             if haoLV == 3 then
-                gaiMuBiaoNew(1, mb_WaKuang, mm_WaKuang)
+                gaiMuBiaoNewA(1, mb_WaKuang, mm_WaKuang)
                 return
             end
             if haoLV == 2 then
                 if isKaYouHua == false then
-                    gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
+                    gaiMuBiaoNewA(1, mb_YouHua, mm_YouHua)
                 else
-                    debug("卡优化,做主任务")
+                    debugA("卡优化,做主任务")
                     -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
                     --     debug("展开任务栏")
                     --     tap1(107, 213)
@@ -6009,7 +6023,7 @@ end
 
 -- 重置基地现况
 function chongZhiJiDiXianKuang()
-    gaiMuBiaoNew(3, "", mm_Wu)
+    gaiMuBiaoNewA(3, "", mm_Wu)
     timeInside = nowTime
 
     numSearch = 0
@@ -6020,9 +6034,9 @@ function chongZhiJiDiXianKuang()
 
     if isAgainReward22 == false then
         if nowDateTime.hour >= 22 and nowDateTime.min >= 0 then
-            if muBiao == mb_WaKuang then
-                gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
-                gaiMuBiaoNew(2, mb_Reward, mm_Reward)
+            if muBiaoA == mb_WaKuang then
+                gaiMuBiaoNewA(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiaoNewA(2, mb_Reward, mm_Reward)
                 isAgainReward22 = true
                 writeJson("再次收获22", isAgainReward22)
 
@@ -6036,17 +6050,17 @@ function chongZhiJiDiXianKuang()
     end
     if isAgainReward6 == false then
         if nowDateTime.hour >= 6 and nowDateTime.min >= 0 then
-            if muBiao == mb_WaKuang then
-                gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
-                gaiMuBiaoNew(2, mb_Reward, mm_Reward)
+            if muBiaoA == mb_WaKuang then
+                gaiMuBiaoNewA(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiaoNewA(2, mb_Reward, mm_Reward)
                 isAgainReward6 = true
                 writeJson("再次收获6", isAgainReward6)
             end
         end
     end
     if haoLV == 2 then
-        if muBiao == mb_WaKuang and nowTime - timeRound >= 1 * 60 * 60 then
-            gaiMuBiaoNew(1, mb_YouHua, mm_YouHua)
+        if muBiaoA == mb_WaKuang and nowTime - timeRound >= 1 * 60 * 60 then
+            gaiMuBiaoNewA(1, mb_YouHua, mm_YouHua)
             timeRound = nowTime
         end
     end
@@ -6069,51 +6083,51 @@ function zhuXian()
 
         -- end
         if isColor(387, 372, 0xa43b40, 95) and isColor(501, 389, 0xa43b40, 95) and isColor(109, 371, 0x00ace4, 95) then
-            debug("粒子--左")
+            debugA("粒子--左")
             numSearch = numSearch + 1
             tap1(387, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 isLiZi = true
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(919, 373, 0xa43b40, 95) and isColor(1028, 386, 0xa43b40, 95) and isColor(643, 371, 0x00ace4, 95) then
-            debug("粒子--右")
+            debugA("粒子--右")
             numSearch = numSearch + 1
             tap1(919, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 isLiZi = true
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(497, 383, 0x00798c, 95) and isColor(116, 377, 0x00ace4, 95) then
-            debug("采集--左")
+            debugA("采集--左")
             numSearch = numSearch + 1
             tap1(407, 383)
             if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
-                debug("研究才能出4队")
+                debugA("研究才能出4队")
                 tap1(513, 496, 0x0c0c0e)
                 tap1(1074, 582) -- 回基地
                 chongZhiJiDiXianKuang()
             end
         elseif isColor(639, 378, 0x00ace4, 95) and isColor(1027, 380, 0x00798c, 95) then
-            debug("采集--右")
+            debugA("采集--右")
             numSearch = numSearch + 1
             tap1(1027, 383)
             if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
-                debug("研究才能出4队")
+                debugA("研究才能出4队")
                 tap1(513, 496, 0x0c0c0e)
                 tap1(1074, 582) -- 回基地
                 chongZhiJiDiXianKuang()
             end
         elseif numSearch >= 10 then
-            debug("回基地")
+            debugA("回基地")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isColor(1022, 457, 0xffa100, 95) then -- 4队出完
-            debug("4队出完")
+            debugA("4队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         else
@@ -6122,7 +6136,7 @@ function zhuXian()
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
-        debug("搜索界面--主线")
+        debugA("搜索界面--主线")
         if isColor(519, 437, 0x116eb9, 95) then -- 矿
             tap1(519, 437)
         elseif isColor(661, 435, 0x116eb9, 95) then -- 金属
@@ -6151,9 +6165,9 @@ function zhuXian()
     end
     if isColor(8, 23, 0xff9c00, 95) and isColor(16, 25, 0xffffff, 95) and isColor(866, 599, 0xd78b00, 95) and
         isColor(116, 596, 0x517fad, 95) then
-        debug("出航界面--主线")
+        debugA("出航界面--主线")
         if isColor(242, 150, 0xffffff, 95) or isColor(226, 149, 0xffffff, 95) then
-            debug("无人物")
+            debugA("无人物")
             tap1(20, 20)
         end
         if isColor(559, 122, 0x3e6b96, 95) then -- 航母
@@ -6164,14 +6178,14 @@ function zhuXian()
             isLiZi = true -- 粒子
             -- timeLiZi = nowTime
         elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
-            debug("挖粒子,没航母,航母坏了")
+            debugA("挖粒子,没航母,航母坏了")
             isShipBad = true
             isLiZi = true -- 粒子
             tap1(20, 20)
             mSleep(1000)
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
-            gaiMuBiaoNew(3, mb_FixShip, mm_FixShip)
+            gaiMuBiaoNewA(3, mb_FixShip, mm_FixShip)
         elseif isColor(634, 157, 0x102a43, 95) then -- 普通采集 无船可出
             tap1(20, 20)
             mSleep(1000)
@@ -6203,13 +6217,13 @@ function chuHang()
 
     if isColor(8, 23, 0xff9c00, 95) and isColor(16, 25, 0xffffff, 95) and isColor(866, 599, 0xd78b00, 95) and
         isColor(116, 596, 0x517fad, 95) then
-        debug("出航界面--出航")
+        debugA("出航界面--出航")
         if isColor(242, 150, 0xffffff, 95) or isColor(226, 149, 0xffffff, 95) then
-            debug("无人物")
+            debugA("无人物")
             tap1(20, 20)
         end
         if isColor(559, 122, 0x3e6b96, 95) then -- 航母
-            debug("有航母")
+            debugA("有航母")
             isFalseLiZi2 = false
             tap1(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
@@ -6231,7 +6245,7 @@ function chuHang()
             writeJson("粒子总次数", numDigLiZi)
 
         elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
-            debug("挖粒子,没航母,航母坏了")
+            debugA("挖粒子,没航母,航母坏了")
             isFalseLiZi2 = false
             isShipBad = true
             isLiZi = true -- 粒子
@@ -6239,15 +6253,15 @@ function chuHang()
             mSleep(1000)
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
-            gaiMuBiaoNew(3, mb_FixShip, mm_FixShip)
+            gaiMuBiaoNewA(3, mb_FixShip, mm_FixShip)
         elseif isColor(634, 157, 0x102a43, 95) then -- 普通采集 无船可出
-            debug("普通采集 无船可出")
+            debugA("普通采集 无船可出")
             tap1(20, 20)
             mSleep(1000)
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isColor(634, 157, 0x38b3ca, 95) then -- 普通采集 有船可出
-            debug("普通采集 有船可出")
+            debugA("普通采集 有船可出")
             local temNum = 0
             if isColor(461, 595, 0x396999, 95) then -- 矿
                 temNum = 1
@@ -6296,9 +6310,9 @@ function chuHang()
     end
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
-        debug("搜索界面--出航--无粒子")
+        debugA("搜索界面--出航--无粒子")
         if isKillPirate == true then
-            debug("有体力,杀海盗")
+            debugA("有体力,杀海盗")
             if check23 == "60海盗" and num60Pirate <= 80 then
                 num60Pirate = num60Pirate + 1
                 writeJson("60海盗", num60Pirate)
@@ -6492,7 +6506,7 @@ function chuHang()
         end
     end
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
-        debug("搜索界面--出航--有粒子")
+        debugA("搜索界面--出航--有粒子")
         if check23 == "60海盗" and num60Pirate <= 80 then
             num60Pirate = num60Pirate + 1
             writeJson("60海盗", num60Pirate)
@@ -6554,7 +6568,7 @@ function chuHang()
                 -- end
             end
         elseif isKillPirate == true then
-            debug("有体力,杀海盗")
+            debugA("有体力,杀海盗")
             if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
                 writeJson("每日3海盗", num3Pirate)
@@ -6726,22 +6740,22 @@ function chuHang()
             -- if isColor(147, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 20体力
             -- if isColor(185, 80, 0x37b8d8, 95) and haoLV >= 3 then -- 60体力
             -- if isColorPlus(210, 79, 0x39bfe1,95) then -- 70体力
-            debug("有体力")
+            debugA("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
                 timeKillPirate = nowTime
             end
         else
-            debug("无体力")
+            debugA("无体力")
             isKillPirate = false -- 不杀海盗
         end
         if isColor(210, 377, 0x00ace4, 95) and isColor(267, 378, 0x00798c, 95) and isColor(400, 376, 0xa43b40, 95) then
-            debug("粒子--左")
+            debugA("粒子--左")
             numSearch = numSearch + 1
             tap1(387, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
@@ -6752,12 +6766,12 @@ function chuHang()
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(733, 377, 0x00ace4, 95) and isColor(798, 378, 0x00798c, 95) and isColor(934, 377, 0xa43b40, 95) then
-            debug("粒子--右")
+            debugA("粒子--右")
             numSearch = numSearch + 1
             tap1(919, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
@@ -6768,12 +6782,12 @@ function chuHang()
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(125, 322, 0x6416c3, 95) and isColor(151, 305, 0x6918d9, 95) then
-            debug("粒子--左")
+            debugA("粒子--左")
             numSearch = numSearch + 1
             tap1(387, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
@@ -6784,16 +6798,16 @@ function chuHang()
                 tap1(172, 525) -- 搜索
             end
             if isColor(522, 433, 0x1d6ebc, 95) then
-                debug("其他司令官")
+                debugA("其他司令官")
                 tap1(522, 433)
             end
         elseif isColor(662, 320, 0x783ede, 95) and isColor(684, 302, 0x6f1bdf, 95) then
-            debug("粒子--右")
+            debugA("粒子--右")
             numSearch = numSearch + 1
             tap1(919, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
-                debug("粒子已在挖")
+                debugA("粒子已在挖")
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
@@ -6804,51 +6818,51 @@ function chuHang()
                 tap1(172, 525) -- 搜索
             end
             if isColor(522, 433, 0x1d6ebc, 95) then
-                debug("其他司令官")
+                debugA("其他司令官")
                 tap1(522, 433)
             end
         elseif isColor(497, 383, 0x00798c, 95) and isColor(116, 377, 0x00ace4, 95) then
-            debug("采集--左")
+            debugA("采集--左")
             numSearch = numSearch + 1
             tap1(407, 383)
             if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
-                debug("研究才能出4队")
+                debugA("研究才能出4队")
                 tap1(513, 496, 0x0c0c0e)
                 tap1(1074, 582) -- 回基地
                 chongZhiJiDiXianKuang()
             end
         elseif isColor(639, 378, 0x00ace4, 95) and isColor(1027, 380, 0x00798c, 95) then
-            debug("采集--右")
+            debugA("采集--右")
             numSearch = numSearch + 1
             tap1(1027, 383)
             if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
-                debug("研究才能出4队")
+                debugA("研究才能出4队")
                 tap1(513, 496, 0x0c0c0e)
                 tap1(1074, 582) -- 回基地
                 chongZhiJiDiXianKuang()
             end
         elseif numSearch >= 10 then
-            debug("回基地")
+            debugA("回基地")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif numQueue == 5 and isColor(1022, 519, 0xffa100, 95) then --5队出完
-            debug("5队出完")
+            debugA("5队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif numQueue == 4 and isColor(1022, 457, 0xffa100, 95) then -- 4队出完
-            debug("4队出完")
+            debugA("4队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif numQueue == 3 and isColor(1022, 395, 0xffa100, 95) then -- 3队出完
-            debug("3队出完")
+            debugA("3队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif numQueue == 2 and isColor(1022, 333, 0xffa100, 95) then -- 2队出完
-            debug("2队出完")
+            debugA("2队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif numQueue == 1 and isColor(1022, 271, 0xffa100, 95) then -- 1队出完
-            debug("1队出完")
+            debugA("1队出完")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isBug_LiZi == true then
@@ -6874,7 +6888,7 @@ end
 -- 判断是否有队伍在采集粒子
 function isRewardLiZi()
     -- if nowTime - timeLiZi >= 3 * 60 then
-    debug("判断是否有队伍在采集粒子--超过3分钟")
+    debugA("判断是否有队伍在采集粒子--超过3分钟")
     if notWaLiZi == true then
         isLiZi = true
         return true
@@ -6888,22 +6902,22 @@ function isRewardLiZi()
         if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
             tap1(1058, 244, 0xdaa395)
             mSleep(3000)
-            debug("1队有人")
+            debugA("1队有人")
             if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 tap1(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
-                    debug("误开司令官")
+                    debugA("误开司令官")
                     tap1(20, 20)
                     -- mSleep(1000)
                 end
                 numLiZiTeam = numLiZiTeam + 1
                 if numLiZiTeam >= tonumber(numShip) then
                     if check16 ~= "vip8" then
-                        debug("isBug_LiZi = false")
+                        debugA("isBug_LiZi = false")
                         isBug_LiZi = false -- bug 粒子
                     end
-                    debug("isLiZi = true")
+                    debugA("isLiZi = true")
                     isLiZi = true
                     return true
                 end
@@ -6912,12 +6926,12 @@ function isRewardLiZi()
         if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
             tap1(1058, 300, 0xdaa395)
             mSleep(3000)
-            debug("2队有人")
+            debugA("2队有人")
             if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 tap1(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
-                    debug("误开司令官")
+                    debugA("误开司令官")
                     tap1(20, 20)
                     -- mSleep(1000)
                 end
@@ -6934,12 +6948,12 @@ function isRewardLiZi()
         if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
             tap1(1058, 364, 0xdaa395)
             mSleep(3000)
-            debug("3队有人")
+            debugA("3队有人")
             if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 tap1(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
-                    debug("误开司令官")
+                    debugA("误开司令官")
                     tap1(20, 20)
                     -- mSleep(1000)
                 end
@@ -6956,12 +6970,12 @@ function isRewardLiZi()
         if isColor(1115, 367, 0xfefefe, 95) then -- 4队有人
             tap1(1058, 427, 0xdaa395)
             mSleep(3000)
-            debug("4队有人")
+            debugA("4队有人")
             if isColor(129, 287, 0xb44aec, 95) or isColor(662, 287, 0xb44aec, 95) then
                 tap1(20, 20) -- 瞎点一下
                 -- mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
-                    debug("误开司令官")
+                    debugA("误开司令官")
                     tap1(20, 20)
                     -- mSleep(1000)
                 end
@@ -6978,7 +6992,7 @@ function isRewardLiZi()
         tap1(20, 20) -- 瞎点一下
         -- mSleep(1000)
         if isColor(9, 10, 0xff9c00, 95) then
-            debug("误开司令官")
+            debugA("误开司令官")
             tap1(20, 20)
             -- mSleep(1000)
         end
@@ -7007,29 +7021,29 @@ function searchLiZi()
 
         -- debug("搜索粒子")
         if isColor(297, 107, 0x215da6, 95) and isColor(835, 585, 0x215da6, 95) and isColor(556, 551, 0x145da9, 95) then
-            debug("未知信号")
+            debugA("未知信号")
             tap1(511, 605, 0x0c0c0e)
         end
         if isColor(6, 24, 0xf59600, 95) and isColor(18, 24, 0xffffff, 95) and isColor(355, 86, 0x5195db, 95) then
-            debug("司令官界面")
+            debugA("司令官界面")
             tap1(20, 20)
         end
         if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
-            debug("外太空")
+            debugA("外太空")
             tap1(571, 467, 0x05305c)
         end
         if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
             isColor(741, 516, 0x2f2a33, 95) then
-            debug("外太空玩家1")
+            debugA("外太空玩家1")
             tap1(511, 600, 0x0c0c0e)
             tap1(571, 467, 0x05305c)
         end
         if isColor(493, 436, 0x1c6dba, 95) then
-            debug("蓝色确认")
+            debugA("蓝色确认")
             tap1(493, 436)
         end
         if isColor(331, 219, 0x2a6aab, 95) and isColor(337, 212, 0x2a6aab, 95) then
-            debug("任务栏误开")
+            debugA("任务栏误开")
             tap1(331, 219)
         end
         local intX1 = 1
@@ -7038,7 +7052,7 @@ function searchLiZi()
                 return
             end
             if isColor(1019, 544, 0x744218, 95) == false then
-                debug("搜索时卡bug")
+                debugA("搜索时卡bug")
                 break
             end
             x0, y0 = findColorInRegionFuzzy(0xf8c328, 95, intX1, 100, 1020, 540) -- 黄色图标
@@ -7059,7 +7073,7 @@ function searchLiZi()
                     x2, y2 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126,
                         529) -- 蓝采集
                     if x1 ~= -1 then
-                        debug("红色攻击")
+                        debugA("红色攻击")
                         if check13 == "抢粒子" then -- 抢
                             tap1(x1, y1)
                             isBug_LiZi = false
@@ -7077,16 +7091,16 @@ function searchLiZi()
                         else
                             x3, y3 = findColorInRegionFuzzy(0xff0000, 95, x1 + 20, y1 - 113, x1 + 124, y1 - 101) -- 红名玩家
                             if x3 ~= -1 and y3 ~= -1 then
-                                debug("不打红名")
+                                debugA("不打红名")
                                 tap1(20, 20) -- 瞎点一下
                                 -- mSleep(1000)
                                 if isColor(9, 10, 0xff9c00, 95) then
-                                    debug("误开司令官")
+                                    debugA("误开司令官")
                                     tap1(20, 20)
                                     -- mSleep(1000)
                                 end
                             else -- 白名玩家
-                                debug("打白名")
+                                debugA("打白名")
                                 tap1(x1, y1)
                                 isBug_LiZi = false
                                 -- numSearchLiZi = 0
@@ -7103,7 +7117,7 @@ function searchLiZi()
                             end
                         end
                     elseif x2 ~= -1 then
-                        debug("蓝色采集")
+                        debugA("蓝色采集")
                         tap1(x2, y2)
                         isBug_LiZi = false
                         -- numSearchLiZi = 0
@@ -7115,16 +7129,16 @@ function searchLiZi()
                         isLiZi = true
                         return
                     elseif isColor(1106, 574, 0xd88b00, 95) then
-                        debug("这是海盗,不是粒子")
+                        debugA("这是海盗,不是粒子")
                         mSleep(1000)
                         tap1(20, 20)
                         mSleep(1000)
                     else
-                        debug("没找到")
+                        debugA("没找到")
                         tap1(20, 20) -- 瞎点一下
                         -- mSleep(1000)
                         if isColor(9, 10, 0xff9c00, 95) then
-                            debug("误开司令官")
+                            debugA("误开司令官")
                             tap1(20, 20)
                             -- mSleep(1000)
                         end
@@ -7342,10 +7356,10 @@ function waKuang()
         end
     end
     if outside() then
-        if muBiao == mb_ChuHang then
+        if muBiaoA == mb_ChuHang then
 
         else
-            debug("目标挖矿,回基地")
+            debugA("目标挖矿,回基地")
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         end
@@ -7353,55 +7367,55 @@ function waKuang()
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 36, 0xb4c0ce, 95) and isColor(173, 43, 0x9eabbb, 95) then
         -- debug("基地现况界面--函数挖矿")
         if isColor(217, 321, 0x306090, 95) then -- 5号休息中
-            debug("5号休息中,出航")
+            debugA("5号休息中,出航")
             numQueue = 5
             writeJson("队列总数", numQueue)
             tap1(217, 325)
             if isColor(217, 321, 0x306090, 95) then -- 4号出航失败
 
             else
-                gaiMuBiaoNew(3, mb_ChuHang, mm_ChuHang)
+                gaiMuBiaoNewA(3, mb_ChuHang, mm_ChuHang)
             end
         elseif isColor(94, 325, 0x306090, 95) then -- 4号休息中
-            debug("4号休息中,出航")
+            debugA("4号休息中,出航")
             numQueue = 4
             writeJson("队列总数", numQueue)
             tap1(94, 325)
             if isColor(94, 325, 0x306090, 95) then -- 4号出航失败
 
             else
-                gaiMuBiaoNew(3, mb_ChuHang, mm_ChuHang)
+                gaiMuBiaoNewA(3, mb_ChuHang, mm_ChuHang)
             end
         elseif isColor(338, 208, 0x306090, 95) then -- 3号休息中
-            debug("3号休息中,出航")
+            debugA("3号休息中,出航")
             numQueue = 3
             writeJson("队列总数", numQueue)
             tap1(338, 208, 0x306090)
             if isColor(338, 208, 0x306090, 95) then -- 3号出航失败
 
             else
-                gaiMuBiaoNew(3, mb_ChuHang, mm_ChuHang)
+                gaiMuBiaoNewA(3, mb_ChuHang, mm_ChuHang)
             end
 
         elseif isColor(215, 208, 0x306090, 95) then -- 2号休息中
-            debug("2号休息中,出航")
+            debugA("2号休息中,出航")
             numQueue = 2
             writeJson("队列总数", numQueue)
             tap1(215, 208, 0x306090)
             if isColor(215, 208, 0x306090, 95) then -- 2号出航失败
 
             else
-                gaiMuBiaoNew(3, mb_ChuHang, mm_ChuHang)
+                gaiMuBiaoNewA(3, mb_ChuHang, mm_ChuHang)
             end
         elseif isColor(92, 207, 0x306090, 95) then -- 1号休息中
-            debug("1号休息中,出航")
+            debugA("1号休息中,出航")
             numQueue = 1
             writeJson("队列总数", numQueue)
             tap1(92, 207, 0x306090)
             if isColor(92, 207, 0x306090, 95) then -- 1号出航失败
 
             else
-                gaiMuBiaoNew(3, mb_ChuHang, mm_ChuHang)
+                gaiMuBiaoNewA(3, mb_ChuHang, mm_ChuHang)
             end
 
         elseif nowTime - timeInside >= 5 * 60 then
@@ -7409,22 +7423,22 @@ function waKuang()
             timeInside = nowTime
         elseif checkXiangMu1 == "项目1" and checkXiangMu3 == "项目3" then
             if timeXiangMu1 > nowTime then
-                debug("timeXiangMu1 = nowTime")
+                debugA("timeXiangMu1 = nowTime")
                 timeXiangMu1 = nowTime
             elseif numXiangMu == 1 and nowTime - timeXiangMu1 >= 20 then
-                debug("项目1 => 项目3")
+                debugA("项目1 => 项目3")
                 numXiangMu = 3
                 appXiangMu = "com.wemadeconnect.etgnft.everytown"
 
-                local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
-                strMuBiao1, strMuBiao2, strMuBiao3 = muBiao1, muBiao2, muBiao3
-                writeJson("目标1暂存", strMuBiao1)
-                writeJson("目标2暂存", strMuBiao2)
-                writeJson("目标3暂存", strMuBiao3)
+                -- local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
+                -- strMuBiao1, strMuBiao2, strMuBiao3 = muBiaoA1, muBiaoA2, muBiaoA3
+                -- writeJson("目标1暂存", strMuBiao1)
+                -- writeJson("目标2暂存", strMuBiao2)
+                -- writeJson("目标3暂存", strMuBiao3)
 
-                gaiMuBiaoNew(1, tempStrMuBiao1)
-                gaiMuBiaoNew(2, tempStrMuBiao2)
-                gaiMuBiaoNew(3, tempStrMuBiao3)
+                -- gaiMuBiaoNewA(1, tempStrMuBiao1)
+                -- gaiMuBiaoNewA(2, tempStrMuBiao2)
+                -- gaiMuBiaoNewA(3, tempStrMuBiao3)
                 timeXiangMu1 = nowTime + 60 * 60 * 24 --项目1已闲置时间
             end
         end
@@ -7432,16 +7446,16 @@ function waKuang()
 end
 
 function BeAttack()
-    if isAttacked == true and nowTime - timeAttacked >= 30 * 60 and muBiao == "战备" then
+    if isAttacked == true and nowTime - timeAttacked >= 30 * 60 and muBiaoA == "战备" then
         isAttacked = false
         timeAttacked = nowTime
-        gaiMuBiaoNew(4, "")
+        gaiMuBiaoNewA(4, "")
     end
     if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 150000 then
         if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or
             isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or
             isColor(0, 0, 0xb00101, 95) then
-            debug("被攻击,秒数:" .. nowTime - timeBeAttack2)
+            debugA("被攻击,秒数:" .. nowTime - timeBeAttack2)
             if isAttacked == false then
                 isAttacked = true
                 timeAttacked = nowTime
@@ -7453,32 +7467,32 @@ function BeAttack()
                     vibratorNotice()
                     timeBeAttack2 = 0
                 end
-            elseif string.find(muBiao, "战备") == nil then
+            elseif string.find(muBiaoA, "战备") == nil then
                 if isColor(1019, 544, 0x793d16, 95) and isColor(1124, 618, 0x7d3915, 95) and
                     isColor(1058, 581, 0xf8e6e6, 95) then
-                    debug("基地内--被攻击")
-                    gaiMuBiaoNew(4, "战备")
+                    debugA("基地内--被攻击")
+                    gaiMuBiaoNewA(4, "战备")
                 elseif isColor(1019, 544, 0x7b3b15, 95) and isColor(1124, 618, 0x803513, 95) and
                     isColor(1039, 574, 0xe8d3d3, 95) then
-                    debug("基地外--被攻击")
-                    gaiMuBiaoNew(4, "战备")
+                    debugA("基地外--被攻击")
+                    gaiMuBiaoNewA(4, "战备")
                     tap(1077, 579)
                 elseif isColor(69, 23, 0xf35600, 95) and isColor(92, 36, 0xb4a5b1, 95) and isColor(173, 43, 0xa098a6, 95) then
-                    debug("基地现况--被攻击")
-                    gaiMuBiaoNew(4, "战备")
+                    debugA("基地现况--被攻击")
+                    gaiMuBiaoNewA(4, "战备")
                     tap(509, 608)
                 elseif isColor(54, 58, 0xf29600, 95) then
-                    debug("建筑界面--被攻击")
-                    gaiMuBiaoNew(4, "战备")
+                    debugA("建筑界面--被攻击")
+                    gaiMuBiaoNewA(4, "战备")
                     tap(20, 20)
                 elseif isColor(93, 64, 0xf6a000, 95) then
-                    debug("邮箱界面--被攻击")
-                    gaiMuBiaoNew(4, "战备")
+                    debugA("邮箱界面--被攻击")
+                    gaiMuBiaoNewA(4, "战备")
                     tap(20, 20)
                 else
                     closeApp(appXiangMu)
                     mSleep(2000)
-                    gaiMuBiaoNew(4, "战备")
+                    gaiMuBiaoNewA(4, "战备")
                 end
             end
         end
@@ -7489,19 +7503,19 @@ end
 function warReady()
     if (isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95)) or
         (isColor(1019, 544, 0x793c16, 95) and isColor(1124, 618, 0x7e3814, 95) and isColor(1039, 574, 0xece0e0, 95)) then
-        debug("基地外--战备")
+        debugA("基地外--战备")
         tap(1077, 579)
     end
     if (isColor(964, 581, 0xa55927, 95) and isColor(1018, 543, 0x744218, 95) and isColor(1058, 581, 0xffffff, 95)) or
         (isColor(964, 581, 0xa74f22, 95) and isColor(1018, 543, 0x7b3b15, 95) and isColor(1058, 581, 0xf5dddd, 95)) then
-        debug("基地内--战备")
+        debugA("基地内--战备")
         -- mSleep(3000)
-        if muBiao == "战备" and isColor(928, 51, 0x960f11, 95) then
-            debug("瞭望塔")
+        if muBiaoA == "战备" and isColor(928, 51, 0x960f11, 95) then
+            debugA("瞭望塔")
             tap(887, 68)
             mSleep(2000)
             if isColor(161, 569, 0xf6e1e1, 95) then
-                debug("攻击2")
+                debugA("攻击2")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
                     if isColor(61, 296, 0xf8e7e7, 90) == false then
@@ -7510,11 +7524,11 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNew(4, "战备跑路")
+                gaiMuBiaoNewA(4, "战备跑路")
                 isAttacked = false
                 timeAttacked = nowTime
             elseif isColor(151, 261, 0xfcf7f7, 80) then
-                debug("侦察")
+                debugA("侦察")
                 tap1(486, 82, 0xfcf6f6)
                 mSleep(1000)
                 tap1(20, 20)
@@ -7525,9 +7539,9 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNew(4, "")
+                gaiMuBiaoNewA(4, "")
             elseif isColor(452, 247, 0xdec9c6, 95) then
-                debug("矿被打")
+                debugA("矿被打")
                 tap1(486, 82, 0xfcf6f6)
                 mSleep(1000)
                 tap1(20, 20)
@@ -7538,9 +7552,9 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNew(4, "")
+                gaiMuBiaoNewA(4, "")
             elseif isColor(160, 276, 0xfbf1f1, 80) then
-                debug("攻击")
+                debugA("攻击")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
                     if isColor(61, 296, 0xf8e7e7, 90) == false then
@@ -7549,7 +7563,7 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNew(4, "战备跑路")
+                gaiMuBiaoNewA(4, "战备跑路")
                 isAttacked = false
                 timeAttacked = nowTime
             else
@@ -7561,7 +7575,7 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNew(4, "")
+                gaiMuBiaoNewA(4, "")
             end
 
             --对调
@@ -7579,16 +7593,16 @@ function warReady()
             --     tap1(20, 20)
             --     gaiMuBiaoNew(4, "")
             -- end
-        elseif muBiao == "战备跑路" then
-            debug("展开菜单栏")
+        elseif muBiaoA == "战备跑路" then
+            debugA("展开菜单栏")
             tap1(1094, 80, 0x626e91) --展开
             mSleep(1000)
             tap1(687, 180, 0x6c7582) --主动技能
             mSleep(1000)
             if isColor(578, 278, 0x165aab, 95) then
                 -- if isColor(578, 278, 0x4f5d60, 95) then
-                debug("冷却中")
-                gaiMuBiaoNew(4, "战备开盾")
+                debugA("冷却中")
+                gaiMuBiaoNewA(4, "战备开盾")
                 isAttacked = false
                 timeAttacked = nowTime
                 tap1(964, 581, 0xa74f22) --背包
@@ -7597,7 +7611,7 @@ function warReady()
                 tap1(964, 581, 0xa74f22) --背包
             elseif isColor(578, 278, 0x4f5d60, 90) then
                 -- elseif isColor(578, 278, 0x165aab, 95) then
-                debug("可使用")
+                debugA("可使用")
                 tap1(573, 258, 0xd2a414) --使用技能--召回
                 mSleep(1000)
                 tap1(420, 474, 0xf39b18) --使用
@@ -7607,8 +7621,8 @@ function warReady()
                 tap1(964, 581, 0xa74f22) --背包
                 tap1(964, 581, 0xa74f22) --背包
             else
-                debug("技能不对")
-                gaiMuBiaoNew(4, "战备开盾")
+                debugA("技能不对")
+                gaiMuBiaoNewA(4, "战备开盾")
                 isAttacked = false
                 timeAttacked = nowTime
                 tap1(1103, 67, 0x1e1826) --收缩
@@ -7638,14 +7652,14 @@ function warReady()
             --     tap1(964, 581, 0xa74f22) --背包
             -- end
 
-        elseif muBiao == "战备开盾" then
+        elseif muBiaoA == "战备开盾" then
             tap1(964, 581, 0xa74f22) --背包
         end
     end
-    if muBiao == "战备开盾" then
+    if muBiaoA == "战备开盾" then
         if (isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95)) or
             (isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95)) then
-            debug("背包界面--战备")
+            debugA("背包界面--战备")
             if isColor(119, 253, 0x1e2434, 90) then
                 tap1(119, 253, 0x1e2434) --战争
             end
@@ -7660,17 +7674,17 @@ function warReady()
                 tap1(518, 456, 0x1c6cb9)
             end
             tap1(20, 20)
-            gaiMuBiaoNew(4, "")
+            gaiMuBiaoNewA(4, "")
             numTodayDefense = numTodayDefense + 1
             writeJson("今日开盾次数", numTodayDefense)
             numDefense = numDefense + 1
             writeJson("开盾总次数", numDefense)
         end
     end
-    if muBiao == "战备跑路" then
+    if muBiaoA == "战备跑路" then
         if (isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(103, 75, 0xffb500, 95)) or
             (isColor(17, 24, 0xf5dfdf, 95) and isColor(5, 24, 0xf58700, 95) and isColor(103, 75, 0xf9a600, 95)) then
-            debug("背包界面--战备")
+            debugA("背包界面--战备")
             if isColor(119, 253, 0x1e2434, 90) then
                 tap1(119, 253, 0x1e2434) --战争
             end
@@ -7682,7 +7696,7 @@ function warReady()
                 -- tap1(20, 20)
             end
             tap1(20, 20)
-            gaiMuBiaoNew(4, "")
+            gaiMuBiaoNewA(4, "")
             numTodayRunAway = numTodayRunAway + 1
             writeJson("今日跑路次数", numTodayRunAway)
             numRunAway = numRunAway + 1
@@ -7695,7 +7709,7 @@ end
 function inside1(...)
     isXiaoHao()
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
-        debug("室内")
+        debugA("室内")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
             strVpnModel = "场景"
@@ -7703,10 +7717,10 @@ function inside1(...)
             mSleep(1000)
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
-            debug("验证码--红点")
+            debugA("验证码--红点")
             tap1(1096, 137, 0x191d1b)
         elseif isColor(1050, 106, 0x9e1111, 95) and isColor(1033, 115, 0x3f9fd8, 95) then
-            debug("验证码--红点")
+            debugA("验证码--红点")
             tap1(1033, 137)
         elseif isColor(1104, 130, 0x369469, 95) and isColor(1125, 106, 0x9e1111, 95) then
             -- debug("航母--红点")
@@ -7715,7 +7729,7 @@ function inside1(...)
             numYunDaMa = 0
         end
         if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) then
-            debug("收缩任务栏")
+            debugA("收缩任务栏")
             tap1(335, 213)
         end
         -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
@@ -7733,7 +7747,7 @@ end
 -- 基地外
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
-        debug("室外")
+        debugA("室外")
         if check21 == "自动切换梯子" and strVpnModel == "配置" then
             autoChangeVPN("场景")
             strVpnModel = "场景"
@@ -7741,16 +7755,16 @@ function outside(...)
             mSleep(1000)
         end
         if isColor(1104, 130, 0x369469, 95) == false and isColor(1129, 102, 0x9e1111, 95) then
-            debug("验证码--红点")
+            debugA("验证码--红点")
             tap1(1096, 137, 0x191d1b)
         elseif isColor(1050, 106, 0x9e1111, 95) and isColor(1033, 115, 0x3f9fd8, 95) then
-            debug("验证码--红点")
+            debugA("验证码--红点")
             tap1(1033, 137)
         elseif isColor(1104, 130, 0x369469, 95) and isColor(1125, 106, 0x9e1111, 95) then
-            debug("航母--红点")
+            debugA("航母--红点")
         end
         if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) then
-            debug("收缩任务栏")
+            debugA("收缩任务栏")
             tap1(335, 213)
         end
         -- if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
@@ -7758,7 +7772,7 @@ function outside(...)
         --     tap1(107, 213)
         -- end
         if isColor(1053, 199, 0xffffff, 95) and isColor(1068, 193, 0xffffff, 95) then
-            debug("收缩队伍")
+            debugA("收缩队伍")
             tap1(1068, 193, 0xffffff)
         end
         nowTime = os.time()
@@ -7772,7 +7786,7 @@ end
 -- 每日重置
 function everyDayInit(...)
     if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 50 then
-        debug("晚重置")
+        debugA("晚重置")
         nowDayNight = nowDateTime.day
         writeJson("日期晚", nowDayNight)
 
@@ -7789,7 +7803,7 @@ function everyDayInit(...)
     -- if tmpXuanXiang ~= nil then
     if nowDateTime.day ~= nowDay then
         if nowDateTime.hour >= 9 and nowDateTime.min >= 0 then
-            debug("9点0分重置")
+            debugA("9点0分重置")
 
             -- closeApp(appXiangMu)
 
@@ -7891,9 +7905,9 @@ function everyDayInit(...)
             writeJson("今日粒子次数", numTodayDigLiZi)
 
             if haoLV == 3 then
-                gaiMuBiaoNew(1, mb_EveryDay, mm_EveryDay)
-                gaiMuBiaoNew(2, "", mm_Wu)
-                gaiMuBiaoNew(3, "", mm_Wu)
+                gaiMuBiaoNewA(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiaoNewA(2, "", mm_Wu)
+                gaiMuBiaoNewA(3, "", mm_Wu)
             end
 
             -- today = tonumber(os.date("%w",os.time()))
@@ -8147,10 +8161,10 @@ end
 function checkShengJiCengShu()
     numShengJiCengShu = numShengJiCengShu + 1
     if numShengJiCengShu >= 10 then
-        if muBiao == "优化" then
-            gaiMuBiaoNew(1, "主线")
-        elseif muBiao == "主线" then
-            gaiMuBiaoNew(1, "挖矿")
+        if muBiaoA == "优化" then
+            gaiMuBiaoNewA(1, "主线")
+        elseif muBiaoA == "主线" then
+            gaiMuBiaoNewA(1, "挖矿")
         end
         RGB_NoticeBJ = "FFFF00"
         RGB_NoticeFont = "FF0000"
@@ -8169,9 +8183,9 @@ function duiHuanJianCe()
         if nowDateTime.hour == tonumber(numDuiHuan) or nowDateTime.hour == tonumber(numDuiHuan) + 8 or
             nowDateTime.hour ==
             tonumber(numDuiHuan) + 8 * 2 then
-            if muBiao3 == "" and muBiao2 == "" then
-                gaiMuBiaoNew(2, "兑换")
-                gaiMuBiaoNew(3, "钱包检测")
+            if muBiaoA3 == "" and muBiaoA2 == "" then
+                gaiMuBiaoNewA(2, "兑换")
+                gaiMuBiaoNewA(3, "钱包检测")
             end
         end
     end
@@ -8200,43 +8214,43 @@ end
 --活动中心--细节
 function huoDongDetail()
     if isColor(1084, 83, 0x9e1111, 95) then
-        debug("规则")
+        debugA("规则")
         tap1(1032, 103, 0x0b7148)
     elseif isColor(250, 420, 0x18407f, 95) and isColor(307, 401, 0x9e1111, 95) then
-        debug("og精锐怪物狂欢")
+        debugA("og精锐怪物狂欢")
         tap1(250, 420)
     elseif isColor(783, 560, 0x5966f2, 95) and isColor(944, 558, 0x1a77f3, 95) then
-        debug("STAKING")
+        debugA("STAKING")
         tap1(944, 558, 0x1a77f3)
     elseif isColor(902, 175, 0x116eb9, 95) and isColor(1009, 176, 0x168961, 95) then
-        debug("预定活动")
+        debugA("预定活动")
         tap1(88, 182, 0x182637)
     elseif isColor(996, 281, 0xf18e07, 95) then
-        debug("领取1--新")
+        debugA("领取1--新")
         tap1(1000, 281)
     elseif isColor(1000, 258, 0x116eb9, 95) then
-        debug("领取1")
+        debugA("领取1")
         tap1(1000, 267)
     elseif isColor(1000, 353, 0x116eb9, 95) then
-        debug("领取2")
+        debugA("领取2")
         tap1(1000, 360)
     elseif isColor(1000, 449, 0x116eb9, 95) then
-        debug("领取3")
+        debugA("领取3")
         tap1(1000, 456)
     elseif isColor(1000, 544, 0x126fba, 95) then
-        debug("领取4")
+        debugA("领取4")
         tap1(1000, 551)
     elseif isColor(1006, 419, 0x116eb9, 95) then
-        debug("领取--中间")
+        debugA("领取--中间")
         tap1(1000, 419)
     elseif isColor(905, 158, 0x931012, 95) then
-        debug("战斗力--红点")
+        debugA("战斗力--红点")
         tap1(836, 173, 0x12253a)
     elseif isColor(329, 492, 0x1c6ebb, 95) then
-        debug("使用--遗物")
+        debugA("使用--遗物")
         tap1(329, 492)
     elseif isColor(297, 497, 0xd68b01, 95) then
-        debug("领取--黄色")
+        debugA("领取--黄色")
         tap1(297, 497)
     end
 end
@@ -8265,26 +8279,26 @@ function zongHe2()
     --     tap1(551,404)
     -- end
     if isColor(413, 381, 0xeb0000, 95) and isColor(627, 381, 0x00a0ef, 95) and isColor(557, 208, 0xb7bcc1, 95) and
-        isColor(582, 226, 0x7e848c, 95) and (muBiao == "采集" or muBiao == "去采集点") then
-        debug("误开离开")
+        isColor(582, 226, 0x7e848c, 95) and (muBiaoA == "采集" or muBiaoA == "去采集点") then
+        debugA("误开离开")
         tap1(451, 406, 0x734d45)
     end
     if isColor(166, 396, 0x0090bf, 95) and isColor(370, 403, 0xd3b301, 95) and isColor(575, 408, 0x36c400, 95) then
-        debug("误开告知")
+        debugA("误开告知")
         tap1(967, 213, 0xffffff)
     end
     if isColor(142, 25, 0xa5eb30, 95) and isColor(156, 32, 0x7bdd23, 95) and isColor(531, 38, 0xffffff, 95) then
-        debug("误开聊天框")
+        debugA("误开聊天框")
         tap1(531, 38, 0xffffff)
     end
     if isColor(438, 449, 0x008dbe, 95) and isColor(690, 484, 0x008ab8, 95) and isColor(559, 462, 0xccd4d9, 95) then
-        debug("奖励发放--关闭")
+        debugA("奖励发放--关闭")
         tap1(559, 462, 0xccd4d9)
     end
     if isColor(47, 257, 0xf7f6f7, 95) and isColor(91, 290, 0x4592c2, 95) then
-        debug("菜单界面")
+        debugA("菜单界面")
         if isColor(17, 426, 0xbf3f2f, 95) and isColor(38, 443, 0xf7f7f7, 95) then
-            debug("称号--红点")
+            debugA("称号--红点")
             tap1(36, 442, 0xf7f8f7)
             -- elseif isColor(1113, 238, 0xbe3e2e, 95) and isColor(1097, 259, 0x1b1d28, 95) then
             --     debug("图鉴--红点")
@@ -8299,17 +8313,17 @@ function zongHe2()
 
             --     end
         elseif isColor(17, 177, 0xbe3e2e, 95) and isColor(46, 178, 0xfdfdfd, 95) then
-            debug("活动--红点")
+            debugA("活动--红点")
             tap1(38, 196, 0xcecfd1)
             if isColor(186, 178, 0xbe3e2e, 95) then
-                debug("进行中活动--红点")
+                debugA("进行中活动--红点")
                 tap1(214, 196, 0x66686e)
             end
         elseif isColor(17, 240, 0xbe3e2e, 95) and isColor(29, 244, 0xfcfcfc, 95) then
-            debug("任务--红点")
+            debugA("任务--红点")
             tap1(29, 244, 0xfcfcfc)
             if isColor(186, 115, 0xbe3e2e, 95) then
-                debug("目标与成就--红点")
+                debugA("目标与成就--红点")
                 tap1(214, 130, 0x40414a)
             end
             -- elseif isColor(17, 115, 0xbe3e2e, 95) then
@@ -8332,9 +8346,9 @@ function zongHe2()
     end
     if isColor(89, 21, 0x8697a6, 95) and isColor(86, 38, 0x92a5b5, 95) and isColor(122, 23, 0x7d8d99, 95) and
         isColor(124, 38, 0x899dac, 95) then
-        debug("好友界面")
+        debugA("好友界面")
         if isColor(331, 259, 0xcd0000, 95) then
-            debug("拒绝")
+            debugA("拒绝")
             tap1(380, 258, 0x391414)
             tap1(603, 402, 0x3d0f07)
         else
@@ -8347,7 +8361,7 @@ function zongHe2()
         end
     end
     if isColor(367, 543, 0x0088db, 95) and isColor(1000, 111, 0x62c400, 95) then
-        debug("怪物图鉴界面")
+        debugA("怪物图鉴界面")
         x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 30, 99, 30, 585)
         if x > 0 then -- 如果在指定区域找到某点符合条件
             tap1(145, 601, 0xf9f9f9) --批量处理
@@ -8358,20 +8372,20 @@ function zongHe2()
         end
     end
     if isColor(426, 119, 0xdae1e1, 95) and isColor(1090, 108, 0x01e6fa, 95) and isColor(737, 603, 0x8af92a, 95) then
-        debug("装备管理界面")
+        debugA("装备管理界面")
         if isColor(551, 93, 0xbe3e2e, 95) then
-            debug("能力值--红点")
+            debugA("能力值--红点")
             tap1(519, 116, 0x4d5152)
         else
             tap1(20, 20)
         end
     end
     if isColor(424, 137, 0xdbdddd, 95) and isColor(519, 137, 0x4b4d52, 95) and isColor(875, 178, 0x616a6f, 95) then
-        debug("能力值界面")
+        debugA("能力值界面")
         if isColor(718, 201, 0xbe3e2e, 95) then
-            debug("剩余点数--红点")
+            debugA("剩余点数--红点")
             if isColor(711, 388, 0x850e0e, 95) then
-                debug("推荐智力")
+                debugA("推荐智力")
                 for i = 1, 100, 1 do
                     tap1(1003, 405, 0x82fd2c) -- +号
                     if isColor(1003, 405, 0x82fd2c, 95) == false then
@@ -8385,11 +8399,11 @@ function zongHe2()
         end
     end
     if isColor(25, 55, 0x72cb04, 95) and isColor(150, 51, 0x71c903, 95) and isColor(98, 41, 0xe5e6e4, 95) then
-        debug("优惠界面")
+        debugA("优惠界面")
         if isColor(141, 37, 0xbe3e2e, 95) then
-            debug("优惠--红点")
+            debugA("优惠--红点")
             if isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) then
-                debug("在线礼包--选中")
+                debugA("在线礼包--选中")
                 x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
                 if x > 0 then -- 如果在指定区域找到某点符合条件
                     touchQuickly(x, y + 10)
@@ -8405,16 +8419,16 @@ function zongHe2()
                     end
                 end
             elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) then
-                debug("story--选中")
+                debugA("story--选中")
                 x, y = findColorInRegionFuzzy(0x7ed703, 90, 930, 338, 930, 612)
                 if x > 0 then -- 如果在指定区域找到某点符合条件
                     touchQuickly(x + 10, y)
                 end
             elseif isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) == false then
-                debug("在线礼包--未选中")
+                debugA("在线礼包--未选中")
                 tap1(176, 479, 0x06243d)
             elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) == false then
-                debug("story--未选中")
+                debugA("story--未选中")
                 tap1(224, 196, 0x06253e)
 
             end
@@ -8423,9 +8437,9 @@ function zongHe2()
         end
     end
     if isColor(161, 237, 0x95a4ad, 95) and isColor(1003, 49, 0xffffff, 95) and isColor(141, 43, 0xe6e8e9, 95) then
-        debug("目标与成就界面")
+        debugA("目标与成就界面")
         if isColor(863, 178, 0xbe7d00, 95) then
-            debug("全部领取")
+            debugA("全部领取")
             tap1(922, 176, 0x706955)
         else
             x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 333, 89, 1011, 89) --找红点
@@ -8437,57 +8451,57 @@ function zongHe2()
         end
     end
     if isColor(440, 543, 0x5b6577, 95) and isColor(683, 590, 0x535b6d, 95) and isColor(398, 51, 0xf1e4c3, 95) then
-        debug("召唤成功")
+        debugA("召唤成功")
         tap1(571, 571, 0x777e8d)
     end
     if isColor(28, 25, 0xfdfefe, 95) and isColor(992, 495, 0x696969, 95) and isColor(993, 355, 0x727272, 95) then
-        debug("坐骑界面")
+        debugA("坐骑界面")
         if isColor(791, 563, 0xbe3e2e, 95) then
-            debug("召唤--红点")
+            debugA("召唤--红点")
             tap1(922, 589, 0x728693)
         else
             tap1(20, 20)
         end
     end
     if isColor(525, 546, 0xac190b, 95) and isColor(637, 527, 0x3c4752, 95) then
-        debug("任务详情--bug")
+        debugA("任务详情--bug")
         tap1(801, 85)
     end
     if isColor(340, 85, 0xd05a55, 95) and isColor(415, 84, 0xaf4e4d, 95) and isColor(800, 84, 0xffffff, 95) then
-        debug("支线详情")
+        debugA("支线详情")
         if isColor(596, 549, 0x324f6b, 95) then
-            debug("任务完成")
+            debugA("任务完成")
             tap1(596, 549, 0x324f6b)
         else
             tap1(799, 85, 0xffffff)
         end
     end
     if isColor(524, 548, 0x451b1a, 95) and isColor(537, 548, 0x463e2f, 95) then
-        debug("任务详情")
+        debugA("任务详情")
         if isColor(642, 528, 0x3c4753, 95) then
             -- debug("进行中--灰色")
             local temStr = ocrText(366, 71, 548, 92, 0, "0123456789.")
             if temStr ~= nil then
-                debug("temStr:" .. temStr)
+                debugA("temStr:" .. temStr)
                 if temStr == "48." then
-                    debug("任务48.")
+                    debugA("任务48.")
                     tap1(800, 84, 0xffffff)
                     tap1(968, 575, 0xd6c0a5)
                 elseif temStr == "52." then
-                    debug("任务52.")
+                    debugA("任务52.")
                     tap1(800, 84, 0xffffff)
                     tap1(1095, 446, 0xc23730)
                 end
             end
         elseif isColor(688, 527, 0x007ea9, 95) then
-            debug("完成")
+            debugA("完成")
             tap1(683, 544, 0x26455a)
         end
     end
     if isColor(274, 240, 0x8e3ab0, 95) and isColor(274, 331, 0x953ab6, 95) and isColor(273, 422, 0x9238b0, 95) then
-        debug("技能管理强化")
+        debugA("技能管理强化")
         if isColor(615, 562, 0xdb2b05, 95) then
-            debug("可强化")
+            debugA("可强化")
             tap1(565, 587, 0x110300)
             tap1(640, 404, 0x00203d)
         else
@@ -8496,23 +8510,23 @@ function zongHe2()
     end
     if isColor(621, 135, 0xf24833, 95) and isColor(723, 199, 0xf9efb1, 95) and isColor(516, 583, 0x913227, 95) and
         isColor(608, 579, 0x2b435a, 95) then
-        debug("老练的隐忍银蟾")
+        debugA("老练的隐忍银蟾")
         tap1(608, 579, 0x2b435a)
     end
     if isColor(8, 153, 0xe3d4bb, 95) and isColor(260, 204, 0xf0e3cb, 95) and isColor(27, 25, 0xffffff, 95) then
-        debug("指引--退出")
+        debugA("指引--退出")
         tap1(27, 25, 0xffffff)
     end
     if isColor(1090, 605, 0xb07705, 95) and isColor(1098, 608, 0xa26e07, 95) and isColor(1017, 614, 0xedd293, 95) then
-        debug("跳过对话")
+        debugA("跳过对话")
         tap1(1042, 418, 0x807e70)
     end
     if isColor(465, 543, 0x960000, 95) and isColor(681, 543, 0x007ea9, 95) then
-        debug("受到攻击")
+        debugA("受到攻击")
         tap1(461, 562, 0xc4a391) --不审判
     end
     if isColor(430, 328, 0x966500, 95) and isColor(713, 329, 0x0080b2, 95) then
-        debug("复活")
+        debugA("复活")
         isTapTask = false
         writeJson("点任务", isTapTask)
         tap1(714, 352, 0x808b6e)
@@ -8530,28 +8544,28 @@ function zongHe2()
             end
             numDead = 0
         end
-        if muBiao == "采集" then
-            gaiMuBiaoNew(1, "去采集点")
-        elseif muBiao == "挂机" then
-            gaiMuBiaoNew(1, "去挂机点")
+        if muBiaoA == "采集" then
+            gaiMuBiaoNewA(1, "去采集点")
+        elseif muBiaoA == "挂机" then
+            gaiMuBiaoNewA(1, "去挂机点")
         end
     end
     if isColor(437, 436, 0x0078a4, 95) and isColor(698, 431, 0x0078a4, 95) and isColor(447, 417, 0x00243a, 95) and
         isColor(687, 451, 0x002740, 95) then
-        debug("增强")
+        debugA("增强")
         tap1(574, 432, 0x90a0aa)
     end
 
     if isColor(778, 576, 0x8c5900, 95) and isColor(885, 582, 0x0087a4, 95) and isColor(926, 585, 0x002a3e, 95) then
-        debug("角色选择")
+        debugA("角色选择")
         tap1(925, 578, 0x00293d)
     end
     if isColor(926, 341, 0xa3ea30, 95) and isColor(948, 353, 0x74db22, 95) and isColor(789, 540, 0x162f2e, 95) then
-        debug("云打码")
+        debugA("云打码")
         mSleep(5000)
         local strDaMa = yunDaMaNew(op, 234, 207, 855, 485)
         if strDaMa ~= false then
-            debug("识别成功")
+            debugA("识别成功")
             tap1(456, 539, 0x0e1118)
             mSleep(1000)
             inputText(strDaMa)
@@ -8570,9 +8584,9 @@ end
 
 -- 检查红点
 function checkRed2()
-    if isOutside() and muBiao ~= "采集" then
+    if isOutside() and muBiaoA ~= "采集" then
         if nowTime - timeXuanDanRed >= 60 * 10 and isColor(794, 13, 0xc04131, 95) then
-            debug("选单--红点")
+            debugA("选单--红点")
             tap1(777, 31, 0xffffff)
             timeXuanDanRed = nowTime
         end
@@ -8616,21 +8630,21 @@ end
 
 --doTarget2
 function doTarget2()
-    if muBiao == "" then
+    if muBiaoA == "" then
         if numHaoLV == "小号" then
-            gaiMuBiaoNew(1, "主线")
+            gaiMuBiaoNewA(1, "主线")
         elseif numHaoLV == "成品号" then
-            gaiMuBiaoNew(1, "主线")
+            gaiMuBiaoNewA(1, "主线")
         elseif numHaoLV == "大号" then
-            gaiMuBiaoNew(1, "主线")
+            gaiMuBiaoNewA(1, "主线")
         end
-    elseif muBiao == "挂机" then
+    elseif muBiaoA == "挂机" then
 
-    elseif muBiao == "主线" then
+    elseif muBiaoA == "主线" then
         task_zhuXian()
-    elseif muBiao == "采集" then
+    elseif muBiaoA == "采集" then
         collect()
-    elseif muBiao == "去采集点" then
+    elseif muBiaoA == "去采集点" then
         goCollectPlace()
     end
     -- debug("目标："..muBiao)
@@ -8653,10 +8667,10 @@ end
 
 --指引
 function zhiYin()
-    if numHaoLV == "小号" and muBiao ~= "采集" then
+    if numHaoLV == "小号" and muBiaoA ~= "采集" then
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-57|-65|0xf1e5cf,198|-11|0xe2d2b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--左" .. numUpLeft)
+            debugA("指引在上--左" .. numUpLeft)
             tap1(x + 5, y + 30)
             numUpLeft = numUpLeft + 1
             if numUpLeft >= 5 then
@@ -8666,7 +8680,7 @@ function zhiYin()
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "-198|-64|0xefe2ca,58|-12|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在上--右" .. numUpRight)
+            debugA("指引在上--右" .. numUpRight)
             tap1(x - 5, y + 30)
             numUpRight = numUpRight + 1
             if numUpRight >= 5 then
@@ -8677,7 +8691,7 @@ function zhiYin()
 
         x, y = findMultiColorInRegionFuzzy(0xdeceb5, "-58|10|0xe2d2b9,198|64|0xefe2ca", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在下--左" .. numDownLeft)
+            debugA("指引在下--左" .. numDownLeft)
             tap1(x + 5, y - 30)
             numDownLeft = numDownLeft + 1
             if numDownLeft >= 5 then
@@ -8687,7 +8701,7 @@ function zhiYin()
         end
         x, y = findMultiColorInRegionFuzzy(0xdecfb5, "58|63|0xefe2ca,-197|11|0xe1d1b9", 90, 0, 0, 1135, 639)
         if x > 0 then
-            debug("指引在下--右" .. numDownRight)
+            debugA("指引在下--右" .. numDownRight)
             tap1(x - 5, y - 30)
             numDownRight = numDownRight + 1
             if numDownRight >= 5 then
@@ -8696,7 +8710,7 @@ function zhiYin()
             end
         end
         if isColor(1000, 6, 0x528ba5, 95) and isColor(1131, 52, 0x64a0bf, 95) and isColor(1058, 22, 0xc0c0c0, 95) then
-            debug("跳过任务")
+            debugA("跳过任务")
             tap1(1058, 22)
         end
     end
@@ -8713,10 +8727,10 @@ function collect()
             -- debug("采集中")
             mSleep(2000)
             if isColor(653, 450, 0x144309, 90) then
-                debug("采集--卡bug")
+                debugA("采集--卡bug")
                 tap1(612, 572, 0xd1d5d9)
                 isCollectBug = true
-                gaiMuBiaoNew(1, "去采集点")
+                gaiMuBiaoNewA(1, "去采集点")
             end
         end
         if isColor(502, 447, 0x31e605, 95) then --采集条--绿色
@@ -8724,10 +8738,10 @@ function collect()
         end
         if nowTime - timeCollectBug >= 60 then
             timeCollectBug = nowTime
-            debug("采集--卡bug")
+            debugA("采集--卡bug")
             tap1(612, 572, 0xd1d5d9)
             isCollectBug = true
-            gaiMuBiaoNew(1, "去采集点")
+            gaiMuBiaoNewA(1, "去采集点")
         end
     end
 end
@@ -8761,7 +8775,7 @@ function goCollectPlace()
         else
             mSleep(numGoCollectPlace * 1000)
         end
-        gaiMuBiaoNew(1, "采集")
+        gaiMuBiaoNewA(1, "采集")
 
     end
 end
@@ -8834,7 +8848,7 @@ function checkDropline()
                 break
             end
             if i == 10 then
-                debug("掉线")
+                debugA("掉线")
                 closeApp(appXiangMu)
             end
             mSleep(3000)
@@ -8894,7 +8908,7 @@ function main3()
     end
     nowDateTime = os.date("*t")
     today = tonumber(os.date("%w", os.time()))
-    muBiaoZhuanHuanNew() -- 公用 必须最优先
+    muBiaoZhuanHuanNewC() -- 公用 必须最优先
     -- if version ~= "2.2.4" then
     --     if getBacklightLevel() ~= 0.5 then
     --         setBacklightLevel(0.5);
@@ -8918,7 +8932,7 @@ function main3()
         init(1)
     else
         -- elseif bid == "" then
-        debug("哪个都没开")
+        debugC("哪个都没开")
         APP.isYiDengLu = 0
         runApp(appXiangMu)
         APP = APP1
@@ -8959,35 +8973,35 @@ end
 function zongHe3()
     if isFarm() then
         if isColor(522, 593, 0xebe3d2, 95) then
-            debug("误开实景界面")
+            debugC("误开实景界面")
             tap1(522, 593)
         end
         if isColor(592, 585, 0xbd3724, 95) then
-            debug("误开请求支援")
+            debugC("误开请求支援")
             tap1(592, 585, 0xbd3724)
         end
     end
     if isColor(413, 372, 0xe65340, 95) and isColor(638, 375, 0x78bf1b, 95) and isColor(417, 306, 0x38ad19, 95) and
         isColor(434, 293, 0x80dcdf, 95) then
-        debug("拒绝支援")
+        debugC("拒绝支援")
         tap1(638, 375, 0x78bf1b)
     end
     if isColor(425, 272, 0xcc483a, 95) and isColor(494, 358, 0x83ba5d, 95) and isColor(645, 388, 0x63a547, 95) then
-        debug("无法购买该商品")
+        debugC("无法购买该商品")
         tap1(645, 388, 0x63a547)
     end
     if isColor(477, 319, 0xf8b841, 95) and isColor(499, 430, 0x686868, 95) and isColor(665, 320, 0xf8b841, 95) and
         isColor(640, 427, 0x6a6a6a, 95) then
-        debug("Server")
+        debugC("Server")
         tap1(486, 321, 0xf8b740)
     end
     if isColor(472, 317, 0x9b775a, 95) and isColor(498, 426, 0x73b153, 95) and isColor(650, 316, 0x9d785a, 95) and
         isColor(646, 440, 0x66a749, 95) then
-        debug("Server--OK")
+        debugC("Server--OK")
         tap1(646, 440, 0x66a749)
     end
     if isColor(379, 260, 0xffe06b, 95) and isColor(397, 177, 0xa4ee4e, 95) and isColor(132, 610, 0xe25665, 95) then
-        debug("Loading 卡住")
+        debugC("Loading 卡住")
         for i = 1, 60, 1 do
             if isColor(379, 260, 0xffe06b, 95) == false then
                 break
@@ -8999,82 +9013,82 @@ function zongHe3()
         end
     end
     if isColor(56, 50, 0xbe3934, 95) and isColor(30, 68, 0xf7f4e7, 95) and isColor(1088, 143, 0xffffff, 95) then
-        debug("误开My home")
+        debugC("误开My home")
         tap1(1088, 143)
     end
     if isColor(92, 49, 0xb1e47d, 95) and isColor(95, 44, 0x8df3f7, 95) and isColor(58, 62, 0xd94b37, 95) and
         isColor(1058, 142, 0xffffff, 95) then
-        debug("误开Quest")
+        debugC("误开Quest")
         tap1(1058, 142)
     end
     if isColor(109, 42, 0x31b2d0, 95) and isColor(123, 62, 0xfe859d, 95) and isColor(1026, 63, 0xffffff, 95) then
-        debug("误开Exchance")
+        debugC("误开Exchance")
         tap1(1026, 63)
     end
     if isColor(34, 37, 0x935a1e, 95) and isColor(23, 35, 0xe6d27e, 95) and isColor(1089, 141, 0xffffff, 95) then
-        debug("误开Box Shop")
+        debugC("误开Box Shop")
         tap1(1089, 141)
     end
     if isColor(62, 31, 0xc22d00, 95) and isColor(59, 60, 0x148d6d, 95) and isColor(1089, 141, 0xffffff, 95) then
-        debug("误开Union Shop")
+        debugC("误开Union Shop")
         tap1(1089, 141)
     end
     if isColor(64, 284, 0xf4e8b3, 95) and isColor(45, 313, 0xea505a, 95) and isColor(1086, 301, 0xffffff, 95) then
-        debug("误开Storage")
+        debugC("误开Storage")
         tap1(1086, 301)
     end
     if isColor(256, 95, 0xffca56, 95) and isColor(285, 71, 0xf1eddd, 95) and isColor(851, 96, 0xffffff, 95) then
-        debug("误开Option")
+        debugC("误开Option")
         tap1(851, 96)
     end
     if isColor(263, 42, 0xfdda4e, 95) and isColor(292, 78, 0x895730, 95) and isColor(883, 65, 0xffffff, 95) then
-        debug("Quick")
+        debugC("Quick")
         tap1(883, 65)
     end
     if isColor(46, 192, 0xd6a263, 95) and isColor(44, 211, 0xffebe6, 95) and isColor(71, 194, 0x7e5242, 95) then
-        debug("误开Friends")
+        debugC("误开Friends")
         tap1(1085, 210, 0xffffff)
     end
     if isColor(20, 45, 0xd74427, 95) and isColor(29, 46, 0xfcfbfb, 95) and isColor(28, 30, 0xbe8966, 95) then
-        debug("误开shop")
+        debugC("误开shop")
         tap1(1087, 50, 0xffffff)
     end
     if isColor(41, 47, 0x8495b7, 95) and isColor(68, 28, 0xe13537, 95) and isColor(115, 42, 0x5c3d48, 95) then
-        debug("误开my house")
+        debugC("误开my house")
         tap1(1088, 141, 0xffffff)
     end
     if isColor(438, 507, 0x62a547, 95) and isColor(724, 107, 0xffffff, 95) and isColor(725, 94, 0x78595f, 95) then
-        debug("误开地块详细信息")
+        debugC("误开地块详细信息")
         tap1(724, 107)
     end
     if isColor(794, 530, 0x69a94b, 95) and isColor(868, 540, 0xc4956f, 95) then
-        debug("Hot sale")
+        debugC("Hot sale")
         tap1(868, 540, 0xc4956f)
     end
     if isColor(144, 111, 0x7abf2e, 95) and isColor(166, 97, 0xf9d859, 95) and isColor(1034, 62, 0xffffff, 95) then
-        debug("Notice")
+        debugC("Notice")
         tap1(1034, 62)
     end
     if isColor(655, 626, 0x64a442, 95) and isColor(479, 629, 0xcaa07e, 95) then
-        debug("误开种植界面")
+        debugC("误开种植界面")
         tap1(655, 626)
     end
     if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
-        debug("误开剩余时间")
+        debugC("误开剩余时间")
         tap1(724, 106)
     end
     if isColor(658, 633, 0x60a13f, 95) and isColor(482, 632, 0x689ad3, 95) then
-        debug("搬迁画面")
+        debugC("搬迁画面")
         tap1(658, 633, 0x60a13f)
     end
     if isColor(584, 90, 0xbd3935, 95) and isColor(860, 200, 0x6fae50, 95) and isColor(843, 200, 0xe4d9c3, 95) then
-        debug("云打码")
+        debugC("云打码")
         if isColor(626, 624, 0xffffff, 95) == false then
             tap1(766, 142, 0xffffff)
         end
         local strDaMa = yunDaMaNew(op, 156, 45, 539, 217)
         if strDaMa ~= false then
-            debug("识别成功")
+            debugC("识别成功")
             inputText(strDaMa)
             mSleep(2000)
             tap1(875, 199, 0x6fae50)
@@ -9083,23 +9097,23 @@ function zongHe3()
 
     end
     if isColor(592, 451, 0x85bb5f, 95) and isColor(905, 476, 0x6dac4f, 95) and isColor(784, 468, 0xffffff, 95) then
-        debug("对话")
+        debugC("对话")
         tap1(784, 468, 0xffffff)
     end
     if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
-        debug("邮箱红点")
+        debugC("邮箱红点")
         tap1(1080, 263, 0xe26060)
     end
     if isColor(109, 66, 0xd94344, 95) and isColor(167, 61, 0x5b3c47, 95) then
-        debug("邮箱界面")
+        debugC("邮箱界面")
         if isColor(957, 166, 0x73b052, 95) then
-            debug("OK")
+            debugC("OK")
             tap1(957, 166)
         elseif isColor(945, 18, 0xda450c, 95) then
-            debug("公告红点")
+            debugC("公告红点")
             tap1(911, 44, 0xbbbcbd)
         else
-            debug("关闭")
+            debugC("关闭")
             tap1(1036, 67, 0xffffff)
         end
     end
@@ -9113,14 +9127,15 @@ function isFarm()
         elseif farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
         elseif farmLong == 28 and isColor(1070, 514, 0x8cb960, 95) and isColor(1124, 530, 0xa1d081, 95) then --主动移动后
         elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then --主动移动前
+        elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
+        elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
         else
-            debug("移动位置了")
+            debugC("移动位置了")
             mSleep(1000 * 10)
             pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return false
         end
-
         return true
     end
 end
@@ -9128,14 +9143,21 @@ end
 --找原点
 function findHouse()
     if farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then
-        debug("30x30初始画面")
+        debugC("30x30初始画面")
         moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
         numOriginX = 0
         numOriginY = 0
         writeJson("原点X", numOriginX)
         writeJson("原点Y", numOriginY)
     elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then
-        debug("28x28初始画面")
+        debugC("28x28初始画面")
+        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then
+        debugC("32x32初始画面")
         moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
         numOriginX = 0
         numOriginY = 0
@@ -9147,7 +9169,7 @@ function findHouse()
         x, y = findMultiColorInRegionFuzzy(0x50ff1e, "-1|1|0x51ff20,1|1|0x4fff20,0|-1|0x000000", 90, 286, 44, 1130, 528,
             { orient = 2 }) --树
         if x > 0 then
-            debug("原点1" .. x .. "," .. y)
+            debugC("原点1" .. x .. "," .. y)
             -- mSleep(1000)
             numOriginX = x
             numOriginY = y
@@ -9199,7 +9221,7 @@ function findFarm()
                     realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
                     realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
                     k = k + 1
-                    debug(realX1 .. "," .. realY1 .. "," .. k)
+                    debugC(realX1 .. "," .. realY1 .. "," .. k)
                     if k == 1 then
                         tap1(realX1, realY1)
                         for m = 1, 50, 1 do
@@ -9286,19 +9308,19 @@ function doTarget3()
     if numXiangMu ~= 3 and numXiangMu ~= 0 then
         return
     end
-    if muBiao == "" then
+    if muBiaoC == "" then
         if numHaoLV == "小号" then
-            gaiMuBiaoNew(1, "主线")
+            gaiMuBiaoNewC(1, "主线")
         elseif numHaoLV == "成品号" then
-            gaiMuBiaoNew(1, "支线")
+            gaiMuBiaoNewC(1, "支线")
         elseif numHaoLV == "大号" then
-            gaiMuBiaoNew(1, "挂机")
+            gaiMuBiaoNewC(1, "挂机")
         end
-    elseif muBiao == "主线" then
+    elseif muBiaoC == "主线" then
         task3_zhuXian()
-    elseif muBiao == "支线" then
+    elseif muBiaoC == "支线" then
         task3_zhiXian()
-    elseif muBiao == "挂机" or muBiao == "种植" or muBiao == "等待收割" then
+    elseif muBiaoC == "挂机" or muBiaoC == "种植" or muBiaoC == "等待收割" then
         task3_guaJi()
     end
     -- debug("目标："..muBiao)
@@ -9316,10 +9338,10 @@ end
 
 -- task3_挂机
 function task3_guaJi()
-    if muBiao == "挂机" then
-        gaiMuBiaoNew(2, "种植")
-        debug("改目标为种植2")
-    elseif muBiao == "种植" then
+    if muBiaoC == "挂机" then
+        gaiMuBiaoNewC(2, "种植")
+        debugC("改目标为种植2")
+    elseif muBiaoC == "种植" then
         if findHouse() > 0 then
             if isFarm() then
             else
@@ -9337,7 +9359,7 @@ function task3_guaJi()
                 tap1(610, 35, 0xb93056)
             end
             if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
-                debug("误开剩余时间")
+                debugC("误开剩余时间")
                 tap1(724, 106)
             end
             k = 0
@@ -9350,7 +9372,7 @@ function task3_guaJi()
                         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                         k = k + 1
                         if isColor(724, 106, 0xffffff, 95) and isColor(441, 495, 0x6aaa4c, 95) then
-                            debug("误开剩余时间")
+                            debugC("误开剩余时间")
                             tap1(724, 106)
                         end
                         -- debug(realX1 .. "," .. realY1 .. "," .. k)
@@ -9379,7 +9401,7 @@ function task3_guaJi()
                                             "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
-                                        debug("番茄:" .. numStr)
+                                        debugC("番茄:" .. numStr)
                                         if numStr <= 40 then
                                             isZhiDingFruit = true
                                             strZhiDingFruit = "番茄"
@@ -9394,7 +9416,7 @@ function task3_guaJi()
                                             "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
-                                        debug("草莓:" .. numStr)
+                                        debugC("草莓:" .. numStr)
                                         if numStr <= 40 then
                                             isZhiDingFruit = true
                                             strZhiDingFruit = "草莓"
@@ -9409,7 +9431,7 @@ function task3_guaJi()
                                             "DCD7D9,232826", 95)
                                         numStr, num = string.gsub(numStr, "x", "")
                                         numStr = tonumber(numStr)
-                                        debug("向日葵:" .. numStr)
+                                        debugC("向日葵:" .. numStr)
                                         if numStr <= 40 then
                                             isZhiDingFruit = true
                                             strZhiDingFruit = "向日葵"
@@ -9442,7 +9464,7 @@ function task3_guaJi()
                                         if x0 > 0 then
                                             local numStr = dmOcrText(index_dm_numTime, x0 - 500, y0 + 206, x0 - 500 + 118
                                                 , y0 + 206 + 29, "785F5D,25281C", 90)
-                                            debug("读取结果:" .. numStr)
+                                            debugC("读取结果:" .. numStr)
                                             mSleep(200)
                                             local num1, num2 = string.find(numStr, "秒")
                                             local num3, num4 = string.find(numStr, "小")
@@ -9451,20 +9473,20 @@ function task3_guaJi()
                                             if num1 ~= nil then --有秒
                                                 numStr, num = string.gsub(numStr, "秒", "")
                                                 numStr = tonumber(numStr)
-                                                debug("转换结果" .. numStr)
+                                                debugC("转换结果" .. numStr)
                                             elseif num5 ~= nil and num3 == nil then --只有分
                                                 numStr, num = string.gsub(numStr, "分", "")
                                                 numStr = tonumber(numStr) * 60
-                                                debug("转换结果" .. numStr)
+                                                debugC("转换结果" .. numStr)
                                             elseif num5 == nil and num3 ~= nil then --只有小时
                                                 numStr, num = string.gsub(numStr, "小时", "")
                                                 numStr = tonumber(numStr) * 3600
-                                                debug("转换结果" .. numStr)
+                                                debugC("转换结果" .. numStr)
                                             elseif num5 ~= nil and num3 ~= nil then --有小时和分
                                                 numStr, num = string.gsub(numStr, "分", "")
                                                 local data = strSplit(numStr, "小时")
                                                 numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
-                                                debug("转换结果" .. numStr)
+                                                debugC("转换结果" .. numStr)
                                             end
                                             timeCollectInterval = numStr
                                             -- luaExit()
@@ -9561,14 +9583,14 @@ function task3_guaJi()
             -- end
             -- moveTo(numOriginX - x0, numOriginY + y0 + 10, numOriginX + 568 - x0 - 20, numOriginY + 284 + y0 + 10, { ["stop"] = 1 })
             -- moveTo(numOriginX - x0 * 2, numOriginY + y0 * 2 + 10, numOriginX + 568 - x0 * 2 - 20, numOriginY + 284 + y0 * 2 + 10, { ["stop"] = 1 })
-            gaiMuBiaoNew(2, "等待收割")
-            debug("改目标为等待收割")
+            gaiMuBiaoNewC(2, "等待收割")
+            debugC("改目标为等待收割")
             nowTime = os.time();
             timeCollectInterval = timeCollectInterval or 0
             timeCollect = nowTime + timeCollectInterval + 30
             writeJson("收割时间", timeCollect)
         end
-    elseif muBiao == "等待收割" then
+    elseif muBiaoC == "等待收割" then
         if nowTime - timeDesk >= 30 * 60 then
             timeDesk = nowTime
             pressHomeKey(0); --按下抬起 Home 键一次
@@ -9640,27 +9662,27 @@ function task3_guaJi()
                 end
                 -- moveTo(numOriginX - x0, numOriginY + y0 + 10, numOriginX + 568 - x0 - 20, numOriginY + 284 + y0 + 10, { ["stop"] = 1 })
                 -- moveTo(numOriginX - x0 * 2, numOriginY + y0 * 2 + 10, numOriginX + 568 - x0 * 2 - 20, numOriginY + 284 + y0 * 2 + 10, { ["stop"] = 1 })
-                gaiMuBiaoNew(2, "种植")
-                debug("改目标为种植1")
+                gaiMuBiaoNewC(2, "种植")
+                debugC("改目标为种植1")
                 timeTree = nowTime
             elseif checkXiangMu1 == "项目1" and checkXiangMu3 == "项目3" then
                 if timeXiangMu3 > nowTime then
-                    debug("timeXiangMu3 = nowTime")
+                    debugC("timeXiangMu3 = nowTime")
                     timeXiangMu3 = nowTime
                 elseif numXiangMu == 3 and nowTime - timeXiangMu3 >= 20 then
-                    debug("项目3 => 项目1")
+                    debugC("项目3 => 项目1")
                     numXiangMu = 1
                     appXiangMu = "com.wemademax.riseofstars"
 
-                    local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
-                    strMuBiao1, strMuBiao2, strMuBiao3 = muBiao1, muBiao2, muBiao3
-                    writeJson("目标1暂存", strMuBiao1)
-                    writeJson("目标2暂存", strMuBiao2)
-                    writeJson("目标3暂存", strMuBiao3)
+                    -- local tempStrMuBiao1, tempStrMuBiao2, tempStrMuBiao3 = strMuBiao1, strMuBiao2, strMuBiao3
+                    -- strMuBiao1, strMuBiao2, strMuBiao3 = muBiaoC1, muBiaoC2, muBiaoC3
+                    -- writeJson("目标1暂存", strMuBiao1)
+                    -- writeJson("目标2暂存", strMuBiao2)
+                    -- writeJson("目标3暂存", strMuBiao3)
 
-                    gaiMuBiaoNew(1, tempStrMuBiao1)
-                    gaiMuBiaoNew(2, tempStrMuBiao2)
-                    gaiMuBiaoNew(3, tempStrMuBiao3)
+                    -- gaiMuBiaoNewC(1, tempStrMuBiao1)
+                    -- gaiMuBiaoNewC(2, tempStrMuBiao2)
+                    -- gaiMuBiaoNewC(3, tempStrMuBiao3)
                     timeXiangMu3 = nowTime + 60 * 60 * 24 --项目1已闲置时间
                     nowTime = os.time()
                     timeXXX = nowTime
@@ -9719,6 +9741,20 @@ function tapTrees()
                 end
                 if isColor(724, 106, 0xffffff, 95) then --果树信息
                     tap1(724, 106)
+                end
+            end
+            if Ccheck1 == "4排为树" then
+                for i = 1, farmLong - 1, 2 do
+                    watering()
+                    realX1 = math.floor(numOriginX + (i - 1) * farmX - (7 - 1) * farmX)
+                    realY1 = math.floor(numOriginY + (7 - 1) * farmY + (i - 1) * farmY + 12)
+                    if isColor(realX1, realY1, 0x55ff25, 95) then --地为绿色
+                        tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                        mSleep(1000)
+                    end
+                    if isColor(724, 106, 0xffffff, 95) then --果树信息
+                        tap1(724, 106)
+                    end
                 end
             end
             nowTime = os.time();
@@ -9783,7 +9819,7 @@ function sell()
                         numStr, num = string.gsub(numStr, "x", "")
                         numStr = tonumber(numStr)
                         if type(numStr) == "number" then
-                            debug("数量为" .. numStr)
+                            debugC("数量为" .. numStr)
                             if numStr >= 200 then
                                 tap1(38 + i * 118, 405 + j * 116) --选中要卖的
                                 tap1(567, 433, 0xe0e0e0) --一半
@@ -9814,7 +9850,7 @@ function sell()
                         numStr, num = string.gsub(numStr, "x", "")
                         numStr = tonumber(numStr)
                         if type(numStr) == "number" then
-                            debug("数量为" .. numStr)
+                            debugC("数量为" .. numStr)
                             if numStr >= 200 then
                                 tap1(38 + i * 118, 405 + j * 116) --选中要卖的
                                 tap1(567, 433, 0xe0e0e0) --一半
@@ -9843,7 +9879,7 @@ function sell()
                         numStr, num = string.gsub(numStr, "x", "")
                         numStr = tonumber(numStr)
                         if type(numStr) == "number" then
-                            debug("数量为" .. numStr)
+                            debugC("数量为" .. numStr)
                             if numStr >= 1 then
                                 tap1(38 + i * 118, 405 + j * 116) --选中要卖的
                                 tap1(703, 434, 0xd0d0d0) --全部
@@ -9865,12 +9901,80 @@ end
 function everyDayInit3(...)
     if nowDateTime.day ~= nowDay then
         if nowDateTime.hour >= 9 and nowDateTime.min >= 0 then
-            debug("9点0分重置")
+            debugC("9点0分重置")
 
             isSell = false
             writeJson("出货", isSell)
             nowDay = nowDateTime.day
             writeJson("日期", nowDay)
         end
+    end
+end
+
+-- 目标转换--新C
+function muBiaoZhuanHuanNewC(...)
+    if muBiaoC4 ~= "" and muBiaoC4 ~= "无" then
+        muBiaoC = muBiaoC4
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoC3 ~= "" and muBiaoC3 ~= "无" then
+        muBiaoC = muBiaoC3
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoC2 ~= "" and muBiaoC2 ~= "无" then
+        muBiaoC = muBiaoC2
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoC1 ~= "" and muBiaoC1 ~= "无" then
+        muBiaoC = muBiaoC1
+        -- timeDingShiDianRenWu = nowTime - 60 * 60
+    else
+        muBiaoC1 = ""
+        muBiaoC = muBiaoC1
+        writeConfigNew("muBiaoC1", muBiaoC1)
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    end
+
+end
+
+-- 改目标--新C
+function gaiMuBiaoNewC(cs_num, cs_muBiao, ...)
+    if cs_num == 1 then
+        muBiaoC1 = cs_muBiao
+        writeConfigNew("muBiaoC1", cs_muBiao)
+        muBiaoZhuanHuanNewC()
+        writeJson("目标C1", cs_muBiao)
+    elseif cs_num == 2 then
+        muBiaoC2 = cs_muBiao
+        writeConfigNew("muBiaoC2", cs_muBiao)
+        muBiaoZhuanHuanNewC()
+        writeJson("目标C2", cs_muBiao)
+    elseif cs_num == 3 then
+        muBiaoC3 = cs_muBiao
+        writeConfigNew("muBiaoC3", cs_muBiao)
+        muBiaoZhuanHuanNewC()
+        writeJson("目标C3", cs_muBiao)
+    elseif cs_num == 4 then
+        muBiaoC4 = cs_muBiao
+        writeConfigNew("muBiaoC4", cs_muBiao)
+        muBiaoZhuanHuanNewC()
+        writeJson("目标C4", cs_muBiao)
+    end
+end
+
+function debugC(tiaoShiNeiRong)
+    -- wLog("192.168.1.34","#    [LINE]")
+    if check1 == "网络调试" then
+        wLog("192.168.1.34",
+            iphoneId ..
+            " 目标1: " ..
+            muBiaoC1 .. " 目标2: " .. muBiaoC2 .. " 目标3: " .. muBiaoC3 .. " 目标4: " ..
+            muBiaoC4 .. "    操作:" ..
+            tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]" .. "#    [LINE]")
+    elseif check2 == "本地调试" then
+        -- dialog(tiaoShiNeiRong,5)
+        toast(
+            "目标1: " ..
+            muBiaoC1 .. " 目标2: " ..
+            muBiaoC2 .. " 目标3: " .. muBiaoC3 .. " 目标4: " .. muBiaoC4 .. "                操作:" ..
+            tiaoShiNeiRong)
+        mSleep(3000)
     end
 end
