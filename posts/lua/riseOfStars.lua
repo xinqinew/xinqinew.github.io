@@ -1634,7 +1634,8 @@ function onceOther()
         "00601C0783F1FE3EC71B03E07C0F81F03E07E0DF1BFB1FE0FC0F80F00E00C$分$0.0.214$23",
         "00E07C0F81E000000003FFFFFFFDFF8000000200F01F01E00C$小$2.2.171$23",
         "1FE7FCFF9C738670CFF9FF3FE0003C87B0F61E03C0780F1FFFFFBFF0F00C0$时$0.0.254$22",
-        "31C738C73FF7FEFFDCFB0E21E01C1F87F070003FFFFFFFE0003807F07E03C$秒$0.0.261$23"
+        "31C738C73FF7FEFFDCFB0E21E01C1F87F070003FFFFFFFE0003807F07E03C$秒$0.0.261$23",
+        "008738C718F7FEFFDFFF0E61C01C0F87F0FC080007FFFFE0001007C0FE07C018$秒$0.0.244$23"
     }
     index_dm_numTime = addDmOcrDictEx(tab_dm_numTime)
 
@@ -1965,6 +1966,8 @@ end
 
 -- 综合
 function zongHe1(...)
+    nowTime = os.time();
+    debugA(nowTime)
     if inside1() then
         if isColor(33, 493, 0xffffff, 95) and isColor(21, 474, 0x5ea7e8, 95) then
             debugA("free")
@@ -4275,6 +4278,30 @@ function zongHe1(...)
                             isBuyLiZi = false
                             return
                         end
+                    elseif isColor(527 + j * 167, 202 + i * 238, 0xeaebff, 95) and
+                        isColor(552 + j * 167, 228 + i * 238, 0x0f1d22, 95) then --护盾
+                        tap1(515 + j * 167, 342 + i * 238)
+
+                        if isColor(549, 491, 0xd97700, 95) then
+                            tap1(549, 491)
+                            mSleep(1000)
+                        end
+                        if isColor(554, 473, 0xd87500, 95) then
+                            tap1(554, 473)
+                            mSleep(1000)
+                        end
+                        if isColor(550, 478, 0xd68b02, 95) then
+                            tap1(550, 478)
+                            mSleep(1000)
+                        end
+                        if isColor(538, 455, 0xd78b01, 95) then
+                            tap1(538, 455)
+                            mSleep(1000)
+                        end
+                        if isColor(534, 455, 0xd78b01, 95) then
+                            tap1(534, 455)
+                            mSleep(1000)
+                        end
                     end
 
                 end
@@ -6177,7 +6204,8 @@ function zhuXian()
             end
             isLiZi = true -- 粒子
             -- timeLiZi = nowTime
-        elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
+        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95))
+            or (isColor(634, 157, 0x38b3ca, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isShipBad = true
             isLiZi = true -- 粒子
@@ -6244,7 +6272,8 @@ function chuHang()
             writeJson("今日粒子次数", numTodayDigLiZi)
             writeJson("粒子总次数", numDigLiZi)
 
-        elseif isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95) then
+        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95))
+            or (isColor(634, 157, 0x38b3ca, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isFalseLiZi2 = false
             isShipBad = true
@@ -6254,6 +6283,7 @@ function chuHang()
             tap1(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
             gaiMuBiaoNewA(3, mb_FixShip, mm_FixShip)
+
         elseif isColor(634, 157, 0x102a43, 95) then -- 普通采集 无船可出
             debugA("普通采集 无船可出")
             tap1(20, 20)
@@ -8981,6 +9011,10 @@ function zongHe3()
             tap1(592, 585, 0xbd3724)
         end
     end
+    if isColor(505, 389, 0x686868, 95) and isColor(565, 319, 0xd6c5a1, 95) then
+        debugC("Server--OK 卡死")
+        closeApp(appXiangMu)
+    end
     if isColor(413, 372, 0xe65340, 95) and isColor(638, 375, 0x78bf1b, 95) and isColor(417, 306, 0x38ad19, 95) and
         isColor(434, 293, 0x80dcdf, 95) then
         debugC("拒绝支援")
@@ -9129,9 +9163,11 @@ function isFarm()
         elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then --主动移动前
         elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
         elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
+        elseif farmLong == 26 and isColor(132,117,0xa9c193,95) and isColor(1019,201,0x6c8c77,95)   then --主动移动后
+        elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then --主动移动前
         else
             debugC("移动位置了")
-            mSleep(1000 * 10)
+            mSleep(1000)
             pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return false
@@ -9163,6 +9199,17 @@ function findHouse()
         numOriginY = 0
         writeJson("原点X", numOriginX)
         writeJson("原点Y", numOriginY)
+    elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then
+        debugC("26x26初始画面")
+        moveTo(567 - 30, 226 - 30, 484 - 30, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    end
+    if isColor(522, 593, 0xebe3d2, 95) then
+        debugC("误开实景界面")
+        tap1(522, 593)
     end
     if numOriginX == 0 then
         -- x, y = findMultiColorInRegionFuzzy(0xee4b48, "-3|2|0xe94941,4|2|0xed4b48,-2|-1|0x80b781,3|-1|0x80b67d", 90, 286, 44, 1130, 528, { orient = 2 })--房子
@@ -9197,6 +9244,7 @@ function findHouse()
             -- end
         else
             -- closeApp(appXiangMu)
+            pressHomeKey(0); --按下抬起 Home 键一次
             return 0, 0
         end
     else
@@ -9470,19 +9518,24 @@ function task3_guaJi()
                                             local num3, num4 = string.find(numStr, "小")
                                             local num5, num6 = string.find(numStr, "分")
 
-                                            if num1 ~= nil then --有秒
+                                            if num1 ~= nil and num3 == nil and num5 == nil then --只有秒
                                                 numStr, num = string.gsub(numStr, "秒", "")
                                                 numStr = tonumber(numStr)
                                                 debugC("转换结果" .. numStr)
-                                            elseif num5 ~= nil and num3 == nil then --只有分
+                                            elseif num1 ~= nil and num3 == nil and num5 ~= nil then --有分有秒
+                                                numStr, num = string.gsub(numStr, "秒", "")
+                                                local data = strSplit(numStr, "分")
+                                                numStr = tonumber(data[1]) * 60 + tonumber(data[2])
+                                                debugC("转换结果" .. numStr)
+                                            elseif num1 == nil and num5 ~= nil and num3 == nil then --只有分
                                                 numStr, num = string.gsub(numStr, "分", "")
                                                 numStr = tonumber(numStr) * 60
                                                 debugC("转换结果" .. numStr)
-                                            elseif num5 == nil and num3 ~= nil then --只有小时
+                                            elseif num1 == nil and num5 == nil and num3 ~= nil then --只有小时
                                                 numStr, num = string.gsub(numStr, "小时", "")
                                                 numStr = tonumber(numStr) * 3600
                                                 debugC("转换结果" .. numStr)
-                                            elseif num5 ~= nil and num3 ~= nil then --有小时和分
+                                            elseif num1 == nil and num5 ~= nil and num3 ~= nil then --有小时和分
                                                 numStr, num = string.gsub(numStr, "分", "")
                                                 local data = strSplit(numStr, "小时")
                                                 numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60
