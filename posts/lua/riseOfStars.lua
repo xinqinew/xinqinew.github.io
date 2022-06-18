@@ -1,7 +1,8 @@
 numLua = 20.8
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
-
+appXiangMu1 = "com.wemademax.riseofstars" 
+appXiangMu3 = "com.wemadeconnect.etgnft.everytown" 
 
 
 -- 对比颜色加强
@@ -1751,12 +1752,19 @@ function moreWindow()
     fwShowButton("moreWin", "btn_snapshot", "截图", "FFFFFF", "025062", "", 12, 1 + 150 * 2, 0, 150 * 3, 50);
     fwShowButton("moreWin", "btn_restart", "重载", "FFFFFF", "306090", "", 12, 1 + 150 * 3, 0, 150 * 4, 50);
     fwShowButton("moreWin", "btn_hide", "X", "FFFFFF", "9e393d", "", 12, 1 + 150 * 4, 0, 150 * 5, 50);
-
+    if appXiangMu == appXiangMu1 then
     fwShowTextView("moreWin", "text_MuBiao",
         "目标1 : " .. muBiaoA1 .. "  目标2 : " .. muBiaoA2 .. "  目标3 : " .. muBiaoA3 .. " 目标4: " .. muBiaoA4
         ,
         "left", "FFFFFF", "0C2037",
         12, 0, 0, 51, wScreen - 100, 100, 1);
+    elseif appXiangMu == appXiangMu3 then
+        fwShowTextView("moreWin", "text_MuBiao",
+        "目标1 : " .. muBiaoC1 .. "  目标2 : " .. muBiaoC2 .. "  目标3 : " .. muBiaoC3 .. " 目标4: " .. muBiaoC4
+        ,
+        "left", "FFFFFF", "0C2037",
+        12, 0, 0, 51, wScreen - 100, 100, 1);
+    end
     fwShowTextView("moreWin", "text_info",
         "机器名 : " .. iphoneId .. "  IP : " .. strIphoneIP, "left", "FFFFFF", "025062", 12,
         0, 0, 101, wScreen - 100, 150, 1);
@@ -4363,24 +4371,28 @@ function zongHe1(...)
             if isColor(505, 110, 0x3e6b96, 95) -- 1号航母存在
                 and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
                 and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(491,119,0xffffff,95            ) == false --不是0级
                 and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("1号来充电吧")
                 tap1(440, 263)
             elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
                 and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(690,119,0xffffff,95            ) == false --不是0级
                 and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("2号来充电吧")
                 tap1(639, 263)
             elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
                 and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(888,119,0xffffff,95            ) == false --不是0级
                 and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("3号来充电吧")
                 tap1(838, 263)
             elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
                 and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
+                and isColor(1087,119,0xffffff,95            ) == false --不是0级
                 and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("4号来充电吧")
                 tap1(1036, 263)
@@ -6197,7 +6209,7 @@ function zhuXian()
             debugA("无人物")
             tap1(20, 20)
         end
-        if isColor(559, 122, 0x3e6b96, 95) then -- 航母
+        if isColor(559, 122, 0x3e6b96, 95) and isColor(550, 127, 0xffffff, 95) == false then -- 航母
             tap1(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--是
                 tap1(504, 432, 0x1c6eba)
@@ -6250,7 +6262,7 @@ function chuHang()
             debugA("无人物")
             tap1(20, 20)
         end
-        if isColor(559, 122, 0x3e6b96, 95) then -- 航母
+        if isColor(559, 122, 0x3e6b96, 95) and isColor(550, 127, 0xffffff, 95) == false then -- 航母
             debugA("有航母")
             isFalseLiZi2 = false
             tap1(842, 594, 0xd78b02) -- 出航
@@ -9661,7 +9673,7 @@ function task3_guaJi()
             x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
             if x > 0 then
                 -- debug("气泡")
-                tap(x, y)
+                tap1(x, y-90)
                 return
             end
             x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-6|0xc28d5e,563|-429|0xffffff", 90, 86, 96, 1045, 547) --请求
@@ -9748,7 +9760,7 @@ end
 --定时任务
 function time_task()
     if nowTime - timeTap >= 5 then
-        tap(1135, 0)
+        tap1(1135, 0)
         timeTap = nowTime
     end
     if nowTime - timeTree >= 2 * 60 then
