@@ -1,8 +1,8 @@
 numLua = 20.8
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
-appXiangMu1 = "com.wemademax.riseofstars" 
-appXiangMu3 = "com.wemadeconnect.etgnft.everytown" 
+appXiangMu1 = "com.wemademax.riseofstars"
+appXiangMu3 = "com.wemadeconnect.etgnft.everytown"
 
 
 -- 对比颜色加强
@@ -513,7 +513,7 @@ function bianLiang()
     timeXiangMu3 = nowTime + 60 * 60 * 24 --项目1已闲置时间
     timeTree = nowTime --果树收割间隔
     timeDesk = nowTime --返回桌面
-
+    timeDecideIsFarm = nowTime --决定是否判定是农场
 
 end
 
@@ -1753,17 +1753,19 @@ function moreWindow()
     fwShowButton("moreWin", "btn_restart", "重载", "FFFFFF", "306090", "", 12, 1 + 150 * 3, 0, 150 * 4, 50);
     fwShowButton("moreWin", "btn_hide", "X", "FFFFFF", "9e393d", "", 12, 1 + 150 * 4, 0, 150 * 5, 50);
     if appXiangMu == appXiangMu1 then
-    fwShowTextView("moreWin", "text_MuBiao",
-        "目标1 : " .. muBiaoA1 .. "  目标2 : " .. muBiaoA2 .. "  目标3 : " .. muBiaoA3 .. " 目标4: " .. muBiaoA4
-        ,
-        "left", "FFFFFF", "0C2037",
-        12, 0, 0, 51, wScreen - 100, 100, 1);
+        fwShowTextView("moreWin", "text_MuBiao",
+            "目标1 : " .. muBiaoA1 .. "  目标2 : " .. muBiaoA2 .. "  目标3 : " .. muBiaoA3 .. " 目标4: " ..
+            muBiaoA4
+            ,
+            "left", "FFFFFF", "0C2037",
+            12, 0, 0, 51, wScreen - 100, 100, 1);
     elseif appXiangMu == appXiangMu3 then
         fwShowTextView("moreWin", "text_MuBiao",
-        "目标1 : " .. muBiaoC1 .. "  目标2 : " .. muBiaoC2 .. "  目标3 : " .. muBiaoC3 .. " 目标4: " .. muBiaoC4
-        ,
-        "left", "FFFFFF", "0C2037",
-        12, 0, 0, 51, wScreen - 100, 100, 1);
+            "目标1 : " .. muBiaoC1 .. "  目标2 : " .. muBiaoC2 .. "  目标3 : " .. muBiaoC3 .. " 目标4: " ..
+            muBiaoC4
+            ,
+            "left", "FFFFFF", "0C2037",
+            12, 0, 0, 51, wScreen - 100, 100, 1);
     end
     fwShowTextView("moreWin", "text_info",
         "机器名 : " .. iphoneId .. "  IP : " .. strIphoneIP, "left", "FFFFFF", "025062", 12,
@@ -4371,28 +4373,28 @@ function zongHe1(...)
             if isColor(505, 110, 0x3e6b96, 95) -- 1号航母存在
                 and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
                 and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
-                and isColor(491,119,0xffffff,95            ) == false --不是0级
+                and isColor(491, 119, 0xffffff, 95) == false --不是0级
                 and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("1号来充电吧")
                 tap1(440, 263)
             elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
                 and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
-                and isColor(690,119,0xffffff,95            ) == false --不是0级
+                and isColor(690, 119, 0xffffff, 95) == false --不是0级
                 and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("2号来充电吧")
                 tap1(639, 263)
             elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
                 and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
-                and isColor(888,119,0xffffff,95            ) == false --不是0级
+                and isColor(888, 119, 0xffffff, 95) == false --不是0级
                 and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("3号来充电吧")
                 tap1(838, 263)
             elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
                 and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
-                and isColor(1087,119,0xffffff,95            ) == false --不是0级
+                and isColor(1087, 119, 0xffffff, 95) == false --不是0级
                 and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("4号来充电吧")
                 tap1(1036, 263)
@@ -6211,8 +6213,13 @@ function zhuXian()
         end
         if isColor(559, 122, 0x3e6b96, 95) and isColor(550, 127, 0xffffff, 95) == false then -- 航母
             tap1(842, 594, 0xd78b02) -- 出航
-            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--是
-                tap1(504, 432, 0x1c6eba)
+            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续
+                if check13 == "抢粒子" then -- 抢
+                    tap1(504, 432, 0x1c6eba) --确定
+                else
+                    tap1(510, 494, 0x0c0c0e) --关闭
+                    tap1(20, 20)
+                end
             end
             isLiZi = true -- 粒子
             -- timeLiZi = nowTime
@@ -6272,9 +6279,13 @@ function chuHang()
 
             numTodayDigLiZi = numTodayDigLiZi + 1
             numDigLiZi = numDigLiZi + 1
-
-            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--是
-                tap1(504, 432, 0x1c6eba)
+            if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续
+                if check13 == "抢粒子" then -- 抢
+                    tap1(504, 432, 0x1c6eba) --确定
+                else
+                    tap1(510, 494, 0x0c0c0e) --关闭
+                    tap1(20, 20)
+                end
             elseif isColor(848, 594, 0xd68b02, 95) then -- 出航失败
                 tap1(20, 20)
                 isLiZi = false -- 粒子
@@ -8452,7 +8463,7 @@ function zongHe2()
                     mSleep(2000)
                     -- tap1(x, y - 78)--广告
                 else
-                    moveTo(1096, 483, 387, 100)
+                    touchMoveXY(1096, 483, 387, 100)
                     x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
                     if x > 0 then -- 如果在指定区域找到某点符合条件
                         touchQuickly(x, y + 10)
@@ -9013,15 +9024,13 @@ function main3()
 end
 
 function zongHe3()
-    if isFarm() then
-        if isColor(522, 593, 0xebe3d2, 95) then
-            debugC("误开实景界面")
-            tap1(522, 593)
-        end
-        if isColor(592, 585, 0xbd3724, 95) then
-            debugC("误开请求支援")
-            tap1(592, 585, 0xbd3724)
-        end
+    if isColor(522, 593, 0xebe3d2, 95) then
+        debugC("误开实景界面")
+        tap1(522, 593)
+    end
+    if isColor(592, 585, 0xbd3724, 95) then
+        debugC("误开请求支援")
+        tap1(592, 585, 0xbd3724)
     end
     if isColor(505, 389, 0x686868, 95) and isColor(565, 319, 0xd6c5a1, 95) then
         debugC("Server--OK 卡死")
@@ -9167,20 +9176,26 @@ end
 
 --农场判断
 function isFarm()
-    if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
-        -- debug("isFarm判断")
+    if nowTime - timeDecideIsFarm >= 20 then
+        timeDecideIsFarm = nowTime
+        if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
+            -- debug("isFarm判断")
+        else
+            tap1(1135, 0)
+        end
         if farmLong == 30 and isColor(1087, 530, 0xc0daa2, 95) and isColor(1095, 537, 0x96c572, 95) then --主动移动后
         elseif farmLong == 30 and isColor(1134, 629, 0x8ebb64, 95) and isColor(1127, 638, 0xa8d481, 95) then --主动移动前
         elseif farmLong == 28 and isColor(1070, 514, 0x8cb960, 95) and isColor(1124, 530, 0xa1d081, 95) then --主动移动后
         elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then --主动移动前
         elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
         elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
-        elseif farmLong == 26 and isColor(132,117,0xa9c193,95) and isColor(1019,201,0x6c8c77,95)   then --主动移动后
+        elseif farmLong == 26 and isColor(132, 117, 0xa9c193, 95) and isColor(1019, 201, 0x6c8c77, 95) then --主动移动后
         elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then --主动移动前
         else
             debugC("移动位置了")
             mSleep(1000)
-            pressHomeKey(0); --按下抬起 Home 键一次
+            -- pressHomeKey(0); --按下抬起 Home 键一次
+            runApp("com.apple.calculator")
             mSleep(1000)
             return false
         end
@@ -9256,7 +9271,8 @@ function findHouse()
             -- end
         else
             -- closeApp(appXiangMu)
-            pressHomeKey(0); --按下抬起 Home 键一次
+            -- pressHomeKey(0); --按下抬起 Home 键一次
+            runApp("com.apple.calculator")
             return 0, 0
         end
     else
@@ -9301,7 +9317,7 @@ function findFarm()
                                 tap1(x0 - 292, y0)
                                 break
                             else
-                                moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                touchMoveXY(801, 321, 499, 321)
                                 mSleep(1000)
                             end
                         end
@@ -9403,10 +9419,13 @@ function task3_guaJi()
         debugC("改目标为种植2")
     elseif muBiaoC == "种植" then
         if findHouse() > 0 then
-            if isFarm() then
-            else
-                return
-            end
+            -- if nowTime - timeDecideIsFarm >= 20 then
+            --     timeDecideIsFarm = nowTime
+            --     if isFarm() then
+            --     else
+            --         return
+            --     end
+            -- end
             farmX = 567 / farmLong
             farmY = 284 / farmLong
             x0 = math.floor(568 / farmLong * 2)
@@ -9428,6 +9447,9 @@ function task3_guaJi()
                 n = n + 1
                 for j = 3, 5, 2 do
                     for i = 1, farmLong - 1, 2 do
+                        if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                            tap1(723, 106)
+                        end
                         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                         k = k + 1
@@ -9519,6 +9541,9 @@ function task3_guaJi()
                             if check4 ~= "测试" then
                                 if isZhiDingFruit == false then
                                     for m = 1, 50, 1 do
+                                        if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                                            tap1(723, 106)
+                                        end
                                         x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135
                                             , 322)
                                         if x0 > 0 then
@@ -9564,7 +9589,7 @@ function task3_guaJi()
                                             end
                                             break
                                         else
-                                            moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                            touchMoveXY(801, 321, 499, 321)
                                             mSleep(1000)
                                         end
                                     end
@@ -9574,6 +9599,9 @@ function task3_guaJi()
                                         tap1(944, 174, 0x4c94ff) --等级排序
                                     end
                                     for m = 1, 50, 1 do
+                                        if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                                            tap1(723, 106)
+                                        end
                                         if strZhiDingFruit == "番茄" then
                                             x0, y0 = findMultiColorInRegionFuzzy(0x68a646,
                                                 "-1|15|0xf8b87b,34|19|0xef5138,34|-12|0x75ae4f", 90, 200, 493, 1122, 544)
@@ -9598,7 +9626,7 @@ function task3_guaJi()
                                             end
                                             break
                                         else
-                                            moveTo(801, 321, 499, 321, { ["stop"] = 1 })
+                                            touchMoveXY(801, 321, 499, 321)
                                             mSleep(1000)
                                         end
                                     end
@@ -9658,14 +9686,18 @@ function task3_guaJi()
     elseif muBiaoC == "等待收割" then
         if nowTime - timeDesk >= 30 * 60 then
             timeDesk = nowTime
-            pressHomeKey(0); --按下抬起 Home 键一次
+            runApp("com.apple.calculator")
+            -- pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return
         end
-        if isFarm() then
-        else
-            return
-        end
+        -- if nowTime - timeDecideIsFarm >= 20 then
+        --     timeDecideIsFarm = nowTime
+        --     if isFarm() then
+        --     else
+        --         return
+        --     end
+        -- end
         if findHouse() > 0 then
             if watering() then
                 return
@@ -9673,7 +9705,8 @@ function task3_guaJi()
             x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
             if x > 0 then
                 -- debug("气泡")
-                tap1(x, y-90)
+                tap1(x, y - 90)
+                timeDecideIsFarm = nowTime
                 return
             end
             x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-6|0xc28d5e,563|-429|0xffffff", 90, 86, 96, 1045, 547) --请求
@@ -9681,6 +9714,7 @@ function task3_guaJi()
                 -- debug("请求")
                 tap1(x, y)
                 tap1(x + 98, y - 32)
+                timeDecideIsFarm = nowTime
                 return
             end
             x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-2|0xbf8b5c,23|-14|0xc08e5c,0|13|0xddb883", 90, 86, 96, 1045
@@ -9688,6 +9722,7 @@ function task3_guaJi()
             if x > 0 then
                 -- debug("援助")
                 tap1(x, y)
+                timeDecideIsFarm = nowTime
                 return
             end
             if nowTime - timeCollect > 0 then
@@ -9701,6 +9736,9 @@ function task3_guaJi()
                 for shou2bian = 1, 2, 1 do
                     for j = 5, 3, -2 do
                         for i = 1, farmLong - 1, 2 do
+                            if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                                tap1(723, 106)
+                            end
                             watering()
                             realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                             realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
@@ -9722,6 +9760,7 @@ function task3_guaJi()
                                 tap(724, 106, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                                 mSleep(300)
                             end
+                            timeDecideIsFarm = nowTime
                         end
                     end
                 end
@@ -9770,10 +9809,13 @@ end
 
 --点击果树
 function tapTrees()
-    if isFarm() then
-    else
-        return
-    end
+    -- if nowTime - timeDecideIsFarm >= 20 then
+    --     timeDecideIsFarm = nowTime
+    --     if isFarm() then
+    --     else
+    --         return
+    --     end
+    -- end
     if watering() == false then
         if findHouse() > 0 then
             farmX = 567 / farmLong
@@ -9781,6 +9823,9 @@ function tapTrees()
             x0 = math.floor(568 / farmLong * 2)
             y0 = math.floor(284 / farmLong * 2)
             for i = 1, farmLong - 1, 2 do
+                if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                    tap1(723, 106)
+                end
                 watering()
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (1 - 1) * farmX)
                 realY1 = math.floor(numOriginY + (1 - 1) * farmY + (i - 1) * farmY + 12)
@@ -9797,6 +9842,9 @@ function tapTrees()
             --         realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
             --         realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
             for i = 1, farmLong - 1, 2 do
+                if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                    tap1(723, 106)
+                end
                 watering()
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (5 - 1) * farmX)
                 realY1 = math.floor(numOriginY + (5 - 1) * farmY + (i - 1) * farmY + 12)
@@ -9810,6 +9858,9 @@ function tapTrees()
             end
             if Ccheck1 == "4排为树" then
                 for i = 1, farmLong - 1, 2 do
+                    if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                        tap1(723, 106)
+                    end
                     watering()
                     realX1 = math.floor(numOriginX + (i - 1) * farmX - (7 - 1) * farmX)
                     realY1 = math.floor(numOriginY + (7 - 1) * farmY + (i - 1) * farmY + 12)
@@ -9824,6 +9875,7 @@ function tapTrees()
             end
             nowTime = os.time();
             timeTree = nowTime
+            timeDecideIsFarm = nowTime
         end
     end
 end
@@ -9852,6 +9904,7 @@ function watering()
     if x > 0 then
         -- debug("浇水1")
         tap(x, y, { ["ms"] = 300 })
+        timeDecideIsFarm = nowTime
         return true
     else
         return false
@@ -9877,6 +9930,9 @@ function sell()
             end
             for j = 0, 1, 1 do
                 for i = 0, 8, 1 do
+                    if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                        tap1(723, 106)
+                    end
                     if isColor(59 + i * 118, 392 + j * 116, 0x543842, 95) then
                         local numStr = dmOcrText(index_dm_numNumber, 38 + i * 118, 405 + j * 116, 109 + i * 118,
                             426 + j *
@@ -9908,6 +9964,9 @@ function sell()
             end
             for j = 0, 1, 1 do
                 for i = 0, 8, 1 do
+                    if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                        tap1(723, 106)
+                    end
                     if isColor(59 + i * 118, 392 + j * 116, 0x543842, 95) then
                         local numStr = dmOcrText(index_dm_numNumber, 38 + i * 118, 405 + j * 116, 109 + i * 118,
                             426 + j *
