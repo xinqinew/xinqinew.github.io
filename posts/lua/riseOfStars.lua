@@ -1655,6 +1655,34 @@ function onceOther()
     }
     index_dm_numNumber = addDmOcrDictEx(tab_dm_numNumber)
 
+    tab_dm_lastTime = {
+        "300E01C03FFFFFFFFFF8$1$1.3.99$18",
+        "00200C0783F0F87C1F0781FFFFFFFF8$4$0.2.108$18",
+        "00601C0783F1FE3EC71E03E07C0F81F03E07C0FE1FF31F61FC0F00F00E018$分$0.0.200$22",
+        "200E01C0706E0DC3B87F9F7FEFE4F88$3$0.1.107$18",
+        "3E2FE5FFF1EE1DC3F87FFF7F67C4$8$1.1.130$18",
+        "338E71CEBFF7FEFFF8EF1C43A01C3F87E0E0003FFFFFFFE0003807E07E03C$秒$0.0.251$22",
+        "E01C0380700E07C3F9FFFEFE1F03C0200$7$0.0.86$18",
+        "00400C0781F0FE3EC79883E07C0F81F03E07C0FC1FE37E63FC1F81F01E01C010$分$0.0.201$22",
+        "E01C0380700E01C1F8FF7FFF1F83E0700$7$0.0.84$18",
+        "338671CEBFF7FEFFF8EF1C43A01C3F87E0E0003FFFFFFFE0003807E07E03C$秒$0.0.250$22",
+        "01E1FCFFBFF70DC3B8670EE1FE3D83803$6$0.0.122$18",
+        "00601C0F83E1F0FC3E07FFFFFFFC008$4$0.1.105$18",
+        "700E038370EE1DC3FCFBFF7F27C4$3$1.1.107$18",
+        "200E01C0700E01C0781FDF7FEFF87C0$2$0.1.106$18",
+        "07E3FDFFBF0F01C03807007C0FFCFF83F$0$0.0.123$18",
+        "FF9FFBFE70CE19C3387F0FE0EC0C$5$2.0.110$18",
+        "700E01C07FFFFFFFC$1$1.4.87$18",
+        "1F87F9FFF8FE0FC0F81F867DC7FC7F83F$9$0.0.122$18",
+        "300E0380700E01C07C3FFF7FE7F0100$2$0.0.103$18",
+        "200E0380706E1DC3B87FFF7F67C4700$3$1.0.105$18",
+        "00E07C0F81C00000000000FFFFFFFF8000000400E03F03E01C008$小$2.1.146$22",
+        "3FE7FCC398730E7FCFF9FF0001C8398730E21C038070FFFFFFFF8700E0$时$0.0.228$22",
+        "3FE7FCFF98730E61CFF9FF0001C0398730E61C038070FFFFFFFF8700E01C0$时$0.0.232$22",
+        "00207C0F81F03000000000FFFFFFFF8000000000C01E07E03C018$小$2.2.149$22"
+    }
+    index_dm_lastTime = addDmOcrDictEx(tab_dm_lastTime)
+
 
     haoLV = 0
 
@@ -8999,7 +9027,7 @@ function main3()
     -- mSleep(100)
     -- debug(numStr2)
     -- lua_exit()
-
+    -- loadTime(516, 400, 708, 427)
     isFarm()
     zongHe3()
     time_task()
@@ -10100,5 +10128,41 @@ function debugC(tiaoShiNeiRong)
             muBiaoC2 .. " 目标3: " .. muBiaoC3 .. " 目标4: " .. muBiaoC4 .. "                操作:" ..
             tiaoShiNeiRong)
         mSleep(3000)
+    end
+end
+
+--读时间
+function loadTime(x1, y1, x2, y2)
+    keepScreen(true);
+    local numStr = dmOcrText(index_dm_lastTime, x1, y1, x2, y2, "785F5D,25281C", 90)
+    keepScreen(false)
+    debugC("读取结果:" .. numStr)
+    mSleep(200)
+    local num1, num2 = string.find(numStr, "秒")
+    local num3, num4 = string.find(numStr, "小")
+    local num5, num6 = string.find(numStr, "分")
+
+    if num1 ~= nil and num3 == nil and num5 == nil then --只有秒
+        numStr, num = string.gsub(numStr, "秒", "")
+        numStr = tonumber(numStr)
+        debugC("转换结果" .. numStr)
+    elseif num1 ~= nil and num3 == nil and num5 ~= nil then --有分有秒
+        numStr, num = string.gsub(numStr, "秒", "")
+        local data = strSplit(numStr, "分")
+        numStr = tonumber(data[1]) * 60 + tonumber(data[2])
+        debugC("转换结果" .. numStr)
+    elseif num1 == nil and num5 ~= nil and num3 == nil then --只有分
+        numStr, num = string.gsub(numStr, "分", "")
+        numStr = tonumber(numStr) * 60
+        debugC("转换结果" .. numStr)
+    elseif num1 == nil and num5 == nil and num3 ~= nil then --只有小时
+        numStr, num = string.gsub(numStr, "小时", "")
+        numStr = tonumber(numStr) * 3600+60
+        debugC("转换结果" .. numStr)
+    elseif num1 == nil and num5 ~= nil and num3 ~= nil then --有小时和分
+        numStr, num = string.gsub(numStr, "分", "")
+        local data = strSplit(numStr, "小时")
+        numStr = tonumber(data[1]) * 3600 + tonumber(data[2]) * 60+60
+        debugC("转换结果" .. numStr)
     end
 end
