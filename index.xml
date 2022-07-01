@@ -4,9 +4,16 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Jun 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>03-Cycript</title>
+    <link>https://xinqinew.github.io/2022/06/03-cycript/</link>
+    <pubDate>Mon, 27 Jun 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/06/03-cycript/</guid>
+    <description><![CDATA[03-Cycript Cycript是Objective-C++、ES6（JavaScript）、Java等语法的混合物 可以用来探索、修改、调试正在运行的Mac]]></description>
+</item><item>
     <title>C&#43;&#43;</title>
     <link>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</pubDate><author>
@@ -85,14 +92,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>C++ 一个简单的实现HTTP GET和POST请求的类 最近有个项目需要用到HTTP GET和POST请求，但是网上没有找到特别好用的类，就自己写了一]]></description>
-</item><item>
-    <title>C&#43;&#43;实现socket通信(TCP IP)</title>
-    <link>https://xinqinew.github.io/2022/01/c-socket%E7%94%A8%E6%B3%951/</link>
-    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/c-socket%E7%94%A8%E6%B3%951/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C++:实现socket通信（TCP/IP）实例 ​ 首先声明，博主之前从来没有写过通信方面的东西，这次之所以写这个是因为项目需要，因此本文主要]]></description>
 </item></channel>
 </rss>
