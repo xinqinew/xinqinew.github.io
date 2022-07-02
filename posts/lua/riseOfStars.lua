@@ -3299,7 +3299,7 @@ function zongHe1(...)
                 end
             end
             for i = 0, 4, 1 do
-                if sColor(179 + 133 * i, 549, 0xeeb30b, 80) then --连续签到次数
+                if isColor(179 + 133 * i, 549, 0xeeb30b, 80) then --连续签到次数
                     tap1(210 + 133 * i, 549)
                 end
             end
