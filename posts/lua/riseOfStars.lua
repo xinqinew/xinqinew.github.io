@@ -5425,7 +5425,7 @@ function checkRed1()
         debugA("收资源1")
         tap1(448, 78)
         return true
-    elseif isColor(385, 129, 0x2ed4fc, 95) then
+    elseif isColor(385, 129, 0x2ed4fc, 95) or isColor(386, 129, 0xffeb64, 95) then
         debugA("收资源2")
         tap1(385, 129)
         return true
@@ -5437,7 +5437,7 @@ function checkRed1()
         debugA("收资源4")
         tap1(175, 238)
         return true
-    elseif isColor(20, 297, 0x24c8e9, 95) or isColor(20, 295, 0x703a0d, 95) then
+    elseif isColor(20, 297, 0x24c8e9, 95) or isColor(20, 295, 0x703a0d, 95) or isColor(21, 297, 0xffdf51, 95) then
         debugA("收资源5")
         tap1(20, 297)
         return true
@@ -6461,6 +6461,12 @@ function chuHang()
                 temNum = 2
             elseif isColor(463, 596, 0xaebd82, 95) then -- 氯气
                 temNum = 3
+            end
+            if isColor(366, 152, 0xffffff, 95) == false then --两名舰长
+                tap1(518, 161, 0xa0bfee) -- +号
+                tap1(946, 270, 0xd1b4b4) -- 右侧角色
+                tap1(114, 596, 0xb21d2c) --卸除
+                tap1(976, 582, 0xdde9f4) --整编
             end
             tap1(842, 594, 0xd78b02) -- 出航
             mSleep(1000)

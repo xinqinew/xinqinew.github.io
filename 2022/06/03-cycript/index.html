@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/06\/03-cycript\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "iPhone","wordcount":  340 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "iPhone","wordcount":  414 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/06\/03-cycript\/","datePublished": "2022-06-27T00:00:00+00:00","dateModified": "2022-06-27T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-27">2022-06-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-06-27">2022-06-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 340 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-27">2022-06-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-06-27">2022-06-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 414 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/06/03-cycript/" class="leancloud_visitors" data-flag-title="03-Cycript">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -148,6 +148,7 @@
         <li><a href="#03-cycript">03-Cycript</a></li>
         <li><a href="#ps命令">ps命令</a></li>
         <li><a href="#常用语法">常用语法</a></li>
+        <li><a href="#封装cycript---cy文件编写">封装Cycript - .cy文件编写</a></li>
       </ul>
     </li>
   </ul>
@@ -260,6 +261,31 @@ view.recursiveDescription().toString()</p>
 <p>筛选出某种类型的对象
 choose(UIViewController)
 choose(UITableViewCell)</p>
+</li>
+</ul>
+<h2 id="封装cycript---cy文件编写">封装Cycript - .cy文件编写</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221915333.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221915333.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221915333.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221915333.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221915333.png"
+        title="image-20220702221915333"
+    /></p>
+<ul>
+<li>
+<p>将.cy文件存放到/usr/lib/cycript0.9目录下</p>
+</li>
+<li>
+<p>在Cycript中引用.cy文件，并使用它提供的接口</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221955976.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221955976.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221955976.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221955976.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20220702221955976.png"
+        title="image-20220702221955976"
+    /></p>
 </li>
 </ul>
 </div><div class="post-footer" id="post-footer">
