@@ -608,9 +608,10 @@ function newUi()
 
     -- UILabel(4, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICombo(4, "numHaoLV", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
-    UICheck(4, "Ccheck1,Ccheck2", "4排为树,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
-    UICheck(4, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower", "检查果实,番茄,草莓,向日葵", "0", -1, 0,
+    UICheck(4, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane", "检查果实,番茄,草莓,向日葵,葡萄,甘蔗"
+        , "0", -1, 0,
         "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     -- UIEdit(4, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -9396,6 +9397,8 @@ function isFarm()
             return false
         end
         return true
+    else
+        return false
     end
 end
 
@@ -9735,8 +9738,8 @@ function task3_guaJi()
                 tap1(x, y)
                 debugC("xy " .. x .. " " .. y)
                 mSleep(1000)
-                if isColor(x + 94, y - 49, 0xffffff, 95) then
-                    tap1(x + 94, y - 49)
+                if isColor(x + 16, y + 29, 0xf7dc6d, 95) then
+                    tap1(x + 55, y - 24)
                 end
                 timeDecideIsFarm = nowTime
                 return
@@ -9891,6 +9894,23 @@ function tapTrees()
                         watering()
                         realX1 = math.floor(numOriginX + (i - 1) * farmX - (7 - 1) * farmX)
                         realY1 = math.floor(numOriginY + (7 - 1) * farmY + (i - 1) * farmY + 12)
+                        if isColor(realX1, realY1, 0x55ff25, 80) then --地为绿色
+                            tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
+                            mSleep(1000)
+                        end
+                        if isColor(724, 106, 0xffffff, 95) then --果树信息
+                            tap1(724, 106)
+                        end
+                    end
+                end
+                if Ccheck2 == "5排为树" then
+                    for i = 1, farmLong - 1, 2 do
+                        if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
+                            tap1(723, 106)
+                        end
+                        watering()
+                        realX1 = math.floor(numOriginX + (i - 1) * farmX - (9 - 1) * farmX)
+                        realY1 = math.floor(numOriginY + (9 - 1) * farmY + (i - 1) * farmY + 12)
                         if isColor(realX1, realY1, 0x55ff25, 80) then --地为绿色
                             tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
                             mSleep(1000)
@@ -10579,6 +10599,36 @@ function checkFruit()
                 end
             end
         end
+        if checkGrape == "葡萄" and isZhiDingFruit == false then
+            x, y = findMultiColorInRegionFuzzy(0x589a29, "-20|71|0x77337a,32|45|0xeb85eb", 90, 3
+                , 389, 1127, 614)
+            if x > 0 then
+                local numStr = dmOcrText(index_dm_numNumber, x - 25, y - 4, x + 60, y + 22,
+                    "DCD7D9,232826", 95)
+                numStr, num = string.gsub(numStr, "x", "")
+                numStr = tonumber(numStr)
+                debugC("葡萄:" .. numStr)
+                if numStr <= 40 then
+                    isZhiDingFruit = true
+                    strZhiDingFruit = "葡萄"
+                end
+            end
+        end
+        if checkCane == "甘蔗" and isZhiDingFruit == false then
+            x, y = findMultiColorInRegionFuzzy(0xedd2c0, "-12|71|0x99044e,20|44|0xc2af6f", 90, 3
+                , 389, 1127, 614)
+            if x > 0 then
+                local numStr = dmOcrText(index_dm_numNumber, x - 15, y - 2, x + 60, y + 24,
+                    "DCD7D9,232826", 95)
+                numStr, num = string.gsub(numStr, "x", "")
+                numStr = tonumber(numStr)
+                debugC("甘蔗:" .. numStr)
+                if numStr <= 40 then
+                    isZhiDingFruit = true
+                    strZhiDingFruit = "甘蔗"
+                end
+            end
+        end
         tap1(1088, 303, 0xbebebd) --关闭
     end
 end
@@ -10674,7 +10724,13 @@ function plant()
             elseif strZhiDingFruit == "向日葵" then
                 x0, y0 = findMultiColorInRegionFuzzy(0x99502a,
                     "-8|-17|0xf7e683,-1|35|0x4b7e2f", 90, 200, 492, 1122, 546)
-                timeCollectInterval = 90
+                timeCollectInterval = 60*10
+            elseif strZhiDingFruit == "葡萄" then
+                x0, y0 = findMultiColorInRegionFuzzy(0x58942a, "-12|51|0x77337a,23|31|0xeb85eb", 90, 200, 488, 1122, 549)
+                timeCollectInterval = 60*110
+            elseif strZhiDingFruit == "甘蔗" then
+                x0, y0 = findMultiColorInRegionFuzzy(0xecd0bf, "-9|51|0x95074e,20|21|0xc2af6f", 90, 200, 488, 1122, 543)
+                timeCollectInterval = 60*20
             end
             if x0 > 0 then
                 -- luaExit()
@@ -10798,7 +10854,13 @@ function plantNew()
             elseif strZhiDingFruit == "向日葵" then
                 x0, y0 = findMultiColorInRegionFuzzy(0x99502a,
                     "-8|-17|0xf7e683,-1|35|0x4b7e2f", 90, 200, 492, 1122, 546)
-                timeCollectInterval = 90
+                timeCollectInterval = 60*10
+            elseif strZhiDingFruit == "葡萄" then
+                x0, y0 = findMultiColorInRegionFuzzy(0x58942a, "-12|51|0x77337a,23|31|0xeb85eb", 90, 200, 488, 1122, 549)
+                timeCollectInterval = 60*110
+            elseif strZhiDingFruit == "甘蔗" then
+                x0, y0 = findMultiColorInRegionFuzzy(0xecd0bf, "-9|51|0x95074e,20|21|0xc2af6f", 90, 200, 488, 1122, 543)
+                timeCollectInterval = 60*20
             end
             if x0 > 0 then
                 -- luaExit()
@@ -10839,8 +10901,8 @@ function other()
             tap1(x, y)
             debugC("xy " .. x .. " " .. y)
             mSleep(1000)
-            if isColor(x + 94, y - 49, 0xffffff, 95) then
-                tap1(x + 94, y - 49)
+            if isColor(x + 16, y + 29, 0xf7dc6d, 95) then
+                tap1(x + 55, y - 24)
             end
             timeDecideIsFarm = nowTime
             return
