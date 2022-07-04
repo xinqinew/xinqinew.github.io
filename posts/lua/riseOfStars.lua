@@ -9348,6 +9348,7 @@ function zongHe3()
             tap1(1089, 46)
         else
             runApp(appCalculator)
+            lua_restart()
             mSleep(1000)
         end
     end
@@ -9379,8 +9380,11 @@ function isFarm()
         mSleep(500)
         for i = 1, 120, 1 do
             if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
-                -- debug("isFarm判断")
+                -- debugC("isFarm判断")
                 break
+            elseif isColor(1089,46,0xffffff,95) and isColor(1104,46,0x73555b,95) then
+                -- debugC("右上角X")
+                tap1(1089,46)
             else
                 tap1(1135, 0)
             end
@@ -9400,6 +9404,7 @@ function isFarm()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             runApp(appCalculator)
             mSleep(1000)
+            lua_restart()
             return false
         end
         return true
@@ -9480,6 +9485,7 @@ function findHouse()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             debugC("没找到树")
             runApp(appCalculator)
+            lua_restart()
             return 0, 0
         end
     else
@@ -9718,6 +9724,7 @@ function task3_guaJi()
             timeDesk = nowTime
             debugC("30秒打开计算器")
             runApp(appCalculator)
+            lua_restart()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return
