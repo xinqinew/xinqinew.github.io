@@ -9733,23 +9733,23 @@ function task3_guaJi()
             if watering() then
                 return
             end
-            x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-2|0xbf8b5c,23|-14|0xc08e5c,0|13|0xddb883", 90, 86, 96, 1045
-                , 547) --援助
+            x, y = findMultiColorInRegionFuzzy(0xd64428, "6|1|0x46222b,30|-4|0xba8859,36|-13|0xe6e6e6", 90, 86, 96, 1045
+                , 547)
             if x > 0 then
                 debugC("援助")
                 tap1(x, y)
                 timeDecideIsFarm = nowTime
                 return
             end
-            x, y = findMultiColorInRegionFuzzy(0xd14127, "13|19|0xd64428,26|13|0xd39f6a,32|42|0xf7d965", 90, 86, 96, 1045
-                , 547) --请求
+            x, y = findMultiColorInRegionFuzzy(0xd64428, "6|1|0x46222b,16|28|0xf7dc6d,33|-5|0xc38e5e", 90, 86, 96, 1045,
+                547)
             if x > 0 then
                 debugC("请求")
                 tap1(x, y)
                 debugC("xy " .. x .. " " .. y)
                 mSleep(1000)
                 -- if isColor(x + 16, y + 29, 0xf7dc6d, 95) then
-                tap1(x + 55, y - 24)
+                tap1(x + 55, y - 27)
                 -- end
                 timeDecideIsFarm = nowTime
                 return
@@ -10965,31 +10965,28 @@ end
 --其它
 function other()
     if findHouse() > 0 then
-        x, y = findMultiColorInRegionFuzzy(0xd64428, "23|-2|0xbf8b5c,23|-14|0xc08e5c,0|13|0xddb883", 90, 86, 96, 1045
-            , 547) --援助
+        x, y = findMultiColorInRegionFuzzy(0xd64428, "6|1|0x46222b,30|-4|0xba8859,36|-13|0xe6e6e6", 90, 86, 96, 1045, 547)
         if x > 0 then
-            -- debugC("援助")
+            debugC("援助")
             tap1(x, y)
             timeDecideIsFarm = nowTime
             return
         end
-        x, y = findMultiColorInRegionFuzzy(0xd14127, "13|19|0xd64428,26|13|0xd39f6a,32|42|0xf7d965", 90, 86, 96, 1045
-            ,
-            547) --请求
+        x, y = findMultiColorInRegionFuzzy(0xd64428, "6|1|0x46222b,16|28|0xf7dc6d,33|-5|0xc38e5e", 90, 86, 96, 1045, 547)
         if x > 0 then
             debugC("请求")
             tap1(x, y)
             debugC("xy " .. x .. " " .. y)
             mSleep(1000)
             -- if isColor(x + 16, y + 29, 0xf7dc6d, 95) then
-            tap1(x + 55, y - 24)
+            tap1(x + 55, y - 27)
             -- end
             timeDecideIsFarm = nowTime
             return
         end
         x, y = findMultiColorInRegionFuzzy(0xffffff, "-10|-10|0xffffff,9|-10|0xffffff", 100, 86, 96, 1045, 547) --气泡
         if x > 0 then
-            -- debugC("气泡")
+            debugC("气泡")
             tap1(x, y - 90)
             timeDecideIsFarm = nowTime
             return
