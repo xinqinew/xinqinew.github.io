@@ -3292,10 +3292,18 @@ function zongHe1(...)
             -- timeRed = nowTime
         elseif isColor(1082, 287, 0xa6a4a9, 95) and isColor(1082, 276, 0x473271, 95) then
             debugA("30days check in event")
+            mSleep(2000)
             for j = 0, 2, 1 do
                 for i = 0, 6, 1 do
                     if isColor(222 + i * 111, 172 + j * 106, 0xefb309, 80) then
                         tap1(222 + i * 111 + 27, 172 + j * 106 + 27)
+                    end
+                end
+            end
+            for j = 0, 2, 1 do
+                for i = 0, 6, 1 do
+                    if isColor(222 + i * 111, 187 + j * 106, 0xefb309, 80) then
+                        tap1(222 + i * 111 + 27, 187 + j * 106 + 27)
                     end
                 end
             end
