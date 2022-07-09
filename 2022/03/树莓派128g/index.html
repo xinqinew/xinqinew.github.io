@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2022\/03\/%E6%A0%91%E8%8E%93%E6%B4%BE128g\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Home Assistant","wordcount":  470 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Home Assistant","wordcount":  494 ,
         "url": "https:\/\/xinqinew.github.io\/2022\/03\/%E6%A0%91%E8%8E%93%E6%B4%BE128g\/","datePublished": "2022-03-10T00:00:00+00:00","dateModified": "2022-03-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -132,7 +132,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 470 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 494 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2022/03/%E6%A0%91%E8%8E%93%E6%B4%BE128g/" class="leancloud_visitors" data-flag-title="树莓派128G">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -236,7 +236,9 @@
 </span></span><span class="line"><span class="cl"><span class="err">method=auto</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>5 回到 CONFIG/,新建timesyncd.conf，写入以下内容</p>
+</div><ol start="5">
+<li>回到 CONFIG/,新建timesyncd.conf，写入以下内容</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -249,23 +251,66 @@
 </span></span><span class="line"><span class="cl"><span class="err">FallbackNTP=</span><span class="mi">0</span><span class="err">.pool.ntp.org</span><span class="mi">1</span><span class="err">.pool.ntp.org</span><span class="mi">2</span><span class="err">.pool.ntp.org</span><span class="mi">3</span><span class="err">.pool.ntp.org</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>6 tf卡插入树莓派，开机</p>
-<p>7 Add-ons内安装Mosquitto broker，不需要改参数</p>
-<p>8 Add-ons内安装Node-RED，需要修改的参数为</p>
-<p>credential_secret: xinqinew</p>
-<p>ssl: false</p>
-<p>9 Add-ons内安装Samba share，需要修改的参数为</p>
-<p>username: xinqinew</p>
-<p>password: &lsquo;198386&rsquo;</p>
-<p>10 集成中安装homekit桥接器</p>
-<p>11 集成中安装mqtt</p>
-<p>12 集成中安装broadlink ip:192.168.0.196</p>
-<p>13 集成中安装xiaomi key:09C5782B397D45DA</p>
-<p>14 <strong>Tasmota</strong> 设置<strong>自动发现 在控制台输入</strong>SetOption59 1</p>
+</div><ol start="6">
+<li>
+<p>tf卡插入树莓派，开机</p>
+</li>
+<li>
+<p>Add-ons内安装Mosquitto broker，不需要改参数</p>
+</li>
+<li>
+<p>Add-ons内安装Node-RED，需要修改的参数为</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">npm_packages:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">-</span> <span class="err">node-red-admin</span>
+</span></span><span class="line"><span class="cl"><span class="err">init_commands:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">-</span> <span class="err">echo</span> <span class="err">&#39;This</span> <span class="err">is</span> <span class="err">a</span> <span class="err">test&#39;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="err">credential_secret:</span> <span class="err">xinqinew</span>
+</span></span><span class="line"><span class="cl"><span class="err">ssl:</span> <span class="kc">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="9">
+<li>Add-ons内安装Samba share，需要修改的参数为</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">username:</span> <span class="err">xinqinew</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">password:</span> <span class="err">&#39;</span><span class="mi">198386</span><span class="err">&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="10">
+<li>Add-ons内安装SSH &amp; Web Terminal</li>
+<li>集成中安装homekit桥接器</li>
+<li>集成中安装mqtt</li>
+<li>集成中安装broadlink ip:192.168.0.196</li>
+<li>集成中安装xiaomi key:09C5782B397D45DA</li>
+<li><strong>Tasmota</strong> 设置<strong>自动发现 在控制台输入</strong>SetOption59 1</li>
+</ol>
 <p>Timezone 8时区</p>
 <p>latitude 40</p>
 <p>longitude 117</p>
-<p>15长期口令</p>
+<ol start="16">
+<li>长期口令</li>
+</ol>
 <p>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkZTE4ZTkyZjZkZjc0ZjkxOGY3YzFmNWNmZWRiZTFjMyIsImlhdCI6MTYwMDYyMjg0MiwiZXhwIjoxOTE1OTgyODQyfQ.rptUfcby3M1KexveQZ3DTJEqCzDMCNm44k0zO4PwYuQ</p>
 <p>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmYzgzZmNiYzk1NGE0ZDQyOWFmNDUyY2FkMjE0YTkyNCIsImlhdCI6MTYwNTg2NzUwMywiZXhwIjoxOTIxMjI3NTAzfQ.ZtnNoWlvwIrXB5wHhqZkoexNcgjL6nC1WLQzpgCCK4k</p>
 </div><div class="post-footer" id="post-footer">

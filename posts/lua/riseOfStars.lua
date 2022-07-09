@@ -9354,10 +9354,10 @@ function zongHe3()
         tap1(423, 27, 0x79942f) --四叶草
         if isColor(1089, 46, 0xffffff, 95) then
             tap1(1089, 46)
-        else
-            runApp(appCalculator)
-            lua_restart()
-            mSleep(1000)
+        -- else
+        --     runApp(appCalculator)
+        --     lua_restart()
+        --     mSleep(1000)
         end
     end
     if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
@@ -9393,6 +9393,9 @@ function isFarm()
             elseif isColor(1089,46,0xffffff,95) and isColor(1104,46,0x73555b,95) then
                 -- debugC("右上角X")
                 tap1(1089,46)
+            elseif isColor(600,455,0x81b95d,95) and isColor(908,479,0x6baa4d,95) then
+                debugC("误开对话")
+                tap1(600,455)
             else
                 tap1(1135, 0)
             end
@@ -9412,7 +9415,7 @@ function isFarm()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             runApp(appCalculator)
             mSleep(1000)
-            lua_restart()
+            -- lua_restart()
             return false
         end
         return true
@@ -9493,7 +9496,7 @@ function findHouse()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             debugC("没找到树")
             runApp(appCalculator)
-            lua_restart()
+            -- lua_restart()
             return 0, 0
         end
     else
@@ -9732,7 +9735,7 @@ function task3_guaJi()
             timeDesk = nowTime
             debugC("30秒打开计算器")
             runApp(appCalculator)
-            lua_restart()
+            -- lua_restart()
             -- pressHomeKey(0); --按下抬起 Home 键一次
             mSleep(1000)
             return
@@ -10719,6 +10722,9 @@ function plant()
         for m = 1, 50, 1 do
             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                 tap1(723, 106)
+            elseif isColor(600,455,0x81b95d,95) and isColor(908,479,0x6baa4d,95) then
+                debugC("误开对话")
+                tap1(600,455)
             end
             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135
                 , 322)
