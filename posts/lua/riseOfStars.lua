@@ -611,7 +611,9 @@ function newUi()
     UICombo(4, "numHaoLV", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
     UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
-    UICheck(4, "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato", "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆"
+    UICheck(4,
+        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato"
+        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -6327,7 +6329,7 @@ function zhuXian()
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debugA("搜索界面--主线")
-        numSeach = numSeach+1
+        numSeach = numSeach + 1
         if isColor(519, 437, 0x116eb9, 95) then -- 矿
             tap1(519, 437)
         elseif isColor(661, 435, 0x116eb9, 95) then -- 金属
@@ -6520,7 +6522,7 @@ function chuHang()
     if isColor(267, 521, 0xdbddec, 95) and isColor(440, 535, 0x3fe3f9, 95) then
         -- if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debugA("搜索界面--出航--无粒子")
-        numSeach = numSeach+1
+        numSeach = numSeach + 1
         if isKillPirate == true then
             debugA("有体力,杀海盗")
             if check23 == "60海盗" and num60Pirate <= 80 then
@@ -6717,7 +6719,7 @@ function chuHang()
     end
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         debugA("搜索界面--出航--有粒子")
-        numSeach = numSeach+1
+        numSeach = numSeach + 1
         if check23 == "60海盗" and num60Pirate <= 80 then
             num60Pirate = num60Pirate + 1
             writeJson("60海盗", num60Pirate)
@@ -6949,7 +6951,7 @@ function chuHang()
         mSleep(1000)
         if numSeach >= 10 then
             numSeach = 0
-            tap1(1117,627,0x19293a        )
+            tap1(1117, 627, 0x19293a)
             return
         end
         if isColor(144, 72, 0x41d9ff, 95) and haoLV >= 3 then -- 30体力
@@ -7666,7 +7668,7 @@ function BeAttack()
         timeAttacked = nowTime
         gaiMuBiaoNewA(4, "")
     end
-    if haoLV == 3 and check12 ~= "不挖粒子" and numLiZi >= 150000 then
+    if haoLV == 3 and numLiZi >= 100000 then
         if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or
             isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or
             isColor(0, 0, 0xb00101, 95) then
@@ -7675,7 +7677,7 @@ function BeAttack()
                 isAttacked = true
                 timeAttacked = nowTime
             end
-            if nowDateTime.hour >= 8 then
+            if nowDateTime.hour >= 24 then
                 if timeBeAttack2 == 0 then
                     timeBeAttack2 = nowTime
                 elseif nowTime - timeBeAttack2 >= 5 then
@@ -9265,6 +9267,7 @@ function zongHe3()
         fwShowButton("window1", "more", "Loading", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for i = 1, 60, 1 do
+            bugFor()
             if isColor(379, 260, 0xffe06b, 95) == false then
                 break
             end
@@ -9363,10 +9366,10 @@ function zongHe3()
         tap1(423, 27, 0x79942f) --四叶草
         if isColor(1089, 46, 0xffffff, 95) then
             tap1(1089, 46)
-        -- else
-        --     runApp(appCalculator)
-        --     lua_restart()
-        --     mSleep(1000)
+            -- else
+            --     runApp(appCalculator)
+            --     lua_restart()
+            --     mSleep(1000)
         end
     end
     if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
@@ -9396,15 +9399,16 @@ function isFarm()
         fwShowButton("window1", "more", "isFarm", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for i = 1, 120, 1 do
+            bugFor()
             if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
                 -- debugC("isFarm判断")
                 break
-            elseif isColor(1089,46,0xffffff,95) and isColor(1104,46,0x73555b,95) then
+            elseif isColor(1089, 46, 0xffffff, 95) and isColor(1104, 46, 0x73555b, 95) then
                 -- debugC("右上角X")
-                tap1(1089,46)
-            elseif isColor(600,455,0x81b95d,95) and isColor(908,479,0x6baa4d,95) then
+                tap1(1089, 46)
+            elseif isColor(600, 455, 0x81b95d, 95) and isColor(908, 479, 0x6baa4d, 95) then
                 debugC("误开对话")
-                tap1(600,455)
+                tap1(600, 455)
             else
                 tap1(1135, 0)
             end
@@ -9516,7 +9520,9 @@ end
 --找农田
 function findFarm()
     local x, y = findHouse()
-    if x > 0 then
+    if x == 0 then
+        return
+    elseif x > 0 then
         farmLong = tonumber(farmLong)
         farmX = 567 / farmLong
         farmY = 284 / farmLong
@@ -9527,6 +9533,7 @@ function findFarm()
             ------------------种植------------------
             for j = rangeY1, rangeY2, 2 do
                 for i = rangeX1, rangeX2, 2 do
+                    bugFor()
                     realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
                     realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
                     k = k + 1
@@ -9534,6 +9541,7 @@ function findFarm()
                     if k == 1 then
                         tap1(realX1, realY1)
                         for m = 1, 50, 1 do
+                            bugFor()
                             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135, 322)
                             if x0 > 0 then
                                 local numStr = dmOcrText(index_dm_numTime, x0 - 500, y0 + 206, x0 - 500 + 118,
@@ -9566,6 +9574,7 @@ function findFarm()
             ------------------洒水------------------
             for j = rangeY1, rangeY2, 2 do
                 for i = rangeX1, rangeX2, 2 do
+                    bugFor()
                     if i == rangeX1 then
                         realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
                         realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
@@ -9585,6 +9594,7 @@ function findFarm()
             mSleep(1000 * 31)
             for j = rangeY1, rangeY2, 2 do
                 for i = rangeX1, rangeX2, 2 do
+                    bugFor()
                     if i == rangeX1 then
                         realX1 = math.floor(x + (i - 1) * farmX - (j - 1) * farmX)
                         realY1 = math.floor(y + (j - 1) * farmY + (i - 1) * farmY + 12)
@@ -9652,7 +9662,9 @@ function task3_guaJi()
         gaiMuBiaoNewC(2, "种植")
         debugC("改目标为种植2")
     elseif muBiaoC == "种植" then
-        if findHouse() > 0 then
+        if findHouse() == 0 then
+            return
+        elseif findHouse() > 0 then
             -- if nowTime - timeDecideIsFarm >= 20 then
             --     timeDecideIsFarm = nowTime
             --     if isFarm() then
@@ -9684,6 +9696,7 @@ function task3_guaJi()
                 mSleep(500)
                 for j = 3, 5, 2 do
                     for i = 1, farmLong - 1, 2 do
+                        bugFor()
                         if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                             tap1(723, 106)
                         end
@@ -9756,7 +9769,9 @@ function task3_guaJi()
         --         return
         --     end
         -- end
-        if findHouse() > 0 then
+        if findHouse() == 0 then
+            return
+        elseif findHouse() > 0 then
             if watering() then
                 return
             end
@@ -9802,6 +9817,7 @@ function task3_guaJi()
                 for shou2bian = 1, 2, 1 do
                     for j = 5, 3, -2 do
                         for i = 1, farmLong - 1, 2 do
+                            bugFor()
                             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                                 tap1(723, 106)
                             end
@@ -9886,7 +9902,9 @@ function tapTrees()
     if check4 ~= "测试" then
 
         if watering() == false then
-            if findHouse() > 0 then
+            if findHouse() == 0 then
+                return
+            elseif findHouse() > 0 then
                 farmX = 567 / farmLong
                 farmY = 284 / farmLong
                 -- x0 = math.floor(568 / farmLong * 2)
@@ -9895,6 +9913,7 @@ function tapTrees()
                 fwShowButton("window1", "more", "tapTreesB", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
                 mSleep(500)
                 for i = 1, farmLong - 1, 2 do
+                    bugFor()
                     if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                         tap1(723, 106)
                     end
@@ -9917,6 +9936,7 @@ function tapTrees()
                 fwShowButton("window1", "more", "tapTrees", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
                 mSleep(500)
                 for i = 1, farmLong - 1, 2 do
+                    bugFor()
                     if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                         tap1(723, 106)
                     end
@@ -9936,6 +9956,7 @@ function tapTrees()
                     fwShowButton("window1", "more", "4排为树", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
                     mSleep(500)
                     for i = 1, farmLong - 1, 2 do
+                        bugFor()
                         if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                             tap1(723, 106)
                         end
@@ -9956,6 +9977,7 @@ function tapTrees()
                     fwShowButton("window1", "more", "5排为树", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
                     mSleep(500)
                     for i = 1, farmLong - 1, 2 do
+                        bugFor()
                         if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                             tap1(723, 106)
                         end
@@ -10022,6 +10044,7 @@ function sell()
             fwShowButton("window1", "more", "SellF", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
             mSleep(500)
             for i = 1, 10, 1 do
+                bugFor()
                 if isColor(138, 350, 0x6fb644, 95) == false then --不为蔬菜
                     tap1(176, 358, 0xcfaf8b) --all
                     tap1(333, 328, 0x6fb644) --crop
@@ -10035,6 +10058,7 @@ function sell()
             mSleep(500)
             for j = 0, 1, 1 do
                 for i = 0, 8, 1 do
+                    bugFor()
                     if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                         tap1(723, 106)
                     end
@@ -10062,6 +10086,7 @@ function sell()
             fwShowButton("window1", "more", "SellD", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
             mSleep(500)
             for i = 1, 10, 1 do
+                bugFor()
                 if isColor(141, 363, 0xe6515a, 95) == false then --不为tree
                     tap1(176, 358, 0xcfaf8b) --all
                     tap1(528, 325, 0xe6515a) --tree
@@ -10075,6 +10100,7 @@ function sell()
             mSleep(500)
             for j = 0, 1, 1 do
                 for i = 0, 8, 1 do
+                    bugFor()
                     if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                         tap1(723, 106)
                     end
@@ -10100,6 +10126,7 @@ function sell()
             fwShowButton("window1", "more", "SellB", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
             mSleep(500)
             for i = 1, 10, 1 do
+                bugFor()
                 if isColor(152, 368, 0xeb573c, 95) == false then --不为Special shop
                     tap1(176, 358, 0xcfaf8b) --all
                     tap1(333, 456, 0xdb9d68) --Special shop
@@ -10113,6 +10140,7 @@ function sell()
             mSleep(500)
             for j = 0, 1, 1 do
                 for i = 0, 8, 1 do
+                    bugFor()
                     if isColor(59 + i * 118, 392 + j * 116, 0x543842, 95) then
                         local numStr = dmOcrText(index_dm_numNumber, 38 + i * 118, 405 + j * 116, 109 + i * 118,
                             426 + j *
@@ -10263,7 +10291,9 @@ function ScanPlace()
         local bool, kind = isFileExist(userPath() .. "/res/table_tree.txt")
         if bool == false or Ccheck0 == "重置table" then
             if isScaned == false then
-                if findHouse() > 0 then
+                if findHouse() == 0 then
+                    return
+                elseif findHouse() > 0 then
                     farmX = 567 / farmLong
                     farmY = 284 / farmLong
                     -- x0 = math.floor(568 / farmLong * 2)
@@ -10276,6 +10306,7 @@ function ScanPlace()
                             realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                             realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                             for k = 1, 60, 1 do
+                                bugFor()
                                 if isColor(663, 621, 0x66a744, 95) then --done
                                     tap1(663, 621)
                                 end
@@ -10309,6 +10340,7 @@ function ScanPlace()
                                     nowTime = os.time()
                                     if nowTime - timeLastShop >= 0 and nowTime - timeLastShop <= 30 then
                                         for l = 1, 10, 1 do
+                                            bugFor()
                                             debugC("timeLastShop低于60秒: " .. lastFruitX)
                                             mSleep(100)
                                             debugC("采用lastFruitX: " .. lastFruitX)
@@ -10339,6 +10371,7 @@ function ScanPlace()
                                 end
                             end
                             for k = 1, 100, 1 do
+                                bugFor()
                                 if isColor(724, 106, 0xffffff, 95) then --关闭剩余时间
                                     tap1(724, 106)
                                 else
@@ -10352,6 +10385,7 @@ function ScanPlace()
                 end
             end
             for i = 1, #table_tree, 1 do
+                bugFor()
                 debugC("table_tree" .. i .. " " .. table_tree[i])
                 mSleep(100)
             end
@@ -10368,7 +10402,9 @@ function ScanTree()
         local bool, kind = isFileExist(userPath() .. "/res/table_tree.txt")
         if bool == false or Ccheck0 == "重置table" then
             if isScaned == false then
-                if findHouse() > 0 then
+                if findHouse() == 0 then
+                    return
+                elseif findHouse() > 0 then
                     farmX = 567 / farmLong
                     farmY = 284 / farmLong
 
@@ -10382,12 +10418,15 @@ function ScanTree()
                         numLastTreeColumn = xiaoShu * (farmLong / 2) --列
                     end
                     for j = 1, 7, 2 do
+                        bugFor()
                         -- table_tree[math.floor(j/2)+1]={}
                         for i = 1, farmLong - 1, 2 do
+                            bugFor()
                             nowTime = os.time()
                             realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                             realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                             for k = 1, 60, 1 do
+                                bugFor()
                                 if isColor(663, 621, 0x66a744, 95) then --done
                                     tap1(663, 621)
                                 end
@@ -10421,6 +10460,7 @@ function ScanTree()
                                     nowTime = os.time()
                                     if nowTime - timeLastShop >= 0 and nowTime - timeLastShop <= 30 then
                                         for l = 1, 10, 1 do
+                                            bugFor()
                                             debugC("timeLastShop低于60秒: " .. lastFruitX)
                                             mSleep(100)
                                             debugC("采用lastFruitX: " .. lastFruitX)
@@ -10451,6 +10491,7 @@ function ScanTree()
                                 end
                             end
                             for k = 1, 100, 1 do
+                                bugFor()
                                 if isColor(724, 106, 0xffffff, 95) then --关闭剩余时间
                                     tap1(724, 106)
                                 else
@@ -10464,6 +10505,7 @@ function ScanTree()
                 end
             end
             for i = 1, #table_tree, 1 do
+                bugFor()
                 debugC("table_tree" .. i .. " " .. table_tree[i])
                 mSleep(100)
             end
@@ -10486,6 +10528,7 @@ function checkPlace()
         end
     elseif nowTime > timeMinFruit then
         for i = 1, #table_tree do
+            bugFor()
             if tonumber(table_tree[i]) == timeMinFruit then
                 -- debugC("最小值下标为:" .. i) mSleep(100)
                 numMinID = i
@@ -10505,7 +10548,9 @@ function checkPlace()
             end
         end
         if isColor(34, 557, 0xec6f8e, 95) and isColor(59, 568, 0x7e5242, 95) and isColor(55, 583, 0xffe3d9, 95) then
-            if findHouse() > 0 then
+            if findHouse() == 0 then
+                return
+            elseif findHouse() > 0 then
                 -- for j = 3, 5, 2 do
                 --     for i = 1, farmLong - 1, 2 do
                 --         j = 2 * numRowFruit - 1
@@ -10526,6 +10571,7 @@ function checkPlace()
                 realX1 = math.floor(numOriginX + (i - 1) * farmX - (j - 1) * farmX)
                 realY1 = math.floor(numOriginY + (j - 1) * farmY + (i - 1) * farmY + 12)
                 for k = 1, 60, 1 do
+                    bugFor()
                     if isColor(663, 621, 0x66a744, 95) then --done
                         tap1(663, 621)
                     end
@@ -10559,6 +10605,7 @@ function checkPlace()
                         nowTime = os.time()
                         if nowTime - timeLastShop >= 0 and nowTime - timeLastShop <= 30 then
                             for l = 1, 10, 1 do
+                                bugFor()
                                 debugC("timeLastShop低于60秒: " .. lastFruitX)
                                 mSleep(100)
                                 debugC("采用lastFruitX: " .. lastFruitX)
@@ -10589,6 +10636,7 @@ function checkPlace()
                     end
                 end
                 for k = 1, 100, 1 do
+                    bugFor()
                     if isColor(724, 106, 0xffffff, 95) then --关闭剩余时间
                         tap1(724, 106)
                     else
@@ -10617,6 +10665,7 @@ function checkFruit()
         fwShowButton("window1", "more", "checkFruit", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for i = 1, 10, 1 do
+            bugFor()
             if isColor(138, 350, 0x6fb644, 95) == false then --不为蔬菜
                 tap1(176, 358, 0xcfaf8b) --all
                 tap1(333, 328, 0x6fb644) --crop
@@ -10702,10 +10751,10 @@ function checkFruit()
             end
         end
         if checkSouthMelon == "南瓜" and isZhiDingFruit == false then
-            x,y = findMultiColorInRegionFuzzy( 0xfbe4ba, "-6|29|0xef9527,61|22|0xd15705", 90, 3
+            x, y = findMultiColorInRegionFuzzy(0xfbe4ba, "-6|29|0xef9527,61|22|0xd15705", 90, 3
                 , 389, 1127, 614)
             if x > 0 then
-                debugC("南瓜x:" .. x.." y:" .. y)
+                debugC("南瓜x:" .. x .. " y:" .. y)
                 local numStr = dmOcrText(index_dm_numNumber, x + 15, y - 26, x + 72, y + 1,
                     "DCD7D9,232826", 95)
                 debugC("南瓜:" .. numStr)
@@ -10713,14 +10762,14 @@ function checkFruit()
                 numStr, num = string.gsub(numStr, "x", "")
                 numStr = tonumber(numStr)
                 debugC("南瓜:" .. numStr)
-                if numStr <= 40 then
+                if numStr <= 100 then
                     isZhiDingFruit = true
                     strZhiDingFruit = "南瓜"
                 end
             end
         end
         if checkShuiDao == "水稻" and isZhiDingFruit == false then
-            x,y = findMultiColorInRegionFuzzy( 0x7dbe66, "23|-9|0xc67c00,45|9|0x568344", 90, 3
+            x, y = findMultiColorInRegionFuzzy(0x7dbe66, "23|-9|0xc67c00,45|9|0x568344", 90, 3
                 , 389, 1127, 614)
             if x > 0 then
                 local numStr = dmOcrText(index_dm_numNumber, x + 24, y - 35, x + 80, y - 5,
@@ -10735,7 +10784,7 @@ function checkFruit()
             end
         end
         if checkPotato == "土豆" and isZhiDingFruit == false then
-            x,y = findMultiColorInRegionFuzzy( 0x987c4c, "19|23|0x8d714e,64|38|0xdfb879", 90,3
+            x, y = findMultiColorInRegionFuzzy(0x987c4c, "19|23|0x8d714e,64|38|0xdfb879", 90, 3
                 , 389, 1127, 614)
             if x > 0 then
                 local numStr = dmOcrText(index_dm_numNumber, x + 20, y - 26, x + 80, y + 5,
@@ -10761,6 +10810,7 @@ function plant()
     mSleep(500)
     -- tap(realX1, realY1, { ["ms"] = 300, ["pic"] = "click_point_4_2.png" })
     for l = 1, 10, 1 do
+        bugFor()
         if isColor(1088, 46, 0xffffff, 95) then
             break
         else
@@ -10777,11 +10827,12 @@ function plant()
         fwShowButton("window1", "more", "plantD", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for m = 1, 50, 1 do
+            bugFor()
             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                 tap1(723, 106)
-            elseif isColor(600,455,0x81b95d,95) and isColor(908,479,0x6baa4d,95) then
+            elseif isColor(600, 455, 0x81b95d, 95) and isColor(908, 479, 0x6baa4d, 95) then
                 debugC("误开对话")
-                tap1(600,455)
+                tap1(600, 455)
             end
             x0, y0 = findMultiColorInRegionFuzzy(0xede9e3, "2|0|0xfcb231", 80, 496, 320, 1135
                 , 322)
@@ -10823,6 +10874,7 @@ function plant()
                 fwShowButton("window1", "more", "plantC", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
                 mSleep(500)
                 for l = 1, 10, 1 do
+                    bugFor()
                     tap(x0 - 292, y0, { ["ms"] = 300 })
                     mSleep(1000)
                     if isColor(1089, 47, 0xffffff, 95) == false then
@@ -10846,6 +10898,7 @@ function plant()
         fwShowButton("window1", "more", "plantB", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for m = 1, 50, 1 do
+            bugFor()
             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                 tap1(723, 106)
             end
@@ -10868,13 +10921,13 @@ function plant()
                 x0, y0 = findMultiColorInRegionFuzzy(0xecd0bf, "-9|51|0x95074e,20|21|0xc2af6f", 90, 200, 488, 1122, 543)
                 timeCollectInterval = 60 * 20
             elseif strZhiDingFruit == "南瓜" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0x6eb454, "-21|19|0xf7ad2a,22|39|0xca5509", 90, 200, 493, 1122, 545)
+                x0, y0 = findMultiColorInRegionFuzzy(0x6eb454, "-21|19|0xf7ad2a,22|39|0xca5509", 90, 200, 493, 1122, 545)
                 timeCollectInterval = 60 * 3
             elseif strZhiDingFruit == "水稻" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0x498e40, "17|-17|0xf2ac48,30|8|0x5ca454", 90, 200, 495, 1122, 522)
+                x0, y0 = findMultiColorInRegionFuzzy(0x498e40, "17|-17|0xf2ac48,30|8|0x5ca454", 90, 200, 495, 1122, 522)
                 timeCollectInterval = 60 * 5
             elseif strZhiDingFruit == "土豆" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
+                x0, y0 = findMultiColorInRegionFuzzy(0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
                 timeCollectInterval = 60 * 45
             end
             if x0 > 0 then
@@ -10919,6 +10972,7 @@ function plantNew()
     fwShowButton("window1", "more", "plantNewE", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
     mSleep(500)
     for l = 1, 10, 1 do
+        bugFor()
         if isColor(1088, 46, 0xffffff, 95) then
             break
         else
@@ -10934,6 +10988,7 @@ function plantNew()
         fwShowButton("window1", "more", "plantNewD", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
         mSleep(500)
         for m = 1, 50, 1 do
+            bugFor()
             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                 tap1(723, 106)
             end
@@ -10977,6 +11032,7 @@ function plantNew()
                 fwShowButton("window1", "more", "plantNewC", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
                 mSleep(500)
                 for l = 1, 10, 1 do
+                    bugFor()
                     tap(x0 - 292, y0, { ["ms"] = 300 })
                     lastFruitX = x0 - 292
                     debugC("lastFruitX: " .. lastFruitX)
@@ -11002,6 +11058,7 @@ function plantNew()
         fwShowButton("window1", "more", "plantNewB", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
         mSleep(500)
         for m = 1, 50, 1 do
+            bugFor()
             if isColor(723, 106, 0xffffff, 95) and isColor(738, 106, 0x73555b, 95) then --误开地块详细信息
                 tap1(723, 106)
             end
@@ -11024,13 +11081,13 @@ function plantNew()
                 x0, y0 = findMultiColorInRegionFuzzy(0xecd0bf, "-9|51|0x95074e,20|21|0xc2af6f", 90, 200, 488, 1122, 543)
                 timeCollectInterval = 60 * 20
             elseif strZhiDingFruit == "南瓜" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0x6eb454, "-21|19|0xf7ad2a,22|39|0xca5509", 90, 200, 493, 1122, 545)
+                x0, y0 = findMultiColorInRegionFuzzy(0x6eb454, "-21|19|0xf7ad2a,22|39|0xca5509", 90, 200, 493, 1122, 545)
                 timeCollectInterval = 60 * 3
             elseif strZhiDingFruit == "水稻" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0x498e40, "17|-17|0xf2ac48,30|8|0x5ca454", 90, 200, 495, 1122, 522)
+                x0, y0 = findMultiColorInRegionFuzzy(0x498e40, "17|-17|0xf2ac48,30|8|0x5ca454", 90, 200, 495, 1122, 522)
                 timeCollectInterval = 60 * 5
             elseif strZhiDingFruit == "土豆" then
-                x0,y0 = findMultiColorInRegionFuzzy( 0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
+                x0, y0 = findMultiColorInRegionFuzzy(0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
                 timeCollectInterval = 60 * 45
             end
             if x0 > 0 then
@@ -11039,6 +11096,7 @@ function plantNew()
                 fwShowButton("window1", "more", "plantNewA", "FFFFFF", "306090", "", 12, 0, 0, 50, 30);
                 mSleep(500)
                 for l = 1, 10, 1 do
+                    bugFor()
                     tap(x0, y0, { ["ms"] = 300 })
                     lastFruitX = x0
                     debugC("lastFruitX: " .. lastFruitX)
@@ -11060,7 +11118,9 @@ end
 
 --其它
 function other()
-    if findHouse() > 0 then
+    if findHouse() == 0 then
+        return
+    elseif findHouse() > 0 then
         x, y = findMultiColorInRegionFuzzy(0xd64428, "6|1|0x46222b,30|-4|0xba8859,36|-13|0xe6e6e6", 90, 86, 96, 1045, 547)
         if x > 0 then
             debugC("援助")
@@ -11087,5 +11147,13 @@ function other()
             timeDecideIsFarm = nowTime
             return
         end
+    end
+end
+
+--卡循环
+function bugFor()
+    if isColor(144, 108, 0x9bd124, 95) and isColor(1020, 63, 0x72555a, 95) and isColor(1034, 63, 0xffffff, 95) then
+        debugC("Notice")
+        tap1(1034, 63, 0xffffff)
     end
 end
