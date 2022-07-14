@@ -2424,10 +2424,14 @@ function zongHe1(...)
         tap1(511, 600, 0x0c0c0e)
         tap1(571, 467, 0x05305c)
     end
-    if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
+    if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(225, 328, 0x426f99, 95) then
         debugA("基地加成")
         if muBiaoA == mb_CaiJi then
-            tap1(561, 439)
+            if isColor(557, 439, 0x8fff65, 95) then
+                tap1(561, 439)
+            else
+                tap1(20, 20)
+            end
         else
             tap1(20, 20)
         end
@@ -2710,7 +2714,12 @@ function zongHe1(...)
     end
     if isColor(498, 469, 0x1c6eba, 95) and isColor(646, 470, 0x1c6fbb, 95) and isColor(567, 242, 0x9d9962, 95) then
         -- if isColor(498, 469, 0x1d6ebb, 95) and isColor(646, 470, 0x1d6fbc, 95) and isColor(574, 247, 0x7c4c3c, 95) then
-        debugA("100/10 vip点数 单数")
+        debugA("100 vip点数 单数")
+        tap1(539, 475, 0x1c6ebb)
+    end
+    if isColor(498, 469, 0x1c6eba, 95) and isColor(646, 470, 0x1c6fbb, 95) and isColor(568,243,0xffff74    , 95) then
+        -- if isColor(498, 469, 0x1d6ebb, 95) and isColor(646, 470, 0x1d6fbc, 95) and isColor(574, 247, 0x7c4c3c, 95) then
+        debugA("10 vip点数 单数")
         tap1(539, 475, 0x1c6ebb)
     end
 
@@ -3101,7 +3110,7 @@ function zongHe1(...)
     end
     if isColor(274, 160, 0xcda099, 95) and isColor(292, 81, 0x9badde, 95) and isColor(366, 330, 0x78551a, 95) then
         debugA("签到奖励")
-        x, y = findColorInRegionFuzzy(0x145e99, 100, 857, 133, 857, 539);
+        x, y = findColorInRegionFuzzy(0x145e99, 95, 857, 133, 857, 539);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             tap1(x, y)
         else
@@ -3216,7 +3225,7 @@ function zongHe1(...)
             end
         elseif isColor(137, 103, 0x9e1111, 95) and isColor(117, 103, 0xa17316, 95) then
             debugA("签到奖励--红点--已选")
-            x, y = findColorInRegionFuzzy(0x145e99, 100, 972, 145, 972, 587);
+            x, y = findColorInRegionFuzzy(0x145e99, 95, 972, 145, 972, 587);
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
                 tap1(x, y)
             else
@@ -3228,7 +3237,7 @@ function zongHe1(...)
                 debugA("第7天")
                 tap1(934, 561, 0x116eb9)
             end
-            x, y = findColorInRegionFuzzy(0x116eb9, 100, 196, 338, 664, 602)
+            x, y = findColorInRegionFuzzy(0x116eb9, 95, 196, 338, 664, 602)
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
                 tap1(x, y)
             else
@@ -3275,7 +3284,7 @@ function zongHe1(...)
             tap1(137, 380)
         elseif isColor(137, 311, 0x9e1111, 95) and isColor(114, 311, 0xa17316, 95) then
             debugA("航母活动--红点--已选")
-            -- x, y = findColorInRegionFuzzy(0x116eb9, 100, 202, 349, 663, 599)
+            -- x, y = findColorInRegionFuzzy(0x116eb9, 95, 202, 349, 663, 599)
             -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             --     tap1(x, y)
             -- else
@@ -3285,7 +3294,7 @@ function zongHe1(...)
             -- timeRed = nowTime
         elseif isColor(396, 339, 0x1b7b55, 95) and isColor(247, 400, 0x7d8a96, 95) then
             debugA("航母活动--向上移位置了--红点--已选")
-            -- x, y = findColorInRegionFuzzy(0x116eb9, 100, 202, 349, 663, 599)
+            -- x, y = findColorInRegionFuzzy(0x116eb9, 95, 202, 349, 663, 599)
             -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             --     tap1(x, y)
             -- else
@@ -3743,11 +3752,11 @@ function zongHe1(...)
                     toast(numLv)
                 end
             end
-            if haoLV >= 3 and isTrade == false and isColor(42, 331, 0xd769c2, 95) then
+            if haoLV >= 3 and isTrade == false and isColor(42,331,0xbe78b9, 95) then
                 debugA("点击交易所")
                 tap1(42, 331)
                 return
-            elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42, 331, 0xd769c2, 95) then
+            elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42,331,0xbe78b9, 95) then
                 debugA("交易所--点击兑换")
                 tap1(51, 434)
                 isCheckLiZiNum = true
@@ -4347,7 +4356,7 @@ function zongHe1(...)
             else
                 tap1(20, 20)
             end
-        elseif isColor(42, 331, 0xd769c2, 95) and isColor(48, 296, 0xffffff, 95) then
+        elseif isColor(42,331,0xbe78b9, 95) and isColor(48, 296, 0xffffff, 95) then
             debugA("交易界面")
             if isColor(656, 483, 0x111111, 95) and isColor(785, 510, 0x0c0c0c, 95) then
                 debugA("LOCK")
@@ -4605,7 +4614,7 @@ function zongHe1(...)
             else
                 tap1(934, 609, 0x1c6eba) --库存
             end
-        elseif isColor(42, 422, 0xa02ae0, 95) and isColor(38, 403, 0xffffff, 95) then
+        elseif isColor(42,422,0x9a0de0,95) and isColor(38,403,0xffffff,95) then
             debugA("兑换界面")
             do
                 local temStr = ocrText(323, 297, 385, 312, 0, "0123465789,")
@@ -6967,10 +6976,10 @@ function chuHang()
             debugA("无体力")
             isKillPirate = false -- 不杀海盗
         end
-        if isColor(210, 377, 0x00ace4, 95) and isColor(267, 378, 0x00798c, 95) and isColor(400, 376, 0xa43b40, 95) then
+        if isColor(178,379,0x00ace4,95) and isColor(232,385,0x00798c,95) and isColor(380,383,0xa43b40,95) then
             debugA("粒子--左")
             numSearch = numSearch + 1
-            tap1(387, 372)
+            tap1(492, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
@@ -6983,10 +6992,10 @@ function chuHang()
                 end
                 tap1(172, 525) -- 搜索
             end
-        elseif isColor(733, 377, 0x00ace4, 95) and isColor(798, 378, 0x00798c, 95) and isColor(934, 377, 0xa43b40, 95) then
+        elseif isColor(733,377,0x00ace4,95) and isColor(798,378,0x00798c,95) and isColor(939,376,0x9e393d,95) then
             debugA("粒子--右")
             numSearch = numSearch + 1
-            tap1(919, 372)
+            tap1(1070, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
@@ -7002,7 +7011,7 @@ function chuHang()
         elseif isColor(125, 322, 0x6416c3, 95) and isColor(151, 305, 0x6918d9, 95) then
             debugA("粒子--左")
             numSearch = numSearch + 1
-            tap1(387, 372)
+            tap1(492, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
@@ -7022,7 +7031,7 @@ function chuHang()
         elseif isColor(662, 320, 0x783ede, 95) and isColor(684, 302, 0x6f1bdf, 95) then
             debugA("粒子--右")
             numSearch = numSearch + 1
-            tap1(919, 372)
+            tap1(1070, 372)
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
@@ -7733,6 +7742,9 @@ function warReady()
             mSleep(2000)
             if isColor(151, 169, 0xf98c5a, 95) and isColor(173, 142, 0xf8e9e9, 95) then
                 debugA("NPC攻击")
+                for i = 1, 10, 1 do
+                    vibratorNotice()
+                end
                 tap1(486, 82, 0xfcf6f6)
                 mSleep(1000)
                 tap1(20, 20)
