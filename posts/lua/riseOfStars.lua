@@ -2101,6 +2101,11 @@ function zongHe1(...)
         debugA("搜索界面--误开--无粒子")
         tap1(1, 1)
     end
+    if isColor(310, 107, 0xf8a501, 95) and isColor(306, 137, 0xe0e0e0, 95) and isColor(831, 248, 0x436c9e, 95) and
+        isColor(333, 243, 0x46627e, 95) then
+        debugA("误开满期提示")
+        tap1(511, 537, 0x0c0c0e)
+    end
     if isColor(8, 23, 0xff9c00, 95) and isColor(16, 25, 0xffffff, 95) and isColor(866, 599, 0xd78b00, 95) and
         isColor(116, 596, 0x517fad, 95) and muBiaoA ~= mb_ChuHang and muBiaoA ~= mb_ZhuXian then
         debugA("误开出航界面")
@@ -2432,8 +2437,28 @@ function zongHe1(...)
             else
                 tap1(20, 20)
             end
+        elseif muBiaoA == "战备开盾" then
+            tap1(768, 159, 0x384848)
+
         else
             tap1(20, 20)
+        end
+    end
+    if isColor(222, 123, 0x4c4334, 95) and isColor(229, 123, 0x102846, 95) and isColor(265, 258, 0x81d2fc, 95) then
+        debugA("加成信息")
+        if muBiaoA == "战备开盾" then
+            if isColor(840, 181, 0x116eb9, 95) then
+                tap1(840, 181, 0x116eb9)--使用
+                gaiMuBiaoNewA(4, "")
+                numTodayDefense = numTodayDefense + 1
+                writeJson("今日开盾次数", numTodayDefense)
+                numDefense = numDefense + 1
+                writeJson("开盾总次数", numDefense)
+            else
+                tap1(511, 586, 0x0c0c0e)
+            end
+        else
+            tap1(511, 586, 0x0c0c0e)
         end
     end
     if isColor(143, 57, 0xe0e0e0, 95) and isColor(500, 164, 0xd4dc39, 95) and isColor(833, 184, 0x116eb9, 95) then
@@ -2717,7 +2742,7 @@ function zongHe1(...)
         debugA("100 vip点数 单数")
         tap1(539, 475, 0x1c6ebb)
     end
-    if isColor(498, 469, 0x1c6eba, 95) and isColor(646, 470, 0x1c6fbb, 95) and isColor(568,243,0xffff74    , 95) then
+    if isColor(498, 469, 0x1c6eba, 95) and isColor(646, 470, 0x1c6fbb, 95) and isColor(568, 243, 0xffff74, 95) then
         -- if isColor(498, 469, 0x1d6ebb, 95) and isColor(646, 470, 0x1d6fbc, 95) and isColor(574, 247, 0x7c4c3c, 95) then
         debugA("10 vip点数 单数")
         tap1(539, 475, 0x1c6ebb)
@@ -3752,11 +3777,11 @@ function zongHe1(...)
                     toast(numLv)
                 end
             end
-            if haoLV >= 3 and isTrade == false and isColor(42,331,0xbe78b9, 95) then
+            if haoLV >= 3 and isTrade == false and isColor(42, 331, 0xbe78b9, 95) then
                 debugA("点击交易所")
                 tap1(42, 331)
                 return
-            elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42,331,0xbe78b9, 95) then
+            elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42, 331, 0xbe78b9, 95) then
                 debugA("交易所--点击兑换")
                 tap1(51, 434)
                 isCheckLiZiNum = true
@@ -4356,7 +4381,7 @@ function zongHe1(...)
             else
                 tap1(20, 20)
             end
-        elseif isColor(42,331,0xbe78b9, 95) and isColor(48, 296, 0xffffff, 95) then
+        elseif isColor(42, 331, 0xbe78b9, 95) and isColor(48, 296, 0xffffff, 95) then
             debugA("交易界面")
             if isColor(656, 483, 0x111111, 95) and isColor(785, 510, 0x0c0c0c, 95) then
                 debugA("LOCK")
@@ -4523,7 +4548,7 @@ function zongHe1(...)
         elseif isColor(43, 343, 0x847b84, 95) and isColor(43, 296, 0xffffff, 95) then
             debugA("航母开发室--航母")
             -- if isShipBad == true then
-            if isColor(505, 110, 0x3e6b96, 95) == false and isColor(505,110,0x191c27,95) == false then
+            if isColor(505, 110, 0x3e6b96, 95) == false and isColor(505, 110, 0x191c27, 95) == false then
                 debugA("无航母")
                 tap1(20, 20)
                 if muBiaoA == mb_FixShip then
@@ -4531,31 +4556,31 @@ function zongHe1(...)
                 end
                 return
             end
-            if (isColor(505, 110, 0x3e6b96, 95) or isColor(505,110,0x191c27,95))-- 1号航母存在
+            if (isColor(505, 110, 0x3e6b96, 95) or isColor(505, 110, 0x191c27, 95)) -- 1号航母存在
                 and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
                 and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(491, 119, 0xffffff, 95) == false --不是0级
                 and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("1号来充电吧")
                 tap1(440, 263)
-            --elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
-            elseif (isColor(704, 110, 0x3e6b96, 95) or isColor(704,110,0x191c27,95))-- 2号航母存在
+                --elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
+            elseif (isColor(704, 110, 0x3e6b96, 95) or isColor(704, 110, 0x191c27, 95)) -- 2号航母存在
                 and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(690, 119, 0xffffff, 95) == false --不是0级
                 and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("2号来充电吧")
                 tap1(639, 263)
-            --elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
-            elseif (isColor(902, 110, 0x3e6b96, 95) or isColor(902,110,0x191c27,95))-- 3号航母存在
+                --elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
+            elseif (isColor(902, 110, 0x3e6b96, 95) or isColor(902, 110, 0x191c27, 95)) -- 3号航母存在
                 and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(888, 119, 0xffffff, 95) == false --不是0级
                 and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
                 debugA("3号来充电吧")
                 tap1(838, 263)
-            --elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
-            elseif (isColor(1079, 110, 0x3e6b96, 95) or isColor(1079,110,0x191c27,95))-- 4号航母存在
+                --elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
+            elseif (isColor(1079, 110, 0x3e6b96, 95) or isColor(1079, 110, 0x191c27, 95)) -- 4号航母存在
                 and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(1087, 119, 0xffffff, 95) == false --不是0级
@@ -4617,7 +4642,7 @@ function zongHe1(...)
             else
                 tap1(934, 609, 0x1c6eba) --库存
             end
-        elseif isColor(42,422,0x9a0de0,95) and isColor(38,403,0xffffff,95) then
+        elseif isColor(42, 422, 0x9a0de0, 95) and isColor(38, 403, 0xffffff, 95) then
             debugA("兑换界面")
             do
                 local temStr = ocrText(323, 297, 385, 312, 0, "0123465789,")
@@ -6979,7 +7004,7 @@ function chuHang()
             debugA("无体力")
             isKillPirate = false -- 不杀海盗
         end
-        if isColor(178,379,0x00ace4,95) and isColor(232,385,0x00798c,95) and isColor(380,383,0xa43b40,95) then
+        if isColor(178, 379, 0x00ace4, 95) and isColor(232, 385, 0x00798c, 95) and isColor(380, 383, 0xa43b40, 95) then
             debugA("粒子--左")
             numSearch = numSearch + 1
             tap1(492, 372)
@@ -6995,7 +7020,7 @@ function chuHang()
                 end
                 tap1(172, 525) -- 搜索
             end
-        elseif isColor(733,377,0x00ace4,95) and isColor(798,378,0x00798c,95) and isColor(939,376,0x9e393d,95) then
+        elseif isColor(733, 377, 0x00ace4, 95) and isColor(798, 378, 0x00798c, 95) and isColor(939, 376, 0x9e393d, 95) then
             debugA("粒子--右")
             numSearch = numSearch + 1
             tap1(1070, 372)
@@ -7655,7 +7680,7 @@ function waKuang()
             if timeXiangMu1 > nowTime then
                 debugA("timeXiangMu1 = nowTime")
                 timeXiangMu1 = nowTime
-            elseif numXiangMu == 1 and nowTime - timeXiangMu1 >= 10*60 then
+            elseif numXiangMu == 1 and nowTime - timeXiangMu1 >= 10 * 60 then
                 debugA("项目1 => 项目3")
                 -- if timeMinFruit == 0 then
                 --     local bool, kind = isFileExist(userPath() .. "/res/table_tree.txt")
@@ -7743,7 +7768,7 @@ function warReady()
             debugA("瞭望塔")
             tapBefore(1043, 99, 0x9f0f0f)
             mSleep(2000)
-            if isColor(932,354,0xfdfafa,95) and isColor(716,364,0x183d71,95) and isColor(867,403,0x161310,95) then
+            if isColor(932, 354, 0xfdfafa, 95) and isColor(716, 364, 0x183d71, 95) and isColor(867, 403, 0x161310, 95) then
                 debugA("NPC攻击")
                 for i = 1, 10, 1 do
                     vibratorNotice()
@@ -7769,7 +7794,8 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNewA(4, "战备跑路")
+                gaiMuBiaoNewA(4, "战备开盾")
+                -- gaiMuBiaoNewA(4, "战备跑路")
                 isAttacked = false
                 timeAttacked = nowTime
             elseif isColor(153, 251, 0xf5e9ea, 80) then
@@ -7808,7 +7834,8 @@ function warReady()
                     tap1(20, 20)
                     mSleep(1000)
                 end
-                gaiMuBiaoNewA(4, "战备跑路")
+                gaiMuBiaoNewA(4, "战备开盾")
+                -- gaiMuBiaoNewA(4, "战备跑路")
                 isAttacked = false
                 timeAttacked = nowTime
             else
@@ -7833,7 +7860,8 @@ function warReady()
             -- elseif isColor(151, 261, 0xfcf7f7, 80) then
             --     debug("攻击")
             --     tap1(20, 20)
-            --     gaiMuBiaoNew(4, "战备跑路")
+            -- gaiMuBiaoNewA(4, "战备开盾")
+            -- -- gaiMuBiaoNewA(4, "战备跑路")
             -- else
             --     tap1(20, 20)
             --     gaiMuBiaoNew(4, "")
@@ -7896,7 +7924,8 @@ function warReady()
             -- end
 
         elseif muBiaoA == "战备开盾" then
-            tap1(964, 581, 0xa74f22) --背包
+            -- tap1(964, 581, 0xa74f22) --背包
+            tap1(1015, 71, 0x0e1b2c) --基地加成
         end
     end
     if muBiaoA == "战备开盾" then
@@ -8481,8 +8510,11 @@ function huoDongDetail()
         debugA("预定活动")
         tap1(88, 182, 0x182637)
     elseif isColor(996, 281, 0xf18e07, 95) then
-        debugA("领取1--新")
+        debugA("领取1--新1")
         tap1(1000, 281)
+    elseif isColor(956, 270, 0xc97123, 95) and isColor(836, 162, 0xf08e03, 95) and isColor(1097, 313, 0xc97123, 95) then
+        debugA("领取1--新2")
+        tap1(1028, 293, 0xca7123)
     elseif isColor(1000, 258, 0x116eb9, 95) then
         debugA("领取1")
         tap1(1000, 267)
@@ -11156,12 +11188,12 @@ function bugFor()
         debugC("Notice")
         tap1(1034, 63, 0xffffff)
     end
-    if isColor(1088,141,0xffffff,95) and isColor(1101,141,0x73555b,95) then
+    if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
         debugC("右上角X")
-        tap1(1088,141)
+        tap1(1088, 141)
     end
-    if isColor(1037,67,0xffffff,95) and isColor(1051,67,0x73555b,95) then
+    if isColor(1037, 67, 0xffffff, 95) and isColor(1051, 67, 0x73555b, 95) then
         debugC("右上角X")
-        tap1(1037,67)
+        tap1(1037, 67)
     end
 end
