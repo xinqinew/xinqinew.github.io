@@ -2447,8 +2447,17 @@ function zongHe1(...)
     if isColor(222, 123, 0x4c4334, 95) and isColor(229, 123, 0x102846, 95) and isColor(265, 258, 0x81d2fc, 95) then
         debugA("加成信息")
         if muBiaoA == "战备开盾" then
-            if isColor(840, 181, 0x116eb9, 95) then
-                tap1(840, 181, 0x116eb9)--使用
+            if isColor(840, 181, 0x116eb9, 95) then --蓝色使用
+                tap1(840, 181, 0x116eb9) --使用
+                gaiMuBiaoNewA(4, "")
+                numTodayDefense = numTodayDefense + 1
+                writeJson("今日开盾次数", numTodayDefense)
+                numDefense = numDefense + 1
+                writeJson("开盾总次数", numDefense)
+            elseif isColor(817, 162, 0xf18e06, 95) then --黄色--购买及使用
+                tap1(840, 181, 0x116eb9) --购买
+                mSleep(1000)
+                tap1(656, 426, 0xd78b01) --确定
                 gaiMuBiaoNewA(4, "")
                 numTodayDefense = numTodayDefense + 1
                 writeJson("今日开盾次数", numTodayDefense)
@@ -7777,7 +7786,7 @@ function warReady()
                 mSleep(1000)
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
@@ -7788,7 +7797,7 @@ function warReady()
                 debugA("攻击2")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
@@ -7804,7 +7813,7 @@ function warReady()
                 mSleep(1000)
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
@@ -7817,7 +7826,7 @@ function warReady()
                 mSleep(1000)
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
@@ -7828,7 +7837,7 @@ function warReady()
                 debugA("攻击")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
@@ -7841,7 +7850,7 @@ function warReady()
             else
                 tap1(20, 20)
                 for i = 1, 10, 1 do
-                    if isColor(61, 296, 0xf8e7e7, 90) == false then
+                    if isColor(61, 83, 0xf8e9e9, 90) == false then
                         break
                     end
                     tap1(20, 20)
