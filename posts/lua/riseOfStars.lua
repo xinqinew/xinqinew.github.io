@@ -635,13 +635,13 @@ function newUi()
     UIEdit(4, "muBiaoC4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UIShow()
 
-    if check26 == "3级粒子"  then
-        numSeachLiZi = 3 
-    elseif check20 == "2级粒子"  then
-        numSeachLiZi = 2  
+    if check26 == "3级粒子" then
+        numSeachLiZi = 3
+    elseif check20 == "2级粒子" then
+        numSeachLiZi = 2
     else
         numSeachLiZi = 1
-    end  
+    end
     if check12 == "不挖粒子" then
         notWaLiZi = true
     else
@@ -2263,12 +2263,12 @@ function zongHe1(...)
         isColor(719, 462, 0x116eb9, 95) then
         if isColor(714, 311, 0x116eb9, 95) then
             debugA("移动至高级商店")
-            if numSeachLiZi==3   then
+            if numSeachLiZi == 3 then
                 isLiZied = false -- 粒子
-                numSeachLiZi=2
-            elseif numSeachLiZi==2   then
+                numSeachLiZi = 2
+            elseif numSeachLiZi == 2 then
                 isLiZied = false -- 粒子
-                numSeachLiZi=1
+                numSeachLiZi = 1
             else
                 isLiZied = true -- 粒子
             end
@@ -6283,13 +6283,13 @@ function chongZhiJiDiXianKuang()
     numSearch = 0
     isLiZied = false -- 粒子
     isJustBack = true
-    if check26 == "3级粒子"  then
-        numSeachLiZi = 3 
-    elseif check20 == "2级粒子"  then
-        numSeachLiZi = 2  
+    if check26 == "3级粒子" then
+        numSeachLiZi = 3
+    elseif check20 == "2级粒子" then
+        numSeachLiZi = 2
     else
         numSeachLiZi = 1
-    end  
+    end
     -- numSearchLiZi = 0
     numSearchLiZiSecond = 20
 
@@ -6817,20 +6817,20 @@ function chuHang()
             mSleep(1000)
             for i = 0, 1, 1 do
                 -- if check20 == "2级粒子" and isFalseLiZi2 == false then
-                if check26 == "3级粒子" and numSeachLiZi==3 then
+                if check26 == "3级粒子" and numSeachLiZi == 3 then
                     if isColor(895, 366, 0xffffff, 95) then --3级
 
-                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级
                         tap1(1059, 366) --  "+"   
-                    elseif isColor(838, 366, 0xffffff, 95) then --1级 
-                            tap1(1059, 366)  --  "+"  
-                            tap1(1059, 366)  --  "+"  
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级
+                        tap1(1059, 366) --  "+"  
+                        tap1(1059, 366) --  "+"  
                     end
-                    numSeachLiZi = 3--搜索粒子的等级
-                elseif check20 == "2级粒子" and numSeachLiZi==2 then
+                    numSeachLiZi = 3 --搜索粒子的等级
+                elseif check20 == "2级粒子" and numSeachLiZi == 2 then
                     if isColor(895, 366, 0xffffff, 95) then --3级
                         tap1(785, 366) --  "-" 
-                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级
 
                     elseif isColor(838, 366, 0xffffff, 95) then --1级
                         tap1(1059, 366) --  "+""  
@@ -6843,7 +6843,7 @@ function chuHang()
                     numSeachLiZi = 2
                 else
                     --if isColor(895, 366, 0xffffff, 95) then --3级
-                        --tap1(785, 366) --  -  2级
+                    --tap1(785, 366) --  -  2级
                     --end
                     if isColor(867, 366, 0xffffff, 95) then --2级
                         tap1(785, 366) --  -  1级
