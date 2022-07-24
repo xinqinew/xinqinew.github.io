@@ -454,7 +454,7 @@ function bianLiang()
     isPirateSub = true --海盗减号
     isKaSearch = false -- 卡搜索
     isBuyLiZi = true -- 买粒子
-    isLiZi = false -- 粒子
+    isLiZied = false -- 粒子
     isShengChan = true -- 生产标志
     isKillPirate = false -- 杀海盗
     isJiaSuProduce = false -- 加速生产
@@ -580,9 +580,9 @@ function newUi()
         0, "", 1, 3) -- 多选1
     -- UILabel(2, "---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck(2,
-        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25"
+        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25,check26"
         ,
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存"
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存,3级粒子"
         ,
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel(2, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
@@ -635,6 +635,13 @@ function newUi()
     UIEdit(4, "muBiaoC4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UIShow()
 
+    if check26 == "3级粒子"  then
+        numSeachLiZi = 3 
+    elseif check20 == "2级粒子"  then
+        numSeachLiZi = 2  
+    else
+        numSeachLiZi = 1
+    end  
     if check12 == "不挖粒子" then
         notWaLiZi = true
     else
@@ -2256,8 +2263,17 @@ function zongHe1(...)
         isColor(719, 462, 0x116eb9, 95) then
         if isColor(714, 311, 0x116eb9, 95) then
             debugA("移动至高级商店")
+            if numSeachLiZi==3   then
+                isLiZied = false -- 粒子
+                numSeachLiZi=2
+            elseif numSeachLiZi==2   then
+                isLiZied = false -- 粒子
+                numSeachLiZi=1
+            else
+                isLiZied = true -- 粒子
+            end
             tap1(510, 592, 0x0c0c0e) --关闭
-            isLiZi = true -- 粒子
+            -- isLiZied = true -- 粒子
             tap1(172, 525) -- 搜索
         else
             debugA("通过以下途径获得以下道具")
@@ -5922,7 +5938,7 @@ end
 
 --震动提醒
 function vibratorNotice()
-    if nowDateTime.hour >= 0 then
+    if nowDateTime.hour >= 8 then
         for j = 1, 5, 1 do
             vibrator(); -- 振动
             mSleep(1000);
@@ -6265,8 +6281,15 @@ function chongZhiJiDiXianKuang()
     timeInside = nowTime
 
     numSearch = 0
-    isLiZi = false -- 粒子
+    isLiZied = false -- 粒子
     isJustBack = true
+    if check26 == "3级粒子"  then
+        numSeachLiZi = 3 
+    elseif check20 == "2级粒子"  then
+        numSeachLiZi = 2  
+    else
+        numSeachLiZi = 1
+    end  
     -- numSearchLiZi = 0
     numSearchLiZiSecond = 20
 
@@ -6327,7 +6350,7 @@ function zhuXian()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
-                isLiZi = true
+                isLiZied = true
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(919, 373, 0xa43b40, 95) and isColor(1028, 386, 0xa43b40, 95) and isColor(643, 371, 0x00ace4, 95) then
@@ -6337,7 +6360,7 @@ function zhuXian()
             mSleep(1000)
             if isColor(1092, 79, 0x577ea6, 95) then
                 debugA("粒子已在挖")
-                isLiZi = true
+                isLiZied = true
                 tap1(172, 525) -- 搜索
             end
         elseif isColor(497, 383, 0x00798c, 95) and isColor(116, 377, 0x00ace4, 95) then
@@ -6419,13 +6442,13 @@ function zhuXian()
                     tap1(20, 20)
                 end
             end
-            isLiZi = true -- 粒子
+            isLiZied = true -- 粒子
             -- timeLiZi = nowTime
         elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95))
             or (isColor(634, 157, 0x38b3ca, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isShipBad = true
-            isLiZi = true -- 粒子
+            isLiZied = true -- 粒子
             tap1(20, 20)
             mSleep(1000)
             tap1(1074, 582) -- 回基地
@@ -6472,7 +6495,7 @@ function chuHang()
             isFalseLiZi2 = false
             tap1(842, 594, 0xd78b02) -- 出航
             mSleep(1000)
-            isLiZi = true -- 粒子
+            isLiZied = true -- 粒子
 
 
             numTodayDigLiZi = numTodayDigLiZi + 1
@@ -6486,19 +6509,18 @@ function chuHang()
                 end
             elseif isColor(848, 594, 0xd68b02, 95) then -- 出航失败
                 tap1(20, 20)
-                isLiZi = false -- 粒子
+                isLiZied = false -- 粒子
                 numTodayDigLiZi = numTodayDigLiZi - 1
                 numDigLiZi = numDigLiZi - 1
             end
             writeJson("今日粒子次数", numTodayDigLiZi)
             writeJson("粒子总次数", numDigLiZi)
 
-        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95))
-            or (isColor(634, 157, 0x38b3ca, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
+        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isFalseLiZi2 = false
             isShipBad = true
-            isLiZi = true -- 粒子
+            isLiZied = true -- 粒子
             tap1(20, 20)
             mSleep(1000)
             tap1(1074, 582) -- 回基地
@@ -6790,20 +6812,39 @@ function chuHang()
                     isKillPirate = false
                 end
             end
-        elseif isLiZi == false then
+        elseif isLiZied == false then
             tap1(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 0, 1, 1 do
                 -- if check20 == "2级粒子" and isFalseLiZi2 == false then
-                if check20 == "2级粒子" then
-                    if isColor(838, 366, 0xffffff, 95) then --1级
-                        tap1(1059, 366) --  +  2级
+                if check26 == "3级粒子" and numSeachLiZi==3 then
+                    if isColor(895, 366, 0xffffff, 95) then --3级
+
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
+                        tap1(1059, 366) --  "+"   
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级 
+                            tap1(1059, 366)  --  "+"  
+                            tap1(1059, 366)  --  "+"  
                     end
+                    numSeachLiZi = 3--搜索粒子的等级
+                elseif check20 == "2级粒子" and numSeachLiZi==2 then
+                    if isColor(895, 366, 0xffffff, 95) then --3级
+                        tap1(785, 366) --  "-" 
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
+
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级
+                        tap1(1059, 366) --  "+""  
+                    end
+
                     -- elseif check20 == "2级粒子" and isFalseLiZi2 == true then
                     --     if isColor(867, 366, 0xffffff, 95) then --2级
                     --         tap1(785, 366) --  -  1级
                     --     end
+                    numSeachLiZi = 2
                 else
+                    --if isColor(895, 366, 0xffffff, 95) then --3级
+                        --tap1(785, 366) --  -  2级
+                    --end
                     if isColor(867, 366, 0xffffff, 95) then --2级
                         tap1(785, 366) --  -  1级
                     end
@@ -7023,9 +7064,9 @@ function chuHang()
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    isLiZi = true
+                    isLiZied = true
                 else
-                    isLiZi = true
+                    isLiZied = true
                 end
                 tap1(172, 525) -- 搜索
             end
@@ -7039,9 +7080,9 @@ function chuHang()
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    isLiZi = true
+                    isLiZied = true
                 else
-                    isLiZi = true
+                    isLiZied = true
                 end
                 tap1(172, 525) -- 搜索
             end
@@ -7055,9 +7096,9 @@ function chuHang()
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    isLiZi = true
+                    isLiZied = true
                 else
-                    isLiZi = true
+                    isLiZied = true
                 end
                 tap1(172, 525) -- 搜索
             end
@@ -7075,9 +7116,9 @@ function chuHang()
                 if check20 == "2级粒子" and isFalseLiZi2 == false then
                     isFalseLiZi2 = true
                 elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    isLiZi = true
+                    isLiZied = true
                 else
-                    isLiZi = true
+                    isLiZied = true
                 end
                 tap1(172, 525) -- 搜索
             end
@@ -7154,11 +7195,11 @@ function isRewardLiZi()
     -- if nowTime - timeLiZi >= 3 * 60 then
     debugA("判断是否有队伍在采集粒子--超过3分钟")
     if notWaLiZi == true then
-        isLiZi = true
+        isLiZied = true
         return true
     end
     if haoLV <= 2 then
-        isLiZi = true
+        isLiZied = true
         return false
     else
         numLiZiTeam = 0
@@ -7182,7 +7223,7 @@ function isRewardLiZi()
                         isBug_LiZi = false -- bug 粒子
                     end
                     debugA("isLiZi = true")
-                    isLiZi = true
+                    isLiZied = true
                     return true
                 end
             end
@@ -7204,7 +7245,7 @@ function isRewardLiZi()
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
                     end
-                    isLiZi = true
+                    isLiZied = true
                     return true
                 end
             end
@@ -7223,7 +7264,7 @@ function isRewardLiZi()
                 end
                 numLiZiTeam = numLiZiTeam + 1
                 if numLiZiTeam >= tonumber(numShip) then
-                    isLiZi = true
+                    isLiZied = true
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
                     end
@@ -7245,7 +7286,7 @@ function isRewardLiZi()
                 end
                 numLiZiTeam = numLiZiTeam + 1
                 if numLiZiTeam >= tonumber(numShip) then
-                    isLiZi = true
+                    isLiZied = true
                     if check16 ~= "vip8" then
                         isBug_LiZi = false -- bug 粒子
                     end
@@ -7263,7 +7304,7 @@ function isRewardLiZi()
         if check16 ~= "vip8" then
             isBug_LiZi = true -- bug 粒子
         end
-        isLiZi = false
+        isLiZied = false
         return false
     end
     -- else
@@ -7347,7 +7388,7 @@ function searchLiZi()
                                 numSearchLiZi = 0
                             end
                             writeJson("粒子方向", numSearchLiZi)
-                            isLiZi = true
+                            isLiZied = true
                             if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                 tap1(490, 431)
                             end
@@ -7373,7 +7414,7 @@ function searchLiZi()
                                     numSearchLiZi = 0
                                 end
                                 writeJson("粒子方向", numSearchLiZi)
-                                isLiZi = true
+                                isLiZied = true
                                 if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
                                     tap1(490, 431)
                                 end
@@ -7390,7 +7431,7 @@ function searchLiZi()
                             numSearchLiZi = 0
                         end
                         writeJson("粒子方向", numSearchLiZi)
-                        isLiZi = true
+                        isLiZied = true
                         return
                     elseif isColor(1106, 574, 0xd88b00, 95) then
                         debugA("这是海盗,不是粒子")
@@ -7436,7 +7477,7 @@ function searchLiZi()
                     numSearchLiZi = numSearchLiZi + 1
                     if numSearchLiZi == 7 then
                         numSearchLiZi = 0
-                        isLiZi = true
+                        isLiZied = true
                         isBug_LiZi = false
                     end
                     writeJson("粒子方向", numSearchLiZi)
