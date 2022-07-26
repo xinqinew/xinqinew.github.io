@@ -580,9 +580,9 @@ function newUi()
         0, "", 1, 3) -- 多选1
     -- UILabel(2, "---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck(2,
-        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25,check26"
+        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25,check26,check27"
         ,
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存,3级粒子"
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存,3级粒子,1级粒子"
         ,
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel(2, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
@@ -635,13 +635,13 @@ function newUi()
     UIEdit(4, "muBiaoC4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UIShow()
 
-    if check26 == "3级粒子" then
-        numSeachLiZi = 3
-    elseif check20 == "2级粒子" then
-        numSeachLiZi = 2
-    else
+    if check26 == "3级粒子"  then
+        numSeachLiZi = 3 
+    elseif check20 == "2级粒子"  then
+        numSeachLiZi = 2  
+    elseif check27 == "1级粒子"  then
         numSeachLiZi = 1
-    end
+    end  
     if check12 == "不挖粒子" then
         notWaLiZi = true
     else
@@ -2263,12 +2263,33 @@ function zongHe1(...)
         isColor(719, 462, 0x116eb9, 95) then
         if isColor(714, 311, 0x116eb9, 95) then
             debugA("移动至高级商店")
-            if numSeachLiZi == 3 then
-                isLiZied = false -- 粒子
-                numSeachLiZi = 2
-            elseif numSeachLiZi == 2 then
-                isLiZied = false -- 粒子
-                numSeachLiZi = 1
+            if numSeachLiZi==3  then
+                if  check20 == "2级粒子" then
+                    numSeachLiZi=2
+                    isLiZied = false -- 粒子
+                elseif  check27 == "1级粒子"  then
+                    numSeachLiZi=1
+                    isLiZied = false -- 粒子
+                else
+                    isLiZied = true -- 粒子
+                end
+            elseif numSeachLiZi==2 then
+                --if  check26 == "3级粒子" then
+                   -- numSeachLiZi=3
+                if  check27 == "1级粒子"  then
+                    numSeachLiZi=1
+                    isLiZied = false -- 粒子
+                else
+                    isLiZied = true -- 粒子
+                end
+                
+            elseif numSeachLiZi==1 then
+                --if  check26 == "3级粒子" then
+                    --numSeachLiZi=3
+                --elseif  check20 == "2级粒子"  then
+                    --numSeachLiZi=2
+                --end
+                isLiZied = true -- 粒子     
             else
                 isLiZied = true -- 粒子
             end
@@ -4585,7 +4606,8 @@ function zongHe1(...)
                 and isColor(440, 263, 0xffffff, 95) == false -- 没在充电
                 and isColor(410, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(491, 119, 0xffffff, 95) == false --不是0级
-                and isColor(440, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(440, 281, 0xffffff, 95) == false  -- 没在使用
+                and isColor(596-199,290,0xe4e4e5,95) == false then  --没在满期
                 debugA("1号来充电吧")
                 tap1(440, 263)
                 --elseif isColor(704, 110, 0x3e6b96, 95) -- 2号航母存在
@@ -4593,7 +4615,8 @@ function zongHe1(...)
                 and isColor(639, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(609, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(690, 119, 0xffffff, 95) == false --不是0级
-                and isColor(639, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(639, 281, 0xffffff, 95) == false  -- 没在使用
+                and isColor(596,290,0xe4e4e5,95) == false then  --没在满期
                 debugA("2号来充电吧")
                 tap1(639, 263)
                 --elseif isColor(902, 110, 0x3e6b96, 95) -- 3号航母存在
@@ -4601,7 +4624,8 @@ function zongHe1(...)
                 and isColor(838, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(808, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(888, 119, 0xffffff, 95) == false --不是0级
-                and isColor(838, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(838, 281, 0xffffff, 95) == false  -- 没在使用
+                and isColor(795,290,0xe4e4e5,95) == false then  --没在满期
                 debugA("3号来充电吧")
                 tap1(838, 263)
                 --elseif isColor(1079, 110, 0x3e6b96, 95) -- 4号航母存在
@@ -4609,7 +4633,8 @@ function zongHe1(...)
                 and isColor(1036, 256, 0xffffff, 95) == false -- 没在充电
                 and isColor(1006, 271, 0xffffff, 95) == false -- 没在升阶
                 and isColor(1087, 119, 0xffffff, 95) == false --不是0级
-                and isColor(1036, 281, 0xffffff, 95) == false then -- 没在使用
+                and isColor(1036, 281, 0xffffff, 95) == false  -- 没在使用
+                and isColor(993,290,0xe4e4e5,95) == false then  --没在满期
                 debugA("4号来充电吧")
                 tap1(1036, 263)
             else
@@ -6283,13 +6308,13 @@ function chongZhiJiDiXianKuang()
     numSearch = 0
     isLiZied = false -- 粒子
     isJustBack = true
-    if check26 == "3级粒子" then
-        numSeachLiZi = 3
-    elseif check20 == "2级粒子" then
-        numSeachLiZi = 2
-    else
+    if check26 == "3级粒子"  then
+        numSeachLiZi = 3 
+    elseif check20 == "2级粒子"  then
+        numSeachLiZi = 2  
+    elseif check27 == "1级粒子"  then
         numSeachLiZi = 1
-    end
+    end  
     -- numSearchLiZi = 0
     numSearchLiZiSecond = 20
 
@@ -6444,8 +6469,7 @@ function zhuXian()
             end
             isLiZied = true -- 粒子
             -- timeLiZi = nowTime
-        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95))
-            or (isColor(634, 157, 0x38b3ca, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
+        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isShipBad = true
             isLiZied = true -- 粒子
@@ -6516,7 +6540,8 @@ function chuHang()
             writeJson("今日粒子次数", numTodayDigLiZi)
             writeJson("粒子总次数", numDigLiZi)
 
-        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95)) then
+        elseif (isColor(634, 157, 0x38b3c8, 95) and isColor(518, 160, 0xa0bfee, 95) and isColor(596, 53, 0x5f9ede, 95)) 
+            or (isColor(634, 157, 0x36b2c7, 95) and isColor(550, 127, 0xffffff, 95) and isColor(596, 53, 0x5f9ede, 95)) then
             debugA("挖粒子,没航母,航母坏了")
             isFalseLiZi2 = false
             isShipBad = true
@@ -6817,37 +6842,34 @@ function chuHang()
             mSleep(1000)
             for i = 0, 1, 1 do
                 -- if check20 == "2级粒子" and isFalseLiZi2 == false then
-                if check26 == "3级粒子" and numSeachLiZi == 3 then
+                if check26 == "3级粒子" and numSeachLiZi==3 then
                     if isColor(895, 366, 0xffffff, 95) then --3级
 
-                    elseif isColor(867, 366, 0xffffff, 95) then --2级
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
                         tap1(1059, 366) --  "+"   
-                    elseif isColor(838, 366, 0xffffff, 95) then --1级
-                        tap1(1059, 366) --  "+"  
-                        tap1(1059, 366) --  "+"  
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级 
+                            tap1(1059, 366)  --  "+"  
+                            tap1(1059, 366)  --  "+"  
                     end
-                    numSeachLiZi = 3 --搜索粒子的等级
-                elseif check20 == "2级粒子" and numSeachLiZi == 2 then
+                    numSeachLiZi = 3--搜索粒子的等级
+                elseif check20 == "2级粒子" and numSeachLiZi==2 then
                     if isColor(895, 366, 0xffffff, 95) then --3级
                         tap1(785, 366) --  "-" 
-                    elseif isColor(867, 366, 0xffffff, 95) then --2级
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
 
                     elseif isColor(838, 366, 0xffffff, 95) then --1级
                         tap1(1059, 366) --  "+""  
                     end
-
-                    -- elseif check20 == "2级粒子" and isFalseLiZi2 == true then
-                    --     if isColor(867, 366, 0xffffff, 95) then --2级
-                    --         tap1(785, 366) --  -  1级
-                    --     end
                     numSeachLiZi = 2
-                else
-                    --if isColor(895, 366, 0xffffff, 95) then --3级
-                    --tap1(785, 366) --  -  2级
-                    --end
-                    if isColor(867, 366, 0xffffff, 95) then --2级
-                        tap1(785, 366) --  -  1级
+                elseif check27 == "1级粒子" and numSeachLiZi==1 then
+                    if isColor(895, 366, 0xffffff, 95) then --3级
+                        tap1(785, 366) --  "-" 
+                        tap1(785, 366) --  "-"
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级
+                        tap1(785, 366) --  "-"
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级
                     end
+                    numSeachLiZi = 1
                 end
                 if isColor(874, 430, 0x116eb9, 95) then
                     tap1(925, 431, 0x075ea8) -- 搜索
