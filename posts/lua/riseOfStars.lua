@@ -451,6 +451,7 @@ function bianLiang()
     RGB_NoticeFont = "FFFFFF" -- "FF0000"
     strNotice = "..."
 
+    isJiKu = false --机库
     isPirateSub = true --海盗减号
     isKaSearch = false -- 卡搜索
     isBuyLiZi = true -- 买粒子
@@ -504,6 +505,7 @@ function bianLiang()
     numYunDaMa = 0 -- 云打码
 
     nowTime = os.time();
+    timeJiKu = nowTime - 60*60*2  --库存间隔时间
     timeXiangMu1 = nowTime + 60 * 60 * 24 --项目1已闲置时间
     timeCheckLiZiNum = nowTime - 60 * 60 * 1 --定时检查粒子数量
     timeShengJiTongXingZheng = nowTime --升级通行证
@@ -616,6 +618,11 @@ function newUi()
         , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
+    UICheck(4,
+        "checkCook,checkEgg,checkRice"
+        , "烹饪,鸡汤,蛋包饭"
+        , "0", -1, 0,
+        "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     -- UIEdit(4, "rangeY1", "Y1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
     -- UIEdit(4, "rangeX2", "X2", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -628,7 +635,7 @@ function newUi()
     UIEdit(4, "muBiaoC1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
     UILabel(4, "目标2 无,种植,等待收割", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(4, "muBiaoC2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
-    UILabel(4, "目标3 无", 10, "left", "72,61,139"
+    UILabel(4, "目标3 无,烹饪", 10, "left", "72,61,139"
         , -1, 0, "center")
     UIEdit(4, "muBiaoC3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
     UILabel(4, "目标4 无", 10, "left", "72,61,139", -1, 0, "center")
@@ -2122,6 +2129,10 @@ function zongHe1(...)
         debugA("今天不再观看")
         tap1(911, 589, 0x3e5c7f)
     end
+    if isColor(229,73,0xff6600,95) and isColor(655,127,0x4a9ce9,95) and isColor(205,214,0x9ca0a4,95) and isColor(1071,577,0x215da6,95) then
+        debugA("误开NFT")
+        tap1(511,603)
+    end
     if isColor(94, 87, 0xa5b6ca, 95) and isColor(118, 81, 0x4e78aa, 95) and isColor(108, 542, 0xd78b01, 95) then
         debugA("库存战舰")
         if isColor(897, 539, 0x2a394c, 95) then --未库存
@@ -3166,9 +3177,9 @@ function zongHe1(...)
             debugA("技术研究--休息中")
             tap1(996, 177)
             gaiMuBiaoNewA(3, "研究")
-        elseif check25 == "库存" and isColor(953, 303, 0x306090, 95) then
-            debugA("机库--休息中")
-            tap1(982, 276, 0x306090)
+        --elseif check25 == "库存" and isColor(953, 303, 0x306090, 95) then
+            --debugA("机库--休息中")
+            --tap1(982, 276, 0x306090)
         elseif muBiaoA1 == mb_WaKuang then
 
         else
@@ -3827,6 +3838,11 @@ function zongHe1(...)
                 debugA("点击交易所")
                 tap1(42, 331)
                 return
+            elseif haoLV >= 3 and isJiKu == true and isColor(62,338,0x245459, 95) then  
+                debugA("机库升级界面")
+                tap1(62,338)
+                isJiKu = false
+                return  
             elseif haoLV >= 3 and isCheckLiZiNum == false and isColor(42, 331, 0xbe78b9, 95) then
                 debugA("交易所--点击兑换")
                 tap1(51, 434)
@@ -4890,7 +4906,7 @@ function zongHe1(...)
             tap1(20, 20)
         end
     end
-    if isColor(33, 45, 0xff6600, 95) and isColor(77, 149, 0x55aeff, 95) and isColor(1094, 559, 0x6e899b, 95) then
+    if isColor(33, 45, 0xff6600, 95) and isColor(77, 149, 0x55aeff, 95) and isColor(1094, 559, 0x7088a9, 95) then
         debugA("战绩")
         if isColor(141, 490, 0xf49a16, 95) then
             tap1(141, 490)
@@ -5554,7 +5570,13 @@ function checkRed1()
         end
         -- tap1(20, 20)
         isEatEXP = true
-        writeJson("吃经验", isEatEXP)
+        writeJson("吃经验", isEatEXP)  
+    elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and nowTime - timeJiKu >=60*60*2  and haoLV >= 2 then
+        debugA("机库")
+        tap1(783,137,0xff2a58  )
+        timeJiKu = nowTime
+        isJiKu = true
+        return true
     elseif isColor(844, 379, 0xffffff, 95) and isColor(857, 380, 0xffffff, 95) then
         debugA("档案")
         tap1(844, 379, 0xffffff)
@@ -9345,6 +9367,11 @@ function main3()
 end
 
 function zongHe3()
+    if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
+        debugC("restaurant")    
+        gaiMuBiaoNewC(4, "烹饪") 
+        debugC("改目标为烹饪")  
+    end
     if isColor(435, 483, 0x6a6a6a, 95) and isColor(724, 106, 0xffffff, 95) then
         debugC("误开材料不足")
         tap1(724, 106)
@@ -9757,7 +9784,7 @@ function doTarget3()
         task3_zhuXian()
     elseif muBiaoC == "支线" then
         task3_zhiXian()
-    elseif muBiaoC == "挂机" or muBiaoC == "种植" or muBiaoC == "等待收割" then
+    elseif muBiaoC == "挂机" or muBiaoC == "种植" or muBiaoC == "等待收割" or muBiaoC == "烹饪" then
         task3_guaJi()
     end
     -- debug("目标："..muBiao)
@@ -9773,11 +9800,54 @@ function task3_zhiXian()
 
 end
 
+-- cook
+function cook()
+    if isColor(87,536,0x563e43,95) and isColor(108,574,0x79c01b,95) and isColor(181,548,0xffffff,95) then
+        debugC("finished")
+        tap1(155,556)--finished    
+    end
+    if isColor(92,565,0x5ccdff,95) and isColor(80,548,0xb24c02,95) and isColor(186,561,0x2f4e94,95) then
+        debugC("Go Cook")
+        tap1(155,556)
+    end
+    if isColor(536,460,0x7ac01c,95) and isColor(565,455,0xffffff,95) and isColor(572,455,0x76b255,95) then
+        debugC("Ok")
+        tap1(572,455)
+    end
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(58,312,0x5ccdff,95) then
+        debugC("Menu")
+        tap1(858,205)--SORt
+        tap1(618,168)--开放
+    end
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(58,312,0x5ccdff,95) then
+        debugC("选套餐")
+        for i=1,10,1 do
+            x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
+            if x> 0 then
+                tap1(x,y)--坐标
+                tap1(557,538,0x70a1d6        )--Cook
+                tap1(1089,139)--右上角关闭
+                break
+            else
+                --拖动
+                debugC("拖动菜单")
+                touchMoveXY(801, 631, 499, 631)
+                -- touchMoveXY(801, 321, 499, 321)
+                mSleep(1000)
+            end
+        end
+
+    end
+end
+
 -- task3_挂机
 function task3_guaJi()
     if muBiaoC == "挂机" then
-        gaiMuBiaoNewC(2, "种植")
+        gaiMuBiaoNewC(2, "种植")---
         debugC("改目标为种植2")
+    elseif  muBiaoC == "烹饪" then
+        cook()
+        
     elseif muBiaoC == "种植" then
         if findHouse() == 0 then
             return
@@ -11261,11 +11331,15 @@ function bugFor()
         tap1(1034, 63, 0xffffff)
     end
     if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
-        debugC("右上角X")
-        tap1(1088, 141)
+        debugC("右上角X1")
+        if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
+            debugC("restaurant")    
+        else
+            tap1(1088, 141)
+        end
     end
     if isColor(1037, 67, 0xffffff, 95) and isColor(1051, 67, 0x73555b, 95) then
-        debugC("右上角X")
+        debugC("右上角X2")
         tap1(1037, 67)
     end
 end
