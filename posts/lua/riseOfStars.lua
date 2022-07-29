@@ -505,7 +505,7 @@ function bianLiang()
     numYunDaMa = 0 -- 云打码
 
     nowTime = os.time();
-    timeJiKu = nowTime - 60*60*2  --库存间隔时间
+    timeJiKu = nowTime - 60 * 60 * 1  --库存间隔时间
     timeXiangMu1 = nowTime + 60 * 60 * 24 --项目1已闲置时间
     timeCheckLiZiNum = nowTime - 60 * 60 * 1 --定时检查粒子数量
     timeShengJiTongXingZheng = nowTime --升级通行证
@@ -5571,7 +5571,7 @@ function checkRed1()
         -- tap1(20, 20)
         isEatEXP = true
         writeJson("吃经验", isEatEXP)  
-    elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and nowTime - timeJiKu >=60*60*2  and haoLV >= 2 then
+    elseif isColor(528, 253, 0x37664f, 95) and isJustBack == true and nowTime - timeJiKu >=60 * 60 * 1  and haoLV >= 2 then
         debugA("机库")
         tap1(783,137,0xff2a58  )
         timeJiKu = nowTime
@@ -7799,7 +7799,7 @@ function BeAttack()
         timeAttacked = nowTime
         gaiMuBiaoNewA(4, "")
     end
-    if haoLV == 3 and numLiZi >= 100000 then
+    if haoLV == 3 and numLiZi >= 80000 then
         if isColor(0, 0, 0x904f6b, 95) or isColor(0, 0, 0x95445c, 95) or isColor(0, 0, 0x924963, 95) or
             isColor(0, 0, 0xd13f00, 95) or isColor(0, 0, 0x76151a, 95) or isColor(1135, 639, 0x6a060a, 95) or
             isColor(0, 0, 0xb00101, 95) then
@@ -7854,11 +7854,11 @@ function warReady()
         debugA("基地外--战备")
         tap(1077, 579)
     end
-    if (isColor(964, 581, 0xa55927, 95) and isColor(1018, 543, 0x744218, 95) and isColor(1058, 581, 0xffffff, 95)) or
+    if (isColor(964, 581, 0xa55927, 95) and isColor(1018, 543, 0x744218, 95) and isColor(1058, 581, 0xffffff, 95)) or     --背包 SECTOR左上角  C的颜色
         (isColor(964, 581, 0xa74f22, 95) and isColor(1018, 543, 0x7b3b15, 95) and isColor(1058, 581, 0xf5dddd, 95)) then
         debugA("基地内--战备")
         -- mSleep(3000)
-        if muBiaoA == "战备" and isColor(1043, 99, 0x9f0f0f, 95) then
+        if muBiaoA == "战备" and isColor(1043, 99, 0x9f0f0f, 95) then     --瞭望塔红点
             debugA("瞭望塔")
             tapBefore(1043, 99, 0x9f0f0f)
             mSleep(2000)
@@ -7878,8 +7878,8 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(161, 542, 0xfaefef, 95) then
-                debugA("攻击2")
+            elseif isColor(164,284,0xb1adb4,95) and isColor(166,274,0xc2bdc2,95) and isColor(426,378,0xcd631c,95) then
+                debugA("攻击2 侦察在上面")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
                     if isColor(61, 83, 0xf8e9e9, 90) == false then
@@ -7892,7 +7892,7 @@ function warReady()
                 -- gaiMuBiaoNewA(4, "战备跑路")
                 isAttacked = false
                 timeAttacked = nowTime
-            elseif isColor(153, 251, 0xf5e9ea, 80) then
+            elseif isColor(546,99,0xd8cfd1,95) and isColor(579,106,0x9a98a1,95) and isColor(426,192,0xca631f,95) and isColor(571,116,0xded5d7,95) then
                 debugA("侦察")
                 tap1(486, 82, 0xfcf6f6)
                 mSleep(1000)
@@ -7905,7 +7905,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(455, 248, 0xdcc8c5, 95) then
+            elseif isColor(430,189,0xe1a0a3,95) then
                 debugA("矿被打")
                 tap1(486, 82, 0xfcf6f6)
                 mSleep(1000)
@@ -7918,7 +7918,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(161, 277, 0xfcf4f5, 80) then
+            elseif isColor(541,101,0xc2bfc3,95) and isColor(571,99,0xf0e8e8,95) and isColor(426,192,0xcb641f,95) and isColor(552,108,0x4a5465,95) then
                 debugA("攻击")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
