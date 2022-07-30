@@ -7,7 +7,14 @@
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>区分热电阻与热电偶.md</title>
+    <title>雷达料位计</title>
+    <link>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</link>
+    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</guid>
+    <description><![CDATA[雷达料位计 高级功能 密码350015 （选中“信息”，Esc+ok同时按） 阻尼时间 60s 填充速度和排放速度 都是5m/min 盲区 2.9米 窗体跟踪（高级]]></description>
+</item><item>
+    <title>区分热电阻与热电偶</title>
     <link>https://xinqinew.github.io/2022/07/%E5%8C%BA%E5%88%86%E7%83%AD%E7%94%B5%E9%98%BB%E4%B8%8E%E7%83%AD%E7%94%B5%E5%81%B6/</link>
     <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
@@ -20,6 +27,13 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E5%81%B6%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
     <description><![CDATA[引用视频 一、热电势比实际值小（显示仪表指示值偏低） 热电极短路 找出短路原因，如因潮湿所致，则需要进行干燥； 如因绝缘子损坏所致，则需要更换绝缘子]]></description>
+</item><item>
+    <title>热电阻常见故障</title>
+    <link>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E9%98%BB%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
+    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E9%98%BB%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
+    <description><![CDATA[引用视频 计算方法 温度T 阻值R $$ T = （R-100）/0.385 $$ 例如：测得某热电阻阻值为137.5，则温度为 $$ T=(137.5-100)/0.385=97.4 $$ 故障处理 原则：根据原理分析，]]></description>
 </item><item>
     <title>03-Cycript</title>
     <link>https://xinqinew.github.io/2022/06/03-cycript/</link>
@@ -70,23 +84,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>CreateThread 1 m_AcountManageThread = CreateThread(NULL, NULL, ThreadProc, this, 0, NULL);//创建线程 AfxBeginThread (MFC专用) 1 2 //创建线程 大漠的DMInitThread AfxBeginThread(DMInitThread, this, THREAD_PRIORITY_NORMAL, 0, 0, NULL); _beginthreadex 1 m_hThreadHandle = (HANDLE)::_beginthreadex(NULL, 0, ThreadFunction, this, 0, &amp;m_uThreadID); //]]></description>
-</item><item>
-    <title>C&#43;&#43; select分析1</title>
-    <link>https://xinqinew.github.io/2022/01/c-select%E5%88%86%E6%9E%901/</link>
-    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/c-select%E5%88%86%E6%9E%901/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>目录 服务端升级为select模型 Socket的select模型 客户端转为Select模型 服务端升级为select模型 Socket的selec]]></description>
-</item><item>
-    <title>C&#43;&#43; static静态成员变量</title>
-    <link>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</link>
-    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>对象的内存中包含了成员变量，不同的对象占用不同的内存，这使得不同对象的成员变量相互独立，它们的值不受其他对象的影响。例如有两个相同类型的对象]]></description>
 </item></channel>
 </rss>
