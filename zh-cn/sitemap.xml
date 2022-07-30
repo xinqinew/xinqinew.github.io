@@ -2,6 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E5%81%B6%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://xinqinew.github.io/posts/%E4%BB%AA%E8%A1%A8/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://xinqinew.github.io/2022/06/03-cycript/</loc><lastmod>2022-06-27T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2022/02/%E5%A4%9C%E9%A3%8E_%E6%9D%A5%E8%A2%AD-c-%E9%80%86%E5%90%91/</loc><lastmod>2022-02-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -55,9 +57,7 @@
             <loc>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/</loc><lastmod>2021-12-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</loc><lastmod>2021-12-17T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/posts/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/2021/12/_index-copy/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/12/%E5%BE%85%E6%95%B4%E7%90%86/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/2021/12/%E7%83%AD%E7%94%B5%E5%81%B6%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/12/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B20-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</loc><lastmod>2021-12-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/12/hook/</loc><lastmod>2021-12-06T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/12/lxl%E8%A7%92%E8%89%B2%E4%BF%A1%E6%81%AF%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/</loc><lastmod>2021-12-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -303,28 +303,7 @@
             <loc>https://xinqinew.github.io/2021/08/win10%E6%90%AD%E5%BB%BAftp/</loc><lastmod>2021-08-22T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/2021/08/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%8F%98%E6%9C%AC%E5%9C%B0%E7%A1%AC%E7%9B%98-mac%E7%89%88/</loc><lastmod>2021-08-22T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/posts/other/</loc><lastmod>2021-08-22T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/</loc><lastmod>2022-06-27T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://xinqinew.github.io/en/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://xinqinew.github.io/"
-                    /></url><url>
-            <loc>https://xinqinew.github.io/tags/iphone/</loc><lastmod>2022-06-27T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://xinqinew.github.io/tags/</loc><lastmod>2022-06-27T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://xinqinew.github.io/en/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://xinqinew.github.io/tags/"
-                    /></url><url>
-            <loc>https://xinqinew.github.io/tags/c&#43;&#43;/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/categories/c&#43;&#43;/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/categories/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://xinqinew.github.io/categories/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://xinqinew.github.io/en/categories/"
@@ -333,6 +312,31 @@
                     hreflang="zh-cn"
                     href="https://xinqinew.github.io/categories/"
                     /></url><url>
+            <loc>https://xinqinew.github.io/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://xinqinew.github.io/en/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://xinqinew.github.io/"
+                    /></url><url>
+            <loc>https://xinqinew.github.io/tags/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://xinqinew.github.io/en/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://xinqinew.github.io/tags/"
+                    /></url><url>
+            <loc>https://xinqinew.github.io/tags/%E5%BE%85%E6%95%B4%E7%90%86/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://xinqinew.github.io/categories/%E5%BE%85%E6%95%B4%E7%90%86/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://xinqinew.github.io/tags/%E4%BB%AA%E8%A1%A8/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://xinqinew.github.io/categories/%E4%BB%AA%E8%A1%A8/</loc><lastmod>2022-07-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://xinqinew.github.io/tags/iphone/</loc><lastmod>2022-06-27T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://xinqinew.github.io/tags/c&#43;&#43;/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://xinqinew.github.io/categories/c&#43;&#43;/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/socket/</loc><lastmod>2022-04-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/home-assistant/</loc><lastmod>2022-03-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/%E5%A4%9C%E9%A3%8E%E6%9D%A5%E8%A2%AD/</loc><lastmod>2022-02-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -362,8 +366,6 @@
             <loc>https://xinqinew.github.io/tags/%E8%BE%85%E5%8A%A9%E7%B2%BE%E5%93%81%E5%B8%96/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/cmap/</loc><lastmod>2021-12-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/api%E5%87%BD%E6%95%B0/</loc><lastmod>2021-12-17T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/tags/%E5%BE%85%E6%95%B4%E7%90%86/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://xinqinew.github.io/categories/%E5%BE%85%E6%95%B4%E7%90%86/</loc><lastmod>2021-12-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/%E4%BA%91%E6%89%93%E7%A0%81/</loc><lastmod>2021-12-14T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/hook/</loc><lastmod>2021-12-06T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://xinqinew.github.io/tags/%E9%A3%9E%E9%83%812019/</loc><lastmod>2021-12-06T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
