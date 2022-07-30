@@ -7,6 +7,13 @@
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>区分热电阻与热电偶.md</title>
+    <link>https://xinqinew.github.io/2022/07/%E5%8C%BA%E5%88%86%E7%83%AD%E7%94%B5%E9%98%BB%E4%B8%8E%E7%83%AD%E7%94%B5%E5%81%B6/</link>
+    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/07/%E5%8C%BA%E5%88%86%E7%83%AD%E7%94%B5%E9%98%BB%E4%B8%8E%E7%83%AD%E7%94%B5%E5%81%B6/</guid>
+    <description><![CDATA[视频引用 一、 引线 热电偶 两根引线（正极、负极） 四根引线一般为双芯热电偶 热电阻 三根引线（使用较多） 两根和四根引线（使用较少） 因此： 双引线、有正负]]></description>
+</item><item>
     <title>热电偶常见故障</title>
     <link>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E5%81%B6%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
     <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
@@ -81,14 +88,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>对象的内存中包含了成员变量，不同的对象占用不同的内存，这使得不同对象的成员变量相互独立，它们的值不受其他对象的影响。例如有两个相同类型的对象]]></description>
-</item><item>
-    <title>C&#43;&#43; 计算程序运行的时间</title>
-    <link>https://xinqinew.github.io/2022/01/c-%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%97%B6%E9%97%B4/</link>
-    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/c-%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%97%B6%E9%97%B4/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>C / C++ 计算程序运行的时间 在学数据结构过程中老师让查看不同算法的运行时间，然后让自己打印运行时间。 想要获取运行时间，计时函数是clock()，]]></description>
 </item></channel>
 </rss>
