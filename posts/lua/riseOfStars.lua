@@ -620,7 +620,7 @@ function newUi()
         "", 0, 3) -- 多选1
     UICheck(4,
         "checkCook,checkEgg,checkRice"
-        , "烹饪,鸡汤,蛋包饭"
+        , "烹饪,参鸡汤,蛋包饭"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -7862,7 +7862,7 @@ function warReady()
             debugA("瞭望塔")
             tapBefore(1043, 99, 0x9f0f0f)
             mSleep(2000)
-            if isColor(932, 354, 0xfdfafa, 95) and isColor(716, 364, 0x183d71, 95) and isColor(867, 403, 0x161310, 95) then
+            if isColor(187,163,0xfab4dd,95) and isColor(231,137,0xc6793b,95) and isColor(707,230,0x0c4b8c,95) and isColor(235,217,0x2e3d55,95) then
                 debugA("NPC攻击")
                 for i = 1, 10, 1 do
                     vibratorNotice()
@@ -7878,7 +7878,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(164,284,0xb1adb4,95) and isColor(166,274,0xc2bdc2,95) and isColor(426,378,0xcd631c,95) then
+            elseif isColor(231,322,0x222a36,95) and isColor(164,284,0xb1adb4,95) and isColor(164,269,0xefe4e5,95) then
                 debugA("攻击2 侦察在上面")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
@@ -7918,7 +7918,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(541,101,0xc2bfc3,95) and isColor(571,99,0xf0e8e8,95) and isColor(426,192,0xcb641f,95) and isColor(552,108,0x4a5465,95) then
+            elseif isColor(578,117,0xb0afb6,95) and isColor(541,101,0xc2bfc3,95) and isColor(574,229,0x648aa9,95) then
                 debugA("攻击")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
@@ -9367,9 +9367,15 @@ function main3()
 end
 
 function zongHe3()
+    if isColor(489,564,0x4c4c4c,95) and isColor(557,411,0xbb6e11,95) and isColor(600,531,0xffffff,95) then
+        debugC("灰色cooking")
+        tap1(733,97)
+        tap1(1088,141)
+
+    end
     if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
         debugC("restaurant")    
-        gaiMuBiaoNewC(4, "烹饪") 
+        gaiMuBiaoNewC(3, "烹饪") 
         debugC("改目标为烹饪")  
     end
     if isColor(435, 483, 0x6a6a6a, 95) and isColor(724, 106, 0xffffff, 95) then
@@ -9802,16 +9808,21 @@ end
 
 -- cook
 function cook()
-    if isColor(87,536,0x563e43,95) and isColor(108,574,0x79c01b,95) and isColor(181,548,0xffffff,95) then
-        debugC("finished")
-        tap1(155,556)--finished    
-    end
-    if isColor(92,565,0x5ccdff,95) and isColor(80,548,0xb24c02,95) and isColor(186,561,0x2f4e94,95) then
+    if isColor(378,564,0xf96555,95) and isColor(516,509,0x543842,95) and isColor(491,575,0x2f4e94,95) then
+       debugC("烹饪失败--位置2")
+       tap1(437,560)
+    elseif isColor(87,536,0x563e43,95) and isColor(108,574,0x79c01b,95) and isColor(181,548,0xffffff,95) then
+        debugC("finished1--位置2")
+        tap1(155,556)--finished1 
+    elseif isColor(390,536,0x563e43,95) and isColor(410,573,0x79c01b,95) and isColor(483,548,0xffffff,95) then
+        debugC("finished2--位置2")    
+        tap1(483,548)--finished2
+    elseif isColor(92,565,0x5ccdff,95) and isColor(80,548,0xb24c02,95) and isColor(186,561,0x2f4e94,95) then
         debugC("Go Cook")
         tap1(155,556)
     end
     if isColor(536,460,0x7ac01c,95) and isColor(565,455,0xffffff,95) and isColor(572,455,0x76b255,95) then
-        debugC("Ok")
+        debugC("烹饪完毕 点Ok")
         tap1(572,455)
     end
     if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(58,312,0x5ccdff,95) then
@@ -9819,21 +9830,35 @@ function cook()
         tap1(858,205)--SORt
         tap1(618,168)--开放
     end
-    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(58,312,0x5ccdff,95) then
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
         debugC("选套餐")
         for i=1,10,1 do
-            x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
-            if x> 0 then
-                tap1(x,y)--坐标
-                tap1(557,538,0x70a1d6        )--Cook
+            x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
+            --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "42|21|0xffffff,81|21|0x8a0f0f", 90, 0, 355, 1135, 400)--料理中
+            if x0>0 then
                 tap1(1089,139)--右上角关闭
+                gaiMuBiaoNewC(3, "") 
                 break
             else
-                --拖动
-                debugC("拖动菜单")
-                touchMoveXY(801, 631, 499, 631)
-                -- touchMoveXY(801, 321, 499, 321)
-                mSleep(1000)
+                if checkEgg=="参鸡汤" then
+                    x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
+                elseif  checkRice== "蛋包饭" then
+                    x,y = findMultiColorInRegionFuzzy( 0x83b73e, "121|75|0xb32224,19|50|0xd8dfdb", 90, 0, 285, 1135, 477)--找蛋包饭 记得改范围值
+                    
+                end
+                if x> 0 then
+                    tap1(x,y)--坐标
+                    tap1(557,538,0x70a1d6        )--Cook
+                    tap1(1089,139)--右上角关闭
+                    gaiMuBiaoNewC(3, "") 
+                    break
+                else
+                    --拖动
+                    debugC("拖动菜单")
+                    touchMoveXY(801, 631, 499, 631)
+                    -- touchMoveXY(801, 321, 499, 321)
+                    mSleep(1000)
+                end
             end
         end
 
@@ -11332,7 +11357,7 @@ function bugFor()
     end
     if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
         debugC("右上角X1")
-        if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
+        if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then --餐厅界面,打勾选烹饪,目标为烹饪
             debugC("restaurant")    
         else
             tap1(1088, 141)
