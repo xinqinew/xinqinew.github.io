@@ -4,9 +4,23 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>压力表常见故障</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
+    <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
+    <description><![CDATA[一、堵塞 二、脱落 三、腐蚀 四、超压]]></description>
+</item><item>
+    <title>压力表常识</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%AF%86/</link>
+    <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%AF%86/</guid>
+    <description><![CDATA[一、压力测量 $$ P=F/S $$ P 压力（Pa） F 均匀垂直作用力（N） S 受力面积（m^2^） 二、压力的几种表示形式 被测压力通常可表示为： 绝对压力： 物体承受的]]></description>
+</item><item>
     <title>雷达料位计</title>
     <link>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</link>
     <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
@@ -66,23 +80,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>for、while、do while三种循环的流程图画法总结（附案例） 循环结构是指在程序中需要反复执行某个功能而设置的一种程序结构，可以看成是]]></description>
-</item><item>
-    <title>ini文件读写</title>
-    <link>https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
-    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也]]></description>
-</item><item>
-    <title>多线程</title>
-    <link>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
-    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CreateThread 1 m_AcountManageThread = CreateThread(NULL, NULL, ThreadProc, this, 0, NULL);//创建线程 AfxBeginThread (MFC专用) 1 2 //创建线程 大漠的DMInitThread AfxBeginThread(DMInitThread, this, THREAD_PRIORITY_NORMAL, 0, 0, NULL); _beginthreadex 1 m_hThreadHandle = (HANDLE)::_beginthreadex(NULL, 0, ThreadFunction, this, 0, &amp;m_uThreadID); //]]></description>
 </item></channel>
 </rss>
