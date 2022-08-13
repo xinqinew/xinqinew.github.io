@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">【飞郁2022新课程】23 - CE找偏移表达式 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】23 - CE找偏移表达式" />
+<meta property="og:description" content="基地址和动态地址是一对好基友,他们相隔十万八千里,却紧密联系着 他们不用像唐僧取经一样翻山越岭,经历九九八十一难,因为他们有一种如同月光宝盒一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-12-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="【飞郁2022新课程】23 - CE找偏移表达式"/>
+<meta name="twitter:description" content="基地址和动态地址是一对好基友,他们相隔十万八千里,却紧密联系着 他们不用像唐僧取经一样翻山越岭,经历九九八十一难,因为他们有一种如同月光宝盒一"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B21-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8A%A8%E6%80%81%E5%9C%B0%E5%9D%80/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B31-od%E6%9B%B4%E5%A4%9A%E6%8A%80%E5%B7%A7/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【飞郁2022新课程】23 - CE找偏移表达式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "飞郁精品帖","wordcount":  1512 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B23-ce%E6%89%BE%E5%81%8F%E7%A7%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F\/","datePublished": "2021-12-20T00:00:00+00:00","dateModified": "2021-12-20T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">【飞郁2022新课程】23 - CE找偏移表达式</h1><div class="content" id="content"><p>基地址和动态地址是一对好基友,他们相隔十万八千里,却紧密联系着</p>
+<p>他们不用像唐僧取经一样翻山越岭,经历九九八十一难,因为他们有一种如同月光宝盒一样的交通工具,</p>
+<p>我们叫它偏移</p>
+<p>这节课我们就用CE来查找基地址和偏移的表达式</p>
+<h2 id="11-扫描表达式">1.1 <strong>扫描表达式</strong></h2>
+<p>何为偏移?简单来说偏移就是两个地址之间内存距离,他的单位是字节.</p>
+<p>当然并不是说所有的地址之间的偏移都是有意义的,</p>
+<p>就好比两个城市之间没有直达的交通工具,你只能通过其他城市进行中转一样</p>
+<p>而这个中转的过程,我们就叫它偏移表达式</p>
+<p>我们来到教案游戏的第三层,在这一层里有很多的怪物,我们要通过攻击这些怪物来找到人物血量和基地址的偏移表达式.</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/27c090404862b5cd053efb452d86be79b30fdc83.png@942w_491h_progressive-20211220162433333.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/27c090404862b5cd053efb452d86be79b30fdc83.png@942w_491h_progressive-20211220162433333.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/27c090404862b5cd053efb452d86be79b30fdc83.png@942w_491h_progressive-20211220162433333.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/27c090404862b5cd053efb452d86be79b30fdc83.png@942w_491h_progressive-20211220162433333.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/27c090404862b5cd053efb452d86be79b30fdc83.png@942w_491h_progressive-20211220162433333.png"
+        title="2311221"
+    /></p>
+<p>打开CE,扫描4byte的1000</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/848898efad5b35b11eefa7b102ce148901256e23.png@942w_467h_progressive-20211220164211747.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/848898efad5b35b11eefa7b102ce148901256e23.png@942w_467h_progressive-20211220164211747.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/848898efad5b35b11eefa7b102ce148901256e23.png@942w_467h_progressive-20211220164211747.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/848898efad5b35b11eefa7b102ce148901256e23.png@942w_467h_progressive-20211220164211747.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/848898efad5b35b11eefa7b102ce148901256e23.png@942w_467h_progressive-20211220164211747.png"
+        title="img"
+    /></p>
+<p>得到的60个结果,我们需要进一步过滤,打一个怪试试</p>
+<p>怪挂了,剩余960的血量,CE过滤一下,只得到了一个结果</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/94538e01b6490d031dcab190a8b9723a2665ad80.png@942w_485h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/94538e01b6490d031dcab190a8b9723a2665ad80.png@942w_485h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/94538e01b6490d031dcab190a8b9723a2665ad80.png@942w_485h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/94538e01b6490d031dcab190a8b9723a2665ad80.png@942w_485h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/94538e01b6490d031dcab190a8b9723a2665ad80.png@942w_485h_progressive.png"
+        title="img"
+    /></p>
+<p>在这个地址上点右键,选择Find out what accesses this address选项,我们可以看到访问这个地址的所有代码</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d2d0950e5041e644f14313911b71c989b8229b4.png@897w_389h_progressive-20211220164222043.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d2d0950e5041e644f14313911b71c989b8229b4.png@897w_389h_progressive-20211220164222043.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d2d0950e5041e644f14313911b71c989b8229b4.png@897w_389h_progressive-20211220164222043.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d2d0950e5041e644f14313911b71c989b8229b4.png@897w_389h_progressive-20211220164222043.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d2d0950e5041e644f14313911b71c989b8229b4.png@897w_389h_progressive-20211220164222043.png"
+        title="img"
+    /></p>
+<p>当然这只是当前这个状态访问的代码,如果我们做一些其他的动作,比如打怪等等,还会有更多的代码显示出来</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/661b5f03b38ef97b5ef2a6e217446363a896d502.png@882w_773h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/661b5f03b38ef97b5ef2a6e217446363a896d502.png@882w_773h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/661b5f03b38ef97b5ef2a6e217446363a896d502.png@882w_773h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/661b5f03b38ef97b5ef2a6e217446363a896d502.png@882w_773h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/661b5f03b38ef97b5ef2a6e217446363a896d502.png@882w_773h_progressive.png"
+        title="img"
+    /></p>
+<p>这里我们可以看到,访问最频繁的是第一个代码,共有288次,这句代码的意义就是将寄存器eax里面存放的值传递给寄存器ecx,我们做一个了解即可,后面还会做详细讲解.</p>
+<p>我们可以任意选择一条代码去继续分析,前提是逗号左右两边的寄存器不能一样,比如mov ecx,[ecx]</p>
+<p>我们选择第一条,双击,或者点击,</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0269d2a6ff836f8777dd6c878158ecb227d9e485.png@230w_69h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0269d2a6ff836f8777dd6c878158ecb227d9e485.png@230w_69h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0269d2a6ff836f8777dd6c878158ecb227d9e485.png@230w_69h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0269d2a6ff836f8777dd6c878158ecb227d9e485.png@230w_69h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0269d2a6ff836f8777dd6c878158ecb227d9e485.png@230w_69h_progressive.png"
+        title="img"
+    /></p>
+<p>可以得到当前所有寄存器的数值</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8fc1d37e9f564889b9bd98036298c2ddaccdf5c6.png@881w_656h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8fc1d37e9f564889b9bd98036298c2ddaccdf5c6.png@881w_656h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8fc1d37e9f564889b9bd98036298c2ddaccdf5c6.png@881w_656h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8fc1d37e9f564889b9bd98036298c2ddaccdf5c6.png@881w_656h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8fc1d37e9f564889b9bd98036298c2ddaccdf5c6.png@881w_656h_progressive.png"
+        title="img"
+    /></p>
+<p>这里的eax就是我们要继续分析的地址,他的值是0xDC6070,由于这一条是没有偏移的,所以这个值和我们查找访问代码的地址是一样的,</p>
+<p>我们直接用CE继续扫描0xDC6070,这里要注意的是,扫描十六进制地址必须要勾选16进制</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ccf55a7fe042ebdb1b8fb1d3ab5d5fcf713c7941.png@942w_684h_progressive-20211220164227503.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ccf55a7fe042ebdb1b8fb1d3ab5d5fcf713c7941.png@942w_684h_progressive-20211220164227503.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ccf55a7fe042ebdb1b8fb1d3ab5d5fcf713c7941.png@942w_684h_progressive-20211220164227503.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ccf55a7fe042ebdb1b8fb1d3ab5d5fcf713c7941.png@942w_684h_progressive-20211220164227503.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ccf55a7fe042ebdb1b8fb1d3ab5d5fcf713c7941.png@942w_684h_progressive-20211220164227503.png"
+        title="img"
+    /></p>
+<p>这里得到的结果较多,我们需要ctrl+A选中全部,并点击</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c20ac1f487900c13739e69702014927afa90fab9.png@69w_60h_progressive-20211220164232103.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c20ac1f487900c13739e69702014927afa90fab9.png@69w_60h_progressive-20211220164232103.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c20ac1f487900c13739e69702014927afa90fab9.png@69w_60h_progressive-20211220164232103.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c20ac1f487900c13739e69702014927afa90fab9.png@69w_60h_progressive-20211220164232103.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/c20ac1f487900c13739e69702014927afa90fab9.png@69w_60h_progressive-20211220164232103.png"
+        title="img"
+    /></p>
+<p>全部拉到下面来</p>
+<p>接下来我们对这30多个地址挨个查找访问代码,找出有访问代码的地址</p>
+<p>在对第三个地址访问的时候得到了两条带有0x14偏移的代码</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b3b51992a7086bb45b9897631f8f5b1f85ebfaa4.png@900w_420h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b3b51992a7086bb45b9897631f8f5b1f85ebfaa4.png@900w_420h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b3b51992a7086bb45b9897631f8f5b1f85ebfaa4.png@900w_420h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b3b51992a7086bb45b9897631f8f5b1f85ebfaa4.png@900w_420h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b3b51992a7086bb45b9897631f8f5b1f85ebfaa4.png@900w_420h_progressive.png"
+        title="img"
+    /></p>
+<p>我们任选一条地址进行双击或者点击</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d5ca3b5188d4a17644921d1aad85c5df2a8348b7.png@218w_50h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d5ca3b5188d4a17644921d1aad85c5df2a8348b7.png@218w_50h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d5ca3b5188d4a17644921d1aad85c5df2a8348b7.png@218w_50h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d5ca3b5188d4a17644921d1aad85c5df2a8348b7.png@218w_50h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d5ca3b5188d4a17644921d1aad85c5df2a8348b7.png@218w_50h_progressive.png"
+        title="img"
+    /></p>
+<p>可以得到当前状态所有寄存器的值</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/faade8a6d7839c1a660bd9e78683dba98a7fbb04.png@896w_663h_progressive-20211220164236702.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/faade8a6d7839c1a660bd9e78683dba98a7fbb04.png@896w_663h_progressive-20211220164236702.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/faade8a6d7839c1a660bd9e78683dba98a7fbb04.png@896w_663h_progressive-20211220164236702.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/faade8a6d7839c1a660bd9e78683dba98a7fbb04.png@896w_663h_progressive-20211220164236702.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/faade8a6d7839c1a660bd9e78683dba98a7fbb04.png@896w_663h_progressive-20211220164236702.png"
+        title="img"
+    /></p>
+<p>我们要的是edx的值,等于0xD55A70</p>
+<p>现在我们的偏移表达式变为了[[0xD55A70+14]]    这个[ ]代表着读地址里的值</p>
+<p>接下来我们再次用CE扫描0xD55A70,</p>
+<p>只得到了一个结果</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/167194975b8393fde2e63e665f922410b5e20703.png@942w_608h_progressive-20211220164250596.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/167194975b8393fde2e63e665f922410b5e20703.png@942w_608h_progressive-20211220164250596.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/167194975b8393fde2e63e665f922410b5e20703.png@942w_608h_progressive-20211220164250596.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/167194975b8393fde2e63e665f922410b5e20703.png@942w_608h_progressive-20211220164250596.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/167194975b8393fde2e63e665f922410b5e20703.png@942w_608h_progressive-20211220164250596.png"
+        title="img"
+    /></p>
+<p>对这个地址进行访问以后,可以得到一个+FC的偏移</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/dfa27d5d6e5b9daaa7c15e7c2992bce5627ae443.png@875w_344h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/dfa27d5d6e5b9daaa7c15e7c2992bce5627ae443.png@875w_344h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/dfa27d5d6e5b9daaa7c15e7c2992bce5627ae443.png@875w_344h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/dfa27d5d6e5b9daaa7c15e7c2992bce5627ae443.png@875w_344h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/dfa27d5d6e5b9daaa7c15e7c2992bce5627ae443.png@875w_344h_progressive.png"
+        title="img"
+    /></p>
+<p>此时表达式为[[[0xEA4D88+FC]+14]]</p>
+<p>重复的操作得到第一条中edx的值,并在CE中进行扫描,</p>
+<p>问题出现, 这一次没有扫描到任何结果</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/393bc4a8491898f8b2782fd2df292371497326cd.png@942w_152h_progressive-20211220164246805.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/393bc4a8491898f8b2782fd2df292371497326cd.png@942w_152h_progressive-20211220164246805.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/393bc4a8491898f8b2782fd2df292371497326cd.png@942w_152h_progressive-20211220164246805.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/393bc4a8491898f8b2782fd2df292371497326cd.png@942w_152h_progressive-20211220164246805.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/393bc4a8491898f8b2782fd2df292371497326cd.png@942w_152h_progressive-20211220164246805.png"
+        title="img"
+    /></p>
+<p>出现这种结果的情况有很多,我们尝试用之前学过的将快速扫描取消试一下</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b6f3fd9131ba71071eb8fd866aa117f65277855f.png@942w_465h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b6f3fd9131ba71071eb8fd866aa117f65277855f.png@942w_465h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b6f3fd9131ba71071eb8fd866aa117f65277855f.png@942w_465h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b6f3fd9131ba71071eb8fd866aa117f65277855f.png@942w_465h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b6f3fd9131ba71071eb8fd866aa117f65277855f.png@942w_465h_progressive.png"
+        title="img"
+    /></p>
+<p>这里得到了一个不能被4整除的地址(PS:这是heart老师特意设计的一个小小的坑,你能想到么?)</p>
+<p>继续查找访问这个地址的代码吧</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/04558305a65c87ff5512954b5d101a54a7625517.png@896w_401h_progressive-20211220164313310.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/04558305a65c87ff5512954b5d101a54a7625517.png@896w_401h_progressive-20211220164313310.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/04558305a65c87ff5512954b5d101a54a7625517.png@896w_401h_progressive-20211220164313310.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/04558305a65c87ff5512954b5d101a54a7625517.png@896w_401h_progressive-20211220164313310.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/04558305a65c87ff5512954b5d101a54a7625517.png@896w_401h_progressive-20211220164313310.png"
+        title="img"
+    /></p>
+<p>可以得到一个+5的偏移,同样选择第一条,获取到eax的值为0xE959D0</p>
+<p>现在的偏移表达式变成了[[[[0xE959D0+5]+FC]+14]]</p>
+<p>还没到基地址,继续扫描</p>
+<p>这次得到了一个绿色的地址</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7a5909116038a74e4dd6bf255d50d03a6509b7d8.png@942w_161h_progressive-20211220164309350.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7a5909116038a74e4dd6bf255d50d03a6509b7d8.png@942w_161h_progressive-20211220164309350.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7a5909116038a74e4dd6bf255d50d03a6509b7d8.png@942w_161h_progressive-20211220164309350.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7a5909116038a74e4dd6bf255d50d03a6509b7d8.png@942w_161h_progressive-20211220164309350.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/7a5909116038a74e4dd6bf255d50d03a6509b7d8.png@942w_161h_progressive-20211220164309350.png"
+        title="img"
+    /></p>
+<p>此时我们可以将偏移表达式写为[[[[[B9FB1C]+5]+FC]+14]]</p>
+<p>这个绿色的地址我们暂时将它看成是基地址,我们需要后面用OD去进行验证才能确定</p>
+<p>当然这个地址已经不会随着游戏重启而改变了</p>
+<p>如果这个地址每次游戏启动都会变化,那么我们也可以用模块+偏移的形式来表示,比如:</p>
+<p>[[[[[网络安全学院.exe+79FB1C]+5]+FC]+14]]</p>
+<h2 id="12-测试表达式"><strong>1.2 测试表达式</strong></h2>
+<p>接下来,我们用CE去测试一下这个表达式是否正确(这里悄悄的换一下官方的CE,没有乱码)</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9f4914f503260d558ece9908dceb84afb16a2543.png@942w_150h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9f4914f503260d558ece9908dceb84afb16a2543.png@942w_150h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9f4914f503260d558ece9908dceb84afb16a2543.png@942w_150h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9f4914f503260d558ece9908dceb84afb16a2543.png@942w_150h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9f4914f503260d558ece9908dceb84afb16a2543.png@942w_150h_progressive.png"
+        title="img"
+    /></p>
+<p>点击Add Address Manually,</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b849135b504b8ecad8fac7798692fb93dba08c83.png@344w_428h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b849135b504b8ecad8fac7798692fb93dba08c83.png@344w_428h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b849135b504b8ecad8fac7798692fb93dba08c83.png@344w_428h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b849135b504b8ecad8fac7798692fb93dba08c83.png@344w_428h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b849135b504b8ecad8fac7798692fb93dba08c83.png@344w_428h_progressive.png"
+        title="img"
+    /></p>
+<p>点击</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e465abdf55eb04262cb7b3f661238a44c18e3b92.png@180w_51h_progressive-20211220164352159.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e465abdf55eb04262cb7b3f661238a44c18e3b92.png@180w_51h_progressive-20211220164352159.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e465abdf55eb04262cb7b3f661238a44c18e3b92.png@180w_51h_progressive-20211220164352159.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e465abdf55eb04262cb7b3f661238a44c18e3b92.png@180w_51h_progressive-20211220164352159.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e465abdf55eb04262cb7b3f661238a44c18e3b92.png@180w_51h_progressive-20211220164352159.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3f3b368c7720424b73d1df914f036a0a6190252f.png@429w_569h_progressive-20211220164302818.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3f3b368c7720424b73d1df914f036a0a6190252f.png@429w_569h_progressive-20211220164302818.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3f3b368c7720424b73d1df914f036a0a6190252f.png@429w_569h_progressive-20211220164302818.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3f3b368c7720424b73d1df914f036a0a6190252f.png@429w_569h_progressive-20211220164302818.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3f3b368c7720424b73d1df914f036a0a6190252f.png@429w_569h_progressive-20211220164302818.png"
+        title="img"
+    /></p>
+<p>再点击</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b8885c384545e389c2e553f2e6d94027a05c97c3.png@273w_75h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b8885c384545e389c2e553f2e6d94027a05c97c3.png@273w_75h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b8885c384545e389c2e553f2e6d94027a05c97c3.png@273w_75h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b8885c384545e389c2e553f2e6d94027a05c97c3.png@273w_75h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/b8885c384545e389c2e553f2e6d94027a05c97c3.png@273w_75h_progressive.png"
+        title="img"
+    /></p>
+<p>添加偏移</p>
+<p>这里一共有5层偏移,所以要添加4次</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/499a48a39fc56669f5d1b219fee00fc429cc7e37.png@579w_704h_progressive-20211220164255578.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/499a48a39fc56669f5d1b219fee00fc429cc7e37.png@579w_704h_progressive-20211220164255578.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/499a48a39fc56669f5d1b219fee00fc429cc7e37.png@579w_704h_progressive-20211220164255578.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/499a48a39fc56669f5d1b219fee00fc429cc7e37.png@579w_704h_progressive-20211220164255578.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/499a48a39fc56669f5d1b219fee00fc429cc7e37.png@579w_704h_progressive-20211220164255578.png"
+        title="img"
+    /></p>
+<p>可以正常的显示人物血量了,说明我们的表达式是没有问题的</p>
+<p>接下来大家可以用这个方法试试找到人物的坐标,层数等数据了</p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

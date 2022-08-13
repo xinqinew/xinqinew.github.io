@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">【飞郁2022新课程】03 - 计算机底层的二进制 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】03 - 计算机底层的二进制" />
+<meta property="og:description" content="【飞郁2022新课程】03 - 计算机底层的二进制 飞郁网络 听说你们学编程不想学基础? 说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-11-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="【飞郁2022新课程】03 - 计算机底层的二进制"/>
+<meta name="twitter:description" content="【飞郁2022新课程】03 - 计算机底层的二进制 飞郁网络 听说你们学编程不想学基础? 说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B04-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B09-%E5%B8%B8%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【飞郁2022新课程】03 - 计算机底层的二进制",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "飞郁精品帖","wordcount":  1785 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6\/","datePublished": "2021-11-12T00:00:00+00:00","dateModified": "2021-11-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">【飞郁2022新课程】03 - 计算机底层的二进制</h1><div class="content" id="content"><h1 id="飞郁2022新课程03---计算机底层的二进制">【飞郁2022新课程】03 - 计算机底层的二进制</h1>
+<p><a href="https://space.bilibili.com/476729843" target="_blank" rel="noopener noreffer">飞郁网络</a></p>
+<p>听说你们学编程不想学基础?</p>
+<p>说实话,我还不想教呢! 基础理论乏味的很,哼!凸显不出我高深的技术!</p>
+<p>不过啊! 基础有多好,**&ldquo;一定&rdquo;**决定了你以后高度有多高</p>
+<p>**&ldquo;一定&rdquo;<strong>要听老师的劝,前面枯燥的几天基础</strong>&ldquo;一定&rdquo;**要好好学</p>
+<p>俗话说的好,听人劝吃饱饭!</p>
+<p>我前几天去医院看一个老大爷,他就劝我</p>
+<p>小伙子,赚钱没有用,你**&ldquo;一定&rdquo;**带不走&hellip;</p>
+<h2 id="从进制开始学习的原因"><strong>从进制开始学习的原因</strong></h2>
+<p>由于我们要学习编程的原理,而不只是单单的学习编程,所以就要去学习计算机底层实现的原理。</p>
+<p>但是计算机只认识2进制,那么我们想要了解其本质,就必须了解进制。</p>
+<p>刨根问底,方能成就大业，<strong>否则这些知识一定带不走&hellip;（Call back）</strong></p>
+<p>实际上我们无论写出什么样的代码,最后都是变成2进制被计算机执行的,也就是说我们要学习进制,其实主要就是要学习2进制。</p>
+<h2 id="从10进制的角度看待进制"><strong>从10进制的角度看待进制</strong></h2>
+<p>10进制非常简单，我们现实生活中最常用的就是十进制。</p>
+<p>10进制是由 0，1，2，3，4，5，6，7，8，9  共10个符号组成的逢10进1的一种进制。</p>
+<p>这里面要注意的是，10进制中是没有10这个符号的， 哪个符号来代表10呢？其实是没有的。</p>
+<p>10是由1和 0 ，2个符号组成的，而不是单独的一个符号。</p>
+<p>知道了10进制的定义,我们引申出n进制定义。</p>
+<p>n进制定义：由n个符号组成 逢n进位 。</p>
+<p>n进制中是没有n这个符号的  。</p>
+<p>**例：**2进制有2个符号组成，里面有2吗？</p>
+<p>没有，逢2进位了，只有 0和1这2个符号。</p>
+<p>生活中还有很多其他进制。</p>
+<p>时间有60进制和24进制，分别是逢60进1和逢24进1。</p>
+<p>一打啤酒12瓶，就是12进制，逢12进1。</p>
+<h2 id="进制的转换"><strong>进制的转换</strong></h2>
+<p>进制我们谁都会,只是我们没有把他抽象成文字</p>
+<p>例如</p>
+<p>70秒你立刻就知道是1分钟零10秒，想想怎么算的呢？</p>
+<p>25瓶你立刻就知道是两打零1个，又是怎么计算的呢？</p>
+<p>自己莫名其妙的就会吧?  只是自己没有总结方法吧?</p>
+<p>所以啊,我不是教你知识, 只是知识挖掘工，帮助你挖掘潜能。</p>
+<p>看一下为什么70秒等于1分钟零10秒</p>
+<p>70秒/进制 = 70秒/60  = 1分钟 余10秒</p>
+<p>怎么样？得到什么启发了吗？</p>
+<h2 id="十进制转二进制"><strong>十进制转二进制</strong></h2>
+<p>那么十进制3转成二进制等于多少？</p>
+<p>3/2 = 1 余 1    十进制3 = 二进制 11 是不是很简单呢？</p>
+<p>需要除多次的十进制转二进制大家可以不掌握,因为我们只要知道原理就可以了</p>
+<p><strong>例：</strong></p>
+<p>十进制 12 转 二进制</p>
+<p>直接12除以2 看看有多少个进位</p>
+<p>12/2  = 60 （此时6在第二位，但是二进制是没有6的，所以要继续除）= 300(同理继续)= 1100（完全符合2进制的要求了）</p>
+<h2 id="二进制转十进制"><strong>二进制转十进制</strong></h2>
+<p>一小箱白酒可以装2瓶 ,一个礼盒可以装2小箱,一大箱又可以装二个礼盒</p>
+<p>请问 1大箱是多少瓶? 是不是感觉自己还是会的? 答案很简单:8瓶</p>
+<p>其实就是对应的二进制转十进制  1000 = 8，列出来可能又看不懂了</p>
+<p>那么我们来看看原理：</p>
+<p>一个十进制数123,1为什么在百位？2为什么在十位？3为什么在个位？</p>
+<p>实际上123  =  1<em>10</em>10 + 2<em>10 +3 = 1</em>进制<em>进制 + 2</em>进制 +3,</p>
+<p>2在十位的原因是因为他有2个10,是进位而来的,1在百位是因为有10个10进位而来的。</p>
+<p>那么上面的2进制1000 实际等于   1<em>2</em>2<em>2+0</em>2<em>2+0</em>2+0 = 8</p>
+<p>怎么样懂了吗？</p>
+<p><strong>例：</strong></p>
+<p>二进制111转换成10进制</p>
+<p>111 = 1<em>2</em>2 +1*2+1 = 7</p>
+<p>这样2进制就转换成10进制了</p>
+<p><strong>例：</strong></p>
+<p>二进制 10000000000  =  十进制 1024</p>
+<h2 id="进制的运算"><strong>进制的运算</strong></h2>
+<h3 id="二进制加法"><strong>二进制加法</strong></h3>
+<p>(101)2+(111)2=?</p>
+<p>101</p>
+<p>+  111</p>
+<hr>
+<p>1100</p>
+<p>1+1=10，逢二进一</p>
+<h3 id="二进制减法"><strong>二进制减法</strong></h3>
+<p>　(1111)2-(1001)2 =?</p>
+<p>​    11110</p>
+<p>－　10011</p>
+<hr>
+<p>​     1011</p>
+<p>10-1=1，被减数不够减向高位借１</p>
+<h2 id="2学员问答"><strong>2.学员问答</strong></h2>
+<p><strong>问：老师计算机底层存的是二进制还是十进制？</strong></p>
+<p><strong>答：首先同学搞乱了概念， 一个仓库里存了很多很多的酒，是按照什么进制存的？</strong></p>
+<p><strong>你按照几进制，他也是那些酒，进制只是一个统计方式而已，计算机底层是用二进制来进行描述，你要转换成10进制的方式表达也是没问题的。</strong></p>
+<h2 id="3习题考核"><strong>3.习题+考核</strong></h2>
+<p><strong>１．二进制加减法</strong></p>
+<p>101+110         111+101</p>
+<p>1111+111        100110+101101</p>
+<p>10110-1011       11010-10101</p>
+<p><strong>2．特殊的二进制加法</strong></p>
+<p>11+11           101+101</p>
+<p>110+110         1101+1101</p>
+<p>是否能发现其中规律?</p>
+<p><strong>3．二进制转十进制</strong></p>
+<p>(1111)2          (1000)2</p>
+<p>(111)2               (101)2</p>
+<p>(111000)2           (1001)2</p>
+<p><strong>4．十进制转二进制</strong></p>
+<p>10               15</p>
+<p>31               64</p>
+<p>100              255</p>
+<p><strong>5．应用题</strong></p>
+<p>大鸟有5个萝卜和5个坑，一个萝卜一个坑，他想用这些萝卜和坑来表示一个数值，那么最多能表示多少个数值？</p>
+<p>答：最多可以表示1+(11111)2个数值，也就是10进制的32。</p>
+<p>解析：萝卜放到坑里代表1，不放坑里代表0，最小值为0，最大值为(11111)2。</p>
+<p>PS：本题重在理解，谢绝抬杠！否则你“一定”学不会(call back)！</p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

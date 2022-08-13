@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ImGui on Hmily云笔记</title>
+    <link>https://xinqinew.github.io/en/posts/imgui/</link>
+    <description>Recent content in ImGui on Hmily云笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+    <webMaster>xinqinew@163.com (辛琪)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://xinqinew.github.io/en/posts/imgui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dx系列教程1</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/dx%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B1/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/dx%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B1/</guid>
+      <description>Dx系列教程1 ImGui的基础使用 ImGui主题配置 ImGui字体资源使用 实现目标：配置一个ImGui样式，加载自己喜欢的字体，关闭ImGu</description>
+    </item>
+    
+    <item>
+      <title>Dx系列教程2</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/dx%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B2/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/dx%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B2/</guid>
+      <description>Dx系列教程2 ImGui的基础使用 ImGui主题配置 ImGui字体资源使用 实现目标：学会使用ImGui内部控件 绘制默认提供的几何图形和字符串</description>
+    </item>
+    
+    <item>
+      <title>ImGui</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/imgui%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/imgui%E5%87%BD%E6%95%B0/</guid>
+      <description>创建窗口 1 2 3 //实例1 ImGui::Begin(&amp;#34;Hello, world!&amp;#34;); ImGui::End(); 1 2 3 4 5 6 7 8 9 10 11 //实例2 static bool flag = true; if(flag) { if(ImGui::Begin(&amp;#34;Close Window&amp;#34;, &amp;amp;flag)) { //TODO } ImGui::End(); } 1 2 3 4 5 IMGUI_API bool Begin( const char* name, //相当于窗口的id bool* p_open =</description>
+    </item>
+    
+    <item>
+      <title>ImGui表格</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/imgui%E8%A1%A8%E6%A0%BC/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/imgui%E8%A1%A8%E6%A0%BC/</guid>
+      <description>ImGui表格用法 https://github.com/ocornut/imgui/issues/3740 典型流程： 调用BeginTable（）。 可选择调用TableSetupColumn()提交列名/标志/默认值。 可选地调用</description>
+    </item>
+    
+    <item>
+      <title>ImGui流程</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/imgui%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/imgui%E6%B5%81%E7%A8%8B/</guid>
+      <description>配置环境 下载ImGui源码 ​ https://github.com/ocornut/imgui VS创建项目,新建cpp文件,再导入imgui内的cpp和h文件 导入backends目录下以下文件 半个人 imgui_impl_opengl3.h imgui_impl_opengl3.cpp imgui_impl_opengl3_loader.h</description>
+    </item>
+    
+    <item>
+      <title>OpenGL和Imgui整合入门1</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A81/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A81/</guid>
+      <description>OpenGL入门 先上效果图 环境配置 OpenGL有很多开源库，如常见的glad，glfw，glut等等，这里简述一下他们的区别： glut是一个</description>
+    </item>
+    
+    <item>
+      <title>OpenGL和Imgui整合入门2</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A82/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A82/</guid>
+      <description>基于OpenGL的简单渲染器实现 上次讲到配置完环境，这次先从ImGui开始简单介绍 由于我们使用了GLFW作为窗口管理的库，所以ImGui也是</description>
+    </item>
+    
+    <item>
+      <title>OpenGL和Imgui整合入门3</title>
+      <link>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A83/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/imgui/opengl%E5%92%8Cimgui%E6%95%B4%E5%90%88%E5%85%A5%E9%97%A83/</guid>
+      <description>之前我们通过OpenGL绘制简单模型都是通过手动输入顶点数据，然后分配VAO，VBO进行绑定绘制，如果我们想要更模块化的实现这一个绑定过程，</description>
+    </item>
+    
+  </channel>
+</rss>

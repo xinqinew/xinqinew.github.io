@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">非常用API函数 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="非常用API函数" />
+<meta property="og:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/c&#43;&#43;/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-12-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-17T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="非常用API函数"/>
+<meta name="twitter:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8Ece%E6%89%AB%E5%9B%9B%E7%A7%8D%E7%BC%96%E7%A0%81/" /><link rel="next" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/c&#43;&#43;-%E8%B0%83%E7%94%A8cmd%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "非常用API函数",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "“API函数”","wordcount":  3897 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0\/","datePublished": "2021-12-17T00:00:00+00:00","dateModified": "2021-12-17T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">非常用API函数</h1><div class="content" id="content"><h2 id="processentry32-存放快照进程信息的结构体">PROCESSENTRY32 存放快照进程信息的结构体</h2>
+<p>头文件 #include&quot;tlhelp32.h&quot;</p>
+<h2 id="createtoolhelp32snapshot函数">CreateToolhelp32Snapshot函数</h2>
+<p>获取系统中正在运行的进程信息，线程信息等。</p>
+<p><a href="https://blog.csdn.net/ktpd_pro/article/details/58601486?utm_source=app&amp;app_version=4.20.0" target="_blank" rel="noopener noreffer">详细内容见此</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HANDLE</span> <span class="n">WINAPI</span> <span class="nf">CreateToolhelp32Snapshot</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">dwFlags</span><span class="p">,</span>       <span class="c1">//用来指定“快照”中需要返回的对象，可以是TH32CS_SNAPPROCESS等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">_In_</span> <span class="n">DWORD</span> <span class="n">th32ProcessID</span>  <span class="c1">//一个进程ID号，用来指定要获取哪一个进程的快照，当获取系统进程列表或获取 当前进程快照时可以设为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="process32first-进程获取函数第一个">Process32First 进程获取函数(第一个)</h2>
+<p>当我们利用函数<strong>CreateToolhelp32Snapshot()<strong>获得当前运行进程的快照后，我们可以利用</strong>process32First</strong>函数来获得第一个进程的句柄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">Process32First</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HANDLE</span> <span class="n">hSnapshot</span><span class="p">,</span><span class="c1">//_in  从CreateToolhelp32Snapshot 返回的句柄。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">LPPROCESSENTRY32</span> <span class="n">lppe</span><span class="c1">//_out  指向PROCESSENTRY32结构的指针。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="process32next-进程获取函数下一个">Process32Next 进程获取函数(下一个)</h2>
+<p>当我们利用函数<strong>CreateToolhelp32Snapshot()<strong>获得当前运行进程的快照后,我们可以利用</strong>Process32Next</strong>函数来获得下一个进程的句柄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">Process32Next</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">__in</span> <span class="n">HANDLE</span> <span class="n">hSnapshot</span><span class="p">,</span>	<span class="c1">//从CreateToolhelp32Snapshot 返回的句柄。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">__out</span> <span class="n">LPPROCESSENTRY32</span> <span class="n">lppe</span>  <span class="c1">//指向PROCESSENTRY32结构的指针。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="strcpy-字符串比较">strcpy 字符串比较</h2>
+<p><strong>用于ANSI标准字符串</strong></p>
+<p>这是<strong>用于ANSI标准字符串</strong>的函数(如string和char *)，此函数接受两个字符串缓冲区做为参数，<strong>如果两个字符串是相同的则返回零</strong>。否则若第一个传入的字符串的值大于第二个字符串返回值将会大于零，若传入的第一个字符串的值小于第二个字符串返回值将小于零。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">strDestination</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">strSource</span><span class="p">);</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="o">=</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">undefined</span> <span class="c1">//字符串相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">undefined</span>	<span class="c1">//字符串不相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="wcscpy-字符串比较">wcscpy 字符串比较</h2>
+<p><strong>用于Unicode标准字符串</strong></p>
+<p>它的使用方法和strcmp相同，它用来<strong>比较两个Unicode字符串是否相等</strong>(如wstring和wchar_t *)。</p>
+<p>wcscpy()即为strcpy()的宽字符版本，与_T类似的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">wchar_t</span> <span class="o">*</span><span class="nf">wcscpy</span><span class="p">(</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="n">strDestination</span><span class="p">,</span> <span class="k">const</span> <span class="kt">wchar_t</span> <span class="o">*</span><span class="n">strSource</span><span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">wchar_t</span> <span class="o">*</span><span class="n">ch</span><span class="o">=</span><span class="sa">L</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">wcscmp</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="sa">L</span><span class="s">&#34;翔翔糖糖&#34;</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">undefined</span> <span class="c1">//字符串相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">undefined</span>	<span class="c1">//字符串不相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="_tcscmp-字符串比较">_tcscmp 字符串比较</h2>
+<p><strong>_tcscpy</strong> 在编译时会根据条件被替换</p>
+<p>如果是 <strong>ANSI</strong>工程,则使用 <strong>strcpy</strong></p>
+<p>如果是<strong>UNICODE</strong>工程，则使用<strong>wcscpy</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#ifdef UNICODE   
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#define _tcscpy     wcscpy  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#else  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#define _tcscpy     strcpy  
+</span></span></span><span class="line"><span class="cl"><span class="cp">#endif 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="enumwindows-枚举顶层窗口">EnumWindows 枚举顶层窗口</h2>
+<p>该函数枚举所有屏幕上的顶层窗口，并将<a href="https://baike.baidu.com/item/%e7%aa%97%e5%8f%a3%e5%8f%a5%e6%9f%84" target="_blank" rel="noopener noreffer">窗口句柄</a>传送给应用程序定义的<a href="https://baike.baidu.com/item/%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0" target="_blank" rel="noopener noreffer">回调函数</a>。回调函数返回FALSE将停止枚举，否则EnumWindows函数继续到所有顶层窗口枚举完为止。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//函数原型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">EnumWindows</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_In_</span> <span class="n">WNDENUMPROC</span> <span class="n">lpEnumFunc</span><span class="p">,</span><span class="c1">//为回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">_In_</span> <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//传递给回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//回调函数原型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">CALLBACK</span> <span class="nf">EnumWindowsProc</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND</span> <span class="n">hwnd</span><span class="p">,</span>	<span class="c1">//枚举到的窗口句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//EnumWindows传递过来的参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>EnumWindows</strong>中的参数：<strong>lpEnumFunc</strong>回调函数，<strong>lParam</strong>参数传递给回调函数的<strong>lParam</strong>。回调函数中的参数：<strong>hwnd</strong>枚举到的窗口句柄，<strong>lParam</strong>为<strong>EnumWindows</strong>传递过来的参数。</p>
+<h2 id="enumchildwindows-枚举子控件">EnumChildWindows 枚举子控件</h2>
+<p>功能：枚举指定控件下的所有子控件，并将子控件句柄传送给应用程序定义的回调函数，回调函数返回FALSE将停止枚举，否则一直到所有子控件枚举完为止。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//函数原型：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="nf">EnumChildWindows</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND</span> <span class="n">hWndParent</span><span class="p">,</span> <span class="c1">//为目标控件所在的父控件句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">WNDENUMPROC</span> <span class="n">lpEnumFunc</span><span class="p">,</span> <span class="c1">//为回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span>	<span class="c1">//传递给回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//回调函数原型：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">CALLBACK</span> <span class="nf">EnumChildProc</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND</span> <span class="n">hwnd</span><span class="p">,</span> <span class="c1">//枚举到的子控件句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPARAM</span> <span class="n">lParam</span> <span class="c1">//EnumChildWindows传递过来的参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>EnumChildWindows</strong>中的参数：<strong>hWndParent</strong>为目标控件所在的父控件句柄；<strong>lpEnumFunc</strong>为回调函数；<strong>lParam</strong>传递给回调函数。回调函数中的参数：<strong>hwnd</strong>枚举到的子控件句柄，<strong>lParam</strong>为<strong>EnumChildWindows</strong>传递过来的参数。</p>
+<blockquote>
+<p>如果<code>hWndParent</code>参数为NULL，则此函数等效于EnumWindows。</p>
+</blockquote>
+<h2 id="settimer-设置定时器">SetTimer 设置定时器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">SetTimer</span><span class="p">(</span>	
+</span></span><span class="line"><span class="cl">		<span class="mi">1</span><span class="p">,</span>		<span class="c1">//定时器ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="mi">5000</span><span class="p">,</span>	<span class="c1">//时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nb">NULL</span>  <span class="c1">//调用的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>	
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="killtimer-关闭定时器">KillTimer 关闭定时器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">KillTimer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//定时器编号
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="afxextractsubstring-分割字符串mfc专用">AfxExtractSubString 分割字符串(MFC专用)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//原型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="nf">AfxExtractSubString</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CString</span><span class="o">&amp;</span> <span class="n">rString</span><span class="p">,</span> <span class="c1">//保存输出的子字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpszFullString</span><span class="p">,</span> <span class="c1">//待分割的字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">iSubString</span><span class="p">,</span> <span class="c1">//提取的子字符串的序号，从0开始。假如你想提取第3段，该参数就输入2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">TCHAR</span> <span class="n">chSep</span> <span class="c1">//用于分割的字符，默认的是&#39;\n&#39;　
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="c1">//返回值: 分割成功，就返回TRUE；iSubString越界，则返回FALSE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">CString</span> <span class="n">str</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;abc45,78ea,679u,368&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">CString</span> <span class="n">strSub</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span>　　<span class="c1">// strSub的内容为abc45
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span>　　<span class="c1">// strSub的内容为368
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注意：用于分割的只能是字符，不能是字符串。</p>
+<p>多个字符使用_tcstok函数。</p>
+</blockquote>
+<h2 id="afxbeginthread-启动线程mfc专用">AfxBeginThread 启动线程(MFC专用)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">CWinThread</span><span class="o">*</span> <span class="nf">AfxBeginThread</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AFX_THREADPROC</span> <span class="n">pfnThreadProc</span><span class="p">,</span>	<span class="c1">//指向工作线程的控制函数。 指针不能为 NULL 。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">LPVOID</span> <span class="n">pParam</span><span class="p">,</span>	<span class="c1">//要传递到控制函数的参数。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">nPriority</span> <span class="o">=</span> <span class="n">THREAD_PRIORITY_NORMAL</span><span class="p">,</span>	<span class="c1">//要为线程设置的优先级。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UINT</span> <span class="n">nStackSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定新线程堆栈的大小（以字节为单位）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">DWORD</span> <span class="n">dwCreateFlags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定控制线程创建的其他标志。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">LPSECURITY_ATTRIBUTES</span> <span class="n">lpSecurityAttrs</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">);</span>	<span class="c1">//指向一个 SECURITY_ATTRIBUTES 结构，该结构指定线程的安全特性
+</span></span></span><span class="line"><span class="cl"><span class="c1">//返回值:指向新创建的线程对象的指针; NULL 如果发生失败，则为。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>[MFC 大漠.xmind](../../../../../../iCloud~net~xmind~brownieapp/Documents/辅助/脚本/MFC 大漠.xmind)</p>
+<h2 id="postmessage-发送消息不等待直接返回">PostMessage 发送消息(不等待直接返回)</h2>
+<p>在窗口的消息队列中放置一条消息，然后返回而不等待相应的窗口处理该消息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="nf">PostMessage</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UINT</span> <span class="n">message</span><span class="p">,</span>				<span class="c1">//指定要发布的消息。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">WPARAM</span> <span class="n">wParam</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>	<span class="c1">//指定其他消息信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">LPARAM</span> <span class="n">lParam</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>	<span class="c1">//指定其他消息信息
+</span></span></span><span class="line"><span class="cl"><span class="c1">//返回值: 如果发送消息成功，则为非零值;否则为0。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="_beginthread-_beginthreadex-创建线程通用">_beginthread, _beginthreadex 创建线程(通用)</h2>
+<p><a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/reference/beginthread-beginthreadex?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">uintptr_t</span> <span class="nf">_beginthread</span><span class="p">(</span> <span class="c1">// NATIVE CODE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">void</span><span class="p">(</span> <span class="kr">__cdecl</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span>	
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">uintptr_t</span> <span class="nf">_beginthread</span><span class="p">(</span> <span class="c1">// MANAGED CODE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">void</span><span class="p">(</span> <span class="n">__clrcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">uintptr_t</span> <span class="nf">_beginthreadex</span><span class="p">(</span> <span class="c1">// NATIVE CODE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">security</span><span class="p">,</span><span class="c1">//指向 SECURITY_ATTRIBUTES 结构的指针，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span><span class="c1">//新线程的堆栈大小或 0。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="p">(</span> <span class="kr">__stdcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span><span class="c1">//启动开始执行新线程的例程的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span><span class="p">,</span><span class="c1">//要传递到新线程的参数列表，或 NULL 。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">initflag</span><span class="p">,</span><span class="c1">//控制新线程的初始状态的标志。 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="o">*</span><span class="n">thrdaddr</span><span class="c1">//指向接收线程标识符的 32 位变量。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">uintptr_t</span> <span class="nf">_beginthreadex</span><span class="p">(</span> <span class="c1">// MANAGED CODE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">void</span> <span class="o">*</span><span class="n">security</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">stack_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="p">(</span> <span class="n">__clrcall</span> <span class="o">*</span><span class="n">start_address</span> <span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="p">),</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">void</span> <span class="o">*</span><span class="n">arglist</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">initflag</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="o">*</span><span class="n">thrdaddr</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//返回值 如果成功，则这些函数中的每一个都会返回一个句柄到新创建的线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">m_hThreadHandle</span> <span class="o">=</span> <span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="o">::</span><span class="n">_beginthreadex</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ThreadFunction</span><span class="p">,</span><span class="k">this</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m_uThreadID</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="_endthread_endthreadex-终止线程">_endthread、_endthreadex 终止线程</h2>
+<p><a href="https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/reference/endthread-endthreadex?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_endthread</span><span class="p">(</span> <span class="kt">void</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_endthreadex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">retval</span>	<span class="c1">//线程退出代码。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="waitforsingleobject-线程等待">WaitForSingleObject 线程等待</h2>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject" target="_blank" rel="noopener noreffer">详情</a> <a href="https://blog.csdn.net/LL596214569/article/details/81088862?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164033179716780357223865%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=164033179716780357223865&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-81088862.nonecase&amp;utm_term=WaitForSingleObject&amp;spm=1018.2226.3001.4450" target="_blank" rel="noopener noreffer">csdn</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="nf">WaitForSingleObject</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="n">HANDLE</span> <span class="n">hHandle</span><span class="p">,</span>	<span class="c1">//需要等待线程的句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="n">DWORD</span>  <span class="n">dwMilliseconds</span> <span class="c1">//超时时间 一直等待用INFINITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//返回值
+</span></span></span><span class="line"><span class="cl"><span class="c1">//有三种返回类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">//WAIT_OBJECT_0, 表示等待的对象有信号（对线程来说，表示执行结束）；
+</span></span></span><span class="line"><span class="cl"><span class="c1">//WAIT_TIMEOUT, 表示等待指定时间内，对象一直没有信号（线程没执行完）；
+</span></span></span><span class="line"><span class="cl"><span class="c1">//WAIT_ABANDONED 表示对象有信号，但还是不能执行  一般是因为未获取到锁或其他原因
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">m_hThreadHandle</span><span class="p">,</span>  <span class="n">INFINITE</span><span class="p">)</span> <span class="o">==</span> <span class="n">WAIT_TIMEOUT</span><span class="p">)</span><span class="c1">//线程等待,可延时等待或者一直等待INFINITE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// ConsoleApplication1.cpp : 定义控制台应用程序的入口点。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdafx.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;windows.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">FunProc</span><span class="p">(</span><span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">FunProc</span><span class="p">(</span><span class="n">LPVOID</span> <span class="n">lpParameter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">HANDLE</span> <span class="n">hThread</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">hThread</span> <span class="o">=</span> <span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">FunProc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">dwRet</span> <span class="o">=</span> <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">hThread</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_OBJECT_0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;创建的线程执行结束&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_TIMEOUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;等待超时&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">dwRet</span> <span class="o">==</span> <span class="n">WAIT_ABANDONED</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;Abandoned&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CloseHandle</span><span class="p">(</span><span class="n">hThread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果有两种:</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/70-20211224155245826.png"
+        title="img"
+    /></p>
+<p>这就是未能等到线程结束信号量的等待时间就耗光了。我们也可以将WaitForSingleObject的第二个参数设置为 INFINITE，就可以一直等待。</p>
+<h2 id="assertfalse-断点">ASSERT(false) 断点</h2>
+<p>debug模式才生效</p>
+<p><a href="https://docs.microsoft.com/zh-tw/cpp/c-runtime-library/reference/assert-macro-assert-wassert?view=msvc-170" target="_blank" rel="noopener noreffer">详情</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//原型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">assert</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">   <span class="n">expression</span>	<span class="c1">//评估为非零 (true) 或 0 (false) 的纯量运算式 (包括指标运算式)。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_assert</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">message</span><span class="p">,</span>	<span class="c1">//要显示的讯息。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">filename</span><span class="p">,</span>	<span class="c1">//判断提示失败之原始程式档的名称。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="n">line</span>	<span class="c1">//判断提示失败之原始程式档中的行号。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_wassert</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">wchar_t</span> <span class="k">const</span><span class="o">*</span> <span class="n">message</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">wchar_t</span> <span class="k">const</span><span class="o">*</span> <span class="n">filename</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">unsigned</span> <span class="n">line</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//返回值: 当结果为false时，列印诊断资讯并中止程式。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ASSERT</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="c1">//断点，debug模式才生效
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="纪元时间">纪元时间</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">time_t</span> <span class="n">epoch_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Epoch time: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">epoch_time</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="safedelete-释放指针">SafeDelete 释放指针</h2>
+<p>有析构函数的在析构函数中释放</p>
+<p>没有的在类视图消息属性中释放</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">	<span class="n">SafeDelete</span><span class="p">(</span><span class="n">m_pOp</span><span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gettickcount-系统开启到现在的时间">GetTickCount()  系统开启到现在的时间</h2>
+<p>单位,毫秒</p>
+<h2 id="类型转换">类型转换</h2>
+<p>atoi&mdash;ASCII to integer,将字符串转换成整形，从数字或正负号开始转换，一直到非数字为止</p>
+<p>itoa&mdash;integer to ASCII&ndash;将整形转换成字符串</p>
+<p>atof&mdash;ascii to float&ndash;字符串转换成浮点型</p>
+<p>atol&mdash;ascii to long&mdash;字符串转换成长整形</p>
+<p>gcvt&mdash;浮点型转换成字符串（四舍五入）</p>
+<p>strtod&mdash;字符串转换成浮点型</p>
+<p>strtol&mdash;字符串转换成长整形</p>
+<p>strtoul&ndash;字符串转换成无符号长整形</p>
+<p>toascii&mdash;将整形转换成合法的ASCII码字符</p>
+<p>_ttoi&mdash;可以将CString转换成整形</p>
+<p>_itot_s&mdash;将int转换成char*</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&#34;12345.67&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>	<span class="c1">//将字符串转换成整形
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">CWnd</span> <span class="o">*</span> <span class="n">pWnd</span> <span class="o">=</span> <span class="p">(</span><span class="n">CWnd</span><span class="o">*</span><span class="p">)</span><span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_EDIT4</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CString</span> <span class="n">strValue</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">pWnd</span><span class="o">-&gt;</span><span class="n">GetWindowText</span><span class="p">(</span><span class="n">strValue</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">strValue</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;sec&#34;</span><span class="p">),</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">))</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iValue</span> <span class="o">=</span> <span class="n">_ttoi</span><span class="p">(</span><span class="n">strValue</span><span class="p">)</span> <span class="p">;</span><span class="c1">//将Cstring转换成int
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">TCHAR</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">_itot_s</span><span class="p">(</span><span class="n">iValue</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="p">;</span><span class="c1">//将int转换成char*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">strValue</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">))</span> <span class="p">;</span><span class="c1">//将char*转换成CString
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">strValue</span> <span class="o">=</span> <span class="n">strValue</span> <span class="o">+</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;sec&#34;</span><span class="p">)</span> <span class="p">;</span><span class="c1">//CString实现字符串相加
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

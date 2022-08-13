@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Flex屏蔽越狱检测 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Flex屏蔽越狱检测" />
+<meta property="og:description" content="越狱iOS必备神器Flex使用指南-屏蔽越狱检测的破解利器 什么是Flex？ ​ Flex是越狱iOS上Cydia商店里的一个插件，看似普通的插件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/iphone/flex%E5%B1%8F%E8%94%BD%E8%B6%8A%E7%8B%B1%E6%A3%80%E6%B5%8B/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Flex屏蔽越狱检测"/>
+<meta name="twitter:description" content="越狱iOS必备神器Flex使用指南-屏蔽越狱检测的破解利器 什么是Flex？ ​ Flex是越狱iOS上Cydia商店里的一个插件，看似普通的插件"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/iphone/flex%E5%B1%8F%E8%94%BD%E8%B6%8A%E7%8B%B1%E6%A3%80%E6%B5%8B/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/iphone/openssh/" /><link rel="next" href="https://xinqinew.github.io/en/posts/iphone/05-%E5%88%9D%E8%AF%86mach-o/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Flex屏蔽越狱检测",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/iphone\/flex%E5%B1%8F%E8%94%BD%E8%B6%8A%E7%8B%B1%E6%A3%80%E6%B5%8B\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "iPhone","wordcount":  1566 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/iphone\/flex%E5%B1%8F%E8%94%BD%E8%B6%8A%E7%8B%B1%E6%A3%80%E6%B5%8B\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Flex屏蔽越狱检测</h1><div class="content" id="content"><h2 id="越狱ios必备神器flex使用指南-屏蔽越狱检测的破解利器"><strong>越狱iOS必备神器Flex使用指南-屏蔽越狱检测的破解利器</strong></h2>
+<p><strong>什么是Flex？</strong></p>
+<p>​    Flex是越狱iOS上Cydia商店里的一个插件，看似普通的插件，却有着强大的动态修改手机APP运行逻辑的功能，就像Android系统中的Xposed一样，通过制作编写、配置一个Flex的小插件，可以动态修改越狱iOS上APP运行时的执行代码逻辑。</p>
+<p>​    但Flex的插件制作要比Xposed的插件制作更为简单。</p>
+<p>​    Xposed插件的编写需要在外部对APK进行反编译破解，甚至脱壳，打开AndroidStudio等开发软件进行代码编写，生成插件apk安装在手机上，在Xposed框架中激活，重启手机后方可生效。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/194bc2f8bcb6c1c32e20741fc0d2924e-20220510220619500.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/194bc2f8bcb6c1c32e20741fc0d2924e-20220510220619500.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/194bc2f8bcb6c1c32e20741fc0d2924e-20220510220619500.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/194bc2f8bcb6c1c32e20741fc0d2924e-20220510220619500.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/194bc2f8bcb6c1c32e20741fc0d2924e-20220510220619500.png"
+        title="图片"
+    /></p>
+<p>​    而Flex插件的编写，说是编写，其实说配置更准确。Flex支持直接对Mach-o进行反编译，得到Object-C源码头文件，让用户直接选中要hook的类和方法名，配置篡改某个方法传入的参数和固定方法的返回值，从而达到修改APP执行逻辑的目的。使其生效的话，只需打开开关，重启APP即可生效。</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9bd14fec2daa62affa039d3fc85bc7e9.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9bd14fec2daa62affa039d3fc85bc7e9.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9bd14fec2daa62affa039d3fc85bc7e9.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9bd14fec2daa62affa039d3fc85bc7e9.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9bd14fec2daa62affa039d3fc85bc7e9.png"
+        title="图片"
+    /></p>
+<h2 id="安装flex"><strong>安装Flex</strong></h2>
+<p>添加官方源：http://getdelta.co/安装Flex3即可。</p>
+<p>我安装的是雷锋源的Flex 3 b92版本，机器是iPhoneXr,12.4.1</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/53066baed667b99f05e16090af8b35cd.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/53066baed667b99f05e16090af8b35cd.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/53066baed667b99f05e16090af8b35cd.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/53066baed667b99f05e16090af8b35cd.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/53066baed667b99f05e16090af8b35cd.png"
+        title="图片"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fffa0aa299f803e93b300d5680ebcc80-20220510220610108.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fffa0aa299f803e93b300d5680ebcc80-20220510220610108.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fffa0aa299f803e93b300d5680ebcc80-20220510220610108.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fffa0aa299f803e93b300d5680ebcc80-20220510220610108.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/fffa0aa299f803e93b300d5680ebcc80-20220510220610108.png"
+        title="图片"
+    /></p>
+<h2 id="flex功能模板说明"><strong>Flex功能模板说明</strong></h2>
+<p>主要看下图说明：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d6bbf931a9a51138a372f9bcd8a8c2d-20220510220604996.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d6bbf931a9a51138a372f9bcd8a8c2d-20220510220604996.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d6bbf931a9a51138a372f9bcd8a8c2d-20220510220604996.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d6bbf931a9a51138a372f9bcd8a8c2d-20220510220604996.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/5d6bbf931a9a51138a372f9bcd8a8c2d-20220510220604996.png"
+        title="图片"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ad0d35c01d93bdaa97356f10746969b3.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ad0d35c01d93bdaa97356f10746969b3.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ad0d35c01d93bdaa97356f10746969b3.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ad0d35c01d93bdaa97356f10746969b3.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ad0d35c01d93bdaa97356f10746969b3.png"
+        title="图片"
+    /></p>
+<p>在个人中心的账号中，有免费账号和付费账号，免费账号的限制是每天只能下载2个云端的插件，分享一个别人的共享账号：sundasheng521@qq.com 7758521a 没有功能限制：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/80476218eeee872f408a50b32e4d2dd0.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/80476218eeee872f408a50b32e4d2dd0.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/80476218eeee872f408a50b32e4d2dd0.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/80476218eeee872f408a50b32e4d2dd0.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/80476218eeee872f408a50b32e4d2dd0.png"
+        title="图片"
+    /></p>
+<h2 id="插件制作教程"><strong>插件制作教程</strong></h2>
+<p>​    以“中国建设银行”为例，屏蔽其越狱检测。建行在越狱的手机上会安全提示，且点击按钮之后退出APP：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2ce22c6de50301c2499ea779c4c1f2e0-20220510220556072.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2ce22c6de50301c2499ea779c4c1f2e0-20220510220556072.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2ce22c6de50301c2499ea779c4c1f2e0-20220510220556072.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2ce22c6de50301c2499ea779c4c1f2e0-20220510220556072.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/2ce22c6de50301c2499ea779c4c1f2e0-20220510220556072.png"
+        title="图片"
+    /></p>
+<p>打开Flex，点击右上角的“+”，选中建设银行，来到界面：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f7323dc50d1c82ee90cef73ae6e3b1ab.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f7323dc50d1c82ee90cef73ae6e3b1ab.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f7323dc50d1c82ee90cef73ae6e3b1ab.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f7323dc50d1c82ee90cef73ae6e3b1ab.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/f7323dc50d1c82ee90cef73ae6e3b1ab.png"
+        title="图片"
+    /></p>
+<p>点击“Add Units”，来到建设的执行程序列表：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7f3b4ec40ffd91bb5d6ee508dfced56-20220510220549316.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7f3b4ec40ffd91bb5d6ee508dfced56-20220510220549316.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7f3b4ec40ffd91bb5d6ee508dfced56-20220510220549316.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7f3b4ec40ffd91bb5d6ee508dfced56-20220510220549316.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d7f3b4ec40ffd91bb5d6ee508dfced56-20220510220549316.png"
+        title="图片"
+    /></p>
+<p>这里，我们选择主程序，点击之后，会有Processing字眼，是Flex对Mach-o进行dump源码头的处理，完成之后，最右边出现“&gt;”，我们再点击就来到了类和函数的区域：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/06744fa0db72e99619d0caed092c0d4f-20220510220544240.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/06744fa0db72e99619d0caed092c0d4f-20220510220544240.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/06744fa0db72e99619d0caed092c0d4f-20220510220544240.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/06744fa0db72e99619d0caed092c0d4f-20220510220544240.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/06744fa0db72e99619d0caed092c0d4f-20220510220544240.png"
+        title="图片"
+    /></p>
+<p>通过分析建行对越狱的检测特征：弹窗提示+点击退出。那我们就尝试搜索“退出”：exitApp：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/603e071ff3d456aa907a0cfdb667e38d.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/603e071ff3d456aa907a0cfdb667e38d.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/603e071ff3d456aa907a0cfdb667e38d.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/603e071ff3d456aa907a0cfdb667e38d.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/603e071ff3d456aa907a0cfdb667e38d.png"
+        title="图片"
+    /></p>
+<p>选中之后，返回到原来的页面：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af9545cf10a5682913439f0aad890af1-20220510220537290.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af9545cf10a5682913439f0aad890af1-20220510220537290.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af9545cf10a5682913439f0aad890af1-20220510220537290.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af9545cf10a5682913439f0aad890af1-20220510220537290.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/af9545cf10a5682913439f0aad890af1-20220510220537290.png"
+        title="图片"
+    /></p>
+<p>点击进去查看编辑：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/791753b0d1774bc141f92154eea93a60.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/791753b0d1774bc141f92154eea93a60.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/791753b0d1774bc141f92154eea93a60.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/791753b0d1774bc141f92154eea93a60.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/791753b0d1774bc141f92154eea93a60.png"
+        title="图片"
+    /></p>
+<p>2个方法的分析是一样的，也就说只要我们将这2个方法的Return设置为pass-through跳过不执行，建设银行就会在用户点击按钮的时候，不发生退出操作：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/56429eb80abef8867357b7dc7102f61b-20220510220530718.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/56429eb80abef8867357b7dc7102f61b-20220510220530718.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/56429eb80abef8867357b7dc7102f61b-20220510220530718.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/56429eb80abef8867357b7dc7102f61b-20220510220530718.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/56429eb80abef8867357b7dc7102f61b-20220510220530718.png"
+        title="图片"
+    /></p>
+<h2 id="flex对于函数的传参和返回类型"><strong>Flex对于函数的传参和返回类型</strong></h2>
+<p>目前Flex仅仅支持对Object-C类型的类和函数进行动态修改，支持编辑的具体类型有<strong>NSString</strong>（输入一个字符串，比如提示语、界面语等）、</p>
+<p><strong>NSNumer</strong>（一个数字，比如金币数、钻石数等）、</p>
+<p><strong>NSDate</strong>（日期，比如VIP到期日期等）、</p>
+<p><strong>UIColor</strong>（颜色，选择颜色等）、</p>
+<p><strong>Bool</strong>（TRUE/FALSE，是否为VIP等）</p>
+<p><strong>Id</strong>（泛型，可以自定义类型）</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/859c32cee1d154a5dfeca02b7a9c4acf.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/859c32cee1d154a5dfeca02b7a9c4acf.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/859c32cee1d154a5dfeca02b7a9c4acf.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/859c32cee1d154a5dfeca02b7a9c4acf.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/859c32cee1d154a5dfeca02b7a9c4acf.png"
+        title="图片"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9d61894ea2e2c08796636e53b1bbcea1-20220510220523396.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9d61894ea2e2c08796636e53b1bbcea1-20220510220523396.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9d61894ea2e2c08796636e53b1bbcea1-20220510220523396.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9d61894ea2e2c08796636e53b1bbcea1-20220510220523396.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9d61894ea2e2c08796636e53b1bbcea1-20220510220523396.png"
+        title="图片"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6359ee04c20d61a6bf5a7cf0f5784c68-20220510220518790.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6359ee04c20d61a6bf5a7cf0f5784c68-20220510220518790.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6359ee04c20d61a6bf5a7cf0f5784c68-20220510220518790.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6359ee04c20d61a6bf5a7cf0f5784c68-20220510220518790.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6359ee04c20d61a6bf5a7cf0f5784c68-20220510220518790.png"
+        title="图片"
+    /></p>
+<h2 id="怎么快速定位要修改的函数"><strong>怎么快速定位要修改的函数</strong></h2>
+<p><strong>A.通过抓包分析，精准定位需要修改的请求参数的值：</strong></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1174501" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=1174501</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1004614" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=1004614</a></p>
+<p><strong>B.借助前人经验，通过通用的修改方法得到自己的破解需求：</strong></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=999009" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=999009</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1401213" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=1401213</a></p>
+<p><strong>C.通过中英文对照，模糊搜索可能需要修改的地方，比如：</strong></p>
+<p>屏蔽越狱检测：jailbroken root cydia 等</p>
+<p>屏蔽退出：exit quit illegal等</p>
+<p>解锁：lock</p>
+<p>水印：water</p>
+<p>是否购买/vip：vip buy pay等。</p>
+<p>相关的博文：</p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1092971" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=1092971</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1003260" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=1003260</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=615555" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/forum.php?mod=viewthread&tid=615555</a></p>
+<p><strong>D.进阶精准溯源法，通过高阶的分析，比如IDA、Hopper、FlexTool等精准分析出要修改的函数，进而进行hook：</strong></p>
+<p><a href="https://www.52pojie.cn/thread-1174141-1-1.html" target="_blank" rel="noopener noreffer">https://www.52pojie.cn/thread-1174141-1-1.html</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDI4NjE3Mw==&amp;mid=2247483834&amp;idx=1&amp;sn=f93295433a92757d41cef00d930ef52f&amp;scene=21#wechat_redirect" title="https://mp.weixin.qq.com/s/OVgfyY0jgRSZKfAKxCGxfg" target="_blank" rel="noopener noreffer">https://mp.weixin.qq.com/s/OVgfyY0jgRSZKfAKxCGxfg</a></p>
+<p>END</p>
+<p><strong>往期推荐:</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODYyMjk5NQ==&amp;mid=2247484752&amp;idx=1&amp;sn=7c19884036382f5a9abfb469c5e708dd&amp;chksm=eca24c2cdbd5c53af748f4a535d79facecea22808dfd5ad05f0b883fb63d406cf34eb35de330&amp;scene=21#wechat_redirect" title="值得收藏 |解决99%的手机APP抓包问题 涵盖安卓/iOS客户端" target="_blank" rel="noopener noreffer">值得收藏 |解决99%的手机APP抓包问题 涵盖安卓/iOS客户端</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODYyMjk5NQ==&amp;mid=2247483852&amp;idx=1&amp;sn=37a77da8750706aeead3f8e38d9808a6&amp;chksm=eca248b0dbd5c1a60a3c67424b35b086ac066067d42c491162c692b0d16c3493686a34647c7b&amp;scene=21#wechat_redirect" title="打造属于自己的Android破解脱壳机，其实只需100块" target="_blank" rel="noopener noreffer">打造属于自己的Android破解脱壳机，其实只需100块</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODYyMjk5NQ==&amp;mid=2247484876&amp;idx=1&amp;sn=2e130694a0391015d5c28b00ca29f30f&amp;chksm=eca24cb0dbd5c5a66ebfed471ca83a82587e74a4337054d6c3c7cf00e617fa5c50f1438909c2&amp;scene=21#wechat_redirect" title="爬取 58 同城房产数据，犯非法获取计算机信息系统数据罪：3 人被判" target="_blank" rel="noopener noreffer">爬取 58 同城房产数据，犯非法获取计算机信息系统数据罪：3 人被判</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODYyMjk5NQ==&amp;mid=2247484811&amp;idx=1&amp;sn=4efb79998ae6581986336d5faec34e75&amp;chksm=eca24cf7dbd5c5e1860bb8ad80c9ce7cc981d57595f02bfec2acdeee50753a087c1f1478a3cc&amp;scene=21#wechat_redirect" title="一款轻便小巧的网络验证的安装及快速购买阿里云教程| 造福小白" target="_blank" rel="noopener noreffer">一款轻便小巧的网络验证的安装及快速购买阿里云教程| 造福小白</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzI5ODYyMjk5NQ==&amp;mid=2247484674&amp;idx=1&amp;sn=63c543e6fae99c3eb32bd93e7ee9f972&amp;chksm=eca24c7edbd5c568d707ee6d9679ec0cb00da09edd6ac0c1e618a98496d404cc0f9287553163&amp;scene=21#wechat_redirect" title="看我如何一步步干掉盗取通讯录&#43;盗摄的裸聊App |渗透技术" target="_blank" rel="noopener noreffer">看我如何一步步干掉盗取通讯录+盗摄的裸聊App |渗透技术</a></p>
+<p>欢迎关注微信公众号：『掌玩小子』讨论更多技术：<br>
+<img
+        class="lazyload"
+        data-src="https://img-blog.csdnimg.cn/20200528222149342.png"
+        data-srcset="https://img-blog.csdnimg.cn/20200528222149342.png, https://img-blog.csdnimg.cn/20200528222149342.png 1.5x, https://img-blog.csdnimg.cn/20200528222149342.png 2x"
+        data-sizes="auto"
+        alt="https://img-blog.csdnimg.cn/20200528222149342.png"
+        title="在这里插入图片描述"
+    /></p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

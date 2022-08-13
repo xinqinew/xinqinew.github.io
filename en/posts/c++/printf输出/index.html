@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">printf输出 - Hmily云笔记</title><meta name="Description" content="printf输出"><meta property="og:title" content="printf输出" />
+<meta property="og:description" content="printf输出" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-07-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-23T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="printf输出"/>
+<meta name="twitter:description" content="printf输出"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/printf%E8%BE%93%E5%87%BA/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/std%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" /><link rel="next" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/namespace%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "printf输出",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/printf%E8%BE%93%E5%87%BA\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "C\u002b\u002b","wordcount":  2292 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/printf%E8%BE%93%E5%87%BA\/","datePublished": "2021-07-23T00:00:00+00:00","dateModified": "2021-07-23T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": "printf输出"
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">printf输出</h1><div class="content" id="content"><h1 id="printf输出">printf输出</h1>
+<p>函式原型：  int printf ( const char * format, &hellip; );</p>
+<p>引數說明： %[flags][width][.precision][length]specifier
+%[旗標][寬度][.精度][長度修飾]資料型態</p>
+<h2 id="1-資料型態--旗標寬度精度長度修飾資料型態--必填欄位">1. 資料型態 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 必填欄位</h2>
+<h3 id="11-字元字串">(1.1) 字元/字串</h3>
+<p>%c, %C : 字元,  char c;
+%s : 字元陣列, char buffer[MAX_PATH];
+%S : 字元陣列(Unicode), wchar buffer[MAX_PATH];</p>
+<p>[註] %C / %S 並未被收在標準函式庫裡，屬 MSVC 特殊支援。</p>
+<h3 id="12-整數">(1.2) 整數</h3>
+<pre><code>%d, %i : 10進制整數  , int x; [lemma] 
+    %u : 10進制無號數, unsigned int x;
+    %o : 8進制無號數,  unsigned int x;
+ %x, %X : 16進制無號數, 小寫x輸出為&quot;abcdef&quot;, 大寫 X 輸出為 &quot;ABCDEF&quot;, 
+          unsigned x;
+</code></pre>
+<p>%lld, %I64d : long long int, __int64 輸出型態
+(註：vc6.0 下只有 __int64，沒有long long int)
+%llu, %I64u : unsigned long long int  輸出型態</p>
+<p>[lemma] %d : dec; %i : integer，於 scanf 時有部份差異 (%d 只接受10進位, %i 可接受指定進位，如 0x23, 045)，但於 printf 時 %d, %i 並無顯著差異 (感謝 Jacob Lee 補充指導)</p>
+<h3 id="13-浮點數">(1.3) 浮點數</h3>
+<p>%e, %E : 浮點數使用科學符號表示之,指數將帶正負號, float x,doubley;
+%f : 單精度浮點數(預設輸出精度6位), float x;
+(註 : 對 printf 而言, %f/%lf 可適用於 double / float)
+%lf : 倍精度浮點數(預設輸出精度6位), double x;
+%llf, %LF : 雙倍精度浮點數(預設輸出精度6位), long double x;
+%g, %G : 由系統決定是否採科學符號表示。</p>
+<h3 id="14-特殊-原創edisonxpixnetnet">(1.4) 特殊 原創：edisonx.pixnet.net</h3>
+<pre><code>   %p : 變數位置。 ex:
+        int a=0, printf(&quot;%p&quot;, &amp;a);  即 printf(&quot;%08x&quot;, &amp;a);
+   %n : 輸出至緩衝區之長度, ex:
+        char str[]=&quot;test&quot;, int len, printf(&quot;%s%n&quot;, a, &amp;len);
+        輸出4bytes,len = 4
+</code></pre>
+<h3 id="15-c99新增--建議-k-spec-最清楚-">(1.5) C99新增 &lt; 建議 k spec. 最清楚 &gt;</h3>
+<p>(註 : C99 新增了一些資料型態在 inttypes.h / stdint.h 裡面，有興趣搜尋 n1256.pdf 下載下來 K 標準， in section 7.8 。當然 MSVC 不支援 C99 是眾所皆知的事。)</p>
+<p>部份原則還是掌握了 %i, %u, %d, %x，另由於這部份在 printf 會顯得很亂，故直接做範例對應。掌握一原則：新的資料型態在 printf 前三個字母一定是 PRI。</p>
+<p>&ldquo;%&rdquo; PRIdN , &ldquo;%&rdquo; PRIiN: 以十進位有號數顯示 intN_t 系列之數值。ex :</p>
+<pre><code>     int8_t i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRId8  &quot; \n&quot;, i8);
+     int8_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIi16 &quot; \n&quot;, i16);
+     int8_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRId32 &quot; \n&quot;, i32); 
+     int8_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIi64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdN / PRIiN ，換成 PRIoN / PRIuN / PRIxN / PRIXN ，便可轉對 uintN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<p>&ldquo;%&rdquo; PRIdLEASTN , &ldquo;%&rdquo; PRIiLEASTN: 以十進位有號數顯示 int_leastN_t 系列之數值。ex :</p>
+<pre><code>     int_least8_t  i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRIdLEAST8  &quot; \n&quot;, i8);
+     int_least16_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIiLEAST16 &quot; \n&quot;, i16);
+     int_least32_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRIdLEAST32 &quot; \n&quot;, i32); 
+     int_least64_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIiLEAST64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdLEASTN / PRIiLEASTN ， 換成 PRIoLEASTN/ PRIuLEASTN/ PRIxLEASTN/ PRIXLEASTN， 便可轉對 uint_leastN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<pre><code>&quot;%&quot; PRIdFASTN , &quot;%&quot; PRIiFASTN: 以十進位有號數顯示 int_fastN_t 系列之數值。ex : 
+
+     int_fast8_t  i8  = 8  ; &lt;----&gt; printf( &quot;i8 = %&quot; PRIdFAST8  &quot; \n&quot;, i8);
+     int_fast16_t i16 = 16 ; &lt;----&gt; printf( &quot;i16= %&quot; PRIiFAST16 &quot; \n&quot;, i16);
+     int_fast32_t i32 = 32 ; &lt;----&gt; printf( &quot;i32= %&quot; PRIdFAST32 &quot; \n&quot;, i32); 
+     int_fast64_t i64 = 64 ; &lt;----&gt; printf( &quot;i64= %&quot; PRIiFAST64 &quot; \n&quot;, i64); 
+</code></pre>
+<p>另上述將 PRIdFASTN / PRIiFASTN ，換成 PRIoFASTN/ PRIuFASTN/ PRIxFASTN/ PRIXFASTN，便可轉對 uint_leastN_t 資料型態做輸出，分別為 ( 8 進位、10進位、16進位小寫、16進位大寫)，有空自己試試，不贅述。</p>
+<p>&ldquo;%&rdquo; PRIdMAX , &ldquo;%&rdquo; PRIdPTR : 分別顯示整數最大值與指標型態。</p>
+<p>[註 : 特別注意 inttypes.h 裡面之型態，printf 引數和 scanf 引數差很多，一樣掌握一原則，新的資料型態在 scanf 前三個字母一定是 SCN， 如 intN_t  系列，scanf 用的是 &ldquo;%&rdquo; SCNdN / &ldquo;%&rdquo; SCNiN ； uintN_t 系列，scanf 用的是 &ldquo;%&rdquo; SCNoN / &ldquo;%&rdquo; SCNuN / &ldquo;%&rdquo; SCNxN / &ldquo;%&rdquo; SCNXN ； int_fastN_t / int_leastN_t 等系列資料型態便不贅述。 )</p>
+<h2 id="2-寬度--旗標寬度精度長度修飾資料型態--選填欄位net">2. 寬度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位net</h2>
+<pre><code>  %m : 指定輸出之寬度。ex:
+       int a=2, b=10;
+       printf(&quot;%d%5d&quot;, a, b);
+       輸出為   &quot;2   10&quot;  (2與10之間有3個空白，因10為5個文字寬度)。
+  %* : 以引數方式代入指定輸出之寬度。ex:
+       int a=2, width=10;
+       printf(&quot;%*d&quot;,width, a);
+       輸出為   &quot;         2&quot;  (10個文字寬度)。
+</code></pre>
+<h2 id="3-長度修飾--旗標寬度精度長度修飾資料型態--選填欄位">3. 長度修飾 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code>  %h : 將數字視為 short int (%hd) 或 unsigned int (%hu),
+       此修飾只對整數型態之 %hi, %hd, %ho, %hu, %hx, %hX 有效。
+       且針對 char 可用 %hhd，unsigned char 可用 %hhu。
+
+ (註 : MSVC 認得 %hd / %hu / %hhd / %hhu , 但在 gcc 下會發出認不得的警告 )
+
+  %l : 將數字視為 long  int (%ld) 或 unsigned long int (%lu), 
+       此修飾只對整數型態之 %li, %ld, %lo, %lu, %lx, %lX 有效。
+  %L : 此修飾只對浮點數型態之 long double 有效, 可用於修飾
+       %Le, %LE, %Lf, %Lg, %LG。
+</code></pre>
+<h2 id="4-精度--旗標寬度精度長度修飾資料型態--選填欄位">4. 精度 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code> %.n : 欲輸出小數點後幾位數,即顯示之精度,此修飾只對浮點數資料型態有效(f,F,e,E,g),
+       若使用其它整數型態 (i, d, o, u, x, X) 則將 n 視為 0, 即不輸出小數位數。ex:
+       double a=2.1234, printf(&quot;%.2lf&quot;, a);
+       輸出則為  &quot;2.12&quot; 。
+ %.* : 和 %.n 相似，但其 n 值可用變數引入。ex:
+       double a=1.3456, int preci=2, printf(&quot;%.*lf&quot;,preci, a);
+       輸出則為  &quot;1.35&quot; 。
+ %m.n: 這是寬度和精度合用之方法, 代表輸出會有小數點後 n 位，
+       且整個輸出文字寬 m 個字(包含小數點、正負號及數字)。ex:
+       double c = -102.34567, printf(&quot;%10.3lf&quot;, c);
+       結果會輸出  &quot;  -102.346&quot; ，前面將會保留二個空白，使得整體寬度為 10 。
+ %*.*: 和上一說明一樣, 但寬度與精度可用引數決定。ex:
+       double c = -102.34567, int m=10, int n=3;
+       printf(&quot;%*.*lf&quot;, m, n, c);
+       結果會輸出  &quot;  -102.346&quot; ，前面將會保留二個空白，使得整體寬度為 10 。
+</code></pre>
+<h2 id="5-旗標--旗標寬度精度長度修飾資料型態--選填欄位">5. 旗標 ( %[旗標][寬度][.精度][長度修飾]資料型態 ) 選填欄位</h2>
+<pre><code>   %- : 原本輸出預設為向右對齊，使用後輸出向左對齊, 需與[寬度]配合使用。ex:
+        char buf[] = &quot;Test&quot;;
+        printf(&quot;%-10s&quot;);
+        輸出結果為 &quot;Test      &quot;， Test 後面將保留6個空白。             
+   %+ : 需為數值型之資料型態，強制輸出正負號，可與 '-' 旗標合用。 ex:
+        double a = 3.4567:
+        printf(&quot;%-+8.2lf&quot;, a);
+        // '-'使輸出靠左對齊, '+'強調輸出正負號, 整體寬度為8, 小數點顯示2位。
+        輸出結果為 &quot;+3.46   &quot;
+   %0 : 若輸出之左半部為空白處, 則進行補0, (所以這不能和 '-' 合用) ex:
+        unsigned int x = 122;
+        printf(&quot;%05u&quot;, x); 
+        // 寬度為5, 前半空白補零
+        輸出結果為 &quot;00122&quot;
+   %# : 對進制加上前綴符號, 只對 %o, %x 有用, 
+        %#o為8進制,前綴符號為 0,
+        %#x為16進制,前綴符號為 0x, %#X前綴符號則為 0X。ex:
+        unsigned int a = 15;
+        printf(&quot;%u %#o %#X&quot;, a, a, a);
+        輸出結果為 &quot;15 017 0XF&quot; 
+</code></pre>
+<p>%(空白): 若數字為正號, 則會在該數字前面加上一空白，(故不可與 &lsquo;+&rsquo; 合用)。 ex:
+int a=10;
+printf(&quot;% -5d&quot;); // 寬度5, 向左對齊, 保留正號位置
+輸出結果為 &quot; 10  &quot;</p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

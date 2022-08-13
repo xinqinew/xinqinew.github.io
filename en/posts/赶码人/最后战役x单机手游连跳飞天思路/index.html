@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">最后战役X(单机手游)连跳飞天思路 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="最后战役X(单机手游)连跳飞天思路" />
+<meta property="og:description" content="最后战役X(单机手游)连跳飞天思路 赶码人 最后战役X一是款基于unity引擎的单机FPS手游，作者已经不再进行维护。打开游戏后选择“端游界面”" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E8%B5%B6%E7%A0%81%E4%BA%BA/%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E8%BF%9E%E8%B7%B3%E9%A3%9E%E5%A4%A9%E6%80%9D%E8%B7%AF/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="最后战役X(单机手游)连跳飞天思路"/>
+<meta name="twitter:description" content="最后战役X(单机手游)连跳飞天思路 赶码人 最后战役X一是款基于unity引擎的单机FPS手游，作者已经不再进行维护。打开游戏后选择“端游界面”"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E8%B5%B6%E7%A0%81%E4%BA%BA/%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E8%BF%9E%E8%B7%B3%E9%A3%9E%E5%A4%A9%E6%80%9D%E8%B7%AF/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E8%B5%B6%E7%A0%81%E4%BA%BA/%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E9%A3%9E%E5%A4%A9%E6%97%A5%E8%AE%B0%E6%94%B9%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E4%BF%AE%E5%A4%8D%E9%A3%9E%E5%A4%A9%E4%B8%8D%E5%90%AB%E5%88%A4%E6%96%AD/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "最后战役X(单机手游)连跳飞天思路",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%B5%B6%E7%A0%81%E4%BA%BA\/%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E8%BF%9E%E8%B7%B3%E9%A3%9E%E5%A4%A9%E6%80%9D%E8%B7%AF\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "赶码人","wordcount":  2881 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%B5%B6%E7%A0%81%E4%BA%BA\/%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E8%BF%9E%E8%B7%B3%E9%A3%9E%E5%A4%A9%E6%80%9D%E8%B7%AF\/","datePublished": "2022-01-28T00:00:00+00:00","dateModified": "2022-01-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">最后战役X(单机手游)连跳飞天思路</h1><div class="content" id="content"><p><a href="https://www.bilibili.com/blackboard/guguking2022.html" target="_blank" rel="noopener noreffer">最后战役X(单机手游)连跳飞天思路</a></p>
+<p><a href="https://space.bilibili.com/669962565" target="_blank" rel="noopener noreffer">赶码人</a></p>
+<p>最后战役X一是款基于unity引擎的<strong>单机</strong>FPS手游，作者已经不再进行维护。打开游戏后选择“端游界面”，进入游戏即可看到“调试”按钮。这个调试按钮，<strong>是游戏作者为玩家提供的“外挂”功能</strong>，包含不掉血、无限子弹、飞天、禁止人机移动 这四种功能。其中，飞天功能无法正常使用，所以本文讲讲如何修复无法飞天的BUG。</p>
+<p>涉及到的工具：ce+ceserver、frida、il2cppdumper、ida、ADB(其实感觉这个玩机必备工具没必要说的..)</p>
+<p>其中有些步骤，网络上教程已经有很多，我在本文不再详细展开，直接给出参考链接；</p>
+<p>本文仅供提高编程兴趣，请勿将本文内容用于其他游戏，本文作者不承担任何责任。</p>
+<p><strong>如果本教程使你有所收获，请为我的相关视频点个赞，鼓励为爱发电~</strong></p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>全文总结：在按下跳跃键时，设置y轴方向的速度。</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>最开始我想的比较简单，猜测有个变量表示是否在地面，那么，在地面搜1，在空中搜0，类型选择1字节，假如游戏的跳跃按钮按下后是判断了这个变量是1才能起跳，所有结果冻结成1，就完事了，但实际上并不能。</p>
+<p>同理，再猜测，是否有个变量表示 是否在空中，那么，在地面搜0，在空中搜1，如果游戏逻辑是“按下跳跃后，游戏判断这个变量是0才 跳跃”，那么，所有结果冻结成0，就完事了，但，想得美。</p>
+<p>那咋办？找自身坐标呗，找到y坐标之后，肯定不是改这个值，因为这样很不优雅，比如，如果头顶有个天花板，直接就穿透过去了。如果是下读写断点，也没有啥方便的调试工具(ce不兼容arm指令,断点也几乎只能在x86模拟器上使用,而我这里测试了几个模拟器都无法安装该游戏)。</p>
+<p>既然这样，只能尝试dump了。</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>il2dump下载连接：https://github.com/Perfare/Il2CppDumper/releases</p>
+<p>装好il2dump之后，参考这篇帖子：https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=982655 跟着做，导入script.py之后，再接着本文往下看就行了</p>
+<p>(哈哈，之前没发现已经有大佬做这么详细的教程，看来我可以少写好几段咯 )</p>
+<p>frida安装教程：https://www.bilibili.com/read/cv13148804?spm_id_from=333.999.0.0</p>
+<p>(不建议装12的版本,因为不支持ES6的语法写着不舒服,我这里是15.0.8 ； 否则，就把我下文的let改成var)</p>
+<p>也建议读者再自己找找其他frida教程，多对照着看.</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>具体的探索经历就不提了，忘得差不多了，直接聊聊主线：</p>
+<p>il2cpp.so拖到ida，可以看到很多函数名字都是sub开头的，然后按照刚才的链接，在ida执行script.py之后，就能看到各种函数名。实际上，我前面的绘制系列教程涉及的操作，放到最后战役X还是一样的。</p>
+<p>dump之后还能得到一个dump.cs文件，然后根据感觉搜就行了，或者直接看，比如men表示人物，再比如下图这个94798这一行，后面注释有个0x18，这个就表示men对象地址+0x18就是这个对象的血量。再多扯几句，0x38那个zj表示“是否为自己”，什么zj，myca，syd，不得不说，游戏作者的编码风格属于是自带混淆（吐槽归吐槽，我还是很respect这位游戏作者</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/14305d5aaba45ae69e4c6e33eb3fbf187973eafa.png@942w_861h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/14305d5aaba45ae69e4c6e33eb3fbf187973eafa.png@942w_861h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/14305d5aaba45ae69e4c6e33eb3fbf187973eafa.png@942w_861h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/14305d5aaba45ae69e4c6e33eb3fbf187973eafa.png@942w_861h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/14305d5aaba45ae69e4c6e33eb3fbf187973eafa.png@942w_861h_progressive.png"
+        title="img"
+    /></p>
+<p>现在符号有了，咱要搞连跳飞天，直接搜吧，但你会发现搜不出来有价值的函数，</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c4e21c70a682534909e9d7cc0f662191c3e083d.png@830w_222h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c4e21c70a682534909e9d7cc0f662191c3e083d.png@830w_222h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c4e21c70a682534909e9d7cc0f662191c3e083d.png@830w_222h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c4e21c70a682534909e9d7cc0f662191c3e083d.png@830w_222h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3c4e21c70a682534909e9d7cc0f662191c3e083d.png@830w_222h_progressive.png"
+        title="img"
+    /></p>
+<p>我在这里卡了很久，我甚至搜了tiao，ty，也是没收获，实际上是游戏作者打错单词了，把jump打成了jumap，</p>
+<p>搜jumap，好，这下子有了：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8a059755822209fa411330c13bc982f8ea51d4bf.png@942w_545h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8a059755822209fa411330c13bc982f8ea51d4bf.png@942w_545h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8a059755822209fa411330c13bc982f8ea51d4bf.png@942w_545h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8a059755822209fa411330c13bc982f8ea51d4bf.png@942w_545h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/8a059755822209fa411330c13bc982f8ea51d4bf.png@942w_545h_progressive.png"
+        title="img"
+    /></p>
+<p>这里不提他里面具体都做了啥，光标放函数名这一行，观察这个窗口下方有个状态栏，表示这个函数的地址，0x71FF68，记住它，接下来我们看这个函数被调用的情况，开始搞frida代码，先新建个1.js，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">&#39;</span><span class="n">uidm__jumap</span> <span class="err">被调用&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码，可以让jumap函数被调用后（jumap内部代码被执行之前），在终端/cmd执行我们1.js的onEnter指定的方法（这里是输出个提示），</p>
+<p>先看看它的调用情况如何，比如是否会被调用，如果这个函数确实会被调用，分两种情况，</p>
+<p>一个是点击一下跳跃按钮，这个函数就调用一次；另一情况是，输出次数（调用次数）和跳起次数一致，只有能跳起了才有输出。说白了就是，这个函数内部是否进行了&quot;是否跳起&quot;的判断。</p>
+<p>ADB连接手机，开个终端进入adb打开frida-server，然后再来个终端切换到1.js所在目录，执行下图所示操作，首先是获取游戏pid，然后注入1.js，然后跳就完事了，</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0ccdf833ec01704c5c7a34e069a2d8033a58e6eb.png@942w_593h_progressive-20220206101630634.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0ccdf833ec01704c5c7a34e069a2d8033a58e6eb.png@942w_593h_progressive-20220206101630634.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0ccdf833ec01704c5c7a34e069a2d8033a58e6eb.png@942w_593h_progressive-20220206101630634.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0ccdf833ec01704c5c7a34e069a2d8033a58e6eb.png@942w_593h_progressive-20220206101630634.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0ccdf833ec01704c5c7a34e069a2d8033a58e6eb.png@942w_593h_progressive-20220206101630634.png"
+        title="img"
+    /></p>
+<p>会发现只要按下了跳跃键，就会有输出，也就是说，大概率是在这个函数内部，或者是这个函数的内部调用的某个函数中，进行了能否跳起的判断，</p>
+<p>但是我nop半天，也没找到，顶多是让连续按下两次跳跃后，人物则会在第一次跳起落地后开始第二次跳跃，这就比较麻烦了，</p>
+<p>于是我准备换思路，开始查资料，看游戏开发者会如何实现跳跃，查了查，通常是通过addForce函数执行跳跃，确实也搜到了，但是经过测试，这些函数似乎并没有执行？？</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a14ea20199868d00a816963f2b57246079c419f2.png@512w_200h_progressive-20220206101636975.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a14ea20199868d00a816963f2b57246079c419f2.png@512w_200h_progressive-20220206101636975.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a14ea20199868d00a816963f2b57246079c419f2.png@512w_200h_progressive-20220206101636975.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a14ea20199868d00a816963f2b57246079c419f2.png@512w_200h_progressive-20220206101636975.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/a14ea20199868d00a816963f2b57246079c419f2.png@512w_200h_progressive-20220206101636975.png"
+        title="img"
+    /></p>
+<p>addForce是施加力，力是啥啊，初中物理早忘了，为了严谨我百度搜到了这一段：</p>
+<p>牛顿第二定律揭示了力和运动的因果性，力是产生加速度的原因，加速度是力的作用效果，故力是改变物体运动状态的原因。</p>
+<p>玩家能在地上走，还持续受到了重力的作用，不多扯了，只要知道，跳起的时候，速度越来越小，方向向上（是一个正数），到最高点，速度为0，然后速度方向向下（负号），速度的值越来越大，直到落地，</p>
+<p>所以，jumap这个函数也不算白找，我们可以让这个函数被调用的时候，把自己的速度改了。</p>
+<p>可以模糊搜索速度的地址，但是，我观察jumap的代码，</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d060bb7ebbbf1a81575212818f6823e95e252ffb.png@942w_533h_progressive.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d060bb7ebbbf1a81575212818f6823e95e252ffb.png@942w_533h_progressive.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d060bb7ebbbf1a81575212818f6823e95e252ffb.png@942w_533h_progressive.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d060bb7ebbbf1a81575212818f6823e95e252ffb.png@942w_533h_progressive.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/d060bb7ebbbf1a81575212818f6823e95e252ffb.png@942w_533h_progressive.png"
+        title="img"
+    /></p>
+<p>然后就无意得到了人物y方向速度基址偏移，正数是方向向上，负数是方向向下，</p>
+<p>CE这样表示：[[[libil2cpp.so + A8BDC8]+b8]]+58+14</p>
+<p>那么，咱们这样写就行了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">let</span> <span class="n">so_addr</span> <span class="o">=</span> <span class="n">Module</span><span class="p">.</span><span class="n">findBaseAddress</span><span class="p">(</span><span class="s">&#34;libil2cpp.so&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">vy</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">baseaddr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0xA8BDC8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span> <span class="n">ptr</span><span class="p">(</span><span class="n">baseaddr</span> <span class="o">+</span> <span class="mh">0xb8</span><span class="p">).</span><span class="n">readLong</span><span class="p">()</span> <span class="p">).</span><span class="n">readLong</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">let</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">(</span><span class="n">v2</span> <span class="o">+</span> <span class="mh">0x58</span> <span class="o">+</span> <span class="mh">0x14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">vy</span><span class="p">.</span><span class="n">writeFloat</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">let</span> <span class="n">jump_call</span> <span class="o">=</span> <span class="n">so_addr</span> <span class="o">-</span> <span class="mi">0</span> <span class="o">+</span> <span class="mh">0x71ff68</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Interceptor</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="k">new</span> <span class="n">NativePointer</span><span class="p">(</span><span class="n">jump_call</span><span class="p">),</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">onEnter</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">vy</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>就是说，只要按一下跳跃键，就把速度写入+10，那么接下来的一小段时间内，咱们会越飞越高，同时速度也在趋近于0，紧接着速度为0，达到最高点，然后速度逐渐向下增大，总之，和普通的跳跃的视觉效果是一样的。</p>
+<p>至此为止，本文已经结束了。</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>这篇文章标题是思路，思路 已经搞完了，</p>
+<p>但是还存在两个问题，首先是目前没有开关，也就是说，开启后，关不掉这个功能。获取“飞天”选择框的选中状态，我打算过两天再写，这篇文章截止到这里已经2700字了。</p>
+<p>其次，如果关掉frida，或者没有电脑，咱这不就不能连跳了？这就涉及到frida持久化问题，看情况，应该也能放到下一篇文章。</p>
+<p>感谢支持~，接下来我会发一个效果视频，包括[[[libil2cpp.so + A8BDC8]+b8]]+58的值在ce看起来的样子。如果本文使你有所收获，请帮忙给效果视频点个赞~~</p>
+<p><img
+        class="lazyload"
+        data-src="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        data-srcset="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 1.5x, https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png 2x"
+        data-sizes="auto"
+        alt="https://i0.hdslb.com/bfs/article/02db465212d3c374a43c60fa2625cc1caeaab796.png"
+        title="img"
+    /></p>
+<p>效果视频：</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/69b3d9b342cb7899419aa067f4bbbd0581a93f43.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/69b3d9b342cb7899419aa067f4bbbd0581a93f43.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/69b3d9b342cb7899419aa067f4bbbd0581a93f43.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/69b3d9b342cb7899419aa067f4bbbd0581a93f43.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/69b3d9b342cb7899419aa067f4bbbd0581a93f43.png"
+        title="img"
+    /></p>
+<p><a href="https://www.bilibili.com/video/BV1Xa41117He" target="_blank" rel="noopener noreffer">https://www.bilibili.com/video/BV1Xa41117He</a></p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">【飞郁2022新课程】18 - CE基础和扫描 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="【飞郁2022新课程】18 - CE基础和扫描" />
+<meta property="og:description" content="1.打开CE Cheat Engine是网络安全数据分析的一款很重要的工具,我们可以在官网下载他的最新版本https://www.cheatengine" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-12-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-03T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="【飞郁2022新课程】18 - CE基础和扫描"/>
+<meta name="twitter:description" content="1.打开CE Cheat Engine是网络安全数据分析的一款很重要的工具,我们可以在官网下载他的最新版本https://www.cheatengine"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B17-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B19-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%90%E7%AE%97%E7%AC%A6/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【飞郁2022新课程】18 - CE基础和扫描",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "飞郁精品帖","wordcount":  1243 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96\/%E9%A3%9E%E9%83%812022%E6%96%B0%E8%AF%BE%E7%A8%8B18-ce%E5%9F%BA%E7%A1%80%E5%92%8C%E6%89%AB%E6%8F%8F\/","datePublished": "2021-12-03T00:00:00+00:00","dateModified": "2021-12-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">【飞郁2022新课程】18 - CE基础和扫描</h1><div class="content" id="content"><h2 id="1打开ce">1.打开CE</h2>
+<p>Cheat Engine是网络安全数据分析的一款很重要的工具,我们可以在官网下载他的最新版本<a href="https://www.feiyuol.com/#google_vignette" target="_blank" rel="noopener noreffer">https://www.cheatengine.org/#google_vignette</a></p>
+<p>当然也可以使用课程推荐的修改版本</p>
+<p>在CE下载并安装好之后,我们在文件夹里找到以下exe文件,双击打开</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757duc47v42yu808bb0-20211205113756546.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757duc47v42yu808bb0-20211205113756546.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757duc47v42yu808bb0-20211205113756546.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757duc47v42yu808bb0-20211205113756546.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757duc47v42yu808bb0-20211205113756546.png"
+        title="img"
+    /></p>
+<h2 id="2附加进程">2.附加进程</h2>
+<p>打开CE之后,我们将弹出的其他界面都关闭掉,只留下以下窗口</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757bn16aa2rh63xmghg-20211205113757286.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757bn16aa2rh63xmghg-20211205113757286.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757bn16aa2rh63xmghg-20211205113757286.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757bn16aa2rh63xmghg-20211205113757286.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757bn16aa2rh63xmghg-20211205113757286.png"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757t3zn4ur225uvruxr-20211205113758109.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757t3zn4ur225uvruxr-20211205113758109.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757t3zn4ur225uvruxr-20211205113758109.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757t3zn4ur225uvruxr-20211205113758109.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757t3zn4ur225uvruxr-20211205113758109.png"
+        title="img"
+    /></p>
+<h2 id="3-初始扫描选项">3. 初始扫描选项</h2>
+<p>成功附加之后,我们就可以对程序进行扫描了</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757p7p17hnvvppq4ynh-20211205113759073.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757p7p17hnvvppq4ynh-20211205113759073.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757p7p17hnvvppq4ynh-20211205113759073.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757p7p17hnvvppq4ynh-20211205113759073.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757p7p17hnvvppq4ynh-20211205113759073.png"
+        title="img"
+    /></p>
+<p>这里需要注意的是两者之间和未知初始值.</p>
+<p>两者之间如果要扫描负数的话一定要记住负数的绝对值越大数值越小</p>
+<p>这种扫描方式是不可能有结果,很多同学在这里会出错</p>
+<p>而使用位置初始值进行扫描的时候,可能会因为程序过大,导致扫描时间很长,后期过滤也比较麻烦,所以要谨慎使用这种方式</p>
+<h2 id="4-扫描类型">4. 扫描类型</h2>
+<p>选择了初始扫描选项之后,我们需要选择一下扫描的数据类型,</p>
+<p>不同的数据,都会有常用的数据类型,我们要具体情况具体分析</p>
+<p>CE中扫描的数据类型有如下几种</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757v22ss9yu2lwppyu6-20211205113800065.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757v22ss9yu2lwppyu6-20211205113800065.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757v22ss9yu2lwppyu6-20211205113800065.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757v22ss9yu2lwppyu6-20211205113800065.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142757v22ss9yu2lwppyu6-20211205113800065.png"
+        title="img"
+    /></p>
+<p>这里的数据类型在前面的课程中都讲过了,就不一一翻译了,最后三个分别是字节数组,所有类型,分组扫描</p>
+<h2 id="5-不同类型的扫描方式">5. 不同类型的扫描方式</h2>
+<h3 id="51--byte-word-dword-qword也就是byte2byte4byte8byte的扫描方法">5.1  byte-word-dword-qword,也就是byte,2byte,4byte,8byte的扫描方法</h3>
+<p>整数型的扫描是最常见的,不过由于数据长度不同,所以在选择的时候还是需要斟酌的</p>
+<p>比如扫描一个标志位,通常会使用byte型,扫描一个不太大的数量就可以使用word型,扫描一个32位地址需要用dword型,而qword型应用并不是很常用,通常只在扫描64位地址时使用</p>
+<p>下面我们来搜索一下教案小游戏的人物血量</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758r28fgf8btjpky3k6-20211205113810629.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758r28fgf8btjpky3k6-20211205113810629.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758r28fgf8btjpky3k6-20211205113810629.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758r28fgf8btjpky3k6-20211205113810629.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758r28fgf8btjpky3k6-20211205113810629.png"
+        title="img"
+    /></p>
+<p>在CE中搜索4字节的1000</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ppzqk7sdqmpjqzbw-20211205113810891.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ppzqk7sdqmpjqzbw-20211205113810891.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ppzqk7sdqmpjqzbw-20211205113810891.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ppzqk7sdqmpjqzbw-20211205113810891.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ppzqk7sdqmpjqzbw-20211205113810891.png"
+        title="img"
+    /></p>
+<p>得到101个结果,打一个怪物,血量还剩960,在CE中点Next Scan,再次扫描</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ygg7etp0kugepiu5-20211205113814780.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ygg7etp0kugepiu5-20211205113814780.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ygg7etp0kugepiu5-20211205113814780.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ygg7etp0kugepiu5-20211205113814780.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758ygg7etp0kugepiu5-20211205113814780.png"
+        title="img"
+    /></p>
+<p>只得到了一个结果,再次砍怪验证一下,发现这个地址存放的就是我们的血量</p>
+<p>这就是4字节的扫描,是不是很简单?</p>
+<h3 id="52--floatdouble的扫描方法">5.2  float,double的扫描方法</h3>
+<p>浮点型和双浮点型的扫描与整数型的扫描是类似的,唯一不同的就是它们的扫描结果是有精确范围的,</p>
+<p>比如我们扫描一个100</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758gtu3tt8lff3lj3tu-20211205113816140.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758gtu3tt8lff3lj3tu-20211205113816140.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758gtu3tt8lff3lj3tu-20211205113816140.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758gtu3tt8lff3lj3tu-20211205113816140.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758gtu3tt8lff3lj3tu-20211205113816140.png"
+        title="img"
+    /></p>
+<p>这里可以得到很多的结果,甚至还有99和101,但是绝不会出现98和102</p>
+<p>再比如我们扫描一个100.5</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758nvukjmgjaajjm7lz-20211205113816761.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758nvukjmgjaajjm7lz-20211205113816761.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758nvukjmgjaajjm7lz-20211205113816761.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758nvukjmgjaajjm7lz-20211205113816761.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758nvukjmgjaajjm7lz-20211205113816761.png"
+        title="img"
+    /></p>
+<p>这里会精确的小数点后1位,也就是说结果是在100.5上下浮动不超过0.1</p>
+<p>所以当我们扫描一个只显示为整数的浮点数的时候,往往采用两者之间,比如100我们就扫描99-101,</p>
+<p>这是比较稳妥的方式,当然,以现在CE的扫描结果来看,我们直接扫描100也没有什么问题</p>
+<h3 id="53--改变扫描到的数值可以达到特殊的效果">5.3  改变扫描到的数值可以达到特殊的效果</h3>
+<p>在一些程序中,数据并不是校验的非常严格,甚至没有任何的校验,这时我们通过CE就可以对其中的部分数据进行修改,</p>
+<p>比如在这款教案游戏中当我们打到图中的位置时,就不能继续前进了,因为血量不够了</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758a2izo2c5d0oo8so5-20211205113823118.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758a2izo2c5d0oo8so5-20211205113823118.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758a2izo2c5d0oo8so5-20211205113823118.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758a2izo2c5d0oo8so5-20211205113823118.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758a2izo2c5d0oo8so5-20211205113823118.png"
+        title="img"
+    /></p>
+<p>我们可以对之前扫描到的结果进行修改来达到过关的条件</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758snynhnsw8yn1dn12-20211205114159574.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758snynhnsw8yn1dn12-20211205114159574.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758snynhnsw8yn1dn12-20211205114159574.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758snynhnsw8yn1dn12-20211205114159574.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/142758snynhnsw8yn1dn12-20211205114159574.png"
+        title="img"
+    /></p>
+<p>是不是很有趣?这只是CE最基本的功能之一,下节课鸟哥会给大家讲CE的一些特别的使用技巧</p>
+<h3 id="54--string和字节数组也就是array-of-byte的扫描方法咱们放到后面来系统的讲">5.4  String和字节数组,也就是Array of byte的扫描方法咱们放到后面来系统的讲</h3>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

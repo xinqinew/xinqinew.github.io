@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ens on Hmily云笔记</title>
+    <link>https://xinqinew.github.io/en/en/</link>
+    <description>Recent content in Ens on Hmily云笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+    <webMaster>xinqinew@163.com (辛琪)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 24 Dec 2020 19:19:21 +0800</lastBuildDate><atom:link href="https://xinqinew.github.io/en/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Milestone</title>
+      <link>https://xinqinew.github.io/en/en/milestone/</link>
+      <pubDate>Thu, 24 Dec 2020 19:19:21 +0800</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/en/milestone/</guid>
+      <description>content</description>
+    </item>
+    
+    <item>
+      <title>Message Board</title>
+      <link>https://xinqinew.github.io/en/en/message-board/</link>
+      <pubDate>Sat, 12 Dec 2020 12:17:28 +0800</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/en/message-board/</guid>
+      <description>content</description>
+    </item>
+    
+    <item>
+      <title>About LoveIt</title>
+      <link>https://xinqinew.github.io/en/en/about/</link>
+      <pubDate>Fri, 02 Aug 2019 11:04:49 +0800</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/en/about/</guid>
+      <description>:(far fa-kiss-wink-heart fa-fw): LoveIt is a clean, elegant but advanced blog theme for Hugo developed by Dillon.
+It is based on the original LeaveIt Theme and KeepIt Theme.
+Hugo Theme LoveIt Features Performance and SEO :(fas fa-rocket fa-fw): Optimized for performance: [99]/[100] on mobile and [100]/[100] on desktop in Google PageSpeed Insights :(fab fa-searchengin fa-fw): Optimized SEO performance with a correct SEO SCHEMA based on JSON-LD :(fab fa-google fa-fw): Google Analytics supported :(far fa-chart-bar fa-fw): Fathom Analytics supported :(fas fa-search fa-fw): Search engine verification supported (Google, Bind, Yandex and Baidu) :(fas fa-tachometer-alt fa-fw): CDN for third-party libraries supported :(fas fa-cloud-download-alt fa-fw): Automatically converted images with Lazy Load by lazysizes Appearance and Layout [:(fas fa-desktop):]/[:(fas fa-mobile):] Responsive layout [:(fas fa-sun):]/[:(fas fa-moon):] [Light]/[Dark] mode :(fas fa-layer-group fa-fw): Globally consistent design language :(fas fa-ellipsis-h fa-fw): Pagination supported :(far fa-list-alt fa-fw): Easy-to-use and self-expanding table of contents :(fas fa-language fa-fw): Multilanguage supported and i18n ready :(fab fa-css3-alt fa-fw): Beautiful CSS animation Social and Comment Systems :(far fa-user fa-fw): Gravatar supported by Gravatar :(fas fa-user-circle fa-fw): Local Avatar supported :(far fa-id-card fa-fw): Up to 64 social links supported :(fas fa-share-square fa-fw): Up to 28 share sites supported :(far fa-comment fa-fw): Disqus comment system supported by Disqus :(far fa-comment-dots fa-fw): Gitalk comment system supported by Gitalk :(far fa-comment-alt fa-fw): Valine comment system supported by Valine :(far fa-comments fa-fw): Facebook comments system supported by Facebook :(fas fa-comment fa-fw): Telegram comments system supported by Comments :(fas fa-comment-dots fa-fw): Commento comment system supported by Commento :(fas fa-comment-alt fa-fw): Utterances comment system supported by Utterances Extended Features :(fas fa-search fa-fw): Search supported by Lunr.</description>
+    </item>
+    
+    <item>
+      <title>Favorite Websites</title>
+      <link>https://xinqinew.github.io/en/en/websites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/en/websites/</guid>
+      <description>content</description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://xinqinew.github.io/en/en/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/en/links/</guid>
+      <description>This page can&amp;rsquo;t have Markdown ## label. Otherwise, you will get lots of error in chrome console. Because, in templates, i only consider the links array. If you use ## label here, the directory array of page will overflow. If you want to fix this problem, you might need see TableOfContents in Table of Contents. And then modify the table of tontents in layouts\links\single.html.</description>
+    </item>
+    
+  </channel>
+</rss>

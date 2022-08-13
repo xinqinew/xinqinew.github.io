@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Hmily云笔记</title>
+    <link>https://xinqinew.github.io/en/posts/github/</link>
+    <description>Recent content in GitHub on Hmily云笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+    <webMaster>xinqinew@163.com (辛琪)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://xinqinew.github.io/en/posts/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git忽略文件及文件夹操作</title>
+      <link>https://xinqinew.github.io/en/posts/github/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</guid>
+      <description>删除 .DS_Store 如果你的项目中还没有自动生成的 .DS_Store 文件，那么直接将 .DS_Store 加入到 .gitignore 文件就可以了。如果你的项目中已经存在 .DS_Store 文件，那就需要先从项目中将其删除，再将</description>
+    </item>
+    
+    <item>
+      <title>用Git同时上传代码到github和coding</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E7%94%A8git%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0github%E5%92%8Ccoding/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E7%94%A8git%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0github%E5%92%8Ccoding/</guid>
+      <description>发现最近网站的访问速度并不理想，因为当时只托管在了 GitHub 上，GitHub的服务器在国外，所以导致国内访问服务器的时间比较长。 解决方法就是把网站同</description>
+    </item>
+    
+    <item>
+      <title>数学公式</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</guid>
+      <description>Markdown数学公式语法 行内与独行 行内公式：将公式插入到本行内，符号：$公式内容$，如：$xyz$ 独行公式：将公式插入到新的一行内，并且</description>
+    </item>
+    
+    <item>
+      <title>Mermaid之流程图语法</title>
+      <link>https://xinqinew.github.io/en/posts/github/mermaid%E4%B9%8B%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/mermaid%E4%B9%8B%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</guid>
+      <description>Mermaid之流程图语法 可能的形状有: ([])体育场形 表示开始/结束 []矩形/()圆角矩形 表示流程(一些特定的操作) [[]]表示子流程 [(</description>
+    </item>
+    
+    <item>
+      <title>GitHub官方git代码</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E5%AE%98%E6%96%B9git%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E5%AE%98%E6%96%B9git%E4%BB%A3%E7%A0%81/</guid>
+      <description>Quick setup — if you’ve done this kind of thing before Set up in Desktop or HTTPS https://github.com/xinqinew/NewCode.git SSH git@github.com:xinqinew/NewCode.git Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore. 在命令行上创建新的存储库 1 2 3 4 5 6 7 echo &amp;#34;# NewCode&amp;#34; &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>GitHub SSH免密与Token登录</title>
+      <link>https://xinqinew.github.io/en/posts/github/github-ssh%E5%85%8D%E5%AF%86%E4%B8%8Etoken%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github-ssh%E5%85%8D%E5%AF%86%E4%B8%8Etoken%E7%99%BB%E5%BD%95/</guid>
+      <description>GitHub不再支持密码验证解决方案：SSH免密与Token登录配置 今天提交代码，push到GitHub上，突然出现这个问题。 remote: Support for password authentication was removed</description>
+    </item>
+    
+    <item>
+      <title>even 提供 mermaid</title>
+      <link>https://xinqinew.github.io/en/posts/github/even-%E6%8F%90%E4%BE%9B-mermaid/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/even-%E6%8F%90%E4%BE%9B-mermaid/</guid>
+      <description>俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不</description>
+    </item>
+    
+    <item>
+      <title>Hugo mermaid替换</title>
+      <link>https://xinqinew.github.io/en/posts/github/hugo-mermaid%E6%9B%BF%E6%8D%A2/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/hugo-mermaid%E6%9B%BF%E6%8D%A2/</guid>
+      <description>好好配置了一下Hugo 换了个新的主题，原来的主题有Bug。 重新配置了MathJax和mermaid，原本随便弄的那个用不了了。 给旧文章换了标</description>
+    </item>
+    
+    <item>
+      <title>使用Mermaid在hugo的Markdown中绘制UML</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%BD%BF%E7%94%A8mermaid%E5%9C%A8hugo%E7%9A%84markdown%E4%B8%AD%E7%BB%98%E5%88%B6uml/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%BD%BF%E7%94%A8mermaid%E5%9C%A8hugo%E7%9A%84markdown%E4%B8%AD%E7%BB%98%E5%88%B6uml/</guid>
+      <description>使用Mermaid在hugo的Markdown中绘制UML 简介 ¶ Mermaid是一个提供绘图功能的JavaScript项目。 它目前（8.6.</description>
+    </item>
+    
+    <item>
+      <title>为 hugo-theme-even 提供 mermaid 支持.md</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</guid>
+      <description>俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不</description>
+    </item>
+    
+    <item>
+      <title>GitHub网址整理</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E7%BD%91%E5%9D%80%E6%95%B4%E7%90%86/</guid>
+      <description>图标fontawesome 图标dashgame 留言板disqus 留言板valine 搜索algolia 自动发布travis google分析 si</description>
+    </item>
+    
+    <item>
+      <title>Git笔记</title>
+      <link>https://xinqinew.github.io/en/posts/github/git%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/git%E7%AC%94%E8%AE%B0/</guid>
+      <description>Git pwd 显示当前目录 git init 初始化仓库 ls -ah 查看隐藏文件及目录 git add &amp;lt;file&amp;gt; 添加文件 git commit -m &amp;lt;message&amp;gt; 提交说明 git status 仓库状态 git diff &amp;lt;file&amp;gt; 查看差别 git log 日志 git reflog 查看命令历史 git reset --hard commit_id</description>
+    </item>
+    
+    <item>
+      <title>Git使用总结</title>
+      <link>https://xinqinew.github.io/en/posts/github/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
+      <description>git使用总结 Git 分布式版本管理系统 Git 命令清单 workspace: 工作区 Index/Stage: 暂存区 Repository: 仓库区(或本地仓库) Remote: 远程仓库 新建代码库 1 2 3 4 5 6 7 8 # 在当前目录新建一个G</description>
+    </item>
+    
+    <item>
+      <title>Github绑定Cloudflare及freenom</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
+      <description>首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即</description>
+    </item>
+    
+    <item>
+      <title>Github绑定freenom域名</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
+      <description>freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&amp;gt;Manage Domain 然后选择选择下面的nameser</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo&#43;LoveIt主题搭建博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%BD%BF%E7%94%A8hugo&#43;loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%BD%BF%E7%94%A8hugo&#43;loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>使用Hugo+LoveIt主题搭建博客 安装 Hugo 可参考Hugo 官方的 Quick Start 安装二进制（Mac） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 使用brew安装hug</description>
+    </item>
+    
+    <item>
+      <title>为博客添加免费的 CDN (Cloudflare)</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%8D%E8%B4%B9%E7%9A%84-cdn-cloudflare/</guid>
+      <description>GitHub Pages 不仅不花钱，而且还有免费的证书拿，可以说是相当划算的。但有个问题就是 GitHub 的服务器都部署在海外，也就是说在国内访问本博客的速度的速度会比较慢</description>
+    </item>
+    
+    <item>
+      <title>Flow流程图</title>
+      <link>https://xinqinew.github.io/en/posts/github/flow%E6%B5%81%E7%A8%8B%E5%9B%BE/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/flow%E6%B5%81%E7%A8%8B%E5%9B%BE/</guid>
+      <description>1 2 3 4 5 6 7 8 9 st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框(是或否?) sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st-&amp;gt;op-&amp;gt;cond cond(yes)-&amp;gt;io-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 1 2 3 4 5 6 7 8 9 st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框(是或否?</description>
+    </item>
+    
+    <item>
+      <title>Hugo使用algolia搜索</title>
+      <link>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8algolia%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8algolia%E6%90%9C%E7%B4%A2/</guid>
+      <description>Hugo使用algolia搜索 背景 在将hexo迁移到hugo后我就开始折腾博客搜索了，下面的配置正对loveit主题配置 开启algolia搜</description>
+    </item>
+    
+    <item>
+      <title>Hugo使用travis自动发布</title>
+      <link>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
+      <description>Hugo使用travis自动发布 背景 从hexo迁移到hugo后，发布博客开始变的繁琐，没有hexo -d这样的快捷部署，但是好在有travis</description>
+    </item>
+    
+    <item>
+      <title>Hugo使用travis自动发布 出处</title>
+      <link>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/hugo%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83-%E5%87%BA%E5%A4%84/</guid>
+      <description>通过 Travis CI 来部署 Hugo 或者 Hexo 博客可能在配置的时候会麻烦一点，但配置好后确实是方便了不少。特别是对于 Hugo 这种没有部署插件的静态网站生成器，只能手动部署</description>
+    </item>
+    
+    <item>
+      <title>md模板</title>
+      <link>https://xinqinew.github.io/en/posts/github/md%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/md%E6%A8%A1%E6%9D%BF/</guid>
+      <description>模板</description>
+    </item>
+    
+    <item>
+      <title>留言板disqus安装</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E7%95%99%E8%A8%80%E6%9D%BFdisqus%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E7%95%99%E8%A8%80%E6%9D%BFdisqus%E5%AE%89%E8%A3%85/</guid>
+      <description>万能代码安装说明 将以下代码放置在您希望 Disqus 加载的地方： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;div id=&amp;#34;disqus_thread&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; /** * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS. * LEARN</description>
+    </item>
+    
+    <item>
+      <title>安装Lovelt博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85loveit%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Lovelt博客 下载地址 安装文档 参考-晓的记忆 LoveIt参考站2 LoveIt参考站3 LoveIt参考站4 参考1 参考2 1 准备 推荐使用 Hugo extended</description>
+    </item>
+    
+    <item>
+      <title>从Jekyll迁移到Hugo</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>从Jekyll迁移到Hugo 最终还是投入Hugo的怀抱，原因是： 熟悉和欣赏Go 发现一个超级喜欢的Hugo主题 - LoveIt 本文记录下博客从Jekyll</description>
+    </item>
+    
+    <item>
+      <title>安装docsy主题</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85docsy%E4%B8%BB%E9%A2%98/</guid>
+      <description>安装docsy主题 下载并安装npm 苹果系统 在 macOS 上可使用 Homebrew 套件管理安裝 1 brew install hugo 作为npm模块 您可以npm使用hugo-bin. 这会添加hugo</description>
+    </item>
+    
+    <item>
+      <title>安装Eureka博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85eureka%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装Eureka博客 官方文档 1 2 3 4 5 cd /Volumes/video/GitHub/Eureka git init git submodule add https://github.com/wangchucheng/hugo-eureka.git themes/eureka 切换版本方法如下: 1 2 3 4 cd themes/eureka git checkout v0.8.2 #git checkout &amp;lt;eureka_version&amp;gt; #eureka_version 替换成版本号 接下来，将exampleSi</description>
+    </item>
+    
+    <item>
+      <title>不错的博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%B8%8D%E9%94%99%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>不错的博客 http://themes.jekyllrc.org/ https://jekyllthemes.io/ jekyll-rtd-theme minimal-mistakes/ flexible-jekyll</description>
+    </item>
+    
+    <item>
+      <title>从模版安装Docsy博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E4%BB%8E%E6%A8%A1%E7%89%88%E5%AE%89%E8%A3%85docsy%E5%8D%9A%E5%AE%A2/</guid>
+      <description>从模版安装Docsy博客 安装先决条件 在 Mac 和 Windows 上，下载并安装Docker Desktop。在 Linux 上，安装Docker 引擎和Docker compos</description>
+    </item>
+    
+    <item>
+      <title>Jekyll 插入图片</title>
+      <link>https://xinqinew.github.io/en/posts/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Tue, 27 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/jekyll%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
+      <description>Jekyll 插入图片 用 Markdown 插入图片是一件很简单的事，只需要这样写： 1 ![AltText](/path/to/img.jpg) 然而，如果你需要进行更多的控制，情况立刻变得复杂了起来。由于 Markdown 秉持结构和样式分离的</description>
+    </item>
+    
+    <item>
+      <title>Mermaid教程收录</title>
+      <link>https://xinqinew.github.io/en/posts/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</link>
+      <pubDate>Tue, 27 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/mermaid%E6%95%99%E7%A8%8B%E6%94%B6%E5%BD%95/</guid>
+      <description>Mermaid教程收录 时间管理、头脑风暴、阅读、会议记录神器-Mermaid Mermaid英文教程 Mermaid在线编辑器 Mermaid，就</description>
+    </item>
+    
+    <item>
+      <title>GitHub回退历史版本</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E5%9B%9E%E9%80%80%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</guid>
+      <description>GitHub回退历史版本 前提是本地已经有了git的origin master库或者克隆需要回退的代码到本地。 1. 查询历史对应不同版本的ID ，用于</description>
+    </item>
+    
+    <item>
+      <title>Git与GitHub绑定</title>
+      <link>https://xinqinew.github.io/en/posts/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/git%E4%B8%8Egithub%E7%BB%91%E5%AE%9A/</guid>
+      <description>Git与GitHub绑定 终端输入ssh-keygen -t rsa命令，表示我们指定 RSA 算法生成密钥，然后敲三次回车键，期间不需要输入密码，之后就就</description>
+    </item>
+    
+    <item>
+      <title>Hugo常用命令</title>
+      <link>https://xinqinew.github.io/en/posts/github/hugo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/hugo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>Hugo常用命令 新建章节 hugo new &amp;ndash;kind chapter /_index.md 新建文件 hugo new //_index.md hugo new /.md hugo new posts/.md 解除环境限制 hugo serve -e production 生成指定模板的样例文章 hugo new &amp;ndash;kind post-bundle posts/my-post 实时预览 hugo serve &amp;ndash;disableFastRender</description>
+    </item>
+    
+    <item>
+      <title>安装hugo博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;h1 id=&#34;安装hugo博客&#34;&gt;安装hugo博客&lt;/h1&gt;
+&lt;p&gt;在 macOS 上可使用 Homebrew 套件管理安裝&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;generate-new-site&#34;&gt;Generate new site&lt;/h3&gt;
+&lt;p&gt;要產生一個新的 web site 內容，可直接執行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new site ssg-site
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;執行後會建立一個名為 &lt;code&gt;ssg-site&lt;/code&gt; 的資料夾，包含以下內容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── archetypes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── default.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── config.toml
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── content
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── data
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── layouts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── static
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── themes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;archetypes: 放置生成文件的基礎樣板資料夾（可先暫時不管）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;config.toml&lt;/strong&gt;: 控制 hugo 產生網頁內容的設定檔，預設使用 toml 格式。(也支援 yaml 與 json 格式)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt;: 放置 Markdown 文章與網頁內容的資料夾。&lt;/li&gt;
+&lt;li&gt;data: 儲存一些 configuration 檔案的地ㄌㄌ方，協助建構靜態網頁(也先不管)。&lt;/li&gt;
+&lt;li&gt;layouts: 儲存產生的網頁 layout 樣板(之後範例使用其他的 theme，先不管)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;static&lt;/strong&gt;: 放置靜態內容，如圖片，CSS 以及 *.js 等內容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;themes&lt;/strong&gt;: 從外部引入的 theme 檔案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目前只要知道 &lt;strong&gt;config.toml&lt;/strong&gt;, &lt;strong&gt;content&lt;/strong&gt;, &lt;strong&gt;static&lt;/strong&gt; 與 &lt;strong&gt;themes&lt;/strong&gt; 這幾個部分即可。&lt;/p&gt;
+&lt;h3 id=&#34;import-hugo-themes&#34;&gt;Import Hugo themes&lt;/h3&gt;
+&lt;p&gt;Hugo 並沒有預設的 theme，所以在建立好內容資料夾後，需自行建立 theme 或使用其他 theme，在這我們已 &lt;a href=&#34;https://github.com/Vimux/mainroad&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Mainroad&lt;/a&gt; theme 做範例。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Bash&#34; data-lang=&#34;Bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 將 mainroid theme 加入 themes/ 中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /Users/xinqinew/ssg-site
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/Vimux/Mainroad.git themes/mainroad
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;除了使用 git 指令外，直接從 Github 上下載最新原始檔案壓縮檔，解壓縮後放到 themes 資料夾中。此外對 git 熟悉的是使用者也可用 &lt;code&gt;git submodule&lt;/code&gt; 或 &lt;code&gt;git subtree&lt;/code&gt; 等方式管理外部引入的 theme repo。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;Hugo 在生成 SSG 時會使用到 config.toml 檔案的設定內容。我們可以將之前 Mainroad theme 中的 config.toml 修改後加以使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 將 mainroid 的 config.toml 覆蓋原先的預設值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp themes/mainroad/exampleSite/config.toml .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之後編輯 config.toml 內容，將其修改為自己想要的內容。更詳細的 configuration 設定可參考 &lt;a href=&#34;https://gohugo.io/getting-started/configuration/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Hugo 官方文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-blog-文章&#34;&gt;新增 Blog 文章&lt;/h3&gt;
+&lt;p&gt;我們可以手動新增 Markdown 文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new post/hello-world.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之後會在 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 的位置新增一個 Markdown 文件，其中預設內容會根據 &lt;code&gt;archetype/default.md&lt;/code&gt; 這個樣板檔案內容加以建立。&lt;/p&gt;
+&lt;h3 id=&#34;預覽內容&#34;&gt;預覽內容&lt;/h3&gt;
+&lt;p&gt;先將 &lt;code&gt;./content/post/hello-world.md&lt;/code&gt; 內容修改為&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: &amp;#34;Hello World&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: 2018-07-06T16:00:21+08:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; &amp;#34;Blog&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; &amp;#34;Hugo&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;draft: true
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# Hello World.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Post example
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之後執行以下指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server --buildDrafts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;若在 Markdown 的 Front Matter，加入 &lt;code&gt;draft: true&lt;/code&gt;，代表該篇文章為草稿不會被 Hugo 轉換為網頁。因此可在指令後加入 &lt;code&gt;--buildDrafts&lt;/code&gt; 來轉換草稿文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;執行成功後會在 &lt;code&gt;localhost:1313&lt;/code&gt; 建立一個暫時的網頁，可接載在瀏覽器網址列輸入預覽結果。&lt;/p&gt;
+&lt;p&gt;&lt;img
+        class=&#34;lazyload&#34;
+        data-src=&#34;https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png&#34;
+        data-srcset=&#34;https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png, https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png 1.5x, https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png 2x&#34;
+        data-sizes=&#34;auto&#34;
+        alt=&#34;https://blog.yeshuanova.com/images/2018/jekyll-to-hugo/hugo-preview.png&#34;
+        title=&#34;hugo-preview&#34;
+    /&gt;&lt;em&gt;Hugo Mainroad theme 結果預覽&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1313 為 Hugo 的預設 Port，可以使用 &lt;code&gt;--port xxx&lt;/code&gt; 來指定使用其他 Port&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;生成靜態內容&#34;&gt;生成靜態內容&lt;/h3&gt;
+&lt;p&gt;Hugo 要生成靜態網頁內容只執行 &lt;code&gt;hugo&lt;/code&gt; 指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;執行後生成的網頁內容會自動加入 &lt;code&gt;public&lt;/code&gt; 資料夾中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;public&lt;/code&gt; 為預設資料夾，若要修改可在 config 檔案中設定 &lt;code&gt;publishDir&lt;/code&gt; 參數指定輸出位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;從-jekyll-轉移到-hugo&#34;&gt;從 Jekyll 轉移到 Hugo&lt;/h2&gt;
+&lt;p&gt;如果要從其他的 SSG 轉換到 Hugo，官方也提供了一些&lt;a href=&#34;https://gohugo.io/tools/migrations/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;轉換方式&lt;/a&gt;。以從 Jekyll 轉換到 Hugo 為例，只要執行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo import jekyll &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;jekyll_root_path&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;target_path&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;就會將 Jekyll 轉換為 Hugo 格式資料夾。但這方式也不是沒問題，原先在的 Jekyll 的 theme 無法直接在 Hugo 使用，且有部分 Front Matter 無法正確轉換，因此建議還是手動轉移較好。而因爲個人轉移時選用的 theme 為 Mainroad，在過程中也遇到了一些問題，在此提出來以供參考。&lt;/p&gt;
+&lt;h3 id=&#34;markdown-front-matter&#34;&gt;Markdown Front Matter&lt;/h3&gt;
+&lt;p&gt;由於 Hugo 與 Jekyll 所使用的 Front Matter 設定不同，有些部分需要每個檔案逐一修改內容，如 &lt;code&gt;categories&lt;/code&gt; 或 &lt;code&gt;tags&lt;/code&gt; 的內容，之前使用的 &lt;a href=&#34;https://github.com/redVi/voyager&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;voyager&lt;/a&gt; theme 在執行時會成格式不對，需修改將其改為 List 結構，如在 Jekyll 中，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories: posts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;是可行的，但換到 Hugo 的 Mainroad theme 時，需使用 List 結構才行，如&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories: [&amp;#34;posts&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;才可正常產生靜態網頁，否則會出現錯誤。&lt;/p&gt;
+&lt;h3 id=&#34;math-equation-support&#34;&gt;Math equation support&lt;/h3&gt;
+&lt;p&gt;在加入數學式的支援花了一些時間去解決，主要分為兩個問題 - &lt;strong&gt;Markdown 轉換成 HTML&lt;/strong&gt; 以及 Mainroad theme 的 &lt;strong&gt;CSS conflict&lt;/strong&gt; 問題。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-parser-support&#34;&gt;Markdown parser support&lt;/h4&gt;
+&lt;p&gt;在加入數學式時，我們習慣直接使用 Latex 語法在 Markdown 中，這樣可以更容易寫出方便的數學式。而 Hugo 預設的 Markdown parser &lt;a href=&#34;https://github.com/russross/blackfriday&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Blackfriday&lt;/a&gt;(使用 Go 語言實作的 Markdown parser) 會進行某些預先處理，造成 MathJax 無法正確顯示內容以及斷行的問題。因此需要將原先的 Blackfriday parser 更換成 &lt;a href=&#34;https://github.com/miekg/mmark&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Mmark&lt;/a&gt;，即在 Markdown 文件中使用 Latex 數學式語法。方法為將檔案副檔名命名為 &lt;code&gt;*.mmark&lt;/code&gt;，或是在 Markdown Front Matter 中加入 &lt;code&gt;markup: &amp;quot;mmark&amp;quot;&lt;/code&gt; 來指定使用 Mmark 處理 Markdown 文件。更詳細的內容可參考&lt;a href=&#34;https://gohugo.io/content-management/formats/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;官網&lt;/a&gt;說明。&lt;/p&gt;
+&lt;h4 id=&#34;katex-support&#34;&gt;Katex support&lt;/h4&gt;
+&lt;p&gt;雖然 Mainroad theme 雖然有支援 &lt;a href=&#34;https://www.mathjax.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;MathJax&lt;/a&gt;，但該 theme 的 CSS style 中有部分和 &lt;a href=&#34;https://khan.github.io/KaTeX/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Katex&lt;/a&gt; 的 CSS 設定衝突，造成當把 Mainroad 中的 MathJax 部分的樣板原始碼換成支援 Katex 後，在顯示 Matrix 時會造成跑版。詳情狀況可參考個人發在 GitHub 上的 &lt;a href=&#34;https://github.com/Khan/KaTeX/issues/1445&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Issue #1445&lt;/a&gt;。在 Katex 小組了解問題並經過 Mainroad 作者修改樣板後即解決了該問題。&lt;/p&gt;
+&lt;h3 id=&#34;syntax-highlighting&#34;&gt;Syntax highlighting&lt;/h3&gt;
+&lt;p&gt;要在 Hugo 中讓程式碼有高亮效果，可在 config 檔案中加入以下設定&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# use Chroma for syntax highlight&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;pygmentsCodeFences&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# 啟動 Code Fence 區域的高亮效果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;pygmentsCodefencesGuessSyntax&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# 對沒有指定程式類型的 Code Fence 自行推導語言類型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;pygmentsStyle&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fruity&amp;#34;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# 指定使用的高亮風格，如 vim 或 fruity 等(預設為 &amp;#34;monokai&amp;#34;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;若想換成其他風格可參考&lt;a href=&#34;https://help.farbox.com/pygments.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;這裡&lt;/a&gt;的格式，將 &lt;code&gt;pgmentsStyle&lt;/code&gt; 的設定修改為該風格 Hugo 就會用該風格顯示 Markdown 中 Code Fence 區段的內容。其他設定可參考 Hugo 官網關於 &lt;a href=&#34;https://gohugo.io/content-management/syntax-highlighting/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Syntax Hightlighting&lt;/a&gt; 的章節。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pygment 為原先 Hugo 所使用的 Syntax Hightlighting 工具， 在 Hugo 0.28 版後改為 Chroma 為預設內容，但設定檔仍維持原先的格式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;首頁大綱內容&#34;&gt;首頁大綱內容&lt;/h3&gt;
+&lt;p&gt;Mainroad 的 Markdown 文件顯示在列表中的大綱內容，會是最前面段落開始一直延續到預設長度為止，這在排版上會很難看，因此可以手動在 Markdown 文件中加入 `&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GitHub Pages 搭建教程</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>GitHub Pages 搭建教程 如何使用 GitHub pages 首先你需要注册一个 GitHub 账号，并在个人主界面里选择创建一个新的 Repository 。 进入页面后，在 Repository name 的位置填写域名，格式是 usernam</description>
+    </item>
+    
+    <item>
+      <title>Github汉化及常用插件</title>
+      <link>https://xinqinew.github.io/en/posts/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/github%E6%B1%89%E5%8C%96%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <description>Github汉化及常用插件 插件 Sourcegraph Sourcegraph 可以让你在线学习代码，可以查看变量、函数等的定义和引用情况。把指针放到想查看的变量名上，它会自动显示寻找定</description>
+    </item>
+    
+    <item>
+      <title>Markdown语法</title>
+      <link>https://xinqinew.github.io/en/posts/github/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>GitBook默认使用Markdown语法。 下面这些可以作为一个快速参考和展示。更多完整的信息，请参考 John Gruber&amp;rsquo;s original spec 和 Github-flavored Markdown info page。 标题 H1 H2 H3 H4</description>
+    </item>
+    
+    <item>
+      <title>安装jekyll-rtd-theme博客</title>
+      <link>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/%E5%AE%89%E8%A3%85jekyll-rtd-theme%E5%8D%9A%E5%AE%A2/</guid>
+      <description>安装jekyll-rtd-theme博客 jekyll-rtd-theme 安装配置及写作 测试文档 安装时终端出现问题的解决办法 清空Gemfile文件内容 终端运行 bundle update Gemfi</description>
+    </item>
+    
+    <item>
+      <title>LoveIt - 1前期准备</title>
+      <link>https://xinqinew.github.io/en/posts/github/loveit-1%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/loveit-1%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/</guid>
+      <description>前言 这篇教程介绍了如何搭建这样效果的博客。 所需步骤 可以从这样的角度出发： 注册域名。 使用CDN加快网站访问速度。 网站内容需要部署在服务器或对象</description>
+    </item>
+    
+    <item>
+      <title>LoveIt - 2部署</title>
+      <link>https://xinqinew.github.io/en/posts/github/loveit-2%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/loveit-2%E9%83%A8%E7%BD%B2/</guid>
+      <description>前言 完成前期的准备工作后，在部署阶段需要配置服务器或对象存储服务。 对象存储和服务器对比 对象存储平台 国内有阿里云OSS、腾讯COS、又拍云、七</description>
+    </item>
+    
+    <item>
+      <title>LoveIt - 3主题配置</title>
+      <link>https://xinqinew.github.io/en/posts/github/loveit-3%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/loveit-3%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 博客部署完成后，恭喜你可以发表第一篇：Hello world！但是LoveIt这么好用的主题，不配置一番可惜了。 基本功能配置 主题配置最好参</description>
+    </item>
+    
+    <item>
+      <title>LoveIt - 4功能拓展</title>
+      <link>https://xinqinew.github.io/en/posts/github/loveit-4%E5%8A%9F%E8%83%BD%E6%8B%93%E5%B1%95/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/loveit-4%E5%8A%9F%E8%83%BD%E6%8B%93%E5%B1%95/</guid>
+      <description>前言 本文介绍一些拓展功能，如文章页面功能增加二级菜单，相关文章推荐和赞赏。另外，使用脚本会大大简化写作后的上传流程。 文章页面功能 这部分功能的</description>
+    </item>
+    
+    <item>
+      <title>LoveIt - 5页面模板</title>
+      <link>https://xinqinew.github.io/en/posts/github/loveit-5%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <author>xinqinew@163.com (辛琪)</author>
+      <guid>https://xinqinew.github.io/en/posts/github/loveit-5%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF/</guid>
+      <description>前言 最初在制作友链界面时，没有学习Hugo框架，一头雾水。网上有关的教程甚少，只能去学一遍Hugo。 在学习Hugo的过程中，了解了列表模板，</description>
+    </item>
+    
+  </channel>
+</rss>

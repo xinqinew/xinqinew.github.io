@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">OD常识及技巧 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="OD常识及技巧" />
+<meta property="og:description" content="菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 hw 硬件写入断点 hr 硬件访问断点 快捷" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-03T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="OD常识及技巧"/>
+<meta name="twitter:description" content="菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 hw 硬件写入断点 hr 硬件访问断点 快捷"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/%E7%94%A8mfc%E5%86%99%E6%B3%A8%E5%85%A5%E5%99%A8/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/ascii%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OD常识及技巧",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%BE%85%E5%8A%A9\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "OD, 辅助","wordcount":  2358 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%BE%85%E5%8A%A9\/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7\/","datePublished": "2021-10-03T00:00:00+00:00","dateModified": "2021-10-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">OD常识及技巧</h1><div class="content" id="content"><h2 id="菜单栏">菜单栏</h2>
+<p>E 模块</p>
+<p>T 线程（挂起与激活）resume恢复线程</p>
+<p>B 执行断点</p>
+<p>HBP 硬件断点</p>
+<h2 id="od指令">OD指令</h2>
+<p>dd	查看dword</p>
+<p>db	查看字节集</p>
+<p>hw	硬件写入断点</p>
+<p>hr	硬件访问断点</p>
+<h2 id="快捷键">快捷键</h2>
+<p>CTRL + A 分析代码</p>
+<p>CTRL + S 查找命令序列</p>
+<p>F2 下断和取消</p>
+<p>Shift+F2 条件断点</p>
+<p>F4 代码执行一次</p>
+<p>F7 单步步入（进call）</p>
+<p>F8 单步步过（不进call）</p>
+<h2 id="条件断点">条件断点</h2>
+<p>== 等于</p>
+<p>!= 不等于</p>
+<p>&amp;&amp; 和</p>
+<p>|| 或</p>
+<h2 id="汇编指令">汇编指令</h2>
+<p>mov 赋值</p>
+<p>lea 传址</p>
+<p>push 入栈</p>
+<p>pop 出栈</p>
+<p>add 加</p>
+<p>sub 减</p>
+<p>mul 乘法</p>
+<p>div 除法</p>
+<p>call 函数</p>
+<p>retn 返回</p>
+<p>rep 主要用来重复执行指令 <a href="https://www.jianshu.com/p/a5e3b578aeb2" target="_blank" rel="noopener noreffer">详见 REP指令前缀簇</a></p>
+<p>​	指令：REP MOVS mem8/16/32, m8/16/32</p>
+<p>​	描述：从DS:[(E)SI]中复制(E)CX个字节/字/双字到ES:[(E)DI]</p>
+<blockquote>
+<p>DS:[(E)SI]由于(E)SI寄存器中保存的是源操作数的地址，所以DS:[(E)SI]指的就是该地址保存的值</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">12</span>
+</span></span><span class="line"><span class="cl"><span class="na">rep</span> <span class="nf">movs</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="no">edi</span><span class="p">],</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">esi</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 从[esi]中复制 ecx个四字节 到ES:[edi]
+</span></span></span><span class="line"><span class="cl"><span class="c"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
+</span></span></span><span class="line"><span class="cl"><span class="c"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="断点">断点</h2>
+<p><strong>内存访问</strong>	断在执行之前</p>
+<p><strong>内存写入</strong>	断在执行之前</p>
+<p><strong>硬件访问</strong>（CE）	断在执行之后</p>
+<p><strong>硬件写入</strong>（CE）	断在执行之后</p>
+<p><strong>硬件执行</strong> 可添加条件断点</p>
+<h3 id="od断点缺点">OD断点缺点</h3>
+<p>一次只能断在一个位置</p>
+<p>CE则可以把所有相关断点列在一起</p>
+<h3 id="od断点优点">OD断点优点</h3>
+<p>高亮插件，易于追踪</p>
+<h2 id="堆栈">堆栈</h2>
+<p><strong>esp</strong> 栈顶指针 堆栈顶端的刻度</p>
+<p><strong>ebp</strong> 栈底指针 本层函数的栈底</p>
+<blockquote>
+<p>ebp 不稳定，有时不是栈底，而是普通寄存器</p>
+<p>判断方法，看ebp与esp的差距是否很大</p>
+<p>如果差距大，则是普通寄存器</p>
+</blockquote>
+<h2 id="堆栈平衡">堆栈平衡</h2>
+<p><strong>特性</strong></p>
+<ul>
+<li>esp 不能变化</li>
+</ul>
+<h2 id="寄存器">寄存器</h2>
+<p>EAX call的返回值</p>
+<p>ECX call的参数</p>
+<h2 id="找call总结">找call总结</h2>
+<h3 id="找call时需要注意的地方"><strong>找call时，需要注意的地方：</strong></h3>
+<ol>
+<li>
+<p>找call在send上下断，尽量避免被心跳call干扰</p>
+</li>
+<li>
+<p>在我们找call的时候，会有一些其它伴生函数干扰</p>
+<p><strong>例如</strong>：</p>
+<ol>
+<li>打怪、打开npc对话框或者寻路call，可能会先触发走路call</li>
+<li>打坐、释放技能可能会伴随快捷键函数</li>
+</ol>
+</li>
+</ol>
+<h3 id="找到call后我们还需要对函数的参数寄存器进行分析"><strong>找到call后，我们还需要对函数的参数、寄存器进行分析。</strong></h3>
+<ol>
+<li><strong>外平栈</strong>，看清楚参数的数量，是否和平栈的数值对应。在调用call的时候一定要平栈，否则会崩溃。</li>
+<li><strong>内平栈</strong>，通过retn的数值，来判断参数的数量，并且分析ecx的来源。个别情况下，还需要分析edx和esi等参数的来源。</li>
+<li>有些函数调用的是虚函数，比如 <code>call eax</code>或者<code>call [edx+8]</code>,我们需要去分析call里寄存器的来源。</li>
+<li>如果我们的参数中需要用到eax，但是eax无法很快的得到结果，这时可以通过调用eax来源的call来获得，前提是分析清楚来源函数的参数和寄存器。调用连call。</li>
+</ol>
+<h3 id="带有结构体的函数">带有结构体的函数</h3>
+<ol>
+<li>申请一片内存（可以通过OD插件）</li>
+<li>在内存中填写结构体里的内容</li>
+<li>将我们申请的内存地址，push到call中</li>
+<li>进行调用</li>
+</ol>
+<h3 id="无法通过发包函数获得的call">无法通过发包函数获得的call</h3>
+<p>例如：寻路，控件，按键</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">寻路--&gt;走路--&gt;z[&#34;通过目的地坐标，&lt;br&gt;下写入断点&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">控件--&gt;z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">按键 --&gt;z &amp; z1 &amp; z2
+</span></span><span class="line"><span class="cl">z[&#34;可以通过背包的打开状态，&lt;br&gt;来对状态下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;鼠标点击&#34;]
+</span></span><span class="line"><span class="cl">z2[&#34;键盘&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="发包函数">发包函数</h2>
+<ol>
+<li>bp send</li>
+<li>send sendto WSASend</li>
+<li>重新实现的发包函数 WSPSend</li>
+<li>线程发包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph 
+</span></span><span class="line"><span class="cl">subgraph 普通发包
+</span></span><span class="line"><span class="cl">喊话call --&gt; 喊话_内层call --&gt; 组包的过程1  --&gt; 最内层喊话call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包 --&gt; 加密 --&gt; 发包发送
+</span></span><span class="line"><span class="cl">走路call --&gt; 走路_内层call --&gt; 组包的过程2  --&gt; 最内层走路call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
+</span></span><span class="line"><span class="cl">其它call --&gt; 其它_内层call --&gt; 组包的过程3  --&gt; 最内层其它call--&gt;|进call后的头部&lt;br&gt;就是&lt;br&gt;最外层明文包头部&lt;br&gt;往下走就是|明文封包
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="控件">控件</h2>
+<h3 id="控件输入">控件输入</h3>
+<p>寻找突破口:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;字符串的长度&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;直接搜索字符串&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z3--&gt;z5
+</span></span><span class="line"><span class="cl">z2--&gt;z4--&gt;z5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="控件点击">控件点击</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;控件界面打开，搜1或0&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;控件界面关闭，搜0或1&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;单选框选中，搜1或0&#34;]
+</span></span><span class="line"><span class="cl">z6[&#34;单选框未选中，搜0或1&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3--&gt;z
+</span></span><span class="line"><span class="cl">z4--&gt;z5--&gt;z6--&gt;z
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="按键call">按键call</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z[&#34;按一下对应按键来触发&#34;]
+</span></span><span class="line"><span class="cl">z1[&#34;方法一&#34;] 
+</span></span><span class="line"><span class="cl">z2[&#34;通过按键触发发包函数&#34;]
+</span></span><span class="line"><span class="cl">z3[&#34;在发包函数处下断&#34;]
+</span></span><span class="line"><span class="cl">z4[&#34;方法二&#34;]
+</span></span><span class="line"><span class="cl">z5[&#34;比如通过背包打开&lt;br&gt;或者关闭的标志位&lt;br&gt;来进行查找&#34;]
+</span></span><span class="line"><span class="cl">z6[&#34;下写入断点&#34;]
+</span></span><span class="line"><span class="cl">z7[&#34;之后返回，&lt;br&gt;就有可能断在按键call&#34;]
+</span></span><span class="line"><span class="cl">z8[&#34;有可能断在按键call&#34;]
+</span></span><span class="line"><span class="cl">z9[&#34;proc断点&#34;]
+</span></span><span class="line"><span class="cl">z10[&#34;方法三&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3--&gt;z7
+</span></span><span class="line"><span class="cl">z4--&gt;z5--&gt;z6--&gt;z--&gt;z8
+</span></span><span class="line"><span class="cl">z10--&gt;z9
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>proc断点</strong>  (源自 飞郁网络培训 2018-2019 2018.12.22 proc断点分析按键CALL)</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.53.23.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.53.23.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.53.23.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.53.23.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.53.23.png"
+        title="截屏2021-10-07 下午7.53.23"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195445271.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195445271.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195445271.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195445271.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195445271.png"
+        title="image-20211007195445271"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195523875.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195523875.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195523875.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195523875.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195523875.png"
+        title="image-20211007195523875"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195611161.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195611161.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195611161.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195611161.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20211007195611161.png"
+        title="image-20211007195611161"
+    /></p>
+<h2 id="插件">插件</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.35.59.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.35.59.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.35.59.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.35.59.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/%E6%88%AA%E5%B1%8F2021-10-07%20%E4%B8%8B%E5%8D%887.35.59.png"
+        title="截屏2021-10-07 下午7.35.59"
+    /></p>
+<h2 id="ida">IDA</h2>
+<p>用于查看伪函数代码</p>
+<p>对于复杂的结构体、数组、二叉树、链表，更直观。</p>
+<h2 id="跳出vm">跳出VM</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl">z1([遇到VM])
+</span></span><span class="line"><span class="cl">z2[追附近地址&lt;br&gt;最好是对象]
+</span></span><span class="line"><span class="cl">z3[需要自己算偏移]
+</span></span><span class="line"><span class="cl">z1--&gt;z2--&gt;z3
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

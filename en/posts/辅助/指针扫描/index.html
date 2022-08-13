@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">指针扫描 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="指针扫描" />
+<meta property="og:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-03T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="指针扫描"/>
+<meta name="twitter:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93dll/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E8%BE%85%E5%8A%A9/%E7%94%A8mfc%E5%86%99%E6%B3%A8%E5%85%A5%E5%99%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "指针扫描",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%BE%85%E5%8A%A9\/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "辅助","wordcount":  1725 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E8%BE%85%E5%8A%A9\/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F\/","datePublished": "2021-10-03T00:00:00+00:00","dateModified": "2021-10-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">指针扫描</h1><div class="content" id="content"><h2 id="0x00-target">0x00 Target</h2>
+<ul>
+<li>【基地址】+【偏移】+【偏移】+&hellip;=【偏移地址】</li>
+<li>【Target】是【Winform】窗体；</li>
+<li>【Winform】标题是【Form1】；</li>
+<li>【button】功能是刷新【label】；</li>
+<li>【label】标签用来显示【int类型】测试变量，测试变量的【初始值】为9528。</li>
+<li>以下源代码：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Form1</span> <span class="p">:</span> <span class="n">Form</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">Num</span> <span class="p">=</span> <span class="m">9528</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="n">Form1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">InitializeComponent</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">void</span> <span class="n">button1_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">label1</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">Num</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">label1</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">Num</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0d07ba74ba988017049d84b0caa2b2f2_1440w-20220117165733028.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0d07ba74ba988017049d84b0caa2b2f2_1440w-20220117165733028.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0d07ba74ba988017049d84b0caa2b2f2_1440w-20220117165733028.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0d07ba74ba988017049d84b0caa2b2f2_1440w-20220117165733028.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0d07ba74ba988017049d84b0caa2b2f2_1440w-20220117165733028.jpg"
+        title="img"
+    /></p>
+<h2 id="0x01-偏移地址">0x01 偏移地址</h2>
+<ul>
+<li>查找变量【当前值】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bde04357baa2b91e4eda0a43c6625ce8_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bde04357baa2b91e4eda0a43c6625ce8_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bde04357baa2b91e4eda0a43c6625ce8_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bde04357baa2b91e4eda0a43c6625ce8_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bde04357baa2b91e4eda0a43c6625ce8_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>筛选出能改变 【Target】的【偏移地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-184c68a0a5d62df017c057b516f5b3b5_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-184c68a0a5d62df017c057b516f5b3b5_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-184c68a0a5d62df017c057b516f5b3b5_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-184c68a0a5d62df017c057b516f5b3b5_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-184c68a0a5d62df017c057b516f5b3b5_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>此次得到【偏移地址】为【02BB5960】。</li>
+</ul>
+<h2 id="0x02-指针扫描">0x02 指针扫描</h2>
+<ul>
+<li>对【02BB5960】进行【指针扫描】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1f0f63def1cea88d595e38eaeaeefe6f_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1f0f63def1cea88d595e38eaeaeefe6f_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1f0f63def1cea88d595e38eaeaeefe6f_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1f0f63def1cea88d595e38eaeaeefe6f_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1f0f63def1cea88d595e38eaeaeefe6f_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>默认扫描【最大偏移值】4095，默认【最大偏移层次】7层：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f7bcb0c916e8955993a27edf1ab0cf43_1440w-20220117165704897.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f7bcb0c916e8955993a27edf1ab0cf43_1440w-20220117165704897.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f7bcb0c916e8955993a27edf1ab0cf43_1440w-20220117165704897.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f7bcb0c916e8955993a27edf1ab0cf43_1440w-20220117165704897.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f7bcb0c916e8955993a27edf1ab0cf43_1440w-20220117165704897.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>选择【*.PTR】文件保存位置：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-45d39d8f2fcab60127575e46f0b21d33_1440w-20220117165659317.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-45d39d8f2fcab60127575e46f0b21d33_1440w-20220117165659317.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-45d39d8f2fcab60127575e46f0b21d33_1440w-20220117165659317.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-45d39d8f2fcab60127575e46f0b21d33_1440w-20220117165659317.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-45d39d8f2fcab60127575e46f0b21d33_1440w-20220117165659317.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>总共扫描【336422】个指针，下列的是【符合条件的指针列表】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f116e781b957b15c36f0f82e4c2773d5_1440w-20220117165654654.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f116e781b957b15c36f0f82e4c2773d5_1440w-20220117165654654.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f116e781b957b15c36f0f82e4c2773d5_1440w-20220117165654654.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f116e781b957b15c36f0f82e4c2773d5_1440w-20220117165654654.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f116e781b957b15c36f0f82e4c2773d5_1440w-20220117165654654.jpg"
+        title="img"
+    /></p>
+<h2 id="0x03-多次筛选">0x03 多次筛选</h2>
+<ul>
+<li>为了避免<strong>偶然性</strong>，我们重启【Target】以改变【偏移地址】，然后在【符合条件的指针列表】中再一次进行【指针扫描】。新的【偏移地址】是【030B5960】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ab3c43ed84b671fdfcfa857a4a6e4ac0_1440w-20220117165645492.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ab3c43ed84b671fdfcfa857a4a6e4ac0_1440w-20220117165645492.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ab3c43ed84b671fdfcfa857a4a6e4ac0_1440w-20220117165645492.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ab3c43ed84b671fdfcfa857a4a6e4ac0_1440w-20220117165645492.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ab3c43ed84b671fdfcfa857a4a6e4ac0_1440w-20220117165645492.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>打开从【符合条件的指针列表】再次扫描界面：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ebdaf1228dbee4c2b2ba5d40287644d1_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ebdaf1228dbee4c2b2ba5d40287644d1_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ebdaf1228dbee4c2b2ba5d40287644d1_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ebdaf1228dbee4c2b2ba5d40287644d1_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-ebdaf1228dbee4c2b2ba5d40287644d1_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>填入新的偏移地址【030B5960】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0083444cf6eedb94411d4a84e3b78874_1440w-20220117165637721.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0083444cf6eedb94411d4a84e3b78874_1440w-20220117165637721.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0083444cf6eedb94411d4a84e3b78874_1440w-20220117165637721.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0083444cf6eedb94411d4a84e3b78874_1440w-20220117165637721.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-0083444cf6eedb94411d4a84e3b78874_1440w-20220117165637721.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>选择【*.PTR】文件保存位置，<strong>覆盖上次文件</strong>即可：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-77541017b4620db96fa151fd7e4fb35c_1440w-20220117165632859.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-77541017b4620db96fa151fd7e4fb35c_1440w-20220117165632859.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-77541017b4620db96fa151fd7e4fb35c_1440w-20220117165632859.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-77541017b4620db96fa151fd7e4fb35c_1440w-20220117165632859.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-77541017b4620db96fa151fd7e4fb35c_1440w-20220117165632859.jpg"
+        title="img"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf33c46b13f025ad52c06def04181cfe_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf33c46b13f025ad52c06def04181cfe_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf33c46b13f025ad52c06def04181cfe_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf33c46b13f025ad52c06def04181cfe_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf33c46b13f025ad52c06def04181cfe_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>总共扫描【6648】个指针，下列是【此次符合条件的指针列表】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-124f990aa6523552c049fa4d6a2f9100_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-124f990aa6523552c049fa4d6a2f9100_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-124f990aa6523552c049fa4d6a2f9100_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-124f990aa6523552c049fa4d6a2f9100_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-124f990aa6523552c049fa4d6a2f9100_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>【再次扫描】这个步骤，<strong>一般重复三到五次</strong>，多多益善。</li>
+</ul>
+<h2 id="0x04-测试">0x04 测试</h2>
+<ul>
+<li>多次扫描后，在新打开的【CE】中按住【Ctrl】，依次点击【M】【P】【O】键，然后导入【*.PTR】文件：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-b398354fda83070e6ffde648f003e64b_1440w-20220117165623334.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-b398354fda83070e6ffde648f003e64b_1440w-20220117165623334.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-b398354fda83070e6ffde648f003e64b_1440w-20220117165623334.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-b398354fda83070e6ffde648f003e64b_1440w-20220117165623334.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-b398354fda83070e6ffde648f003e64b_1440w-20220117165623334.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>观察【Points to】列，值为<strong>空</strong>的表示这<strong>不是</strong>一个真正的【基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-8208e1244722f837421eee2c9a710eed_1440w-20220117165610852.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-8208e1244722f837421eee2c9a710eed_1440w-20220117165610852.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-8208e1244722f837421eee2c9a710eed_1440w-20220117165610852.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-8208e1244722f837421eee2c9a710eed_1440w-20220117165610852.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-8208e1244722f837421eee2c9a710eed_1440w-20220117165610852.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>【双击】选择一个【Points to】列的<strong>值</strong>为<strong>测试值</strong>的【基地址】，将自动添加到【CE】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-a41d5eaa9ea07ea4e22b88ee54322866_1440w-20220117165606094.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-a41d5eaa9ea07ea4e22b88ee54322866_1440w-20220117165606094.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-a41d5eaa9ea07ea4e22b88ee54322866_1440w-20220117165606094.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-a41d5eaa9ea07ea4e22b88ee54322866_1440w-20220117165606094.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-a41d5eaa9ea07ea4e22b88ee54322866_1440w-20220117165606094.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>通过该【基地址】，将指向的值更改为【6666】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f82a21abd2d628bd94d31e23aeda3cf6_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f82a21abd2d628bd94d31e23aeda3cf6_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f82a21abd2d628bd94d31e23aeda3cf6_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f82a21abd2d628bd94d31e23aeda3cf6_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f82a21abd2d628bd94d31e23aeda3cf6_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>刷新【Target】，检验是否是正确的【基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-614f86b3ffe3009c02ba718811ede9e0_1440w-20220117165557311.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-614f86b3ffe3009c02ba718811ede9e0_1440w-20220117165557311.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-614f86b3ffe3009c02ba718811ede9e0_1440w-20220117165557311.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-614f86b3ffe3009c02ba718811ede9e0_1440w-20220117165557311.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-614f86b3ffe3009c02ba718811ede9e0_1440w-20220117165557311.jpg"
+        title="img"
+    />刷新前</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-466550b6f6a311938abdb796b079326a_1440w-20220117165552868.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-466550b6f6a311938abdb796b079326a_1440w-20220117165552868.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-466550b6f6a311938abdb796b079326a_1440w-20220117165552868.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-466550b6f6a311938abdb796b079326a_1440w-20220117165552868.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-466550b6f6a311938abdb796b079326a_1440w-20220117165552868.jpg"
+        title="img"
+    />刷新后</p>
+<ul>
+<li>经检验，是正确的【基地址】。</li>
+</ul>
+<h2 id="0x05-ct">0x05 CT</h2>
+<ul>
+<li>将【基地址】以【*.CT】形式保存到本地：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-d368bb29c0373146b44f1a903e601c4a_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-d368bb29c0373146b44f1a903e601c4a_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-d368bb29c0373146b44f1a903e601c4a_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-d368bb29c0373146b44f1a903e601c4a_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-d368bb29c0373146b44f1a903e601c4a_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>导入【*.CT】，使用【基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-2c7f390039ca5d57f9f86b254088eb6a_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-2c7f390039ca5d57f9f86b254088eb6a_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-2c7f390039ca5d57f9f86b254088eb6a_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-2c7f390039ca5d57f9f86b254088eb6a_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-2c7f390039ca5d57f9f86b254088eb6a_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>通过【基地址】成功读取到【测试值】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-793a3336a4dde08927b7577a14013bc6_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-793a3336a4dde08927b7577a14013bc6_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-793a3336a4dde08927b7577a14013bc6_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-793a3336a4dde08927b7577a14013bc6_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-793a3336a4dde08927b7577a14013bc6_1440w.jpg"
+        title="img"
+    /></p>
+<h2 id="0x06-实战">0x06 实战</h2>
+<ul>
+<li>练手经典游戏【植物大战僵尸】的【阳光基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-e39d373b840be576bec08a6b3aa89bf5_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-e39d373b840be576bec08a6b3aa89bf5_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-e39d373b840be576bec08a6b3aa89bf5_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-e39d373b840be576bec08a6b3aa89bf5_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-e39d373b840be576bec08a6b3aa89bf5_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>为了准确，首先制作两个【阳光偏移地址】的【Generate Pointermap】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f088e615f8c4e39758d64e27e454fc29_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f088e615f8c4e39758d64e27e454fc29_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f088e615f8c4e39758d64e27e454fc29_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f088e615f8c4e39758d64e27e454fc29_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f088e615f8c4e39758d64e27e454fc29_1440w.jpg"
+        title="img"
+    />然后关闭游戏再来一次</p>
+<ul>
+<li>两个【阳光偏移地址】的【Generate Pointermap】制作完成：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-dd3620acc6bdbb3765ca49c0ff55689f_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-dd3620acc6bdbb3765ca49c0ff55689f_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-dd3620acc6bdbb3765ca49c0ff55689f_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-dd3620acc6bdbb3765ca49c0ff55689f_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-dd3620acc6bdbb3765ca49c0ff55689f_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>然后查看是哪个地址改写了第二个【阳光偏移地址】:</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-582fcf6306910b3c73371fbe3c7507f3_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-582fcf6306910b3c73371fbe3c7507f3_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-582fcf6306910b3c73371fbe3c7507f3_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-582fcf6306910b3c73371fbe3c7507f3_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-582fcf6306910b3c73371fbe3c7507f3_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>捡一个阳光，然后获得一条改写记录，双击此记录：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-65d5d1fe856d8820520de1d4bfa6cc96_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-65d5d1fe856d8820520de1d4bfa6cc96_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-65d5d1fe856d8820520de1d4bfa6cc96_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-65d5d1fe856d8820520de1d4bfa6cc96_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-65d5d1fe856d8820520de1d4bfa6cc96_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>因为【上个地址】+【偏移】<strong>指向</strong>第二个【阳光偏移地址】，所以我们得到第二个【阳光偏移地址】的最上层偏移是【<strong>5578</strong>】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-5b4da60189b4465b913b916ab8c28723_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-5b4da60189b4465b913b916ab8c28723_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-5b4da60189b4465b913b916ab8c28723_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-5b4da60189b4465b913b916ab8c28723_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-5b4da60189b4465b913b916ab8c28723_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>接下来，对第二个【阳光偏移地址】进行【指针扫描】，设置如下：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-3e10614e0559cc814b02fd05a206157d_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-3e10614e0559cc814b02fd05a206157d_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-3e10614e0559cc814b02fd05a206157d_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-3e10614e0559cc814b02fd05a206157d_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-3e10614e0559cc814b02fd05a206157d_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>将扫描结果保存为【PVZ.PTR】，扫描得到【32417】个有真有假的【阳光基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f114969d65475cf229c30307e5fd2ed1_1440w-20220117165523474.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f114969d65475cf229c30307e5fd2ed1_1440w-20220117165523474.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f114969d65475cf229c30307e5fd2ed1_1440w-20220117165523474.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f114969d65475cf229c30307e5fd2ed1_1440w-20220117165523474.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-f114969d65475cf229c30307e5fd2ed1_1440w-20220117165523474.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>现在将当前阳光【25】变动为【75】，然后再次对【PVZ.PTR】进行扫描：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1b317ff99b8be60db62636550a5f871b_1440w-20220117165519032.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1b317ff99b8be60db62636550a5f871b_1440w-20220117165519032.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1b317ff99b8be60db62636550a5f871b_1440w-20220117165519032.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1b317ff99b8be60db62636550a5f871b_1440w-20220117165519032.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-1b317ff99b8be60db62636550a5f871b_1440w-20220117165519032.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>现在剩余【18011】个有真有假的【阳光基地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-80f3db62d1086c2fac863d34a31e1f84_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-80f3db62d1086c2fac863d34a31e1f84_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-80f3db62d1086c2fac863d34a31e1f84_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-80f3db62d1086c2fac863d34a31e1f84_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-80f3db62d1086c2fac863d34a31e1f84_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>再次将当前阳光【75】变动为【100】，然后对【PVZ.PTR】进行扫描，发现梯度已经不再下降，我们开始对【阳光基层偏移】进行【排序】，以便我们找到最短最有效的【阳光基地址】。</li>
+<li>按照下图<strong>序号</strong>依次点击排序，最后我们找到了<strong>最少偏移个数</strong>的阳光基地址【&ldquo;THREADSTACK0&rdquo;-00000568】，实际上阳光基地址有更简单的，这种方法没有搜到，将当前阳光【100】变动为【75】测试一下：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-6948978dde5ae69743d07989ad7494bc_1440w-20220117165511870.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-6948978dde5ae69743d07989ad7494bc_1440w-20220117165511870.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-6948978dde5ae69743d07989ad7494bc_1440w-20220117165511870.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-6948978dde5ae69743d07989ad7494bc_1440w-20220117165511870.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-6948978dde5ae69743d07989ad7494bc_1440w-20220117165511870.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>【&ldquo;THREADSTACK0&rdquo;-00000568】+【0】+【8】+【5578】&gt;【阳光偏移地址】：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-09b62fa5ad227ccf7140f5009be3518d_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-09b62fa5ad227ccf7140f5009be3518d_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-09b62fa5ad227ccf7140f5009be3518d_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-09b62fa5ad227ccf7140f5009be3518d_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-09b62fa5ad227ccf7140f5009be3518d_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>现在重启电脑后，再重启游戏进行测试：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf56cbc9027cdbb8d9ea36f8904325c4_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf56cbc9027cdbb8d9ea36f8904325c4_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf56cbc9027cdbb8d9ea36f8904325c4_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf56cbc9027cdbb8d9ea36f8904325c4_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-bf56cbc9027cdbb8d9ea36f8904325c4_1440w.jpg"
+        title="img"
+    />开始游戏前</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-904ff3c3af614c3585ce9fbd5ea130d5_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-904ff3c3af614c3585ce9fbd5ea130d5_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-904ff3c3af614c3585ce9fbd5ea130d5_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-904ff3c3af614c3585ce9fbd5ea130d5_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-904ff3c3af614c3585ce9fbd5ea130d5_1440w.jpg"
+        title="img"
+    />开始游戏后</p>
+<ul>
+<li>【&ldquo;THREADSTACK0&rdquo;】是【线程地址】，我们可以通过【threadstack.exe】工具转换【线程地址】成一个【内存地址】，这样便于写工具，当然使用【进程基地址】就没有这个麻烦：</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-062a84c020dba11aa9d5efd09a837448_1440w.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-062a84c020dba11aa9d5efd09a837448_1440w.jpg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-062a84c020dba11aa9d5efd09a837448_1440w.jpg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-062a84c020dba11aa9d5efd09a837448_1440w.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/v2-062a84c020dba11aa9d5efd09a837448_1440w.jpg"
+        title="img"
+    /></p>
+<ul>
+<li>也就是说：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">【&#34;THREADSTACK0&#34;-00000568】+【0】+【8】+【5578】&gt;【阳光偏移地址】
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">等价于
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">【0x0019ff7c-00000568】+【0】+【8】+【5578】&gt;【阳光偏移地址】
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<ul>
+<li>CheatEngine是我随便下的。</li>
+</ul>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">VSCode搭建C&#43;&#43;开发环境Mac - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="VSCode搭建C&#43;&#43;开发环境Mac" />
+<meta property="og:description" content="VS Code 搭建 C&#43;&#43; 开发环境（Mac 环境） 准备 搭建之前需要先安装 clang，在 Mac 上有两种方法进行 clang 的安装： 在 AppStore 上安装 Xcode，clang 会在 Xcode 安装时" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/c&#43;&#43;/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83mac/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2022-01-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-08T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="VSCode搭建C&#43;&#43;开发环境Mac"/>
+<meta name="twitter:description" content="VS Code 搭建 C&#43;&#43; 开发环境（Mac 环境） 准备 搭建之前需要先安装 clang，在 Mac 上有两种方法进行 clang 的安装： 在 AppStore 上安装 Xcode，clang 会在 Xcode 安装时"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83mac/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/%E9%81%8D%E5%8E%86%E6%96%87%E4%BB%B6/" /><link rel="next" href="https://xinqinew.github.io/en/posts/c&#43;&#43;/stl-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "VSCode搭建C++开发环境Mac",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/vscode%E6%90%AD%E5%BB%BAc\u002b\u002b%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83mac\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "C\u002b\u002b","wordcount":  888 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/c\u002b\u002b\/vscode%E6%90%AD%E5%BB%BAc\u002b\u002b%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83mac\/","datePublished": "2022-01-08T00:00:00+00:00","dateModified": "2022-01-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">VSCode搭建C&#43;&#43;开发环境Mac</h1><div class="content" id="content"><h2 id="vs-code-搭建-c-开发环境mac-环境">VS Code 搭建 C++ 开发环境（Mac 环境）</h2>
+<h2 id="准备">准备</h2>
+<p>搭建之前需要先安装 <code>clang</code>，在 Mac 上有<strong>两种</strong>方法进行 <code>clang</code> 的安装：</p>
+<ol>
+<li>
+<p>在 AppStore 上安装 <code>Xcode</code>，<code>clang</code> 会在 <code>Xcode</code> 安装时自动安装</p>
+</li>
+<li>
+<p>在命令行终端上执行 <code>xcode-select --install</code> 进行安装</p>
+</li>
+</ol>
+<p>安装完可通过在命令行终端上输入 <code>clang -v</code> 验证 <code>clang</code> 安装是否成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ clang -v
+</span></span><span class="line"><span class="cl">Apple clang version 11.0.3 <span class="o">(</span>clang-1103.0.32.62<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Target: x86_64-apple-darwin19.6.0
+</span></span><span class="line"><span class="cl">Thread model: posix
+</span></span><span class="line"><span class="cl">InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制代码</p>
+<h2 id="安装-vs-code">安装 VS Code</h2>
+<ul>
+<li>
+<p>从 <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreffer">VS Code 官网</a>下载 VS Code</p>
+</li>
+<li>
+<p>双击进行安装</p>
+</li>
+</ul>
+<h2 id="vs-code-插件安装">VS Code 插件安装</h2>
+<p>想要运行 C++ 程序需要先安装 <code>C/C++</code> 插件，打开 <code>VS Code</code>，进入插件扩展（快捷键 <code>Command + Shift + X</code> ），搜索 <code>C/C++</code> 插件进行安装</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/ba48db65126611e36760b357eac06b46-20220504121828094.png"
+    /></p>
+<p>看不懂英文的，可以再安装一个中文插件 `Chinese (Simplified) Language Pack for Visual Studio Code</p>
+<p><code>，安装方法跟安装</code> C/C++ <code>插件一样，把搜索词换成</code> Chinese` 就可以了</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/683ea026d098b0d5fe04719d7693c93a.png"
+    /></p>
+<blockquote>
+<p>插件安装完成需要重启 VS Code 使其生效</p>
+</blockquote>
+<h2 id="构建运行第一个-c-程序">构建运行第一个 C++ 程序</h2>
+<p>使用以下步骤创建一个项目目录<code>firstProject</code>，并使用 <code>VS Code</code> 打开</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ mkdir firstProject
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> firstProject
+</span></span><span class="line"><span class="cl">$ code .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制代码</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/0da2d770521ec764a9ec70ed5a4592dc.png"
+    /></p>
+<p>创建 <code>main.cpp</code> 文件，文件代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;hello world!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制代码</p>
+<p>按 <code>Command + Shift + P</code> 打开命令行面板，输入 <code>tasks</code>，选择 <code>Tasks:Configure Task</code> 生成 <code>tasks.json</code> 配置文件</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/334680fec9c654708a6d3b22948e3f7d.png"
+    /></p>
+<p>这里选择 <code>C/C++:clang build active file</code> 模版，选其他模版也没关系，在下面覆盖也行</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/99edeea11aaca060b1c88998b8f1273b.png"
+    /></p>
+<p><code>VS Code</code> 会自动在 <code>.vscode</code> 目录下生成 <code>tasks.json</code> 配置文件</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/3b55b02769d05987c6f69a3f2856886e.png"
+    /></p>
+<p>将文件内容修改为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;clang++&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;-o&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;main&#34;</span><span class="p">,</span> <span class="c1">// 执行文件名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="s2">&#34;main.cpp&#34;</span><span class="p">,</span> <span class="c1">// 需要执行的源文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="s2">&#34;-g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;-v&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;presentation&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;echo&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;reveal&#34;</span><span class="p">:</span> <span class="s2">&#34;always&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;panel&#34;</span><span class="p">:</span> <span class="s2">&#34;shared&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;problemMatcher&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;cpp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;fileLocation&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;relative&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;${workspaceRoot}&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;pattern&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;regexp&#34;</span><span class="p">:</span> <span class="s2">&#34;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;file&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;severity&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制代码</p>
+<p>接下来按 <code>Command + Shift + B</code> 对源文件进行编译，编译完成后，会在项目路径下生成 <code>main</code> 文件，使用 <code>./main</code> 即可执行</p>
+<h2 id="项目调试">项目调试</h2>
+<p>如果需要对项目进行进行 <code>debug</code>，则需要先生成 <code>launch.json</code> 文件并对其做相应的配置</p>
+<ul>
+<li>按 <code>Command + Shift + D</code> 进入到运行界面</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/6bdb4c0d73086cf5c5ce8ac3c7275f25.png"
+    /></p>
+<ul>
+<li>点击 <code>创建 launch.json 文件</code>，选择 <code>C++(GDB/LLDB)</code></li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/e5b9b45590b98c807abe95a1c8734a84-20220504121801411.png"
+    /></p>
+<p>同样的，会在 <code>.vscode</code> 文件夹下创建 <code>launch.json</code> 文件</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/05826841bee8596abae0966c44c2c72e.png"
+    /></p>
+<p>修改 <code>launch.json</code> 文件内容为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.0.0&#34;</span><span class="p">,</span>    <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>        <span class="p">{</span>            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;C++ Launch&#34;</span><span class="p">,</span>            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;cppdbg&#34;</span><span class="p">,</span>            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>            <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceRoot}/main&#34;</span><span class="p">,</span> <span class="c1">// main 跟 tasks.json 中的执行文件名称配置一致            &#34;preLaunchTask&#34;: &#34;build&#34;,            &#34;internalConsoleOptions&#34;: &#34;openOnSessionStart&#34;,            &#34;logging&#34;: {                &#34;moduleLoad&#34;: false,                &#34;programOutput&#34;: true,                &#34;trace&#34;: false            },            &#34;showDisplayString&#34;: false,            &#34;args&#34;: [],            &#34;stopAtEntry&#34;: false,            &#34;cwd&#34;: &#34;${workspaceRoot}&#34;,            &#34;environment&#34;: [],            &#34;externalConsole&#34;: false, // set true to enable keyboard input            &#34;osx&#34;: {                &#34;MIMode&#34;: &#34;lldb&#34;            }        }    ]}
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制代码</p>
+<p>在 <code>cout</code> 语句打上断点，然后点击运行按钮即可进行 <code>debug</code></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/9fe45277186cfb68b507cfc5fce30b48.png"
+    /></p>
+<p>参考：<a href="https://medium.com/gdplabs/build-and-debug-c-on-visual-studio-code-for-mac-77e05537105e" target="_blank" rel="noopener noreffer">Build and Debug C++ on Visual Studio Code for Mac</a></p>
+<p>到此，使用 <code>VS Code</code> 进行 <code>C++</code> 项目环境的搭建就完成啦，如果觉得对你有帮助的话可以关注我的公众号<code>huangxy</code>，不定时分享一些技术文章</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient,1.jpeg"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient%2c1.jpeg, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient%2c1.jpeg 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient%2c1.jpeg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient,1.jpeg"
+        title="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/auto-orient,1.jpeg"
+    /></p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

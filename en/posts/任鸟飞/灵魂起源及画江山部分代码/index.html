@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">灵魂起源及画江山部分代码 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="灵魂起源及画江山部分代码" />
+<meta property="og:description" content="C&#43;&#43; 逆向 C&#43;&#43;编程原理 软件安全 破解与防破解 外挂与反外挂 病毒分析 灵魂起源 创建DLL并且注入窗口中 实例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 /" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2021-08-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="灵魂起源及画江山部分代码"/>
+<meta name="twitter:description" content="C&#43;&#43; 逆向 C&#43;&#43;编程原理 软件安全 破解与防破解 外挂与反外挂 病毒分析 灵魂起源 创建DLL并且注入窗口中 实例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 /"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%B3%BB%E5%88%97/" /><link rel="next" href="https://xinqinew.github.io/en/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "灵魂起源及画江山部分代码",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/%E4%BB%BB%E9%B8%9F%E9%A3%9E\/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "任鸟飞, 灵魂起源, C\u002b\u002b, 画江山","wordcount":  2266 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/%E4%BB%BB%E9%B8%9F%E9%A3%9E\/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81\/","datePublished": "2021-08-28T00:00:00+00:00","dateModified": "2021-08-31T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">灵魂起源及画江山部分代码</h1><div class="content" id="content"><p>C++ 逆向 C++编程原理</p>
+<p>软件安全 破解与防破解 外挂与反外挂 病毒分析</p>
+<h1 id="灵魂起源">灵魂起源</h1>
+<h2 id="创建dll并且注入窗口中">创建DLL并且注入窗口中</h2>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//唯一的一个 C我们的DLLApp 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">C我们的DLLApp</span> <span class="n">theApp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CMyDialog</span> <span class="o">*</span><span class="n">PMainDialog</span><span class="p">;</span>	<span class="c1">//窗口类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">ShowDialog</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lpData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">PMainDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMyDialog</span><span class="p">;</span>	<span class="c1">//给指针分配空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">PMainDialog</span><span class="o">-&gt;</span><span class="n">DoModal</span><span class="p">();</span>	<span class="c1">//阻塞的方式 模态窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">delete</span> <span class="n">PMainDialog</span><span class="p">;</span>	<span class="c1">//释放空间 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">FreeLibraryAndExitThread</span><span class="p">(</span><span class="n">theApp</span><span class="p">.</span><span class="n">m_hInstance</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>	<span class="c1">//释放DLL退出线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// C我们的DLLApp 初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">C我们的DLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,(</span><span class="n">LPTHREAD_START_ROUTINE</span><span class="p">)</span><span class="n">ShowDialog</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>	<span class="c1">//创建线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="读写内存修改血量">读写内存修改血量</h2>
+<p><strong>实例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CMyDialog</span><span class="o">::</span><span class="n">OnBnClickedButton1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//	[[[0x00D0DF1C]+1C]+28]+288
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//读取内存数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00D0DF1C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x1C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x28</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x288</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="n">CString</span> <span class="n">Stemp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Stemp</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">),</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">MessageBox</span><span class="p">(</span><span class="n">Stemp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">//写入内存数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="mh">0x00D0DF1C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x1C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x28</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">a</span><span class="o">+</span><span class="mh">0x288</span><span class="p">)</span> <span class="o">=</span> <span class="mi">999</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数和call的对应关系">函数和call的对应关系</h2>
+<h1 id="画江山">画江山</h1>
+<h2 id="人物属性结构">人物属性结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">TROLE_PROPERTY</span>	<span class="c1">//人物属性结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span><span class="o">*</span> <span class="n">szpName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndHp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="n">TROLE_PROPERTY</span><span class="o">*</span> <span class="n">GetData</span><span class="p">();</span>	<span class="c1">//获得人物数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">void</span> <span class="nf">FindWay</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 	<span class="n">DWORD</span> <span class="nf">GetMaxJy</span><span class="p">();</span>	<span class="c1">//获得人物当前升级最大经验
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="nf">GetisCombat</span><span class="p">();</span>	<span class="c1">//获得战斗标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="nf">GetComebatNo</span><span class="p">();</span>	<span class="c1">//获得战斗顺序标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">_TROLE_PROPERTY</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000855508.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000855508.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000855508.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000855508.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000855508.png"
+        title="image-20210907000855508"
+    /></p>
+<h2 id="获得人物数据">获得人物数据</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TROLE_PROPERTY</span><span class="o">*</span><span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">GetData</span><span class="p">()</span>	<span class="c1">//获得人物数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl"> 	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">   	<span class="n">DWORD</span> <span class="n">Base</span> <span class="o">=</span> <span class="n">GetBase</span><span class="p">(</span><span class="n">Offset_RoleProperty1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   	<span class="n">DWORD</span> <span class="n">Offset2</span> <span class="o">=</span> <span class="n">Offset_RoleProperty2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   	<span class="n">Base</span> <span class="o">=</span> <span class="n">Base</span><span class="o">+</span><span class="n">Offset_RoleProperty2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">Temp</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">Base</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ndLv</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x12</span><span class="o">*</span><span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 	<span class="k">catch</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl"> 	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OutputDebugStringA</span><span class="p">(</span><span class="s">&#34;读取人物信息异常</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   	<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获得人物基地址大偏移">获得人物基地址+大偏移</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-CPP" data-lang="CPP"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="nf">GetBase</span><span class="p">(</span><span class="n">DWORD</span> <span class="n">offset</span><span class="p">)</span>	<span class="c1">//获得人物基地址+大偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">backeax</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">of</span> <span class="o">=</span> <span class="n">offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">Base_Role</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">edx</span><span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">eax</span><span class="p">,</span><span class="n">of</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">eax</span><span class="p">,[</span><span class="n">edx</span><span class="o">+</span><span class="n">eax</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">call</span> <span class="n">eax</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">backeax</span><span class="p">,</span><span class="n">eax</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">backeax</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001044535.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001044535.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001044535.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001044535.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001044535.png"
+        title="image-20210907001044535"
+    /></p>
+<h2 id="寻路">寻路</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">FindWay</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>	<span class="c1">//寻路
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">ID</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetData</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ndMapId</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">X</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">Y</span><span class="o">=</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">Base_Role</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mov</span> <span class="n">eax</span><span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mov</span> <span class="n">edx</span><span class="p">,[</span><span class="n">eax</span><span class="o">+</span><span class="n">Offset_FindWay</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="n">call</span> <span class="n">edx</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">eax</span>
+</span></span><span class="line"><span class="cl">      <span class="n">push</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="n">push</span> <span class="n">Y</span>
+</span></span><span class="line"><span class="cl">      <span class="n">push</span> <span class="n">X</span>
+</span></span><span class="line"><span class="cl">      <span class="n">push</span> <span class="n">ID</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mov</span> <span class="n">edx</span><span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">     	<span class="n">mov</span> <span class="n">eax</span><span class="p">,[</span><span class="n">edx</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="n">call</span> <span class="n">eax</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">catch</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   	<span class="n">OutputDebugStringA</span><span class="p">(</span><span class="s">&#34;寻路异常</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="npc结构">NPC结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">TNpc_PROPERTY</span>	<span class="c1">//NPC结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span><span class="o">*</span> <span class="n">szpName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndOpenNpcID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndAttackSign</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">_TNpc_PROPERTY</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="npc列表结构">NPC列表结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">TNpc_List</span>	<span class="c1">//NPC列表结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndNum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">TNpc_PROPERTY</span> <span class="n">NpcList</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ndNo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">GetData</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">_TNpc_List</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获得npc列表数据">获得npc列表数据</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">TNpc_List</span><span class="o">::</span><span class="n">GetData</span>	<span class="c1">//获得npc列表数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">Base</span> <span class="o">=</span> <span class="n">Base_NPC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DWORD</span> <span class="n">Offset</span> <span class="o">=</span> <span class="n">Offset_RoleProperty2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ndNum</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Base</span><span class="o">+</span><span class="mh">0xC</span><span class="p">);</span>	<span class="c1">//ID数组成员数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">DWORD</span> <span class="n">Base1</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Base</span><span class="o">+</span><span class="mh">0x4</span><span class="p">);</span>	<span class="c1">//ID数组根
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">DWORD</span> <span class="n">Id</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DbgPrint_Mint</span><span class="p">(</span><span class="s">&#34;NPCID数组大小:%x</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">ndNum</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">ndNum</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Id</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Base1</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mh">0x4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="n">Id</span><span class="o">&gt;</span><span class="mh">0x100000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Id</span> <span class="o">=</span> <span class="n">Id</span><span class="o">&amp;</span><span class="mh">0x0FFFFF</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DWORD</span> <span class="n">Temp</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">Base</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">Temp</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="n">Id</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Temp</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="n">Offset</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">ndId</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x0</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">ndX</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x5</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">ndY</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x6</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">ndOpenNpcID</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x96</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">ndAttackSign</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="mh">0x3</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DWORD</span> <span class="n">NameAddr</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="n">Ox1</span><span class="o">*</span><span class="mh">0x8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">NpcList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">szpName</span><span class="o">=</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="n">NameAddr</span><span class="o">+</span><span class="mh">0x4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                                   
+</span></span><span class="line"><span class="cl">        <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ndNo</span><span class="o">=</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">catch</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OutputDebugStringA</span><span class="p">(</span><span class="s">&#34;获得npc列表数据异常</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获得战斗标志位">获得战斗标志位</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">GetisCombat</span><span class="p">()</span>	<span class="c1">//获得战斗标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">Back</span><span class="o">=</span><span class="n">GetBase</span><span class="p">(</span><span class="n">Offset_isCombat1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">Back</span><span class="o">=</span><span class="n">Back</span><span class="o">+</span><span class="n">Offset_isCombat2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DWORD</span> <span class="n">n</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)</span><span class="n">Back</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001000176.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001000176.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001000176.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001000176.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001000176.png"
+        title="image-20210907001000176"
+    /></p>
+<h2 id="获得战斗顺序标志位">获得战斗顺序标志位</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">GetComebatNo</span><span class="p">()</span>	<span class="c1">//获得战斗顺序标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">Back</span> <span class="o">=</span> <span class="n">GetBase</span><span class="p">(</span><span class="n">Offset_CombatNo1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">__asm</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">ecx</span> <span class="p">,</span><span class="n">Back</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">eax</span> <span class="p">,[</span><span class="n">ecx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">edx</span> <span class="p">,[</span><span class="n">eax</span><span class="o">+</span><span class="n">Offset_CombatNo2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">call</span> <span class="n">edx</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">Back</span><span class="p">,</span><span class="n">eax</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Back</span> <span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Back</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">Back</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001130268.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001130268.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001130268.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001130268.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001130268.png"
+        title="image-20210907001130268"
+    /></p>
+<h2 id="获得人物当前升级最大经验">获得人物当前升级最大经验</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">TROLE_PROPERTY</span><span class="o">::</span><span class="n">GetMaxJy</span><span class="p">()</span>	<span class="c1">//获得人物当前升级最大经验
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">Back1</span><span class="o">=</span><span class="n">GetBase</span> <span class="p">(</span><span class="n">Offset_MaxJingYan</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span><span class="o">*</span> <span class="n">pLv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DWORD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span><span class="o">*</span> <span class="n">pBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DWORD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="n">pLv</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetData</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ndLv</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="kr">__asm</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">push</span> <span class="n">pLv</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">push</span> <span class="n">pBack</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span> <span class="n">Back1</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">add</span> <span class="n">ecx</span><span class="p">,</span> <span class="mi">4</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">eax</span><span class="p">,</span> <span class="n">Call_LvtoJy</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">call</span> <span class="n">eax</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">Temp</span><span class="o">=*</span><span class="n">pBack</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">Temp</span><span class="o">=*</span><span class="p">(</span><span class="n">DWORD</span><span class="o">*</span><span class="p">)(</span><span class="n">Temp</span><span class="o">+</span><span class="n">Ox10</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">Temp</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001216151.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001216151.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001216151.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001216151.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907001216151.png"
+        title="image-20210907001216151"
+    /></p>
+<h2 id="hook明文包">Hook明文包</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">HookGameClearE</span><span class="p">()</span>	<span class="c1">//Hook明文包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">dwHookAddr</span> <span class="o">=</span> <span class="n">HookClearEAddr</span><span class="p">;</span>	<span class="c1">//HOOK地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">dwTargetAddr</span> <span class="o">=</span> <span class="p">(</span><span class="n">DWORD</span><span class="p">)</span><span class="n">HookGameClearECall</span><span class="p">;</span>	<span class="c1">//跳转到的子程序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DbgPrint_Mine</span><span class="p">(</span><span class="s">&#34;Hook明文包地址%x HookCall地址%x</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">dwHookAddr</span> <span class="p">,</span><span class="n">dwTargetAddr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EnableDebugPrivilege</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span> <span class="c1">//提升权限 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">pid</span> <span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">WriteSize</span> <span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GetWindowThreadProcessId</span><span class="p">(</span><span class="n">GetGameWndHandle</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">pid</span><span class="p">);</span> <span class="c1">//获得进程ID 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">hProcess</span> <span class="o">=</span><span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span><span class="n">FALSE</span> <span class="p">,</span><span class="n">pid</span> <span class="p">);</span> <span class="c1">//打开进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DbgPrint_Mine</span><span class="p">(</span><span class="s">&#34;pid:%x</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">pid</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DbgPrint_Mine</span><span class="p">(</span><span class="s">&#34;hProcess:%x</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">hProcess</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="n">byte</span> <span class="n">Temp</span> <span class="o">=</span><span class="n">OxE9</span><span class="p">;</span>	<span class="c1">//jmp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,(</span><span class="n">LPDWORD</span><span class="p">)(</span><span class="n">dwHookAddr</span> <span class="o">+</span> <span class="mh">0x00</span><span class="p">),</span><span class="o">&amp;</span><span class="n">Temp</span><span class="p">,</span><span class="mi">1</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">WriteSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">Temp1</span><span class="o">=</span> <span class="n">dwTargetAddr</span> <span class="o">-</span> <span class="n">dwHookAddr</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>	<span class="c1">//跳转的差值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,(</span><span class="n">LDDWORD</span><span class="p">)(</span><span class="n">dwHookAddr</span> <span class="o">+</span> <span class="mh">0x01</span><span class="p">),</span><span class="o">&amp;</span><span class="n">Temp1</span><span class="p">,</span><span class="mi">4</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">WriteSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">byte</span> <span class="n">Temp2</span><span class="o">=</span><span class="mh">0x90</span><span class="p">;</span>	<span class="c1">//用nop填充
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,(</span><span class="n">LPDWORD</span><span class="p">)(</span><span class="n">dwHookAddr</span> <span class="o">+</span> <span class="mh">0x05</span><span class="p">),</span><span class="o">&amp;</span><span class="n">Temp2</span><span class="p">,</span><span class="mi">1</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">WriteSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000623174.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000623174.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000623174.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000623174.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000623174.png"
+        title="image-20210907000623174"
+    /></p>
+<h2 id="提升权限">提升权限</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">BOOL</span> <span class="nf">EnableDebugPrivilege</span> <span class="p">(</span><span class="n">BOOL</span> <span class="n">bEnable</span><span class="p">)</span> <span class="c1">//提升权限OpenProcess 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">BOO</span> <span class="n">fOK</span> <span class="o">=</span><span class="n">FALSE</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">HANDLE</span> <span class="n">hToken</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="n">OpenProcessToken</span><span class="p">(</span><span class="n">GetCurrentProcess</span><span class="p">()),</span> <span class="n">TOKEN_ADTUSI_PRIVILEGES</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hToken</span><span class="p">))</span> <span class="c1">//打开进程访问令牌
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TOKEN_PRIVILEGES</span> <span class="n">tp</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">tp</span><span class="p">.</span><span class="n">PrivilegeCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LookupPrivilegelalue</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">SE_DEBUG_NAME</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tp</span><span class="p">.</span><span class="n">Privileges</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Luid</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">tp</span><span class="p">.</span><span class="n">Privileges</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Attributes</span> <span class="o">=</span> <span class="n">bEnable</span> <span class="o">?</span> <span class="nl">SE_PRIVILEGE_ENABLED</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AdjustTokenPrivileges</span><span class="p">(</span><span class="n">hToken</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tp</span><span class="p">,</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">tp</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fOK</span> <span class="o">=</span> <span class="p">(</span><span class="n">GetlastError</span><span class="p">()</span> <span class="o">==</span> <span class="n">ERROR_SUCCESS</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CloseHandle</span><span class="p">(</span><span class="n">hToken</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">fOK</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000229362.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000229362.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000229362.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000229362.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000229362.png"
+        title="image-20210907000229362"
+    /></p>
+<h2 id="hook明文包子程序">HOOK明文包子程序</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span> <span class="kt">void</span> <span class="n">HookGameCIearECa11</span><span class="p">()</span><span class="c1">//裸体函数 HOOK明文包子程序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//eax包长 ecx包内容 edx socket flags 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pushad</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">BaoChang</span><span class="p">,</span> <span class="n">eax</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span> <span class="p">[</span><span class="n">esi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">BaoNeiRongAddr</span><span class="p">,</span> <span class="n">ecx</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">p</span> <span class="o">=</span><span class="k">new</span> <span class="n">byte</span><span class="p">[</span><span class="n">BaoChang</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ReadProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCVOID</span><span class="p">)</span><span class="n">BaoNeiRongAddr</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">BaoChang</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DbgPrint_Mine</span><span class="p">(</span><span class="s">&#34;包长:%x&#34;</span><span class="p">,</span><span class="n">BaoChang</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">BaoChang</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprintf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&#34;%02X&#34;</span><span class="p">,</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strcat_s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DbgPrint_Mine</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sprintf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="s">&#34;包内容：&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="kr">__asm</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">popd</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">ecx</span><span class="p">,</span><span class="n">dword</span> <span class="n">ptr</span> <span class="p">[</span><span class="n">esi</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mov</span> <span class="n">edx</span><span class="p">,</span><span class="n">dword</span> <span class="n">ptr</span> <span class="p">[</span><span class="n">edi</span><span class="o">+</span><span class="mh">0xC</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jmp</span> <span class="n">HookGameClearBackAdrr</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000142471.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000142471.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000142471.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000142471.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000142471.png"
+        title="image-20210907000142471"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000437493.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000437493.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000437493.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000437493.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000437493.png"
+        title="image-20210907000437493"
+    /></p>
+<h2 id="还原明文包">还原明文包</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">UnHookGameClearE</span><span class="p">()</span>	<span class="c1">//还原明文包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//8B 4E 04 8B 57 0C 还原代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">DWORD</span> <span class="n">dwHookAddr</span> <span class="o">=</span> <span class="n">HookClearEAddr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">WriteSize</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">byte</span> <span class="n">Temp</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x8B</span><span class="p">,</span><span class="mh">0x4E</span><span class="p">,</span><span class="mh">0x04</span><span class="p">,</span><span class="mh">0x8b</span><span class="p">,</span><span class="mh">0x57</span><span class="p">,</span><span class="mh">0x0C</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="n">hProcess</span><span class="p">,(</span><span class="n">LPDWORD</span><span class="p">)(</span><span class="n">dwHookAddr</span> <span class="o">+</span> <span class="mh">0x00</span><span class="p">),</span><span class="o">&amp;</span><span class="n">Temp</span><span class="p">,</span><span class="mi">6</span> <span class="p">,</span><span class="o">&amp;</span><span class="n">WriteSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000007789.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000007789.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000007789.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000007789.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907000007789.png"
+        title="image-20210907000007789"
+    /></p>
+<h2 id="发送封包">发送封包</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907093129601.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907093129601.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907093129601.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907093129601.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907093129601.png"
+        title="image-20210907093129601"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094103352.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094103352.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094103352.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094103352.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094103352.png"
+        title="image-20210907094103352"
+    /></p>
+<h3 id="发送封包-1">发送封包</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094334525.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094334525.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094334525.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094334525.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907094334525.png"
+        title="发送封包"
+    /></p>
+<h3 id="hexchar转byte">HexChar转Byte</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907095955337.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907095955337.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907095955337.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907095955337.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907095955337.png"
+        title="HexChar转Byte"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907100033189.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907100033189.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907100033189.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907100033189.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210907100033189.png"
+        title="image-20210907100033189"
+    /></p>
+<h2 id="人物攻击call">人物攻击call</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235021642.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235021642.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235021642.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235021642.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235021642.png"
+        title="image-20210909235021642"
+    /></p>
+<h3 id="攻击call">攻击call</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233123307.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233123307.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233123307.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233123307.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233123307.png"
+        title="攻击call"
+    /></p>
+<h3 id="自动打怪相关">自动打怪相关</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233517346.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233517346.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233517346.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233517346.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909233517346.png"
+        title="自动打怪相关"
+    /></p>
+<h3 id="byte数组转string">byte数组转string</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234719877.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234719877.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234719877.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234719877.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234719877.png"
+        title="byte数组转string"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234803589.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234803589.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234803589.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234803589.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909234803589.png"
+        title="image-20210909234803589"
+    /></p>
+<h2 id="宝宝攻击call">宝宝攻击call</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235211884.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235211884.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235211884.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235211884.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235211884.png"
+        title="image-20210909235211884"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910000032522.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910000032522.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910000032522.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910000032522.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910000032522.png"
+        title="image-20210910000032522"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235938870.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235938870.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235938870.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235938870.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210909235938870.png"
+        title="image-20210909235938870"
+    /></p>
+<h2 id="封装主线程调用">封装主线程调用</h2>
+<h3 id="设置主线程和卸载主线程">设置主线程和卸载主线程</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910120131190.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910120131190.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910120131190.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910120131190.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910120131190.png"
+        title="设置主线程"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910145753588.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910145753588.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910145753588.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910145753588.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910145753588.png"
+        title="image-20210910145753588"
+    /></p>
+<h3 id="获得窗口句柄">获得窗口句柄</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910121228658.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910121228658.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910121228658.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910121228658.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910121228658.png"
+        title="获得窗口句柄"
+    /></p>
+<h3 id="回调函数">回调函数</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910150706916.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910150706916.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910150706916.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910150706916.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910150706916.png"
+        title="image-20210910150706916"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151510353.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151510353.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151510353.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151510353.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151510353.png"
+        title="image-20210910151510353"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151325787.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151325787.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151325787.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151325787.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910151325787.png"
+        title="image-20210910151325787"
+    /></p>
+<h3 id="主线程选角色消息--主线程hook明文包消息--主线程发包消息-寻路消息">主线程选角色消息  主线程HOOK明文包消息  主线程发包消息 寻路消息</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910153140734.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910153140734.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910153140734.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910153140734.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910153140734.png"
+        title="image-20210910153140734"
+    /></p>
+<h2 id="自动打怪">自动打怪</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160108585%e7%9a%84%e5%89%af%e6%9c%ac.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160108585%e7%9a%84%e5%89%af%e6%9c%ac.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160108585%e7%9a%84%e5%89%af%e6%9c%ac.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160108585%e7%9a%84%e5%89%af%e6%9c%ac.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160108585的副本.png"
+        title="image-20210910160108585的副本"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155502637.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155502637.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155502637.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155502637.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155502637.png"
+        title="image-20210910155502637"
+    /></p>
+<h3 id="自动打怪参数结构体">自动打怪参数结构体</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">TAutomaticKill</span>	<span class="c1">//自动打怪参数结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ndx1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ndy1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ndx2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ndy2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">_TAutomaticKill</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160145145.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160145145.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160145145.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160145145.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910160145145.png"
+        title="image-20210910160145145"
+    /></p>
+<h3 id="结束自动打怪">结束自动打怪</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155653423.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155653423.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155653423.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155653423.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155653423.png"
+        title="image-20210910155653423"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162310999.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162310999.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162310999.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162310999.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162310999.png"
+        title="image-20210910162310999"
+    /></p>
+<h3 id="structgameh声明">StructGame.h声明</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155817920.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155817920.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155817920.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155817920.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910155817920.png"
+        title="image-20210910155817920"
+    /></p>
+<h3 id="自动打怪寻路线程">自动打怪寻路线程</h3>
+<p>FindwayThread</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162049533.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162049533.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162049533.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162049533.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162049533.png"
+        title="image-20210910162049533"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162414707.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162414707.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162414707.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162414707.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162414707.png"
+        title="image-20210910162414707"
+    /></p>
+<h3 id="循环寻路">循环寻路</h3>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162848132.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162848132.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162848132.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162848132.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910162848132.png"
+        title="image-20210910162848132"
+    /></p>
+<h2 id="自动打怪杀怪线程">自动打怪杀怪线程</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163655786.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163655786.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163655786.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163655786.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163655786.png"
+        title="image-20210910163655786"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163949316.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163949316.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163949316.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163949316.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910163949316.png"
+        title="image-20210910163949316"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910164816216.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910164816216.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910164816216.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910164816216.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210910164816216.png"
+        title="image-20210910164816216"
+    /></p>
+<h2 id="任务遍历">任务遍历</h2>
+<p>void CMainDialogWnd::OnBnClickedButton14()</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185239469.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185239469.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185239469.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185239469.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185239469.png"
+        title="image-20210912185239469"
+    /></p>
+<h3 id="任务属性">任务属性</h3>
+<p>Ttask_PROPERTY</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185446307.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185446307.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185446307.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185446307.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185446307.png"
+        title="image-20210912185446307"
+    /></p>
+<h3 id="任务列表结构">任务列表结构</h3>
+<p>typedef struct Ttask_List</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185836207.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185836207.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185836207.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185836207.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912185836207.png"
+        title="image-20210912185836207"
+    /></p>
+<h3 id="获得任务列表数据">获得任务列表数据</h3>
+<p>void Ttask_List::GetData()</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912193250144.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912193250144.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912193250144.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912193250144.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912193250144.png"
+        title="image-20210912193250144"
+    /></p>
+<h3 id="任务二叉树遍历">任务二叉树遍历</h3>
+<p>void Ttask_List::taskthree(int threeBase)</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194714945.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194714945.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194714945.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194714945.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194714945.png"
+        title="image-20210912194714945"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194750463.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194750463.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194750463.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194750463.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210912194750463.png"
+        title="image-20210912194750463"
+    /></p>
+<h2 id="检测概论">检测概论</h2>
+<p>exe dll 特征码</p>
+<p>改写内存或者改写汇编代码</p>
+<ul>
+<li>CRC检测  代码段 下访问断</li>
+<li>数据检测  数据段 下访问断</li>
+<li>CALL检测</li>
+<li>堆栈检测</li>
+</ul>
+<h2 id="远程注入dll">远程注入dll</h2>
+<p>int _tmain(int argc,_TCHAR* argue[])</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916202636920.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916202636920.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916202636920.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916202636920.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916202636920.png"
+        title="image-20210916202636920"
+    /></p>
+<p>InJectDll</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916230450918.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916230450918.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916230450918.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916230450918.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916230450918.png"
+        title="image-20210916230450918"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916225640354.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916225640354.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916225640354.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916225640354.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916225640354.png"
+        title="image-20210916225640354"
+    /></p>
+<h2 id="劫持注入">劫持注入</h2>
+<p>劫持工具</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916231219875.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916231219875.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916231219875.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916231219875.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210916231219875.png"
+        title="image-20210916231219875"
+    /></p>
+<h2 id="收包">收包</h2>
+<p>发包可以达到功能</p>
+<p>收包只能作为判断</p>
+<p>收包效率高</p>
+<p>recv</p>
+<p>WS2_32.recv</p>
+<h2 id="收包实例">收包实例</h2>
+<p>hook明文包 另一处</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918111600997.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918111600997.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918111600997.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918111600997.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918111600997.png"
+        title="image-20210918111600997"
+    /></p>
+<p>还原明文包 另一处</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918112253926.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918112253926.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918112253926.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918112253926.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918112253926.png"
+        title="image-20210918112253926"
+    /></p>
+<p>裸体函数 另一处</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113148617.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113148617.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113148617.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113148617.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113148617.png"
+        title="image-20210918113148617"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113816449.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113816449.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113816449.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113816449.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918113816449.png"
+        title="image-20210918113816449"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114739025.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114739025.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114739025.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114739025.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114739025.png"
+        title="image-20210918114739025"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114915664.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114915664.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114915664.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114915664.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114915664.png"
+        title="image-20210918114915664"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114948833.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114948833.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114948833.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114948833.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210918114948833.png"
+        title="image-20210918114948833"
+    /></p>
+<h2 id="窗口句柄和帐号">窗口句柄和帐号</h2>
+<p>游戏账号</p>
+<p>查找到游戏帐号的文本以后</p>
+<p>下访问断  退出游戏得到访问代码</p>
+<p>发现是一个常量（类似基地址）1670D31C</p>
+<p>这个代码在主线程中 主线程入口地址是16670000</p>
+<p>那个公式应该是</p>
+<p>主线程入口+9C31C</p>
+<p>我们用ce搜索主线程入中发现有基地址存放</p>
+<p>得到公式</p>
+<p>[27AC124]+9D31C</p>
+<h2 id="控件遍历">控件遍历</h2>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174527143.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174527143.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174527143.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174527143.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174527143.png"
+        title="image-20210919174527143"
+    /></p>
+<p>获得控件列表数据 GetData</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174552221.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174552221.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174552221.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174552221.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919174552221.png"
+        title="image-20210919174552221"
+    /></p>
+<p>控件遍历递归 GetData2</p>
+<p><img
+        class="lazyload"
+        data-src="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919175130607.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919175130607.png, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919175130607.png 1.5x, https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919175130607.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/xinqinew/pic@main/img/image-20210919175130607.png"
+        title="image-20210919175130607"
+    /></p>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>

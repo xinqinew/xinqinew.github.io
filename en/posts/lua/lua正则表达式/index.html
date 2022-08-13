@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Lua正则表达式 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="Lua正则表达式" />
+<meta property="og:description" content="正则表达式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 . 任意字符 %a 字母 %c 控制字符 %d 数字 %l 小写字母 %p 标点" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/en/posts/lua/lua%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="en" />
+<meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Lua正则表达式"/>
+<meta name="twitter:description" content="正则表达式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 . 任意字符 %a 字母 %c 控制字符 %d 数字 %l 小写字母 %p 标点"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/en/posts/lua/lua%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><link rel="prev" href="https://xinqinew.github.io/en/posts/lua/lua%E4%B8%AD%E6%8E%A7/" /><link rel="next" href="https://xinqinew.github.io/en/posts/lua/lua-mac%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Lua正则表达式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/en\/posts\/lua\/lua%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "en","keywords": "Lua, 正则表达式","wordcount":  1388 ,
+        "url": "https:\/\/xinqinew.github.io\/en\/posts\/lua\/lua%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Lua正则表达式</h1><div class="content" id="content"><h2 id="正则表达式">正则表达式</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"> <span class="o">.</span>        <span class="err">任意字符</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">a</span>        <span class="err">字母</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">c</span>        <span class="err">控制字符</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">d</span>        <span class="err">数字</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">l</span>        <span class="err">小写字母</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="nb">p</span>        <span class="err">标点字符</span>
+</span></span><span class="line"><span class="cl"><span class="sx">%s  </span>      <span class="err">空白符</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">u</span>        <span class="err">大写字母</span>
+</span></span><span class="line"><span class="cl"><span class="sx">%w  </span>      <span class="err">字母和数字</span>
+</span></span><span class="line"><span class="cl"><span class="s">%x  </span>      <span class="err">十六进制数字</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">z</span>        <span class="err">代表</span><span class="mi">0</span><span class="err">的字符</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">上面字符类的大写形式表示小写所代表的集合的补集。例如</span><span class="p">,</span> <span class="s1">&#39;%A&#39;</span><span class="err">非字母的字符</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">特殊字符</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;%&#39;</span> <span class="err">用作特殊字符的转义字符</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;%.&#39;</span> <span class="err">匹配</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;%%&#39;</span> <span class="err">匹配字符</span> <span class="s1">&#39;%&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">用</span><span class="s1">&#39;[]&#39;</span><span class="err">匹配字符集中的字符一次</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[%w_]&#39;</span> <span class="err">匹配字母数字和下划线</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[01]&#39;</span> <span class="err">匹配二进制数字</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[%[%]]&#39;</span><span class="err">匹配一对方括号</span>
+</span></span><span class="line"><span class="cl"><span class="err">在</span><span class="s1">&#39;[]&#39;</span><span class="err">中使用连字符</span><span class="s1">&#39;-&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;%d&#39;</span>    <span class="err">表示</span> <span class="s1">&#39;[0-9]&#39;</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;%x&#39;</span>    <span class="err">表示</span> <span class="s1">&#39;[0-9a-fA-F]&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[0-7]&#39;</span> <span class="err">表示</span> <span class="s1">&#39;[01234567]&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">在</span><span class="s1">&#39;[]&#39;</span><span class="err">开始处使用</span> <span class="s1">&#39;^&#39;</span> <span class="err">表示其补集：</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[^0-7]&#39;</span> <span class="err">匹配任何不是八进制数字的字符；</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[^\n]&#39;</span> <span class="err">匹配任何非换行符户的字符。</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;[^%s]&#39;</span> <span class="o">==</span> <span class="s1">&#39;%S&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">模式修饰符</span>
+</span></span><span class="line"><span class="cl">  <span class="o">^</span> <span class="err">匹配字符串开头</span>
+</span></span><span class="line"><span class="cl">  <span class="err">$</span> <span class="err">匹配字符串结尾</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">+</span> <span class="err">匹配前一字符</span><span class="mi">1</span><span class="err">次或多次</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="err">匹配前一字符</span><span class="mi">0</span><span class="err">次或多次</span><span class="p">,</span><span class="err">最长匹配</span>
+</span></span><span class="line"><span class="cl">  <span class="o">-</span> <span class="err">匹配前一字符</span><span class="mi">0</span><span class="err">次或多次</span><span class="p">,</span><span class="err">最短匹配</span>
+</span></span><span class="line"><span class="cl">  <span class="p">?</span> <span class="err">匹配前一字符</span><span class="mi">0</span><span class="err">次或</span><span class="mi">1</span><span class="err">次</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查找">查找</h2>
+<h3 id="stringfinds-pattern--init--plain">string.find(s, pattern [, init [, plain]])</h3>
+<p>s : 需要进行查找的字符串
+pattern : 需要匹配的正则表达式
+init : 搜索的起始位置
+plain : 默认为false，true时关闭匹配正则模式
+将查找目标模板在给定字符串中出现的位置，找到返回起始和结束位置，没找到返回nil</p>
+<ul>
+<li>注：find 的第二个参数使用了某种匹配模式， 并且模式串里面带括号，那么表示会“捕捉”括号括起来的模式匹配到的字符串，并且作为返回值，从第三个返回值开始返回所有匹配</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="bp">find</span><span class="p">(</span><span class="s">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">=</span><span class="o">&gt;</span> <span class="mi">7</span>  <span class="mi">7</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="bp">find</span><span class="p">(</span><span class="s">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">=</span><span class="o">&gt;</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="bp">find</span><span class="p">(</span><span class="s">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">=</span><span class="o">&gt;</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="bp">find</span><span class="p">(</span><span class="s">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">=</span><span class="o">&gt;</span> <span class="mi">7</span>  <span class="mi">7</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="err">其中</span><span class="o">%</span><span class="mi">1</span><span class="err">表示拷贝匹配到的第一个内容，同样的</span><span class="o">%</span><span class="n">n来拷贝匹配到的第n个内容</span>
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="bp">find</span><span class="p">(</span><span class="s">&#34;abc </span><span class="se">\&#34;</span><span class="s">it&#39;s a cat</span><span class="se">\&#34;</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;([</span><span class="se">\&#34;</span><span class="s">&#39;])(.-)%1&#34;</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl"><span class="p">=</span><span class="o">&gt;</span> <span class="mi">5</span>  <span class="mi">16</span>  <span class="s">&#34;  it&#39;s a cat
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="stringmatchs-pattern--init">string.match(s, pattern [, init])</h3>
+<p>s : 需要进行查找的字符串
+pattern : 需要匹配的正则表达式
+init : 搜索的起始位置
+将查找目标模板在给定字符串中出现的匹配字符，如果没有，返回nil</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="nx">string</span><span class="o">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s2">&#34;%S%s%S&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=&gt;</span> <span class="p">,</span> <span class="nx">w</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="nx">string</span><span class="o">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s2">&#34;%S%s%S&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=&gt;</span> <span class="nx">nil</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="nx">string</span><span class="o">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s2">&#34;(hello), world&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=&gt;</span> <span class="nx">hello</span>
+</span></span><span class="line"><span class="cl"><span class="nx">注：如果pattern中有用（）起来的，那么只返回（）中的内容</span><span class="p">,</span><span class="nx">如果多个括号，返回多个值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="nx">string</span><span class="o">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;hello, world&#34;</span><span class="p">,</span> <span class="s2">&#34;(hello), (world)&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=&gt;</span> <span class="nx">hello</span>  <span class="nx">world</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="nx">其中</span><span class="o">%</span><span class="mi">1</span><span class="nx">表示拷贝匹配到的第一个内容，同样的</span><span class="o">%</span><span class="nx">n来拷贝匹配到的第n个内容</span>
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="nx">string</span><span class="o">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;abc </span><span class="se">\&#34;</span><span class="s2">it&#39;s a cat</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;([</span><span class="se">\&#34;</span><span class="s2">&#39;])(.-)%1&#34;</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl"><span class="o">=&gt;</span> <span class="s2">&#34;  it&#39;s a cat
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="stringgmatch-s-pattern">string.gmatch (s, pattern)</h3>
+<p>s : 需要进行查找的字符串
+pattern : 需要匹配的正则表达式
+返回一个迭代器函数，每一次调用这个函数，返回一个在字符串s找到的下一个符合pattern描述的子串。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">local</span> <span class="nv">str</span> <span class="o">=</span> <span class="s2">&#34;hello, world&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">local</span> <span class="nv">iter</span> <span class="o">=</span> string.gmatch<span class="o">(</span>str, <span class="s2">&#34;%S&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> w, v in iter <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    print<span class="o">(</span>w<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">=</span>&gt;
+</span></span><span class="line"><span class="cl">h
+</span></span><span class="line"><span class="cl">e
+</span></span><span class="line"><span class="cl">l
+</span></span><span class="line"><span class="cl">l
+</span></span><span class="line"><span class="cl">o
+</span></span><span class="line"><span class="cl">,
+</span></span><span class="line"><span class="cl">w
+</span></span><span class="line"><span class="cl">o
+</span></span><span class="line"><span class="cl">r
+</span></span><span class="line"><span class="cl">l
+</span></span><span class="line"><span class="cl">d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="替换">替换</h2>
+<h3 id="stringgsub-s-pattern-repl-m">string.gsub (s, pattern, repl [,m])</h3>
+<p>s : 需要进行查找的字符串
+pattern : 需要匹配的正则表达式
+repl : 需要替换成的字符串
+[, m] : 只看s的前m个字符
+将pattern中匹配到的字符串替换成repl字符串，repl可以是string，也可以是个函数，或是table，如果是函数，就会用捕获的内容作为参数调用该函数，将返回的内容作为替换字符串。如果是table，则用捕获的内容为key去取table的值来作为替换字符串,如果不存在，就不做替换
+返回值 ： 替换后的字符串， 替换的次数</p>
+<ul>
+<li>注：把源字符串当做gsub的第一个参数传入后，方法执行并不会修改源字符串，需要重新赋值接收才能获取到修改后的字符串</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">local</span> <span class="nv">str</span> <span class="o">=</span> <span class="s2">&#34;hello, world&#34;</span>
+</span></span><span class="line"><span class="cl">print<span class="o">(</span>string.gsub<span class="o">(</span>str, <span class="s2">&#34;hello&#34;</span>, <span class="s2">&#34;hi&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=</span>&gt; hi, world  <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">local</span> <span class="nv">str</span> <span class="o">=</span> <span class="s2">&#34;hello, world&#34;</span>
+</span></span><span class="line"><span class="cl">print<span class="o">(</span>string.gsub<span class="o">(</span>str, <span class="s2">&#34;.&#34;</span>, <span class="k">function</span><span class="o">(</span>pattern<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nv">pattern</span> <span class="o">==</span> <span class="s2">&#34;l&#34;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;abc&#34;</span>
+</span></span><span class="line"><span class="cl">  end
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> pattern
+</span></span><span class="line"><span class="cl">end<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=</span>&gt; heabcabco, worabcd      <span class="m">12</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span> expand<span class="o">(</span>s<span class="o">)</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> string.gsub<span class="o">(</span>s, <span class="s2">&#34;</span><span class="k">$(</span>%w+<span class="k">)</span><span class="s2">&#34;</span>, _G<span class="o">)</span>
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl"><span class="nv">name</span> <span class="o">=</span> <span class="s2">&#34;Lua&#34;</span><span class="p">;</span> <span class="nv">status</span> <span class="o">=</span> <span class="s2">&#34;great&#34;</span>
+</span></span><span class="line"><span class="cl">print<span class="o">(</span>expand<span class="o">(</span><span class="s2">&#34;</span><span class="nv">$name</span><span class="s2"> is </span><span class="nv">$status</span><span class="s2">, isn&#39;t it?&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">=</span>&gt; Lua is great, isn<span class="err">&#39;</span>t it?  <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>
