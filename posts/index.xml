@@ -21,24 +21,6 @@
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
             </div>这里收录了我的C++笔记.]]></description>
 </item><item>
-    <title>CButton</title>
-    <link>https://xinqinew.github.io/2022/01/cbutton/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/cbutton/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CButton 详情 Name 描述 CButton：： GetCheck 抓取按钮控制项的检查状态。 CButton：： GetCheck 抓取选项按钮或核取方块的检查状态。 1 int GetCheck() const; 传回值 值 意义 BST_UNCHECKED 按钮状]]></description>
-</item><item>
-    <title>CWnd</title>
-    <link>https://xinqinew.github.io/2022/01/cwnd/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/cwnd/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>公共方法 说明 CWnd::EnableWindow 启用或禁用鼠标和键盘输入。 CWnd::IsWindowEnabled 确定是否针对鼠标和键盘输入启用窗口。]]></description>
-</item><item>
     <title>iPhone</title>
     <link>https://xinqinew.github.io/posts/iphone/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -53,23 +35,14 @@
     </author><guid>https://xinqinew.github.io/posts/lua/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>MFC 控件添加热键</title>
-    <link>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</link>
+    <title>MFC</title>
+    <link>https://xinqinew.github.io/posts/mfc/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</guid>
+    </author><guid>https://xinqinew.github.io/posts/mfc/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>给MFC中的控件添加我们想要的控件热键，在动手之前，必须清楚，热键分为local的和global的， 其中local的职能在当前程序有焦点（被]]></description>
-</item><item>
-    <title>MFC调试技巧</title>
-    <link>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/01/mfc%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>1 2 3 4 TCHAR pStr[] = _T(&#34;this is a test!&#34;); void* p = (void*)pStr; TRACE(_T(&#34;pStr is %s\n&#34;), pStr); //后台输出 ASSERT(NULL == pStr); //条件为假提示1234 @err,hr表示当前线程的GetLastError()的结]]></description>
+            </div>这里收录了我的MFC笔记.]]></description>
 </item><item>
     <title>飞郁精品贴</title>
     <link>https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/</link>
@@ -78,13 +51,32 @@
     </author><guid>https://xinqinew.github.io/posts/%E9%A3%9E%E9%83%81%E7%B2%BE%E5%93%81%E5%B8%96/</guid>
     <description><![CDATA[这里收录了我的飞郁精品贴]]></description>
 </item><item>
-    <title>CMap</title>
-    <link>https://xinqinew.github.io/2021/12/cmap/</link>
-    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+    <title>待整理内容</title>
+    <link>https://xinqinew.github.io/2021/12/%E5%BE%85%E6%95%B4%E7%90%86/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 CMap::RemoveKey 移除由键指定的元素。 CMap::SetAt 将元素插入到映射中]]></description>
+    </author><guid>https://xinqinew.github.io/2021/12/%E5%BE%85%E6%95%B4%E7%90%86/</guid>
+    <description><![CDATA[1 AutoTool 4.9/AutoTool/struct.h shadowrocket https://jiaocheng.dandaner.com/ssr/ping-guo-ios 定时读内存 暂停和恢复 无需越狱！使用iGG修改器修改游戏数据 C++ 版本的 YoloV5 封装库 This is the official YOLOv5 🚀 notebook by Ultralytics Custom Training with YOLOv5 使用darknet识别点选验证]]></description>
+</item><item>
+    <title>辅助精品贴</title>
+    <link>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9%E7%B2%BE%E5%93%81%E8%B4%B4/</link>
+    <pubDate>Sun, 05 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9%E7%B2%BE%E5%93%81%E8%B4%B4/</guid>
+    <description><![CDATA[这里收录了我的辅助精品贴.]]></description>
+</item><item>
+    <title>英语兔</title>
+    <link>https://xinqinew.github.io/posts/%E8%8B%B1%E8%AF%AD%E5%85%94/</link>
+    <pubDate>Fri, 29 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/%E8%8B%B1%E8%AF%AD%E5%85%94/</guid>
+    <description><![CDATA[这里收录了我的英语兔笔记.]]></description>
+</item><item>
+    <title>任鸟飞</title>
+    <link>https://xinqinew.github.io/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/</link>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/%E4%BB%BB%E9%B8%9F%E9%A3%9E/</guid>
+    <description><![CDATA[这里收录了我的任鸟飞笔记. 0052D314 E8 776C0100 call 00543F90 喊话call 1 2 3 4 5 6 7 8 9 10 11 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0019FB98 00B921B6 ws2_32.WSASend game.00B921B0 0019FBE8 0019FBDC 008861A0 game.00B91FA0 game.0088619B 0019FBE8 0019FBEC 00B90F27 包]]></description>
 </item></channel>
 </rss>
