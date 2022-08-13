@@ -19,7 +19,28 @@
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E7%94%B5%E7%A3%81%E6%B5%81%E9%87%8F%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
-    <description><![CDATA[一、原理 电磁流量计是根据法拉第电磁感应定律进行流量测量的流量计。 即根据导电流体流过外加磁场时感生的电动势来测量流体流量。 ![image-20220805203816006](/Users/xinqi/Library/Application Support/typora-user-images/image-20220805203816006.png) ![image-20220805203852432](/Users/xinqi/Library/Application Support/typora-user-images/image-20220805203852432.png) 二、安装 安装]]></description>
+    <description><![CDATA[一、原理 电磁流量计是根据法拉第电磁感应定律进行流量测量的流量计。 即根据导电流体流过外加磁场时感生的电动势来测量流体流量。 二、安装 安装在管路的]]></description>
+</item><item>
+    <title>和利时</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>双法兰液位计</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1/</guid>
+    <description><![CDATA[视频引用 一、原理 原理： 双法兰差压液位计，是利用容器内的液位改变时，由液柱产生的静压也相应变化的原理而工作。 双法兰液位计可以测量易结晶、粘稠、]]></description>
+</item><item>
+    <title>液位计常识</title>
+    <link>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
+    <description><![CDATA[一、压力式液位计 工作原理 液体中某一点的静压力与该点到液面的距离成正比。计算公式：P=pgh。其中：P-被测点的压力。-介质密度、g-重力加速]]></description>
 </item><item>
     <title>压力表常见故障</title>
     <link>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
@@ -55,28 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E5%81%B6%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
     <description><![CDATA[引用视频 一、热电势比实际值小（显示仪表指示值偏低） 热电极短路 找出短路原因，如因潮湿所致，则需要进行干燥； 如因绝缘子损坏所致，则需要更换绝缘子]]></description>
-</item><item>
-    <title>热电阻常见故障</title>
-    <link>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E9%98%BB%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
-    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/07/%E7%83%AD%E7%94%B5%E9%98%BB%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
-    <description><![CDATA[引用视频 计算方法 温度T 阻值R $$ T = （R-100）/0.385 $$ 例如：测得某热电阻阻值为137.5，则温度为 $$ T=(137.5-100)/0.385=97.4 $$ 故障处理 原则：根据原理分析，]]></description>
-</item><item>
-    <title>03-Cycript</title>
-    <link>https://xinqinew.github.io/2022/06/03-cycript/</link>
-    <pubDate>Mon, 27 Jun 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/06/03-cycript/</guid>
-    <description><![CDATA[03-Cycript Cycript是Objective-C++、ES6（JavaScript）、Java等语法的混合物 可以用来探索、修改、调试正在运行的Mac]]></description>
-</item><item>
-    <title>C&#43;&#43;</title>
-    <link>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Sat, 23 Apr 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/04/c-socket%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
-            </div>socket编程演示 socket() 创建套接字 通过 socket() 函数创建了一个套接字，参数 AF_INET 表示使用 IPv4 地址，SOCK_STREAM 表示使用面向连接的数据传输方式，IP]]></description>
 </item></channel>
 </rss>

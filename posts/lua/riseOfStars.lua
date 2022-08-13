@@ -614,8 +614,8 @@ function newUi()
     UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
     UICheck(4,
-        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato"
-        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆"
+        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao"
+        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     UICheck(4,
@@ -2127,6 +2127,7 @@ function zongHe1(...)
     end
     if isColor(454, 585, 0x284b73, 95) and isColor(477, 607, 0x284b73, 95) and isColor(911, 589, 0x3e5c7f, 95) then
         debugA("今天不再观看")
+        tap1(474, 589, 0x3e5c7f)
         tap1(911, 589, 0x3e5c7f)
     end
     if isColor(229,73,0xff6600,95) and isColor(655,127,0x4a9ce9,95) and isColor(205,214,0x9ca0a4,95) and isColor(1071,577,0x215da6,95) then
@@ -7862,7 +7863,7 @@ function warReady()
             debugA("瞭望塔")
             tapBefore(1043, 99, 0x9f0f0f)
             mSleep(2000)
-            if isColor(187,163,0xfab4dd,95) and isColor(231,137,0xc6793b,95) and isColor(707,230,0x0c4b8c,95) and isColor(235,217,0x2e3d55,95) then
+            if isColor(187,163,0xfab4dd,95) and isColor(231,137,0xc6793b,95) and isColor(196,210,0x8bd9df,95) then
                 debugA("NPC攻击")
                 for i = 1, 10, 1 do
                     vibratorNotice()
@@ -7878,7 +7879,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(231,322,0x222a36,95) and isColor(164,284,0xb1adb4,95) and isColor(164,269,0xefe4e5,95) then
+            elseif isColor(163,283,0xefe4e5,95) and isColor(164,270,0x797b87,95) and isColor(231,322,0x222a36,95) then
                 debugA("攻击2 侦察在上面")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
@@ -7918,7 +7919,7 @@ function warReady()
                     mSleep(1000)
                 end
                 gaiMuBiaoNewA(4, "")
-            elseif isColor(578,117,0xb0afb6,95) and isColor(541,101,0xc2bfc3,95) and isColor(574,229,0x648aa9,95) then
+            elseif isColor(578,117,0xb0afb6,95) and isColor(541,114,0xb8b7bd,95) and isColor(231,137,0x242935,95) then
                 debugA("攻击")
                 tap1(20, 20)
                 for i = 1, 10, 1 do
@@ -9367,6 +9368,16 @@ function main3()
 end
 
 function zongHe3()
+    if isColor(499,516,0x323232,95) and isColor(500,554,0x4b4b4b,95) and isColor(641,549,0x4f4f4f,95) then
+        debugC("灰色cook")
+        tap1(733,97)
+        tap1(1088,141) 
+    end
+    if isColor(532,539,0x9f9f9f,95) and isColor(575,535,0xffffff,95) and isColor(501,536,0x393939,95) and isColor(664,548,0x575757,95) then
+        debugC("灰色Ovenisfull")
+        tap1(733,97)
+        tap1(1088,141) 
+    end
     if isColor(489,564,0x4c4c4c,95) and isColor(557,411,0xbb6e11,95) and isColor(600,531,0xffffff,95) then
         debugC("灰色cooking")
         tap1(733,97)
@@ -9825,7 +9836,7 @@ function cook()
         debugC("烹饪完毕 点Ok")
         tap1(572,455)
     end
-    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(58,312,0x5ccdff,95) then
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(730,211,0xcdad88,95) then
         debugC("Menu")
         tap1(858,205)--SORt
         tap1(618,168)--开放
@@ -10851,140 +10862,203 @@ function checkFruit()
         fwShowButton("window1", "more", "checkFruit", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         for i = 1, 10, 1 do
-            if isColor(138, 350, 0x6fb644, 95) == false then --不为蔬菜
+             if isColor(138, 350, 0x6fb644, 95) == false then --不为蔬菜
                 tap1(176, 358, 0xcfaf8b) --all
                 tap1(333, 328, 0x6fb644) --crop
-            else
-                break
-            end
+             else
+                 break
+             end
             mSleep(1000)
-        end
+         end
         fwCloseView("window1", "more"); -- 关闭文字视图
         fwShowButton("window1", "more", "", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
         mSleep(500)
         isZhiDingFruit = false
-        if checkTomato == "番茄" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x68a646,
-                "16|-10|0xef5138,43|7|0xf87b5b,46|27|0xef5138", 90, 3, 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x + 3, y - 36, x + 75, y - 13,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("番茄:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "番茄"
+        for i=1,3,1 do
+            if checkTomato == "番茄" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x68a646,
+                    "16|-10|0xef5138,43|7|0xf87b5b,46|27|0xef5138", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 3, y - 36, x + 75, y - 13,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("番茄:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "番茄"
+                    end
                 end
             end
-        end
-        if checkCaoMei == "草莓" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x307c2d,
-                "-10|33|0xebb956,38|34|0xf0404a,44|51|0xb81f2a", 90, 3, 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x + 4, y - 14, x + 78, y + 10,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("草莓:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "草莓"
+            if checkCaoMei == "草莓" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x307c2d,
+                    "-10|33|0xebb956,38|34|0xf0404a,44|51|0xb81f2a", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 4, y - 14, x + 78, y + 10,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("草莓:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "草莓"
+                    end
                 end
             end
-        end
-        if checkSunflower == "向日葵" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x99502a, "-20|-15|0xf8e780,24|25|0x589a29", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x - 21, y - 29, x + 49, y - 6,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("向日葵:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "向日葵"
+            if checkSunflower == "向日葵" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x99502a, "-20|-15|0xf8e780,24|25|0x589a29", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 21, y - 29, x + 49, y - 6,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("向日葵:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "向日葵"
+                    end
                 end
             end
-        end
-        if checkGrape == "葡萄" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x589a29, "-20|71|0x77337a,32|45|0xeb85eb", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x - 25, y - 4, x + 60, y + 22,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("葡萄:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "葡萄"
+            if checkGrape == "葡萄" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x589a29, "-20|71|0x77337a,32|45|0xeb85eb", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 25, y - 4, x + 60, y + 22,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("葡萄:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "葡萄"
+                    end
                 end
             end
-        end
-        if checkCane == "甘蔗" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0xedd2c0, "-12|71|0x99044e,20|44|0xc2af6f", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x - 15, y - 2, x + 60, y + 24,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("甘蔗:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "甘蔗"
+            if checkCane == "甘蔗" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0xedd2c0, "-12|71|0x99044e,20|44|0xc2af6f", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 15, y - 2, x + 60, y + 24,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("甘蔗:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "甘蔗"
+                    end
                 end
             end
-        end
-        if checkSouthMelon == "南瓜" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0xfbe4ba, "-6|29|0xef9527,61|22|0xd15705", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                debugC("南瓜x:" .. x .. " y:" .. y)
-                local numStr = dmOcrText(index_dm_numNumber, x + 15, y - 26, x + 72, y + 1,
-                    "DCD7D9,232826", 95)
-                debugC("南瓜:" .. numStr)
+            if checkSouthMelon == "南瓜" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0xfbe4ba, "-6|29|0xef9527,61|22|0xd15705", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    debugC("南瓜x:" .. x .. " y:" .. y)
+                    local numStr = dmOcrText(index_dm_numNumber, x + 15, y - 26, x + 72, y + 1,
+                        "DCD7D9,232826", 95)
+                    debugC("南瓜:" .. numStr)
 
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("南瓜:" .. numStr)
-                if numStr <= 100 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "南瓜"
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("南瓜:" .. numStr)
+                    if numStr <= 100 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "南瓜"
+                    end
                 end
             end
-        end
-        if checkShuiDao == "水稻" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x7dbe66, "23|-9|0xc67c00,45|9|0x568344", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x + 24, y - 35, x + 80, y - 5,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("水稻:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "水稻"
+            if checkDingxiang == "丁香" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x91396f, "-2|-23|0x543e42,17|5|0x533842", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 27, y - 56, x + 37, y - 30,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("丁香:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "丁香"
+                    end
                 end
             end
-        end
-        if checkPotato == "土豆" and isZhiDingFruit == false then
-            x, y = findMultiColorInRegionFuzzy(0x987c4c, "19|23|0x8d714e,64|38|0xdfb879", 90, 3
-                , 389, 1127, 614)
-            if x > 0 then
-                local numStr = dmOcrText(index_dm_numNumber, x + 20, y - 26, x + 80, y + 5,
-                    "DCD7D9,232826", 95)
-                numStr, num = string.gsub(numStr, "x", "")
-                numStr = tonumber(numStr)
-                debugC("土豆:" .. numStr)
-                if numStr <= 40 then
-                    isZhiDingFruit = true
-                    strZhiDingFruit = "土豆"
+            if checkRenshen == "人参" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x9c5600, "-39|36|0x543842,16|8|0xffca70", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 20, y - 45, x + 40, y - 20,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("人参:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "人参"
+                    end
                 end
             end
+            if checkHongdou == "红豆" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x533842, "-38|-11|0x853436,22|16|0x662121", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 17, y - 46, x + 45, y - 19,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("红豆:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "红豆"
+                    end
+                end
+            end
+            if checkXiangCao == "香草" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "41|44|0x778195,58|38|0x463039,51|57|0x0e0f13", 90, 3, 395, 1127, 454)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 1, y + 6, x + 96, y + 34,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("香草:" .. numStr)
+                    if numStr <= 100 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "香草"
+                    end
+                end
+            end
+            if checkShuiDao == "水稻" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x7dbe66, "23|-9|0xc67c00,45|9|0x568344", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 24, y - 35, x + 80, y - 5,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("水稻:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "水稻"
+                    end
+                end
+            end
+            if checkPotato == "土豆" and isZhiDingFruit == false then
+                x, y = findMultiColorInRegionFuzzy(0x987c4c, "19|23|0x8d714e,64|38|0xdfb879", 90, 3
+                    , 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 20, y - 26, x + 80, y + 5,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("土豆:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "土豆"
+                    end
+                end
+            end
+
+            debugC("拖动果实")
+            touchMoveXY(801, 631, 499, 631)
+            -- touchMoveXY(801, 321, 499, 321)
+            mSleep(1000)
         end
         tap1(1088, 303, 0xbebebd) --关闭
     end
@@ -11125,6 +11199,18 @@ function plant()
             elseif strZhiDingFruit == "土豆" then
                 x0, y0 = findMultiColorInRegionFuzzy(0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
                 timeCollectInterval = 60 * 45
+            elseif strZhiDingFruit == "丁香" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x883969, "-36|-25|0x5e9847,9|-2|0x89406d", 90, 200, 506, 1122, 533)
+                timeCollectInterval = 60 * 82
+            elseif strZhiDingFruit == "人参" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0xb52734, "26|2|0x446b3d,4|35|0x533842", 90, 200, 496, 1122, 533)
+                timeCollectInterval = 60 * 210
+            elseif strZhiDingFruit == "红豆" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x543842, "-26|-10|0x873436,8|14|0x60292c", 90, 200, 510, 1122, 536)
+                timeCollectInterval = 60 * 75
+            elseif strZhiDingFruit == "香草" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)
+                timeCollectInterval = 60 * 60
             end
             if x0 > 0 then
                 -- luaExit()
@@ -11288,6 +11374,18 @@ function plantNew()
             elseif strZhiDingFruit == "土豆" then
                 x0, y0 = findMultiColorInRegionFuzzy(0xbb976b, "5|27|0xdfb879,38|41|0xd0ad71", 90, 200, 491, 1122, 534)
                 timeCollectInterval = 60 * 45
+            elseif strZhiDingFruit == "丁香" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x883969, "-36|-25|0x5e9847,9|-2|0x89406d", 90, 200, 506, 1122, 533)
+                timeCollectInterval = 60 * 82
+            elseif strZhiDingFruit == "人参" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0xb52734, "26|2|0x446b3d,4|35|0x533842", 90, 200, 496, 1122, 533)
+                timeCollectInterval = 60 * 210
+            elseif strZhiDingFruit == "红豆" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x543842, "-26|-10|0x873436,8|14|0x60292c", 90, 200, 510, 1122, 536)
+                timeCollectInterval = 60 * 75
+            elseif strZhiDingFruit == "香草" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)
+                timeCollectInterval = 60 * 60
             end
             if x0 > 0 then
                 -- luaExit()
