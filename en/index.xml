@@ -1,59 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ens on Hmily云笔记</title>
-    <link>https://xinqinew.github.io/en/</link>
-    <description>Recent content in Ens on Hmily云笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-    <webMaster>xinqinew@163.com (辛琪)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 05 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://xinqinew.github.io/en/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>留言板</title>
-      <link>https://xinqinew.github.io/en/message-board/</link>
-      <pubDate>Wed, 04 Aug 2021 12:17:28 +0800</pubDate>
-      <author>xinqinew@163.com (辛琪)</author>
-      <guid>https://xinqinew.github.io/en/message-board/</guid>
-      <description>欢迎留言！😄</description>
-    </item>
-    
-    <item>
-      <title>里程碑</title>
-      <link>https://xinqinew.github.io/en/milestone/</link>
-      <pubDate>Wed, 01 Jul 2020 19:19:21 +0800</pubDate>
-      <author>xinqinew@163.com (辛琪)</author>
-      <guid>https://xinqinew.github.io/en/milestone/</guid>
-      <description>2021 5月 10日，开始学习《Shark恒零基础百集软件逆向教程》，暂时学完前两期。历时两周。 25日，开始学习《2020DNF》、《2020DOF</description>
-    </item>
-    
-    <item>
-      <title>关于 LoveIt</title>
-      <link>https://xinqinew.github.io/en/about/</link>
-      <pubDate>Fri, 02 Aug 2019 11:04:49 +0800</pubDate>
-      <author>xinqinew@163.com (辛琪)</author>
-      <guid>https://xinqinew.github.io/en/about/</guid>
-      <description>:(far fa-kiss-wink-heart fa-fw): LoveIt 是一个由 Dillon 开发的简洁、优雅且高效的 Hugo 博客主题。 它的原型基于 LeaveIt 主题 和 KeepIt 主题。 Hugo 主题 LoveIt 特性 性能和 SEO :(fas fa-rocket fa-fw): 性能优化：在 Google PageSpeed Insights 中， [99]/[100] 的移动设</description>
-    </item>
-    
-    <item>
-      <title>网站收藏</title>
-      <link>https://xinqinew.github.io/en/websites/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>xinqinew@163.com (辛琪)</author>
-      <guid>https://xinqinew.github.io/en/websites/</guid>
-      <description>content</description>
-    </item>
-    
-    <item>
-      <title>友情链接</title>
-      <link>https://xinqinew.github.io/en/links/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>xinqinew@163.com (辛琪)</author>
-      <guid>https://xinqinew.github.io/en/links/</guid>
-      <description>这个地方不能使用Markdown的标题标签或h1,h2&amp;hellip;标签，否则前端目录代码会报错。 原因： links数组与文档内容分为两个部</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Hmily云笔记</title>
+        <link>https://xinqinew.github.io/en/</link>
+        <description>About LoveIt Theme</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+            <atom:link href="https://xinqinew.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
 </rss>
