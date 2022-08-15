@@ -5,6 +5,13 @@
         <description>所有仪表 | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/%E4%BB%AA%E8%A1%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>变送器迁移</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8F%98%E9%80%81%E5%99%A8%E8%BF%81%E7%A7%BB/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%98%E9%80%81%E5%99%A8%E8%BF%81%E7%A7%BB/</guid>
+    <description><![CDATA[视频引用 所谓零点迁移，就是为克服在安装过程中，由于变送器取压口与容器取压口不在同一水平线或采用隔离措施后产生的零点偏移，而采取的一种技术措施]]></description>
+</item><item>
     <title>电磁流量计常见故障</title>
     <link>https://xinqinew.github.io/2022/08/%E7%94%B5%E7%A3%81%E6%B5%81%E9%87%8F%E8%AE%A1%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</guid>
     <description><![CDATA[雷达料位计 高级功能 密码350015 （选中“信息”，Esc+ok同时按） 阻尼时间 60s 填充速度和排放速度 都是5m/min 盲区 2.9米 窗体跟踪（高级]]></description>
-</item><item>
-    <title>区分热电阻与热电偶</title>
-    <link>https://xinqinew.github.io/2022/07/%E5%8C%BA%E5%88%86%E7%83%AD%E7%94%B5%E9%98%BB%E4%B8%8E%E7%83%AD%E7%94%B5%E5%81%B6/</link>
-    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/07/%E5%8C%BA%E5%88%86%E7%83%AD%E7%94%B5%E9%98%BB%E4%B8%8E%E7%83%AD%E7%94%B5%E5%81%B6/</guid>
-    <description><![CDATA[视频引用 一、 引线 热电偶 两根引线（正极、负极） 四根引线一般为双芯热电偶 热电阻 三根引线（使用较多） 两根和四根引线（使用较少） 因此： 双引线、有正负]]></description>
 </item></channel>
 </rss>
