@@ -11002,7 +11002,7 @@ function checkFruit()
                 end
             end
             if checkHongdou == "红豆" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0x533842, "-38|-11|0x853436,22|16|0x662121", 90, 3, 389, 1127, 614)
+                x,y = findMultiColorInRegionFuzzy( 0x533842, "-38|-11|0x853436,22|16|0x662121", 90, 3, 389, 1127, 614)--范围固定死了
                 if x > 0 then
                     local numStr = dmOcrText(index_dm_numNumber, x - 17, y - 46, x + 45, y - 19,
                         "DCD7D9,232826", 95)
@@ -11016,7 +11016,7 @@ function checkFruit()
                 end
             end
             if checkHuaSheng == "花生" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0xf3eee3, "5|29|0x603d44,47|49|0x9b5e27,74|53|0x77461f", 90, 3, 510, 1127, 565)
+                x,y = findMultiColorInRegionFuzzy( 0xf3eee3, "5|29|0x603d44,47|49|0x9b5e27,74|53|0x77461f", 90, 3, 389, 1127, 614)
                 if x > 0 then
                     local numStr = dmOcrText(index_dm_numNumber, x + 43, y + 7, x + 92, y + 33,
                         "DCD7D9,232826", 95)
@@ -11030,7 +11030,7 @@ function checkFruit()
                 end
             end
             if checkXiaoMai == "小麦" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "38|39|0xc67c00,73|57|0x603d44,57|46|0xfbeac2", 90, 3, 511, 1127, 570)
+                x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "38|39|0xc67c00,73|57|0x603d44,57|46|0xfbeac2", 90, 3, 389, 1127, 614)
                 if x > 0 then
                     local numStr = dmOcrText(index_dm_numNumber, x + 33, y + 7, x + 94, y + 31,
                         "DCD7D9,232826", 95)
@@ -11044,7 +11044,7 @@ function checkFruit()
                 end
             end
             if checkLuoBo == "萝卜" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0xf3eee3, "22|12|0x285e00,20|22|0x7ac361,39|32|0xbe5600", 90, 3, 394, 1127, 438)
+                x,y = findMultiColorInRegionFuzzy( 0xf3eee3, "22|12|0x285e00,20|22|0x7ac361,39|32|0xbe5600", 90, 3, 389, 1127, 614)
                 if x > 0 then
                     local numStr = dmOcrText(index_dm_numNumber, x + 43, y + 7, x + 92, y + 32,
                         "DCD7D9,232826", 95)
@@ -11058,7 +11058,7 @@ function checkFruit()
                 end
             end
             if checkXiangCao == "香草" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "41|44|0x778195,58|38|0x463039,51|57|0x0e0f13", 90, 3, 395, 1127, 454)
+                x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "41|44|0x778195,58|38|0x463039,51|57|0x0e0f13", 90, 3, 389, 1127, 614)
                 if x > 0 then
                     local numStr = dmOcrText(index_dm_numNumber, x - 1, y + 6, x + 96, y + 34,
                         "DCD7D9,232826", 95)
@@ -11265,7 +11265,7 @@ function plant()
                 x0, y0 = findMultiColorInRegionFuzzy( 0x285f01, "7|0|0x78c05f,18|5|0xbe5600,15|17|0x563a42", 90, 200, 497, 1122, 516)
                 timeCollectInterval = 60 * 75    
             elseif strZhiDingFruit == "香草" then
-                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)
+                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)--X固定死
                 timeCollectInterval = 60 * 60
             end
             if x0 > 0 then
