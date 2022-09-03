@@ -619,8 +619,8 @@ function newUi()
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     UICheck(4,
-        "checkCook,checkEgg,checkRice,checkBingGan"
-        , "烹饪,参鸡汤,蛋包饭,饼干冰淇淋"
+        "checkCook,checkEgg,checkRice,checkBingGan,checkGanLanYou"
+        , "烹饪,参鸡汤,蛋包饭,饼干冰淇淋,橄榄油意大利面"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -9378,7 +9378,7 @@ function zongHe3()
         tap1(733,97)
         tap1(1088,141) 
     end
-    if isColor(489,564,0x4c4c4c,95) and isColor(557,411,0xbb6e11,95) and isColor(600,531,0xffffff,95) then
+    if isColor(479,543,0xadadad,95) and isColor(490,515,0x4c4c4c,95) and isColor(559,424,0x73555b,95) and isColor(566,412,0xe28a09,95) then
         debugC("灰色cooking")
         tap1(733,97)
         tap1(1088,141)
@@ -9823,11 +9823,14 @@ function cook()
        debugC("烹饪失败--位置2")
        tap1(437,560)
     elseif isColor(87,536,0x563e43,95) and isColor(108,574,0x79c01b,95) and isColor(181,548,0xffffff,95) then
-        debugC("finished1--位置2")
+        debugC("finished1--位置1")
         tap1(155,556)--finished1 
     elseif isColor(390,536,0x563e43,95) and isColor(410,573,0x79c01b,95) and isColor(483,548,0xffffff,95) then
         debugC("finished2--位置2")    
         tap1(483,548)--finished2
+    elseif isColor(689,544,0x5252ce,95) and isColor(713,579,0x6eba13,95) and isColor(762,548,0xffffff,95) and isColor(846,565,0x824820,95) then
+        debugC("finished3--位置3")    
+        tap1(784,557)--finished3
     elseif isColor(92,565,0x5ccdff,95) and isColor(80,548,0xb24c02,95) and isColor(186,561,0x2f4e94,95) then
         debugC("Go Cook")
         tap1(155,556)
@@ -9836,8 +9839,9 @@ function cook()
         debugC("烹饪失败 长时间没点--位置2")
         tap1(437,560) 
     end
-    if isColor(536,460,0x7ac01c,95) and isColor(565,455,0xffffff,95) and isColor(572,455,0x76b255,95) then
-        debugC("烹饪完毕 点Ok")
+    if isColor(536,467,0x433238,95) and isColor(573,455,0x76b255,95) and isColor(535,465,0x5e921a,95) and isColor(573,469,0x265d00,95) then
+    --if isColor(536,460,0x7ac01c,95) and isColor(565,455,0xffffff,95) and isColor(572,455,0x76b255,95) then
+        debugC("烹饪完毕 点Ok 不管成功失败")
         tap1(572,455)
     end
     if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(730,211,0xcdad88,95) then
@@ -9860,7 +9864,9 @@ function cook()
                 elseif  checkRice== "蛋包饭" then
                     x,y = findMultiColorInRegionFuzzy( 0x83b73e, "121|75|0xb32224,19|50|0xd8dfdb", 90, 0, 285, 1135, 477)--找蛋包饭 记得改范围值
                 elseif  checkBingGan== "饼干冰淇淋" then
-                    x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值    
+                    x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值 
+                elseif  checkGanLanYou== "橄榄油意大利面" then
+                    x,y = findMultiColorInRegionFuzzy( 0x48834a, "-7|29|0xf7943a,30|71|0x2b5537,44|128|0xb0df7b", 90, 0, 285, 1135, 477)--找橄榄油意大利面 记得改范围值   
                 end
                 if x> 0 then
                     tap1(x,y)--坐标
