@@ -233,9 +233,9 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">12</span>
 </span></span><span class="line"><span class="cl"><span class="na">rep</span> <span class="nf">movs</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="no">edi</span><span class="p">],</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">esi</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c"># 从[esi]中复制 ecx个四字节 到ES:[edi]
-</span></span></span><span class="line"><span class="cl"><span class="c"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
-</span></span></span><span class="line"><span class="cl"><span class="c"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
+</span></span><span class="line"><span class="cl"><span class="c1"># 从[esi]中复制 ecx个四字节 到ES:[edi]
+</span></span></span><span class="line"><span class="cl"><span class="c1"># 每复制一次 esi 和 edi 的地址要加4，而ecx减1
+</span></span></span><span class="line"><span class="cl"><span class="c1"># 源自 飞郁网络培训 2018-2019 52第二部分第八节结构体数组 55结构体数组实例1
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="断点">断点</h2>

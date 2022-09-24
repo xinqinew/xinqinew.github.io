@@ -47,6 +47,20 @@
     </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sfc/</guid>
     <description><![CDATA[SFC顺序功能图 简介 组态理念 SFC用于顺序控制的生产过程，包括生产顺序控制的简单功能，强大的测试和起动功能等。 SFC是实现控制方案的一种组织]]></description>
 </item><item>
+    <title>和利时SQC</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sqc/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sqc/</guid>
+    <description><![CDATA[SQC的作用 用于实现对先后动作顺序要求较高的多个工艺设备按序列自动控制。当满足相应动作条件后，程序按照预先设定好的步骤及设定的时间自动执行，]]></description>
+</item><item>
+    <title>和利时功能块</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%8A%9F%E8%83%BD%E5%9D%97/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%8A%9F%E8%83%BD%E5%9D%97/</guid>
+    <description><![CDATA[变量 变量类别 VAR_GLOBAL 全局变量 VAR_POU 局部变量 域号 域号 -1 各个域都可以识别]]></description>
+</item><item>
     <title>和利时图形组态</title>
     <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%9B%BE%E5%BD%A2%E7%BB%84%E6%80%81/</link>
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
@@ -60,19 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
     <description><![CDATA[视频引用 一、膜盒破损、鼓包 现象： 显示为超下限或超量程，上下法兰对空的情况下，零位不准，测量也不准。 原因分析： 腐蚀、膜盒碰撞、压力等级不符合要]]></description>
-</item><item>
-    <title>双法兰液位计常识</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
-    <description><![CDATA[视频引用 一、原理 原理： 双法兰差压液位计，是利用容器内的液位改变时，由液柱产生的静压也相应变化的原理而工作。 双法兰液位计可以测量易结晶、粘稠、]]></description>
-</item><item>
-    <title>液位计常识</title>
-    <link>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
-    <description><![CDATA[一、压力式液位计 工作原理 液体中某一点的静压力与该点到液面的距离成正比。计算公式：P=pgh。其中：P-被测点的压力。-介质密度、g-重力加速]]></description>
 </item></channel>
 </rss>

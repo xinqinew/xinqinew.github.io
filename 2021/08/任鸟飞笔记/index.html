@@ -198,7 +198,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,[</span><span class="no">edx</span><span class="err">+</span><span class="no">esi</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c">#当出现两个寄存器的时候，99%其中一个是0
+</span></span><span class="line"><span class="cl"><span class="c1">#当出现两个寄存器的时候，99%其中一个是0
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>执行到返回</strong>	代表已经到达最外层 或者 VM阻断，可堆栈跳出</p>
@@ -222,8 +222,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	 <span class="c">#eax清0
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">A3F838C</span>	<span class="c">#简单的异或加密（可直接异或解密）
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	 <span class="c1">#eax清0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">xor</span>  <span class="no">eax</span><span class="p">,</span><span class="no">A3F838C</span>	<span class="c1">#简单的异或加密（可直接异或解密）
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -234,7 +234,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">test</span> <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="c">#判断eax是否为0
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">test</span> <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>	<span class="c1">#判断eax是否为0
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -247,7 +247,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">fld</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c">#将[eax+4]的值传入st0
+</span></span><span class="line"><span class="cl"><span class="c1">#将[eax+4]的值传入st0
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -260,7 +260,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">fstp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">ebp-28</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c">#将st0中的值传入后面的地址[ebp-28],并出栈
+</span></span><span class="line"><span class="cl"><span class="c1">#将st0中的值传入后面的地址[ebp-28],并出栈
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -273,7 +273,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">fst</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">ebp-28</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c">#将st0中的值传入后面的地址[ebp-28]，不出栈
+</span></span><span class="line"><span class="cl"><span class="c1">#将st0中的值传入后面的地址[ebp-28]，不出栈
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -291,8 +291,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">FXCH</span> <span class="c">;ST0和ST1内容交换
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">FXCH</span> <span class="no">ST</span><span class="p">(</span><span class="no">i</span><span class="p">)</span> <span class="c">;ST0和STi内容交换
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">FXCH</span> <span class="c1">;ST0和ST1内容交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">FXCH</span> <span class="no">ST</span><span class="p">(</span><span class="no">i</span><span class="p">)</span> <span class="c1">;ST0和STi内容交换
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -410,11 +410,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">push</span>	<span class="no">ebp</span>
-</span></span><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">ebp</span><span class="p">,</span><span class="no">esp</span>  <span class="c">#头部
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">…</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">ebp</span><span class="p">,</span><span class="no">esp</span>  <span class="c1">#头部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">…</span>
 </span></span><span class="line"><span class="cl"><span class="err">…</span>
-</span></span><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">esp</span><span class="p">,</span><span class="no">ebp</span>  <span class="c">#尾部
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">pop</span> 	<span class="no">ebp</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">esp</span><span class="p">,</span><span class="no">ebp</span>  <span class="c1">#尾部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">pop</span> 	<span class="no">ebp</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>[ebp-8]	第二个局部变量</p>
@@ -442,9 +442,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">ebp</span><span class="err">，</span><span class="no">esp</span>	<span class="c">#这样的代码，往往是用esp来表示
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>
-</span></span><span class="line"><span class="cl"><span class="nf">sub</span> 	<span class="no">esp</span><span class="err">，</span><span class="no">xxxx</span> 	<span class="c">#开辟局部变量
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> 	<span class="no">ebp</span><span class="err">，</span><span class="no">esp</span>	<span class="c1">#这样的代码，往往是用esp来表示
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nf">sub</span> 	<span class="no">esp</span><span class="err">，</span><span class="no">xxxx</span> 	<span class="c1">#开辟局部变量
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>算到头部，如果是[esp+]，那么是参数</p>
@@ -564,14 +564,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FA6</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">10</span><span class="p">],</span><span class="no">esi</span>	<span class="c">#可能是ID
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">00433</span><span class="no">FA9</span>	<span class="no">jge</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB0</span>
-</span></span><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FAB</span>	<span class="no">mov</span> <span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>		<span class="c">#右
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">00433</span><span class="no">FAE</span>	<span class="no">jmp</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB4</span>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FA6</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">10</span><span class="p">],</span><span class="no">esi</span>	<span class="c1">#可能是ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">00433</span><span class="nf">FA9</span>	<span class="no">jge</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB0</span>
+</span></span><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FAB</span>	<span class="no">mov</span> <span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>		<span class="c1">#右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">00433</span><span class="nf">FAE</span>	<span class="no">jmp</span> <span class="no">short</span> <span class="mi">00433</span><span class="no">FB4</span>
 </span></span><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FB0</span>	<span class="no">mov</span>	<span class="no">edx</span><span class="p">,</span><span class="no">eax</span>
-</span></span><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FB2</span>	<span class="no">mov</span>	<span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="p">]</span>			<span class="c">#左
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">00433</span><span class="no">FB4</span>	<span class="no">cmp</span> <span class="no">byte</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">231</span><span class="p">],</span><span class="mi">0</span>		<span class="c">#判断
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">00433</span><span class="no">FBB</span>	<span class="no">je</span>	<span class="no">short</span> <span class="mi">00433</span><span class="no">FA6</span>
+</span></span><span class="line"><span class="cl"><span class="err">00433</span><span class="nf">FB2</span>	<span class="no">mov</span>	<span class="no">eax</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="p">]</span>			<span class="c1">#左
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">00433</span><span class="nf">FB4</span>	<span class="no">cmp</span> <span class="no">byte</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="mi">231</span><span class="p">],</span><span class="mi">0</span>		<span class="c1">#判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">00433</span><span class="nf">FBB</span>	<span class="no">je</span>	<span class="no">short</span> <span class="mi">00433</span><span class="no">FA6</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
@@ -610,10 +610,10 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">010</span><span class="nf">A1BE0</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="err">+</span><span class="no">C</span><span class="p">],</span><span class="no">esi</span>		<span class="c">#链表循环
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">010</span><span class="no">A1BE3</span>	<span class="no">je</span> 	<span class="no">short</span> <span class="mi">010</span><span class="no">A1BF8</span>
-</span></span><span class="line"><span class="cl"><span class="err">010</span><span class="nf">A1BE5</span>	<span class="no">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="p">]</span>			<span class="c">#链表循环
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="mi">010</span><span class="no">A1BE7</span>	<span class="no">test</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">010</span><span class="nf">A1BE0</span>	<span class="no">cmp</span> <span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="err">+</span><span class="no">C</span><span class="p">],</span><span class="no">esi</span>		<span class="c1">#链表循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">010</span><span class="nf">A1BE3</span>	<span class="no">je</span> 	<span class="no">short</span> <span class="mi">010</span><span class="no">A1BF8</span>
+</span></span><span class="line"><span class="cl"><span class="err">010</span><span class="nf">A1BE5</span>	<span class="no">mov</span> <span class="no">edx</span><span class="p">,</span><span class="no">dword</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">edx</span><span class="p">]</span>			<span class="c1">#链表循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">010</span><span class="nf">A1BE7</span>	<span class="no">test</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>
 </span></span><span class="line"><span class="cl"><span class="err">010</span><span class="nf">A1BE9</span>	<span class="no">jnz</span> <span class="no">short</span> <span class="mi">010</span><span class="no">A1BE0</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -664,21 +664,21 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ASM" data-lang="ASM"><span class="line"><span class="cl">    <span class="c">#运行时出错
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,[</span><span class="mi">00</span><span class="no">D0DF1C</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-ASM" data-lang="ASM"><span class="line"><span class="cl">    <span class="c1">#运行时出错
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,[</span><span class="mi">00</span><span class="no">D0DF1C</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">edx</span><span class="err">+</span><span class="mi">1</span><span class="no">C</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,[</span><span class="no">eax</span><span class="err">+</span><span class="mi">28</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c">#y 入浮点栈
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c">#z
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c">#x
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="p">]</span>	<span class="c">#x	出浮点栈
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span>	<span class="c">#z
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>	<span class="c">#y	手动建立一个堆栈的结构体
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c1">#y 入浮点栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c1">#z
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">fld</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c1">#x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="p">]</span>	<span class="c1">#x	出浮点栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span>	<span class="c1">#z
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">fstp</span> <span class="p">[</span><span class="no">esp</span><span class="err">+</span><span class="mi">8</span><span class="p">]</span>	<span class="c1">#y	手动建立一个堆栈的结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="mi">00</span><span class="no">D1F930</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c">#结构体指针
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="no">eax</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c1">#结构体指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="no">eax</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">00</span><span class="no">D0DEC8</span>
 </span></span><span class="line"><span class="cl">		<span class="nf">call</span> <span class="mi">00445</span><span class="no">AB0</span>
 </span></span></code></pre></td></tr></table>
@@ -704,17 +704,17 @@
 <pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">edx</span><span class="p">,[</span><span class="mi">00</span><span class="no">D0DF1C</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">eax</span><span class="p">,[</span><span class="no">edx</span><span class="err">+</span><span class="mi">1</span><span class="no">C</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,[</span><span class="no">eax</span><span class="err">+</span><span class="mi">28</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c">#y 
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c">#z
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c">#x
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">44</span><span class="p">]</span>	<span class="c1">#y 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">40</span><span class="p">]</span>	<span class="c1">#z
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="p">[</span><span class="no">ecx</span><span class="err">+</span><span class="mi">3</span><span class="no">C</span><span class="p">]</span>	<span class="c1">#x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">push</span> <span class="mi">00</span><span class="no">D1F930</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c">#结构体指针
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="no">push</span> <span class="no">eax</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lea</span> <span class="no">eax</span><span class="p">,[</span><span class="no">esp</span><span class="err">+</span><span class="mi">0</span><span class="no">C</span><span class="p">]</span>	<span class="c1">#结构体指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">push</span> <span class="no">eax</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span><span class="mi">00</span><span class="no">D0DEC8</span>
 </span></span><span class="line"><span class="cl">		<span class="nf">call</span> <span class="mi">00445</span><span class="no">AB0</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">add</span> <span class="no">esp</span><span class="p">,</span><span class="mi">0</span><span class="no">C</span>	<span class="c">#堆栈平衡
+</span></span><span class="line"><span class="cl">		<span class="nf">add</span> <span class="no">esp</span><span class="p">,</span><span class="mi">0</span><span class="no">C</span>	<span class="c1">#堆栈平衡
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="防检测">防检测</h2>

@@ -614,8 +614,8 @@ function newUi()
     UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
     UICheck(4,
-        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo"
-        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜"
+        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo,checkBaoXinCai,checkLaJiao,checkYangCong"
+        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜,包心菜,辣椒,洋葱"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     UICheck(4,
@@ -9534,15 +9534,18 @@ function zongHe3()
             --     mSleep(1000)
         end
     end
-    if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
-        debugC("邮箱红点")
-        tap1(1080, 263, 0xe26060)
-    end
+    --if isColor(1046, 245, 0xd8420c, 95) and isColor(1074, 138, 0xaec816, 95) then
+        --debugC("邮箱红点")
+        --tap1(1080, 263, 0xe26060)
+    --end
     if isColor(109, 66, 0xd94344, 95) and isColor(167, 61, 0x5b3c47, 95) then
         debugC("邮箱界面")
         if isColor(957, 166, 0x73b052, 95) then
             debugC("OK")
             tap1(957, 166)
+        elseif isColor(806,20,0xd8410c,95) then
+            debugC("支援红点")
+            tap1(770, 42, 0xbbbcbd)
         elseif isColor(945, 18, 0xda450c, 95) then
             debugC("公告红点")
             tap1(911, 44, 0xbbbcbd)
@@ -9821,7 +9824,13 @@ end
 function cook()
     if isColor(378,564,0xf96555,95) and isColor(516,509,0x543842,95) and isColor(491,575,0x2f4e94,95) then
        debugC("烹饪失败--位置2")
-       tap1(437,560)
+       tap1(437,560)--clear2
+    elseif isColor(638,525,0x7b717e,95) and isColor(737,558,0x70a1d6,95) and isColor(640,594,0x63484d,95) and isColor(707,497,0xd0be9f,95) then
+        debugC("烹饪失败--位置3")
+        tap1(737,558)--clear3
+    elseif isColor(941,525,0x9fa4b5,95) and isColor(943,594,0x543842,95) and isColor(1009,497,0xd0be9f,95) and isColor(1041,558,0x70a1d6,95) then
+        debugC("烹饪失败--位置4")
+        tap1(1041,558)--clear4
     elseif isColor(87,536,0x563e43,95) and isColor(108,574,0x79c01b,95) and isColor(181,548,0xffffff,95) then
         debugC("finished1--位置1")
         tap1(155,556)--finished1 
@@ -9831,6 +9840,9 @@ function cook()
     elseif isColor(689,544,0x5252ce,95) and isColor(713,579,0x6eba13,95) and isColor(762,548,0xffffff,95) and isColor(846,565,0x824820,95) then
         debugC("finished3--位置3")    
         tap1(784,557)--finished3
+    elseif isColor(994,544,0x5252ce,95) and isColor(1014,576,0x75bd18,95) and isColor(989,580,0x563e43,95) and isColor(1030,559,0x9bd135,95) then
+        debugC("finished4--位置4")
+        tap1(1030,559)--finished4 
     elseif isColor(92,565,0x5ccdff,95) and isColor(80,548,0xb24c02,95) and isColor(186,561,0x2f4e94,95) then
         debugC("Go Cook")
         tap1(155,556)
@@ -10266,7 +10278,7 @@ function sell()
         if isSell == false then
             tap1(1077, 592, 0xd6915e) --Tool Box
             mSleep(1000)
-            tap1(559, 572, 0xc47b5c) --sell
+            tap1(618, 566, 0xc47b5c) --sell
             mSleep(1000)
             fwCloseView("window1", "more"); -- 关闭文字视图
             fwShowButton("window1", "more", "SellF", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
@@ -10867,7 +10879,8 @@ function checkFruit()
     if checkGuoShi == "检查果实" then
         tap1(1077, 592, 0xd6915e) --Tool Box
         mSleep(1000)
-        tap1(559, 572, 0xc47b5c) --sell
+        debugC("sell")
+        tap1(618, 566, 0xc47b5c) --sell
         mSleep(1000)
         fwCloseView("window1", "more"); -- 关闭文字视图
         fwShowButton("window1", "more", "checkFruit", "FFFFFF", "306090", "", 4, 0, 0, 50, 30);
@@ -11060,6 +11073,48 @@ function checkFruit()
                     if numStr <= 40 then
                         isZhiDingFruit = true
                         strZhiDingFruit = "萝卜"
+                    end
+                end
+            end
+            if checkBaoXinCai == "包心菜" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x3e6a3b, "-4|19|0xb4e06c,35|11|0x477b37,49|23|0x634247", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 32, y + 38, x - 60, y + 6,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("包心菜:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "包心菜"
+                    end
+                end
+            end
+            if checkLaJiao == "辣椒" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0xe23d35, "54|1|0xa81b24,61|-17|0x449a49,52|12|0x603d44", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 17, y + 52, x - 76, y + 19,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("辣椒:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "辣椒"
+                    end
+                end
+            end
+            if checkYangCong == "洋葱" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x5db42f, "5|22|0xda7f0b,38|44|0xc86300,38|64|0x603d44", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x + 32, y + 17, x - 61, y + 16,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("辣椒:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "辣椒"
                     end
                 end
             end
@@ -11269,7 +11324,16 @@ function plant()
                 timeCollectInterval = 45 * 1
             elseif strZhiDingFruit == "萝卜" then
                 x0, y0 = findMultiColorInRegionFuzzy( 0x285f01, "7|0|0x78c05f,18|5|0xbe5600,15|17|0x563a42", 90, 200, 497, 1122, 516)
-                timeCollectInterval = 60 * 75    
+                timeCollectInterval = 60 * 75 
+            elseif strZhiDingFruit == "包心菜" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x4e8734, "-9|20|0xa4d45f,33|9|0x3e693b,16|26|0x96c460", 90, 200, 511, 1122, 539)
+                timeCollectInterval = 30   
+            elseif strZhiDingFruit == "辣椒" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0xe23d35, "34|-24|0xa5ed63,43|-12|0x599849,23|17|0x972d2a", 90, 200, 495, 1122, 538)
+                timeCollectInterval = 60 * 43
+            elseif strZhiDingFruit == "洋葱" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x56952f, "5|17|0x82740c,27|40|0x6e4133,14|15|0x377814", 90, 200, 494, 1122, 536)
+                timeCollectInterval = 60 * 25  
             elseif strZhiDingFruit == "香草" then
                 x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)--X固定死
                 timeCollectInterval = 60 * 60

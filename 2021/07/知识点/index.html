@@ -854,15 +854,15 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">value1</span> <span class="no">BYTE</span>  <span class="err">&#39;</span><span class="no">A</span><span class="err">&#39;</span>    <span class="c">;字符常量
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">value2</span> <span class="no">BYTE</span>  <span class="mi">0</span>      <span class="c">;最小无符号字节
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">value3</span> <span class="no">BYTE</span>  <span class="mi">255</span>    <span class="c">;最大无符号字节
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">value4</span> <span class="no">SBYTE</span> <span class="p">-</span><span class="mi">128</span>   <span class="c">;最小有符号字节
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">value5</span> <span class="no">SBYTE</span> <span class="err">+</span><span class="mi">127</span>   <span class="c">;最大有符号字节
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">value6</span> <span class="no">BYTE</span> <span class="err">?</span>       <span class="c">;变量
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>
-</span></span><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DB</span> <span class="mi">255</span>    <span class="c">;无符号字节
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">val2</span> <span class="no">DB</span> <span class="p">-</span><span class="mi">128</span>  <span class="c">;有符号字节
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">value1</span> <span class="no">BYTE</span>  <span class="err">&#39;</span><span class="no">A</span><span class="err">&#39;</span>    <span class="c1">;字符常量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">value2</span> <span class="no">BYTE</span>  <span class="mi">0</span>      <span class="c1">;最小无符号字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">value3</span> <span class="no">BYTE</span>  <span class="mi">255</span>    <span class="c1">;最大无符号字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">value4</span> <span class="no">SBYTE</span> <span class="p">-</span><span class="mi">128</span>   <span class="c1">;最小有符号字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">value5</span> <span class="no">SBYTE</span> <span class="err">+</span><span class="mi">127</span>   <span class="c1">;最大有符号字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">value6</span> <span class="no">BYTE</span> <span class="err">?</span>       <span class="c1">;变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DB</span> <span class="mi">255</span>    <span class="c1">;无符号字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">val2</span> <span class="no">DB</span> <span class="p">-</span><span class="mi">128</span>  <span class="c1">;有符号字节
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="多初始值">多初始值</h4>
@@ -981,9 +981,9 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">BYTE</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>      <span class="c">;20 个字节，值都为 0
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">BYTE</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span> <span class="err">?</span> <span class="p">)</span>      <span class="c">;20 个字节，非初始化
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">BYTE</span> <span class="mi">4</span> <span class="no">DUP</span> <span class="p">(</span> <span class="err">&#34;</span><span class="no">STACK</span><span class="err">&#34;</span> <span class="p">)</span> <span class="c">; 20 个字节：
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">BYTE</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>      <span class="c1">;20 个字节，值都为 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">BYTE</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span> <span class="err">?</span> <span class="p">)</span>      <span class="c1">;20 个字节，非初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">BYTE</span> <span class="mi">4</span> <span class="no">DUP</span> <span class="p">(</span> <span class="err">&#34;</span><span class="no">STACK</span><span class="err">&#34;</span> <span class="p">)</span> <span class="c1">; 20 个字节：
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="定义-word-和-sword-数据">定义 WORD 和 SWORD 数据</h3>
@@ -994,9 +994,9 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">word1</span> <span class="no">WORD</span> <span class="mi">65535</span>    <span class="c">;最大无符号数
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">word2</span> <span class="no">SWORD</span> <span class="p">-</span><span class="mi">32768</span>  <span class="c">;最小有符号数
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">word3</span> <span class="no">WORD</span> <span class="err">?</span>        <span class="c">;未初始化，无符号
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">word1</span> <span class="no">WORD</span> <span class="mi">65535</span>    <span class="c1">;最大无符号数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">word2</span> <span class="no">SWORD</span> <span class="p">-</span><span class="mi">32768</span>  <span class="c1">;最小有符号数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">word3</span> <span class="no">WORD</span> <span class="err">?</span>        <span class="c1">;未初始化，无符号
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -1005,8 +1005,8 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DW</span> <span class="mi">65535</span>   <span class="c">;无符号
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">val2</span> <span class="no">DW</span> <span class="p">-</span><span class="mi">32768</span>  <span class="c">;有符号
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DW</span> <span class="mi">65535</span>   <span class="c1">;无符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">val2</span> <span class="no">DW</span> <span class="p">-</span><span class="mi">32768</span>  <span class="c1">;有符号
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -1056,7 +1056,7 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">array</span> <span class="no">WORD</span> <span class="mi">5</span> <span class="no">DUP</span> <span class="p">(</span><span class="err">?</span><span class="p">)</span> <span class="c">; 5 个数值，未初始化
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">array</span> <span class="no">WORD</span> <span class="mi">5</span> <span class="no">DUP</span> <span class="p">(</span><span class="err">?</span><span class="p">)</span> <span class="c1">; 5 个数值，未初始化
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -1068,9 +1068,9 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DWORD</span> <span class="mi">12345678</span><span class="no">h</span>    <span class="c">;无符号
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">val2</span> <span class="no">SDWORD</span> <span class="p">-</span><span class="mi">2147483648</span> <span class="c">;有符号
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">val3</span> <span class="no">DWORD</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span><span class="err">?</span><span class="p">)</span>   <span class="c">;无符号数组
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DWORD</span> <span class="mi">12345678</span><span class="no">h</span>    <span class="c1">;无符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">val2</span> <span class="no">SDWORD</span> <span class="p">-</span><span class="mi">2147483648</span> <span class="c1">;有符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">val3</span> <span class="no">DWORD</span> <span class="mi">20</span> <span class="no">DUP</span> <span class="p">(</span><span class="err">?</span><span class="p">)</span>   <span class="c1">;无符号数组
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -1079,8 +1079,8 @@ END 伪指令标记一个程序的结束，并要引用程序入口：<br>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DD</span> <span class="mi">12345678</span><span class="no">h</span> <span class="c">;无符号
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="no">val2</span> <span class="no">DD</span> <span class="p">-</span><span class="mi">2147483648</span> <span class="c">;有符号
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">val1</span> <span class="no">DD</span> <span class="mi">12345678</span><span class="no">h</span> <span class="c1">;无符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">val2</span> <span class="no">DD</span> <span class="p">-</span><span class="mi">2147483648</span> <span class="c1">;有符号
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
