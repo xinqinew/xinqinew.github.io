@@ -33,46 +33,46 @@
     </author><guid>https://xinqinew.github.io/2022/08/%E7%94%B5%E7%A3%81%E6%B5%81%E9%87%8F%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
     <description><![CDATA[一、原理 电磁流量计是根据法拉第电磁感应定律进行流量测量的流量计。 即根据导电流体流过外加磁场时感生的电动势来测量流体流量。 二、安装 安装在管路的]]></description>
 </item><item>
-    <title>和利时CFC</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6cfc/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6cfc/</guid>
-    <description><![CDATA[在线数值标志 变量分类 LD语言 LD语言是一种T型图语言，常用于开关量的控制逻辑组态。 MOT2功能块 PIDA功能块 流量累计 flowsum功能块 顺]]></description>
-</item><item>
-    <title>和利时SFC</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sfc/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sfc/</guid>
-    <description><![CDATA[SFC顺序功能图 简介 组态理念 SFC用于顺序控制的生产过程，包括生产顺序控制的简单功能，强大的测试和起动功能等。 SFC是实现控制方案的一种组织]]></description>
-</item><item>
-    <title>和利时SQC</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sqc/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6sqc/</guid>
-    <description><![CDATA[SQC的作用 用于实现对先后动作顺序要求较高的多个工艺设备按序列自动控制。当满足相应动作条件后，程序按照预先设定好的步骤及设定的时间自动执行，]]></description>
-</item><item>
-    <title>和利时功能块</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%8A%9F%E8%83%BD%E5%9D%97/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%8A%9F%E8%83%BD%E5%9D%97/</guid>
-    <description><![CDATA[变量 变量类别 VAR_GLOBAL 全局变量 VAR_POU 局部变量 域号 域号 -1 各个域都可以识别]]></description>
-</item><item>
-    <title>和利时图形组态</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%9B%BE%E5%BD%A2%E7%BB%84%E6%80%81/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%9B%BE%E5%BD%A2%E7%BB%84%E6%80%81/</guid>
-    <description><![CDATA[新建图形页面（工程总控中） 图形编辑 新建图形页面（图形编辑中） 画面宽度 = 屏幕分辨率的宽 - 4 画面高度 = 屏幕分辨率的高 - 104 符号库]]></description>
-</item><item>
     <title>双法兰液位计常见故障</title>
     <link>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
     <description><![CDATA[视频引用 一、膜盒破损、鼓包 现象： 显示为超下限或超量程，上下法兰对空的情况下，零位不准，测量也不准。 原因分析： 腐蚀、膜盒碰撞、压力等级不符合要]]></description>
+</item><item>
+    <title>双法兰液位计常识</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8F%8C%E6%B3%95%E5%85%B0%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
+    <description><![CDATA[视频引用 一、原理 原理： 双法兰差压液位计，是利用容器内的液位改变时，由液柱产生的静压也相应变化的原理而工作。 双法兰液位计可以测量易结晶、粘稠、]]></description>
+</item><item>
+    <title>液位计常识</title>
+    <link>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E6%B6%B2%E4%BD%8D%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
+    <description><![CDATA[一、压力式液位计 工作原理 液体中某一点的静压力与该点到液面的距离成正比。计算公式：P=pgh。其中：P-被测点的压力。-介质密度、g-重力加速]]></description>
+</item><item>
+    <title>压力表常见故障</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
+    <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</guid>
+    <description><![CDATA[一、堵塞 拆下安装到其它地方测试压力表好坏 检查连接部件，可以小开度慢慢打开根部阀门，看根部阀及连接管是否堵塞，并疏通。 二、脱落 现象： 无论工艺将]]></description>
+</item><item>
+    <title>压力表常识</title>
+    <link>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%AF%86/</link>
+    <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E5%8E%8B%E5%8A%9B%E8%A1%A8%E5%B8%B8%E8%AF%86/</guid>
+    <description><![CDATA[视频引用 一、压力测量 $$ P=F/S $$ P 压力（Pa） F 均匀垂直作用力（N） S 受力面积（m^2^） 二、压力的几种表示形式 被测压力通常可表示为： 绝对压力： 物]]></description>
+</item><item>
+    <title>雷达料位计</title>
+    <link>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</link>
+    <pubDate>Sat, 30 Jul 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/07/%E9%9B%B7%E8%BE%BE%E6%96%99%E4%BD%8D%E8%AE%A1/</guid>
+    <description><![CDATA[雷达料位计 高级功能 密码350015 （选中“信息”，Esc+ok同时按） 阻尼时间 60s 填充速度和排放速度 都是5m/min 盲区 2.9米 窗体跟踪（高级]]></description>
 </item></channel>
 </rss>
