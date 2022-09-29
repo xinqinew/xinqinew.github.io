@@ -21,12 +21,19 @@
     </author><guid>https://xinqinew.github.io/2022/08/%E6%94%BE%E5%B0%84%E6%80%A7%E6%96%99%E4%BD%8D%E8%AE%A1/</guid>
     <description><![CDATA[视频引用 测量原理 组成 放射性料位计主要由放射源、按收器(探测器)和显示仪表(转换器）组成。]]></description>
 </item><item>
+    <title>操作技巧</title>
+    <link>https://xinqinew.github.io/2022/08/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/08/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[这是我的和利时笔记]]></description>
+</item><item>
     <title>常见问题</title>
     <link>https://xinqinew.github.io/2022/08/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
-    <description><![CDATA[查看所有强制变量 1 2 3 graph TB s[在线]--&gt; e[强制变量表]]]></description>
+    <description><![CDATA[查看所有强制变量 1 2 3 graph TB s[在线]--&gt; e[强制变量表] 忘记密码怎么办 删除这个文件，就不需要密码了，之后可以再添加密码]]></description>
 </item><item>
     <title>电磁流量计常见故障</title>
     <link>https://xinqinew.github.io/2022/08/%E7%94%B5%E7%A3%81%E6%B5%81%E9%87%8F%E8%AE%A1%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C/</link>
@@ -68,13 +75,6 @@
     <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%8A%9F%E8%83%BD%E5%9D%97/</guid>
-    <description><![CDATA[变量 变量类别 VAR_GLOBAL 全局变量 VAR_POU 局部变量 域号 域号 -1 各个域都可以识别 IP IP 128.0.0.80 或129.0.0.80 子网掩码 255.255.0.0]]></description>
-</item><item>
-    <title>和利时图形组态</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%9B%BE%E5%BD%A2%E7%BB%84%E6%80%81/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6%E5%9B%BE%E5%BD%A2%E7%BB%84%E6%80%81/</guid>
-    <description><![CDATA[新建图形页面（工程总控中） 图形编辑 新建图形页面（图形编辑中） 画面宽度 = 屏幕分辨率的宽 - 4 画面高度 = 屏幕分辨率的高 - 104 符号库]]></description>
+    <description><![CDATA[变量 变量类别 VAR_GLOBAL 全局变量 VAR_POU 局部变量 域号 域号 -1 各个域都可以识别 IP IP 128.0.0.80 或129.0.0.80 子网掩码 255.255.0.0 触发器 RS 复位优先 SR 置位优先 HSRS 复位优先 （多了一]]></description>
 </item></channel>
 </rss>

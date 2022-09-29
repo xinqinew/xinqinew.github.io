@@ -614,13 +614,13 @@ function newUi()
     UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
     UICheck(4,
-        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo,checkBaoXinCai,checkLaJiao,checkYangCong"
-        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜,包心菜,辣椒,洋葱"
+        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo"
+        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     UICheck(4,
-        "checkCook,checkEgg,checkRice,checkBingGan,checkGanLanYou"
-        , "烹饪,参鸡汤,蛋包饭,饼干冰淇淋,橄榄油意大利面"
+        "checkCook,checkEgg,checkRice,checkBingGan,checkGanLanYou,checkZaoWuTaoCan"
+        , "烹饪,参鸡汤,蛋包饭,饼干冰淇淋,橄榄油意大利面,早午套餐"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     -- UIEdit(4, "rangeX1", "X1", "", 15, "left", "95,158,160", "number", 120, 1) -- 编辑框
@@ -845,7 +845,7 @@ function threadClinet()
     else
         dialog("删除失败，失败原因：" .. msg, 5)
     end
-    ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
+    ftpMuLu = "ftp://xinqinew:Qwer1234@6w04b66789.goho.co/"
     local temRet = ftpDownOnce(ftpMuLu .. "Lua/clientiPhone.lua", userPath() .. "/lua/clientiPhone.lua")
     if temRet then
         toast("FTP下载clientiPhone成功", 1)
@@ -1102,7 +1102,7 @@ function oncePlist()
     ftpMuLu = loadJson("FTP目录")
     if ftpMuLu == nil then
         -- ftpMuLu = dialogInput("请输入FTP目录", "在这里输入FTP目录", "确认");
-        ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
+        ftpMuLu = "ftp://xinqinew:Qwer1234@6w04b66789.goho.co/"
         writeJson("FTP目录", ftpMuLu)
     end
 
@@ -8986,7 +8986,7 @@ function zhaojunlua()
     else
         toast("删除失败，失败原因：" .. msg, 1)
     end
-    ftpMuLu = "ftp://xinqinew:Qwer1234@1x9722733t.iask.in/"
+    ftpMuLu = "ftp://xinqinew:Qwer1234@6w04b66789.goho.co/"
     local temRet = ftpDownTSnet("/Lua/zhaojun.lua", userPath() .. "/lua/zhaojun.lua")
     if temRet then
         toast("FTP下载成功", 1)
@@ -9860,17 +9860,27 @@ function cook()
         debugC("Menu")
         tap1(858,205)--SORt
         tap1(618,168)--开放
+        for i=1,50,1 do
+            if isColor(5,630,0xcdc3af,95) then 
+                debugC("拖动菜单")
+                touchMoveXY(499, 631, 801, 631)
+                -- touchMoveXY(801, 321, 499, 321)
+                mSleep(1000)
+            else
+                break
+            end
+        end
     end
     if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
         debugC("选套餐")
-        for i=1,10,1 do
-            x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
+        for i=1,50,1 do
+            --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "42|21|0xffffff,81|21|0x8a0f0f", 90, 0, 355, 1135, 400)--料理中
-            if x0>0 then
-                tap1(1089,139)--右上角关闭
-                gaiMuBiaoNewC(3, "") 
-                break
-            else
+            --if x0>0 then
+                --tap1(1089,139)--右上角关闭
+                --gaiMuBiaoNewC(3, "") 
+                --break
+            --else
                 if checkEgg=="参鸡汤" then
                     x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
                 elseif  checkRice== "蛋包饭" then
@@ -9879,6 +9889,8 @@ function cook()
                     x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值 
                 elseif  checkGanLanYou== "橄榄油意大利面" then
                     x,y = findMultiColorInRegionFuzzy( 0x48834a, "-7|29|0xf7943a,30|71|0x2b5537,44|128|0xb0df7b", 90, 0, 285, 1135, 477)--找橄榄油意大利面 记得改范围值   
+                elseif  checkZaoWuTaoCan== "早午套餐" then
+                    x,y = findMultiColorInRegionFuzzy( 0x9f4522, "-8|-96|0xa2565c,-104|-101|0xc47951,40|-61|0x2d4d23", 90, 0, 285, 1135, 477)--找早午套餐 记得改范围值   
                 end
                 if x> 0 then
                     tap1(x,y)--坐标
@@ -9893,7 +9905,7 @@ function cook()
                     -- touchMoveXY(801, 321, 499, 321)
                     mSleep(1000)
                 end
-            end
+            --end
         end
 
     end
@@ -11076,48 +11088,6 @@ function checkFruit()
                     end
                 end
             end
-            if checkBaoXinCai == "包心菜" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0x3e6a3b, "-4|19|0xb4e06c,35|11|0x477b37,49|23|0x634247", 90, 3, 389, 1127, 614)
-                if x > 0 then
-                    local numStr = dmOcrText(index_dm_numNumber, x + 32, y + 38, x - 60, y + 6,
-                        "DCD7D9,232826", 95)
-                    numStr, num = string.gsub(numStr, "x", "")
-                    numStr = tonumber(numStr)
-                    debugC("包心菜:" .. numStr)
-                    if numStr <= 40 then
-                        isZhiDingFruit = true
-                        strZhiDingFruit = "包心菜"
-                    end
-                end
-            end
-            if checkLaJiao == "辣椒" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0xe23d35, "54|1|0xa81b24,61|-17|0x449a49,52|12|0x603d44", 90, 3, 389, 1127, 614)
-                if x > 0 then
-                    local numStr = dmOcrText(index_dm_numNumber, x + 17, y + 52, x - 76, y + 19,
-                        "DCD7D9,232826", 95)
-                    numStr, num = string.gsub(numStr, "x", "")
-                    numStr = tonumber(numStr)
-                    debugC("辣椒:" .. numStr)
-                    if numStr <= 40 then
-                        isZhiDingFruit = true
-                        strZhiDingFruit = "辣椒"
-                    end
-                end
-            end
-            if checkYangCong == "洋葱" and isZhiDingFruit == false then
-                x,y = findMultiColorInRegionFuzzy( 0x5db42f, "5|22|0xda7f0b,38|44|0xc86300,38|64|0x603d44", 90, 3, 389, 1127, 614)
-                if x > 0 then
-                    local numStr = dmOcrText(index_dm_numNumber, x + 32, y + 17, x - 61, y + 16,
-                        "DCD7D9,232826", 95)
-                    numStr, num = string.gsub(numStr, "x", "")
-                    numStr = tonumber(numStr)
-                    debugC("辣椒:" .. numStr)
-                    if numStr <= 40 then
-                        isZhiDingFruit = true
-                        strZhiDingFruit = "辣椒"
-                    end
-                end
-            end
             if checkXiangCao == "香草" and isZhiDingFruit == false then
                 x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "41|44|0x778195,58|38|0x463039,51|57|0x0e0f13", 90, 3, 389, 1127, 614)
                 if x > 0 then
@@ -11325,15 +11295,6 @@ function plant()
             elseif strZhiDingFruit == "萝卜" then
                 x0, y0 = findMultiColorInRegionFuzzy( 0x285f01, "7|0|0x78c05f,18|5|0xbe5600,15|17|0x563a42", 90, 200, 497, 1122, 516)
                 timeCollectInterval = 60 * 75 
-            elseif strZhiDingFruit == "包心菜" then
-                x0, y0 = findMultiColorInRegionFuzzy( 0x4e8734, "-9|20|0xa4d45f,33|9|0x3e693b,16|26|0x96c460", 90, 200, 511, 1122, 539)
-                timeCollectInterval = 30   
-            elseif strZhiDingFruit == "辣椒" then
-                x0, y0 = findMultiColorInRegionFuzzy( 0xe23d35, "34|-24|0xa5ed63,43|-12|0x599849,23|17|0x972d2a", 90, 200, 495, 1122, 538)
-                timeCollectInterval = 60 * 43
-            elseif strZhiDingFruit == "洋葱" then
-                x0, y0 = findMultiColorInRegionFuzzy( 0x56952f, "5|17|0x82740c,27|40|0x6e4133,14|15|0x377814", 90, 200, 494, 1122, 536)
-                timeCollectInterval = 60 * 25  
             elseif strZhiDingFruit == "香草" then
                 x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)--X固定死
                 timeCollectInterval = 60 * 60
