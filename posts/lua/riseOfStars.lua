@@ -9588,6 +9588,8 @@ function isFarm()
         elseif farmLong == 28 and isColor(1124, 633, 0x8ec06d, 95) and isColor(1134, 628, 0xa4d282, 95) then --主动移动前
         elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
         elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
+        elseif farmLong == 34 and isColor(166, 601, 0x91bf67, 95) and isColor(169, 591, 0x9ccb73, 95) then --主动移动后
+        elseif farmLong == 34 and isColor(76, 611, 0x90bd65, 95) and isColor(90, 602, 0x98c875, 95) then --主动移动前
         elseif farmLong == 26 and isColor(132, 117, 0xa9c193, 95) and isColor(1019, 201, 0x6c8c77, 95) then --主动移动后
         elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then --主动移动前
         else
@@ -9623,6 +9625,13 @@ function findHouse()
         writeJson("原点Y", numOriginY)
     elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then
         debugC("32x32初始画面")
+        moveTo(567 - 130, 226 - 30, 484 - 130, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
+        numOriginX = 0
+        numOriginY = 0
+        writeJson("原点X", numOriginX)
+        writeJson("原点Y", numOriginY)
+    elseif farmLong == 34 and isColor(76,611,0x90bd65,95) and isColor(90,602,0x98c875,95) then
+        debugC("34x34初始画面")
         moveTo(567 - 130, 226 - 30, 484 - 130, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
         numOriginX = 0
         numOriginY = 0
@@ -9860,6 +9869,10 @@ function cook()
         debugC("Menu")
         tap1(858,205)--SORt
         tap1(618,168)--开放
+        
+    end
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
+        debugC("选套餐")
         for i=1,50,1 do
             if isColor(5,630,0xcdc3af,95) then 
                 debugC("拖动菜单")
@@ -9870,9 +9883,6 @@ function cook()
                 break
             end
         end
-    end
-    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
-        debugC("选套餐")
         for i=1,50,1 do
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "42|21|0xffffff,81|21|0x8a0f0f", 90, 0, 355, 1135, 400)--料理中
@@ -9881,16 +9891,26 @@ function cook()
                 --gaiMuBiaoNewC(3, "") 
                 --break
             --else
+                is2food = false
                 if checkEgg=="参鸡汤" then
                     x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
-                elseif  checkRice== "蛋包饭" then
+                    is2food = true
+                end
+                if  checkRice== "蛋包饭" and  is2food == false then
                     x,y = findMultiColorInRegionFuzzy( 0x83b73e, "121|75|0xb32224,19|50|0xd8dfdb", 90, 0, 285, 1135, 477)--找蛋包饭 记得改范围值
-                elseif  checkBingGan== "饼干冰淇淋" then
+                    is2food = true
+                end
+                if   checkBingGan== "饼干冰淇淋" and  is2food == false  then
                     x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值 
-                elseif  checkGanLanYou== "橄榄油意大利面" then
+                    is2food = true
+                end
+                if   checkGanLanYou== "橄榄油意大利面" and  is2food == false then
                     x,y = findMultiColorInRegionFuzzy( 0x48834a, "-7|29|0xf7943a,30|71|0x2b5537,44|128|0xb0df7b", 90, 0, 285, 1135, 477)--找橄榄油意大利面 记得改范围值   
-                elseif  checkZaoWuTaoCan== "早午套餐" then
+                    is2food = true
+                end
+                if   checkZaoWuTaoCan== "早午套餐" and  is2food == false then
                     x,y = findMultiColorInRegionFuzzy( 0x9f4522, "-8|-96|0xa2565c,-104|-101|0xc47951,40|-61|0x2d4d23", 90, 0, 285, 1135, 477)--找早午套餐 记得改范围值   
+                    is2food = true
                 end
                 if x> 0 then
                     tap1(x,y)--坐标
