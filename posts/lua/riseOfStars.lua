@@ -9589,7 +9589,7 @@ function isFarm()
         elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
         elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
         elseif farmLong == 34 and isColor(166, 601, 0x91bf67, 95) and isColor(169, 591, 0x9ccb73, 95) then --主动移动后
-        elseif farmLong == 34 and isColor(76, 611, 0x90bd65, 95) and isColor(90, 602, 0x98c875, 95) then --主动移动前
+        elseif farmLong == 34 and isColor(76,610,0x8ab65e, 95) and isColor(95,613,0x94c36b, 95) then --主动移动前
         elseif farmLong == 26 and isColor(132, 117, 0xa9c193, 95) and isColor(1019, 201, 0x6c8c77, 95) then --主动移动后
         elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then --主动移动前
         else
@@ -9630,7 +9630,7 @@ function findHouse()
         numOriginY = 0
         writeJson("原点X", numOriginX)
         writeJson("原点Y", numOriginY)
-    elseif farmLong == 34 and isColor(76,611,0x90bd65,95) and isColor(90,602,0x98c875,95) then
+    elseif farmLong == 34 and isColor(110,627,0xb1c687,95) and isColor(125,612,0x96c672,95) then
         debugC("34x34初始画面")
         moveTo(567 - 130, 226 - 30, 484 - 130, 148 - 30, { ["step"] = 3, ["ms"] = 70, ["stop"] = 1 })
         numOriginX = 0
@@ -9884,13 +9884,14 @@ function cook()
             end
         end
         for i=1,50,1 do
+            x0,y0 = findMultiColorInRegionFuzzy( 0x684613, "0|-42|0x7e7078,0|-8|0xc27c19", 90, 0, 284, 1135, 328)--锁
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "42|21|0xffffff,81|21|0x8a0f0f", 90, 0, 355, 1135, 400)--料理中
-            --if x0>0 then
-                --tap1(1089,139)--右上角关闭
-                --gaiMuBiaoNewC(3, "") 
-                --break
-            --else
+            if x0>0 then
+                tap1(1089,139)--右上角关闭
+                gaiMuBiaoNewC(3, "") 
+                break
+            else
                 is2food = false
                 if checkEgg=="参鸡汤" then
                     x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
@@ -9925,7 +9926,7 @@ function cook()
                     -- touchMoveXY(801, 321, 499, 321)
                     mSleep(1000)
                 end
-            --end
+            end
         end
 
     end
