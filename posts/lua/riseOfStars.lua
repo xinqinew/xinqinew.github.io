@@ -9589,7 +9589,7 @@ function isFarm()
         elseif farmLong == 32 and isColor(119, 630, 0x94c36d, 95) and isColor(105, 630, 0x94c46f, 95) then --主动移动后
         elseif farmLong == 32 and isColor(105, 633, 0x96c672, 95) and isColor(96, 626, 0xa5d384, 95) then --主动移动前
         elseif farmLong == 34 and isColor(166, 601, 0x91bf67, 95) and isColor(169, 591, 0x9ccb73, 95) then --主动移动后
-        elseif farmLong == 34 and isColor(76,610,0x8ab65e, 95) and isColor(95,613,0x94c36b, 95) then --主动移动前
+        elseif farmLong == 34 and isColor(110,627,0xb1c687, 95) and isColor(125,612,0x96c672, 95) then --主动移动前
         elseif farmLong == 26 and isColor(132, 117, 0xa9c193, 95) and isColor(1019, 201, 0x6c8c77, 95) then --主动移动后
         elseif farmLong == 26 and isColor(210, 200, 0xabc191, 95) and isColor(1130, 262, 0x558d71, 95) then --主动移动前
         else
@@ -9893,31 +9893,41 @@ function cook()
                 break
             else
                 is2food = false
-                if checkEgg=="参鸡汤" then
-                    x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
-                    is2food = true
+                if   checkBingGan== "饼干冰淇淋" and  is2food == false  then
+                    x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值 
+                    if x> 0 then
+                        is2food = true
+                    end
                 end
                 if  checkRice== "蛋包饭" and  is2food == false then
                     x,y = findMultiColorInRegionFuzzy( 0x83b73e, "121|75|0xb32224,19|50|0xd8dfdb", 90, 0, 285, 1135, 477)--找蛋包饭 记得改范围值
-                    is2food = true
+                    if x> 0 then
+                        is2food = true
+                    end
                 end
-                if   checkBingGan== "饼干冰淇淋" and  is2food == false  then
-                    x,y = findMultiColorInRegionFuzzy( 0xffe095, "32|-11|0xff9683,2|32|0x543942,36|26|0x097aa2", 90, 0, 285, 1135, 477)--找饼干冰淇淋 记得改范围值 
-                    is2food = true
-                end
-                if   checkGanLanYou== "橄榄油意大利面" and  is2food == false then
-                    x,y = findMultiColorInRegionFuzzy( 0x48834a, "-7|29|0xf7943a,30|71|0x2b5537,44|128|0xb0df7b", 90, 0, 285, 1135, 477)--找橄榄油意大利面 记得改范围值   
-                    is2food = true
+                if checkEgg=="参鸡汤"  and  is2food == false then
+                    x,y = findMultiColorInRegionFuzzy( 0xc3cc6c, "75|21|0xa23b31,17|-68|0x6f3628", 90, 0, 285, 1135, 477)--找参鸡汤套餐
+                    if x> 0 then
+                        is2food = true
+                    end
                 end
                 if   checkZaoWuTaoCan== "早午套餐" and  is2food == false then
                     x,y = findMultiColorInRegionFuzzy( 0x9f4522, "-8|-96|0xa2565c,-104|-101|0xc47951,40|-61|0x2d4d23", 90, 0, 285, 1135, 477)--找早午套餐 记得改范围值   
-                    is2food = true
+                    if x> 0 then
+                        is2food = true
+                    end
+                end
+                if   checkGanLanYou== "橄榄油意大利面" and  is2food == false then
+                    x,y = findMultiColorInRegionFuzzy( 0x48834a, "-7|29|0xf7943a,30|71|0x2b5537,44|128|0xb0df7b", 90, 0, 285, 1135, 477)--找橄榄油意大利面 记得改范围值   
+                    if x> 0 then
+                        is2food = true
+                    end
                 end
                 if x> 0 then
                     tap1(x,y)--坐标
                     tap1(557,538,0x70a1d6        )--Cook
-                    tap1(1089,139)--右上角关闭
-                    gaiMuBiaoNewC(3, "") 
+                    --tap1(1089,139)--右上角关闭
+                    --gaiMuBiaoNewC(3, "") 
                     break
                 else
                     --拖动
