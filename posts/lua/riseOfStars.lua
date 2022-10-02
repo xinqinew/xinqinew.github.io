@@ -9574,6 +9574,8 @@ function isFarm()
             elseif isColor(600, 455, 0x81b95d, 95) and isColor(908, 479, 0x6baa4d, 95) then
                 debugC("误开对话")
                 tap1(600, 455)
+            elseif isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then
+                return true
             else
                 tap1(1135, 0)
             end
@@ -9927,9 +9929,10 @@ function cook()
                 if x> 0 then
                     tap1(x,y)--坐标
                     tap1(557,538,0x70a1d6        )--Cook
+                    mSleep(10000)
                     tap1(56,152      )--Cooking
                     --tap1(1089,139)--右上角关闭
-                    --gaiMuBiaoNewC(3, "") 
+                    -- gaiMuBiaoNewC(3, "") 
                     return
                 else
                     --拖动
@@ -11578,14 +11581,14 @@ function bugFor()
         debugC("Notice")
         tap1(1034, 63, 0xffffff)
     end
-    -- if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
-    --     debugC("右上角X1")
-    --     if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then --餐厅界面,打勾选烹饪,目标为烹饪
-    --         debugC("restaurant")    
-    --     else
-    --         tap1(1088, 141)
-    --     end
-    -- end
+    if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
+        -- debugC("右上角X1")
+        if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then --餐厅界面,打勾选烹饪,目标为烹饪
+            -- debugC("restaurant")    
+        else
+            tap1(1088, 141)
+        end
+    end
     if isColor(1037, 67, 0xffffff, 95) and isColor(1051, 67, 0x73555b, 95) then
         debugC("右上角X2")
         tap1(1037, 67)
