@@ -9888,6 +9888,7 @@ function cook()
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "13|5|0xffffff,28|-7|0x920101,61|-3|0x960000", 90, 0, 372, 1135, 386)--料理中
             --x0,y0 = findMultiColorInRegionFuzzy( 0x960000, "42|21|0xffffff,81|21|0x8a0f0f", 90, 0, 355, 1135, 400)--料理中
             if x0>0 then
+                debugC("锁 右上角关闭")
                 tap1(1089,139)--右上角关闭
                 gaiMuBiaoNewC(3, "") 
                 break
@@ -9926,15 +9927,21 @@ function cook()
                 if x> 0 then
                     tap1(x,y)--坐标
                     tap1(557,538,0x70a1d6        )--Cook
+                    tap1(56,152      )--Cooking
                     --tap1(1089,139)--右上角关闭
                     --gaiMuBiaoNewC(3, "") 
-                    break
+                    return
                 else
                     --拖动
                     debugC("拖动菜单")
                     touchMoveXY(801, 631, 499, 631)
                     -- touchMoveXY(801, 321, 499, 321)
                     mSleep(1000)
+                end
+                if i >= 50 then
+                    tap1(1089,139)--右上角关闭
+                    gaiMuBiaoNewC(3, "") 
+                    break
                 end
             end
         end
@@ -11571,14 +11578,14 @@ function bugFor()
         debugC("Notice")
         tap1(1034, 63, 0xffffff)
     end
-    if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
-        debugC("右上角X1")
-        if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then --餐厅界面,打勾选烹饪,目标为烹饪
-            debugC("restaurant")    
-        else
-            tap1(1088, 141)
-        end
-    end
+    -- if isColor(1088, 141, 0xffffff, 95) and isColor(1101, 141, 0x73555b, 95) then
+    --     debugC("右上角X1")
+    --     if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" and muBiaoC == "烹饪"  then --餐厅界面,打勾选烹饪,目标为烹饪
+    --         debugC("restaurant")    
+    --     else
+    --         tap1(1088, 141)
+    --     end
+    -- end
     if isColor(1037, 67, 0xffffff, 95) and isColor(1051, 67, 0x73555b, 95) then
         debugC("右上角X2")
         tap1(1037, 67)
