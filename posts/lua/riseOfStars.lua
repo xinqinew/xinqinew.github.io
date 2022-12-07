@@ -1,7 +1,8 @@
-numLua = 21.0
+numLua = 22.0
 toast("在线版本:" .. numLua)
 local image_tsing = require("tsimg")
 appXiangMu1 = "com.wemademax.riseofstars"
+appXiangMu2 = "com.xd.TLglobal"
 appXiangMu3 = "com.wemadeconnect.etgnft.everytown"
 appCalculator = "com.apple.calculator"
 
@@ -529,6 +530,8 @@ function bianLiang()
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
     ---------------项目2---------------
+    strZhuangTai = ""
+    
     numDead = 0
     numUpLeft = 0
     numUpRight = 0
@@ -570,14 +573,14 @@ end
 -- 新UI
 function newUi()
     w, h = getScreenSize()
-    UINew(4, "公共设置,项目1,项目2,项目3", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245",
+    UINew(5, "公共设置,项目1,项目2,项目3,项目4", "开始", "取消", uiconfig, 0, 5, w, h, "245,245,245",
         "175,238,238", "", "dot"
         , 1, 15,
         "left")
 
     -- UILabel("--------------------公共设置--------------------", 12, "center", "199,21,133", -1, 0, "center")
-    UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian,checkXiangMu3",
-        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3"
+    UICheck("check1,check2,check3,check4,check5,check6,checkXiangMu1,checkXiangMu2,TTtuJian,checkXiangMu3,checkXiangMu4",
+        "网络调试,本地调试,集中文件,测试,注销,删除配置,项目1,项目2,TT图鉴,项目3,项目4"
         , "4@6", -1,
         0, "", 1, 3) -- 多选1
     -- UILabel(2, "---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
@@ -603,19 +606,26 @@ function newUi()
     UIEdit(2, "muBiaoA4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
 
     -- UILabel(3, "---------------------项目2---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICombo(3, "numHaoLV_B", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
+    UILabel(3, "目标1 无,占位1", 10, "left",
+        "72,61,139", -1, 0, "center") -- 标签
+    UIEdit(3, "muBiaoB1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(3, "目标2 无,占位1", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(3, "muBiaoB2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(3, "目标3 无,占位1", 10, "left", "72,61,139"
+        , -1, 0, "center")
+    UIEdit(3, "muBiaoB3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(3, "目标4 无,占位1", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(3, "muBiaoB4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
     UICheck(3, "Bcheck1,Bcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
-    UICombo(3, "numCollect", "采集点1,采集点2,采集点3,采集点4", "0", -1, 1, true) -- 下拉框
-    UICombo(3, "numMap", "锐角路,虚空摇篮,干涸之湖,最前线,幻象之路,月影废墟", "0", -1, 1, true) -- 下拉框
-    UICombo(3, "numGuaJiDian", "挂机点1,挂机点2,挂机点3,挂机点4,挂机点5,挂机点6,挂机点7,挂机点8"
-        , "0", -1, 1, true) -- 下拉框
-
+  
     -- UILabel(4, "---------------------项目3---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICombo(4, "numHaoLV", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
     UICheck(4, "Ccheck1,Ccheck2,Ccheck3", "4排为树,5排为树,占位", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(4, "Ccheck0", "重置table", "", -1, 0, "", 1, 3) -- 多选1
     UICheck(4,
-        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo"
-        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜"
+        "checkGuoShi,checkTomato,checkCaoMei,checkSunflower,checkGrape,checkCane,checkSouthMelon,checkShuiDao,checkPotato,checkDingxiang,checkRenshen,checkHongdou,checkXiangCao,checkHuaSheng,checkXiaoMai,checkLuoBo,checkYuMi,checkBaoXinCai,checkHuangDou,checkYangCong,checkBoHe,checkLaJiao,checkXunYiCao,checkBoLuo"
+        , "检查果实,番茄,草莓,向日葵,葡萄,甘蔗,南瓜,水稻,土豆,丁香,人参,红豆,香草,花生,小麦,萝卜,玉米,包心菜,黄豆,洋葱,薄荷,辣椒,薰衣草,菠萝"
         , "0", -1, 0,
         "", 0, 3) -- 多选1
     UICheck(4,
@@ -640,6 +650,21 @@ function newUi()
     UIEdit(4, "muBiaoC3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
     UILabel(4, "目标4 无", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(4, "muBiaoC4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
+
+    -- UILabel(5, "---------------------项目4---------------------", 12, "center", "199,21,133", -1, 0, "center")
+    UICombo(5, "numHaoLV_D", "小号,成品号,大号", "0", -1, 0, true) -- 下拉框
+    UILabel(5, "目标1 无,占位1", 10, "left",
+        "72,61,139", -1, 0, "center") -- 标签
+    UIEdit(5, "muBiaoD1", "目标1", "", 15, "left", "95,158,160", "default", 0, 0) -- 编辑框
+    UILabel(5, "目标2 无,占位1", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(5, "muBiaoD2", "目标2", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(5, "目标3 无,占位1", 10, "left", "72,61,139"
+        , -1, 0, "center")
+    UIEdit(5, "muBiaoD3", "目标3", "", 15, "left", "95,158,160", "default", 0, 0)
+    UILabel(5, "目标4 无,占位1", 10, "left", "72,61,139", -1, 0, "center")
+    UIEdit(5, "muBiaoD4", "目标4", "", 15, "left", "95,158,160", "default", 0, 0)
+    UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+
     UIShow()
 
     if check26 == "3级粒子"  then
@@ -915,12 +940,12 @@ function main()
         main1()
     elseif checkXiangMu2 == "项目2" and (numXiangMu == 0 or numXiangMu == 2) then
         if m_iRunCount == 1 then
-            appXiangMu = "com.stormgames.fourgodsonwemix.ios"
-            if whoAmI() ~= 3 then
-                zhaojunlua()
-                package.loaded["zhaojun"] = nil
-                require("zhaojun")
-            end
+            appXiangMu = "com.xd.TLglobal"
+            -- if whoAmI() ~= 3 then
+            --     zhaojunlua()
+            --     package.loaded["zhaojun"] = nil
+            --     require("zhaojun")
+            -- end
         end
         main2()
     elseif checkXiangMu3 == "项目3" and (numXiangMu == 0 or numXiangMu == 3) then
@@ -1012,7 +1037,7 @@ function main2()
     end
     nowDateTime = os.date("*t")
     today = tonumber(os.date("%w", os.time()))
-    muBiaoZhuanHuanNewA() -- 公用 必须最优先
+    muBiaoZhuanHuanNewB() -- 公用 必须最优先
     -- if version ~= "2.2.4" then
     --     if getBacklightLevel() ~= 0.5 then
     --         setBacklightLevel(0.5);
@@ -1041,19 +1066,19 @@ function main2()
         runApp(appXiangMu)
         APP = APP1
         mSleep(5000)
-        isTapTask = false
-        writeJson("点任务", isTapTask)
+        -- isTapTask = false
+        -- writeJson("点任务", isTapTask)
     end
     m_iRunCount = m_iRunCount + 1
 
     -- autoVpn()
     autoUnlockDevice()
     zongHe2()
-    zongHe_zj()
+    -- zongHe_zj()
     checkRed2()
-    checkDropline()
-    zhiYin()
-    timeJianCe2()
+    -- checkDropline()
+    -- zhiYin()
+    -- timeJianCe2()
 
     -- zongHe_Mult()
     -- zongHe_Screen()
@@ -1061,7 +1086,7 @@ function main2()
     -- timeChongZhi()
     -- checkXXX()
     -- everyDayInit()
-    checkXXX2()
+    -- checkXXX2()
     resetIDLETimer();
     -- timeJianGe(debug.getinfo(1).currentline)
     -- nowTime2 = os.time();
@@ -1528,6 +1553,12 @@ function oncePlist()
 
 
     -----------------------------项目2---------------------
+    -- 人物状态
+    strZhuangTai = loadJson("人物状态")
+    if strZhuangTai == nil then
+        strZhuangTai = ""
+        writeJson("人物状态", strZhuangTai)
+    end
     -- 点任务
     isTapTask = loadJson("点任务")
     if isTapTask == nil then
@@ -8648,329 +8679,3579 @@ function plistToJson()
 end
 
 -----------------------项目2--------------------------
-
--- 综合2
-function zongHe2()
-    changePkMode()
-    -- if isColor(584, 265, 0xffffff, 95) and isColor(921, 220, 0xbd1f0a, 95) then
-    --     debug("登录界面")
-    --     tap1(558, 404)
-    -- end
-    -- if isColor(465,381,0x00b9f0,95) and isColor(668,427,0x00a2d1,95) and isColor(603,407,0x00263f,95) then
-    --     debug("无法连接服务器")
-    --     tap1(551,404)
-    -- end
-    if isColor(413, 381, 0xeb0000, 95) and isColor(627, 381, 0x00a0ef, 95) and isColor(557, 208, 0xb7bcc1, 95) and
-        isColor(582, 226, 0x7e848c, 95) and (muBiaoA == "采集" or muBiaoA == "去采集点") then
-        debugA("误开离开")
-        tap1(451, 406, 0x734d45)
-    end
-    if isColor(166, 396, 0x0090bf, 95) and isColor(370, 403, 0xd3b301, 95) and isColor(575, 408, 0x36c400, 95) then
-        debugA("误开告知")
-        tap1(967, 213, 0xffffff)
-    end
-    if isColor(142, 25, 0xa5eb30, 95) and isColor(156, 32, 0x7bdd23, 95) and isColor(531, 38, 0xffffff, 95) then
-        debugA("误开聊天框")
-        tap1(531, 38, 0xffffff)
-    end
-    if isColor(438, 449, 0x008dbe, 95) and isColor(690, 484, 0x008ab8, 95) and isColor(559, 462, 0xccd4d9, 95) then
-        debugA("奖励发放--关闭")
-        tap1(559, 462, 0xccd4d9)
-    end
-    if isColor(47, 257, 0xf7f6f7, 95) and isColor(91, 290, 0x4592c2, 95) then
-        debugA("菜单界面")
-        if isColor(17, 426, 0xbf3f2f, 95) and isColor(38, 443, 0xf7f7f7, 95) then
-            debugA("称号--红点")
-            tap1(36, 442, 0xf7f8f7)
-            -- elseif isColor(1113, 238, 0xbe3e2e, 95) and isColor(1097, 259, 0x1b1d28, 95) then
-            --     debug("图鉴--红点")
-            --     tap1(1097, 259)
-            --     if isColor(945, 114, 0xbe3e2e, 95) then
-            --         debug("怪物图鉴")
-            --         tap1(930, 130, 0x2d313a)
-            --     -- elseif isColor(944, 238, 0xbe3e2e, 95) then
-            --     --     debug("道具图鉴")
-            --     --     tap1(926, 252, 0x636468)
-            --     else
-
-            --     end
-        elseif isColor(17, 177, 0xbe3e2e, 95) and isColor(46, 178, 0xfdfdfd, 95) then
-            debugA("活动--红点")
-            tap1(38, 196, 0xcecfd1)
-            if isColor(186, 178, 0xbe3e2e, 95) then
-                debugA("进行中活动--红点")
-                tap1(214, 196, 0x66686e)
-            end
-        elseif isColor(17, 240, 0xbe3e2e, 95) and isColor(29, 244, 0xfcfcfc, 95) then
-            debugA("任务--红点")
-            tap1(29, 244, 0xfcfcfc)
-            if isColor(186, 115, 0xbe3e2e, 95) then
-                debugA("目标与成就--红点")
-                tap1(214, 130, 0x40414a)
-            end
-            -- elseif isColor(17, 115, 0xbe3e2e, 95) then
-            --     debug("英雄管理--红点")
-            --     tap1(43, 136, 0x7e8189)
-            --     if isColor(186, 240, 0xbe3e2e, 95) then
-            --         debug("技能--红点")
-            --         tap1(186, 240)
-            --     elseif isColor(186, 177, 0xbe3e2e, 95) then
-            --         debug("装备--红点")
-            --         tap1(207, 192, 0xd6d6d8)
-            --     end
-            -- elseif isColor(1114, 175, 0xbe3e2e, 95) and isColor(1100, 186, 0xfcfcfc, 95) then
-            --     debug("好友--红点")
-            --     tap1(1100, 186, 0xfcfcfc)
-        else
-            timeXuanDanRed = nowTime
-            tap1(558, 578, 0x454e56)
-        end
-    end
-    if isColor(89, 21, 0x8697a6, 95) and isColor(86, 38, 0x92a5b5, 95) and isColor(122, 23, 0x7d8d99, 95) and
-        isColor(124, 38, 0x899dac, 95) then
-        debugA("好友界面")
-        if isColor(331, 259, 0xcd0000, 95) then
-            debugA("拒绝")
-            tap1(380, 258, 0x391414)
-            tap1(603, 402, 0x3d0f07)
-        else
-            x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 0, 84, 890, 84)
-            if x > 0 then
-                tap1(x, y)
-            else
-                tap1(20, 20)
-            end
-        end
-    end
-    if isColor(367, 543, 0x0088db, 95) and isColor(1000, 111, 0x62c400, 95) then
-        debugA("怪物图鉴界面")
-        x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 30, 99, 30, 585)
-        if x > 0 then -- 如果在指定区域找到某点符合条件
-            tap1(145, 601, 0xf9f9f9) --批量处理
-            mSleep(1000)
-            tap1(572, 393, 0x5e7484) --确认
-        else
-            tap1(20, 20)
-        end
-    end
-    if isColor(426, 119, 0xdae1e1, 95) and isColor(1090, 108, 0x01e6fa, 95) and isColor(737, 603, 0x8af92a, 95) then
-        debugA("装备管理界面")
-        if isColor(551, 93, 0xbe3e2e, 95) then
-            debugA("能力值--红点")
-            tap1(519, 116, 0x4d5152)
-        else
-            tap1(20, 20)
-        end
-    end
-    if isColor(424, 137, 0xdbdddd, 95) and isColor(519, 137, 0x4b4d52, 95) and isColor(875, 178, 0x616a6f, 95) then
-        debugA("能力值界面")
-        if isColor(718, 201, 0xbe3e2e, 95) then
-            debugA("剩余点数--红点")
-            if isColor(711, 388, 0x850e0e, 95) then
-                debugA("推荐智力")
-                for i = 1, 100, 1 do
-                    tap1(1003, 405, 0x82fd2c) -- +号
-                    if isColor(1003, 405, 0x82fd2c, 95) == false then
-                        break
-                    end
-                end
-                tap1(869, 528, 0x6d6d6e) --强化
-            end
-        else
-            tap1(20, 20)
-        end
-    end
-    if isColor(25, 55, 0x72cb04, 95) and isColor(150, 51, 0x71c903, 95) and isColor(98, 41, 0xe5e6e4, 95) then
-        debugA("优惠界面")
-        if isColor(141, 37, 0xbe3e2e, 95) then
-            debugA("优惠--红点")
-            if isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) then
-                debugA("在线礼包--选中")
-                x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
-                if x > 0 then -- 如果在指定区域找到某点符合条件
-                    touchQuickly(x, y + 10)
-                    mSleep(2000)
-                    -- tap1(x, y - 78)--广告
-                else
-                    touchMoveXY(1096, 483, 387, 100)
-                    x, y = findColorInRegionFuzzy(0xf79700, 90, 313, 555, 1060, 555)
-                    if x > 0 then -- 如果在指定区域找到某点符合条件
-                        touchQuickly(x, y + 10)
-                        mSleep(2000)
-                        -- tap1(x, y - 78)--广告
-                    end
-                end
-            elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) then
-                debugA("story--选中")
-                x, y = findColorInRegionFuzzy(0x7ed703, 90, 930, 338, 930, 612)
-                if x > 0 then -- 如果在指定区域找到某点符合条件
-                    touchQuickly(x + 10, y)
-                end
-            elseif isColor(262, 458, 0xbe3e2e, 95) and isColor(236, 447, 0x1a92c3, 95) == false then
-                debugA("在线礼包--未选中")
-                tap1(176, 479, 0x06243d)
-            elseif isColor(262, 173, 0xbe3e2e, 95) and isColor(242, 164, 0x1d9fd5, 95) == false then
-                debugA("story--未选中")
-                tap1(224, 196, 0x06253e)
-
-            end
-        else
-            tap1(1092, 45, 0xffffff)
-        end
-    end
-    if isColor(161, 237, 0x95a4ad, 95) and isColor(1003, 49, 0xffffff, 95) and isColor(141, 43, 0xe6e8e9, 95) then
-        debugA("目标与成就界面")
-        if isColor(863, 178, 0xbe7d00, 95) then
-            debugA("全部领取")
-            tap1(922, 176, 0x706955)
-        else
-            x, y = findColorInRegionFuzzy(0xbe3e2e, 90, 333, 89, 1011, 89) --找红点
-            if x > 0 then -- 如果在指定区域找到某点符合条件
-                touchQuickly(x, y + 10)
-            else
-                tap1(1002, 49, 0xffffff) --关闭
-            end
-        end
-    end
-    if isColor(440, 543, 0x5b6577, 95) and isColor(683, 590, 0x535b6d, 95) and isColor(398, 51, 0xf1e4c3, 95) then
-        debugA("召唤成功")
-        tap1(571, 571, 0x777e8d)
-    end
-    if isColor(28, 25, 0xfdfefe, 95) and isColor(992, 495, 0x696969, 95) and isColor(993, 355, 0x727272, 95) then
-        debugA("坐骑界面")
-        if isColor(791, 563, 0xbe3e2e, 95) then
-            debugA("召唤--红点")
-            tap1(922, 589, 0x728693)
-        else
-            tap1(20, 20)
-        end
-    end
-    if isColor(525, 546, 0xac190b, 95) and isColor(637, 527, 0x3c4752, 95) then
-        debugA("任务详情--bug")
-        tap1(801, 85)
-    end
-    if isColor(340, 85, 0xd05a55, 95) and isColor(415, 84, 0xaf4e4d, 95) and isColor(800, 84, 0xffffff, 95) then
-        debugA("支线详情")
-        if isColor(596, 549, 0x324f6b, 95) then
-            debugA("任务完成")
-            tap1(596, 549, 0x324f6b)
-        else
-            tap1(799, 85, 0xffffff)
-        end
-    end
-    if isColor(524, 548, 0x451b1a, 95) and isColor(537, 548, 0x463e2f, 95) then
-        debugA("任务详情")
-        if isColor(642, 528, 0x3c4753, 95) then
-            -- debug("进行中--灰色")
-            local temStr = ocrText(366, 71, 548, 92, 0, "0123456789.")
-            if temStr ~= nil then
-                debugA("temStr:" .. temStr)
-                if temStr == "48." then
-                    debugA("任务48.")
-                    tap1(800, 84, 0xffffff)
-                    tap1(968, 575, 0xd6c0a5)
-                elseif temStr == "52." then
-                    debugA("任务52.")
-                    tap1(800, 84, 0xffffff)
-                    tap1(1095, 446, 0xc23730)
-                end
-            end
-        elseif isColor(688, 527, 0x007ea9, 95) then
-            debugA("完成")
-            tap1(683, 544, 0x26455a)
-        end
-    end
-    if isColor(274, 240, 0x8e3ab0, 95) and isColor(274, 331, 0x953ab6, 95) and isColor(273, 422, 0x9238b0, 95) then
-        debugA("技能管理强化")
-        if isColor(615, 562, 0xdb2b05, 95) then
-            debugA("可强化")
-            tap1(565, 587, 0x110300)
-            tap1(640, 404, 0x00203d)
-        else
-            tap1(20, 20)
-        end
-    end
-    if isColor(621, 135, 0xf24833, 95) and isColor(723, 199, 0xf9efb1, 95) and isColor(516, 583, 0x913227, 95) and
-        isColor(608, 579, 0x2b435a, 95) then
-        debugA("老练的隐忍银蟾")
-        tap1(608, 579, 0x2b435a)
-    end
-    if isColor(8, 153, 0xe3d4bb, 95) and isColor(260, 204, 0xf0e3cb, 95) and isColor(27, 25, 0xffffff, 95) then
-        debugA("指引--退出")
-        tap1(27, 25, 0xffffff)
-    end
-    if isColor(1090, 605, 0xb07705, 95) and isColor(1098, 608, 0xa26e07, 95) and isColor(1017, 614, 0xedd293, 95) then
-        debugA("跳过对话")
-        tap1(1042, 418, 0x807e70)
-    end
-    if isColor(465, 543, 0x960000, 95) and isColor(681, 543, 0x007ea9, 95) then
-        debugA("受到攻击")
-        tap1(461, 562, 0xc4a391) --不审判
-    end
-    if isColor(430, 328, 0x966500, 95) and isColor(713, 329, 0x0080b2, 95) then
-        debugA("复活")
-        isTapTask = false
-        writeJson("点任务", isTapTask)
-        tap1(714, 352, 0x808b6e)
-        isDead = true
-        numDead = numDead + 1
-        if numDead >= 5 then
-            if numCollect == "采集点1" then
-                numCollect = "采集点3"
-            elseif numCollect == "采集点3" then
-                numCollect = "采集点2"
-            elseif numCollect == "采集点2" then
-                numCollect = "采集点4"
-            elseif numCollect == "采集点4" then
-                numCollect = "采集点1"
-            end
-            numDead = 0
-        end
-        if muBiaoA == "采集" then
-            gaiMuBiaoNewA(1, "去采集点")
-        elseif muBiaoA == "挂机" then
-            gaiMuBiaoNewA(1, "去挂机点")
-        end
-    end
-    if isColor(437, 436, 0x0078a4, 95) and isColor(698, 431, 0x0078a4, 95) and isColor(447, 417, 0x00243a, 95) and
-        isColor(687, 451, 0x002740, 95) then
-        debugA("增强")
-        tap1(574, 432, 0x90a0aa)
+-- 目标转换--新B
+function muBiaoZhuanHuanNewB(...)
+    if muBiaoB4 ~= "" and muBiaoB4 ~= "无" then
+        muBiaoB = muBiaoB4
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoB3 ~= "" and muBiaoB3 ~= "无" then
+        muBiaoB = muBiaoB3
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoB2 ~= "" and muBiaoB2 ~= "无" then
+        muBiaoB = muBiaoB2
+        timeDingShiDianRenWu = nowTime - 60 * 60
+    elseif muBiaoB1 ~= "" and muBiaoB1 ~= "无" then
+        muBiaoB = muBiaoB1
+        -- timeDingShiDianRenWu = nowTime - 60 * 60
+    else
+        debugB("目标空")
+        muBiaoB1 = ""
+        muBiaoB = muBiaoB1
+        writeConfigNew("muBiaoB1", muBiaoB1)
+        timeDingShiDianRenWu = nowTime - 60 * 60
     end
 
-    if isColor(778, 576, 0x8c5900, 95) and isColor(885, 582, 0x0087a4, 95) and isColor(926, 585, 0x002a3e, 95) then
-        debugA("角色选择")
-        tap1(925, 578, 0x00293d)
-    end
-    if isColor(926, 341, 0xa3ea30, 95) and isColor(948, 353, 0x74db22, 95) and isColor(789, 540, 0x162f2e, 95) then
-        debugA("云打码")
-        mSleep(5000)
-        local strDaMa = yunDaMaNew(op, 234, 207, 855, 485)
-        if strDaMa ~= false then
-            debugA("识别成功")
-            tap1(456, 539, 0x0e1118)
-            mSleep(1000)
-            inputText(strDaMa)
-            mSleep(2000)
-            tap1(1027, 603, 0x000000)
-            mSleep(2000)
-            tap1(760, 540, 0x253d3c)
-        end
+end
+
+-- 改目标--新B
+function gaiMuBiaoNewB(cs_num, cs_muBiao, ...)
+    if cs_num == 1 then
+        muBiaoB1 = cs_muBiao
+        writeConfigNew("muBiaoB1", cs_muBiao)
+        muBiaoZhuanHuanNewB()
+        writeJson("目标B1", cs_muBiao)
+    elseif cs_num == 2 then
+        muBiaoB2 = cs_muBiao
+        writeConfigNew("muBiaoB2", cs_muBiao)
+        muBiaoZhuanHuanNewB()
+        writeJson("目标B2", cs_muBiao)
+    elseif cs_num == 3 then
+        muBiaoB3 = cs_muBiao
+        writeConfigNew("muBiaoB3", cs_muBiao)
+        muBiaoZhuanHuanNewB()
+        writeJson("目标B3", cs_muBiao)
+    elseif cs_num == 4 then
+        muBiaoB4 = cs_muBiao
+        writeConfigNew("muBiaoB4", cs_muBiao)
+        muBiaoZhuanHuanNewB()
+        writeJson("目标B4", cs_muBiao)
     end
 end
 
--- 城内
-function inside2()
+function debugB(tiaoShiNeiRong)
+    -- wLog("192.168.1.34","#    [LINE]")
+    if check1 == "网络调试" then
+        wLog("192.168.1.34",
+            iphoneId ..
+            " 目标1: " ..
+            muBiaoB1 .. " 目标2: " .. muBiaoB2 .. " 目标3: " .. muBiaoB3 .. " 目标4: " ..
+            muBiaoB4 .. "    操作:" ..
+            tiaoShiNeiRong .. "   #" .. xiangMu .. "#   [DATE]" .. "#    [LINE]")
+    elseif check2 == "本地调试" then
+        -- dialog(tiaoShiNeiRong,5)
+        toast(
+            "目标1: " ..
+            muBiaoB1 .. " 目标2: " ..
+            muBiaoB2 .. " 目标3: " .. muBiaoB3 .. " 目标4: " .. muBiaoB4 .. "                操作:" ..
+            tiaoShiNeiRong)
+        mSleep(3000)
+    end
+end
+-- 综合2
+function zongHe2()
+    if isColor(840,136,0xb7b1b4,95) and isColor(937,131,0xd9d9dd,95) and isColor(1034,125,0xbab9bb,95) then
+        debugB("误开菜单列表")
+        tap1(1044,41)
+        mSleep(1000)
+    end
+    if isColor(480,570,0x3693f5,95) and isColor(504,596,0xbce4ff,95) and isColor(508,601,0xfdfeff,95) and isColor(526,610,0x91a8a7,95) then
+       debugB("开始游戏")
+       tap1(629, 589, 0xffffff)
+    end
+    if isColor(0,68,0xc00e11,95) and isColor(95,110,0xfc2626,95) and isColor(375,110,0xfec300,95) and isColor(1071,79,0xffffff,95) then
+        debugB("游戏公告")
+        tap1(1071, 79, 0xffffff)
+     end
+     if isColor(1004,90,0xcfcfcf,95) and isColor(1010,101,0x000000,95) and isColor(1020,173,0xb7babd,95) then
+        debugB("点击开始游戏")
+        tap1(560, 571, 0xffffff)
+     end
+     if isColor(114,528,0xfed81f,95) and isColor(127,558,0x887511,95) and isColor(131,562,0x71630e,95) then
+        debugB("前往获取")
+        tap1(986, 61, 0xffffff)
+        strZhuangTai = "原点"
+     end
+     if isColor(526,265,0x242322,95) and isColor(609,348,0xffbb68,95) and isColor(607,274,0x302d2b,95) then
+        debugB("月卡奖励")
+        tap1(567, 578, 0xffffff)
+     end
+     if isColor(579,311,0x000000,95) and isColor(368,403,0xfe831f,95) and isColor(428,302,0x0f0f0f,95) then
+        debugB("前往评分")
+        tap1(442, 421, 0xffffff)
+     end
+     if isColor(512,315,0xa7a7a7,95) and isColor(595,314,0xa6a6a6,95) and isColor(441,343,0xa7a7a7,95) then
+        debugB("购买赛季等级")
+        tap1(442, 421, 0xffffff)
+     end
+     if isColor(496,432,0xa89237,95) and isColor(639,479,0xb7953c,95) and isColor(541,454,0xf2ca42,95) then
+        debugB("新时刻已解锁")
+        tap1(541, 454, 0xffffff)
+     end
+     if isColor(489,403,0x9e862d,95) and isColor(636,445,0xa88f3e,95) and isColor(640,401,0x996e25,95) and isColor(564,422,0xf0c840,95) then
+        debugB("功能解锁")
+        tap1(564, 422, 0xffffff)
+     end
+     if isColor(477,496,0xfed81f,95) and isColor(494,530,0x74650e,95) and isColor(540,530,0xc1a918,95) then
+        debugB("已解锁新的混乱卡牌")
+        tap1(572, 515, 0xffffff)
+     end
+     if isColor(567,111,0xffde41,95) and isColor(509,217,0xfff841,95) and isColor(626,217,0xfff841,95) then
+        debugB("恭喜获得")
+        tap1(561, 582, 0xffffff)
+     end
+     if isColor(927,241,0x59fb34,95) and isColor(929,243,0x2a5521,95) and isColor(1034,244,0x4fd82f,95) then
+        debugB("冲刺送英雄")
+        tap1(981,256, 0xffffff)
+     end
+     if isColor(678,18,0xffdacb,95) and isColor(676,16,0xf05d1d,95) and isColor(679,32,0xfc3c10,95) then
+        debugB("主界面-活动中心红点")
+        tap1(652,47, 0xffffff)
+     end
+     if isColor(776,23,0xff4c13,95) and isColor(779,25,0xffaf9c,95) and isColor(780,31,0xfd614c,95) then
+        debugB("主界面-活动中心红点")
+        tap1(753,50, 0xffffff)
+     end
+     if isColor(878,23,0xff4b13,95) and isColor(883,30,0xffe5df,95) and isColor(885,30,0xff694a,95) then
+        debugB("主界面-活动中心红点")
+        tap1(859,51, 0xffffff)
+     end
+     if isColor(1067,120,0xff5214,95) and isColor(1060,120,0xff9680,95) and isColor(1062,125,0xffc9bc,95) then
+        debugB("主界面-赛季手册红点")
+        tap1(1038,143, 0xffffff)
+     end
+     if isColor(84,14,0xb0beec,95) and isColor(938,54,0x000000,95) and isColor(1002,43,0xff4c13,95) then
+        debugB("赛季手册--任务红点")
+        tap1(963,57, 0xffffff)
+     end
+     if isColor(324,308,0xc8c8c8,95) and isColor(326,310,0x7f7f7f,95) and isColor(471,311,0xb9b9b9,95) then
+        debugB("登录送背饰-第一天")
+        tap1(398,322, 0xffffff)
+     end
+     if isColor(513,308,0xc4c4c4,95) and isColor(515,310,0x757575,95) and isColor(662,311,0xbebebe,95) then
+        debugB("登录送背饰-第二天")
+        tap1(590,323, 0xffffff)
+     end
+     if isColor(703,308,0xc5c5c5,95) and isColor(705,310,0x797979,95) and isColor(855,315,0xbfbfbf,95) then
+        debugB("登录送背饰-第三天")
+        tap1(780, 322, 0xffffff)
+     end
+     if isColor(324,541,0xc6c6c6,95) and isColor(326,543,0x7a7a7a,95) and isColor(473,545,0xc3c3c3,95) then
+        debugB("登录送背饰-第四天")
+        tap1(397, 554, 0xffffff)
+     end
+     if isColor(513,541,0xc6c6c6,95) and isColor(515,543,0x797979,95) and isColor(663,545,0xc3c3c3,95) then
+        debugB("登录送背饰-第五天")
+        tap1(588, 558, 0xffffff)
+     end
+     if isColor(703,541,0xcbcbcb,95) and isColor(705,543,0x868686,95) and isColor(852,544,0xc9c9c9,95) then
+        debugB("登录送背饰-第六天")
+        tap1(775, 554, 0xffffff)
+     end
+     if isColor(909,543,0xbfbfbf,95) and isColor(911,545,0x6a6a6a,95) and isColor(1058,548,0xacacac,95) then
+        debugB("登录送背饰-第七天")
+        tap1(981,556, 0xffffff)
+     end
+     if isColor(324,308,0xc8c8c8,95) and isColor(326,310,0x7f7f7f,95) and isColor(471,311,0xb9b9b9,95) then
+        debugB("七日登录-第一天")
+        tap1(398,322, 0xffffff)
+     end
+     if isColor(513,308,0xc4c4c4,95) and isColor(515,310,0x757575,95) and isColor(662,311,0xbebebe,95) then
+        debugB("七日登录-第二天")
+        tap1(590,323, 0xffffff)
+     end
+     if isColor(703,308,0xc5c5c5,95) and isColor(705,310,0x797979,95) and isColor(855,315,0xbfbfbf,95) then
+        debugB("七日登录-第三天")
+        tap1(780, 322, 0xffffff)
+     end
+     if isColor(324,541,0xc6c6c6,95) and isColor(326,543,0x7a7a7a,95) and isColor(473,545,0xc3c3c3,95) then
+        debugB("七日登录-第四天")
+        tap1(397, 554, 0xffffff)
+     end
+     if isColor(513,541,0xc6c6c6,95) and isColor(515,543,0x797979,95) and isColor(663,545,0xc3c3c3,95) then
+        debugB("七日登录-第五天")
+        tap1(588, 558, 0xffffff)
+     end
+     if isColor(703,541,0xcbcbcb,95) and isColor(705,543,0x868686,95) and isColor(852,544,0xc9c9c9,95) then
+        debugB("七日登录-第六天")
+        tap1(775, 554, 0xffffff)
+     end
+     if isColor(909,543,0xbfbfbf,95) and isColor(911,545,0x6a6a6a,95) and isColor(1058,548,0xacacac,95) then
+        debugB("七日登录-第七天")
+        tap1(981,556, 0xffffff)
+     end
+end
+--传送门至传送门
+function doorToDoor()
+    init("0", 0);
+    mSleep(1470);
 
+    touchDown(1, 119, 148);
+    mSleep(378);
+    touchMove(1, 130, 157);
+    mSleep(16);
+    touchMove(1, 130, 158);
+    mSleep(17);
+    touchMove(1, 130, 159);
+    mSleep(16);
+    touchMove(1, 130, 160);
+    mSleep(34);
+    touchMove(1, 130, 161);
+    mSleep(18);
+    touchMove(1, 130, 162);
+    mSleep(14);
+    touchMove(1, 130, 163);
+    mSleep(35);
+    touchMove(1, 130, 164);
+    mSleep(15);
+    touchMove(1, 130, 165);
+    mSleep(52);
+    touchMove(1, 130, 166);
+    mSleep(14);
+    touchMove(1, 131, 168);
+    mSleep(16);
+    touchMove(1, 133, 170);
+    mSleep(17);
+    touchMove(1, 134, 172);
+    mSleep(16);
+    touchMove(1, 135, 173);
+    mSleep(17);
+    touchMove(1, 136, 175);
+    mSleep(20);
+    touchMove(1, 138, 176);
+    mSleep(14);
+    touchMove(1, 139, 178);
+    mSleep(16);
+    touchMove(1, 140, 179);
+    mSleep(16);
+    touchMove(1, 141, 180);
+    mSleep(18);
+    touchMove(1, 142, 181);
+    mSleep(18);
+    touchMove(1, 144, 183);
+    mSleep(15);
+    touchMove(1, 146, 185);
+    mSleep(17);
+    touchMove(1, 147, 186);
+    mSleep(17);
+    touchMove(1, 148, 187);
+    mSleep(50);
+    touchMove(1, 149, 187);
+    mSleep(18);
+    touchMove(1, 149, 188);
+    mSleep(66);
+    touchMove(1, 150, 188);
+    mSleep(17);
+    touchMove(1, 151, 188);
+    mSleep(19);
+    touchMove(1, 151, 189);
+    mSleep(32);
+    touchMove(1, 152, 189);
+    mSleep(17);
+    touchMove(1, 153, 190);
+    mSleep(33);
+    touchMove(1, 154, 190);
+    mSleep(33);
+    touchMove(1, 154, 191);
+    mSleep(101);
+    touchMove(1, 155, 192);
+    mSleep(33);
+    touchMove(1, 155, 193);
+    mSleep(33);
+    touchMove(1, 155, 195);
+    mSleep(16);
+    touchMove(1, 156, 195);
+    mSleep(17);
+    touchMove(1, 156, 196);
+    mSleep(16);
+    touchMove(1, 157, 197);
+    mSleep(34);
+    touchMove(1, 158, 197);
+    mSleep(16);
+    touchMove(1, 158, 198);
+    mSleep(17);
+    touchMove(1, 159, 199);
+    mSleep(17);
+    touchMove(1, 159, 200);
+    mSleep(16);
+    touchMove(1, 160, 201);
+    mSleep(17);
+    touchMove(1, 160, 202);
+    mSleep(17);
+    touchMove(1, 160, 203);
+    mSleep(16);
+    touchMove(1, 160, 204);
+    mSleep(17);
+    touchMove(1, 161, 205);
+    mSleep(34);
+    touchMove(1, 162, 206);
+    mSleep(18);
+    touchMove(1, 162, 207);
+    mSleep(15);
+    touchMove(1, 163, 208);
+    mSleep(33);
+    touchMove(1, 163, 209);
+    mSleep(17);
+    touchMove(1, 164, 210);
+    mSleep(19);
+    touchMove(1, 165, 210);
+    mSleep(32);
+    touchMove(1, 165, 211);
+    mSleep(32);
+    touchMove(1, 165, 212);
+    mSleep(16);
+    touchMove(1, 166, 212);
+    mSleep(67);
+    touchMove(1, 167, 212);
+    mSleep(16);
+    touchMove(1, 167, 213);
+    mSleep(67);
+    touchMove(1, 167, 214);
+    mSleep(17);
+    touchMove(1, 167, 215);
+    mSleep(17);
+    touchMove(1, 168, 216);
+    mSleep(16);
+    touchMove(1, 168, 217);
+    mSleep(17);
+    touchMove(1, 168, 219);
+    mSleep(17);
+    touchMove(1, 168, 221);
+    mSleep(16);
+    touchMove(1, 168, 224);
+    mSleep(17);
+    touchMove(1, 168, 228);
+    mSleep(17);
+    touchMove(1, 167, 231);
+    mSleep(17);
+    touchMove(1, 164, 235);
+    mSleep(51);
+    touchMove(1, 157, 242);
+    mSleep(15);
+    touchMove(1, 155, 245);
+    mSleep(16);
+    touchMove(1, 153, 247);
+    mSleep(17);
+    touchMove(1, 152, 248);
+    mSleep(17);
+    touchMove(1, 151, 249);
+    mSleep(17);
+    touchMove(1, 151, 250);
+    mSleep(16);
+    touchMove(1, 151, 251);
+    mSleep(300);
+    touchMove(1, 151, 252);
+    mSleep(68);
+    touchMove(1, 151, 253);
+    mSleep(348);
+    touchMove(1, 152, 253);
+    mSleep(18);
+    touchMove(1, 153, 253);
+    mSleep(15);
+    touchMove(1, 154, 253);
+    mSleep(17);
+    touchMove(1, 155, 253);
+    mSleep(16);
+    touchMove(1, 157, 253);
+    mSleep(19);
+    touchMove(1, 160, 253);
+    mSleep(15);
+    touchMove(1, 163, 253);
+    mSleep(17);
+    touchMove(1, 166, 253);
+    mSleep(16);
+    touchMove(1, 167, 253);
+    mSleep(17);
+    touchMove(1, 168, 253);
+    mSleep(16);
+    touchMove(1, 169, 253);
+    mSleep(400);
+    touchMove(1, 170, 253);
+    mSleep(534);
+    touchUp(1, 172, 254);
+
+    init(1)
+
+
+end
+--召一次怪
+function callMonster()
+    for i = 1, 5, 1 do
+        tap1(916,487,0x90231a)
+        mSleep(1000)
+    end
+    for i = 1, 4, 1 do
+        tap1(780,529,0x822017    )
+        mSleep(1000)
+    end
+end
+-- 副本内门口
+function insideDoor()
+    init("0", 0);
+    -- luaExitIfCall(true);
+    mSleep(1160);
+
+    touchDown(7, 160, 217);
+    mSleep(111);
+    touchMove(7, 153, 227);
+    mSleep(16);
+    touchMove(7, 153, 229);
+    mSleep(16);
+    touchMove(7, 153, 231);
+    mSleep(18);
+    touchMove(7, 153, 232);
+    mSleep(16);
+    touchMove(7, 152, 233);
+    mSleep(17);
+    touchMove(7, 152, 234);
+    mSleep(16);
+    touchMove(7, 151, 235);
+    mSleep(53);
+    touchMove(7, 149, 236);
+    mSleep(14);
+    touchMove(7, 148, 237);
+    mSleep(18);
+    touchMove(7, 147, 237);
+    mSleep(15);
+    touchMove(7, 147, 238);
+    mSleep(18);
+    touchMove(7, 146, 238);
+    mSleep(33);
+    touchMove(7, 145, 239);
+    mSleep(49);
+    touchMove(7, 145, 240);
+    mSleep(19);
+    touchMove(7, 144, 240);
+    mSleep(18);
+    touchMove(7, 143, 240);
+    mSleep(48);
+    touchMove(7, 142, 241);
+    mSleep(48);
+    touchMove(7, 141, 241);
+    mSleep(50);
+    touchMove(7, 141, 242);
+    mSleep(17);
+    touchMove(7, 140, 242);
+    mSleep(17);
+    touchMove(7, 140, 243);
+    mSleep(71);
+    touchMove(7, 139, 243);
+    mSleep(48);
+    touchMove(7, 138, 243);
+    mSleep(31);
+    touchMove(7, 137, 243);
+    mSleep(149);
+    touchMove(7, 136, 243);
+    mSleep(153);
+    touchMove(7, 135, 243);
+    mSleep(1331);
+    touchUp(7, 135, 245);
+    mSleep(19);
+
+    touchDown(3, 203, 226);
+    mSleep(64);
+    touchMove(3, 212, 232);
+    mSleep(16);
+    touchMove(3, 213, 235);
+    mSleep(19);
+    touchMove(3, 214, 236);
+    mSleep(14);
+    touchMove(3, 215, 238);
+    mSleep(20);
+    touchMove(3, 217, 241);
+    mSleep(14);
+    touchMove(3, 219, 244);
+    mSleep(21);
+    touchMove(3, 221, 245);
+    mSleep(13);
+    touchMove(3, 222, 247);
+    mSleep(19);
+    touchMove(3, 223, 248);
+    mSleep(14);
+    touchMove(3, 224, 249);
+    mSleep(16);
+    touchMove(3, 225, 250);
+    mSleep(16);
+    touchMove(3, 225, 251);
+    mSleep(20);
+    touchMove(3, 226, 252);
+    mSleep(13);
+    touchMove(3, 226, 253);
+    mSleep(20);
+    touchMove(3, 226, 254);
+    mSleep(14);
+    touchMove(3, 227, 255);
+    mSleep(17);
+    touchMove(3, 227, 256);
+    mSleep(99);
+    touchMove(3, 227, 257);
+    mSleep(33);
+    touchMove(3, 228, 258);
+    mSleep(150);
+    touchMove(3, 229, 258);
+    mSleep(135);
+    touchMove(3, 230, 258);
+    mSleep(49);
+    touchMove(3, 231, 258);
+    mSleep(86);
+    touchMove(3, 232, 258);
+    mSleep(15);
+    touchMove(3, 233, 258);
+    mSleep(50);
+    touchMove(3, 234, 258);
+    mSleep(33);
+    touchMove(3, 235, 259);
+    mSleep(86);
+    touchMove(3, 236, 259);
+    mSleep(46);
+    touchMove(3, 237, 259);
+    mSleep(69);
+    touchMove(3, 238, 259);
+    mSleep(15);
+    touchMove(3, 239, 259);
+    mSleep(21);
+    touchMove(3, 240, 259);
+    mSleep(12);
+    touchMove(3, 241, 259);
+    mSleep(17);
+    touchMove(3, 242, 259);
+    mSleep(16);
+    touchMove(3, 243, 259);
+    mSleep(20);
+    touchMove(3, 244, 259);
+    mSleep(14);
+    touchMove(3, 245, 259);
+    mSleep(84);
+    touchMove(3, 246, 259);
+    mSleep(487);
+    touchUp(3, 253, 260);
+    mSleep(1821);
+
+    touchDown(3, 215, 239);
+    mSleep(370);
+    touchMove(3, 238, 259);
+    mSleep(47);
+    touchMove(3, 239, 259);
+    mSleep(267);
+    touchMove(3, 239, 260);
+    mSleep(151);
+    touchMove(3, 240, 260);
+    mSleep(1963);
+    touchUp(3, 241, 260);
+    mSleep(1036);
+
+    touchDown(8, 272, 1026);
+    mSleep(67);
+    touchUp(8, 272, 1026);
+    mSleep(798);
+
+    touchDown(3, 240, 246);
+    mSleep(149);
+    touchMove(3, 249, 255);
+    mSleep(18);
+    touchMove(3, 250, 255);
+    mSleep(15);
+    touchMove(3, 252, 257);
+    mSleep(18);
+    touchMove(3, 254, 259);
+    mSleep(16);
+    touchMove(3, 255, 260);
+    mSleep(18);
+    touchMove(3, 256, 261);
+    mSleep(15);
+    touchMove(3, 257, 262);
+    mSleep(19);
+    touchMove(3, 258, 262);
+    mSleep(15);
+    touchMove(3, 259, 263);
+    mSleep(17);
+    touchMove(3, 260, 263);
+    mSleep(33);
+    touchMove(3, 261, 263);
+    mSleep(34);
+    touchMove(3, 261, 264);
+    mSleep(83);
+    touchMove(3, 261, 265);
+    mSleep(133);
+    touchMove(3, 262, 265);
+    mSleep(50);
+    touchMove(3, 263, 266);
+    mSleep(217);
+    touchMove(3, 264, 266);
+    mSleep(317);
+    touchMove(3, 265, 266);
+    mSleep(651);
+    touchMove(3, 266, 266);
+    mSleep(67);
+    touchMove(3, 267, 266);
+    mSleep(16);
+    touchMove(3, 268, 266);
+    mSleep(18);
+    touchMove(3, 269, 266);
+    mSleep(19);
+    touchMove(3, 270, 265);
+    mSleep(32);
+    touchMove(3, 271, 265);
+    mSleep(165);
+    touchMove(3, 271, 264);
+    mSleep(267);
+    touchMove(3, 271, 263);
+    mSleep(53);
+    touchMove(3, 271, 261);
+    mSleep(14);
+    touchUp(3, 272, 257);
+    mSleep(939);
+
+    touchDown(3, 237, 219);
+    mSleep(78);
+    touchMove(3, 252, 214);
+    mSleep(21);
+    touchMove(3, 256, 214);
+    mSleep(15);
+    touchMove(3, 259, 214);
+    mSleep(18);
+    touchMove(3, 260, 214);
+    mSleep(13);
+    touchMove(3, 261, 213);
+    mSleep(21);
+    touchMove(3, 262, 213);
+    mSleep(13);
+    touchMove(3, 263, 211);
+    mSleep(19);
+    touchMove(3, 264, 211);
+    mSleep(14);
+    touchMove(3, 266, 209);
+    mSleep(21);
+    touchMove(3, 268, 207);
+    mSleep(13);
+    touchMove(3, 269, 206);
+    mSleep(19);
+    touchMove(3, 270, 205);
+    mSleep(14);
+    touchMove(3, 271, 204);
+    mSleep(21);
+    touchMove(3, 272, 203);
+    mSleep(11);
+    touchMove(3, 273, 202);
+    mSleep(17);
+    touchMove(3, 274, 202);
+    mSleep(18);
+    touchMove(3, 275, 201);
+    mSleep(23);
+    touchMove(3, 277, 200);
+    mSleep(8);
+    touchMove(3, 279, 199);
+    mSleep(17);
+    touchMove(3, 280, 199);
+    mSleep(16);
+    touchMove(3, 281, 199);
+    mSleep(18);
+    touchMove(3, 281, 198);
+    mSleep(51);
+    touchMove(3, 281, 197);
+    mSleep(14);
+    touchMove(3, 281, 195);
+    mSleep(16);
+    touchMove(3, 281, 193);
+    mSleep(18);
+    touchMove(3, 281, 191);
+    mSleep(16);
+    touchMove(3, 281, 188);
+    mSleep(18);
+    touchMove(3, 281, 186);
+    mSleep(16);
+    touchMove(3, 281, 184);
+    mSleep(17);
+    touchMove(3, 281, 182);
+    mSleep(17);
+    touchMove(3, 281, 179);
+    mSleep(17);
+    touchMove(3, 281, 177);
+    mSleep(16);
+    touchMove(3, 281, 176);
+    mSleep(17);
+    touchMove(3, 281, 175);
+    mSleep(16);
+    touchMove(3, 281, 174);
+    mSleep(16);
+    touchMove(3, 281, 173);
+    mSleep(34);
+    touchMove(3, 281, 172);
+    mSleep(33);
+    touchMove(3, 281, 171);
+    mSleep(51);
+    touchMove(3, 281, 170);
+    mSleep(69);
+    touchMove(3, 281, 169);
+    mSleep(264);
+    touchMove(3, 282, 169);
+    mSleep(67);
+    touchMove(3, 283, 169);
+    mSleep(34);
+    touchMove(3, 284, 169);
+    mSleep(200);
+    touchMove(3, 284, 170);
+    mSleep(15);
+    touchMove(3, 285, 170);
+    mSleep(71);
+    touchMove(3, 285, 171);
+    mSleep(133);
+    touchMove(3, 285, 172);
+    mSleep(30);
+    touchMove(3, 285, 173);
+    mSleep(83);
+    touchMove(3, 285, 174);
+    mSleep(33);
+    touchMove(3, 285, 175);
+    mSleep(34);
+    touchMove(3, 285, 176);
+    mSleep(52);
+    touchMove(3, 285, 177);
+    mSleep(36);
+    touchUp(3, 288, 180);
+    mSleep(18);
+
+    touchDown(3, 270, 197);
+    mSleep(84);
+    touchMove(3, 277, 203);
+    mSleep(15);
+    touchMove(3, 282, 203);
+    mSleep(16);
+    touchMove(3, 288, 206);
+    mSleep(17);
+    touchMove(3, 294, 207);
+    mSleep(17);
+    touchMove(3, 300, 209);
+    mSleep(16);
+    touchMove(3, 305, 209);
+    mSleep(17);
+    touchMove(3, 308, 209);
+    mSleep(19);
+    touchMove(3, 310, 209);
+    mSleep(15);
+    touchMove(3, 312, 210);
+    mSleep(16);
+    touchMove(3, 313, 210);
+    mSleep(17);
+    touchMove(3, 313, 211);
+    mSleep(17);
+    touchMove(3, 315, 211);
+    mSleep(33);
+    touchMove(3, 316, 212);
+    mSleep(1033);
+    touchMove(3, 316, 213);
+    mSleep(150);
+    touchMove(3, 316, 214);
+    mSleep(49);
+    touchMove(3, 316, 215);
+    mSleep(34);
+    touchMove(3, 316, 216);
+    mSleep(33);
+    touchMove(3, 316, 217);
+    mSleep(18);
+    touchMove(3, 316, 218);
+    mSleep(32);
+    touchMove(3, 316, 219);
+    mSleep(17);
+    touchMove(3, 316, 220);
+    mSleep(18);
+    touchMove(3, 315, 221);
+    mSleep(15);
+    touchMove(3, 315, 222);
+    mSleep(50);
+    touchMove(3, 313, 223);
+    mSleep(18);
+    touchMove(3, 313, 224);
+    mSleep(16);
+    touchMove(3, 312, 224);
+    mSleep(67);
+    touchUp(3, 309, 230);
+    mSleep(19);
+
+    touchDown(3, 273, 198);
+    mSleep(132);
+    touchMove(3, 286, 209);
+    mSleep(19);
+    touchMove(3, 291, 210);
+    mSleep(13);
+    touchMove(3, 294, 211);
+    mSleep(18);
+    touchMove(3, 297, 213);
+    mSleep(15);
+    touchMove(3, 298, 214);
+    mSleep(17);
+    touchMove(3, 300, 215);
+    mSleep(16);
+    touchMove(3, 301, 216);
+    mSleep(19);
+    touchMove(3, 302, 217);
+    mSleep(32);
+    touchMove(3, 302, 218);
+    mSleep(15);
+    touchMove(3, 303, 219);
+    mSleep(33);
+    touchMove(3, 303, 220);
+    mSleep(18);
+    touchMove(3, 304, 220);
+    mSleep(82);
+    touchMove(3, 304, 221);
+    mSleep(17);
+    touchMove(3, 304, 222);
+    mSleep(250);
+    touchMove(3, 305, 222);
+    mSleep(85);
+    touchMove(3, 306, 222);
+    mSleep(32);
+    touchMove(3, 307, 222);
+    mSleep(34);
+    touchMove(3, 308, 222);
+    mSleep(15);
+    touchMove(3, 309, 222);
+    mSleep(17);
+    touchMove(3, 310, 222);
+    mSleep(17);
+    touchMove(3, 311, 222);
+    mSleep(52);
+    touchMove(3, 312, 222);
+    mSleep(15);
+    touchMove(3, 313, 222);
+    mSleep(33);
+    touchMove(3, 315, 222);
+    mSleep(153);
+    touchMove(3, 316, 222);
+    mSleep(1432);
+    touchUp(3, 317, 222);
+    mSleep(585);
+
+    touchDown(8, 263, 1048);
+    mSleep(81);
+    touchUp(8, 263, 1048);
+    mSleep(1117);
+
+    touchDown(3, 292, 222);
+    mSleep(181);
+    touchMove(3, 300, 230);
+    mSleep(17);
+    touchMove(3, 301, 230);
+    mSleep(17);
+    touchMove(3, 302, 230);
+    mSleep(16);
+    touchMove(3, 303, 230);
+    mSleep(17);
+    touchMove(3, 304, 231);
+    mSleep(17);
+    touchMove(3, 305, 232);
+    mSleep(68);
+    touchMove(3, 306, 233);
+    mSleep(15);
+    touchMove(3, 308, 233);
+    mSleep(17);
+    touchMove(3, 309, 234);
+    mSleep(17);
+    touchMove(3, 309, 235);
+    mSleep(18);
+    touchMove(3, 310, 235);
+    mSleep(15);
+    touchMove(3, 310, 236);
+    mSleep(51);
+    touchMove(3, 311, 237);
+    mSleep(34);
+    touchMove(3, 312, 237);
+    mSleep(16);
+    touchMove(3, 313, 237);
+    mSleep(17);
+    touchMove(3, 315, 237);
+    mSleep(35);
+    touchMove(3, 316, 237);
+    mSleep(48);
+    touchMove(3, 317, 237);
+    mSleep(33);
+    touchMove(3, 318, 238);
+    mSleep(17);
+    touchMove(3, 319, 238);
+    mSleep(49);
+    touchMove(3, 320, 238);
+    mSleep(217);
+    touchMove(3, 320, 239);
+    mSleep(1487);
+    touchUp(3, 321, 239);
+    mSleep(1682);
+
+    touchDown(3, 279, 201);
+    mSleep(81);
+    touchMove(3, 287, 195);
+    mSleep(17);
+    touchMove(3, 290, 195);
+    mSleep(17);
+    touchMove(3, 293, 193);
+    mSleep(18);
+    touchMove(3, 295, 190);
+    mSleep(16);
+    touchMove(3, 297, 187);
+    mSleep(16);
+    touchMove(3, 299, 185);
+    mSleep(16);
+    touchMove(3, 301, 182);
+    mSleep(17);
+    touchMove(3, 302, 181);
+    mSleep(17);
+    touchMove(3, 303, 179);
+    mSleep(16);
+    touchMove(3, 305, 178);
+    mSleep(18);
+    touchMove(3, 306, 177);
+    mSleep(15);
+    touchMove(3, 307, 176);
+    mSleep(17);
+    touchMove(3, 308, 176);
+    mSleep(17);
+    touchMove(3, 310, 176);
+    mSleep(17);
+    touchMove(3, 311, 176);
+    mSleep(16);
+    touchMove(3, 312, 176);
+    mSleep(17);
+    touchMove(3, 312, 175);
+    mSleep(17);
+    touchMove(3, 312, 174);
+    mSleep(32);
+    touchMove(3, 312, 173);
+    mSleep(33);
+    touchMove(3, 312, 172);
+    mSleep(52);
+    touchMove(3, 312, 171);
+    mSleep(65);
+    touchMove(3, 313, 171);
+    mSleep(100);
+    touchMove(3, 315, 171);
+    mSleep(300);
+    touchMove(3, 316, 171);
+    mSleep(433);
+    touchMove(3, 316, 172);
+    mSleep(16);
+    touchMove(3, 316, 173);
+    mSleep(17);
+    touchMove(3, 316, 174);
+    mSleep(17);
+    touchMove(3, 316, 175);
+    mSleep(34);
+    touchUp(3, 319, 178);
+    mSleep(1003);
+
+    touchDown(3, 279, 213);
+    mSleep(347);
+    touchMove(3, 292, 223);
+    mSleep(18);
+    touchMove(3, 293, 223);
+    mSleep(15);
+    touchMove(3, 294, 223);
+    mSleep(67);
+    touchMove(3, 295, 223);
+    mSleep(50);
+    touchMove(3, 296, 223);
+    mSleep(83);
+    touchMove(3, 297, 223);
+    mSleep(51);
+    touchMove(3, 298, 223);
+    mSleep(50);
+    touchMove(3, 299, 223);
+    mSleep(34);
+    touchMove(3, 300, 224);
+    mSleep(51);
+    touchMove(3, 301, 224);
+    mSleep(15);
+    touchMove(3, 301, 225);
+    mSleep(18);
+    touchMove(3, 302, 225);
+    mSleep(34);
+    touchMove(3, 303, 225);
+    mSleep(14);
+    touchMove(3, 303, 226);
+    mSleep(18);
+    touchMove(3, 304, 226);
+    mSleep(16);
+    touchMove(3, 305, 227);
+    mSleep(20);
+    touchMove(3, 305, 228);
+    mSleep(12);
+    touchMove(3, 306, 228);
+    mSleep(19);
+    touchMove(3, 307, 229);
+    mSleep(31);
+    touchMove(3, 308, 230);
+    mSleep(35);
+    touchMove(3, 309, 230);
+    mSleep(81);
+    touchMove(3, 310, 230);
+    mSleep(67);
+    touchMove(3, 311, 230);
+    mSleep(801);
+    touchUp(3, 313, 230);
+    mSleep(670);
+
+    touchDown(3, 269, 188);
+    mSleep(195);
+    touchMove(3, 280, 180);
+    mSleep(17);
+    touchMove(3, 282, 180);
+    mSleep(20);
+    touchMove(3, 284, 180);
+    mSleep(14);
+    touchMove(3, 285, 180);
+    mSleep(16);
+    touchMove(3, 286, 180);
+    mSleep(17);
+    touchMove(3, 287, 179);
+    mSleep(16);
+    touchMove(3, 288, 179);
+    mSleep(17);
+    touchMove(3, 289, 178);
+    mSleep(16);
+    touchMove(3, 290, 178);
+    mSleep(17);
+    touchMove(3, 291, 178);
+    mSleep(17);
+    touchMove(3, 292, 178);
+    mSleep(17);
+    touchMove(3, 293, 177);
+    mSleep(19);
+    touchMove(3, 293, 176);
+    mSleep(31);
+    touchMove(3, 294, 175);
+    mSleep(19);
+    touchMove(3, 294, 174);
+    mSleep(14);
+    touchMove(3, 295, 174);
+    mSleep(17);
+    touchMove(3, 295, 173);
+    mSleep(34);
+    touchMove(3, 296, 173);
+    mSleep(18);
+    touchMove(3, 296, 172);
+    mSleep(32);
+    touchMove(3, 296, 171);
+    mSleep(15);
+    touchMove(3, 296, 170);
+    mSleep(16);
+    touchMove(3, 297, 170);
+    mSleep(18);
+    touchMove(3, 297, 169);
+    mSleep(67);
+    touchMove(3, 297, 168);
+    mSleep(166);
+    touchMove(3, 298, 168);
+    mSleep(16);
+    touchMove(3, 298, 167);
+    mSleep(66);
+    touchMove(3, 298, 166);
+    mSleep(84);
+    touchMove(3, 298, 165);
+    mSleep(99);
+    touchMove(3, 298, 164);
+    mSleep(184);
+    touchMove(3, 298, 163);
+    mSleep(49);
+    touchMove(3, 299, 163);
+    mSleep(50);
+    touchMove(3, 299, 162);
+    mSleep(200);
+    touchMove(3, 299, 161);
+    mSleep(817);
+    touchUp(3, 301, 163);
+    mSleep(435);
+
+    touchDown(8, 263, 1047);
+    mSleep(99);
+    touchUp(8, 263, 1047);
+    mSleep(18);
+
+    touchDown(3, 293, 170);
+    mSleep(652);
+    touchMove(3, 301, 163);
+    mSleep(14);
+    touchMove(3, 301, 162);
+    mSleep(33);
+    touchMove(3, 302, 161);
+    mSleep(99);
+    touchMove(3, 303, 161);
+    mSleep(52);
+    touchMove(3, 304, 161);
+    mSleep(16);
+    touchMove(3, 304, 160);
+    mSleep(65);
+    touchMove(3, 304, 159);
+    mSleep(20);
+    touchMove(3, 305, 159);
+    mSleep(47);
+    touchMove(3, 305, 158);
+    mSleep(16);
+    touchMove(3, 306, 158);
+    mSleep(37);
+    touchMove(3, 306, 156);
+    mSleep(297);
+    touchUp(3, 306, 158);
+    mSleep(801);
+
+    touchDown(5, 214, 215);
+    mSleep(115);
+    touchMove(5, 226, 202);
+    mSleep(19);
+    touchMove(5, 227, 199);
+    mSleep(18);
+    touchMove(5, 230, 198);
+    mSleep(14);
+    touchMove(5, 234, 195);
+    mSleep(16);
+    touchMove(5, 237, 193);
+    mSleep(17);
+    touchMove(5, 240, 191);
+    mSleep(19);
+    touchMove(5, 242, 190);
+    mSleep(14);
+    touchMove(5, 244, 188);
+    mSleep(18);
+    touchMove(5, 245, 188);
+    mSleep(17);
+    touchMove(5, 246, 187);
+    mSleep(19);
+    touchMove(5, 247, 186);
+    mSleep(36);
+    touchMove(5, 248, 185);
+    mSleep(11);
+    touchMove(5, 249, 184);
+    mSleep(17);
+    touchMove(5, 249, 183);
+    mSleep(51);
+    touchMove(5, 250, 181);
+    mSleep(52);
+    touchMove(5, 252, 181);
+    mSleep(203);
+    touchMove(5, 253, 181);
+    mSleep(112);
+    touchMove(5, 254, 181);
+    mSleep(99);
+    touchMove(5, 255, 181);
+    mSleep(35);
+    touchMove(5, 256, 181);
+    mSleep(66);
+    touchMove(5, 257, 181);
+    mSleep(1100);
+    touchUp(5, 254, 184);
+    mSleep(1553);
+
+    touchDown(5, 242, 196);
+    mSleep(148);
+    touchMove(5, 255, 193);
+    mSleep(15);
+    touchMove(5, 257, 193);
+    mSleep(20);
+    touchMove(5, 260, 193);
+    mSleep(13);
+    touchMove(5, 264, 193);
+    mSleep(18);
+    touchMove(5, 268, 193);
+    mSleep(16);
+    touchMove(5, 272, 193);
+    mSleep(17);
+    touchMove(5, 275, 193);
+    mSleep(16);
+    touchMove(5, 277, 193);
+    mSleep(18);
+    touchMove(5, 279, 193);
+    mSleep(16);
+    touchMove(5, 280, 193);
+    mSleep(19);
+    touchMove(5, 281, 193);
+    mSleep(14);
+    touchMove(5, 282, 193);
+    mSleep(18);
+    touchMove(5, 283, 193);
+    mSleep(15);
+    touchMove(5, 284, 193);
+    mSleep(18);
+    touchMove(5, 285, 193);
+    mSleep(16);
+    touchMove(5, 286, 193);
+    mSleep(51);
+    touchMove(5, 287, 193);
+    mSleep(31);
+    touchMove(5, 288, 193);
+    mSleep(349);
+    touchMove(5, 289, 193);
+    mSleep(653);
+    touchUp(5, 291, 192);
+    mSleep(1351);
+
+    touchDown(5, 260, 192);
+    mSleep(231);
+    touchMove(5, 271, 180);
+    mSleep(16);
+    touchMove(5, 272, 180);
+    mSleep(16);
+    touchMove(5, 273, 180);
+    mSleep(67);
+    touchMove(5, 274, 180);
+    mSleep(33);
+    touchMove(5, 275, 180);
+    mSleep(17);
+    touchMove(5, 276, 179);
+    mSleep(36);
+    touchMove(5, 277, 179);
+    mSleep(33);
+    touchMove(5, 278, 179);
+    mSleep(37);
+    touchMove(5, 279, 178);
+    mSleep(10);
+    touchMove(5, 279, 177);
+    mSleep(22);
+    touchMove(5, 280, 177);
+    mSleep(15);
+    touchMove(5, 280, 176);
+    mSleep(16);
+    touchMove(5, 281, 176);
+    mSleep(14);
+    touchMove(5, 282, 175);
+    mSleep(66);
+    touchMove(5, 283, 174);
+    mSleep(33);
+    touchMove(5, 283, 173);
+    mSleep(34);
+    touchMove(5, 284, 173);
+    mSleep(17);
+    touchMove(5, 284, 172);
+    mSleep(16);
+    touchMove(5, 284, 171);
+    mSleep(203);
+    touchMove(5, 285, 171);
+    mSleep(1080);
+    touchUp(5, 286, 173);
+    mSleep(985);
+
+    touchDown(8, 257, 1035);
+    mSleep(82);
+    touchUp(8, 257, 1035);
+    mSleep(654);
+
+    touchDown(5, 268, 184);
+    mSleep(313);
+    touchMove(5, 285, 173);
+    mSleep(36);
+    touchMove(5, 286, 172);
+    mSleep(34);
+    touchMove(5, 286, 171);
+    mSleep(14);
+    touchMove(5, 286, 170);
+    mSleep(31);
+    touchMove(5, 286, 169);
+    mSleep(36);
+    touchMove(5, 287, 169);
+    mSleep(16);
+    touchMove(5, 287, 168);
+    mSleep(83);
+    touchMove(5, 288, 168);
+    mSleep(19);
+    touchMove(5, 288, 167);
+    mSleep(33);
+    touchMove(5, 289, 167);
+    mSleep(31);
+    touchMove(5, 289, 166);
+    mSleep(16);
+    touchMove(5, 290, 166);
+    mSleep(68);
+    touchMove(5, 290, 165);
+    mSleep(84);
+    touchMove(5, 291, 165);
+    mSleep(1067);
+    touchUp(5, 293, 164);
+    mSleep(716);
+
+    touchDown(5, 254, 151);
+    mSleep(500);
+    touchMove(5, 241, 138);
+    mSleep(66);
+    touchMove(5, 241, 137);
+    mSleep(83);
+    touchMove(5, 241, 136);
+    mSleep(18);
+    touchMove(5, 241, 135);
+    mSleep(16);
+    touchMove(5, 241, 134);
+    mSleep(33);
+    touchMove(5, 240, 132);
+    mSleep(51);
+    touchMove(5, 240, 130);
+    mSleep(33);
+    touchMove(5, 239, 130);
+    mSleep(36);
+    touchMove(5, 238, 130);
+    mSleep(15);
+    touchMove(5, 238, 129);
+    mSleep(19);
+    touchMove(5, 237, 128);
+    mSleep(14);
+    touchMove(5, 236, 128);
+    mSleep(19);
+    touchMove(5, 235, 127);
+    mSleep(33);
+    touchMove(5, 234, 126);
+    mSleep(14);
+    touchMove(5, 233, 126);
+    mSleep(34);
+    touchMove(5, 233, 125);
+    mSleep(151);
+    touchUp(5, 238, 132);
+    mSleep(636);
+
+    touchDown(3, 291, 156);
+    mSleep(298);
+    touchMove(3, 304, 141);
+    mSleep(19);
+    touchMove(3, 305, 141);
+    mSleep(15);
+    touchMove(3, 306, 140);
+    mSleep(17);
+    touchMove(3, 307, 140);
+    mSleep(15);
+    touchMove(3, 308, 140);
+    mSleep(20);
+    touchMove(3, 309, 140);
+    mSleep(14);
+    touchMove(3, 310, 139);
+    mSleep(19);
+    touchMove(3, 311, 139);
+    mSleep(14);
+    touchMove(3, 312, 139);
+    mSleep(20);
+    touchMove(3, 313, 139);
+    mSleep(31);
+    touchMove(3, 313, 138);
+    mSleep(16);
+    touchMove(3, 315, 138);
+    mSleep(35);
+    touchMove(3, 316, 136);
+    mSleep(15);
+    touchMove(3, 317, 136);
+    mSleep(17);
+    touchMove(3, 318, 136);
+    mSleep(20);
+    touchMove(3, 319, 135);
+    mSleep(31);
+    touchMove(3, 319, 134);
+    mSleep(35);
+    touchMove(3, 320, 134);
+    mSleep(866);
+    touchUp(3, 321, 136);
+    mSleep(800);
+
+    touchDown(3, 283, 169);
+    mSleep(165);
+    touchMove(3, 301, 162);
+    mSleep(16);
+    touchMove(3, 303, 162);
+    mSleep(18);
+    touchMove(3, 305, 162);
+    mSleep(16);
+    touchMove(3, 307, 162);
+    mSleep(17);
+    touchMove(3, 308, 162);
+    mSleep(16);
+    touchMove(3, 310, 162);
+    mSleep(17);
+    touchMove(3, 311, 162);
+    mSleep(17);
+    touchMove(3, 312, 162);
+    mSleep(17);
+    touchMove(3, 313, 162);
+    mSleep(17);
+    touchMove(3, 315, 162);
+    mSleep(17);
+    touchMove(3, 316, 162);
+    mSleep(33);
+    touchMove(3, 317, 162);
+    mSleep(16);
+    touchMove(3, 318, 162);
+    mSleep(51);
+    touchMove(3, 319, 162);
+    mSleep(33);
+    touchMove(3, 320, 161);
+    mSleep(51);
+    touchMove(3, 321, 161);
+    mSleep(51);
+    touchMove(3, 322, 161);
+    mSleep(200);
+    touchMove(3, 322, 160);
+    mSleep(183);
+    touchMove(3, 322, 159);
+    mSleep(449);
+    touchMove(3, 323, 159);
+    mSleep(268);
+    touchMove(3, 324, 159);
+    mSleep(66);
+    touchMove(3, 325, 159);
+    mSleep(69);
+    touchMove(3, 326, 160);
+    mSleep(116);
+    touchMove(3, 326, 161);
+    mSleep(15);
+    touchMove(3, 326, 162);
+    mSleep(17);
+    touchUp(3, 327, 166);
+    mSleep(1102);
+
+    touchDown(3, 279, 171);
+    mSleep(131);
+    touchMove(3, 291, 181);
+    mSleep(17);
+    touchMove(3, 294, 181);
+    mSleep(18);
+    touchMove(3, 297, 182);
+    mSleep(15);
+    touchMove(3, 300, 183);
+    mSleep(16);
+    touchMove(3, 302, 183);
+    mSleep(17);
+    touchMove(3, 305, 184);
+    mSleep(17);
+    touchMove(3, 308, 184);
+    mSleep(16);
+    touchMove(3, 311, 184);
+    mSleep(17);
+    touchMove(3, 316, 184);
+    mSleep(18);
+    touchMove(3, 319, 184);
+    mSleep(15);
+    touchMove(3, 321, 184);
+    mSleep(17);
+    touchMove(3, 324, 184);
+    mSleep(16);
+    touchMove(3, 325, 184);
+    mSleep(17);
+    touchMove(3, 326, 184);
+    mSleep(17);
+    touchMove(3, 327, 184);
+    mSleep(17);
+    touchMove(3, 328, 184);
+    mSleep(83);
+    touchMove(3, 329, 184);
+    mSleep(33);
+    touchMove(3, 330, 184);
+    mSleep(17);
+    touchMove(3, 331, 184);
+    mSleep(683);
+    touchMove(3, 331, 185);
+    mSleep(33);
+    touchMove(3, 331, 186);
+    mSleep(53);
+    touchMove(3, 331, 187);
+    mSleep(14);
+    touchMove(3, 331, 188);
+    mSleep(101);
+    touchMove(3, 331, 189);
+    mSleep(386);
+    touchUp(3, 330, 191);
+    mSleep(1237);
+
+    touchDown(8, 265, 1049);
+    mSleep(61);
+    touchUp(8, 265, 1049);
+    mSleep(553);
+
+    touchDown(5, 244, 160);
+    mSleep(64);
+    touchMove(5, 253, 166);
+    mSleep(17);
+    touchMove(5, 261, 169);
+    mSleep(16);
+    touchMove(5, 266, 172);
+    mSleep(18);
+    touchMove(5, 270, 174);
+    mSleep(15);
+    touchMove(5, 273, 176);
+    mSleep(17);
+    touchMove(5, 275, 177);
+    mSleep(16);
+    touchMove(5, 277, 179);
+    mSleep(17);
+    touchMove(5, 279, 181);
+    mSleep(18);
+    touchMove(5, 281, 183);
+    mSleep(15);
+    touchMove(5, 283, 185);
+    mSleep(18);
+    touchMove(5, 285, 187);
+    mSleep(15);
+    touchMove(5, 286, 188);
+    mSleep(18);
+    touchMove(5, 288, 189);
+    mSleep(15);
+    touchMove(5, 289, 190);
+    mSleep(17);
+    touchMove(5, 290, 191);
+    mSleep(16);
+    touchMove(5, 290, 192);
+    mSleep(84);
+    touchMove(5, 291, 193);
+    mSleep(19);
+    touchMove(5, 292, 193);
+    mSleep(13);
+    touchMove(5, 293, 193);
+    mSleep(17);
+    touchMove(5, 294, 195);
+    mSleep(667);
+    touchMove(5, 295, 195);
+    mSleep(1217);
+    touchUp(5, 295, 193);
+    mSleep(1337);
+
+    touchDown(5, 276, 171);
+    mSleep(198);
+    touchMove(5, 284, 160);
+    mSleep(30);
+    touchMove(5, 286, 158);
+    mSleep(11);
+    touchMove(5, 288, 157);
+    mSleep(10);
+    touchMove(5, 289, 155);
+    mSleep(23);
+    touchMove(5, 291, 153);
+    mSleep(15);
+    touchMove(5, 292, 151);
+    mSleep(9);
+    touchMove(5, 293, 150);
+    mSleep(17);
+    touchMove(5, 294, 149);
+    mSleep(17);
+    touchMove(5, 295, 148);
+    mSleep(17);
+    touchMove(5, 296, 147);
+    mSleep(49);
+    touchMove(5, 297, 147);
+    mSleep(49);
+    touchMove(5, 298, 147);
+    mSleep(67);
+    touchMove(5, 299, 147);
+    mSleep(133);
+    touchMove(5, 300, 146);
+    mSleep(152);
+    touchMove(5, 301, 146);
+    mSleep(48);
+    touchMove(5, 302, 146);
+    mSleep(21);
+    touchMove(5, 303, 146);
+    mSleep(15);
+    touchMove(5, 304, 146);
+    mSleep(64);
+    touchMove(5, 305, 146);
+    mSleep(88);
+    touchMove(5, 306, 146);
+    mSleep(46);
+    touchMove(5, 307, 146);
+    mSleep(150);
+    touchMove(5, 308, 146);
+    mSleep(804);
+    touchMove(5, 308, 147);
+    mSleep(66);
+    touchMove(5, 308, 148);
+    mSleep(82);
+    touchMove(5, 308, 149);
+    mSleep(17);
+    touchMove(5, 308, 151);
+    mSleep(16);
+    touchUp(5, 308, 155);
+    mSleep(1417);
+
+    touchDown(5, 300, 142);
+    mSleep(114);
+    touchMove(5, 311, 137);
+    mSleep(17);
+    touchMove(5, 316, 137);
+    mSleep(17);
+    touchMove(5, 318, 137);
+    mSleep(16);
+    touchMove(5, 320, 137);
+    mSleep(17);
+    touchMove(5, 322, 137);
+    mSleep(18);
+    touchMove(5, 323, 137);
+    mSleep(15);
+    touchMove(5, 325, 137);
+    mSleep(17);
+    touchMove(5, 326, 137);
+    mSleep(17);
+    touchMove(5, 327, 137);
+    mSleep(16);
+    touchMove(5, 328, 137);
+    mSleep(17);
+    touchMove(5, 329, 137);
+    mSleep(17);
+    touchMove(5, 330, 137);
+    mSleep(84);
+    touchMove(5, 331, 137);
+    mSleep(66);
+    touchMove(5, 331, 136);
+    mSleep(17);
+    touchMove(5, 332, 136);
+    mSleep(151);
+    touchMove(5, 332, 135);
+    mSleep(50);
+    touchMove(5, 332, 134);
+    mSleep(17);
+    touchMove(5, 332, 133);
+    mSleep(16);
+    touchMove(5, 332, 132);
+    mSleep(18);
+    touchMove(5, 332, 131);
+    mSleep(17);
+    touchMove(5, 332, 130);
+    mSleep(15);
+    touchMove(5, 332, 126);
+    mSleep(15);
+    touchMove(5, 332, 125);
+    mSleep(18);
+    touchMove(5, 332, 124);
+    mSleep(16);
+    touchMove(5, 332, 122);
+    mSleep(18);
+    touchMove(5, 332, 121);
+    mSleep(71);
+    touchMove(5, 332, 120);
+    mSleep(78);
+    touchMove(5, 332, 119);
+    mSleep(100);
+    touchMove(5, 332, 118);
+    mSleep(933);
+    touchUp(5, 330, 113);
+    mSleep(216);
+
+    touchDown(8, 268, 1052);
+    mSleep(99);
+    touchUp(8, 268, 1052);
+    mSleep(805);
+
+    touchDown(5, 323, 115);
+    mSleep(165);
+    touchMove(5, 322, 102);
+    mSleep(15);
+    touchMove(5, 322, 101);
+    mSleep(18);
+    touchMove(5, 322, 99);
+    mSleep(14);
+    touchMove(5, 322, 97);
+    mSleep(16);
+    touchMove(5, 322, 96);
+    mSleep(17);
+    touchMove(5, 322, 95);
+    mSleep(19);
+    touchMove(5, 323, 94);
+    mSleep(14);
+    touchMove(5, 324, 93);
+    mSleep(21);
+    touchMove(5, 325, 93);
+    mSleep(13);
+    touchMove(5, 326, 92);
+    mSleep(19);
+    touchMove(5, 326, 91);
+    mSleep(14);
+    touchMove(5, 327, 90);
+    mSleep(33);
+    touchMove(5, 328, 89);
+    mSleep(19);
+    touchMove(5, 328, 88);
+    mSleep(15);
+    touchMove(5, 329, 87);
+    mSleep(18);
+    touchMove(5, 330, 87);
+    mSleep(15);
+    touchMove(5, 331, 86);
+    mSleep(53);
+    touchMove(5, 331, 85);
+    mSleep(14);
+    touchMove(5, 332, 85);
+    mSleep(32);
+    touchMove(5, 332, 84);
+    mSleep(68);
+    touchMove(5, 333, 84);
+    mSleep(618);
+    touchUp(5, 334, 84);
+    mSleep(737);
+
+    touchDown(1, 248, 89);
+    mSleep(46);
+    touchMove(1, 240, 83);
+    mSleep(15);
+    touchMove(1, 238, 83);
+    mSleep(16);
+    touchMove(1, 236, 83);
+    mSleep(18);
+    touchMove(1, 232, 82);
+    mSleep(16);
+    touchMove(1, 228, 81);
+    mSleep(15);
+    touchMove(1, 224, 79);
+    mSleep(17);
+    touchMove(1, 220, 76);
+    mSleep(18);
+    touchMove(1, 217, 74);
+    mSleep(16);
+    touchMove(1, 214, 72);
+    mSleep(17);
+    touchMove(1, 211, 69);
+    mSleep(16);
+    touchMove(1, 209, 67);
+    mSleep(17);
+    touchMove(1, 206, 64);
+    mSleep(16);
+    touchMove(1, 205, 62);
+    mSleep(17);
+    touchMove(1, 204, 61);
+    mSleep(17);
+    touchMove(1, 204, 60);
+    mSleep(16);
+    touchMove(1, 203, 59);
+    mSleep(16);
+    touchMove(1, 203, 57);
+    mSleep(18);
+    touchMove(1, 202, 56);
+    mSleep(15);
+    touchMove(1, 201, 55);
+    mSleep(18);
+    touchMove(1, 200, 54);
+    mSleep(65);
+    touchMove(1, 199, 54);
+    mSleep(251);
+    touchMove(1, 199, 53);
+    mSleep(1200);
+    touchMove(1, 199, 54);
+    mSleep(16);
+    touchMove(1, 199, 56);
+    mSleep(17);
+    touchUp(1, 203, 61);
+    mSleep(420);
+
+    touchDown(8, 260, 1060);
+    mSleep(65);
+    touchUp(8, 260, 1060);
+    mSleep(1084);
+
+    touchDown(1, 220, 70);
+    mSleep(165);
+    touchMove(1, 204, 56);
+    mSleep(17);
+    touchMove(1, 204, 55);
+    mSleep(16);
+    touchMove(1, 204, 54);
+    mSleep(17);
+    touchMove(1, 204, 52);
+    mSleep(17);
+    touchMove(1, 204, 51);
+    mSleep(16);
+    touchMove(1, 203, 50);
+    mSleep(18);
+    touchMove(1, 202, 49);
+    mSleep(16);
+    touchMove(1, 200, 49);
+    mSleep(16);
+    touchMove(1, 200, 48);
+    mSleep(17);
+    touchMove(1, 198, 48);
+    mSleep(18);
+    touchMove(1, 197, 47);
+    mSleep(16);
+    touchMove(1, 195, 46);
+    mSleep(18);
+    touchMove(1, 193, 45);
+    mSleep(16);
+    touchMove(1, 191, 45);
+    mSleep(16);
+    touchMove(1, 190, 45);
+    mSleep(17);
+    touchMove(1, 189, 45);
+    mSleep(68);
+    touchMove(1, 189, 44);
+    mSleep(1333);
+    touchMove(1, 189, 45);
+    mSleep(21);
+    touchUp(1, 194, 52);
+    mSleep(1336);
+
+    touchDown(8, 258, 1057);
+    mSleep(15);
+    touchMove(8, 258, 1057);
+    mSleep(87);
+    touchUp(8, 258, 1057);
+    mSleep(767);
+
+    touchDown(4, 256, 103);
+    mSleep(114);
+    touchMove(4, 268, 95);
+    mSleep(16);
+    touchMove(4, 270, 95);
+    mSleep(17);
+    touchMove(4, 273, 95);
+    mSleep(18);
+    touchMove(4, 275, 95);
+    mSleep(21);
+    touchMove(4, 276, 94);
+    mSleep(11);
+    touchMove(4, 277, 94);
+    mSleep(16);
+    touchMove(4, 279, 93);
+    mSleep(20);
+    touchMove(4, 281, 92);
+    mSleep(13);
+    touchMove(4, 282, 91);
+    mSleep(17);
+    touchMove(4, 284, 90);
+    mSleep(17);
+    touchMove(4, 285, 90);
+    mSleep(17);
+    touchMove(4, 286, 89);
+    mSleep(15);
+    touchMove(4, 287, 89);
+    mSleep(17);
+    touchMove(4, 288, 89);
+    mSleep(34);
+    touchMove(4, 289, 89);
+    mSleep(17);
+    touchMove(4, 289, 88);
+    mSleep(50);
+    touchMove(4, 290, 88);
+    mSleep(53);
+    touchMove(4, 290, 87);
+    mSleep(14);
+    touchMove(4, 291, 87);
+    mSleep(33);
+    touchMove(4, 291, 86);
+    mSleep(35);
+    touchMove(4, 291, 85);
+    mSleep(15);
+    touchMove(4, 291, 84);
+    mSleep(17);
+    touchMove(4, 291, 83);
+    mSleep(17);
+    touchMove(4, 291, 82);
+    mSleep(17);
+    touchMove(4, 291, 81);
+    mSleep(18);
+    touchMove(4, 291, 80);
+    mSleep(16);
+    touchMove(4, 291, 78);
+    mSleep(16);
+    touchMove(4, 291, 77);
+    mSleep(17);
+    touchMove(4, 291, 75);
+    mSleep(17);
+    touchMove(4, 291, 74);
+    mSleep(17);
+    touchMove(4, 291, 73);
+    mSleep(50);
+    touchUp(4, 285, 71);
+
+
+    mSleep(1647);
+
+    touchDown(6, 206, 195);
+    mSleep(82);
+    touchMove(6, 209, 187);
+    mSleep(18);
+    touchMove(6, 209, 183);
+    mSleep(14);
+    touchMove(6, 210, 180);
+    mSleep(18);
+    touchMove(6, 212, 178);
+    mSleep(16);
+    touchMove(6, 215, 175);
+    mSleep(19);
+    touchMove(6, 217, 172);
+    mSleep(13);
+    touchMove(6, 220, 170);
+    mSleep(17);
+    touchMove(6, 224, 167);
+    mSleep(17);
+    touchMove(6, 227, 165);
+    mSleep(17);
+    touchMove(6, 228, 165);
+    mSleep(16);
+    touchMove(6, 230, 163);
+    mSleep(17);
+    touchMove(6, 231, 162);
+    mSleep(16);
+    touchMove(6, 232, 160);
+    mSleep(17);
+    touchMove(6, 233, 160);
+    mSleep(17);
+    touchMove(6, 234, 159);
+    mSleep(18);
+    touchMove(6, 235, 159);
+    mSleep(16);
+    touchMove(6, 235, 158);
+    mSleep(17);
+    touchMove(6, 235, 157);
+    mSleep(16);
+    touchMove(6, 235, 156);
+    mSleep(33);
+    touchMove(6, 235, 155);
+    mSleep(18);
+    touchMove(6, 236, 154);
+    mSleep(16);
+    touchMove(6, 237, 152);
+    mSleep(51);
+    touchMove(6, 238, 151);
+    mSleep(66);
+    touchMove(6, 239, 151);
+    mSleep(134);
+    touchMove(6, 239, 150);
+    mSleep(16);
+    touchMove(6, 240, 150);
+    mSleep(717);
+    touchMove(6, 241, 150);
+    mSleep(117);
+    touchMove(6, 242, 150);
+    mSleep(67);
+    touchMove(6, 243, 150);
+    mSleep(17);
+    touchMove(6, 244, 150);
+    mSleep(16);
+    touchMove(6, 245, 150);
+    mSleep(17);
+    touchMove(6, 246, 150);
+    mSleep(17);
+    touchMove(6, 247, 150);
+    mSleep(17);
+    touchMove(6, 248, 151);
+    mSleep(16);
+    touchMove(6, 249, 151);
+    mSleep(17);
+    touchMove(6, 250, 151);
+    mSleep(17);
+    touchMove(6, 252, 152);
+    mSleep(16);
+    touchMove(6, 253, 152);
+    mSleep(17);
+    touchMove(6, 254, 153);
+    mSleep(17);
+    touchMove(6, 255, 153);
+    mSleep(16);
+    touchMove(6, 256, 153);
+    mSleep(17);
+    touchMove(6, 257, 153);
+    mSleep(17);
+    touchMove(6, 258, 153);
+    mSleep(17);
+    touchMove(6, 259, 153);
+    mSleep(33);
+    touchMove(6, 260, 153);
+    mSleep(18);
+    touchMove(6, 261, 153);
+    mSleep(17);
+    touchMove(6, 262, 153);
+    mSleep(19);
+    touchMove(6, 263, 153);
+    mSleep(13);
+    touchMove(6, 264, 153);
+    mSleep(20);
+    touchMove(6, 265, 153);
+    mSleep(13);
+    touchMove(6, 266, 153);
+    mSleep(66);
+    touchMove(6, 267, 153);
+    mSleep(50);
+    touchMove(6, 268, 153);
+    mSleep(152);
+    touchUp(6, 264, 158);
+    mSleep(686);
+
+    touchDown(8, 241, 1033);
+    mSleep(99);
+    touchUp(8, 241, 1033);
+    mSleep(869);
+
+    touchDown(8, 250, 1031);
+    mSleep(66);
+    touchUp(8, 250, 1031);
+    mSleep(667);
+
+    touchDown(6, 253, 161);
+    mSleep(98);
+    touchMove(6, 265, 158);
+    mSleep(17);
+    touchMove(6, 268, 158);
+    mSleep(16);
+    touchMove(6, 271, 158);
+    mSleep(17);
+    touchMove(6, 274, 158);
+    mSleep(17);
+    touchMove(6, 276, 158);
+    mSleep(18);
+    touchMove(6, 279, 158);
+    mSleep(15);
+    touchMove(6, 281, 157);
+    mSleep(17);
+    touchMove(6, 284, 156);
+    mSleep(16);
+    touchMove(6, 287, 154);
+    mSleep(17);
+    touchMove(6, 289, 153);
+    mSleep(16);
+    touchMove(6, 290, 153);
+    mSleep(17);
+    touchMove(6, 291, 152);
+    mSleep(17);
+    touchMove(6, 292, 151);
+    mSleep(15);
+    touchMove(6, 293, 150);
+    mSleep(33);
+    touchMove(6, 294, 150);
+    mSleep(18);
+    touchMove(6, 294, 149);
+    mSleep(15);
+    touchMove(6, 295, 148);
+    mSleep(34);
+    touchMove(6, 296, 146);
+    mSleep(33);
+    touchMove(6, 297, 145);
+    mSleep(17);
+    touchMove(6, 297, 144);
+    mSleep(50);
+    touchMove(6, 297, 143);
+    mSleep(16);
+    touchMove(6, 297, 142);
+    mSleep(17);
+    touchMove(6, 298, 142);
+    mSleep(16);
+    touchMove(6, 298, 140);
+    mSleep(16);
+    touchMove(6, 298, 139);
+    mSleep(19);
+    touchMove(6, 298, 138);
+    mSleep(15);
+    touchMove(6, 298, 136);
+    mSleep(17);
+    touchMove(6, 298, 135);
+    mSleep(16);
+    touchMove(6, 298, 134);
+    mSleep(17);
+    touchMove(6, 299, 132);
+    mSleep(34);
+    touchMove(6, 299, 131);
+    mSleep(134);
+    touchMove(6, 300, 131);
+    mSleep(535);
+    touchMove(6, 300, 133);
+    mSleep(15);
+    touchUp(6, 300, 137);
+    mSleep(18);
+
+    touchDown(3, 287, 182);
+    mSleep(132);
+    touchMove(3, 305, 181);
+    mSleep(18);
+    touchMove(3, 311, 181);
+    mSleep(14);
+    touchMove(3, 316, 181);
+    mSleep(20);
+    touchMove(3, 319, 181);
+    mSleep(14);
+    touchMove(3, 321, 181);
+    mSleep(18);
+    touchMove(3, 322, 181);
+    mSleep(15);
+    touchMove(3, 323, 181);
+    mSleep(20);
+    touchMove(3, 324, 181);
+    mSleep(14);
+    touchMove(3, 325, 181);
+    mSleep(16);
+    touchMove(3, 326, 181);
+    mSleep(33);
+    touchMove(3, 327, 181);
+    mSleep(17);
+    touchMove(3, 328, 181);
+    mSleep(34);
+    touchMove(3, 329, 181);
+    mSleep(17);
+    touchMove(3, 330, 181);
+    mSleep(83);
+    touchMove(3, 331, 181);
+    mSleep(367);
+    touchMove(3, 331, 180);
+    mSleep(1507);
+    touchUp(3, 333, 181);
+    mSleep(1052);
+
+    touchDown(9, 253, 193);
+    mSleep(233);
+    touchMove(9, 263, 203);
+    mSleep(16);
+    touchMove(9, 265, 204);
+    mSleep(17);
+    touchMove(9, 266, 205);
+    mSleep(16);
+    touchMove(9, 267, 206);
+    mSleep(17);
+    touchMove(9, 268, 207);
+    mSleep(18);
+    touchMove(9, 269, 207);
+    mSleep(16);
+    touchMove(9, 270, 207);
+    mSleep(16);
+    touchMove(9, 271, 208);
+    mSleep(17);
+    touchMove(9, 273, 209);
+    mSleep(16);
+    touchMove(9, 274, 210);
+    mSleep(17);
+    touchMove(9, 275, 210);
+    mSleep(50);
+    touchMove(9, 276, 210);
+    mSleep(33);
+    touchMove(9, 277, 210);
+    mSleep(51);
+    touchMove(9, 277, 211);
+    mSleep(34);
+    touchMove(9, 278, 211);
+    mSleep(49);
+    touchMove(9, 279, 211);
+    mSleep(33);
+    touchMove(9, 280, 211);
+    mSleep(51);
+    touchMove(9, 281, 211);
+    mSleep(16);
+    touchMove(9, 282, 211);
+    mSleep(17);
+    touchMove(9, 285, 211);
+    mSleep(18);
+    touchMove(9, 289, 211);
+    mSleep(15);
+    touchMove(9, 291, 211);
+    mSleep(17);
+    touchMove(9, 294, 211);
+    mSleep(18);
+    touchMove(9, 296, 211);
+    mSleep(15);
+    touchMove(9, 297, 211);
+    mSleep(18);
+    touchMove(9, 298, 211);
+    mSleep(1968);
+    touchUp(9, 297, 212);
+    mSleep(350);
+
+    touchDown(8, 255, 1035);
+    mSleep(81);
+    touchUp(8, 255, 1035);
+    mSleep(17);
+
+    touchDown(9, 252, 201);
+    mSleep(151);
+    touchMove(9, 259, 212);
+    mSleep(15);
+    touchMove(9, 259, 215);
+    mSleep(17);
+    touchMove(9, 259, 217);
+    mSleep(19);
+    touchMove(9, 260, 219);
+    mSleep(14);
+    touchMove(9, 262, 222);
+    mSleep(17);
+    touchMove(9, 263, 223);
+    mSleep(17);
+    touchMove(9, 264, 225);
+    mSleep(19);
+    touchMove(9, 265, 226);
+    mSleep(16);
+    touchMove(9, 266, 227);
+    mSleep(19);
+    touchMove(9, 267, 229);
+    mSleep(13);
+    touchMove(9, 268, 230);
+    mSleep(22);
+    touchMove(9, 268, 231);
+    mSleep(11);
+    touchMove(9, 268, 232);
+    mSleep(89);
+    touchMove(9, 269, 232);
+    mSleep(46);
+    touchMove(9, 269, 233);
+    mSleep(54);
+    touchMove(9, 269, 234);
+    mSleep(279);
+    touchUp(9, 265, 238);
+    mSleep(21);
+
+    touchDown(2, 200, 188);
+    mSleep(163);
+    touchMove(2, 188, 195);
+    mSleep(18);
+    touchMove(2, 186, 197);
+    mSleep(15);
+    touchMove(2, 184, 198);
+    mSleep(20);
+    touchMove(2, 183, 200);
+    mSleep(16);
+    touchMove(2, 182, 201);
+    mSleep(17);
+    touchMove(2, 180, 202);
+    mSleep(14);
+    touchMove(2, 179, 203);
+    mSleep(21);
+    touchMove(2, 178, 205);
+    mSleep(12);
+    touchMove(2, 177, 206);
+    mSleep(22);
+    touchMove(2, 176, 207);
+    mSleep(12);
+    touchMove(2, 175, 209);
+    mSleep(22);
+    touchMove(2, 174, 209);
+    mSleep(12);
+    touchMove(2, 172, 210);
+    mSleep(21);
+    touchMove(2, 171, 211);
+    mSleep(12);
+    touchMove(2, 170, 211);
+    mSleep(22);
+    touchMove(2, 169, 211);
+    mSleep(12);
+    touchMove(2, 168, 211);
+    mSleep(16);
+    touchMove(2, 167, 211);
+    mSleep(18);
+    touchMove(2, 167, 212);
+    mSleep(22);
+    touchMove(2, 166, 212);
+    mSleep(11);
+    touchMove(2, 165, 212);
+    mSleep(22);
+    touchMove(2, 164, 212);
+    mSleep(12);
+    touchMove(2, 164, 213);
+    mSleep(20);
+    touchMove(2, 163, 213);
+    mSleep(80);
+    touchMove(2, 162, 214);
+    mSleep(99);
+    touchMove(2, 161, 215);
+    mSleep(950);
+    touchMove(2, 161, 216);
+    mSleep(168);
+    touchUp(2, 161, 216);
+    mSleep(20);
+
+    touchDown(9, 233, 217);
+    mSleep(198);
+    touchMove(9, 245, 226);
+    mSleep(18);
+    touchMove(9, 246, 227);
+    mSleep(15);
+    touchMove(9, 247, 228);
+    mSleep(17);
+    touchMove(9, 248, 228);
+    mSleep(17);
+    touchMove(9, 250, 229);
+    mSleep(16);
+    touchMove(9, 253, 230);
+    mSleep(17);
+    touchMove(9, 254, 231);
+    mSleep(17);
+    touchMove(9, 255, 232);
+    mSleep(33);
+    touchMove(9, 256, 232);
+    mSleep(17);
+    touchMove(9, 256, 233);
+    mSleep(16);
+    touchMove(9, 257, 233);
+    mSleep(17);
+    touchMove(9, 257, 234);
+    mSleep(117);
+    touchMove(9, 258, 234);
+    mSleep(33);
+    touchMove(9, 258, 235);
+    mSleep(217);
+    touchMove(9, 258, 236);
+    mSleep(218);
+    touchMove(9, 259, 236);
+    mSleep(32);
+    touchMove(9, 260, 236);
+    mSleep(17);
+    touchMove(9, 260, 237);
+    mSleep(185);
+    touchMove(9, 260, 238);
+    mSleep(465);
+    touchMove(9, 261, 238);
+    mSleep(50);
+    touchMove(9, 262, 238);
+    mSleep(33);
+    touchMove(9, 263, 238);
+    mSleep(33);
+    touchMove(9, 264, 238);
+    mSleep(583);
+    touchMove(9, 265, 238);
+    mSleep(252);
+    touchUp(9, 263, 238);
+    mSleep(516);
+
+    touchDown(8, 266, 1045);
+    mSleep(68);
+    touchUp(8, 266, 1045);
+    mSleep(20);
+
+    touchDown(9, 259, 242);
+    mSleep(131);
+    touchMove(9, 270, 245);
+    mSleep(16);
+    touchMove(9, 274, 245);
+    mSleep(16);
+    touchMove(9, 278, 245);
+    mSleep(17);
+    touchMove(9, 280, 245);
+    mSleep(17);
+    touchMove(9, 283, 245);
+    mSleep(16);
+    touchMove(9, 285, 245);
+    mSleep(17);
+    touchMove(9, 287, 245);
+    mSleep(16);
+    touchMove(9, 288, 245);
+    mSleep(17);
+    touchMove(9, 289, 245);
+    mSleep(16);
+    touchMove(9, 290, 245);
+    mSleep(17);
+    touchMove(9, 291, 246);
+    mSleep(16);
+    touchMove(9, 293, 246);
+    mSleep(17);
+    touchMove(9, 294, 246);
+    mSleep(17);
+    touchMove(9, 295, 246);
+    mSleep(50);
+    touchMove(9, 295, 247);
+    mSleep(250);
+    touchMove(9, 295, 248);
+    mSleep(18);
+    touchMove(9, 295, 249);
+    mSleep(15);
+    touchMove(9, 295, 250);
+    mSleep(17);
+    touchMove(9, 295, 251);
+    mSleep(18);
+    touchMove(9, 295, 252);
+    mSleep(17);
+    touchMove(9, 295, 253);
+    mSleep(16);
+    touchMove(9, 295, 254);
+    mSleep(16);
+    touchMove(9, 295, 255);
+    mSleep(20);
+    touchMove(9, 295, 256);
+    mSleep(14);
+    touchMove(9, 293, 259);
+    mSleep(20);
+    touchMove(9, 292, 260);
+    mSleep(12);
+    touchMove(9, 292, 263);
+    mSleep(19);
+    touchMove(9, 291, 264);
+    mSleep(15);
+    touchMove(9, 291, 266);
+    mSleep(17);
+    touchMove(9, 291, 269);
+    mSleep(17);
+    touchMove(9, 291, 272);
+    mSleep(17);
+    touchMove(9, 291, 273);
+    mSleep(15);
+    touchMove(9, 290, 274);
+    mSleep(51);
+    touchMove(9, 290, 277);
+    mSleep(15);
+    touchMove(9, 290, 279);
+    mSleep(19);
+    touchMove(9, 290, 281);
+    mSleep(15);
+    touchMove(9, 290, 282);
+    mSleep(18);
+    touchMove(9, 290, 284);
+    mSleep(16);
+    touchMove(9, 290, 285);
+    mSleep(17);
+    touchMove(9, 290, 286);
+    mSleep(15);
+    touchMove(9, 290, 287);
+    mSleep(17);
+    touchMove(9, 290, 288);
+    mSleep(16);
+    touchMove(9, 290, 290);
+    mSleep(33);
+    touchMove(9, 290, 291);
+    mSleep(120);
+    touchMove(9, 290, 292);
+    mSleep(399);
+    touchUp(9, 288, 293);
+    mSleep(19);
+
+    touchDown(9, 237, 249);
+    mSleep(201);
+    touchMove(9, 248, 256);
+    mSleep(14);
+    touchMove(9, 252, 256);
+    mSleep(16);
+    touchMove(9, 255, 256);
+    mSleep(17);
+    touchMove(9, 257, 256);
+    mSleep(15);
+    touchMove(9, 259, 256);
+    mSleep(17);
+    touchMove(9, 261, 257);
+    mSleep(17);
+    touchMove(9, 263, 258);
+    mSleep(17);
+    touchMove(9, 266, 259);
+    mSleep(16);
+    touchMove(9, 268, 260);
+    mSleep(17);
+    touchMove(9, 269, 261);
+    mSleep(18);
+    touchMove(9, 271, 261);
+    mSleep(16);
+    touchMove(9, 272, 262);
+    mSleep(19);
+    touchMove(9, 274, 263);
+    mSleep(15);
+    touchMove(9, 275, 264);
+    mSleep(16);
+    touchMove(9, 276, 264);
+    mSleep(36);
+    touchMove(9, 277, 264);
+    mSleep(16);
+    touchMove(9, 278, 264);
+    mSleep(49);
+    touchMove(9, 279, 264);
+    mSleep(15);
+    touchMove(9, 280, 265);
+    mSleep(33);
+    touchMove(9, 281, 265);
+    mSleep(18);
+    touchMove(9, 281, 266);
+    mSleep(34);
+    touchMove(9, 282, 266);
+    mSleep(165);
+    touchMove(9, 282, 267);
+    mSleep(102);
+    touchMove(9, 282, 268);
+    mSleep(15);
+    touchMove(9, 282, 269);
+    mSleep(18);
+    touchMove(9, 282, 270);
+    mSleep(16);
+    touchMove(9, 282, 272);
+    mSleep(17);
+    touchMove(9, 282, 273);
+    mSleep(15);
+    touchMove(9, 282, 274);
+    mSleep(17);
+    touchMove(9, 282, 275);
+    mSleep(17);
+    touchMove(9, 282, 276);
+    mSleep(17);
+    touchMove(9, 282, 277);
+    mSleep(16);
+    touchMove(9, 282, 278);
+    mSleep(20);
+    touchMove(9, 282, 279);
+    mSleep(32);
+    touchMove(9, 282, 280);
+    mSleep(67);
+    touchMove(9, 282, 281);
+    mSleep(34);
+    touchMove(9, 282, 282);
+    mSleep(65);
+    touchMove(9, 282, 283);
+    mSleep(101);
+    touchMove(9, 282, 284);
+    mSleep(33);
+    touchMove(9, 283, 284);
+    mSleep(34);
+    touchMove(9, 284, 284);
+    mSleep(15);
+    touchMove(9, 284, 285);
+    mSleep(50);
+    touchMove(9, 284, 286);
+    mSleep(16);
+    touchMove(9, 285, 286);
+    mSleep(34);
+    touchMove(9, 286, 287);
+    mSleep(899);
+    touchMove(9, 286, 288);
+    mSleep(154);
+    touchUp(9, 287, 288);
+    mSleep(866);
+
+    touchDown(9, 283, 279);
+    mSleep(267);
+    touchMove(9, 294, 291);
+    mSleep(33);
+    touchMove(9, 294, 292);
+    mSleep(15);
+    touchMove(9, 295, 293);
+    mSleep(19);
+    touchMove(9, 296, 294);
+    mSleep(14);
+    touchMove(9, 297, 294);
+    mSleep(20);
+    touchMove(9, 297, 295);
+    mSleep(15);
+    touchMove(9, 297, 296);
+    mSleep(98);
+    touchMove(9, 298, 297);
+    mSleep(335);
+    touchUp(9, 298, 295);
+    mSleep(583);
+
+    touchDown(8, 264, 1032);
+    mSleep(100);
+    touchUp(8, 264, 1032);
+    mSleep(1019);
+
+    touchDown(8, 258, 1032);
+    mSleep(83);
+    touchUp(8, 258, 1032);
+    mSleep(616);
+
+    touchDown(3, 308, 196);
+    mSleep(115);
+    touchMove(3, 316, 184);
+    mSleep(16);
+    touchMove(3, 319, 184);
+    mSleep(17);
+    touchMove(3, 321, 183);
+    mSleep(18);
+    touchMove(3, 325, 181);
+    mSleep(15);
+    touchMove(3, 328, 180);
+    mSleep(16);
+    touchMove(3, 330, 178);
+    mSleep(53);
+    touchMove(3, 334, 173);
+    mSleep(14);
+    touchMove(3, 336, 171);
+    mSleep(17);
+    touchMove(3, 339, 168);
+    mSleep(17);
+    touchMove(3, 341, 167);
+    mSleep(17);
+    touchMove(3, 342, 165);
+    mSleep(16);
+    touchMove(3, 343, 164);
+    mSleep(17);
+    touchMove(3, 345, 163);
+    mSleep(17);
+    touchMove(3, 347, 162);
+    mSleep(17);
+    touchMove(3, 348, 162);
+    mSleep(16);
+    touchMove(3, 349, 162);
+    mSleep(17);
+    touchMove(3, 350, 161);
+    mSleep(17);
+    touchMove(3, 351, 160);
+    mSleep(17);
+    touchMove(3, 352, 160);
+    mSleep(50);
+    touchMove(3, 353, 159);
+    mSleep(33);
+    touchMove(3, 354, 159);
+    mSleep(17);
+    touchMove(3, 355, 159);
+    mSleep(17);
+    touchMove(3, 356, 159);
+    mSleep(18);
+    touchMove(3, 357, 159);
+    mSleep(15);
+    touchMove(3, 358, 159);
+    mSleep(17);
+    touchMove(3, 359, 159);
+    mSleep(17);
+    touchMove(3, 360, 159);
+    mSleep(17);
+    touchMove(3, 361, 159);
+    mSleep(67);
+    touchMove(3, 362, 159);
+    mSleep(16);
+    touchMove(3, 362, 160);
+    mSleep(134);
+    touchMove(3, 362, 161);
+    mSleep(283);
+    touchMove(3, 362, 162);
+    mSleep(17);
+    touchMove(3, 363, 162);
+    mSleep(67);
+    touchMove(3, 363, 163);
+    mSleep(34);
+    touchMove(3, 364, 163);
+    mSleep(50);
+    touchMove(3, 364, 164);
+    mSleep(183);
+    touchMove(3, 365, 165);
+    mSleep(33);
+    touchMove(3, 365, 166);
+    mSleep(85);
+    touchMove(3, 366, 167);
+    mSleep(31);
+    touchMove(3, 366, 168);
+    mSleep(34);
+    touchMove(3, 366, 169);
+    mSleep(33);
+    touchMove(3, 367, 169);
+    mSleep(50);
+    touchUp(3, 374, 172);
+    mSleep(569);
+
+    touchDown(7, 303, 211);
+    mSleep(114);
+    touchMove(7, 319, 222);
+    mSleep(17);
+    touchMove(7, 323, 223);
+    mSleep(17);
+    touchMove(7, 325, 225);
+    mSleep(17);
+    touchMove(7, 327, 228);
+    mSleep(16);
+    touchMove(7, 328, 231);
+    mSleep(17);
+    touchMove(7, 330, 232);
+    mSleep(17);
+    touchMove(7, 331, 233);
+    mSleep(17);
+    touchMove(7, 333, 233);
+    mSleep(16);
+    touchMove(7, 334, 234);
+    mSleep(17);
+    touchMove(7, 335, 235);
+    mSleep(17);
+    touchMove(7, 336, 235);
+    mSleep(102);
+    touchMove(7, 337, 235);
+    mSleep(15);
+    touchMove(7, 337, 236);
+    mSleep(17);
+    touchMove(7, 338, 236);
+    mSleep(15);
+    touchMove(7, 339, 236);
+    mSleep(17);
+    touchMove(7, 339, 237);
+    mSleep(17);
+    touchMove(7, 340, 237);
+    mSleep(67);
+    touchMove(7, 340, 238);
+    mSleep(783);
+    touchMove(7, 341, 238);
+    mSleep(1150);
+    touchUp(7, 345, 243);
+    mSleep(19);
+
+    touchDown(7, 292, 224);
+    mSleep(248);
+    touchMove(7, 304, 233);
+    mSleep(17);
+    touchMove(7, 305, 234);
+    mSleep(17);
+    touchMove(7, 307, 236);
+    mSleep(17);
+    touchMove(7, 310, 237);
+    mSleep(17);
+    touchMove(7, 312, 239);
+    mSleep(18);
+    touchMove(7, 315, 240);
+    mSleep(16);
+    touchMove(7, 316, 242);
+    mSleep(16);
+    touchMove(7, 317, 243);
+    mSleep(17);
+    touchMove(7, 318, 245);
+    mSleep(16);
+    touchMove(7, 320, 246);
+    mSleep(17);
+    touchMove(7, 321, 247);
+    mSleep(17);
+    touchMove(7, 322, 248);
+    mSleep(17);
+    touchMove(7, 323, 249);
+    mSleep(16);
+    touchMove(7, 324, 250);
+    mSleep(16);
+    touchMove(7, 325, 251);
+    mSleep(17);
+    touchMove(7, 325, 252);
+    mSleep(17);
+    touchMove(7, 326, 252);
+    mSleep(16);
+    touchMove(7, 326, 253);
+    mSleep(50);
+    touchMove(7, 327, 253);
+    mSleep(33);
+    touchMove(7, 327, 254);
+    mSleep(50);
+    touchMove(7, 327, 255);
+    mSleep(17);
+    touchMove(7, 327, 256);
+    mSleep(50);
+    touchMove(7, 328, 256);
+    mSleep(433);
+    touchMove(7, 328, 257);
+    mSleep(17);
+    touchMove(7, 329, 257);
+    mSleep(417);
+    touchUp(7, 330, 256);
+    mSleep(134);
+
+    touchDown(8, 248, 1032);
+    mSleep(66);
+    touchUp(8, 248, 1032);
+    mSleep(468);
+
+    touchDown(7, 286, 244);
+    mSleep(148);
+    touchMove(7, 295, 248);
+    mSleep(17);
+    touchMove(7, 297, 250);
+    mSleep(16);
+    touchMove(7, 299, 251);
+    mSleep(17);
+    touchMove(7, 301, 252);
+    mSleep(17);
+    touchMove(7, 302, 253);
+    mSleep(16);
+    touchMove(7, 304, 254);
+    mSleep(18);
+    touchMove(7, 305, 255);
+    mSleep(16);
+    touchMove(7, 306, 256);
+    mSleep(17);
+    touchMove(7, 308, 257);
+    mSleep(17);
+    touchMove(7, 309, 257);
+    mSleep(16);
+    touchMove(7, 310, 258);
+    mSleep(17);
+    touchMove(7, 311, 258);
+    mSleep(16);
+    touchMove(7, 312, 258);
+    mSleep(18);
+    touchMove(7, 312, 259);
+    mSleep(15);
+    touchMove(7, 313, 259);
+    mSleep(17);
+    touchMove(7, 315, 260);
+    mSleep(33);
+    touchMove(7, 316, 260);
+    mSleep(17);
+    touchMove(7, 317, 260);
+    mSleep(17);
+    touchMove(7, 317, 261);
+    mSleep(33);
+    touchMove(7, 318, 261);
+    mSleep(67);
+    touchMove(7, 319, 261);
+    mSleep(33);
+    touchMove(7, 319, 262);
+    mSleep(49);
+    touchMove(7, 320, 262);
+    mSleep(33);
+    touchMove(7, 320, 263);
+    mSleep(33);
+    touchMove(7, 321, 263);
+    mSleep(33);
+    touchMove(7, 321, 264);
+    mSleep(50);
+    touchMove(7, 322, 264);
+    mSleep(50);
+    touchMove(7, 322, 265);
+    mSleep(52);
+    touchMove(7, 323, 266);
+    mSleep(131);
+    touchMove(7, 324, 266);
+    mSleep(67);
+    touchMove(7, 324, 267);
+    mSleep(17);
+    touchMove(7, 325, 267);
+    mSleep(117);
+    touchMove(7, 326, 267);
+    mSleep(83);
+    touchMove(7, 326, 268);
+    mSleep(397);
+    touchMove(7, 326, 269);
+    mSleep(40);
+    touchMove(7, 326, 270);
+    mSleep(597);
+    touchMove(7, 326, 272);
+    mSleep(16);
+    touchMove(7, 327, 272);
+    mSleep(370);
+    touchUp(7, 328, 273);
+
+    init(1)
+
+end
+--起点跑到刷图门口
+function qiDianRunToDoor()
+    debugB("起点跑到刷图门口")
+    init("0", 0);
+    -- luaExitIfCall(true);
+    mSleep(1779);
+
+    touchDown(4, 168, 241);
+    mSleep(365);
+    touchMove(4, 167, 252);
+    mSleep(18);
+    touchMove(4, 167, 253);
+    mSleep(14);
+    touchMove(4, 167, 254);
+    mSleep(67);
+    touchMove(4, 167, 255);
+    mSleep(20);
+    touchMove(4, 167, 256);
+    mSleep(32);
+    touchMove(4, 167, 257);
+    mSleep(33);
+    touchMove(4, 167, 258);
+    mSleep(15);
+    touchMove(4, 167, 259);
+    mSleep(35);
+    touchMove(4, 167, 260);
+    mSleep(66);
+    touchMove(4, 167, 261);
+    mSleep(87);
+    touchMove(4, 167, 262);
+    mSleep(35);
+    touchMove(4, 167, 263);
+    mSleep(46);
+    touchMove(4, 167, 264);
+    mSleep(32);
+    touchMove(4, 167, 265);
+    mSleep(33);
+    touchMove(4, 167, 266);
+    mSleep(17);
+    touchMove(4, 167, 267);
+    mSleep(37);
+    touchMove(4, 167, 268);
+    mSleep(32);
+    touchMove(4, 167, 269);
+    mSleep(15);
+    touchMove(4, 168, 270);
+    mSleep(16);
+    touchMove(4, 168, 272);
+    mSleep(17);
+    touchMove(4, 168, 273);
+    mSleep(18);
+    touchMove(4, 169, 274);
+    mSleep(16);
+    touchMove(4, 170, 275);
+    mSleep(18);
+    touchMove(4, 170, 276);
+    mSleep(67);
+    touchMove(4, 171, 277);
+    mSleep(14);
+    touchMove(4, 171, 278);
+    mSleep(33);
+    touchMove(4, 172, 278);
+    mSleep(17);
+    touchMove(4, 172, 279);
+    mSleep(34);
+    touchMove(4, 173, 280);
+    mSleep(49);
+    touchMove(4, 174, 280);
+    mSleep(19);
+    touchMove(4, 175, 280);
+    mSleep(34);
+    touchMove(4, 176, 281);
+    mSleep(15);
+    touchMove(4, 177, 281);
+    mSleep(33);
+    touchMove(4, 178, 281);
+    mSleep(16);
+    touchMove(4, 179, 282);
+    mSleep(50);
+    touchMove(4, 180, 282);
+    mSleep(53);
+    touchMove(4, 181, 283);
+    mSleep(34);
+    touchMove(4, 181, 284);
+    mSleep(79);
+    touchMove(4, 181, 285);
+    mSleep(34);
+    touchMove(4, 181, 286);
+    mSleep(19);
+    touchMove(4, 181, 287);
+    mSleep(51);
+    touchMove(4, 181, 288);
+    mSleep(80);
+    touchMove(4, 181, 289);
+    mSleep(150);
+    touchMove(4, 181, 290);
+    mSleep(51);
+    touchMove(4, 181, 291);
+    mSleep(99);
+    touchMove(4, 181, 292);
+    mSleep(33);
+    touchMove(4, 181, 293);
+    mSleep(117);
+    touchMove(4, 181, 294);
+    mSleep(68);
+    touchMove(4, 181, 295);
+    mSleep(35);
+    touchMove(4, 181, 296);
+    mSleep(13);
+    touchMove(4, 180, 296);
+    mSleep(54);
+    touchMove(4, 180, 297);
+    mSleep(31);
+    touchMove(4, 179, 297);
+    mSleep(16);
+    touchMove(4, 179, 298);
+    mSleep(17);
+    touchMove(4, 178, 298);
+    mSleep(67);
+    touchMove(4, 178, 299);
+    mSleep(383);
+    touchMove(4, 178, 300);
+    mSleep(535);
+    touchMove(4, 179, 300);
+    mSleep(68);
+    touchMove(4, 180, 300);
+    mSleep(31);
+    touchMove(4, 181, 300);
+    mSleep(155);
+    touchMove(4, 182, 300);
+    mSleep(112);
+    touchMove(4, 183, 300);
+    mSleep(67);
+    touchMove(4, 184, 300);
+    mSleep(34);
+    touchMove(4, 185, 300);
+    mSleep(134);
+    touchMove(4, 186, 300);
+    mSleep(654);
+    touchMove(4, 186, 301);
+    mSleep(245);
+    touchMove(4, 185, 301);
+    mSleep(16);
+    touchMove(4, 184, 301);
+    mSleep(17);
+    touchMove(4, 182, 302);
+    mSleep(21);
+    touchMove(4, 181, 302);
+    mSleep(28);
+    touchMove(4, 180, 303);
+    mSleep(17);
+    touchMove(4, 179, 303);
+    mSleep(19);
+    touchMove(4, 178, 303);
+    mSleep(31);
+    touchMove(4, 177, 303);
+    mSleep(33);
+    touchMove(4, 176, 304);
+    mSleep(16);
+    touchMove(4, 174, 304);
+    mSleep(16);
+    touchMove(4, 173, 304);
+    mSleep(17);
+    touchMove(4, 172, 305);
+    mSleep(20);
+    touchMove(4, 171, 305);
+    mSleep(13);
+    touchMove(4, 170, 305);
+    mSleep(22);
+    touchMove(4, 169, 305);
+    mSleep(11);
+    touchMove(4, 168, 305);
+    mSleep(33);
+    touchMove(4, 167, 306);
+    mSleep(19);
+    touchMove(4, 165, 306);
+    mSleep(31);
+    touchMove(4, 164, 306);
+    mSleep(18);
+    touchMove(4, 163, 306);
+    mSleep(16);
+    touchMove(4, 163, 307);
+    mSleep(33);
+    touchMove(4, 162, 307);
+    mSleep(233);
+    touchMove(4, 163, 307);
+    mSleep(17);
+    touchMove(4, 164, 307);
+    mSleep(17);
+    touchMove(4, 165, 307);
+    mSleep(17);
+    touchMove(4, 167, 307);
+    mSleep(16);
+    touchMove(4, 168, 307);
+    mSleep(17);
+    touchMove(4, 170, 307);
+    mSleep(17);
+    touchMove(4, 171, 307);
+    mSleep(17);
+    touchMove(4, 172, 307);
+    mSleep(18);
+    touchMove(4, 174, 307);
+    mSleep(16);
+    touchMove(4, 175, 307);
+    mSleep(17);
+    touchMove(4, 176, 307);
+    mSleep(17);
+    touchMove(4, 177, 307);
+    mSleep(17);
+    touchMove(4, 179, 307);
+    mSleep(17);
+    touchMove(4, 180, 307);
+    mSleep(16);
+    touchMove(4, 183, 307);
+    mSleep(18);
+    touchMove(4, 185, 307);
+    mSleep(15);
+    touchMove(4, 188, 307);
+    mSleep(18);
+    touchMove(4, 190, 307);
+    mSleep(16);
+    touchMove(4, 191, 307);
+    mSleep(17);
+    touchMove(4, 192, 307);
+    mSleep(17);
+    touchMove(4, 193, 307);
+    mSleep(51);
+    touchMove(4, 194, 307);
+    mSleep(15);
+    touchMove(4, 195, 307);
+    mSleep(17);
+    touchMove(4, 196, 307);
+    mSleep(185);
+    touchMove(4, 196, 306);
+    mSleep(50);
+    touchMove(4, 197, 306);
+    mSleep(333);
+    touchMove(4, 198, 306);
+    mSleep(50);
+    touchMove(4, 199, 306);
+    mSleep(33);
+    touchMove(4, 200, 306);
+    mSleep(51);
+    touchMove(4, 201, 306);
+    mSleep(34);
+    touchMove(4, 201, 305);
+    mSleep(17);
+    touchMove(4, 202, 305);
+    mSleep(16);
+    touchMove(4, 203, 305);
+    mSleep(33);
+    touchMove(4, 204, 305);
+    mSleep(16);
+    touchMove(4, 205, 304);
+    mSleep(19);
+    touchMove(4, 206, 303);
+    mSleep(16);
+    touchMove(4, 207, 303);
+    mSleep(16);
+    touchMove(4, 208, 303);
+    mSleep(16);
+    touchMove(4, 209, 302);
+    mSleep(33);
+    touchMove(4, 210, 301);
+    mSleep(17);
+    touchMove(4, 211, 301);
+    mSleep(67);
+    touchMove(4, 212, 301);
+    mSleep(16);
+    touchMove(4, 212, 300);
+    mSleep(50);
+    touchMove(4, 213, 300);
+    mSleep(516);
+    touchMove(4, 214, 300);
+    mSleep(17);
+    touchMove(4, 215, 299);
+    mSleep(16);
+    touchMove(4, 216, 299);
+    mSleep(17);
+    touchMove(4, 217, 298);
+    mSleep(51);
+    touchMove(4, 218, 297);
+    mSleep(15);
+    touchMove(4, 219, 297);
+    mSleep(18);
+    touchMove(4, 220, 297);
+    mSleep(15);
+    touchMove(4, 221, 296);
+    mSleep(17);
+    touchMove(4, 222, 296);
+    mSleep(16);
+    touchMove(4, 223, 294);
+    mSleep(18);
+    touchMove(4, 224, 293);
+    mSleep(15);
+    touchMove(4, 227, 292);
+    mSleep(17);
+    touchMove(4, 229, 290);
+    mSleep(20);
+    touchMove(4, 230, 289);
+    mSleep(13);
+    touchMove(4, 232, 289);
+    mSleep(16);
+    touchMove(4, 233, 289);
+    mSleep(433);
+    touchMove(4, 232, 289);
+    mSleep(17);
+    touchMove(4, 231, 290);
+    mSleep(33);
+    touchMove(4, 231, 291);
+    mSleep(100);
+    touchMove(4, 231, 292);
+    mSleep(33);
+    touchMove(4, 230, 292);
+    mSleep(34);
+    touchMove(4, 229, 293);
+    mSleep(49);
+    touchMove(4, 228, 294);
+    mSleep(17);
+    touchMove(4, 227, 295);
+    mSleep(17);
+    touchMove(4, 226, 295);
+    mSleep(16);
+    touchMove(4, 226, 296);
+    mSleep(18);
+    touchMove(4, 225, 296);
+    mSleep(49);
+    touchMove(4, 225, 297);
+    mSleep(101);
+    touchMove(4, 224, 297);
+    mSleep(48);
+    touchMove(4, 223, 298);
+    mSleep(17);
+    touchMove(4, 222, 298);
+    mSleep(17);
+    touchMove(4, 221, 299);
+    mSleep(83);
+    touchMove(4, 220, 299);
+    mSleep(100);
+    touchMove(4, 220, 300);
+    mSleep(50);
+    touchMove(4, 219, 301);
+    mSleep(17);
+    touchMove(4, 217, 301);
+    mSleep(16);
+    touchMove(4, 217, 302);
+    mSleep(54);
+    touchMove(4, 216, 303);
+    mSleep(15);
+    touchMove(4, 215, 303);
+    mSleep(16);
+    touchMove(4, 214, 304);
+    mSleep(16);
+    touchMove(4, 213, 304);
+    mSleep(33);
+    touchMove(4, 212, 304);
+    mSleep(52);
+    touchMove(4, 211, 305);
+    mSleep(182);
+    touchMove(4, 211, 306);
+    mSleep(17);
+    touchMove(4, 210, 306);
+    mSleep(16);
+    touchMove(4, 209, 307);
+    mSleep(18);
+    touchMove(4, 209, 308);
+    mSleep(16);
+    touchMove(4, 207, 308);
+    mSleep(17);
+    touchMove(4, 206, 309);
+    mSleep(16);
+    touchMove(4, 205, 310);
+    mSleep(17);
+    touchMove(4, 204, 310);
+    mSleep(16);
+    touchMove(4, 203, 311);
+    mSleep(17);
+    touchMove(4, 201, 312);
+    mSleep(16);
+    touchMove(4, 199, 313);
+    mSleep(17);
+    touchMove(4, 198, 314);
+    mSleep(17);
+    touchMove(4, 197, 314);
+    mSleep(51);
+    touchMove(4, 196, 314);
+    mSleep(289);
+    touchMove(4, 197, 314);
+    mSleep(11);
+    touchMove(4, 199, 314);
+    mSleep(18);
+    touchMove(4, 201, 312);
+    mSleep(18);
+    touchMove(4, 204, 310);
+    mSleep(13);
+    touchMove(4, 206, 309);
+    mSleep(17);
+    touchMove(4, 207, 308);
+    mSleep(18);
+    touchMove(4, 208, 307);
+    mSleep(16);
+    touchMove(4, 209, 307);
+    mSleep(17);
+    touchMove(4, 210, 307);
+    mSleep(17);
+    touchMove(4, 211, 307);
+    mSleep(868);
+    touchMove(4, 211, 308);
+    mSleep(33);
+    touchMove(4, 211, 309);
+    mSleep(16);
+    touchMove(4, 211, 310);
+    mSleep(18);
+    touchMove(4, 210, 310);
+    mSleep(17);
+    touchMove(4, 210, 311);
+    mSleep(18);
+    touchMove(4, 209, 311);
+    mSleep(31);
+    touchMove(4, 208, 311);
+    mSleep(50);
+    touchMove(4, 208, 312);
+    mSleep(1250);
+    touchMove(4, 208, 313);
+    mSleep(50);
+    touchMove(4, 208, 314);
+    mSleep(50);
+    touchMove(4, 207, 314);
+    mSleep(17);
+    touchMove(4, 207, 315);
+    mSleep(50);
+    touchMove(4, 207, 316);
+    mSleep(34);
+    touchMove(4, 206, 316);
+    mSleep(33);
+    touchMove(4, 205, 316);
+    mSleep(33);
+    touchMove(4, 205, 317);
+    mSleep(1503);
+    touchMove(4, 206, 317);
+    mSleep(14);
+    touchMove(4, 207, 317);
+    mSleep(17);
+    touchMove(4, 208, 317);
+    mSleep(17);
+    touchMove(4, 209, 317);
+    mSleep(19);
+    touchMove(4, 210, 316);
+    mSleep(15);
+    touchMove(4, 211, 315);
+    mSleep(19);
+    touchMove(4, 212, 315);
+    mSleep(14);
+    touchMove(4, 213, 314);
+    mSleep(17);
+    touchMove(4, 214, 314);
+    mSleep(33);
+    touchMove(4, 215, 313);
+    mSleep(69);
+    touchMove(4, 216, 313);
+    mSleep(115);
+    touchMove(4, 217, 313);
+    mSleep(300);
+    touchMove(4, 217, 314);
+    mSleep(16);
+    touchMove(4, 216, 315);
+    mSleep(17);
+    touchMove(4, 214, 315);
+    mSleep(16);
+    touchMove(4, 213, 316);
+    mSleep(17);
+    touchMove(4, 212, 317);
+    mSleep(117);
+    touchMove(4, 212, 318);
+    mSleep(651);
+    touchMove(4, 211, 318);
+    mSleep(416);
+    touchMove(4, 210, 318);
+    mSleep(67);
+    touchMove(4, 209, 318);
+    mSleep(33);
+    touchMove(4, 208, 317);
+    mSleep(19);
+    touchMove(4, 208, 316);
+    mSleep(16);
+    touchMove(4, 207, 315);
+    mSleep(17);
+    touchMove(4, 206, 313);
+    mSleep(16);
+    touchMove(4, 205, 312);
+    mSleep(16);
+    touchMove(4, 204, 310);
+    mSleep(17);
+    touchMove(4, 203, 310);
+    mSleep(16);
+    touchMove(4, 202, 308);
+    mSleep(17);
+    touchMove(4, 200, 306);
+    mSleep(18);
+    touchMove(4, 198, 304);
+    mSleep(15);
+    touchMove(4, 196, 301);
+    mSleep(18);
+    touchMove(4, 193, 298);
+    mSleep(16);
+    touchMove(4, 191, 293);
+    mSleep(19);
+    touchMove(4, 189, 289);
+    mSleep(14);
+    touchMove(4, 185, 284);
+    mSleep(17);
+    touchMove(4, 183, 280);
+    mSleep(16);
+    touchMove(4, 182, 278);
+    mSleep(17);
+    touchMove(4, 180, 275);
+    mSleep(17);
+    touchMove(4, 178, 272);
+    mSleep(16);
+    touchMove(4, 176, 267);
+    mSleep(17);
+    touchMove(4, 174, 264);
+    mSleep(17);
+    touchMove(4, 173, 260);
+    mSleep(15);
+    touchMove(4, 171, 257);
+    mSleep(53);
+    touchMove(4, 168, 249);
+    mSleep(14);
+    touchMove(4, 167, 245);
+    mSleep(19);
+    touchMove(4, 166, 241);
+    mSleep(15);
+    touchMove(4, 165, 237);
+    mSleep(17);
+    touchMove(4, 164, 234);
+    mSleep(17);
+    touchMove(4, 163, 231);
+    mSleep(17);
+    touchMove(4, 162, 228);
+    mSleep(16);
+    touchMove(4, 161, 226);
+    mSleep(17);
+    touchMove(4, 161, 224);
+    mSleep(18);
+    touchMove(4, 160, 221);
+    mSleep(16);
+    touchMove(4, 159, 219);
+    mSleep(16);
+    touchMove(4, 159, 216);
+    mSleep(17);
+    touchMove(4, 158, 213);
+    mSleep(17);
+    touchMove(4, 157, 210);
+    mSleep(16);
+    touchMove(4, 157, 208);
+    mSleep(17);
+    touchMove(4, 157, 206);
+    mSleep(17);
+    touchMove(4, 157, 205);
+    mSleep(16);
+    touchMove(4, 156, 203);
+    mSleep(17);
+    touchMove(4, 156, 202);
+    mSleep(16);
+    touchMove(4, 156, 201);
+    mSleep(17);
+    touchMove(4, 156, 200);
+    mSleep(16);
+    touchMove(4, 155, 199);
+    mSleep(17);
+    touchMove(4, 155, 198);
+    mSleep(17);
+    touchMove(4, 155, 197);
+    mSleep(567);
+    touchMove(4, 155, 198);
+    mSleep(16);
+    touchMove(4, 155, 200);
+    mSleep(16);
+    touchMove(4, 155, 201);
+    mSleep(17);
+    touchMove(4, 156, 202);
+    mSleep(17);
+    touchMove(4, 160, 202);
+    mSleep(30);
+    touchUp(4, 164, 202);
+    mSleep(639);
+
+    touchDown(4, 145, 183);
+    mSleep(316);
+    touchUp(4, 145, 183);
+
+    init(1)
+
+
+end
+
+-- 副本内
+function inside2()
+    if isColor(960,61,0xffffff,95) and isColor(89,591,0xdfdce2,95) then
+        tap1(1045,50)
+        if isColor(926,511,0xbbb9bb,95) then
+            tap1(1045,50)
+            mSleep(1000)
+            return true
+        else
+            tap1(1045,50)
+            mSleep(1000)
+        end
+    end
+end
+--副本外
+function outside2()
+    -- if isColor(750,50,0xddf0fe,95) and isColor(961,61,0xffffff,95) and isColor(918,541,0xb5a599,90) then
+    -- -- if isColor(749,48,0xddf0fe,95) and isColor(959,62,0xffffff,95) and isColor(918,540,0xa19897,95) then
+    --     return true
+    -- end
+    if isColor(960,61,0xffffff,95) and isColor(89,591,0xdfdce2,95) then
+        tap1(1045,50)
+        if isColor(907,509,0xd9d9dd,95) then
+            tap1(1045,50)
+            mSleep(1000)
+            return true
+        else
+            tap1(1045,50)
+            mSleep(1000)
+        end
+    end
 end
 
 -- 检查红点
 function checkRed2()
-    if isOutside() and muBiaoA ~= "采集" then
-        if nowTime - timeXuanDanRed >= 60 * 10 and isColor(794, 13, 0xc04131, 95) then
-            debugA("选单--红点")
-            tap1(777, 31, 0xffffff)
-            timeXuanDanRed = nowTime
+    -- if isOutside() and muBiaoA ~= "采集" then
+    --     if nowTime - timeXuanDanRed >= 60 * 10 and isColor(794, 13, 0xc04131, 95) then
+    --         debugA("选单--红点")
+    --         tap1(777, 31, 0xffffff)
+    --         timeXuanDanRed = nowTime
+    --     end
+    -- end
+    if (isColor(483,238,0xbf7109,95) and isColor(520,236,0xcd741f,95) and isColor(519,221,0xc95e0d,95)) 
+        or (isColor(510,544,0x565656,95) and isColor(597,547,0xf0d988,95) and isColor(1076,591,0xfee31f,95))
+        or (isColor(1070,117,0xa396c9,95) and isColor(903,51,0xa48fd8,95) and isColor(1061,74,0x9489bf,95))
+        or (isColor(928,47,0x7a5b3f,95) and isColor(1070,112,0x32261b,95) and isColor(1075,112,0x8b8680,95))
+        or (isColor(895,42,0x816990,95) and isColor(1063,77,0x2e0d48,95) and isColor(1068,77,0x867495,95))
+        or (isColor(938,40,0x636182,95) and isColor(1063,77,0x3b2f43,95) and isColor(1068,77,0x8f8894,95))
+        or (isColor(1048,538,0xfe9345,95) and isColor(1078,531,0x8e5838,95) and isColor(1076,501,0x514e55,95))
+        or (isColor(824,27,0x3e394e,95) and isColor(1057,94,0x3c3e57,95) and isColor(1062,94,0x90909e,95))
+        then -----活动中心 内部判定
+        debugB("活动中心 内部")
+        if isColor(262,195,0xfe4712,95) then
+            debugB("灰烬矩阵--红点")
+            tap1(188,210, 0xffffff)
+        elseif isColor(261,262,0xff4813,95) then
+            debugB("吉玛英雄献礼--红点")
+            tap1(189,284, 0xffffff)
+        elseif isColor(262,330,0xff4a13,95) then
+            debugB("狂心魔影--红点")
+            tap1(187,348, 0xffffff)
+        elseif isColor(261,399,0xfe4612,95) then
+            debugB("冲刺领英雄--红点")
+            tap1(194,418, 0xffffff)
+        elseif isColor(261,467,0xfe4712,95) then
+            debugB("赛季挑战--红点")
+            tap1(189,483, 0xffffff)
+        elseif isColor(261,535,0xfe4712,95) then
+            debugB("登录送背饰--红点")
+            tap1(189,553, 0xffffff)
+        else
+            moveTo(189, 552, 187, 146, { ["step"] = 10, ["ms"] = 50, ["stop"] = 1 })
+            mSleep(5000)
+            if isColor(262,112,0xfe4912,95) then
+                debugB("狂心魔影--红点")
+                tap1(187,130, 0xffffff)
+            elseif isColor(262,179,0xff4a13,95) then
+                debugB("冲刺领英雄--红点")
+                tap1(194,200, 0xffffff)
+            elseif isColor(262,247,0xff4a13,95) then
+                debugB("赛季挑战--红点")
+                tap1(188,265, 0xffffff)
+            elseif isColor(261,315,0xff4913,95) then
+                debugB("登录送背饰--红点")
+                tap1(189,553, 0xffffff)
+            elseif isColor(261,385,0xfe4612,95) then
+                debugB("七日登录--红点")
+                tap1(189,403, 0xffffff)
+            elseif isColor(261,452,0xff4813,95) then
+                debugB("赛季介绍--红点")
+                tap1(188,471, 0xffffff)
+            elseif isColor(261,519,0xff4b13,95) then
+                debugB("卡里诺英雄献礼--红点")
+                tap1(188,537, 0xffffff)                
+            else
+                --关闭
+                tap1(36,38, 0xffffff)
+            end
+        end 
+    end
+    
+    if isColor(84,14,0xb0beec,95) and isColor(88,17,0x8298e1,95) and isColor(837,55,0xffffff,95) then-----赛季手册 内部判定
+        debugB("赛季手册 奖励")
+        x,y = findMultiColorInRegionFuzzy( 0xff5715, "", 90, 83, 300, 945, 300)
+        if x >0 then
+            debugB("找到红点")
+            tap1(x,y)
+        else
+            debugB("未找到红点")
+            tap1(35,40)
+        end
+    end
+    if isColor(84,14,0xb0beec,95) and isColor(88,17,0x8298e1,95) and isColor(936,53,0xffffff,95) then -----赛季手册 内部判定
+        debugB("赛季手册 任务")
+        x,y = findMultiColorInRegionFuzzy( 0xff4d13, "", 90, 223, 230, 223, 540, { orient = 1})
+        if x >0 then
+            debugB("找到红点")
+            tap1(x,y)
+        else
+            debugB("未找到红点")
+            moveTo(155,503, 155,237, { ["step"] = 10, ["ms"] = 50, ["stop"] = 1 })
+            mSleep(5000)
+            x,y = findMultiColorInRegionFuzzy( 0xff4d13, "", 90, 223, 230, 223, 540, { orient = 1})
+            if x >0 then
+                debugB("找到红点")
+                tap1(x,y)
+            else
+                debugB("未找到红点")
+                tap1(35,40)
+            end
+        end
+        -- if isColor(223,252,0xff4b13,95) then
+        --     debugB("每日任务--红点")
+        --     tap1(156,267, 0xffffff)    
+        -- elseif isColor(223,308,0xff4913,95) then
+        --     debugB("第一周--红点")
+        --     tap1(156,321, 0xffffff)
+        -- elseif isColor(223,371,0xff4813,95) then
+        --     debugB("第二周--红点")
+        --     tap1(149,385, 0xffffff)
+        -- elseif isColor(223,426,0xff4813,95) then
+        --     debugB("第三周--红点")
+        --     tap1(152,440, 0xffffff)
+        -- elseif isColor(224,482,0xfe4912,95) then
+        --     debugB("第四周--红点")
+        --     tap1(154,494, 0xffffff)
+        -- else
+        --     moveTo(155,503, 155,237, { ["step"] = 10, ["ms"] = 50, ["stop"] = 1 })
+        --     mSleep(5000)
+        --     if isColor(262,112,0xfe4912,95) then
+        --         debugB("狂心魔影--红点")
+        --         tap1(187,130, 0xffffff)
+        --     elseif isColor(262,179,0xff4a13,95) then
+        --         debugB("冲刺领英雄--红点")
+        --         tap1(194,200, 0xffffff)
+        -- end
+
+        if isColor(305,266,0x69ff74,95) and isColor(959,285,0xff6446,95) then
+            debugB("1绿点领取")
+            tap1(959,285, 0xffffff)
+        elseif isColor(310,376,0x62ff6c,95) and isColor(977,402,0xff6446,95) then
+            debugB("2绿点领取")
+            tap1(977,402)
         end
     end
 end
@@ -9012,21 +12293,65 @@ end
 
 --doTarget2
 function doTarget2()
-    if muBiaoA == "" then
-        if numHaoLV == "小号" then
-            gaiMuBiaoNewA(1, "主线")
-        elseif numHaoLV == "成品号" then
-            gaiMuBiaoNewA(1, "主线")
-        elseif numHaoLV == "大号" then
-            gaiMuBiaoNewA(1, "主线")
+    if muBiaoB == "" then
+        if numHaoLV_B == "小号" then
+            gaiMuBiaoNewB(1, "主线")
+        elseif numHaoLV_B == "成品号" then
+            gaiMuBiaoNewB(1, "主线")
+        elseif numHaoLV_B == "大号" then
+            debugB("大号刷目标为刷图")
+            gaiMuBiaoNewB(1, "刷图")
         end
-    elseif muBiaoA == "挂机" then
+    elseif muBiaoB == "挂机" then
 
-    elseif muBiaoA == "主线" then
+    elseif muBiaoB == "刷图" then
+        if strZhuangTai == "原点" and outside2()==true then
+        -- if outside2()==true then
+            qiDianRunToDoor()
+            strZhuangTai = "传送门"
+            writeJson("人物状态", strZhuangTai)
+        end
+        if strZhuangTai == "传送门" and outside2()==true then
+            tap1(746,321)   --传送门
+            strZhuangTai = "异界选择"
+            writeJson("人物状态", strZhuangTai)
+        end
+        if strZhuangTai == "异界选择" and isColor(148,118,0xe1733e,95) and isColor(530,123,0xff6e43,95) and isColor(759,466,0x443461,95)  then
+            tap1(196,486)   --冰封寒渊
+            strZhuangTai = "监视者"
+            writeJson("人物状态", strZhuangTai)
+            mSleep(2000)
+        end
+        if strZhuangTai == "监视者" and isColor(62,142,0x9fbadb,95) and isColor(502,636,0x38548f,95) and isColor(1130,516,0x3b5b95,95)   then
+            tap1(153,95)   --信仰之墙
+            mSleep(2000)
+            tap1(903,566)
+            tap1(903,566)
+            strZhuangTai = "等待进入副本"
+            writeJson("人物状态", strZhuangTai)
+        end
+        if strZhuangTai == "等待进入副本" and outside2()  then
+            doorToDoor()
+            tap1(747,316)
+            strZhuangTai = "已进入副本"
+            writeJson("人物状态", strZhuangTai)
+        end
+        if strZhuangTai == "已进入副本" and inside2()  then
+            callMonster()
+            insideDoor()
+            -- tap1(747,316)
+            strZhuangTai = "副本完成"
+            writeJson("人物状态", strZhuangTai)
+        end
+       
+
+
+
+    elseif muBiaoB == "主线" then
         task_zhuXian()
-    elseif muBiaoA == "采集" then
+    elseif muBiaoB == "采集" then
         collect()
-    elseif muBiaoA == "去采集点" then
+    elseif muBiaoB == "去采集点" then
         goCollectPlace()
     end
     -- debug("目标："..muBiao)
@@ -11129,6 +14454,118 @@ function checkFruit()
                     end
                 end
             end
+            if checkYuMi == "玉米" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x4c5137, "4|32|0xbb6d25,28|35|0x225100,24|12|0xd7822c", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 34, y - 30, x + 61, y + 3,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("玉米:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "玉米"
+                    end
+                end
+            end
+            if checkBaoXinCai == "包心菜" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x50883c, "47|21|0xb4e06c,64|21|0x3f673b,52|7|0x457738", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 15, y - 37, x + 81, y + 3,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("包心菜:" .. numStr)
+                    if numStr <= 600 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "包心菜"
+                    end
+                end
+            end
+            if checkHuangDou == "黄豆" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x608e69, "0|28|0x659832,16|34|0xf0a609,18|39|0xbde486", 90, 3, 389, 1127,614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 31, y - 24, x + 65, y + 10,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("黄豆:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "黄豆"
+                    end
+                end
+            end
+            if checkYangCong == "洋葱" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x5db42f, "14|25|0xc26305,39|53|0x623d3a,26|28|0xf39a16", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 34, y - 17, x + 62, y + 16,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("洋葱:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "洋葱"
+                    end
+                end
+            end
+            if checkBoHe == "薄荷" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x578551, "55|57|0x998187,54|25|0x86c273,48|57|0x4a542f", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 16, y - 10, x + 80, y + 24,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("薄荷:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "薄荷"
+                    end
+                end
+            end
+            if checkLaJiao == "辣椒" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0xfebb70, "-34|20|0x73b32b,17|29|0xa21d26,33|-1|0x449a49", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 47, y - 36, x + 49, y + 1,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("辣椒:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "辣椒"
+                    end
+                end
+            end
+            if checkXunYiCao == "薰衣草" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x504b71, "7|0|0x6e4c9b,7|13|0xa34edf,20|31|0x699936", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 22, y - 35, x + 74, y - 1,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("薰衣草:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "薰衣草"
+                    end
+                end
+            end
+            if checkBoLuo == "菠萝" and isZhiDingFruit == false then
+                x,y = findMultiColorInRegionFuzzy( 0x46662e, "-3|20|0xd88d44,13|19|0xeec856,12|0|0x749538", 90, 3, 389, 1127, 614)
+                if x > 0 then
+                    local numStr = dmOcrText(index_dm_numNumber, x - 39, y - 44, x + 57, y - 10,
+                        "DCD7D9,232826", 95)
+                    numStr, num = string.gsub(numStr, "x", "")
+                    numStr = tonumber(numStr)
+                    debugC("菠萝:" .. numStr)
+                    if numStr <= 40 then
+                        isZhiDingFruit = true
+                        strZhiDingFruit = "菠萝"
+                    end
+                end
+            end
             if checkXiangCao == "香草" and isZhiDingFruit == false then
                 x,y = findMultiColorInRegionFuzzy( 0xf1ece2, "41|44|0x778195,58|38|0x463039,51|57|0x0e0f13", 90, 3, 389, 1127, 614)
                 if x > 0 then
@@ -11336,8 +14773,32 @@ function plant()
             elseif strZhiDingFruit == "萝卜" then
                 x0, y0 = findMultiColorInRegionFuzzy( 0x285f01, "7|0|0x78c05f,18|5|0xbe5600,15|17|0x563a42", 90, 200, 497, 1122, 516)
                 timeCollectInterval = 60 * 75 
+            elseif strZhiDingFruit == "玉米" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x4a5d32, "4|26|0xe1852d,10|40|0x284f07,20|10|0x619034", 90, 200, 504, 1122, 546)
+                timeCollectInterval = 60 * 5 
+            elseif strZhiDingFruit == "包心菜" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x6aa73e, "30|34|0x96c460,47|17|0x3e693b,30|-7|0x398b02", 90, 200, 496, 1122, 539)
+                timeCollectInterval = 30 * 1 
+            elseif strZhiDingFruit == "黄豆" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x5f8866, "10|26|0xdca00b,8|44|0x90c457,14|5|0x609230", 90, 200, 499, 1122, 545)
+                timeCollectInterval = 60 * 20
+            elseif strZhiDingFruit == "洋葱" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x4f862b, "9|-3|0x64b935,10|18|0x947a0f,2|50|0xa45614", 90, 200, 491, 1122, 546)
+                timeCollectInterval = 60 * 25  
+            elseif strZhiDingFruit == "辣椒" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0xe23d35, "40|-14|0xa42427,39|-30|0x4d7447,19|7|0xfebf72", 90, 200, 489, 1122, 528)
+                timeCollectInterval = 60 * 43
+            elseif strZhiDingFruit == "薄荷" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x56734e, "24|41|0x2d580e,32|47|0x5e8d33,41|42|0x553842", 90, 200, 489, 1122, 538)
+                timeCollectInterval = 60 * 35  
+            elseif strZhiDingFruit == "薰衣草" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x504b72, "0|10|0xaf4fed,21|14|0x8136c3,13|20|0x2a520a", 90, 200, 507, 1122, 529)
+                timeCollectInterval = 60 * 135 
+            elseif strZhiDingFruit == "菠萝" then
+                x0, y0 = findMultiColorInRegionFuzzy( 0x71904d, "20|-3|0x4c6b31,13|18|0xacdb7b,12|29|0xdd9547", 90, 200, 490, 1122, 524)
+                timeCollectInterval = 60 * 287 
             elseif strZhiDingFruit == "香草" then
-                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)--X固定死
+                x0, y0 = findMultiColorInRegionFuzzy( 0x505a6c, "2|23|0x757f93,9|40|0x533842", 90, 200, 489, 1122, 531)--X固定死 Y最小的-1 最大的+1
                 timeCollectInterval = 60 * 60
             end
             if x0 > 0 then
