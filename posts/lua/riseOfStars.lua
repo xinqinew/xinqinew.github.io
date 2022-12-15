@@ -568,6 +568,9 @@ function bianLiang()
     numLastTreeRow = 0 --最后一颗树的所在行
     numLastTreeColumn = 0 --最后一颗树的所在列
 
+    ---------------项目4---------------
+
+
 end
 
 -- 新UI
@@ -585,9 +588,9 @@ function newUi()
         0, "", 1, 3) -- 多选1
     -- UILabel(2, "---------------------项目1---------------------", 12, "center", "199,21,133", -1, 0, "center")
     UICheck(2,
-        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25,check26,check27"
+        "check7,check8,check9,check10,check11,check12,check13,check14,check15,check16,check17,check18,check19,check20,check21,check22,check23,check24,check25,check26,check27,check28"
         ,
-        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存,3级粒子,1级粒子"
+        "联盟任务,大号,成品号,小号,不生产,不挖粒子,抢粒子,研究,生产加速,vip8,强制金属,强制矿物,强制氯气,2级粒子,自动切换梯子,活动,60海盗,买钛,库存,3级粒子,1级粒子,4级粒子"
         ,
         "3@5", -1, 0, "", 1, 3) -- 多选1
     UILabel(2, "航母数量", 12, "left", "46,139,87", -1, 1, "center")
@@ -666,8 +669,9 @@ function newUi()
     UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
     UIShow()
-
-    if check26 == "3级粒子"  then
+    if check28 == "4级粒子"  then
+        numSeachLiZi = 4 
+    elseif check26 == "3级粒子"  then
         numSeachLiZi = 3 
     elseif check20 == "2级粒子"  then
         numSeachLiZi = 2  
@@ -705,7 +709,9 @@ function newUi()
         numTree = tonumber(numTree)
         numFarm = tonumber(numFarm)
     end
-
+    if checkXiangMu4 == "项目4" then
+        numInit = 1
+    end
     init(numInit)
     floatingWindow()
 end
@@ -953,6 +959,11 @@ function main()
             appXiangMu = "com.wemadeconnect.etgnft.everytown"
         end
         main3()
+    elseif checkXiangMu4 == "项目4" and (numXiangMu == 0 or numXiangMu == 4) then
+        if m_iRunCount == 1 then
+            appXiangMu = "rn.notes.best"
+        end
+        main4()
     end
 end
 
@@ -1596,6 +1607,8 @@ function oncePlist()
         isSell = false
         writeJson("出货", isSell)
     end
+    -----------------------------项目4---------------------
+
 end
 
 -- onceOther
@@ -2304,9 +2317,23 @@ function zongHe1(...)
     end
     if isColor(310, 314, 0xffffff, 95) and isColor(712, 309, 0x116eb9, 95) and isColor(310, 466, 0xffffff, 95) and
         isColor(719, 462, 0x116eb9, 95) then
+        debugA("挖出高级粒子后,继续挖高级粒子,弹出的对话框,标题为移动至高级商店")
         if isColor(714, 311, 0x116eb9, 95) then
             debugA("移动至高级商店")
-            if numSeachLiZi==3  then
+            if numSeachLiZi==4  then
+                if  check26 == "3级粒子" then
+                    numSeachLiZi=3
+                    isLiZied = false -- 粒子
+                elseif  check20 == "2级粒子"  then
+                    numSeachLiZi=2
+                    isLiZied = false -- 粒子
+                elseif  check27 == "1级粒子"  then
+                    numSeachLiZi=1
+                    isLiZied = false -- 粒子
+                else
+                    isLiZied = true -- 粒子
+                end
+            elseif numSeachLiZi==3  then
                 if  check20 == "2级粒子" then
                     numSeachLiZi=2
                     isLiZied = false -- 粒子
@@ -6362,7 +6389,9 @@ function chongZhiJiDiXianKuang()
     numSearch = 0
     isLiZied = false -- 粒子
     isJustBack = true
-    if check26 == "3级粒子"  then
+    if check28 == "4级粒子"  then
+        numSeachLiZi = 4
+    elseif check26 == "3级粒子"  then
         numSeachLiZi = 3 
     elseif check20 == "2级粒子"  then
         numSeachLiZi = 2  
@@ -6896,8 +6925,24 @@ function chuHang()
             mSleep(1000)
             for i = 0, 1, 1 do
                 -- if check20 == "2级粒子" and isFalseLiZi2 == false then
-                if check26 == "3级粒子" and numSeachLiZi==3 then
-                    if isColor(895, 366, 0xffffff, 95) then --3级
+                if check28 == "4级粒子" and numSeachLiZi==4 then
+                    if isColor(923, 366, 0xffffff, 95) then --4级
+
+                    elseif isColor(895, 366, 0xffffff, 95) then --3级
+                        tap1(1059, 366) --  "+"   
+                    elseif isColor(867, 366, 0xffffff, 95) then --2级  
+                        tap1(1059, 366) --  "+"   
+                        tap1(1059, 366)  --  "+"  
+                    elseif isColor(838, 366, 0xffffff, 95) then --1级 
+                            tap1(1059, 366)  --  "+"  
+                            tap1(1059, 366)  --  "+"  
+                            tap1(1059, 366)  --  "+"  
+                    end
+                    numSeachLiZi = 4--搜索粒子的等级
+                elseif check26 == "3级粒子" and numSeachLiZi==3 then
+                    if isColor(923, 366, 0xffffff, 95) then --4级
+                        tap1(785, 366) --  "-" 
+                    elseif isColor(895, 366, 0xffffff, 95) then --3级
 
                     elseif isColor(867, 366, 0xffffff, 95) then --2级  
                         tap1(1059, 366) --  "+"   
@@ -6907,7 +6952,10 @@ function chuHang()
                     end
                     numSeachLiZi = 3--搜索粒子的等级
                 elseif check20 == "2级粒子" and numSeachLiZi==2 then
-                    if isColor(895, 366, 0xffffff, 95) then --3级
+                    if isColor(923, 366, 0xffffff, 95) then --4级
+                        tap1(785, 366) --  "-" 
+                        tap1(785, 366) --  "-" 
+                    elseif isColor(895, 366, 0xffffff, 95) then --3级
                         tap1(785, 366) --  "-" 
                     elseif isColor(867, 366, 0xffffff, 95) then --2级  
 
@@ -6916,7 +6964,11 @@ function chuHang()
                     end
                     numSeachLiZi = 2
                 elseif check27 == "1级粒子" and numSeachLiZi==1 then
-                    if isColor(895, 366, 0xffffff, 95) then --3级
+                    if isColor(923, 366, 0xffffff, 95) then --4级
+                        tap1(785, 366) --  "-"
+                        tap1(785, 366) --  "-"
+                        tap1(785, 366) --  "-"
+                    elseif isColor(895, 366, 0xffffff, 95) then --3级
                         tap1(785, 366) --  "-" 
                         tap1(785, 366) --  "-"
                     elseif isColor(867, 366, 0xffffff, 95) then --2级
@@ -12973,9 +13025,9 @@ function findHouse()
         writeJson("原点Y", numOriginY)
     end
     tap(1135, 0)
-    if isColor(522, 593, 0xebe3d2, 95) then
+    if isColor(477,592,0xebe3d2,95) then
         debugC("误开实景界面1")
-        tap1(522, 593)
+        tap1(477, 593)
     end
     if numOriginX == 0 then
         -- x, y = findMultiColorInRegionFuzzy(0xee4b48, "-3|2|0xe94941,4|2|0xed4b48,-2|-1|0x80b781,3|-1|0x80b67d", 90, 286, 44, 1130, 528, { orient = 2 })--房子
@@ -15054,4 +15106,83 @@ function bugFor()
         debugC("右上角X2")
         tap1(1037, 67)
     end
+end
+---------------项目4---------------
+function main4()
+    -- nowTime1 = os.time();
+    nowTime = os.time();
+
+    windowsDecide()
+    if isLuaStart == false then
+        timeXXX = nowTime
+        return
+    end
+    nowDateTime = os.date("*t")
+    today = tonumber(os.date("%w", os.time()))
+    muBiaoZhuanHuanNewB() -- 公用 必须最优先
+    -- if version ~= "2.2.4" then
+    --     if getBacklightLevel() ~= 0.5 then
+    --         setBacklightLevel(0.5);
+    --     end
+    -- end
+    bid = frontAppBid()
+    -- debug("bid"..bid)
+    if bid == appXiangMu then
+        -- debug("apps1"..apps1)
+        APP = APP1
+    elseif bid == apps2 then
+        -- debug("apps2"..apps2)
+        APP = APP2
+        -- elseif bid == appWeiXin and tmpWeiXinWeiHu ~= nil and isWeiXinWeiHu == false and nowDateTime.hour >= hourWeiXin and
+        --     nowDateTime.min >= minWeiXin then
+    elseif bid == "com.apple.DocumentsApp" then
+        setRotationLockEnable(false);
+        init(1)
+    elseif bid == "com.readdle.ReaddleDocsIPad" then
+        setRotationLockEnable(false);
+        init(1)
+    else
+        -- elseif bid == "" then
+        debugA("哪个都没开")
+        APP.isYiDengLu = 0
+        runApp(appXiangMu)
+        APP = APP1
+        mSleep(5000)
+        -- isTapTask = false
+        -- writeJson("点任务", isTapTask)
+    end
+    m_iRunCount = m_iRunCount + 1
+
+    -- autoVpn()
+    autoUnlockDevice()
+    zongHe4()
+    -- zongHe_zj()
+    checkRed4()
+    -- checkDropline()
+    -- zhiYin()
+    -- timeJianCe2()
+
+    -- zongHe_Mult()
+    -- zongHe_Screen()
+    -- doTarget4()
+    -- timeChongZhi()
+    -- checkXXX()
+    -- everyDayInit()
+    -- checkXXX2()
+    resetIDLETimer();
+    -- timeJianGe(debug.getinfo(1).currentline)
+    -- nowTime2 = os.time();
+    -- dialog(nowTime2 - nowTime1,0)
+    -- lua_exit()
+end
+
+
+function zongHe4()
+
+
+end
+
+function checkRed4()
+
+
 end
