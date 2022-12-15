@@ -12745,6 +12745,18 @@ function main3()
 end
 
 function zongHe3()
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xd1b390,95) and isColor(730,211,0xcdad88,95) then
+        debugC("Menu--sort没改")
+        if muBiaoC ~= "烹饪" then
+            tap1(67,138)--cooking
+        end
+    end
+    if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
+        debugC("Menu--sort已改")
+        if muBiaoC ~= "烹饪" then
+            tap1(67,138)--cooking
+        end
+    end
     if isColor(499,516,0x323232,95) and isColor(500,554,0x4b4b4b,95) and isColor(641,549,0x4f4f4f,95) then
         debugC("灰色cook")
         tap1(733,97)
@@ -12761,7 +12773,7 @@ function zongHe3()
         tap1(1088,141)
 
     end
-    if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
+    if isColor(75,52,0xea4949,95) and isColor(426,26,0x64434f,95) and isColor(72,41,0xea8395,95) and isColor(67,138,0x2b2b5c,95) and checkCook=="烹饪" then --餐厅界面并且打勾选烹饪
         debugC("restaurant")    
         gaiMuBiaoNewC(3, "烹饪") 
         debugC("改目标为烹饪")  
@@ -13248,7 +13260,6 @@ function cook()
         debugC("Menu")
         tap1(858,205)--SORt
         tap1(618,168)--开放
-        
     end
     if isColor(240,135,0x3e1d19,95) and isColor(747,201,0xfe5656,95) and isColor(730,212,0x684613,95) then
         debugC("选套餐")
@@ -13325,7 +13336,6 @@ function cook()
                 end
             end
         end
-
     end
 end
 
