@@ -6,7 +6,6 @@ appXiangMu2 = "com.xd.TLglobal"
 appXiangMu3 = "com.wemadeconnect.etgnft.everytown"
 appCalculator = "com.apple.calculator"
 
-
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -575,6 +574,7 @@ function bianLiang()
     ---------------项目4---------------
 
     numFangXiang = 1
+    numPathStep = 0
     timeCheckBackpack = nowTime - 60 * 10 -- 检查背包
 
 end
@@ -683,9 +683,23 @@ function newUi()
     UILabel(5, "目标4 无,占位1", 10, "left", "72,61,139", -1, 0, "center")
     UIEdit(5, "muBiaoD4", "目标4", "", 15, "left", "95,158,160", "default", 0,
            0)
-    UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
+    UIEdit(5, "upDown", "几上下", "1", 15, "left", "95,158,160", "number",
+           100, 1)
+    UILabel(5, "上下", 10, "left", "72,61,139", 200, 1, "center")
+    UIEdit(5, "leftRight", "几左右", "1", 15, "left", "95,158,160", "number",
+           100, 1)
+    UILabel(5, "左右", 10, "left", "72,61,139", 200, 0, "center")
+    UICheck(5, "check_monster1,check_monster2", "夏洛特花,燃火兽", "0", -1,
+            0, "", 1, 3) -- 多选1
+    UICheck(5,
+            "check_skill_up,check_skill_down,check_skill_left,check_skill_right",
+            "技能上,下,左,右", "0", -1, 0, "", 1, 3) -- 多选1
+
+    -- UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
     UIShow()
+
+    ---------------------项目1---------------------
     if check28 == "4级粒子" then
         numSeachLiZi = 4
     elseif check26 == "3级粒子" then
@@ -704,6 +718,12 @@ function newUi()
     if check10 == "小号" then haoLV = 1 end
     if check9 == "成品号" then haoLV = 2 end
     if check8 == "大号" then haoLV = 3 end
+    ---------------------项目4---------------------
+    if checkXiangMu4 == "项目4" then
+        upDown = tonumber(upDown)
+        leftRight = tonumber(leftRight)
+    end
+    ---------------------公共---------------------
     if checkXiangMu1 == "项目1" then numInit = 1 end
     if checkXiangMu2 == "项目2" then numInit = 1 end
     if checkXiangMu3 == "项目3" then
@@ -15916,17 +15936,63 @@ function doTarget4()
 end
 
 function zongHe4()
-    if fightMenu() and muBiaoD == "挂机" and isColor(807, 467, 0xd8d5d0, 95) and
-        isColor(807, 490, 0xbb8939, 95) and isColor(815, 480, 0x976725, 95) then
-        debugD("释放技能")
-        -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
-        -- debugD(temStr)
-        if isColor(350, 62, 0x44bcf4, 95) == false and
-            isColor(128, 89, 0x15b235, 80) then
-            debugD("血不足,放弃释放技能")
-        else
-            tap1(807, 483)
-            mSleep(7000)
+    if fightMenu() and muBiaoD == "挂机" then
+        if check_skill_up == "技能上" and isColor(807, 467, 0xd8d5d0, 95) and
+            isColor(807, 490, 0xbb8939, 95) and isColor(815, 480, 0x976725, 95) then
+            debugD("释放技能")
+            -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
+            -- debugD(temStr)
+            if isColor(350, 62, 0x44bcf4, 95) == false and
+                isColor(128, 89, 0x15b235, 80) then
+                debugD("血不足,放弃释放技能")
+            else
+                if check_monster1 == "夏洛特花" then
+                    if isColor(1038, 556, 0xa7a6a6, 95) and
+                        isColor(1084, 556, 0xbbb9b9, 95) then
+                        tap1(807, 483)
+                        mSleep(7000)
+                    end
+                elseif check_monster2 == "燃火兽" then
+                    if isColor(1034,556,0x999898,95) and isColor(1018,556,0xb4b4b4,95) then
+                        tap1(807, 483)
+                        mSleep(7000)
+                    elseif isColor(1025,556,0x9d9793,95) and isColor(1039,560,0x968885,95) then
+                        tap1(807, 483)
+                        mSleep(7000)
+                    end
+                else
+                    tap1(807, 483)
+                    mSleep(7000)
+                end
+            end
+        elseif check_skill_left == "左" and isColor(748, 516, 0xfffdfe, 95) and
+            isColor(759, 522, 0xe4406b, 95) then
+            debugD("释放技能")
+            -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
+            -- debugD(temStr)
+            if isColor(350, 62, 0x44bcf4, 95) == false and
+                isColor(128, 89, 0x15b235, 80) then
+                debugD("血不足,放弃释放技能")
+            else
+                if check_monster1 == "夏洛特花" then
+                    if isColor(1038, 556, 0xa7a6a6, 95) and
+                        isColor(1084, 556, 0xbbb9b9, 95) then
+                        tap1(748, 516)
+                        mSleep(7000)
+                    end
+                elseif check_monster2 == "燃火兽" then
+                    if isColor(1034,556,0x999898,95) and isColor(1018,556,0xb4b4b4,95) then
+                        tap1(748, 516)
+                        mSleep(7000)
+                    elseif isColor(1025,556,0x9d9793,95) and isColor(1039,560,0x968885,95) then
+                        tap1(748, 516)
+                        mSleep(7000)
+                    end
+                else
+                    tap1(748, 516)
+                    mSleep(7000)
+                end
+            end
         end
     end
     if isColor(338, 175, 0xe3bf71, 95) and isColor(688, 424, 0xefd0a4, 95) and
@@ -15976,8 +16042,8 @@ function zongHe4()
         debugD("出发")
         tap1(925, 552)
     end
-    if isColor(800, 44, 0x787878, 95) and isColor(771, 455, 0xffffff, 95) and
-        isColor(1066, 487, 0xd8d8d8, 95) and isColor(1066, 46, 0xeeeeee, 95) then
+    if isColor(912, 35, 0x1a1613, 95) and isColor(949, 51, 0x0d0b09, 95) and
+        isColor(782, 480, 0xe2e2e2, 95) and isColor(1064, 45, 0xf0f0f0, 95) then
         debugD("菜单")
         tap1(1064, 44)
     end
@@ -16024,17 +16090,37 @@ function findMonster()
     if fightMenu() then
         debugD("找怪")
         if numFangXiang == 1 then
-            up()
-            numFangXiang = 2
+            numPathStep = numPathStep + 1
+            if numPathStep > upDown then
+                numFangXiang = 2
+                numPathStep = 0
+            else
+                up()
+            end
         elseif numFangXiang == 2 then
-            down()
-            numFangXiang = 3
+            numPathStep = numPathStep + 1
+            if numPathStep > upDown then
+                numFangXiang = 3
+                numPathStep = 0
+            else
+                down()
+            end
         elseif numFangXiang == 3 then
-            left()
-            numFangXiang = 4
+            numPathStep = numPathStep + 1
+            if numPathStep > leftRight then
+                numFangXiang = 4
+                numPathStep = 0
+            else
+                left()
+            end
         elseif numFangXiang == 4 then
-            right()
-            numFangXiang = 1
+            numPathStep = numPathStep + 1
+            if numPathStep > leftRight then
+                numFangXiang = 1
+                numPathStep = 0
+            else
+                right()
+            end
         end
         mSleep(1000)
     end
@@ -16133,14 +16219,15 @@ function selling()
         tap1(1057, 509, 0xdb1b07)
         mSleep(1000)
         for i = 1, 30, 1 do
-            if isColor(253,528,0xeab773,95) and isColor(882,585,0xdaa752,95) then
+            if isColor(253, 528, 0xeab773, 95) and
+                isColor(882, 585, 0xdaa752, 95) then
                 debugD("对话框1")
-                tap1(562,552, 0x31312c)
+                tap1(562, 552, 0x31312c)
             end
             if isColor(253, 483, 0xe4b15c, 95) and
                 isColor(882, 490, 0xdaa752, 95) then
                 debugD("对话框2")
-                tap1(562,552, 0x31312c)
+                tap1(562, 552, 0x31312c)
             end
             mSleep(1000)
             if isColor(27, 71, 0xe3bf71, 95) and isColor(481, 530, 0xe0be7a, 95) then
@@ -16170,8 +16257,9 @@ function selling()
                 debugD("开始向下拉")
                 touchMoveXY(825, 142, 825, 478)
                 mSleep(2000)
-                for i=1,60,1 do
-                    if isColor(319,435,0xf8fafb,95)==false and isColor(365,436,0xc9d8e2,95)==false then
+                for i = 1, 60, 1 do
+                    if isColor(319, 435, 0xf8fafb, 95) == false and
+                        isColor(365, 436, 0xc9d8e2, 95) == false then
                         break
                     end
                     mSleep(1000)
@@ -16182,31 +16270,39 @@ function selling()
         end
         for i = 1, 5, 1 do
             -- x, y, n = findImageInRegionFuzzy("RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png", 20, 311, 157, 373, 233, 0, 3);
-            x, y,n = findImages("RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png", 95, 311, 157, 373, 233, 0, 1);
+            x, y, n = findImages(
+                          "RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png",
+                          95, 311, 157, 373, 233, 0, 1);
             if x > 0 then
-                debugD("1找到的图片编号为"..n)
-                tap1(699,194,0xcb4541)
+                debugD("1找到的图片编号为" .. n)
+                tap1(699, 194, 0xcb4541)
                 sellingExp1()
             end
-            x, y,n = findImages("RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png", 95, 311, 233, 373, 311, 0,1);
+            x, y, n = findImages(
+                          "RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png",
+                          95, 311, 233, 373, 311, 0, 1);
             if x > 0 then
-                debugD("2找到的图片编号为"..n)
-                tap1(699,275,0xcb4541)
+                debugD("2找到的图片编号为" .. n)
+                tap1(699, 275, 0xcb4541)
                 sellingExp1()
             end
-            x, y,n= findImages("RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png", 95, 311, 311, 373, 388, 0,1);
+            x, y, n = findImages(
+                          "RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png",
+                          95, 311, 311, 373, 388, 0, 1);
             if x > 0 then
-                debugD("3找到的图片编号为"..n)
-                tap1(699,352,0xcb4541)
+                debugD("3找到的图片编号为" .. n)
+                tap1(699, 352, 0xcb4541)
                 sellingExp1()
             end
-            x, y,n = findImages("RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png", 95, 311, 388, 373, 464, 0,1);
+            x, y, n = findImages(
+                          "RenWuWuPin.png,FJSTD.png,FJSW.png,FJSX.png,FJSZ.png,WGSD.png,WGSTD.png",
+                          95, 311, 388, 373, 464, 0, 1);
             if x > 0 then
-                debugD("4找到的图片编号为"..n)
-                tap1(699,425,0xcb4541)
+                debugD("4找到的图片编号为" .. n)
+                tap1(699, 425, 0xcb4541)
                 sellingExp1()
             end
-            if isColor(772,424,0xeb4829,95) then
+            if isColor(772, 424, 0xeb4829, 95) then
                 debugD("出售按钮--红了")
                 tap1(777, 439, 0x464646) -- 出售
                 tap1(464, 277, 0x3d3d3d) -- 确定
@@ -16218,13 +16314,14 @@ function selling()
                     end
                     mSleep(1000)
                 end
-                 for i = 1, 30, 1 do
+                for i = 1, 30, 1 do
                     if isColor(766, 444, 0xba1a19, 95) then
                         debugD("开始向下拉")
                         touchMoveXY(825, 142, 825, 478)
                         mSleep(2000)
-                        for i=1,60,1 do
-                            if isColor(319,435,0xf8fafb,95)==false and isColor(365,436,0xc9d8e2,95)==false then
+                        for i = 1, 60, 1 do
+                            if isColor(319, 435, 0xf8fafb, 95) == false and
+                                isColor(365, 436, 0xc9d8e2, 95) == false then
                                 break
                             end
                             mSleep(1000)
@@ -16236,7 +16333,7 @@ function selling()
             else
                 tap1(815, 89, 0x004466) -- 关闭
                 mSleep(1000)
-                tap1(243,443,0x342512            )--放弃
+                tap1(243, 443, 0x342512) -- 放弃
                 break
             end
             -- lua_exit()
@@ -16286,13 +16383,12 @@ function selling()
     end
 end
 function sellingExp1()
-    if isColor(600, 492, 0xaccf41, 95) and
-        isColor(525, 491, 0xbf5d53, 95) then
+    if isColor(600, 492, 0xaccf41, 95) and isColor(525, 491, 0xbf5d53, 95) then
         debugD("复数")
-        x,y = findMultiColorInRegionFuzzy( 0xfefefe, "-7|0|0x1f1912,8|0|0x1f1912", 90, 445, 359, 688, 361)
-        if x > 0 then
-            touchMoveXY(x, 360, 677 + 100, 360)
-        end
+        x, y = findMultiColorInRegionFuzzy(0xfefefe,
+                                           "-7|0|0x1f1912,8|0|0x1f1912", 90,
+                                           445, 359, 688, 361)
+        if x > 0 then touchMoveXY(x, 360, 677 + 100, 360) end
         -- touchMoveXY(483, 360, 677 + 100, 360)
         mSleep(500)
         tap1(644, 474, 0xc4dd78) -- 决定
@@ -16301,7 +16397,7 @@ function sellingExp1()
 end
 -- 检查背包
 function checkBackpack()
-    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 and
+    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60*9999999 and
         isColor(385, 67, 0x385ee1, 95) then
         timeCheckBackpack = nowTime
         debugD("检查背包--打开背包")
@@ -16319,6 +16415,16 @@ function checkBackpack()
             local temStr5 = ocrText(393, 488, 472, 516, 0, "0123456789/")
             debugD("数量:" .. temStr1 .. "  " .. temStr2 .. "  " .. temStr3 ..
                        "  " .. temStr4 .. "  " .. temStr5 .. "  ")
+            local num1, num2 = string.find(temStr1, "/")
+            if num1 == nil then temStr1 = "0/1" end
+            num1, num2 = string.find(temStr2, "/")
+            if num1 == nil then temStr2 = "0/1" end
+            num1, num2 = string.find(temStr3, "/")
+            if num1 == nil then temStr3 = "0/1" end
+            num1, num2 = string.find(temStr4, "/")
+            if num1 == nil then temStr4 = "0/1" end
+            num1, num2 = string.find(temStr5, "/")
+            if num1 == nil then temStr5 = "0/1" end
             local newStr1 = temStr1:split("/")
             local newStr2 = temStr2:split("/")
             local newStr3 = temStr3:split("/")
@@ -16375,13 +16481,12 @@ function killMyself()
     end
 end
 -- 自定义找多图
-function findImages(picpath,degree,x1,y1,x2,y2,alpha,kind)
-    local newPicpath = picpath:split(",") --将字符串 str 按照 `,`，分割并返回一个 table
+function findImages(picpath, degree, x1, y1, x2, y2, alpha, kind)
+    local newPicpath = picpath:split(",") -- 将字符串 str 按照 `,`，分割并返回一个 table
     for i = 1, #newPicpath, 1 do
-        x, y = findImageInRegionFuzzy(newPicpath[i], degree,x1,y1,x2,y2,alpha,kind);
-        if x > 0 then
-            return x,y,newPicpath[i]
-        end
+        x, y = findImageInRegionFuzzy(newPicpath[i], degree, x1, y1, x2, y2,
+                                      alpha, kind);
+        if x > 0 then return x, y, newPicpath[i] end
     end
-    return 0,0,""
+    return 0, 0, ""
 end
