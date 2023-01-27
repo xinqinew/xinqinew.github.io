@@ -576,7 +576,7 @@ function bianLiang()
     numFangXiang = 1
     numPathStep = 0
     timeCheckBackpack = nowTime - 60 * 10 -- 检查背包
-
+    timeHungry = nowTime - 2000
 end
 
 -- 新UI
@@ -689,11 +689,12 @@ function newUi()
     UIEdit(5, "leftRight", "几左右", "1", 15, "left", "95,158,160", "number",
            100, 1)
     UILabel(5, "左右", 10, "left", "72,61,139", 200, 0, "center")
-    UICheck(5, "check_monster1,check_monster2,check_monster3", "夏洛特花,燃火兽,陨石幽鬼", "0",
-            -1, 0, "", 1, 3) -- 多选1
+    UICheck(5, "check_monster0,check_monster1,check_monster2,check_monster3",
+            "任意怪,夏洛特花,燃火兽,陨石幽鬼", "0", -1, 0, "", 1,
+            3) -- 多选1
     UICheck(5,
-            "check_skill_up,check_skill_down,check_skill_left,check_skill_right",
-            "技能上,下,左,右", "0", -1, 0, "", 1, 3) -- 多选1
+            "check_skill_up,check_skill_down,check_skill_left,check_skill_right,check_hungry",
+            "技能上,下,左,右,饥饿", "0", -1, 0, "", 1, 3) -- 多选1
 
     -- UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
@@ -15821,6 +15822,7 @@ function main4()
     -- autoVpn()
     autoUnlockDevice()
     zongHe4()
+    checkHungry()
     -- zongHe_zj()
     checkRed4()
     -- checkDropline()
@@ -15943,9 +15945,14 @@ function zongHe4()
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
             if isColor(350, 62, 0x44bcf4, 95) == false and
-                isColor(128, 89, 0x15b235, 80) and  isColor(667,113,0x383421,95)==false  then
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
             else
+                if check_monster0 == "任意怪" then
+                    tap1(807, 483)
+                    mSleep(7000)
+                end
                 if check_monster1 == "夏洛特花" then
                     if isColor(1038, 556, 0xa7a6a6, 95) and
                         isColor(1084, 556, 0xbbb9b9, 95) then
@@ -15965,13 +15972,11 @@ function zongHe4()
                     end
                 end
                 if check_monster3 == "陨石幽鬼" then
-                    if isColor(1025,557,0xa5a2a2,95) and isColor(1040,554,0x787574,95) then
+                    if isColor(1025, 557, 0xa5a2a2, 95) and
+                        isColor(1040, 554, 0x787574, 95) then
                         tap1(807, 483)
                         mSleep(7000)
                     end
-                else
-                    tap1(807, 483)
-                    mSleep(7000)
                 end
             end
         elseif check_skill_left == "左" and isColor(748, 516, 0xfffdfe, 95) and
@@ -15980,47 +15985,46 @@ function zongHe4()
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
             if isColor(350, 62, 0x44bcf4, 95) == false and
-                isColor(128, 89, 0x15b235, 80) and  isColor(667,113,0x383421,95)==false  then
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
             else
+                if check_monster0 == "任意怪" then
+                    tap1(748, 516)
+                    mSleep(8000)
+                end
                 if check_monster1 == "夏洛特花" then
                     if isColor(1038, 556, 0xa7a6a6, 95) and
                         isColor(1084, 556, 0xbbb9b9, 95) then
                         tap1(748, 516)
-                        mSleep(7000)
+                        mSleep(8000)
                     end
                 end
                 if check_monster2 == "燃火兽" then
                     if isColor(1034, 556, 0x999898, 95) and
                         isColor(1018, 556, 0xb4b4b4, 95) then
                         tap1(748, 516)
-                        mSleep(7000)
+                        mSleep(8000)
                     elseif isColor(1025, 556, 0x9d9793, 95) and
                         isColor(1039, 560, 0x968885, 95) then
                         tap1(748, 516)
-                        mSleep(7000)
+                        mSleep(8000)
                     end
                 end
                 if check_monster3 == "陨石幽鬼" then
-                    -- debugD("陨石幽鬼1")
-                    if isColor(1025,557,0xa5a2a2,95) and isColor(1040,554,0x787574,95) then
-                        -- debugD("陨石幽鬼找到")
+                    if isColor(1025, 557, 0xa5a2a2, 95) and
+                        isColor(1040, 554, 0x787574, 95) then
                         tap1(748, 516)
-                        mSleep(7000)
-                    else
-                        -- debugD("陨石幽鬼没找到")
+                        mSleep(8000)
                     end
-                else
-                    tap1(748, 516)
-                    mSleep(7000)
                 end
             end
         end
     end
-    if isColor(338, 175, 0xe3bf71, 95) and isColor(688, 424, 0xefd0a4, 95) and
-        isColor(465, 324, 0x26cdb9, 95) then
-        debugD("通信中断-继续游戏")
-        tap1(463, 343)
+    if isColor(414, 227, 0xecad3f, 95) and isColor(725, 416, 0xe3bc5e, 95) and
+        isColor(724, 224, 0x906926, 95) then
+        debugD("继续游戏")
+        tap1(654, 359)
     end
     if isColor(376, 72, 0xa9a099, 95) and isColor(613, 73, 0xa8a098, 95) and
         isColor(762, 47, 0x004466, 95) then
@@ -16076,34 +16080,27 @@ function zongHe4()
     end
     if fightMenu() and muBiaoD == "挂机" and isColor(540, 516, 0xf7fcfc, 95) and
         isColor(540, 520, 0x7ee189, 95) and isColor(137, 134, 0x7ee191, 95) ==
-        false and
-        (isColor(137, 132, 0xecf6f5, 95) or isColor(159, 132, 0xc4e2e1, 95)) ==
-        false then
+        false and isColor(137, 132, 0xecf6f5, 95) == false and
+        isColor(158, 135, 0x80d4a6, 95) == false and
+        isColor(158, 128, 0x7fb191, 95) == false then
         debugD("回蓝")
-        tap1(540, 516)
-        mSleep(4000)
+        if isColor(667, 113, 0x383421, 95) and isColor(667, 122, 0x8a2626, 95) then -- 有目标
+
+        else
+            tap1(540, 516)
+            mSleep(4000)
+        end
     end
     if fightMenu() and muBiaoD == "挂机" and isColor(350, 62, 0x44bcf4, 95) ==
         false and isColor(128, 89, 0x15b235, 80) then
         debugD("回血")
-        if isColor(667,113,0x383421,95) and isColor(667,122,0x8a2626,95) then--有目标
-            if isColor(125,67,0xfd3333,95) then--红血了
-                if isColor(593, 555, 0xffe105, 95) then
-                    tap1(593, 555)
-                    mSleep(4000)
-                else
-                    tap1(594, 477)
-                    mSleep(6000)
-                end
+        if isColor(667, 113, 0x383421, 95) and isColor(667, 122, 0x8a2626, 95) then -- 有目标
+            if isColor(125, 67, 0xfd3333, 95) or isColor(127, 67, 0xb68300, 95) then -- 红血了或黄了
+                tap1(594, 477)
             end
         else
-            if isColor(593, 555, 0xffe105, 95) then
-                tap1(593, 555)
-                mSleep(4000)
-            else
-                tap1(594, 477)
-                mSleep(6000)
-            end
+            tap1(594, 477)
+            mSleep(4000)
         end
     end
     if isColor(667, 114, 0x2d2b1b, 95) and isColor(659, 113, 0x7c342b, 95) and
@@ -16126,7 +16123,8 @@ function findMonster()
         debugD("找怪")
         if isColor(667, 113, 0x383421, 95) and isColor(667, 122, 0x8b2726, 95) then
             debugD("有怪物目标")
-        elseif isColor(350, 62, 0x44bcf4, 95) == false and isColor(128, 89, 0x15b235, 80) then
+        elseif isColor(350, 62, 0x44bcf4, 95) == false and
+            isColor(128, 89, 0x15b235, 80) then
             debugD("血不满,不找怪")
         elseif numFangXiang == 1 then
             numPathStep = numPathStep + 1
@@ -16271,73 +16269,78 @@ function selling()
                 debugD("对话框2")
                 tap1(562, 552, 0x31312c)
             end
-            if isColor(270,503,0x806e59,95) and isColor(866,545,0x7e6b57,95) then
+            if isColor(270, 503, 0x806e59, 95) and
+                isColor(866, 545, 0x7e6b57, 95) then
                 debugD("对话框3")
                 tap1(562, 552, 0x31312c)
             end
             mSleep(1000)
-            if isColor(114,260,0xf5eedb,95) and isColor(408,505,0xfbeccd,95) then
+            if isColor(114, 260, 0xf5eedb, 95) and
+                isColor(408, 505, 0xfbeccd, 95) then
                 debugD("药品商人--选择框")
-                tap1(251,257,0xfffef3)
+                tap1(251, 257, 0xfffef3)
                 break
             end
         end
         for i = 1, 30, 1 do
-            if isColor(85,405,0xfbeccd,95) and isColor(403,488,0xfbeccd,95) then
+            if isColor(85, 405, 0xfbeccd, 95) and
+                isColor(403, 488, 0xfbeccd, 95) then
                 debugD("出售")
-                tap1(248,392,0xe8e7dd)
+                tap1(248, 392, 0xe8e7dd)
                 mSleep(1000)
                 break
             end
             mSleep(1000)
         end
         for i = 1, 30, 1 do
-            if isColor(762,306,0xad926e,95) and isColor(963,453,0x1f1912,95) then
+            if isColor(762, 306, 0xad926e, 95) and
+                isColor(963, 453, 0x1f1912, 95) then
                 debugD("出售界面")
-                if isColor(286,119,0xc4c4c4,95) then
-                    tap1(286,119)
+                if isColor(286, 119, 0xc4c4c4, 95) then
+                    tap1(286, 119)
                 end
                 break
             end
             mSleep(1000)
         end
         for i = 1, 5, 1 do
-            if isColor(508,195,0xffffff,95) then
-                tap1(508,195)
-                sellingExp2()
-            end 
-            if isColor(506,270,0xffffff,95) then
-                tap1(508,270)
-                sellingExp2()
-            end 
-            if  isColor(505,347,0xffffff,95) then
-                tap1(508,347)
-                sellingExp2()
-            end 
-            if  isColor(507,426,0xffffff,95) then
-                tap1(508,426)
-                sellingExp2()
-            end 
-            if  isColor(506,499,0xffffff,95) then
-                tap1(508,499)
+            if isColor(508, 195, 0xffffff, 95) then
+                tap1(508, 195)
                 sellingExp2()
             end
-            if isColor(975,565,0xdaac5d,95) and isColor(507,195,0x85d800,95) then
+            if isColor(506, 270, 0xffffff, 95) then
+                tap1(508, 270)
+                sellingExp2()
+            end
+            if isColor(505, 347, 0xffffff, 95) then
+                tap1(508, 347)
+                sellingExp2()
+            end
+            if isColor(507, 426, 0xffffff, 95) then
+                tap1(508, 426)
+                sellingExp2()
+            end
+            if isColor(506, 499, 0xffffff, 95) then
+                tap1(508, 499)
+                sellingExp2()
+            end
+            if isColor(975, 565, 0xdaac5d, 95) and
+                isColor(507, 195, 0x85d800, 95) then
                 debugD("出售按钮--亮了")
-                tap1(975,565,0xdaac5d) -- 出售
-                tap1(641,477,0xb5d456) -- 确定
+                tap1(975, 565, 0xdaac5d) -- 出售
+                tap1(641, 477, 0xb5d456) -- 确定
                 mSleep(1000)
                 for j = 1, 30, 1 do
-                    if isColor(514,423,0xdaac5d,95) then
+                    if isColor(514, 423, 0xdaac5d, 95) then
                         tap1(516, 423, 0x267f91) -- 确定
                         break
                     end
                     mSleep(1000)
                 end
             else
-                tap1(1069,73,0xf0f0f0) -- 关闭
+                tap1(1069, 73, 0xf0f0f0) -- 关闭
                 mSleep(1000)
-                tap1(204,471,0xfffef3) -- 放弃
+                tap1(204, 471, 0xfffef3) -- 放弃
                 break
             end
             mSleep(1000)
@@ -16359,21 +16362,23 @@ function sellingExp1()
     end
 end
 function sellingExp2()
-    if isColor(528,433,0xbf5d53,95) and isColor(602,429,0xaccf41,95) then
+    if isColor(528, 433, 0xbf5d53, 95) and isColor(602, 429, 0xaccf41, 95) then
         debugD("复数")
-        x,y = findMultiColorInRegionFuzzy( 0xffffff, "-5|0|0x1f1912,5|0|0x1f1912", 90, 478, 346, 656, 348)
+        x, y = findMultiColorInRegionFuzzy(0xffffff,
+                                           "-5|0|0x1f1912,5|0|0x1f1912", 90,
+                                           478, 346, 656, 348)
         if x > 0 then touchMoveXY(x, 347, 656, 347) end
         -- touchMoveXY(483, 360, 677 + 100, 360)
         mSleep(500)
-        tap1(619,420,0xc5dd7a) -- 决定
+        tap1(619, 420, 0xc5dd7a) -- 决定
         mSleep(500)
     end
 end
 
 -- 检查背包
 function checkBackpack()
-    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 *999999999  and
-        isColor(385, 67, 0x385ee1, 95) then
+    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 *
+        999999999 and isColor(385, 67, 0x385ee1, 95) then
         timeCheckBackpack = nowTime
         debugD("检查背包--打开背包")
         tap1(972, 507, 0x5f5e5a)
@@ -16464,4 +16469,14 @@ function findImages(picpath, degree, x1, y1, x2, y2, alpha, kind)
         if x > 0 then return x, y, newPicpath[i] end
     end
     return 0, 0, ""
+end
+function checkHungry()
+    if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
+        if fightMenu() and muBiaoD == "挂机" and
+            isColor(158, 88, 0x24bc3f, 95) == false and
+            (isColor(127, 88, 0x24bc3f, 90) or isColor(127, 88, 0x56aa46, 90)) then
+            tap1(596, 559, 0xdfeaeb)
+            timeHungry = nowTime
+        end
+    end
 end
