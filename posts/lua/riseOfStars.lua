@@ -16019,6 +16019,46 @@ function zongHe4()
                     end
                 end
             end
+        elseif check_skill_right == "右" and isColor(861, 525, 0xfcfbf4, 95) and
+            isColor(862, 517, 0xfbf2ce, 95) then
+            debugD("释放技能右")
+            -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
+            -- debugD(temStr)
+            if isColor(350, 62, 0x44bcf4, 95) == false and
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
+                debugD("血不足,放弃释放技能")
+            else
+                if check_monster0 == "任意怪" then
+                    tap1(861, 525)
+                    mSleep(8000)
+                end
+                if check_monster1 == "夏洛特花" then
+                    if isColor(1038, 556, 0xa7a6a6, 95) and
+                        isColor(1084, 556, 0xbbb9b9, 95) then
+                        tap1(861, 525)
+                        mSleep(8000)
+                    end
+                end
+                if check_monster2 == "燃火兽" then
+                    if isColor(1034, 556, 0x999898, 95) and
+                        isColor(1018, 556, 0xb4b4b4, 95) then
+                        tap1(861, 525)
+                        mSleep(8000)
+                    elseif isColor(1025, 556, 0x9d9793, 95) and
+                        isColor(1039, 560, 0x968885, 95) then
+                        tap1(861, 525)
+                        mSleep(8000)
+                    end
+                end
+                if check_monster3 == "陨石幽鬼" then
+                    if isColor(1025, 557, 0xa5a2a2, 95) and
+                        isColor(1040, 554, 0x787574, 95) then
+                        tap1(861, 525)
+                        mSleep(8000)
+                    end
+                end
+            end
         end
     end
     if isColor(414, 227, 0xecad3f, 95) and isColor(725, 416, 0xe3bc5e, 95) and
@@ -16067,6 +16107,11 @@ function zongHe4()
         isColor(61, 543, 0xff0404, 95) then
         debugD("出发")
         tap1(925, 552)
+    end
+    if isColor(302, 272, 0xd2c38a, 95) and isColor(840, 359, 0x7e6f49, 95) and
+        isColor(785, 323, 0x352210, 95) then
+        debugD("无法与游戏服务器通信")
+        tap1(596, 353)
     end
     if isColor(912, 35, 0x1a1613, 95) and isColor(949, 51, 0x0d0b09, 95) and
         isColor(782, 480, 0xe2e2e2, 95) and isColor(1064, 45, 0xf0f0f0, 95) then
@@ -16377,8 +16422,7 @@ end
 
 -- 检查背包
 function checkBackpack()
-    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 *
-        999999999 and isColor(385, 67, 0x385ee1, 95) then
+    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60  and isColor(385, 67, 0x385ee1, 95) then
         timeCheckBackpack = nowTime
         debugD("检查背包--打开背包")
         tap1(972, 507, 0x5f5e5a)
@@ -16427,27 +16471,32 @@ function checkBackpack()
             if newStr1[2] > 10 and newStr1[2] < 100 and newStr1[1] / newStr1[2] >=
                 0.8 then
                 debugD("去卖1")
-                gaiMuBiaoNewD(2, "自杀")
+                vibratorNotice()
+                -- gaiMuBiaoNewD(2, "自杀")
             end
             if newStr2[2] > 10 and newStr2[2] < 100 and newStr2[1] / newStr2[2] >=
                 0.8 then
                 debugD("去卖2")
-                gaiMuBiaoNewD(2, "自杀")
+                vibratorNotice()
+                -- gaiMuBiaoNewD(2, "自杀")
             end
             if newStr3[2] > 10 and newStr3[2] < 100 and newStr3[1] / newStr3[2] >=
                 0.8 then
                 debugD("去卖3")
-                gaiMuBiaoNewD(2, "自杀")
+                vibratorNotice()
+                -- gaiMuBiaoNewD(2, "自杀")
             end
             if newStr4[2] > 10 and newStr4[2] < 100 and newStr4[1] / newStr4[2] >=
                 0.8 then
                 debugD("去卖4")
-                gaiMuBiaoNewD(2, "自杀")
+                vibratorNotice()
+                -- gaiMuBiaoNewD(2, "自杀")
             end
             if newStr5[2] > 10 and newStr5[2] < 100 and newStr5[1] / newStr5[2] >=
                 0.8 then
                 debugD("去卖5")
-                gaiMuBiaoNewD(2, "自杀")
+                -- gaiMuBiaoNewD(2, "自杀")
+                vibratorNotice()
             end
             tap1(1071, 73, 0xf0f0f0) -- 关闭
         end
