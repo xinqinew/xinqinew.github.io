@@ -576,7 +576,9 @@ function bianLiang()
     numFangXiang = 1
     numPathStep = 0
     timeCheckBackpack = nowTime - 60 * 10 -- 检查背包
-    timeHungry = nowTime - 2000
+    timeHungry = nowTime - 2000 -- 饥饿
+    timeCheckNet = nowTime - 10 * 60 -- 网络检测
+
 end
 
 -- 新UI
@@ -15821,6 +15823,7 @@ function main4()
 
     -- autoVpn()
     autoUnlockDevice()
+    checkNet()
     zongHe4()
     checkHungry()
     -- zongHe_zj()
@@ -16213,43 +16216,99 @@ end
 
 mSleep(1000)
 function up()
+    -- local color1 = getColor(1054,150)
+    -- local color2 = getColor(991,190)
+    -- for i = 1, 10, 1 do
+    --     moveTo(221, 343, 221, 343 - 100,
+    --            {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    --     mSleep(1000)
+    --     local color3 = getColor(1054,150)
+    --     local color4 = getColor(991,190)
+    -- if color1 ~= color3  or color2 ~= color4 then break end
+    -- end
     moveTo(221, 343, 221, 343 - 100,
-           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
 function down()
+    -- local color1 = getColor(1054,150)
+    -- local color2 = getColor(991,190)
+    -- for i = 1, 10, 1 do
+    --     moveTo(221, 343, 221, 343 + 100,
+    --            {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    --     mSleep(1000)
+    --     local color3 = getColor(1054,150)
+    --     local color4 = getColor(991,190)
+    -- if color1 ~= color3  or color2 ~= color4 then break end
+    -- end
     moveTo(221, 343, 221, 343 + 100,
-           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
 function left()
+    -- local color1 = getColor(1054,150)
+    -- local color2 = getColor(991,190)
+    -- for i = 1, 10, 1 do
+    --     moveTo(221, 343, 221 - 100, 343,
+    --            {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    --     mSleep(1000)
+    --     local color3 = getColor(1054,150)
+    --     local color4 = getColor(991,190)
+    -- if color1 ~= color3  or color2 ~= color4 then break end
+    -- end
     moveTo(221, 343, 221 - 100, 343,
-           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
 function right()
+    -- local color1 = getColor(1054,150)
+    -- local color2 = getColor(991,190)
+    -- for i = 1, 10, 1 do
+    --     moveTo(221, 343, 221 + 100, 343,
+    --            {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+    --     mSleep(1000)
+    --     local color3 = getColor(1054,150)
+    --     local color4 = getColor(991,190)
+    -- if color1 ~= color3  or color2 ~= color4 then break end
+    -- end
     moveTo(221, 343, 221 + 100, 343,
-           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+               {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
 function runMap()
     if fightMenu() then
-        for i = 1, 5, 1 do
-            up()
-            up()
-            left()
-        end
-        for i = 1, 4, 1 do left() end
-        for i = 1, 23, 1 do up() end
-        for i = 1, 16, 1 do left() end
-        for i = 1, 12, 1 do up() end
-        for i = 1, 1, 1 do right() end
+        tap1(1077,386    )
+        mSleep(2000)
+        tap1(1077,386    )
+        
+        left()
+        tap1(1077,386    )
+        mSleep(2000)
+        tap1(1077,386    )
 
-        -- lua_exit()
+        up()
+        tap1(1077,386    )
+        mSleep(5000)
+        tap1(1077,386    )
+
+
+
+        -- for i = 1, 5, 1 do
+        --     up()
+        --     up()
+        --     left()
+        -- end
+        -- for i = 1, 4, 1 do left() end
+        -- for i = 1, 25, 1 do up() end
+        -- for i = 1, 16, 1 do left() end
+        -- for i = 1, 12, 1 do up() end
+        -- for i = 1, 1, 1 do right() end
+
+        lua_exit()
     end
 end
 
@@ -16281,7 +16340,7 @@ function sellD()
             for i = 1, 5, 1 do right() end
             for i = 1, 22, 1 do up() end
             for i = 1, 3, 1 do right() end
-            -- lua_exit()
+            lua_exit()
         end
 
     end
@@ -16422,7 +16481,8 @@ end
 
 -- 检查背包
 function checkBackpack()
-    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60  and isColor(385, 67, 0x385ee1, 95) then
+    if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 and
+        isColor(385, 67, 0x385ee1, 95) then
         timeCheckBackpack = nowTime
         debugD("检查背包--打开背包")
         tap1(972, 507, 0x5f5e5a)
@@ -16519,6 +16579,7 @@ function findImages(picpath, degree, x1, y1, x2, y2, alpha, kind)
     end
     return 0, 0, ""
 end
+-- 检测饥饿度
 function checkHungry()
     if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
         if fightMenu() and muBiaoD == "挂机" and
@@ -16526,6 +16587,24 @@ function checkHungry()
             (isColor(127, 88, 0x24bc3f, 90) or isColor(127, 88, 0x56aa46, 90)) then
             tap1(596, 559, 0xdfeaeb)
             timeHungry = nowTime
+            mSleep(1000)
         end
     end
 end
+-- 检测网络
+function checkNet()
+    if nowTime - timeCheckNet >= 10 * 60 and fightMenu() then
+        tap1(970, 509, 0xfafafa)
+        mSleep(1000)
+        if isColor(69, 73, 0xf0f0f0, 95) then -- 背包已打开
+            timeCheckNet = nowTime
+            tap1(1071, 73, 0xf0f0f0) -- 关闭
+            mSleep(1000)
+        end
+    end
+    if nowTime - timeCheckNet >= 20 * 60 then
+        closeApp(appXiangMu)
+        timeCheckNet = nowTime
+    end
+end
+
