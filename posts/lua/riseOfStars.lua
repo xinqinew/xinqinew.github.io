@@ -15824,6 +15824,7 @@ function main4()
     -- autoVpn()
     autoUnlockDevice()
     checkNet()
+    checkDefense()
     zongHe4()
     checkHungry()
     -- zongHe_zj()
@@ -16566,7 +16567,7 @@ end
 function killMyself()
     if fightMenu() then
         findMonster()
-        tap1(646, 521, 0xf8e099)
+        tap1(859,524,0xfbe8ad    )
     end
 end
 -- 自定义找多图
@@ -16594,12 +16595,15 @@ end
 -- 检测网络
 function checkNet()
     if nowTime - timeCheckNet >= 10 * 60 and fightMenu() then
+        debugD("检测网络")
         tap1(970, 509, 0xfafafa)
         mSleep(1000)
         if isColor(69, 73, 0xf0f0f0, 95) then -- 背包已打开
             timeCheckNet = nowTime
             tap1(1071, 73, 0xf0f0f0) -- 关闭
             mSleep(1000)
+        else
+            respring()
         end
     end
     if nowTime - timeCheckNet >= 20 * 60 then
@@ -16607,4 +16611,11 @@ function checkNet()
         timeCheckNet = nowTime
     end
 end
-
+--检测活性防御
+function checkDefense()
+    if fightMenu() and isColor(135,128,0xb77325,95)==false and isColor(138,132,0x975d13,95)==false and isColor(157,128,0xb4721b,95)==false and isColor(160,132,0x9e651d,95)==false and isColor(178,128,0xb5701e,95)==false and isColor(181,132,0x9a6118,95)==false then
+        if isColor(647,509,0x7a3d00,95) then--防御技能激活着
+            tap1(647,509)
+        end
+    end
+end
