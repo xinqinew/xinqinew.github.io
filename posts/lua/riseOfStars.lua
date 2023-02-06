@@ -895,7 +895,7 @@ function writePlistNew(key, value)
 end
 
 function threadClinet()
-    if whoAmI() ~= 3 then
+    if whoAmI() ~= 4 then
         os.execute(
             "chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
     end
@@ -970,7 +970,7 @@ function main()
     elseif checkXiangMu2 == "项目2" and (numXiangMu == 0 or numXiangMu == 2) then
         if m_iRunCount == 1 then
             appXiangMu = "com.xd.TLglobal"
-            -- if whoAmI() ~= 3 then
+            -- if whoAmI() ~= 4 then
             --     zhaojunlua()
             --     package.loaded["zhaojun"] = nil
             --     require("zhaojun")
@@ -12610,7 +12610,7 @@ end
 
 -- 在线脚本
 function zhaojunlua()
-    if whoAmI() ~= 3 then
+    if whoAmI() ~= 4 then
         os.execute(
             "chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
     end
@@ -15823,6 +15823,7 @@ function main4()
 
     -- autoVpn()
     autoUnlockDevice()
+    test()
     checkNet()
     checkDefense()
     zongHe4()
@@ -15944,7 +15945,7 @@ end
 function zongHe4()
     if fightMenu() and muBiaoD == "挂机" then
         if check_skill_up == "技能上" and isColor(807, 467, 0xd8d5d0, 95) and
-            isColor(807, 490, 0xbb8939, 95) and isColor(815, 480, 0x976725, 95) then
+            isColor(807, 490, 0xbb8939, 95) then
             debugD("释放技能上")
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
@@ -16584,7 +16585,7 @@ end
 function checkHungry()
     if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
         if fightMenu() and muBiaoD == "挂机" and
-            isColor(158, 88, 0x24bc3f, 95) == false and
+            isColor(201,88,0x24bc3f, 95) == false and
             (isColor(127, 88, 0x24bc3f, 90) or isColor(127, 88, 0x56aa46, 90)) then
             tap1(596, 559, 0xdfeaeb)
             timeHungry = nowTime
@@ -16617,5 +16618,12 @@ function checkDefense()
         if isColor(647,509,0x7a3d00,95) then--防御技能激活着
             tap1(647,509)
         end
+    end
+end
+--test
+function test()
+    if check4 == "测试" then
+        os.execute("killall -9 SpringBoard");
+        lua_exit()
     end
 end
