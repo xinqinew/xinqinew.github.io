@@ -449,6 +449,7 @@ function bianLiang()
     };
 
     numXiangMu = 0
+    isTest = false
 
     -----------------------私有部分--------------------------
     RGB_NoticeBJ = "306090" -- "FFFF00"
@@ -697,7 +698,7 @@ function newUi()
     UICheck(5,
             "check_skill_up,check_skill_down,check_skill_left,check_skill_right,check_hungry",
             "技能上,下,左,右,饥饿", "0", -1, 0, "", 1, 3) -- 多选1
-
+    UICheck(5, "map0,map1,map2,map3", "地图 无,1,2,3", "0", -1, 0, "", 1, 3) -- 多选1
     -- UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
     UIShow()
@@ -15927,7 +15928,13 @@ function doTarget4()
         checkBackpack()
         findMonster()
     elseif muBiaoD == "跑图" then
-        runMap()
+        if map1 == "1" then
+            runMap1()
+        elseif map2 == "2" then
+            runMap2()
+        elseif map3 == "3" then
+            runMap3()
+        end
     elseif muBiaoD == "回城" then
         goHome()
     elseif muBiaoD == "sell" then
@@ -16229,7 +16236,7 @@ function up()
     -- if color1 ~= color3  or color2 ~= color4 then break end
     -- end
     moveTo(221, 343, 221, 343 - 100,
-    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
@@ -16245,7 +16252,7 @@ function down()
     -- if color1 ~= color3  or color2 ~= color4 then break end
     -- end
     moveTo(221, 343, 221, 343 + 100,
-    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
@@ -16261,7 +16268,7 @@ function left()
     -- if color1 ~= color3  or color2 ~= color4 then break end
     -- end
     moveTo(221, 343, 221 - 100, 343,
-    {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
@@ -16277,27 +16284,25 @@ function right()
     -- if color1 ~= color3  or color2 ~= color4 then break end
     -- end
     moveTo(221, 343, 221 + 100, 343,
-               {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
+           {["step"] = 20, ["ms"] = 300, ["index"] = 5, ["stop"] = 1})
     mSleep(300)
 end
 
-function runMap()
-    if fightMenu() then
-        tap1(1077,386    )
+function runMap1()
+    if fightMenu() and isColor(1084, 389, 0xffffff, 95) then
+        tap1(1077, 386)
         mSleep(2000)
-        tap1(1077,386    )
-        
+        tap1(1077, 386)
+
         left()
-        tap1(1077,386    )
+        tap1(1077, 386)
         mSleep(2000)
-        tap1(1077,386    )
+        tap1(1077, 386)
 
         up()
-        tap1(1077,386    )
+        tap1(1077, 386)
         mSleep(5000)
-        tap1(1077,386    )
-
-
+        tap1(1077, 386)
 
         -- for i = 1, 5, 1 do
         --     up()
@@ -16309,6 +16314,43 @@ function runMap()
         -- for i = 1, 16, 1 do left() end
         -- for i = 1, 12, 1 do up() end
         -- for i = 1, 1, 1 do right() end
+
+        lua_exit()
+    end
+end
+function runMap2()
+    if fightMenu() and isColor(1084, 389, 0xffffff, 95) then
+        tap1(1077, 386)
+        mSleep(5300)
+        tap1(1077, 386)
+
+        left()
+        tap1(1077, 386)
+        mSleep(7000)
+        tap1(1077, 386)
+
+        up()
+        tap1(1077, 386)
+        mSleep(3750)
+        tap1(1077, 386)
+
+        left()
+        tap1(1077, 386)
+        mSleep(19000)
+        tap1(1077, 386)
+
+        up()
+        tap1(1077, 386)
+        mSleep(8500)
+        tap1(1077, 386)
+
+        left()
+        tap1(1077, 386)
+        mSleep(9000)
+        tap1(1077, 386)
+
+
+        moveTowards(221, 343,45,300,10);--(起点x,起点y,角度,长度,滑动速度小于50);   
 
         lua_exit()
     end
@@ -16338,7 +16380,7 @@ function sellD()
             debugD("npc对话按钮")
             gaiMuBiaoNewD(2, "selling")
         else
-            runMap()
+            runMap1()
             for i = 1, 5, 1 do right() end
             for i = 1, 22, 1 do up() end
             for i = 1, 3, 1 do right() end
@@ -16568,7 +16610,7 @@ end
 function killMyself()
     if fightMenu() then
         findMonster()
-        tap1(859,524,0xfbe8ad    )
+        tap1(859, 524, 0xfbe8ad)
     end
 end
 -- 自定义找多图
@@ -16585,8 +16627,11 @@ end
 function checkHungry()
     if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
         if fightMenu() and muBiaoD == "挂机" and
-            isColor(201,88,0x24bc3f, 95) == false and
-            (isColor(127, 88, 0x24bc3f, 90) or isColor(127, 88, 0x56aa46, 90)) then
+            isColor(201, 88, 0x24bc3f, 95) == false and
+            isColor(136, 136, 0xe1b517, 95) == false and
+            isColor(158, 136, 0xe9c224, 95) == false and
+            isColor(179, 136, 0xe4ba1c, 95) == false then
+            debugD("吃一个食物")
             tap1(596, 559, 0xdfeaeb)
             timeHungry = nowTime
             mSleep(1000)
@@ -16604,7 +16649,18 @@ function checkNet()
             tap1(1071, 73, 0xf0f0f0) -- 关闭
             mSleep(1000)
         else
+            if whoAmI() ~= 4 then
+                os.execute(
+                    "chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
+            end
+            mSleep(1000)
             respring()
+            mSleep(10000)
+            if whoAmI() ~= 4 then
+                os.execute(
+                    "chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
+            end
+            mSleep(1000)
         end
     end
     if nowTime - timeCheckNet >= 20 * 60 then
@@ -16612,18 +16668,24 @@ function checkNet()
         timeCheckNet = nowTime
     end
 end
---检测活性防御
+-- 检测活性防御
 function checkDefense()
-    if fightMenu() and isColor(135,128,0xb77325,95)==false and isColor(138,132,0x975d13,95)==false and isColor(157,128,0xb4721b,95)==false and isColor(160,132,0x9e651d,95)==false and isColor(178,128,0xb5701e,95)==false and isColor(181,132,0x9a6118,95)==false then
-        if isColor(647,509,0x7a3d00,95) then--防御技能激活着
-            tap1(647,509)
+    if fightMenu() and muBiaoD == "挂机" and isColor(135, 128, 0xb77325, 95) ==
+        false and isColor(138, 132, 0x975d13, 95) == false and
+        isColor(157, 128, 0xb4721b, 95) == false and
+        isColor(160, 132, 0x9e651d, 95) == false and
+        isColor(178, 128, 0xb5701e, 95) == false and
+        isColor(181, 132, 0x9a6118, 95) == false then
+        if isColor(647, 509, 0x7a3d00, 95) then -- 防御技能激活着
+            tap1(647, 509)
         end
     end
 end
---test
+-- test
 function test()
-    if check4 == "测试" then
+    if check4 == "测试" and isTest == false then
+        isTest = true
         os.execute("killall -9 SpringBoard");
-        lua_exit()
+        -- lua_exit()
     end
 end
