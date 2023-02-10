@@ -15960,6 +15960,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
+            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
+                debugD("血低或者蓝不足,不找怪")
             else
                 if check_monster0 == "任意怪" then
                     tap1(807, 483)
@@ -16000,6 +16002,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
+            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
+                debugD("血低或者蓝不足,不找怪")
             else
                 if check_monster0 == "任意怪" then
                     tap1(748, 516)
@@ -16040,6 +16044,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
+            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
+                debugD("血低或者蓝不足,不找怪")
             else
                 if check_monster0 == "任意怪" then
                     tap1(861, 525)
