@@ -16183,6 +16183,8 @@ function findMonster()
         elseif isColor(350, 62, 0x44bcf4, 95) == false and
             isColor(128, 89, 0x15b235, 80) then
             debugD("血不满,不找怪")
+        elseif (isColor(173,66,0x356ef8,95)==false and isColor(173,66,0xcd9d00,95)==false) or isColor(151,88,0x24bc3f,95)==false then
+            debugD("血低或者蓝不足,不找怪")
         elseif numFangXiang == 1 then
             numPathStep = numPathStep + 1
             if numPathStep > upDown then
