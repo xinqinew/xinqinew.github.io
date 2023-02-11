@@ -577,7 +577,7 @@ function bianLiang()
     numFangXiang = 1
     numPathStep = 0
     timeCheckBackpack = nowTime - 60 * 10 -- 检查背包
-    timeHungry = nowTime - 2000 -- 饥饿
+    -- timeHungry = nowTime - 2000 -- 饥饿
     timeCheckNet = nowTime - 10 * 60 -- 网络检测
 
 end
@@ -16079,6 +16079,10 @@ function zongHe4()
             end
         end
     end
+    if isColor(308,192,0xefdfa2,95) and isColor(483,389,0xcd9d49,95) and isColor(653,441,0x207d8b,95) then
+        debugD("去网站")
+        tap1(555,412)
+    end
     if isColor(414, 227, 0xecad3f, 95) and isColor(725, 416, 0xe3bc5e, 95) and
         isColor(724, 224, 0x906926, 95) then
         debugD("继续游戏")
@@ -16633,7 +16637,8 @@ function findImages(picpath, degree, x1, y1, x2, y2, alpha, kind)
 end
 -- 检测饥饿度
 function checkHungry()
-    if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
+    if check_hungry == "饥饿" then
+        -- if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
         if fightMenu() and muBiaoD == "挂机" and
             isColor(201, 88, 0x24bc3f, 95) == false and
             isColor(136, 136, 0xe1b517, 95) == false and
@@ -16641,7 +16646,7 @@ function checkHungry()
             isColor(179, 136, 0xe4ba1c, 95) == false then
             debugD("吃一个食物")
             tap1(596, 559, 0xdfeaeb)
-            timeHungry = nowTime
+            -- timeHungry = nowTime
             mSleep(1000)
         end
     end
