@@ -696,8 +696,8 @@ function newUi()
             "任意怪,夏洛特花,燃火兽,陨石幽鬼", "0", -1, 0, "", 1,
             3) -- 多选1
     UICheck(5,
-            "check_skill_up,check_skill_down,check_skill_left,check_skill_right,check_hungry",
-            "技能上,下,左,右,饥饿", "0", -1, 0, "", 1, 3) -- 多选1
+            "check_skill_up,check_skill_down,check_skill_left,check_skill_right,check_hungry,check_way2",
+            "技能上,下,左,右,饥饿,思路2", "0", -1, 0, "", 1, 3) -- 多选1
     UICheck(5, "map0,map1,map2,map3", "地图 无,1,2,3", "0", -1, 0, "", 1, 3) -- 多选1
     -- UICheck(5, "Dcheck1,Dcheck2", "占位1,占位2", "0", -1, 0, "", 1, 3) -- 多选1
 
@@ -15956,12 +15956,23 @@ function zongHe4()
             debugD("释放技能上")
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
-            if isColor(350, 62, 0x44bcf4, 95) == false and
+            if check_way2 ~= "思路2" and isColor(350, 62, 0x44bcf4, 95) == false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
-                debugD("血低或者蓝不足,不找怪")
+            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
+                debugD("血不足,放弃释放技能")
+            elseif check_way2 ~= "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) or
+                isColor(151, 88, 0x24bc3f, 80) == false then
+                debugD("血低或者蓝不足,不释放技能上")
+            elseif check_way2 == "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) then
+                debugD("血低,不释放技能上")
             else
                 if check_monster0 == "任意怪" then
                     tap1(807, 483)
@@ -15998,12 +16009,23 @@ function zongHe4()
             debugD("释放技能左")
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
-            if isColor(350, 62, 0x44bcf4, 95) == false and
+            if check_way2 ~= "思路2" and isColor(350, 62, 0x44bcf4, 95) == false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
-                debugD("血低或者蓝不足,不找怪")
+            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
+                debugD("血不足,放弃释放技能")
+            elseif check_way2 ~= "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) or
+                isColor(151, 88, 0x24bc3f, 80) == false then
+                debugD("血低或者蓝不足,不释放技能左")
+            elseif check_way2 == "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) then
+                debugD("血低,不释放技能左")
             else
                 if check_monster0 == "任意怪" then
                     tap1(748, 516)
@@ -16040,12 +16062,23 @@ function zongHe4()
             debugD("释放技能右")
             -- local temStr = ocrText(998, 237, 1071, 257, 0, "()0123456789,")
             -- debugD(temStr)
-            if isColor(350, 62, 0x44bcf4, 95) == false and
+            if check_way2 ~= "思路2" and isColor(350, 62, 0x44bcf4, 95) == false  and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
-                debugD("血低或者蓝不足,不找怪")
+            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+                isColor(128, 89, 0x15b235, 80) and
+                isColor(667, 113, 0x383421, 95) == false then
+                debugD("血不足,放弃释放技能")
+            elseif check_way2 ~= "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) or
+                isColor(151, 88, 0x24bc3f, 80) == false then
+                debugD("血低或者蓝不足,不释放技能右")
+            elseif check_way2 == "思路2" and
+                (isColor(173, 66, 0x356ef8, 80) == false and
+                    isColor(173, 66, 0xcd9d00, 80) == false) then
+                debugD("血低,不释放技能右")
             else
                 if check_monster0 == "任意怪" then
                     tap1(861, 525)
@@ -16079,9 +16112,10 @@ function zongHe4()
             end
         end
     end
-    if isColor(308,192,0xefdfa2,95) and isColor(483,389,0xcd9d49,95) and isColor(653,441,0x207d8b,95) then
+    if isColor(308, 192, 0xefdfa2, 95) and isColor(483, 389, 0xcd9d49, 95) and
+        isColor(653, 441, 0x207d8b, 95) then
         debugD("去网站")
-        tap1(555,412)
+        tap1(555, 412)
     end
     if isColor(414, 227, 0xecad3f, 95) and isColor(725, 416, 0xe3bc5e, 95) and
         isColor(724, 224, 0x906926, 95) then
@@ -16159,7 +16193,7 @@ function zongHe4()
         end
     end
     if fightMenu() and muBiaoD == "挂机" and isColor(350, 62, 0x44bcf4, 95) ==
-        false and isColor(128, 89, 0x15b235, 80) then
+        false and isColor(128, 89, 0x15b235, 80) and check_way2 ~= "思路2" then
         debugD("回血")
         if isColor(667, 113, 0x383421, 95) and isColor(667, 122, 0x8a2626, 95) then -- 有目标
             if isColor(125, 67, 0xfd3333, 95) or isColor(127, 67, 0xb68300, 95) then -- 红血了或黄了
@@ -16190,11 +16224,22 @@ function findMonster()
         debugD("找怪")
         if isColor(667, 113, 0x383421, 95) and isColor(667, 122, 0x8b2726, 95) then
             debugD("有怪物目标")
-        elseif isColor(350, 62, 0x44bcf4, 95) == false and
+        elseif check_way2 ~= "思路2" and isColor(350, 62, 0x44bcf4, 95) ==
+            false and isColor(128, 89, 0x15b235, 80) then
+            debugD("血不满,不找怪")
+        elseif check_way2 == "思路2" and isColor(231, 62, 0xfde343, 95) ==
+            false and isColor(231, 62, 0x44bcf4, 95) == false and
             isColor(128, 89, 0x15b235, 80) then
             debugD("血不满,不找怪")
-        elseif (isColor(173,66,0x356ef8,80)==false and isColor(173,66,0xcd9d00,80)==false) or isColor(151,88,0x24bc3f,80)==false then
+        elseif check_way2 ~= "思路2" and
+            (isColor(173, 66, 0x356ef8, 80) == false and
+                isColor(173, 66, 0xcd9d00, 80) == false) or
+            isColor(151, 88, 0x24bc3f, 80) == false then
             debugD("血低或者蓝不足,不找怪")
+        elseif check_way2 == "思路2" and
+            (isColor(173, 66, 0x356ef8, 80) == false and
+                isColor(173, 66, 0xcd9d00, 80) == false) then
+            debugD("血低,不找怪")
         elseif numFangXiang == 1 then
             numPathStep = numPathStep + 1
             if numPathStep > upDown then
@@ -16361,8 +16406,7 @@ function runMap2()
         mSleep(9000)
         tap1(1077, 386)
 
-
-        moveTowards(221, 343,45,300,10);--(起点x,起点y,角度,长度,滑动速度小于50);   
+        moveTowards(221, 343, 45, 300, 10); -- (起点x,起点y,角度,长度,滑动速度小于50);   
 
         lua_exit()
     end
@@ -16640,10 +16684,13 @@ function checkHungry()
     if check_hungry == "饥饿" then
         -- if check_hungry == "饥饿" and nowTime - timeHungry >= 2000 then
         if fightMenu() and muBiaoD == "挂机" and
-            isColor(201, 88, 0x24bc3f, 95) == false and
             isColor(136, 136, 0xe1b517, 95) == false and
             isColor(158, 136, 0xe9c224, 95) == false and
-            isColor(179, 136, 0xe4ba1c, 95) == false then
+            isColor(179, 136, 0xe4ba1c, 95) == false and
+            ((isColor(201, 88, 0x24bc3f, 95) == false and check_way2 ~=
+                "思路2") or
+                (isColor(186, 88, 0x24bc3f, 95) == false and check_way2 ==
+                    "思路2")) then
             debugD("吃一个食物")
             tap1(596, 559, 0xdfeaeb)
             -- timeHungry = nowTime
