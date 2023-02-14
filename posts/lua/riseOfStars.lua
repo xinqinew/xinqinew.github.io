@@ -15960,7 +15960,7 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
@@ -16013,7 +16013,7 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
@@ -16066,7 +16066,7 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(215,62,0xfde343,95) == false and isColor(215,62,0x45bdf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
