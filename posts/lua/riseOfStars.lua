@@ -15960,7 +15960,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(231, 62, 0xfde343, 95) ==
+            false and isColor(231, 62, 0x44bcf4, 95) == false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
@@ -16013,7 +16014,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(231, 62, 0xfde343, 95) ==
+            false and isColor(231, 62, 0x44bcf4, 95) == false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
@@ -16066,7 +16068,8 @@ function zongHe4()
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
-            elseif check_way2 == "思路2" and isColor(229,62,0xfde343,95) == false and isColor(229,62,0x44bcf4,95)== false and
+            elseif check_way2 == "思路2" and isColor(231, 62, 0xfde343, 95) ==
+            false and isColor(231, 62, 0x44bcf4, 95) == false and
                 isColor(128, 89, 0x15b235, 80) and
                 isColor(667, 113, 0x383421, 95) == false then
                 debugD("血不足,放弃释放技能")
@@ -16582,7 +16585,7 @@ end
 -- 检查背包
 function checkBackpack()
     if muBiaoD == "挂机" and nowTime - timeCheckBackpack >= 10 * 60 and
-        isColor(385, 67, 0x385ee1, 95) then
+        ((isColor(385, 67, 0x385ee1, 95) and check_way2 ~= "思路2") or (isColor(255,62,0x44bcf3,95) and check_way2 == "思路2")) then
         timeCheckBackpack = nowTime
         debugD("检查背包--打开背包")
         tap1(972, 507, 0x5f5e5a)
@@ -16721,6 +16724,7 @@ function checkNet()
                     "chown -R mobile:mobile /private/var/mobile/Media/TouchSprite"); -- 避免触动大姨妈
             end
             mSleep(1000)
+            timeCheckBackpack = nowTime
         end
     end
     if nowTime - timeCheckNet >= 20 * 60 then
