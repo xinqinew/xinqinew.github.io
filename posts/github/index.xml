@@ -12,6 +12,13 @@
     </author><guid>https://xinqinew.github.io/2022/01/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</guid>
     <description><![CDATA[删除 .DS_Store 如果你的项目中还没有自动生成的 .DS_Store 文件，那么直接将 .DS_Store 加入到 .gitignore 文件就可以了。如果你的项目中已经存在 .DS_Store 文件，那就需要先从项目中将其删除，再将]]></description>
 </item><item>
+    <title>无法Push代码到Github？？？</title>
+    <link>https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/</guid>
+    <description><![CDATA[持续创作，加速成长！这是我参与「掘金日新计划 · 6 月更文挑战」的第2天，点击查看活动详情 0x1、问题描述 前些日子折腾了一个618自动做任务的j]]></description>
+</item><item>
     <title>用Git同时上传代码到github和coding</title>
     <link>https://xinqinew.github.io/2022/01/%E7%94%A8git%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0github%E5%92%8Ccoding/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8mermaid%E5%9C%A8hugo%E7%9A%84markdown%E4%B8%AD%E7%BB%98%E5%88%B6uml/</guid>
     <description><![CDATA[使用Mermaid在hugo的Markdown中绘制UML 简介 ¶ Mermaid是一个提供绘图功能的JavaScript项目。 它目前（8.6.]]></description>
-</item><item>
-    <title>为 hugo-theme-even 提供 mermaid 支持.md</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</link>
-    <pubDate>Sat, 14 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E4%B8%BA-hugo-theme-even-%E6%8F%90%E4%BE%9B-mermaid-%E6%94%AF%E6%8C%81/</guid>
-    <description><![CDATA[俺如何为 hugo-theme-even 提供 mermaid 支持 如上是一个利用 mermaid 绘制的 SVG 图形 ，相比于直接在某些软件绘制好再截图，显然利用 mermaid 绘图具备诸多优点： 网站保存的是带 mermaid 的 markdown 文件，不]]></description>
 </item></channel>
 </rss>

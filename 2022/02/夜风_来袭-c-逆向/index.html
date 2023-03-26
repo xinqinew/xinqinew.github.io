@@ -11,7 +11,6 @@
 <meta property="og:url" content="https://xinqinew.github.io/2022/02/%E5%A4%9C%E9%A3%8E_%E6%9D%A5%E8%A2%AD-c-%E9%80%86%E5%90%91/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-24T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-02-24T00:00:00+00:00" />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
@@ -232,7 +231,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">CMainDllApp</span> <span class="n">theApp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">CMainDialog</span> <span class="o">*</span><span class="n">PMainDialog</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">_显示窗口</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="n">_</span><span class="err">显示窗口</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">PMainDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMainDialog</span><span class="p">;</span>	<span class="c1">//用new的方式分配内存空间
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">PMainDialog</span><span class="o">-&gt;</span><span class="n">DoModal</span><span class="p">();</span>	<span class="c1">//以模态化显示
@@ -245,7 +244,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">CMainDllApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">  <span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,(</span><span class="n">LPTHREAD_START_ROUTINE</span><span class="p">)</span><span class="n">_显示窗口</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,(</span><span class="n">LPTHREAD_START_ROUTINE</span><span class="p">)</span><span class="n">_</span><span class="err">显示窗口</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -315,39 +314,39 @@
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="kt">void</span> <span class="nf">_提权</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"> <span class="kt">void</span> <span class="n">_</span><span class="err">提权</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">//1. 获取进程钥匙
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_钥匙</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_</span><span class="err">钥匙</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">OpenProcessToken</span><span class="p">(</span><span class="n">GetCurrentProcess</span><span class="p">(),</span><span class="c1">//进程句柄=&gt;当前进程
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                <span class="n">TOKEN_ALL_ACCESS</span><span class="p">,</span>	<span class="c1">//所有权限
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                <span class="o">&amp;</span><span class="err">进程</span><span class="n">_钥匙</span><span class="p">));</span>	<span class="c1">//存放钥匙
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                <span class="o">&amp;</span><span class="err">进程</span><span class="n">_</span><span class="err">钥匙</span><span class="p">));</span>	<span class="c1">//存放钥匙
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;打开进程访问令牌失败!&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">     <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="c1">//2.查看进程里面的特权信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">LUID</span> <span class="err">进程</span><span class="n">_权限</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">LookupPrivilegeValue</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">SE_DEBUG_NAME</span><span class="p">,</span><span class="o">&amp;</span><span class="err">进程</span><span class="n">_权限</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">LUID</span> <span class="err">进程</span><span class="n">_</span><span class="err">权限</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">LookupPrivilegeValue</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">SE_DEBUG_NAME</span><span class="p">,</span><span class="o">&amp;</span><span class="err">进程</span><span class="n">_</span><span class="err">权限</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;查看进程权限信息失败!&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">     <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="c1">//3. 调节进程权限
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">TOKEN_PRIVILEGES</span> <span class="err">进程</span><span class="n">_新特权</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="err">进程</span><span class="n">_新特权</span><span class="p">.</span><span class="n">PrivilegCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>	<span class="c1">//特权个数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">进程</span><span class="n">_新特权</span><span class="p">.</span><span class="n">Privileg</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Attributes</span> <span class="o">=</span> <span class="n">SE_PRIVILEGE_ENABLED</span><span class="p">;</span>	<span class="c1">//启用特权
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">进程</span><span class="n">_新特权</span><span class="p">.</span><span class="n">Privileg</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Luid</span> <span class="o">=</span> <span class="err">进程</span><span class="n">_权限</span><span class="p">;</span>	<span class="c1">//将查到的luid存放到luid里面
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">AdjustTokenPrivileges</span><span class="p">(</span><span class="err">进程</span><span class="n">_钥匙</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="o">&amp;</span><span class="err">进程</span><span class="n">_新特权</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="err">进程</span><span class="n">_新特权</span><span class="p">),</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">TOKEN_PRIVILEGES</span> <span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">.</span><span class="n">PrivilegCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>	<span class="c1">//特权个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">.</span><span class="n">Privileg</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Attributes</span> <span class="o">=</span> <span class="n">SE_PRIVILEGE_ENABLED</span><span class="p">;</span>	<span class="c1">//启用特权
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">.</span><span class="n">Privileg</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Luid</span> <span class="o">=</span> <span class="err">进程</span><span class="n">_</span><span class="err">权限</span><span class="p">;</span>	<span class="c1">//将查到的luid存放到luid里面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">AdjustTokenPrivileges</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">钥匙</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="o">&amp;</span><span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">新特权</span><span class="p">),</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;打开进程权限失败!&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="c1">//4. 关闭进程句柄
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_钥匙</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">钥匙</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -441,7 +440,7 @@
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_注入辅助</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">_</span><span class="err">注入辅助</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//1. 查找窗口
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">HWND</span> <span class="err">游戏窗口句柄</span><span class="p">;</span>
@@ -464,9 +463,9 @@
 </span></span><span class="line"><span class="cl">  <span class="c1">//进程: 一个进程中的程序
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//一个进程可以有多个窗口
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//3. 获取进程句柄
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_进程句柄</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="err">进程</span><span class="n">_进程句柄</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="err">进程</span><span class="n">_PID</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span> <span class="o">=</span> <span class="n">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="err">进程</span><span class="n">_PID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>       
 </span></span><span class="line"><span class="cl">    <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;获取进程PID失败&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
@@ -475,7 +474,7 @@
 </span></span><span class="line"><span class="cl">  <span class="c1">//4. 在远程进程中申请内存空间
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPVOID</span> <span class="err">申请空间地址</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">申请空间</span> <span class="o">=</span><span class="mi">256</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="err">申请空间地址</span> <span class="o">=</span> <span class="n">VirtualAllocEx</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="err">申请空间</span><span class="p">,</span><span class="n">MEM_COMMIT</span><span class="p">,</span><span class="n">PAGE_READWRITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="err">申请空间地址</span> <span class="o">=</span> <span class="n">VirtualAllocEx</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="err">申请空间</span><span class="p">,</span><span class="n">MEM_COMMIT</span><span class="p">,</span><span class="n">PAGE_READWRITE</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="err">申请空间地址</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;获取进程PID失败&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>
@@ -492,8 +491,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">  strcpy_s(DLL路径,DLL名);
 </span></span></span><span class="line"><span class="cl"><span class="cm">  */</span>
 </span></span><span class="line"><span class="cl">	<span class="n">SIZE_T</span> <span class="err">实际写入大小</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">CHAR</span> <span class="n">DLL路径</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Admin</span><span class="se">\\</span><span class="s">Desktop</span><span class="se">\\</span><span class="s">MyDll.dll &#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="n">DLL路径</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">DLL路径</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="err">实际写入大小</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CHAR</span> <span class="n">DLL</span><span class="err">路径</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Admin</span><span class="se">\\</span><span class="s">Desktop</span><span class="se">\\</span><span class="s">MyDll.dll &#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="n">FALSE</span> <span class="o">==</span> <span class="n">WriteProcessMemory</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="n">DLL</span><span class="err">路径</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">DLL</span><span class="err">路径</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">&amp;</span><span class="err">实际写入大小</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;DLL写入失败&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>    
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
@@ -502,17 +501,17 @@
 </span></span><span class="line"><span class="cl">  <span class="err">函数地址</span> <span class="o">=</span> <span class="p">(</span><span class="n">LPTHREAD_START_ROUTINE</span><span class="p">)</span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">GetModuleHandleA</span><span class="p">(</span><span class="s">&#34;kernel32.dll&#34;</span><span class="p">),</span><span class="s">&#34;LoadLibraryA&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="c1">//6. 在远程进程中创建一个线程
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_远程线程句柄</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="err">进程</span><span class="n">_远程线程句柄</span> <span class="o">=</span> <span class="n">CreateRemoteThread</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="err">函数地址</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="err">进程</span><span class="n">_远程线程句柄</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">HANDLE</span> <span class="err">进程</span><span class="n">_</span><span class="err">远程线程句柄</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">进程</span><span class="n">_</span><span class="err">远程线程句柄</span> <span class="o">=</span> <span class="n">CreateRemoteThread</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="err">函数地址</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">远程线程句柄</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>        
 </span></span><span class="line"><span class="cl">    <span class="n">MessaseBox</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;创建远程线程失败&#34;</span><span class="p">),</span><span class="n">_T</span><span class="p">(</span><span class="s">&#34;错误提示&#34;</span><span class="p">),</span><span class="n">MB_OK</span><span class="p">);</span>    
 </span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="err">进程</span><span class="n">_远程线程句柄</span><span class="p">,</span><span class="mh">0xFFFFFFFF</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_远程线程句柄</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">VirtualFreeEx</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="err">申请空间</span><span class="p">,</span><span class="n">MEM_DECOMMIT</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_进程句柄</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">远程线程句柄</span><span class="p">,</span><span class="mh">0xFFFFFFFF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">远程线程句柄</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">VirtualFreeEx</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span><span class="p">,</span><span class="err">申请空间地址</span><span class="p">,</span><span class="err">申请空间</span><span class="p">,</span><span class="n">MEM_DECOMMIT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="n">_</span><span class="err">进程句柄</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -553,21 +552,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define _背包基址 (DWORD)GetModuleHandleA(&#34;Game. exe”) +0x3B40F4
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="c1">//结构管理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">R_人物屬性</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">R_</span><span class="err">人物屬性</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">状态</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">最大血值</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">当前蓝值</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">最大藍值</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">PCHAR</span> <span class="err">人物名</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">FLOAT</span> <span class="n">X坐标</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">FLOAT</span> <span class="n">Y坐标</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">dw对象</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">FLOAT</span> <span class="n">X</span><span class="err">坐标</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">FLOAT</span> <span class="n">Y</span><span class="err">坐标</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">dw</span><span class="err">对象</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="err">类型</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">FLOAT</span> <span class="err">距离</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">ID</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">_初始化</span><span class="p">();</span>   
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">_</span><span class="err">初始化</span><span class="p">();</span>   
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -626,7 +625,7 @@
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
                     
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
         </div></footer></div>
 
     <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">

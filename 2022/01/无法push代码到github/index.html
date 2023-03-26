@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">无法Push代码到Github？？？ - Hmily云笔记</title><meta name="Description" content="GitHub"><meta property="og:title" content="无法Push代码到Github？？？" />
+<meta property="og:description" content="GitHub" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
+
+<meta name="twitter:title" content="无法Push代码到Github？？？"/>
+<meta name="twitter:description" content="GitHub"/>
+<meta name="application-name" content="Hmily云笔记">
+<meta name="apple-mobile-web-app-title" content="Hmily云笔记">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" /><link rel="prev" href="https://xinqinew.github.io/2022/01/%E7%94%A8git%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0github%E5%92%8Ccoding/" /><link rel="next" href="https://xinqinew.github.io/2022/01/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"></noscript><meta name="google-site-verification" content="G-WYTDS8EES7" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "无法Push代码到Github？？？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xinqinew.github.io\/2022\/01\/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github\/"
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2509 ,
+        "url": "https:\/\/xinqinew.github.io\/2022\/01\/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github\/","datePublished": "2022-01-13T00:00:00+00:00","dateModified": "2022-01-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "辛琪"
+            },"description": "GitHub"
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+        </div>
+        <div class="menu" style="overflow: visible">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+                    <a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> 标签</a>
+                    <a class="menu-item" href="/categories/"><i class='fas fa-th-list fa-fw'></i>分类</a>
+                    <a class="menu-item" href="/milestone/"><i class='fas fa-monument fa-fw'></i>里程碑</a>
+                    <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+                    <span class="menu-item delimiter"></span>
+                   <span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hmily云笔记"><span class="header-title-pre"><i class='fas fa-vihara'></i></span>Hmily云笔记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="所有文章"><i class='fas fa-archive fa-fw'></i>文档</a>
+            <a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i> 标签</a>
+            <a class="menu-item" href="/categories/" title=""><i class='fas fa-th-list fa-fw'></i>分类</a>
+            <a class="menu-item" href="/milestone/" title=""><i class='fas fa-monument fa-fw'></i>里程碑</a>
+            <a class="menu-item" href="https://mermaid-js.github.io/mermaid-live-editor/" title="" rel="noopener noreffer" target="_blank"><i class='fas fa-chess fa-fw'></i>mermaid</a>
+            
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+                </div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">无法Push代码到Github？？？</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-13">2022-01-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-13">2022-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2509 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" class="leancloud_visitors" data-flag-title="无法Push代码到Github？？？">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#0x1问题描述">0x1、问题描述</a></li>
+        <li><a href="#0x2生成github-token">0x2、生成Github Token</a></li>
+        <li><a href="#0x3ssh密钥">0x3、SSH密钥</a>
+          <ul>
+            <li><a href="#问题排查过程">问题排查过程</a></li>
+            <li><a href="#解法一修改dns指向">解法一：修改DNS指向</a></li>
+            <li><a href="#解法二修改hosts">解法二：修改Hosts</a></li>
+            <li><a href="#解法三代理设置">解法三：代理设置</a></li>
+          </ul>
+        </li>
+        <li><a href="#0x4小结">0x4、小结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>持续创作，加速成长！这是我参与「掘金日新计划 · 6 月更文挑战」的第2天，<a href="https://juejin.cn/post/7099702781094674468" title="https://juejin.cn/post/7099702781094674468" target="_blank" rel="noopener noreffer">点击查看活动详情</a></p>
+<h2 id="0x1问题描述">0x1、问题描述</h2>
+<p>前些日子折腾了一个618自动做任务的jio本，随手写了两篇文章：</p>
+<p><a href="https://juejin.cn/post/7101266262046539812" title="https://juejin.cn/post/7101266262046539812" target="_blank" rel="noopener noreffer">《节约&quot;阳寿&quot;——某电商618活动自动化》</a> <a href="https://juejin.cn/post/7103410257740693511" title="https://juejin.cn/post/7103410257740693511" target="_blank" rel="noopener noreffer">《破大防！这个开源库，竟能让APP日常任务自动化变得如此简单》</a></p>
+<p>因为代码写得乱而且有BUG，所以仓库虽然建了，代码却久久未上传，不过好像真的有人需要，恰逢今天没啥事，索性整理Push一波。</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c9a783cda94d23a900f81a73220660~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>和往常提交代码一样，git add、git commit 然后添加远程仓库地址，准备push：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add origin git@github.com:coder-pig/CPAuto.git
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但却没有预期中的push成功：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe0400fc599466cb60c76fa148feadd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>这TM咋回事？</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd01f69779704f05bad7fadf74d1d228~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>前不久写的权限库上传没这个问题啊？换成https协议试试：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote set-url origin https://github.com/coder-pig/CPAuto.git
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>同样没有预期中的成功：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10c7f99fac10484291043f88a68f261e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>？？？</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/373b1d34b58e4fcd910ef753be4b4d44~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>可能需要 <strong>代理</strong>？终端键入下述命令启用一波：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">http_proxy</span><span class="o">=</span>http://127.0.0.1:7890
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">https_proxy</span><span class="o">=</span>http://127.0.0.1:7890
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在此push，弹出登录弹窗：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b49ba9c037e4f99935dd9e7141b1ad7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>键入账号密码，点击登录：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d5be74455664eeb9cb169f6494ef6cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>又得输一遍？反复确认账号密码没错后，我又输了一遍：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2393d109b7d4596968bcb900c076ecf~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>又报错了，简单翻译下原因：</p>
+<blockquote>
+<p>对密码身份验证的支持已于2021年8月13日移除，请改用个人 <strong>访问令牌</strong></p>
+</blockquote>
+<p>后面还贴了一个官方的解释：<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" title="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" target="_blank" rel="noopener noreffer">Token authentication requirements for Git operations</a></p>
+<p>大概意思：为了安全，取消账号密码身份验证，而使用令牌(Token)的身份验证，它有这些好处：</p>
+<ul>
+<li>唯一： 令牌特定于 GitHub，可以按使用或按设备生成；</li>
+<li>可撤销：可以随时单独撤销令牌，而无需更新未受影响的凭据；</li>
+<li>有限 ： 令牌可以缩小范围以仅允许用例所需的访问；</li>
+<li>随机：令牌不需要记住或定期输入的更简单密码可能会受到的字典类型或蛮力尝试的影响；</li>
+</ul>
+<p>然后：<strong>SSH密钥的方式还是保留的</strong>，至于我采用这种方式push不成功及如何解决，等下会说。</p>
+<p>好的，先来生成一波Github Token~</p>
+<hr>
+<h2 id="0x2生成github-token">0x2、生成Github Token</h2>
+<p>打开Github，点击自己的头像，依次点击 <strong><code>Settings</code></strong> → <strong><code>Developer Settings</code></strong> → <strong><code>Personal access tokens</code></strong> → <strong><code>Generate new token</code></strong>：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c231de1c01eb4558a7ddd5770430c25a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>接着填Token描述、选有效期，勾选Token的作用域：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e40cef90009144b8a9a61d66b44ee5e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>确认无误后，点击底下的 <strong><code>Generate token</code></strong> 生成Token：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d34f6070cb6a4d95b480e72b4b992929~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>然后是生成的Token：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d79b8b20eed4305b979e1cde65f0ed7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p><strong>注意保存好Token</strong>！！！页面刷新后你就再也看不到它了，当然实在忘记了，删掉再新建一个也是可以的~</p>
+<p>接着命令行修改下远程仓库的地址，加上这个token：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">git remote set-url origin https://<span class="nt">&lt;your_token&gt;</span>@github.com/<span class="nt">&lt;USERNAME&gt;</span>/<span class="nt">&lt;REPO&gt;</span>.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如我的仓库：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e4109ce31d47a3bebb35520edefcac~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>此时再Push：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a553df9f745e4631b21ee623dcbb35f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>成功~</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871fd014a4c14c50a371b40a15fc6ea8~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<hr>
+<h2 id="0x3ssh密钥">0x3、SSH密钥</h2>
+<p>生成与配置SSH KEY具体步骤可见：<a href="https://juejin.cn/post/6844904101675794439#heading-48" title="https://juejin.cn/post/6844904101675794439#heading-48" target="_blank" rel="noopener noreffer">《7.SSH Key避免每次push重复输入账号密码》</a>，就不复述了。</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a968c73e864e49b6c3f3333e081daa~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>本地和Github上都有这个密钥，但是就是不能Push，而且我发现旧项目也不能Push了，明明三周前还Push过一次的。网上一堆文章教你建个没卵用的config，也是醉了，只能自己排查一下了&hellip;</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1018e6d6bbee4f15a80d476f422bd536~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<h3 id="问题排查过程">问题排查过程</h3>
+<p>使用ssh -v打印出详细日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -vT git@github.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志打印结果如下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be31910516a248fd83d75244a75d7e0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>我擦？<strong><code>127.0.0.1</code></strong>，怎么指向本机地址了？ping一下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0d41faa084ce0a9aa3fcd51f48fe7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>看下 <strong><code>hosts</code></strong> 文件，并没有隐射这个地址，<strong><code>ipconfig/flushdns</code></strong> 刷新了DNS缓存，再ping也是这样。</p>
+<p>百度了一波，很多人提到了 <strong><code>运营商DNS污染</code></strong>，用站长工具的DNS查询了一下：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12f0beb4070b46bcb0374e803a068e21~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>卧槽？该不会那么恶心吧？本地 <strong><code>ipconfig/all</code></strong> 找到使用的DNS服务器地址：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2841f0dbf4964f1f8ed03c1d8be69811~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>接着使用 <strong><code>nslookup 域名 DNS服务器地址</code></strong> 看下能否解析：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ad3c840060445fa6b3cbf94fc07c35~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>呵呵，果真如此，估计是最近有什么日子，所以一刀切，知道了原因，解决方法就来了~</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47d1f421d4e4ed58a3eab579150271a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<hr>
+<h3 id="解法一修改dns指向">解法一：修改DNS指向</h3>
+<p><strong>控制面板</strong> → <strong>网络和Internet</strong> → <strong>网络链接</strong>：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0fe8f3449744f57a5876da788fbba4e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>右键属性，找到 <strong>Internet 协议版本4(TCP/IPv4)属性</strong>，勾选使用下面的DNS服务器地址：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f94240457afe4389979508aae1d40c19~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>确定后，再次Push就可以了：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74ffdaabd3e4e67935fadb356c3ef3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>除了114.114.114.114、8.8.8.8 外，还有这些公用的DNS服务器可供选择：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 腾讯 DNS：（DNSPOD）</span>
+</span></span><span class="line"><span class="cl">IPv4地址：
+</span></span><span class="line"><span class="cl">119.29.29.29
+</span></span><span class="line"><span class="cl">182.254.116.116
+</span></span><span class="line"><span class="cl">IPv6地址：
+</span></span><span class="line"><span class="cl">2402:4e00::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 阿里DNS：</span>
+</span></span><span class="line"><span class="cl">IPv4地址：
+</span></span><span class="line"><span class="cl">223.5.5.5
+</span></span><span class="line"><span class="cl">223.6.6.6
+</span></span><span class="line"><span class="cl">IPv6地址：
+</span></span><span class="line"><span class="cl">2400:3200::1
+</span></span><span class="line"><span class="cl">2400:3200:baba::1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 百度DNS：</span>
+</span></span><span class="line"><span class="cl">ipv4：180.76.76.76
+</span></span><span class="line"><span class="cl">ipv6：2400:da00::6666
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="解法二修改hosts">解法二：修改Hosts</h3>
+<p>windows系统，依次打开：<strong><code>C:\Windows\System32\drivers\etc</code></strong>，添加github.com解析，如：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28c86d4130f7429392dac14e9ba39b0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>键入git pull一下看看：</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b070d28b83d3427cb22bf5f81e8b31e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>可以，如果DNS失效了，可以替换方法一种的DNS，也可以到站长之家DNS解析那里Copy，如果设置后没生效，可以在终端键入 <strong><code>ipconfig/flushdns</code></strong> 刷新下DNS缓存。附：群里的热心小伙分享的hosts，取需~</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">140.82.114.26                 alive.github.com
+</span></span><span class="line"><span class="cl">140.82.114.25                 live.github.com
+</span></span><span class="line"><span class="cl">185.199.108.154               github.githubassets.com
+</span></span><span class="line"><span class="cl">140.82.112.21                 central.github.com
+</span></span><span class="line"><span class="cl">185.199.108.133               desktop.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.153               assets-cdn.github.com
+</span></span><span class="line"><span class="cl">185.199.108.133               camo.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               github.map.fastly.net
+</span></span><span class="line"><span class="cl">199.232.69.194                github.global.ssl.fastly.net
+</span></span><span class="line"><span class="cl">140.82.113.3                  gist.github.com
+</span></span><span class="line"><span class="cl">185.199.108.153               github.io
+</span></span><span class="line"><span class="cl">140.82.112.4                  github.com
+</span></span><span class="line"><span class="cl">192.0.66.2                    github.blog
+</span></span><span class="line"><span class="cl">140.82.112.6                  api.github.com
+</span></span><span class="line"><span class="cl">185.199.108.133               raw.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               user-images.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               favicons.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars5.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars4.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars3.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars2.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars1.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars0.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               avatars.githubusercontent.com
+</span></span><span class="line"><span class="cl">140.82.114.9                  codeload.github.com
+</span></span><span class="line"><span class="cl">52.217.168.41                 github-cloud.s3.amazonaws.com
+</span></span><span class="line"><span class="cl">52.217.194.89                 github-com.s3.amazonaws.com
+</span></span><span class="line"><span class="cl">52.216.93.147                 github-production-release-asset-2e65be.s3.amazonaws.com
+</span></span><span class="line"><span class="cl">52.216.93.147                 github-production-user-asset-6210df.s3.amazonaws.com
+</span></span><span class="line"><span class="cl">52.217.202.113                github-production-repository-file-5c1aeb.s3.amazonaws.com
+</span></span><span class="line"><span class="cl">185.199.108.153               githubstatus.com
+</span></span><span class="line"><span class="cl">64.71.144.211                 github.community
+</span></span><span class="line"><span class="cl">23.100.27.125                 github.dev
+</span></span><span class="line"><span class="cl">140.82.113.21                 collector.github.com
+</span></span><span class="line"><span class="cl">13.107.42.16                  pipelines.actions.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               media.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               cloud.githubusercontent.com
+</span></span><span class="line"><span class="cl">185.199.108.133               objects.githubusercontent.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="解法三代理设置">解法三：代理设置</h3>
+<p>前两种方法适合没有代理的，作为一个面向Google编程的开发仔，基本人手必备一个代理~</p>
+<p>详细配置与相关问题，可以参见stackoverflow上的：<a href="https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy/23616021#23616021" title="https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy/23616021#23616021" target="_blank" rel="noopener noreffer">《Connect with SSH through a proxy》</a></p>
+<p>修改 <strong><code>~/.ssh/config</code></strong> 文件，没有的话新建一个，按需添加代理配置，以读者Windows + Clash (socks5)为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ProxyCommand connect -S 127.0.0.1:7890 -a none %h %p
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host *github.com
+</span></span><span class="line"><span class="cl">   HostName github.com
+</span></span><span class="line"><span class="cl">   User git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时再ssh -T，就可以了~</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1423a13a88bf495cb7f4ece85123165d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>附：Windows平台没有nc命令，MAC、Linux平台上设置命令如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># socks5</span>
+</span></span><span class="line"><span class="cl">ProxyCommand nc -v -x 127.0.0.1:1086 %h %p
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># HTTP代理，需要brew install socat</span>
+</span></span><span class="line"><span class="cl">ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport<span class="o">=</span><span class="m">1087</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>SSH代理配置非常简单，顺带也提下 <strong>Https代理配置</strong> 相关：</p>
+<p>① <strong>只对Github代理 (推荐)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># http代理</span>
+</span></span><span class="line"><span class="cl">git config --global http.https://github.com.proxy http://127.0.0.1:58591
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># socks代理</span>
+</span></span><span class="line"><span class="cl">git config --global http.https://github.com.proxy socks5://127.0.0.1:7890
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>② 全局设置 (不推荐)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#使用http代理 </span>
+</span></span><span class="line"><span class="cl">git config --global http.proxy http://127.0.0.1:58591
+</span></span><span class="line"><span class="cl">git config --global https.proxy https://127.0.0.1:58591
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#使用socks5代理</span>
+</span></span><span class="line"><span class="cl">git config --global http.proxy socks5://127.0.0.1:7890
+</span></span><span class="line"><span class="cl">git config --global https.proxy socks5://127.0.0.1:7890
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>③ 取消代理</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global --unset http.proxy git config --global --unset https.proxy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="0x4小结">0x4、小结</h2>
+<p>本节先描述了代码无法Push到Github上的问题，并进行了排查和解决，中途发现 <strong>Github为了安全，已于2021年8月13日取消账号密码身份验证，而使用令牌(Token)的身份验证</strong>，阐述了如何创建和使用这个Token。紧接着发现 <strong>运营商DNS污染</strong>(真TM坑) 导致ssh github指向本机地址(127.0.0.1)的问题，并提供了 <strong>改DNS</strong>、<strong>改Hosts</strong>、<strong>代理设置</strong> 的解决方案。</p>
+<p><img
+        class="lazyload"
+        data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 1.5x, https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image 2x"
+        data-sizes="auto"
+        alt="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+        title="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/554802783b3a499e892b41ac97dbe633~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image"
+    /></p>
+<p>有同样情况的童鞋赶紧试试吧，本文应该能帮您解决这个问题，如果还不行可在评论区提出，一起探讨，感谢~</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-13</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" data-title="无法Push代码到Github？？？"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" data-title="无法Push代码到Github？？？"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" data-title="无法Push代码到Github？？？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://xinqinew.github.io/2022/01/%E6%97%A0%E6%B3%95push%E4%BB%A3%E7%A0%81%E5%88%B0github/" data-title="无法Push代码到Github？？？"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022/01/%E7%94%A8git%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0github%E5%92%8Ccoding/" class="prev" rel="prev" title="用Git同时上传代码到github和coding"><i class="fas fa-angle-left fa-fw"></i>用Git同时上传代码到github和coding</a>
+            <a href="/2022/01/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/" class="next" rel="next" title="Git忽略文件及文件夹操作">Git忽略文件及文件夹操作<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://xinqinew.github.io" target="_blank" rel="noopener noreferrer">辛琪</a></span></div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/css/custom.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-WYTDS8EES7', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-WYTDS8EES7" async></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"x2nNRFGhoMz8h5ljE0BSH6aQ-gzGzoHsz","appKey":"75BfXlVOixc8e3KwUIBrus4G","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"Q8QYV9MGBH","algoliaIndex":"LoveIt","algoliaSearchKey":"a547bd6ea98b487197d3a4dad1d1bdc7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true,"twemoji":true};</script><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"></div>
+</body>
+
+</html>
