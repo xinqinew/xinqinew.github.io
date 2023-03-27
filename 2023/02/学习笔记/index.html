@@ -32,7 +32,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xinqinew.github.io\/2023\/02\/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/"
-        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Python","wordcount":  265 ,
+        },"image": ["https:\/\/xinqinew.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Python","wordcount":  724 ,
         "url": "https:\/\/xinqinew.github.io\/2023\/02\/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/","datePublished": "2023-02-28T00:00:00+00:00","dateModified": "2023-02-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/xinqinew.github.io\/LoveIt-extend\/images\/avatar.png"},"author": {
@@ -131,8 +131,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://xinqinew.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author">辛琪</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-02-28">2023-02-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-02-28">2023-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 265 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/2023/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="学习笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-02-28">2023-02-28</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-02-28">2023-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 724 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/2023/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="学习笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -149,6 +149,7 @@
             <li><a href="#tryexcept-捕获错误">try/except 捕获错误</a></li>
           </ul>
         </li>
+        <li><a href="#files">Files</a></li>
         <li><a href="#数组">数组</a></li>
         <li><a href="#字典">字典</a></li>
         <li><a href="#多元组不可改变">多元组(不可改变)</a></li>
@@ -197,7 +198,71 @@
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;word&#39;</span><span class="p">,</span><span class="n">word1</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="数组">数组</h2>
+</div><h2 id="files">Files</h2>
+<p><strong>open</strong>(file, mode=&lsquo;r&rsquo;) 	方法用于打开一个文件，并返回文件对象。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">方法及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-close.html" target="_blank" rel="noopener noreffer">file.close()</a></td>
+<td style="text-align:left">关闭文件。关闭后文件不能再进行读写操作。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-flush.html" target="_blank" rel="noopener noreffer">file.flush()</a></td>
+<td style="text-align:left">刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-fileno.html" target="_blank" rel="noopener noreffer">file.fileno()</a></td>
+<td style="text-align:left">返回一个整型的文件描述符(file descriptor FD 整型), 可以用在如os模块的read方法等一些底层操作上。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-isatty.html" target="_blank" rel="noopener noreffer">file.isatty()</a></td>
+<td style="text-align:left">如果文件连接到一个终端设备返回 True，否则返回 False。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-next.html" target="_blank" rel="noopener noreffer">file.next()</a></td>
+<td style="text-align:left">**Python 3 中的 File 对象不支持 next() 方法。**返回文件下一行。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-read.html" target="_blank" rel="noopener noreffer">file.read([size])</a></td>
+<td style="text-align:left">从文件读取指定的字节数，如果未给定或为负则读取所有。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-readline.html" target="_blank" rel="noopener noreffer">file.readline([size])</a></td>
+<td style="text-align:left">读取整行，包括 &ldquo;\n&rdquo; 字符。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-readlines.html" target="_blank" rel="noopener noreffer">file.readlines([sizeint])</a></td>
+<td style="text-align:left">读取所有行并返回列表，若给定sizeint&gt;0，返回总和大约为sizeint字节的行, 实际读取值可能比 sizeint 较大, 因为需要填充缓冲区。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-seek.html" target="_blank" rel="noopener noreffer">file.seek(offset[, whence])</a></td>
+<td style="text-align:left">移动文件读取指针到指定位置</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-tell.html" target="_blank" rel="noopener noreffer">file.tell()</a></td>
+<td style="text-align:left">返回文件当前位置。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-truncate.html" target="_blank" rel="noopener noreffer">file.truncate([size])</a></td>
+<td style="text-align:left">从文件的首行首字符开始截断，截断文件为 size 个字符，无 size 表示从当前位置截断；截断之后后面的所有字符被删除，其中 windows 系统下的换行代表2个字符大小。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-write.html" target="_blank" rel="noopener noreffer">file.write(str)</a></td>
+<td style="text-align:left">将字符串写入文件，返回的是写入的字符长度。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.runoob.com/python3/python3-file-writelines.html" target="_blank" rel="noopener noreffer">file.writelines(sequence)</a></td>
+<td style="text-align:left">向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数组">数组</h2>
 <p>[ ]	括起来</p>
 <p><strong>list</strong>()	创建数组</p>
 <p><strong>list.append(obj)</strong>	在列表末尾添加新的对象</p>
