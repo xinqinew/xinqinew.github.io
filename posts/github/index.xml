@@ -5,6 +5,13 @@
         <description>所有GitHub | Hmily云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
             <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/posts/github/" rel="self" type="application/rss+xml" /><item>
+    <title>利用GitHub Action实现Hugo博客在GitHub Pages自动部署</title>
+    <link>https://xinqinew.github.io/2023/04/%E5%88%A9%E7%94%A8github-action%E5%AE%9E%E7%8E%B0hugo%E5%8D%9A%E5%AE%A2%E5%9C%A8github-pages%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</link>
+    <pubDate>Sat, 01 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2023/04/%E5%88%A9%E7%94%A8github-action%E5%AE%9E%E7%8E%B0hugo%E5%8D%9A%E5%AE%A2%E5%9C%A8github-pages%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</guid>
+    <description><![CDATA[引用 作为一名IT民工，善于利用各种工具提升工作效率才算合格，本文简单记录自己如何利用GitHub Actions实现个人Hugo博客在GitH]]></description>
+</item><item>
     <title>Git忽略文件及文件夹操作</title>
     <link>https://xinqinew.github.io/2022/01/git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -67,12 +74,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2021/08/hugo-mermaid%E6%9B%BF%E6%8D%A2/</guid>
     <description><![CDATA[好好配置了一下Hugo 换了个新的主题，原来的主题有Bug。 重新配置了MathJax和mermaid，原本随便弄的那个用不了了。 给旧文章换了标]]></description>
-</item><item>
-    <title>使用Mermaid在hugo的Markdown中绘制UML</title>
-    <link>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8mermaid%E5%9C%A8hugo%E7%9A%84markdown%E4%B8%AD%E7%BB%98%E5%88%B6uml/</link>
-    <pubDate>Thu, 19 Aug 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/08/%E4%BD%BF%E7%94%A8mermaid%E5%9C%A8hugo%E7%9A%84markdown%E4%B8%AD%E7%BB%98%E5%88%B6uml/</guid>
-    <description><![CDATA[使用Mermaid在hugo的Markdown中绘制UML 简介 ¶ Mermaid是一个提供绘图功能的JavaScript项目。 它目前（8.6.]]></description>
 </item></channel>
 </rss>
