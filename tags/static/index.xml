@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>static - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/static/</link>
+        <description>static - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/static/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; static静态成员变量</title>
+    <link>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Sat, 08 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c-static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>对象的内存中包含了成员变量，不同的对象占用不同的内存，这使得不同对象的成员变量相互独立，它们的值不受其他对象的影响。例如有两个相同类型的对象]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>“API函数” - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/api%E5%87%BD%E6%95%B0/</link>
+        <description>“API函数” - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 17 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/api%E5%87%BD%E6%95%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>非常用API函数</title>
+    <link>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</link>
+    <pubDate>Fri, 17 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此]]></description>
+</item></channel>
+</rss>

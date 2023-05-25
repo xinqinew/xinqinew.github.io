@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>赶码人 - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/%E8%B5%B6%E7%A0%81%E4%BA%BA/</link>
+        <description>赶码人 - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/%E8%B5%B6%E7%A0%81%E4%BA%BA/" rel="self" type="application/rss+xml" /><item>
+    <title>(失败记录)单机手游《最后战役X》修复飞天BUG：尝试改汇编指令</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%A4%B1%E8%B4%A5%E8%AE%B0%E5%BD%95%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E4%BF%AE%E5%A4%8D%E9%A3%9E%E5%A4%A9bug%E5%B0%9D%E8%AF%95%E6%94%B9%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%A4%B1%E8%B4%A5%E8%AE%B0%E5%BD%95%E5%8D%95%E6%9C%BA%E6%89%8B%E6%B8%B8%E6%9C%80%E5%90%8E%E6%88%98%E5%BD%B9x%E4%BF%AE%E5%A4%8D%E9%A3%9E%E5%A4%A9bug%E5%B0%9D%E8%AF%95%E6%94%B9%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</guid>
+    <description><![CDATA[(失败记录)单机手游《最后战役X》修复飞天BUG：尝试改汇编指令 赶码人 本文不是教程，下面是一次失败的记录，可能更像是日记吧，如果担心被误导，]]></description>
+</item><item>
+    <title>10-1：认识数组</title>
+    <link>https://xinqinew.github.io/2022/01/10-1%E8%AE%A4%E8%AF%86%E6%95%B0%E7%BB%84/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/10-1%E8%AE%A4%E8%AF%86%E6%95%B0%E7%BB%84/</guid>
+    <description><![CDATA[做教学视频又耗时又累，白嫖率(收藏和点赞的比例)偏高（如下图所示），并且本人录制和剪辑效率低，蚌埠住了， 如果直接摆烂宣布放弃，会愧对于 点过赞]]></description>
+</item><item>
+    <title>10-2：IDA找敌人数组相关函数思路（有符号so）</title>
+    <link>https://xinqinew.github.io/2022/01/10-2ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E6%80%9D%E8%B7%AF%E6%9C%89%E7%AC%A6%E5%8F%B7so/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/10-2ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E6%80%9D%E8%B7%AF%E6%9C%89%E7%AC%A6%E5%8F%B7so/</guid>
+    <description><![CDATA[如果没看上一篇，建议去看看：安卓单机游戏绘制教程10-1：认识数组 先补充上一篇文章的一个细节： 这里随便run-as了一个debuggable]]></description>
+</item><item>
+    <title>10-3：IDA找敌人数组相关函数调用关系（有符号so）</title>
+    <link>https://xinqinew.github.io/2022/01/10-3ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/10-3ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so/</guid>
+    <description><![CDATA[单机安卓游戏绘制教程10-3：IDA找敌人数组相关函数调用关系（有符号so） 赶码人 本文接上一篇：单机安卓游戏绘制教程10-2：IDA找敌人数]]></description>
+</item><item>
+    <title>10-4：IDA找敌人数组基址偏移（有符号so）</title>
+    <link>https://xinqinew.github.io/2022/01/10-4ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E5%9F%BA%E5%9D%80%E5%81%8F%E7%A7%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/10-4ida%E6%89%BE%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84%E5%9F%BA%E5%9D%80%E5%81%8F%E7%A7%BB%E6%9C%89%E7%AC%A6%E5%8F%B7so/</guid>
+    <description><![CDATA[本文接上一篇：单机安卓游戏绘制教程10-3：IDA找敌人数组相关函数调用关系（有符号so） 上一篇教程已经找到了GmSceneCampaign]]></description>
+</item><item>
+    <title>10-5：血量、尺寸偏移，遍历敌人数组</title>
+    <link>https://xinqinew.github.io/2022/01/10-5%E8%A1%80%E9%87%8F%E5%B0%BA%E5%AF%B8%E5%81%8F%E7%A7%BB%E9%81%8D%E5%8E%86%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/10-5%E8%A1%80%E9%87%8F%E5%B0%BA%E5%AF%B8%E5%81%8F%E7%A7%BB%E9%81%8D%E5%8E%86%E6%95%8C%E4%BA%BA%E6%95%B0%E7%BB%84/</guid>
+    <description><![CDATA[安卓单机游戏绘制教程10-1：认识数组 单机安卓游戏绘制教程10-2：IDA找敌人数组相关函数思路（有符号so） 单机安卓游戏绘制教程10-3：]]></description>
+</item><item>
+    <title>11-1：定义socket通信格式</title>
+    <link>https://xinqinew.github.io/2022/01/11-1%E5%AE%9A%E4%B9%89socket%E9%80%9A%E4%BF%A1%E6%A0%BC%E5%BC%8F/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/11-1%E5%AE%9A%E4%B9%89socket%E9%80%9A%E4%BF%A1%E6%A0%BC%E5%BC%8F/</guid>
+    <description><![CDATA[单机手游绘制教程11-1：定义socket通信格式 赶码人 创建窗口、ndk编译C语言代码、矩阵算法、敌人数组、基址偏移，终于都讲完了，接下来就]]></description>
+</item><item>
+    <title>11-2：java绘制方框</title>
+    <link>https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/11-2java%E7%BB%98%E5%88%B6%E6%96%B9%E6%A1%86/</guid>
+    <description><![CDATA[单机手游绘制教程11-2：java绘制方框 赶码人 血条没啥好说的，drawLine就完事。游戏本身提供血条了，再画一个显得多余，咱把数字给搞出]]></description>
+</item><item>
+    <title>4x4矩阵与4x4矩阵 乘法计算器，JS源码</title>
+    <link>https://xinqinew.github.io/2022/01/4x4%E7%9F%A9%E9%98%B5%E4%B8%8E4x4%E7%9F%A9%E9%98%B5-%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97%E5%99%A8js%E6%BA%90%E7%A0%81/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/4x4%E7%9F%A9%E9%98%B5%E4%B8%8E4x4%E7%9F%A9%E9%98%B5-%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97%E5%99%A8js%E6%BA%90%E7%A0%81/</guid>
+    <description><![CDATA[分享个自用的矩阵乘法工具，只支持4x4矩阵乘4x4矩阵，以及4x4矩阵乘4x1矩阵。 网上也有类似的矩阵在线计算工具，但是没一个用着爽的，比如]]></description>
+</item><item>
+    <title>C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配）</title>
+    <link>https://xinqinew.github.io/2022/01/c%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E7%89%B9%E5%BE%81%E7%A0%81%E6%90%9C%E7%B4%A2-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8Dce%E7%9A%84aobscan%E5%87%BD%E6%95%B0%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/c%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E7%89%B9%E5%BE%81%E7%A0%81%E6%90%9C%E7%B4%A2-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8Dce%E7%9A%84aobscan%E5%87%BD%E6%95%B0%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D/</guid>
+    <description><![CDATA[先声明一下，虽然代码出自cheat engine，但它不仅是用于游戏作弊，还广泛用于病毒查杀、反外挂等程序。 暴力匹配，应该没有更快更好的算法了]]></description>
+</item></channel>
+</rss>

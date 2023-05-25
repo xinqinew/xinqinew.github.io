@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>域名 - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/%E5%9F%9F%E5%90%8D/</link>
+        <description>域名 - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/%E5%9F%9F%E5%90%8D/" rel="self" type="application/rss+xml" /><item>
+    <title>Github绑定Cloudflare及freenom</title>
+    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</link>
+    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Acloudflare%E5%8F%8Afreenom/</guid>
+    <description><![CDATA[首先要去 Cloudflare 注册一个帐号。注册好后点击 Add site 添加你的网站。 添加好后选择免费的那个计划 (Plan)。 然后 Cloudflare 会读取你的 DNS 配置，没有问题的话直接点 Continue 即]]></description>
+</item><item>
+    <title>Github绑定freenom域名</title>
+    <link>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</link>
+    <pubDate>Thu, 05 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/github%E7%BB%91%E5%AE%9Afreenom%E5%9F%9F%E5%90%8D/</guid>
+    <description><![CDATA[freenom域名申请 freenom.com设置DNS freenom.com中选择Services-My Domains-&gt;Manage Domain 然后选择选择下面的nameser]]></description>
+</item></channel>
+</rss>

@@ -4,9 +4,16 @@
         <link>https://xinqinew.github.io/</link>
         <description>一个简洁、优雅且高效的博客云笔记</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
-            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 15 Apr 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://xinqinew.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>仪表</title>
+    <link>https://xinqinew.github.io/2023/05/%E4%BD%8E%E5%8E%8B%E7%94%B5%E5%B7%A5/</link>
+    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2023/05/%E4%BD%8E%E5%8E%8B%E7%94%B5%E5%B7%A5/</guid>
+    <description><![CDATA[低压600题 1.直流电流表可以用于交流电路测量。 A.对 B.错 B 2.根据《国家安全生产监督管理总局50号令》的规定,为了加强对职业卫生技术服务]]></description>
+</item><item>
     <title>200题</title>
     <link>https://xinqinew.github.io/2023/04/200%E9%A2%98/</link>
     <pubDate>Sun, 09 Apr 2023 00:00:00 &#43;0000</pubDate><author>
@@ -69,12 +76,5 @@
         <name>辛琪</name>
     </author><guid>https://xinqinew.github.io/2022/08/%E7%94%B5%E7%A3%81%E6%B5%81%E9%87%8F%E8%AE%A1%E5%B8%B8%E8%AF%86/</guid>
     <description><![CDATA[一、原理 电磁流量计是根据法拉第电磁感应定律进行流量测量的流量计。 即根据导电流体流过外加磁场时感生的电动势来测量流体流量。 二、安装 安装在管路的]]></description>
-</item><item>
-    <title>和利时CFC</title>
-    <link>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6cfc/</link>
-    <pubDate>Fri, 05 Aug 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2022/08/%E5%92%8C%E5%88%A9%E6%97%B6cfc/</guid>
-    <description><![CDATA[LD语言 LD语言是一种T型图语言，常用于开关量的控制逻辑组态。 MOT2功能块 PIDA功能块 流量累计 flowsum功能块 顺控6 hsscs6功能]]></description>
 </item></channel>
 </rss>

@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>热键 - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/%E7%83%AD%E9%94%AE/</link>
+        <description>热键 - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/%E7%83%AD%E9%94%AE/" rel="self" type="application/rss+xml" /><item>
+    <title>MFC 控件添加热键</title>
+    <link>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/mfc-%E6%8E%A7%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%83%AD%E9%94%AE/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>给MFC中的控件添加我们想要的控件热键，在动手之前，必须清楚，热键分为local的和global的， 其中local的职能在当前程序有焦点（被]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>汇编 - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/%E6%B1%87%E7%BC%96/</link>
+        <description>汇编 - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/%E6%B1%87%E7%BC%96/" rel="self" type="application/rss+xml" /><item>
+    <title>任鸟飞笔记</title>
+    <link>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Tue, 10 Aug 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/08/%E4%BB%BB%E9%B8%9F%E9%A3%9E%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[小知识 16进制 4x xx xx xx一般是浮点数（正数） 16进制 Cx xx xx xx一般是浮点数（负数） st0 st1 st2 … 是浮点栈 sar 算术右移 每右移一位，相当于除以一次2 shl 算]]></description>
+</item></channel>
+</rss>

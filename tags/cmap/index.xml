@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CMap - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/cmap/</link>
+        <description>CMap - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/cmap/" rel="self" type="application/rss+xml" /><item>
+    <title>CMap</title>
+    <link>https://xinqinew.github.io/2021/12/cmap/</link>
+    <pubDate>Tue, 21 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/12/cmap/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CMap 类别 详情 语法 描述 CMap::GetStartPosition 传回第一个元素的位置。 CMap::GetNextAssoc 取得下一个反覆运算的元素。 CMap::Lookup 查阅对应至指定索引键的值。 CMap::RemoveKey 移除由键指定的元素。 CMap::SetAt 将元素插入到映射中]]></description>
+</item></channel>
+</rss>

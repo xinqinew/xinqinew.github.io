@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>多线程 - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+        <description>多线程 - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>多线程</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/C&#43;&#43;.jpg" referrerpolicy="no-referrer">
+            </div>CreateThread 1 m_AcountManageThread = CreateThread(NULL, NULL, ThreadProc, this, 0, NULL);//创建线程 AfxBeginThread (MFC专用) 1 2 //创建线程 大漠的DMInitThread AfxBeginThread(DMInitThread, this, THREAD_PRIORITY_NORMAL, 0, 0, NULL); _beginthreadex 1 m_hThreadHandle = (HANDLE)::_beginthreadex(NULL, 0, ThreadFunction, this, 0, &amp;m_uThreadID); //]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - 标签 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/tags/python/</link>
+        <description>Python - 标签 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 15 Apr 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>学习笔记</title>
+    <link>https://xinqinew.github.io/2023/04/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 15 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2023/04/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[这里收录了我的Python相关笔记. 常见命令 quit() 停止,退出 def() 声明函数 max() 获取最大值 min() 获取最小值 type() 获取类型 float() 转换为浮点数 int() 转换为整数 return() 返回 break 跳出循]]></description>
+</item><item>
+    <title>brew常见错误</title>
+    <link>https://xinqinew.github.io/2022/01/brew%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/brew%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[MacOS下homebrew install报错： 1 fatal: not in a git directory Error: Command failed with exit 128: git 实际上使用brew -v就会提示如何解决：]]></description>
+</item><item>
+    <title>Homebrew国内如何自动安装</title>
+    <link>https://xinqinew.github.io/2022/01/homebrew%E5%9B%BD%E5%86%85%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/homebrew%E5%9B%BD%E5%86%85%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85/</guid>
+    <description><![CDATA[Homebrew国内如何自动安装（国内地址）（Mac &amp; Linux） 自动脚本(全部国内地址)（复制下面一句脚本到终端中粘贴回车) 苹果电脑 常规安]]></description>
+</item><item>
+    <title>Python</title>
+    <link>https://xinqinew.github.io/posts/python/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/posts/python/</guid>
+    <description><![CDATA[这里收录了我的Python相关笔记.]]></description>
+</item><item>
+    <title>安装python2</title>
+    <link>https://xinqinew.github.io/2022/01/%E5%AE%89%E8%A3%85python2/</link>
+    <pubDate>Fri, 28 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2022/01/%E5%AE%89%E8%A3%85python2/</guid>
+    <description><![CDATA[1 2 3 4 5 brew install pyenv pyenv install 2.7.18 export PATH=&#34;$(pyenv root)/shims:${PATH}&#34; pyenv global 2.7.18 python --version 如果一切顺利，将可以看到Python 2.8.18的输出。 需要将上述路径添加到环境变量里面，例如： 1 echo &#39;PATH=$(pyenv]]></description>
+</item></channel>
+</rss>

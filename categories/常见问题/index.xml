@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>常见问题 - 分类 - Hmily云笔记</title>
+        <link>https://xinqinew.github.io/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+        <description>常见问题 - 分类 - Hmily云笔记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xinqinew@163.com (辛琪)</managingEditor>
+            <webMaster>xinqinew@163.com (辛琪)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://xinqinew.github.io/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="self" type="application/rss+xml" /><item>
+    <title>sublimetext常见问题</title>
+    <link>https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/07/sublimetext%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[sublimetext常见问题 下载安装 汉化 1.点击tools&mdash;install package control 2.preferences&mdash;package control 3.选择 “Package Control: Install Package”]]></description>
+</item><item>
+    <title>VS常见问题</title>
+    <link>https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/07/vs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[VS常见问题 GitHub上传代码.gitignore文件应过滤内容 1 2 3 4 5 *.ipch .vs *.pch *.exe *.pdb 解决VS生成sdf和ipch文件太大占用空间问题 [工具]]></description>
+</item><item>
+    <title>win10常见问题</title>
+    <link>https://xinqinew.github.io/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Fri, 23 Jul 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>辛琪</name>
+    </author><guid>https://xinqinew.github.io/2021/07/win10%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[禁止win10五笔输入法的shift切换功能 方法一：win10系统添加开机启动项 使用组合键win+R打开运行窗口，输入“shell:star]]></description>
+</item></channel>
+</rss>
