@@ -8,13 +8,12 @@
     <title class="pjax-title">灵魂起源及画江山部分代码 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="灵魂起源及画江山部分代码" />
 <meta property="og:description" content="C&#43;&#43; 逆向 C&#43;&#43;编程原理 软件安全 破解与防破解 外挂与反外挂 病毒分析 灵魂起源 创建DLL并且注入窗口中 实例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 /" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/08/%E7%81%B5%E9%AD%82%E8%B5%B7%E6%BA%90%E5%8F%8A%E7%94%BB%E6%B1%9F%E5%B1%B1%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="灵魂起源及画江山部分代码"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png" /><meta name="twitter:title" content="灵魂起源及画江山部分代码"/>
 <meta name="twitter:description" content="C&#43;&#43; 逆向 C&#43;&#43;编程原理 软件安全 破解与防破解 外挂与反外挂 病毒分析 灵魂起源 创建DLL并且注入窗口中 实例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 /"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
@@ -248,7 +247,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">//唯一的一个 C我们的DLLApp 对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="n">C</span><span class="err">我们的</span><span class="n">DLLApp</span> <span class="n">theApp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">C我们的DLLApp</span> <span class="n">theApp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">CMyDialog</span> <span class="o">*</span><span class="n">PMainDialog</span><span class="p">;</span>	<span class="c1">//窗口类
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DWORD</span> <span class="n">WINAPI</span> <span class="nf">ShowDialog</span><span class="p">(</span><span class="n">LPARAM</span> <span class="n">lpData</span><span class="p">)</span>
@@ -261,7 +260,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// C我们的DLLApp 初始化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">C</span><span class="err">我们的</span><span class="n">DLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BOOL</span> <span class="n">C我们的DLLApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">CWinApp</span><span class="o">::</span><span class="n">InitInstance</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">  <span class="o">::</span><span class="n">CreateThread</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,(</span><span class="n">LPTHREAD_START_ROUTINE</span><span class="p">)</span><span class="n">ShowDialog</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>	<span class="c1">//创建线程

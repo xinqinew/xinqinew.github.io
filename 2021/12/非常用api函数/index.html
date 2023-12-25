@@ -8,13 +8,12 @@
     <title class="pjax-title">非常用API函数 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="非常用API函数" />
 <meta property="og:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/12/%E9%9D%9E%E5%B8%B8%E7%94%A8api%E5%87%BD%E6%95%B0/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-17T00:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-<meta name="twitter:title" content="非常用API函数"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png" /><meta name="twitter:title" content="非常用API函数"/>
 <meta name="twitter:description" content="PROCESSENTRY32 存放快照进程信息的结构体 头文件 #include&quot;tlhelp32.h&quot; CreateToolhelp32Snapshot函数 获取系统中正在运行的进程信息，线程信息等。 详细内容见此"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
@@ -447,8 +446,8 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//实例
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">CString</span> <span class="n">str</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;abc45,78ea,679u,368&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">CString</span> <span class="n">strSub</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span><span class="err">　　</span><span class="c1">// strSub的内容为abc45
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span><span class="err">　　</span><span class="c1">// strSub的内容为368
+</span></span><span class="line"><span class="cl"><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span>　　<span class="c1">// strSub的内容为abc45
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AfxExtractSubString</span><span class="p">(</span><span class="n">strSub</span><span class="p">,</span> <span class="p">(</span><span class="n">LPCTSTR</span><span class="p">)</span><span class="n">str</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">);</span>　　<span class="c1">// strSub的内容为368
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
