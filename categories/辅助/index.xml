@@ -26,12 +26,12 @@
     </author><guid>https://xinqinew.github.io/2021/10/od%E5%B8%B8%E8%AF%86%E5%8F%8A%E6%8A%80%E5%B7%A7/</guid>
     <description><![CDATA[菜单栏 E 模块 T 线程（挂起与激活）resume恢复线程 B 执行断点 HBP 硬件断点 OD指令 dd 查看dword db 查看字节集 hw 硬件写入断点 hr 硬件访问断点 快捷]]></description>
 </item><item>
-    <title>指针扫描</title>
-    <link>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</link>
+    <title>辅助</title>
+    <link>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</link>
     <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</guid>
-    <description><![CDATA[0x00 Target 【基地址】+【偏移】+【偏移】+&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For]]></description>
+    </author><guid>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</guid>
+    <description><![CDATA[这里收录了我的辅助相关笔记. 1 2 3 4 5 6 7 8 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0016F530 00546039 ws2_32.send vxClient.00546033 0016F598 0016F59C 0054643C vxClient.00546000 vxClient.00546437 0016F598 0019F668 007EE350 包含vxClient.005]]></description>
 </item><item>
     <title>用MFC写注入器</title>
     <link>https://xinqinew.github.io/2021/10/%E7%94%A8mfc%E5%86%99%E6%B3%A8%E5%85%A5%E5%99%A8/</link>
@@ -40,11 +40,11 @@
     </author><guid>https://xinqinew.github.io/2021/10/%E7%94%A8mfc%E5%86%99%E6%B3%A8%E5%85%A5%E5%99%A8/</guid>
     <description><![CDATA[步骤: 新建MFC项目(用于注入DLL) 新建win32项目 dll 导出符号 安全开发生命周期]]></description>
 </item><item>
-    <title>辅助</title>
-    <link>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</link>
+    <title>指针扫描</title>
+    <link>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</link>
     <pubDate>Sun, 03 Oct 2021 00:00:00 &#43;0000</pubDate><author>
         <name>辛琪</name>
-    </author><guid>https://xinqinew.github.io/posts/%E8%BE%85%E5%8A%A9/</guid>
-    <description><![CDATA[这里收录了我的辅助相关笔记. 1 2 3 4 5 6 7 8 调用堆栈： 主线程 地址 堆栈 函数过程 调用来自 结构 0016F530 00546039 ws2_32.send vxClient.00546033 0016F598 0016F59C 0054643C vxClient.00546000 vxClient.00546437 0016F598 0019F668 007EE350 包含vxClient.005]]></description>
+    </author><guid>https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/</guid>
+    <description><![CDATA[0x00 Target 【基地址】+【偏移】+【偏移】+&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For]]></description>
 </item></channel>
 </rss>

@@ -5,16 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配） - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配）" />
-<meta property="og:description" content="先声明一下，虽然代码出自cheat engine，但它不仅是用于游戏作弊，还广泛用于病毒查杀、反外挂等程序。 暴力匹配，应该没有更快更好的算法了" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2022/01/c%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E7%89%B9%E5%BE%81%E7%A0%81%E6%90%9C%E7%B4%A2-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8Dce%E7%9A%84aobscan%E5%87%BD%E6%95%B0%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://xinqinew.github.io/logo.png" /><meta name="twitter:title" content="C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配）"/>
-<meta name="twitter:description" content="先声明一下，虽然代码出自cheat engine，但它不仅是用于游戏作弊，还广泛用于病毒查杀、反外挂等程序。 暴力匹配，应该没有更快更好的算法了"/>
+    <title class="pjax-title">C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配） - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:url" content="https://xinqinew.github.io/2022/01/c%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E7%89%B9%E5%BE%81%E7%A0%81%E6%90%9C%E7%B4%A2-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8Dce%E7%9A%84aobscan%E5%87%BD%E6%95%B0%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D/">
+  <meta property="og:site_name" content="Hmily云笔记">
+  <meta property="og:title" content="C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配）">
+  <meta property="og:description" content="先声明一下，虽然代码出自cheat engine，但它不仅是用于游戏作弊，还广泛用于病毒查杀、反外挂等程序。 暴力匹配，应该没有更快更好的算法了">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-01-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-01-28T00:00:00+00:00">
+    <meta property="article:tag" content="赶码人">
+    <meta property="og:image" content="https://xinqinew.github.io/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"><meta name="twitter:title" content="C语言内存特征码搜索 模糊匹配（CE的AOBScan函数，暴力匹配）">
+<meta name="twitter:description" content="先声明一下，虽然代码出自cheat engine，但它不仅是用于游戏作弊，还广泛用于病毒查杀、反外挂等程序。 暴力匹配，应该没有更快更好的算法了">
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 

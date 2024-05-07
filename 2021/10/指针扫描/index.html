@@ -5,16 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">指针扫描 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="指针扫描" />
-<meta property="og:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-10-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-03T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://xinqinew.github.io/logo.png" /><meta name="twitter:title" content="指针扫描"/>
-<meta name="twitter:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For"/>
+    <title class="pjax-title">指针扫描 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:url" content="https://xinqinew.github.io/2021/10/%E6%8C%87%E9%92%88%E6%89%AB%E6%8F%8F/">
+  <meta property="og:site_name" content="Hmily云笔记">
+  <meta property="og:title" content="指针扫描">
+  <meta property="og:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;…=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-10-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-10-03T00:00:00+00:00">
+    <meta property="article:tag" content="辅助">
+    <meta property="og:image" content="https://xinqinew.github.io/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"><meta name="twitter:title" content="指针扫描">
+<meta name="twitter:description" content="0x00 Target 【基地址】&#43;【偏移】&#43;【偏移】&#43;&hellip;=【偏移地址】 【Target】是【Winform】窗体； 【Winform】标题是【For">
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
@@ -162,19 +166,19 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">Form1</span> <span class="p">:</span> <span class="n">Form</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">Num</span> <span class="p">=</span> <span class="m">9528</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">Form1</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">InitializeComponent</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="k">void</span> <span class="n">button1_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">label1</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">Num</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">//</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">label1</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">Num</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
