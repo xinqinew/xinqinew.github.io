@@ -5,21 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">封包的加密与解密、线程发包、收包 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:url" content="https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/">
-  <meta property="og:site_name" content="Hmily云笔记">
-  <meta property="og:title" content="封包的加密与解密、线程发包、收包">
-  <meta property="og:description" content="三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加上口袋西游(或者任何的send">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-09-19T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-09-19T00:00:00+00:00">
-    <meta property="og:image" content="https://xinqinew.github.io/logo.png">
+    <title class="pjax-title">封包的加密与解密、线程发包、收包 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="封包的加密与解密、线程发包、收包" />
+<meta property="og:description" content="三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加上口袋西游(或者任何的send" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2021/09/%E5%B0%81%E5%8C%85%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%BA%BF%E7%A8%8B%E5%8F%91%E5%8C%85%E6%94%B6%E5%8C%85/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://xinqinew.github.io/logo.png">
-  <meta name="twitter:title" content="封包的加密与解密、线程发包、收包">
-  <meta name="twitter:description" content="三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加上口袋西游(或者任何的send">
+<meta name="twitter:title" content="封包的加密与解密、线程发包、收包"/>
+<meta name="twitter:description" content="三大发包函数 send WSASend sendto 模块前缀为ws2_32 WSPSend （在同一个电脑上位置是固定的） DXF单机版 私服 找到WSPSend 附加上口袋西游(或者任何的send"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
@@ -585,7 +581,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span> <span class="kt">void</span> <span class="err">加密</span><span class="n">Ca11</span><span class="p">(</span><span class="n">DWORD秘钥</span><span class="p">,</span><span class="n">DWORD</span> <span class="err">加密长度</span><span class="p">,</span><span class="n">DWOED</span> <span class="err">加密地址</span><span class="p">,</span><span class="n">DWORD</span> <span class="err">加密地址</span><span class="mi">2</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kr">__declspec</span><span class="p">(</span><span class="kr">naked</span><span class="p">)</span> <span class="kt">void</span> <span class="err">加密</span><span class="n">Ca11</span><span class="p">(</span><span class="n">DWORD</span><span class="err">秘钥</span><span class="p">,</span><span class="n">DWORD</span> <span class="err">加密长度</span><span class="p">,</span><span class="n">DWOED</span> <span class="err">加密地址</span><span class="p">,</span><span class="n">DWORD</span> <span class="err">加密地址</span><span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">__asm</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>

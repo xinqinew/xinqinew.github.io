@@ -5,22 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">macOS lua debug 环境搭建避坑指南 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:url" content="https://xinqinew.github.io/2022/01/macos-lua-debug-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/">
-  <meta property="og:site_name" content="Hmily云笔记">
-  <meta property="og:title" content="macOS lua debug 环境搭建避坑指南">
-  <meta property="og:description" content="安装Homebrew /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安装 wget brew install wget 删除用brew uninstall wget 安装 lua5.3 brew install lua 删除用brew uninstall lua 坑1：lua5.4 与 mobdebug 存在兼容性问题 不能使用 lua">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-01-07T00:00:00+00:00">
-    <meta property="article:modified_time" content="2022-01-07T00:00:00+00:00">
-    <meta property="article:tag" content="Lua">
-    <meta property="og:image" content="https://xinqinew.github.io/logo.png">
+    <title class="pjax-title">macOS lua debug 环境搭建避坑指南 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="macOS lua debug 环境搭建避坑指南" />
+<meta property="og:description" content="安装Homebrew /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; 安装 wget brew install wget 删除用brew uninstall wget 安装 lua5.3 brew install lua 删除用brew uninstall lua 坑1：lua5.4 与 mobdebug 存在兼容性问题 不能使用 lua" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/macos-lua-debug-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://xinqinew.github.io/logo.png">
-  <meta name="twitter:title" content="macOS lua debug 环境搭建避坑指南">
-  <meta name="twitter:description" content="安装Homebrew /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安装 wget brew install wget 删除用brew uninstall wget 安装 lua5.3 brew install lua 删除用brew uninstall lua 坑1：lua5.4 与 mobdebug 存在兼容性问题 不能使用 lua">
+<meta name="twitter:title" content="macOS lua debug 环境搭建避坑指南"/>
+<meta name="twitter:description" content="安装Homebrew /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; 安装 wget brew install wget 删除用brew uninstall wget 安装 lua5.3 brew install lua 删除用brew uninstall lua 坑1：lua5.4 与 mobdebug 存在兼容性问题 不能使用 lua"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 

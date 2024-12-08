@@ -5,22 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">ini文件读写 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:url" content="https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/">
-  <meta property="og:site_name" content="Hmily云笔记">
-  <meta property="og:title" content="ini文件读写">
-  <meta property="og:description" content="读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-01-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2022-01-13T00:00:00+00:00">
-    <meta property="article:tag" content="C&#43;&#43;">
-    <meta property="og:image" content="https://xinqinew.github.io/logo.png">
+    <title class="pjax-title">ini文件读写 - Hmily云笔记</title><meta name="Description" content="一个简洁、优雅且高效的博客云笔记"><meta property="og:title" content="ini文件读写" />
+<meta property="og:description" content="读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xinqinew.github.io/2022/01/ini%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" /><meta property="og:image" content="https://xinqinew.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xinqinew.github.io/logo.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://xinqinew.github.io/logo.png">
-  <meta name="twitter:title" content="ini文件读写">
-  <meta name="twitter:description" content="读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也">
+<meta name="twitter:title" content="ini文件读写"/>
+<meta name="twitter:description" content="读取整型值 (返回值为从ini配置中读到的整数) 1 2 3 4 5 6 UINT GetPrivateProfileInt( LPCTSTR lpAppName, // INI文件中的一个字段名[节名]可以有很多个节名 LPCTSTR lpKeyName, // lpAppName 下的一个键名，也"/>
 <meta name="application-name" content="Hmily云笔记">
 <meta name="apple-mobile-web-app-title" content="Hmily云笔记">
 
@@ -184,7 +179,7 @@
 </span></span><span class="line"><span class="cl">  <span class="n">LPCTSTR</span> <span class="n">lpAppName</span><span class="p">,</span>        <span class="c1">// INI文件中的一个字段名[节名]可以有很多个节名（配置文件的section名）
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpKeyName</span><span class="p">,</span>        <span class="c1">// lpAppName 下的一个键名，也就是里面具体的变量名（配置文件的key名）
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpDefault</span><span class="p">,</span>        <span class="c1">// 如果lpReturnedString为空,则把这个变量赋给lpReturnedString
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPTSTR</span> <span class="n">lpReturnedString</span><span class="p">,</span>  <span class="o">//</span> <span class="err">存放键值的指针变量</span><span class="p">,</span><span class="err">用于接收</span><span class="n">INI文件中键值</span><span class="p">(</span><span class="err">数据</span><span class="p">)</span><span class="err">的接收缓冲区</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPTSTR</span> <span class="n">lpReturnedString</span><span class="p">,</span>  <span class="o">//</span> <span class="err">存放键值的指针变量</span><span class="p">,</span><span class="err">用于接收</span><span class="n">INI</span><span class="err">文件中键值</span><span class="p">(</span><span class="err">数据</span><span class="p">)</span><span class="err">的接收缓冲区</span>
 </span></span><span class="line"><span class="cl">  <span class="n">DWORD</span> <span class="n">nSize</span><span class="p">,</span>              <span class="c1">// lpReturnedString的缓冲区大小
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LPCTSTR</span> <span class="n">lpFileName</span>        <span class="c1">// INI文件的路径
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
